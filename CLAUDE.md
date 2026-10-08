@@ -25,6 +25,7 @@ commitとpushは `/publish` でまとめて行います。`/start-day` では行
 - **親Issueはフォルダを持ちません。** `/start-day` に親番号が渡されたら中止します。
 - 子は事前に全部作らず、2〜3件ずつ足します。親は子が全部closeした日に、まとめ記事を書いてからcloseします。
 - サブイシューの操作はREST `repos/{owner}/{repo}/issues/{n}/sub_issues` と GraphQL の `parent` / `subIssues` を使います。
+- 起票前の構想は `drafts/主題/draft.md` に置きます。Issueは着手できる段階のテーマだけにします。起票したら `draft.md` に `status: 起票済` と番号を書き、フォルダは残します。決まりは `drafts/README.md`。
 
 ## フォルダと記録の型
 
