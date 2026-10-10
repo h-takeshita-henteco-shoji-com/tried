@@ -30,6 +30,7 @@ Issue番号 $ARGUMENTS のテーマで、今日の実施記録を始めます。
    result:
    status: 未公開
    url:
+   qiita_url:
    ---
 
    ## 試したこと

@@ -1,8 +1,11 @@
 ---
-description: 公開後の書き戻し(URL・status 更新、Issue close、commit、push)
+description: 公開後の書き戻し(URL・status 更新、Issue close、commit、push)。Qiita公開時は qiita を付ける
 ---
 
-noteに投稿したあとの書き戻しを行います。引数: $ARGUMENTS(Issue番号 と 公開URL)
+noteまたはQiitaに投稿したあとの書き戻しを行います。引数: $ARGUMENTS
+
+- `<Issue番号> <noteのURL>` : noteの公開。下の「手順」をすべて行います。
+- `<Issue番号> qiita <QiitaのURL>` : Qiitaの公開。下の「Qiitaの公開」だけを行います。
 
 ## 手順
 
@@ -35,7 +38,22 @@ noteに投稿したあとの書き戻しを行います。引数: $ARGUMENTS(Iss
    ```
 8. 更新した項目、closeしたIssue、commitのハッシュを報告します。
 
+## Qiitaの公開
+
+noteの公開とIssueのcloseは済んでいる前提です。Issueの状態とラベルは変えません。
+
+1. 手順2と同じ方法で、Issue番号に対応するフォルダを探します。
+2. `log.md` の `qiita_url:` にURLを書きます。項目が無い古い `log.md` なら、`url:` の次の行に足します。
+3. `qiita.md` があるか確認します。無ければ、書いた記事をリポジトリに残すか確認します。
+4. `article.md` の末尾にQiitaの記事へのリンクがあるか確認します。無ければ足し、noteの記事にも同じリンクを足すよう伝えます。
+5. Issueにコメントします。closeしたままにします。
+   ```bash
+   gh issue comment <番号> --body "Qiitaに技術の深掘りを公開しました: <URL>"
+   ```
+6. 手順7と同じ方法でcommitとpushを行います。コミットメッセージは `<日付> <タイトル> をQiitaに公開 (#<番号>)` とします。
+7. 更新した項目とcommitのハッシュを報告します。
+
 ## 注意
 
-- URLがnoteのドメインでない場合は、誤りでないか一度確認します。
+- URLがnoteのドメインでない場合は、誤りでないか一度確認します。Qiitaの公開では、Qiitaのドメインかを確認します。
 - `assets/` に機密に当たるファイル(APIキー、顧客名を含む画面写真)が無いか、commit前に目視で確認します。
