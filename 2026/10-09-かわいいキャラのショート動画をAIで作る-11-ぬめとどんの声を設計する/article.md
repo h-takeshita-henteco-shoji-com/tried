@@ -192,3 +192,6 @@ https://github.com/h-takeshita-henteco-shoji-com/tried/tree/main/2026/10-09-か�
 
 ぬめの「……んしょ」は、ほとんど息の音です。
 1秒もない、この小さな声は、石に登る絵と、ちゃんと噛み合うでしょうか。
+
+声を加工した手順とコードは、Qiitaに詳しく書きました。
+https://qiita.com/tried_hentecoshoji/items/b3e954542614596e5530

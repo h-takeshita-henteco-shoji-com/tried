@@ -4,7 +4,7 @@ tags: [Qwen3-TTS, 音声合成, Python, Praat, WORLD]
 ---
 
 キャラクター動画の声を Qwen3-TTS の VoiceDesign で作りました。経緯と試行錯誤はnoteに書いています。
-(noteの記事へのリンク)
+https://note.com/tried_hs/n/n89ca44732228
 
 この記事では、気に入った1本を「説明文を書き直さずに」仕上げた手順だけを扱います。
 
