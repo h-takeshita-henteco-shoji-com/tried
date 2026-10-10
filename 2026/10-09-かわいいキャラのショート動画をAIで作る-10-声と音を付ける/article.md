@@ -163,3 +163,6 @@ https://github.com/h-takeshita-henteco-shoji-com/tried/tree/main/2026/10-09-か�
 
 ぬめの「ぷに」は、絵コンテの文章から秒数を見当で決めて置きました。
 実際に動くぬめの足元と、この8回の「ぷに」は、合うでしょうか。
+
+Stable Audio Open を Mac で動かした手順と、効果音を仕上げた工夫は、Qiitaに詳しく書きました。
+https://qiita.com/tried_hentecoshoji/items/587b64ca279a02c6c07d
