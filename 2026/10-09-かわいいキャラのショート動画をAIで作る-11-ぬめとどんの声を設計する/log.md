@@ -8,7 +8,7 @@ minutes: 240
 result: 成功(どんとぬめの声とやりとり1本。最後の詰めは説明文ではなく音声の加工で行った)
 status: 公開済
 url: https://note.com/tried_hs/n/n89ca44732228
-qiita_url:
+qiita_url: https://qiita.com/tried_hentecoshoji/items/b3e954542614596e5530
 ---
 
 ## 試したこと
