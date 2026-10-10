@@ -8,7 +8,7 @@ minutes: 240
 result: 成功(湯・戸・灯り・ぬめの動きの音と、BGM を決めた。声は #28 に切り出した)
 status: 公開済
 url: https://note.com/tried_hs/n/n8b230afc8c98
-qiita_url:
+qiita_url: https://qiita.com/tried_hentecoshoji/items/587b64ca279a02c6c07d
 ---
 
 ## 試したこと
