@@ -129,4 +129,19 @@ Issue では小さい動きを先にする予定だった。接続でつまず�
   - 大きさと背景の切り出しは、終点と同じにした。
 - Wan には公開URLで渡す必要がある。始点の絵は手元にしかないため、作業ブランチを途中で push した。「push は /publish でまとめる」の決まりから外れる。
 
+### カット3(Wan 2.2、始点と終点)
+
+- 始点 `py-cut03-start.png`、終点 `py-cut03.png`。長さ3秒、シード1177087716。
+- 指示文と禁止の指示文は、カット10の2回目と同じ書き方にした。動きの部分だけ変えた。
+  - "It first lowers its two antennae once, then slowly climbs up the front face of the stone like a slug, keeping its low rounded bean-shaped body pressed against the surface, and arrives on the top edge of the stone. ... It keeps facing right."
+- 結果: `assets/generated/wan-cut03-1.mp4`。コマの並び: `assets/work/wan-cut03-1-strip.png`、`wan-cut03-1-grid.png`。
+- 良かった点:
+  - 背景は動かず、線と色も保たれた。
+  - 登る前に、触角を顔の前へ垂らす動きが出た(8〜16コマ目)。絵コンテの「触角を一度下げる」に合う。
+  - 水筒は最後まで付いていた。登った後、石の上を右へ滑って終点の姿に収まった。
+- 崩れた点:
+  - 登る約0.75秒(20〜32コマ目)で、ぬめが縦に立ち上がった。体が伸び、触角は上へまっすぐ立ち、ウサギに見えた。#19 と同じ崩れ。
+  - 石の上の角を越える所で、体が宙に浮き、跳んで見えた。
+  - 4コマ目あたりで、顔に黒い鼻のような点が出た。
+
 ## 学び
