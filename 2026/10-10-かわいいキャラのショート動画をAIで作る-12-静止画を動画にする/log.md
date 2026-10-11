@@ -8,7 +8,7 @@ minutes: 240
 result: 成功(全カットの動画と36秒の仮組み。AIはカット3・10、ほかはPython。垂直面を登る動きはAIでも立ち上がった)
 status: 公開済
 url: https://note.com/tried_hs/n/nbe8d90eceaa0
-qiita_url:
+qiita_url: https://qiita.com/tried_hentecoshoji/items/460d71b2e404301bbd75
 ---
 
 ## 試したこと

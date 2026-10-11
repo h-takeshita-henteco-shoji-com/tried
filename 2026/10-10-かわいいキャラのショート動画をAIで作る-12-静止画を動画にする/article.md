@@ -176,3 +176,6 @@ https://github.com/h-takeshita-henteco-shoji-com/tried/tree/main/2026/10-10-か�
 全部のカットが動きました。次は、1本の動画に仕上げます。
 カット9の空は、まだ止まった夜の絵です。夕方から夜へ変わっていく空を、編集で作ります。
 AIで作った2カットは、ほかより小さい絵なので、拡大して並べています。ぼやけ方が気にならないかも、仕上げで見ます。
+
+Wan 2.2 を Claude Code から MCP で呼んだ手順と、キーフレームで崩れを抑えた工夫は、Qiitaに詳しく書きました。
+https://qiita.com/tried_hentecoshoji/items/460d71b2e404301bbd75
