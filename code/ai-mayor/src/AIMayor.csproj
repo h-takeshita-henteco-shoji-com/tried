@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+    <AssemblyName>AIMayor</AssemblyName>
+    <RootNamespace>AIMayor</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+    <Deterministic>true</Deterministic>
+    <!-- ゲーム本体のDLLは参照するだけで、リポジトリには入れない -->
+    <GameDir Condition="'$(GameDir)' == ''">$(HOME)/Library/Application Support/Steam/steamapps/common/Cities_Skylines/Cities.app/Contents/Resources/Data/Managed</GameDir>
+    <ModsDir Condition="'$(ModsDir)' == ''">$(HOME)/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods</ModsDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net35" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ICities">
+      <HintPath>$(GameDir)/ICities.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- ビルド後、ゲームのModsフォルダへDLLを配置する -->
+  <Target Name="DeployToGame" AfterTargets="Build">
+    <MakeDir Directories="$(ModsDir)/$(AssemblyName)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsDir)/$(AssemblyName)" />
+  </Target>
+
+</Project>
