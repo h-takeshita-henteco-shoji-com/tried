@@ -1,0 +1,9 @@
+{
+  "ref_audio": "../../10-09-かわいいキャラのショート動画をAIで作る-11-ぬめとどんの声を設計する/assets/generated/nume_qwen_C_1.wav",
+  "ref_text": "どん、あれ何。どん、まだ熱い？ぬめ、もう行く。そっか。……んしょ。",
+  "seeds": [1, 2, 3],
+  "jobs": [
+    {"name": "nume_clone_cut7a", "text": "……そっかぁ。"},
+    {"name": "nume_clone_cut7b", "text": "……ん、そっかぁ……。"}
+  ]
+}
