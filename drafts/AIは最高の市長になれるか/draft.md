@@ -1,8 +1,8 @@
 ---
 title: AIは最高の市長になれるか
 created: 2026-10-08
-status: 下書き
-issue:
+status: 起票済
+issue: 39
 ---
 
 ## きっかけ
