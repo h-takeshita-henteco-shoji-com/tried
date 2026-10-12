@@ -1,0 +1,37 @@
+id	field	source	authors	year	title	venue	volpages
+P01	心理学	draft	Silvia, P. J.	2005	What is interesting? Exploring the appraisal structure of interest	Emotion	5(1), 89-102
+P02	心理学	draft	Loewenstein, G.	1994	The psychology of curiosity: A review and reinterpretation	Psychological Bulletin	116(1), 75-98
+P03	心理学	draft	Gruber, M. J.; Gelman, B. D.; Ranganath, C.	2014	States of curiosity modulate hippocampus-dependent learning via the dopaminergic circuit	Neuron	84(2), 486-496
+P04	心理学	draft	Berlyne, D. E.	1960	Conflict, arousal, and curiosity	McGraw-Hill	book
+P05	心理学	recall	Silvia, P. J.	2008	Interest—The curious emotion	Current Directions in Psychological Science	17(1), 57-60
+P06	心理学	recall	Brewer, W. F.; Lichtenstein, E. H.	1982	Stories are to entertain: A structural-affect theory of stories	Journal of Pragmatics	6(5-6), 473-486
+P07	心理学	recall	Hidi, S.; Renninger, K. A.	2006	The four-phase model of interest development	Educational Psychologist	41(2), 111-127
+P08	心理学	recall	Kintsch, W.	1980	Learning from text, levels of comprehension, or: Why anyone would read a story anyway	Poetics	9(1-3), 87-98
+P09	心理学	recall	Harp, S. F.; Mayer, R. E.	1998	How seductive details do their damage: A theory of cognitive interest in science learning	Journal of Educational Psychology	90(3), 414-434
+P10	心理学	recall	Schraw, G.; Lehman, S.	2001	Situational interest: A review of the literature and directions for future research	Educational Psychology Review	13(1), 23-52
+P11	心理学	recall	Kang, M. J.; et al.	2009	The wick in the candle of learning: Epistemic curiosity activates reward circuitry and enhances memory	Psychological Science	20(8), 963-973
+P12	心理学	recall	Hoeken, H.; van Vliet, M.	2000	Suspense, curiosity, and surprise: How discourse structure influences the affective and cognitive processing of a story	Poetics	27(4), 277-286
+P13	心理学	recall	Sadoski, M.; Goetz, E. T.; Rodriguez, M.	2000	Engaging texts: Effects of concreteness on comprehensibility, interest, and recall in four text types	Journal of Educational Psychology	92(1), 85-95
+P14	心理学	recall	Kidd, C.; Hayden, B. Y.	2015	The psychology and neuroscience of curiosity	Neuron	88(3), 449-460
+S01	文体論	recall	Miall, D. S.; Kuiken, D.	1994	Foregrounding, defamiliarization, and affect: Response to literary stories	Poetics	22(5), 389-407
+S02	文体論	recall	van Peer, W.	1986	Stylistics and psychology: Investigations of foregrounding	Croom Helm	book
+S03	文体論	recall	van Peer, W.; Hakemulder, J.	2006	Foregrounding	Encyclopedia of Language and Linguistics (2nd ed.)	546-551
+S04	文体論	recall	Mukařovský, J.	1964	Standard language and poetic language	A Prague School Reader on Esthetics, Literary Structure, and Style	chapter
+S05	文体論	recall	van Peer, W.; Hakemulder, J.; Zyngier, S.	2007	Lines on feeling: Foregrounding, aesthetics and meaning	Language and Literature	16(2), 197-213
+S06	文体論	recall	Hakemulder, J.	2004	Foregrounding and its effect on readers' perception	Discourse Processes	38(2), 193-218
+S07	文体論	recall	Leech, G. N.; Short, M.	2007	Style in fiction: A linguistic introduction to English fictional prose (2nd ed.)	Pearson Longman	book
+S08	文体論	recall	Jacobs, A. M.	2015	Neurocognitive poetics: Methods and models for investigating the neuronal and cognitive-affective bases of literature reception	Frontiers in Human Neuroscience	9, 186
+S09	文体論	recall	Dixon, P.; Bortolussi, M.; Twilley, L. C.; Leung, A.	1993	Literary processing and interpretation: Towards empirical foundations	Poetics	22(1-2), 5-33
+C01	計算言語学	recall	Hale, J.	2001	A probabilistic Earley parser as a psycholinguistic model	NAACL 2001	159-166
+C02	計算言語学	recall	Levy, R.	2008	Expectation-based syntactic comprehension	Cognition	106(3), 1126-1177
+C03	計算言語学	recall	Smith, N. J.; Levy, R.	2013	The effect of word predictability on reading time is logarithmic	Cognition	128(3), 302-319
+C04	計算言語学	recall	Jaeger, T. F.	2010	Redundancy and reduction: Speakers manage syntactic information density	Cognitive Psychology	61(1), 23-62
+C05	計算言語学	recall	Meister, C.; et al.	2021	Revisiting the uniform information density hypothesis	EMNLP 2021	963-980
+C06	計算言語学	recall	Holtzman, A.; et al.	2020	The curious case of neural text degeneration	ICLR 2020	conference
+C07	計算言語学	recall	Padmakumar, V.; He, H.	2024	Does writing with language models reduce content diversity?	ICLR 2024	conference
+C08	計算言語学	recall	Doshi, A. R.; Hauser, O. P.	2024	Generative AI enhances individual creativity but reduces the collective diversity of novel content	Science Advances	10(28), eadn5290
+C09	計算言語学	recall	Chakrabarty, T.; et al.	2024	Art or artifice? Large language models and the false promise of creativity	CHI 2024	conference
+C10	計算言語学	recall	Kirk, R.; et al.	2024	Understanding the effects of RLHF on LLM generalisation and diversity	ICLR 2024	conference
+C11	計算言語学	recall	Kuribayashi, T.; et al.	2021	Lower perplexity is not always human-like	ACL 2021	5203-5217
+C12	計算言語学	recall	Anderson, B. R.; Shah, J. H.; Kreminski, M.	2024	Homogenization effects of large language models on human creative ideation	Creativity & Cognition 2024	conference
+C13	計算言語学	recall	Wilcox, E. G.; et al.	2023	Testing the predictions of surprisal theory in 11 languages	TACL	11, 1451-1470
