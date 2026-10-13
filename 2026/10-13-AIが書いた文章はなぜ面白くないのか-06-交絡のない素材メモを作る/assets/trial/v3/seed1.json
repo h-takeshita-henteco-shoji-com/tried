@@ -1,0 +1,30 @@
+{
+ "seed": 1,
+ "model": "claude-sonnet-5-5",
+ "order": [
+  "P3",
+  "C2",
+  "P1",
+  "C6",
+  "F4",
+  "F3",
+  "F1",
+  "F6",
+  "F5",
+  "C3",
+  "C7",
+  "P2",
+  "C4",
+  "C5",
+  "C1",
+  "F2"
+ ],
+ "title": "線香の火を消さないように",
+ "chars": 1206,
+ "paragraphs": 8,
+ "in_range": true,
+ "headings": 0,
+ "bullets": 0,
+ "bold": 0,
+ "blockquotes": 0
+}
