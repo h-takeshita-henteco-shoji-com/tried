@@ -184,13 +184,18 @@ Qiitaを書かない日があっても、1件として数えます。
 ### noteの公開手順
 
 noteにはGitHubと連携する仕組みがありません。
-そのため、公開は次の手順で手作業で行います。
+そのため、Claude Code が chrome-devtools MCP でブラウザを操作して投稿します。
+「投稿して」と頼めば、確認を挟まずに次の手順で公開まで進めます。
+Chrome は、noteにログインした状態で開いておきます。
 
 1. `article.md` を書き上げる。
-2. noteの投稿画面に本文を貼り付ける。
-3. 見出し、画像、コードの表示を整える。
-4. 公開する。
-5. `/publish` で公開先のURLを `log.md` に書き戻し、Issueをcloseする。
+2. `code/note/article_to_note_html.py` で、タイトルと本文の HTML を作る。画像の行は、目印の段落 `[[FIG1]]` などに置き換わる。
+3. `https://note.com/notes/new` を開き、タイトルを入れる。
+4. 本文の HTML を、エディタ(`.ProseMirror`)に paste イベントとして渡す。`evaluate_script` で `ClipboardEvent('paste')` に `text/html` を載せて送る。
+5. 画像を差し込む。目印の段落の文字を選んで消し、左の「メニューを開く」→「画像」で `assets/` の画像をアップロードする。図の直前に残る空の段落は消す。
+6. 「公開に進む」で、ハッシュタグを付ける。同じ連載の前回の記事と同じタグにする。前回のタグは `https://note.com/api/v3/notes/<記事のキー>` で確かめられる。
+7. 「投稿する」で公開する。同じ API で、公開状態、タグ、画像の枚数を確かめる。
+8. `/publish` で公開先のURLを `log.md` に書き戻し、Issueをcloseする。
 
 ### Qiitaの公開手順
 

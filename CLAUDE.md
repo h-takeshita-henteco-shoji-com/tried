@@ -59,6 +59,11 @@ noteを先に公開し、Qiitaは後から出します。Qiitaを書かない日
 - 専門用語は訳さず、そのまま使う(プロンプト、ネガティブプロンプト、seed、フレームなど)。note向けの「言い換えを添える」とは逆
 - 先頭に `title` と `tags`(5つまで)を付ける
 
+## noteへの投稿
+
+「投稿して」と頼まれたら、確認を挟まずに chrome-devtools MCP で note に投稿します。手順は README の「noteの公開手順」です。
+本文の HTML は `code/note/article_to_note_html.py` で作ります。投稿したら、続けて `/publish` を行います。
+
 ## 公開前の確認
 
 リポジトリとIssuesはどちらも公開です。顧客案件に関わる内容、APIキー、顧客名を含む画面写真は置きません。`/publish` のcommit前に `assets/` を目視で確認します。
