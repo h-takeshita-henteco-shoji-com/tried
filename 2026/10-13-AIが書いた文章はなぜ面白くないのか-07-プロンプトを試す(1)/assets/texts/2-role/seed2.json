@@ -1,0 +1,30 @@
+{
+ "seed": 2,
+ "model": "claude-sonnet-5-5",
+ "order": [
+  "C4",
+  "C3",
+  "F5",
+  "C5",
+  "F4",
+  "P1",
+  "F6",
+  "F1",
+  "C1",
+  "F2",
+  "C2",
+  "P3",
+  "F3",
+  "C6",
+  "C7",
+  "P2"
+ ],
+ "title": "線香の火",
+ "chars": 1022,
+ "paragraphs": 8,
+ "in_range": true,
+ "headings": 0,
+ "bullets": 0,
+ "bold": 0,
+ "blockquotes": 0
+}

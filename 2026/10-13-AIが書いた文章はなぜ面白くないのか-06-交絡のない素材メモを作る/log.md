@@ -6,8 +6,8 @@ parent: 44
 ai: Claude Code (Opus 5.5)、Claude Sonnet 5.5(記憶の確認と試しの生成)
 minutes: 15
 result: 成功(素材メモと共通条件を決め、条件どおりに3本生成できた)
-status: 未公開
-url:
+status: 公開済
+url: https://note.com/tried_hs/n/n95e716cead9b
 qiita_url:
 ---
 
