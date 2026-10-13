@@ -266,7 +266,8 @@ def main(texts, reader_dir, label_dir, out_dir):
     def fmt(v, p=2):
         return "-" if v is None or v != v else (f"{v:.{p}f}" if isinstance(v, float) else str(v))
 
-    lines = ["## 全体の転ごとの指標(AIの読者 Haiku 4.5、各10回)\n",
+    n_runs = sorted({s["回数"] for _, s in results.values()})
+    lines = [f"## 全体の転ごとの指標(AIの読者 Haiku 4.5、各{'〜'.join(map(str, n_runs))}回)\n",
              "| 文書 | 転の文 | 位置(%) | 段 | 跳ね比 J | 逆転率 X | 驚き率 | 直前の散らばり比 V | 先取り度 | 順番の決まり |",
              "|---|---|---|---|---|---|---|---|---|---|"]
     for d, (ten, _) in results.items():
@@ -278,7 +279,9 @@ def main(texts, reader_dir, label_dir, out_dir):
     lines += ["\n## 文書ごとの読後と読みやすさ\n", "| 文書 | " + " | ".join(keys) + " |", "|---|" + "---|" * len(keys)]
     for d, (_, s) in results.items():
         lines.append(f"| {d} | " + " | ".join(fmt(s[k]) for k in keys) + " |")
-    lines += judge(results)
+    # #47 の判断との照合は、原文と書き直しの組(A-orig など)があるときだけ行う
+    if any(d.endswith("-orig") for d in results):
+        lines += judge(results)
     open(f"{out_dir}/reader-metrics.md", "w").write("\n".join(lines) + "\n")
     print("\n".join(lines))
 
