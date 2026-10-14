@@ -7,3 +7,4 @@ obj/
 # 標高データと高さマップは公開しない(#42)
 *.npy
 fukuoka_h*.png
+__pycache__/
