@@ -14,7 +14,8 @@
     - 空行で区切った塊を1つの段落にし、塊の中の改行は <br> にする
     - `> ` は引用
     - `**太字**` は strong、`*斜体*` は記号を外して地の文にする
-    - URL はリンクにする
+    - `[文字](URL)` は文字にリンクを張る。それ以外の URL はそのままリンクにする
+    - ``` で囲んだ塊はコードブロック(pre)にする
     - 画像の行 `![...](...)` は、目印の段落 [[FIG1]]、[[FIG2]]… に置き換える。
       画像は貼り付けた後に、目印の段落へ1枚ずつアップロードする
 """
@@ -28,16 +29,37 @@ def inline(text):
     text = html.escape(text, quote=False)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"\1", text)
-    text = re.sub(r"(https://\S+)", r'<a href="\1">\1</a>', text)
-    return text
+    links = []
+
+    def keep(m):
+        links.append(f'<a href="{m.group(2)}">{m.group(1)}</a>')
+        return f"\0{len(links) - 1}\0"
+
+    text = re.sub(r"\[([^\]]+)\]\((https://[^)\s]+)\)", keep, text)
+    text = re.sub(r"(https://[^\s\0]+)", r'<a href="\1">\1</a>', text)
+    return re.sub(r"\0(\d+)\0", lambda m: links[int(m.group(1))], text)
 
 
 def convert(markdown):
     lines = markdown.split("\n")
     title = lines[0].lstrip("# ").strip()
     blocks, cur = [], []
+    in_code = False
     for line in lines[1:]:
-        if line.strip() == "":
+        if line.startswith("```"):
+            if in_code:
+                cur.append(line)
+                blocks.append(cur)
+                cur = []
+            else:
+                if cur:
+                    blocks.append(cur)
+                cur = [line]
+            in_code = not in_code
+            continue
+        if in_code:
+            cur.append(line)
+        elif line.strip() == "":
             if cur:
                 blocks.append(cur)
                 cur = []
@@ -48,7 +70,10 @@ def convert(markdown):
 
     out, figs = [], 0
     for b in blocks:
-        if b[0].startswith("## "):
+        if b[0].startswith("```"):
+            code = "\n".join(b[1:-1] if b[-1].startswith("```") else b[1:])
+            out.append(f"<pre><code>{html.escape(code, quote=False)}</code></pre>")
+        elif b[0].startswith("## "):
             out.append(f"<h2>{inline(b[0][3:])}</h2>")
         elif b[0].startswith("!["):
             figs += 1
