@@ -4,10 +4,10 @@ title: ゲームとMod開発環境を整える
 issue: 40
 parent: 39
 ai: Claude Code (Opus 5.5)
-minutes:
+minutes: 60
 result: 成功(Modの読み込みと有効化まで)
-status: 未公開
-url:
+status: 公開済
+url: https://note.com/tried_hs/n/n70e3d774db73
 qiita_url:
 ---
 

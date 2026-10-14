@@ -187,6 +187,8 @@ noteにはGitHubと連携する仕組みがありません。
 そのため、Claude Code が chrome-devtools MCP でブラウザを操作して投稿します。
 「投稿して」と頼めば、確認を挟まずに次の手順で公開まで進めます。
 Chrome は、noteにログインした状態で開いておきます。
+chrome-devtools MCP は、このリポジトリ専用のプロファイル(`~/.cache/cdp-mcp/tried`)で Chrome を開きます。設定は `.mcp.json` にあります。
+ほかのプロジェクトのプロファイルと分けるのは、同じプロファイルを2つのセッションで同時に使えないためです。
 
 1. `article.md` を書き上げる。
 2. `code/note/article_to_note_html.py` で、タイトルと本文の HTML を作る。画像の行は、目印の段落 `[[FIG1]]` などに置き換わる。
