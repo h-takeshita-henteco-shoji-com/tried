@@ -8,3 +8,4 @@ obj/
 *.npy
 fukuoka_h*.png
 __pycache__/
+.venv/
