@@ -10,6 +10,17 @@
         "${HOME}/.cache/cdp-mcp/tried"
       ],
       "env": {}
+    },
+    "cities-skylines": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "code/ai-mayor/mcp",
+        "server.py"
+      ],
+      "env": {}
     }
   }
 }

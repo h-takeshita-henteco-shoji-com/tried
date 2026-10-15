@@ -1,0 +1,9 @@
+[project]
+name = "ai-mayor-mcp"
+version = "0.1.0"
+description = "Cities: Skylines を Claude から見て操作するための MCP サーバー(AIMayor Mod の HTTP 窓口を呼ぶ)"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=2.3",
+    "pillow>=10",
+]

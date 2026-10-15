@@ -2,11 +2,21 @@ using ICities;
 
 namespace AIMayor
 {
-    // 何もしないMod。コンテンツマネージャーに表示され、有効にできることだけを確かめる。
+    // Mod の入口。有効にしたら HTTP の窓口を開き、無効にしたら閉じる。
     public class AIMayorMod : IUserMod
     {
         public string Name => "AI Mayor";
 
         public string Description => "AIは最高の市長になれるか(開発中)";
+
+        public void OnEnabled()
+        {
+            HttpBridge.Start();
+        }
+
+        public void OnDisabled()
+        {
+            HttpBridge.Stop();
+        }
     }
 }

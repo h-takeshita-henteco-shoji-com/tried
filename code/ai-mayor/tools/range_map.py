@@ -62,6 +62,23 @@ for n,la,lo in pts:
     x,y=P(la,lo); d.ellipse([x-9,y-9,x+9,y+9],fill=(255,140,0,255),outline="black",width=2)
     off={"福岡空港":(-40,14),"福岡タワー":(-150,-40),"PayPayドーム":(12,-14),"天神":(-70,-34),"博多駅":(12,-34),"宝満山 830m":(-150,14),"脊振山 1055m":(12,-44)}.get(n,(12,-14))
     label((x+off[0],y+off[1]),n,Fs,(20,20,20))
+# 任意: OVERLAY_LINES に GeoJSON(LineString)を渡すと、細い線で描く(例: 高速道路の中心線)
+if os.environ.get("OVERLAY_LINES"):
+    for f in json.load(open(os.environ["OVERLAY_LINES"]))["features"]:
+        if f["geometry"]["type"]=="LineString":
+            d.line([P(la,lo) for lo,la in f["geometry"]["coordinates"]],fill=(255,140,0,255),width=4)
+# 任意: ROUTE に [[名前, 緯度, 経度], ...] か {路線名: [[名前, 緯度, 経度], ...]} の JSON を渡すと、通り道を描く
+if os.environ.get("ROUTE"):
+    routes=json.load(open(os.environ["ROUTE"]))
+    if isinstance(routes,list): routes={"":routes}
+    colors=[(230,30,30),(20,110,220),(150,40,180)]
+    show_labels=os.environ.get("ROUTE_LABELS","1")=="1"
+    for k,(rname,route) in enumerate(routes.items()):
+        col=colors[k%len(colors)]
+        d.line([P(la,lo) for _,la,lo in route],fill=col+(255,),width=6)
+        for n,la,lo in route:
+            x,y=P(la,lo); d.ellipse([x-6,y-6,x+6,y+6],fill="white",outline=col,width=3)
+            if show_labels: label((x+10,y-12),n,Fs,col)
 x,y=P(*c); d.line([x-16,y,x+16,y],fill="black",width=4); d.line([x,y-16,x,y+16],fill="black",width=4)
 label((x+4,y+8),"中心",Fs,(0,0,0))
 # crop to outer frame + margin
