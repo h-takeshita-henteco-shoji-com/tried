@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net35" Version="1.0.3" PrivateAssets="all" />
+    <!-- Harmony を呼ぶための部品。本体の CitiesHarmony.Harmony.dll はワークショップの Harmony MOD が配る -->
+    <PackageReference Include="CitiesHarmony.API" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +39,7 @@
   <!-- ビルド後、ゲームのModsフォルダへDLLを配置する -->
   <Target Name="DeployToGame" AfterTargets="Build">
     <MakeDir Directories="$(ModsDir)/$(AssemblyName)" />
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsDir)/$(AssemblyName)" />
+    <Copy SourceFiles="$(TargetPath);$(TargetDir)CitiesHarmony.API.dll" DestinationFolder="$(ModsDir)/$(AssemblyName)" />
   </Target>
 
 </Project>

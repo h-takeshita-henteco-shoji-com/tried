@@ -15,6 +15,10 @@ dotnet build code/ai-mayor/src/AIMayor.csproj -c Release
 
 `~/Library/Application Support/Colossal Order/Cities_Skylines/Addons/Mods/AIMayor/`
 
+ゲームのダイアログを知るために Harmony を使います。Steam ワークショップの「Harmony」(2040656402)を購読しておきます。
+ビルドで置くのは `AIMayor.dll` と `CitiesHarmony.API.dll` だけです。Harmony の本体は、この MOD が配ります。
+購読していなくても動きます。その場合、ダイアログは1秒ごとに見に行きます。
+
 ゲーム本体の DLL は Steam のインストール先を直接参照します。
 リポジトリには入れません。場所が違う場合は `-p:GameDir=...` で上書きします。
 

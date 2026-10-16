@@ -32,6 +32,10 @@ namespace AIMayor
               .Append(",\"commercial\":").Append(zone.m_commercialDemand)
               .Append(",\"workplace\":").Append(zone.m_workplaceDemand).Append('}');
             sb.Append(",\"ownedTiles\":").Append(GameAreaManager.instance.m_areaCount);
+            // ゲームに出ているダイアログ(破産の警告など)。なければ null
+            sb.Append(",\"dialog\":").Append(DialogWatch.Current);
+            // 最後に開いたダイアログの連番。前回より増えていたら、閉じたものも /ui/dialog/events で読める
+            sb.Append(",\"dialogSeq\":").Append(DialogWatch.Seq);
             return sb.Append('}').ToString();
         }
 

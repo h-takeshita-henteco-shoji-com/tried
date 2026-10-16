@@ -1,3 +1,4 @@
+using CitiesHarmony.API;
 using ICities;
 
 namespace AIMayor
@@ -12,10 +13,17 @@ namespace AIMayor
         public void OnEnabled()
         {
             HttpBridge.Start();
+            // Harmony の準備ができたら、ダイアログの開閉に処理を差し込む。HarmonyLib は Patcher の中だけで使う
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
         }
 
         public void OnDisabled()
         {
+            if (HarmonyHelper.IsHarmonyInstalled)
+            {
+                Patcher.UnpatchAll();
+            }
+
             HttpBridge.Stop();
         }
     }

@@ -38,6 +38,10 @@ namespace AIMayor
             NetApi.Register(routes);
             CityApi.Register(routes);
             CitizenApi.Register(routes);
+            EconomyApi.Register(routes);
+            EditorApi.Register(routes);
+            CommandLog.Register(routes);
+            DialogWatch.Register(routes);
 
             listener = new HttpListener();
             listener.Prefixes.Add(Prefix);
@@ -126,6 +130,12 @@ namespace AIMayor
         // 道路や建物を作る処理は、このスレッドで行う決まり。
         public static string OnSimulation(Func<string> work)
         {
+            return OnSimulation(work, 10000);
+        }
+
+        // 時間のかかる処理(木をたくさん植えるなど)は、待つ時間を延ばす
+        public static string OnSimulation(Func<string> work, int timeoutMs)
+        {
             string result = null;
             Exception error = null;
             var done = new ManualResetEvent(false);
@@ -145,7 +155,7 @@ namespace AIMayor
                 }
             });
 
-            if (!done.WaitOne(10000))
+            if (!done.WaitOne(timeoutMs))
             {
                 return Error("simulation thread timeout");
             }

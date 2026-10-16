@@ -13,7 +13,8 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 CENTER = (33.59018, 130.40987)
-HALF_M = 9600 + 500   # 中央25タイルの半辺(実寸)+余白
+FULL = os.environ.get("FULL", "0") == "1"  # 地図全体(実寸34.56km四方)を取り、expressways_full.geojson に出す(#73)
+HALF_M = (17280 if FULL else 9600) + 500   # 範囲の半辺(実寸)+余白
 Z = 16
 URL = "https://cyberjapandata.gsi.go.jp/xyz/experimental_rdcl/{z}/{x}/{y}.geojson"
 OUT = os.path.expanduser("~/.cache/ai-mayor-dem")
@@ -55,7 +56,7 @@ def main():
         for d in ex.map(get, xys):
             if d:
                 feats += [f for f in d["features"] if f["properties"].get("rdCtg") == "高速自動車国道等"]
-    json.dump({"type": "FeatureCollection", "features": feats}, open(f"{OUT}/expressways.geojson", "w"), ensure_ascii=False)
+    json.dump({"type": "FeatureCollection", "features": feats}, open(f"{OUT}/{'expressways_full.geojson' if FULL else 'expressways.geojson'}", "w"), ensure_ascii=False)
     print(f"{len(feats)} features")
 
 
