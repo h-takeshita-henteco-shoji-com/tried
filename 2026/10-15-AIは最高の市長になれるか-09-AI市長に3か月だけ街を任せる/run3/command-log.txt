@@ -1,0 +1,179 @@
+﻿# AI Mayor log  city=fukuoka-v2  started=2026-10-16 18:23:21
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-16 18:25:12	2026-10-16	OK	set_time paused=true speed=null  -> 0.2s
+2026-10-16 18:25:12	2026-10-16	OK	city_info  -> 0.0s
+2026-10-16 18:25:12	2026-10-16	OK	economy  -> 0.0s
+2026-10-16 18:25:12	2026-10-16	OK	services  -> 0.0s
+2026-10-16 18:25:12	2026-10-16	OK	citizens_summary  -> 0.0s
+2026-10-16 18:25:12	2026-10-16	OK	complaints  -> 0.0s
+2026-10-16 18:25:12	2026-10-16	OK	citizen_voices n=5  -> 0.0s
+2026-10-16 18:25:12	2026-10-16	OK	events  -> 0.0s
+2026-10-16 18:25:16	2026-10-16	OK	economy_breakdown  -> 0.1s
+2026-10-16 18:25:16	2026-10-16	OK	screenshot view=top max_width=1280 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 3.1s
+2026-10-16 18:25:27	2026-10-16	OK	move_camera x=0.0 z=0.0 size=4000.0 pitch=90.0 yaw=0.0  -> 0.1s
+2026-10-16 18:25:30	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:25:37	2026-10-16	OK	latlon_to_game lat=33.6545 lon=130.488  -> 0.0s
+2026-10-16 18:25:37	2026-10-16	OK	latlon_to_game lat=33.59 lon=130.4  -> 0.0s
+2026-10-16 18:25:43	2026-10-16	OK	move_camera x=3600.0 z=3500.0 size=1500.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:25:48	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.4s
+2026-10-16 18:25:55	2026-10-16	OK	move_camera x=3300.0 z=3500.0 size=1500.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:26:02	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:26:20	2026-10-16	OK	move_camera x=3330.0 z=3500.0 size=300.0 pitch=90.0 yaw=null  -> 0.1s
+2026-10-16 18:26:23	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:26:34	2026-10-16	OK	move_camera x=3550.0 z=2900.0 size=1500.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:26:37	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.4s
+2026-10-16 18:26:46	2026-10-16	OK	move_camera x=3640.0 z=2880.0 size=300.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:26:49	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.4s
+2026-10-16 18:26:58	2026-10-16	OK	move_camera x=3450.0 z=4300.0 size=1500.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:27:03	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:27:08	2026-10-16	OK	move_camera x=3310.0 z=4400.0 size=300.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:27:12	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:27:22	2026-10-16	OK	height_at x=3600.0 z=4350.0  -> 0.0s
+2026-10-16 18:27:22	2026-10-16	OK	height_at x=3360.0 z=4400.0  -> 0.0s
+2026-10-16 18:27:22	2026-10-16	OK	height_at x=3800.0 z=4200.0  -> 0.0s
+2026-10-16 18:27:22	2026-10-16	OK	height_at x=3330.0 z=4400.0  -> 0.0s
+2026-10-16 18:27:42	2026-10-16	OK	list_building_types service=Water  -> 0.0s
+2026-10-16 18:27:42	2026-10-16	OK	list_building_types service=Electricity  -> 0.0s
+2026-10-16 18:27:42	2026-10-16	OK	list_net_types service=Road  -> 0.0s
+2026-10-16 18:27:58	2026-10-16	OK	move_camera x=2800.0 z=3000.0 size=4000.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:28:02	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.4s
+2026-10-16 18:28:12	2026-10-16	OK	move_camera x=3400.0 z=2150.0 size=1000.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:28:15	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:28:22	2026-10-16	OK	height_at x=3028.0 z=2018.0  -> 0.0s
+2026-10-16 18:28:22	2026-10-16	OK	height_at x=3400.0 z=2150.0  -> 0.0s
+2026-10-16 18:28:22	2026-10-16	OK	height_at x=3570.0 z=2050.0  -> 0.0s
+2026-10-16 18:28:32	2026-10-16	OK	height_at x=1150.0 z=0.0  -> 0.0s
+2026-10-16 18:28:32	2026-10-16	OK	height_at x=2000.0 z=2300.0  -> 0.0s
+2026-10-16 18:28:32	2026-10-16	OK	height_at x=2500.0 z=2150.0  -> 0.0s
+2026-10-16 18:28:41	2026-10-16	OK	move_camera x=3580.0 z=2150.0 size=300.0 pitch=90.0 yaw=null  -> 0.1s
+2026-10-16 18:28:44	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.5s
+2026-10-16 18:28:59	2026-10-16	DO	高速道路への入口の道を試しに引く(公約1)
+2026-10-16 18:28:59	2026-10-16	WHY	人口0。人が来るには高速へつながる道が要る。高速は高架なので、まず短い道でつながるかを試す
+2026-10-16 18:28:59	2026-10-16	OK	build_line prefab=Basic Road points=[[3450.0, 2150.0], [3642.0, 2150.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.2s cost=960
+2026-10-16 18:29:10	2026-10-16	OK	screenshot view=current max_width=1280 save_to=null  -> 0.4s
+2026-10-16 18:29:25	2026-10-16	OK	height_at x=3150.0 z=2030.0  -> 0.0s
+2026-10-16 18:29:25	2026-10-16	OK	height_at x=3150.0 z=2390.0  -> 0.0s
+2026-10-16 18:29:25	2026-10-16	OK	height_at x=3450.0 z=2390.0  -> 0.0s
+2026-10-16 18:29:26	2026-10-16	OK	height_at x=3450.0 z=2030.0  -> 0.0s
+2026-10-16 18:29:59	2026-10-16	DO	下水の出口を川に置けるか試す(公約2)
+2026-10-16 18:29:59	2026-10-16	WHY	川の水面は地面と同じ高さで、水が無いように見える。置けなければ街の場所を考え直す
+2026-10-16 18:29:59	2026-10-16	OK	place_building prefab=Water Outlet x=3040.0 z=2030.0 angle=0.0 pay=true  -> 0.2s cost=2500
+2026-10-16 18:30:05	2026-10-16	OK	list_net_types service=Water  -> 0.0s
+2026-10-16 18:30:05	2026-10-16	OK	buildings_near x=3040.0 z=2030.0 radius=50.0 limit=50  -> 0.0s
+2026-10-16 18:30:29	2026-10-16	OK	build_line prefab=Basic Road points=[[3450.0, 2150.0], [3300.0, 2150.0], [3150.0, 2150.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=1440
+2026-10-16 18:30:29	2026-10-16	OK	build_line prefab=Basic Road points=[[3450.0, 2270.0], [3300.0, 2270.0], [3150.0, 2270.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=1440
+2026-10-16 18:30:29	2026-10-16	OK	build_line prefab=Basic Road points=[[3450.0, 2030.0], [3300.0, 2030.0], [3150.0, 2030.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=1440
+2026-10-16 18:30:37	2026-10-16	OK	build_line prefab=Basic Road points=[[3450.0, 2030.0], [3450.0, 2150.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=640
+2026-10-16 18:30:38	2026-10-16	OK	build_line prefab=Basic Road points=[[3450.0, 2150.0], [3450.0, 2270.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=640
+2026-10-16 18:30:38	2026-10-16	OK	build_line prefab=Basic Road points=[[3300.0, 2030.0], [3300.0, 2150.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=640
+2026-10-16 18:30:38	2026-10-16	OK	build_line prefab=Basic Road points=[[3300.0, 2150.0], [3300.0, 2270.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=640
+2026-10-16 18:30:38	2026-10-16	OK	build_line prefab=Basic Road points=[[3150.0, 2030.0], [3150.0, 2150.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=640
+2026-10-16 18:30:38	2026-10-16	OK	build_line prefab=Basic Road points=[[3150.0, 2150.0], [3150.0, 2270.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=640
+2026-10-16 18:30:48	2026-10-16	OK	zone_area x=3300.0 z=2150.0 radius=240.0 type=residential_low  -> 0.0s
+2026-10-16 18:30:57	2026-10-16	OK	zone_area x=3225.0 z=2150.0 radius=45.0 type=commercial_low  -> 0.0s
+2026-10-16 18:30:57	2026-10-16	OK	zone_area x=3375.0 z=2150.0 radius=45.0 type=commercial_low  -> 0.0s
+2026-10-16 18:30:57	2026-10-16	OK	zone_area x=3546.0 z=2150.0 radius=90.0 type=industrial  -> 0.0s
+2026-10-16 18:31:08	2026-10-16	DO	風力発電を1基置く(公約2)
+2026-10-16 18:31:08	2026-10-16	WHY	電気の容量0。住宅の区画を指定した。建設6,000、維持費500(一覧の値)。街の西の端で道路に面して置く
+2026-10-16 18:31:08	2026-10-16	OK	place_building prefab=Wind Turbine x=3112.0 z=2210.0 angle=90.0 pay=true  -> 0.0s cost=6000
+2026-10-16 18:31:21	2026-10-16	DO	給水塔と水道管を置き、下水の出口とつなぐ(公約2)
+2026-10-16 18:31:21	2026-10-16	WHY	水・下水の容量0。川に水が無いので取水口は使えない。給水塔3,500と管で街に水を引き、出口へ流す
+2026-10-16 18:31:21	2026-10-16	OK	place_building prefab=Water Tower x=3136.0 z=2090.0 angle=90.0 pay=true  -> 0.0s cost=3500
+2026-10-16 18:31:26	2026-10-16	OK	buildings_near x=3136.0 z=2150.0 radius=120.0 limit=50  -> 0.0s
+2026-10-16 18:31:34	2026-10-16	OK	build_line prefab=Water Pipe points=[[3040.0, 2052.7], [3080.0, 2090.0], [3136.0, 2090.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=280
+2026-10-16 18:31:34	2026-10-16	OK	build_line prefab=Water Pipe points=[[3136.0, 2090.0], [3600.0, 2090.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=1200
+2026-10-16 18:31:34	2026-10-16	OK	build_line prefab=Water Pipe points=[[3136.0, 2090.0], [3136.0, 2210.0], [3600.0, 2210.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=1520
+2026-10-16 18:31:40	2026-10-16	OK	buildings_near x=3090.0 z=2100.0 radius=130.0 limit=50  -> 0.0s
+2026-10-16 18:31:40	2026-10-16	OK	city_info  -> 0.0s
+2026-10-16 18:31:40	2026-10-16	OK	zones_at x=3300.0 z=2150.0 radius=300.0  -> 0.0s
+2026-10-16 18:31:45	2026-10-16	OK	move_camera x=3350.0 z=2150.0 size=2000.0 pitch=70.0 yaw=null  -> 0.1s
+2026-10-16 18:31:50	2026-10-16	OK	screenshot view=current max_width=1280 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.5s
+2026-10-16 18:32:14	2026-10-16	OK	advance days=10 speed=3 max_seconds=600  -> 24.4s
+2026-10-16 18:32:42	2026-10-26	OK	city_info  -> 0.0s
+2026-10-16 18:32:42	2026-10-26	OK	events  -> 0.0s
+2026-10-16 18:32:48	2026-10-26	OK	services  -> 0.0s
+2026-10-16 18:32:48	2026-10-26	OK	complaints  -> 0.0s
+2026-10-16 18:32:48	2026-10-26	OK	buildings_near x=3300.0 z=2150.0 radius=350.0 limit=60  -> 0.0s
+2026-10-16 18:33:08	2026-10-26	OK	advance days=10 speed=3 max_seconds=600  -> 24.4s
+2026-10-16 18:33:36	2026-11-05	OK	city_info  -> 0.0s
+2026-10-16 18:33:36	2026-11-05	OK	events  -> 0.0s
+2026-10-16 18:33:45	2026-11-05	OK	advance days=10 speed=3 max_seconds=600  -> 24.3s
+2026-10-16 18:34:13	2026-11-15	OK	city_info  -> 0.0s
+2026-10-16 18:34:22	2026-11-15	OK	save_log save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	city_info  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	economy  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	services  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	citizens_summary  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	complaints  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	citizen_voices n=5  -> 0.0s
+2026-10-16 18:35:16	2026-11-15	OK	events  -> 0.0s
+2026-10-16 18:35:20	2026-11-15	OK	buildings_near x=3700.0 z=2100.0 radius=250.0 limit=50  -> 0.0s
+2026-10-16 18:35:20	2026-11-15	OK	move_camera x=3450.0 z=2150.0 size=2000.0 pitch=70.0 yaw=0.0  -> 0.1s
+2026-10-16 18:35:24	2026-11-15	OK	screenshot view=current max_width=1280 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.5s
+2026-10-16 18:35:29	2026-11-15	OK	list_net_types service=Electricity  -> 0.0s
+2026-10-16 18:35:29	2026-11-15	OK	list_building_types service=Electricity  -> 0.0s
+2026-10-16 18:35:30	2026-11-15	OK	economy_breakdown  -> 0.0s
+2026-10-16 18:35:42	2026-11-15	OK	buildings_near x=3400.0 z=2150.0 radius=90.0 limit=50  -> 0.0s
+2026-10-16 18:35:52	2026-11-15	OK	buildings_near x=3420.0 z=2240.0 radius=60.0 limit=50  -> 0.0s
+2026-10-16 18:35:56	2026-11-15	OK	buildings_near x=3330.0 z=2235.0 radius=45.0 limit=50  -> 0.0s
+2026-10-16 18:36:27	2026-11-15	DO	工業に送電線を引く(公約1・2)
+2026-10-16 18:36:27	2026-11-15	WHY	工業10棟中6棟が電気なし。格子から約100m離れている。失業82人。送電で工場が動き失業が減ると予想
+2026-10-16 18:36:28	2026-11-15	OK	build_line prefab=Power Line points=[[3342.0, 2245.0], [3470.0, 2235.0], [3570.0, 2215.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=560
+2026-10-16 18:36:32	2026-11-15	DO	水道の予算を100→80に下げる(公約3)
+2026-10-16 18:36:32	2026-11-15	WHY	週の支出737のうち水道572。水の使用は容量の8%。支出が約110減ると予想
+2026-10-16 18:36:32	2026-11-15	OK	set_budget target=water percent=80  -> 0.0s
+2026-10-16 18:36:36	2026-11-15	OK	buildings_near x=3470.0 z=2220.0 radius=140.0 limit=50  -> 0.0s
+2026-10-16 18:36:36	2026-11-15	OK	move_camera x=3450.0 z=2180.0 size=600.0 pitch=80.0 yaw=null  -> 0.1s
+2026-10-16 18:36:40	2026-11-15	OK	screenshot view=current max_width=1000 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.5s
+2026-10-16 18:36:50	2026-11-15	OK	build_line prefab=Power Line points=[[3342.0, 2245.0], [3385.0, 2200.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=160
+2026-10-16 18:36:59	2026-11-15	OK	advance days=10 speed=3 max_seconds=600  -> 28.1s
+2026-10-16 18:37:30	2026-11-25	OK	city_info  -> 0.0s
+2026-10-16 18:37:30	2026-11-25	OK	events  -> 0.0s
+2026-10-16 18:37:33	2026-11-25	OK	complaints  -> 0.0s
+2026-10-16 18:37:42	2026-11-25	OK	advance days=10 speed=3 max_seconds=600  -> 25.6s
+2026-10-16 18:38:10	2026-12-05	OK	city_info  -> 0.0s
+2026-10-16 18:38:10	2026-12-05	OK	events  -> 0.0s
+2026-10-16 18:38:19	2026-12-05	OK	advance days=10 speed=3 max_seconds=600  -> 24.4s
+2026-10-16 18:38:46	2026-12-15	OK	city_info  -> 0.0s
+2026-10-16 18:38:55	2026-12-15	OK	save_log save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.0s
+2026-10-16 18:39:34	2026-12-15	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-16 18:39:34	2026-12-15	OK	city_info  -> 0.0s
+2026-10-16 18:39:34	2026-12-15	OK	economy  -> 0.0s
+2026-10-16 18:39:34	2026-12-15	OK	services  -> 0.0s
+2026-10-16 18:39:34	2026-12-15	OK	citizens_summary  -> 0.0s
+2026-10-16 18:39:34	2026-12-15	OK	complaints  -> 0.0s
+2026-10-16 18:39:35	2026-12-15	OK	citizen_voices n=5  -> 0.0s
+2026-10-16 18:39:35	2026-12-15	OK	events  -> 0.0s
+2026-10-16 18:39:39	2026-12-15	OK	move_camera x=3350.0 z=2180.0 size=2000.0 pitch=90.0 yaw=0.0  -> 0.1s
+2026-10-16 18:39:42	2026-12-15	OK	screenshot view=current max_width=1280 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.5s
+2026-10-16 18:39:52	2026-12-15	OK	zones_at x=3540.0 z=2150.0 radius=120.0  -> 0.0s
+2026-10-16 18:39:52	2026-12-15	OK	list_building_types service=Electricity  -> 0.0s
+2026-10-16 18:39:52	2026-12-15	OK	economy_breakdown  -> 0.0s
+2026-10-16 18:39:57	2026-12-15	OK	buildings_near x=3450.0 z=2150.0 radius=250.0 limit=80  -> 0.0s
+2026-10-16 18:40:32	2026-12-15	DO	風力の2基目を置く(公約2)
+2026-10-16 18:40:32	2026-12-15	WHY	電気の使用5,872/容量6,240で94%。工場が増えると停電する。容量を約12,000にし、来ない市民0を保つ
+2026-10-16 18:40:35	2026-12-15	OK	place_building prefab=Wind Turbine x=3112.0 z=2290.0 angle=90.0 pay=true  -> 0.3s cost=6000
+2026-10-16 18:40:38	2026-12-15	OK	buildings_near x=3112.0 z=2290.0 radius=30.0 limit=50  -> 0.0s
+2026-10-16 18:40:41	2026-12-15	DO	工業の区画を足す(公約1)
+2026-10-16 18:40:41	2026-12-15	WHY	工業の需要66で、今の工業区画は埋まった。工場の南に道を延ばして工業にし、働き口を増やして住宅の需要を戻す
+2026-10-16 18:40:41	2026-12-15	OK	build_line prefab=Basic Road points=[[3450.0, 2030.0], [3585.0, 2030.0]] frames=0 gif_name=null pay=true follow=false size=2500  -> 0.0s cost=720
+2026-10-16 18:40:44	2026-12-15	OK	zone_area x=3532.0 z=2030.0 radius=60.0 type=industrial  -> 0.0s
+2026-10-16 18:40:47	2026-12-15	OK	zones_at x=3520.0 z=2030.0 radius=80.0  -> 0.0s
+2026-10-16 18:40:47	2026-12-15	OK	move_camera x=3400.0 z=2150.0 size=1000.0 pitch=90.0 yaw=null  -> 0.0s
+2026-10-16 18:40:50	2026-12-15	OK	screenshot view=current max_width=1280 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.5s
+2026-10-16 18:41:01	2026-12-15	OK	advance days=10 speed=3 max_seconds=600  -> 26.7s
+2026-10-16 18:41:30	2026-12-25	OK	city_info  -> 0.0s
+2026-10-16 18:41:30	2026-12-25	OK	events  -> 0.0s
+2026-10-16 18:41:30	2026-12-25	OK	services  -> 0.0s
+2026-10-16 18:41:38	2026-12-25	OK	advance days=10 speed=3 max_seconds=600  -> 24.4s
+2026-10-16 18:42:04	2027-01-04	OK	city_info  -> 0.0s
+2026-10-16 18:42:04	2027-01-04	OK	events  -> 0.0s
+2026-10-16 18:42:12	2027-01-04	OK	advance days=10 speed=3 max_seconds=600  -> 24.3s
+2026-10-16 18:42:40	2027-01-14	OK	advance days=1 speed=3 max_seconds=600  -> 3.1s
+2026-10-16 18:42:46	2027-01-15	OK	city_info  -> 0.0s
+2026-10-16 18:42:46	2027-01-15	OK	citizens_summary  -> 0.0s
+2026-10-16 18:42:47	2027-01-15	OK	services  -> 0.0s
+2026-10-16 18:42:47	2027-01-15	OK	complaints  -> 0.0s
+2026-10-16 18:42:47	2027-01-15	OK	events  -> 0.0s
+2026-10-16 18:42:51	2027-01-15	OK	screenshot view=current max_width=1024 save_to=/Users/takeshita/orca/workspaces/tried/ai-3-2/2026/10-15-...  -> 0.5s

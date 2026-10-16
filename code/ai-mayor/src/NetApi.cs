@@ -24,6 +24,8 @@ namespace AIMayor
             routes["/net/prefabs"] = req => HttpBridge.OnMain(Prefabs);
             routes["/net/build"] = Build;
             routes["/net/remove"] = Remove;
+            // /net/remove_all?prefab=Train%20Track  準備用。その種類の線をすべて消す。MCP の道具にはしない
+            routes["/net/remove_all"] = RemoveAll;
             routes["/bulldoze"] = req => HttpBridge.OnSimulation(() => Bulldoze(req));
             routes["/areas/unlock_all"] = req => HttpBridge.OnSimulation(UnlockAllAreas);
         }
@@ -116,6 +118,12 @@ namespace AIMayor
 
         private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay)
         {
+            return BuildOnSimulation(prefab, points, pay, null);
+        }
+
+        // fixedY を渡すと、地面の高さの代わりにその高さで点を置く(船の航路や飛行機の経路に使う)
+        internal static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY)
+        {
             var info = PrefabCollection<NetInfo>.FindLoaded(prefab);
             if (info == null)
             {
@@ -126,15 +134,119 @@ namespace AIMayor
             var sim = SimulationManager.instance;
             var terrain = TerrainManager.instance;
 
+            // 高架で引く点(3つ目の値で地面からの高さを指定)があるときは、水の上の点を外して、川を1区間でまたがせる。
+            // 水の中に橋脚が立たないようにするため
+            var elevatedInfo = fixedY == null ? AiField(info, "m_elevatedInfo") : null;
+            bool wantElevated = false;
+            foreach (var p in points)
+            {
+                wantElevated |= p.y > 0.5f;
+            }
+
+            if (wantElevated && elevatedInfo != null)
+            {
+                var kept = new List<Vector3>();
+                for (int i = 0; i < points.Count; i++)
+                {
+                    bool inner = i > 0 && i < points.Count - 1;
+                    if (inner && points[i].y > 0.5f && WaterDepth(points[i]) > 0.5f)
+                    {
+                        continue;
+                    }
+
+                    kept.Add(points[i]);
+                }
+
+                points = kept;
+            }
+
+            // 川や海を渡る区間は、橋の種類で引く(ゲームの線を引く道具と同じ)。高さを固定するとき(船・飛行機)は使わない
+            var bridge = fixedY == null ? BridgeInfo(info) : null;
+            int n = points.Count;
+            var ground = new float[n];
+            var ys = new float[n];
+            var wet = new bool[n];
+            for (int i = 0; i < n; i++)
+            {
+                ground[i] = fixedY ?? terrain.SampleRawHeightSmooth(points[i]);
+                ys[i] = ground[i];
+                wet[i] = bridge != null && WaterDepth(points[i]) > 0.5f;
+            }
+
+            var onBridge = new bool[n]; // onBridge[i]: points[i-1] から points[i] までの区間
+            int bridges = 0;
+            if (bridge != null)
+            {
+                for (int i = 1; i < n; i++)
+                {
+                    onBridge[i] = wet[i - 1] || wet[i] || CrossesWater(points[i - 1], points[i]);
+                    if (onBridge[i])
+                    {
+                        bridges++;
+                    }
+                }
+
+                // 水の上の点は、前後のいちばん近い岸の高さと、水面 + 3m の高い方まで持ち上げる
+                for (int i = 0; i < n; i++)
+                {
+                    if (!wet[i])
+                    {
+                        continue;
+                    }
+
+                    float left = ground[0], right = ground[n - 1];
+                    for (int k = i - 1; k >= 0; k--)
+                    {
+                        if (!wet[k]) { left = ground[k]; break; }
+                    }
+
+                    for (int k = i + 1; k < n; k++)
+                    {
+                        if (!wet[k]) { right = ground[k]; break; }
+                    }
+
+                    float water = terrain.SampleRawHeightSmoothWithWater(points[i], false, 0f);
+                    ys[i] = Mathf.Max(Mathf.Max(left, right), water + 3f);
+                }
+            }
+
+            // 高架の点は、指定の高さまで持ち上げる。高架の区間は高架の種類で引く(水の上でも、橋ではなく高架にする)
+            var useElevated = new bool[n];
+            if (wantElevated && elevatedInfo != null)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    if (points[i].y > 0.5f)
+                    {
+                        ys[i] = Mathf.Max(ys[i], ground[i] + points[i].y);
+                    }
+                }
+
+                for (int i = 1; i < n; i++)
+                {
+                    if (points[i - 1].y > 0.5f || points[i].y > 0.5f)
+                    {
+                        useElevated[i] = true;
+                        if (onBridge[i])
+                        {
+                            onBridge[i] = false;
+                            bridges--;
+                        }
+                    }
+                }
+            }
+
             // 先に建設費の合計を計算し、足りるときだけ建てる(途中で止まって中途半端にならないように)
             int cost = 0;
-            for (int i = 1; i < points.Count; i++)
+            for (int i = 1; i < n; i++)
             {
                 var a = points[i - 1];
                 var b = points[i];
-                a.y = terrain.SampleRawHeightSmooth(a);
-                b.y = terrain.SampleRawHeightSmooth(b);
-                cost += info.m_netAI.GetConstructionCost(a, b, a.y, b.y);
+                a.y = ys[i - 1];
+                b.y = ys[i];
+                var segInfo = onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info;
+                // 橋の費用は、地面からの高さで増える
+                cost += segInfo.m_netAI.GetConstructionCost(a, b, ys[i - 1] - ground[i - 1], ys[i] - ground[i]);
             }
 
             if (pay)
@@ -156,7 +268,7 @@ namespace AIMayor
             for (int i = 0; i < points.Count; i++)
             {
                 var pos = points[i];
-                pos.y = terrain.SampleRawHeightSmooth(pos);
+                pos.y = ys[i];
 
                 ushort node = 0;
                 if (i == 0 || i == points.Count - 1)
@@ -188,9 +300,18 @@ namespace AIMayor
 
                 if (node == 0)
                 {
-                    if (!nm.CreateNode(out node, ref rnd, info, pos, sim.m_currentBuildIndex))
+                    bool raised = ys[i] - ground[i] > 0.5f;
+                    var nodeInfo = wet[i] && bridge != null && !wantElevated ? bridge : raised && elevatedInfo != null ? elevatedInfo : info;
+                    if (!nm.CreateNode(out node, ref rnd, nodeInfo, pos, sim.m_currentBuildIndex))
                     {
                         return HttpBridge.Error("CreateNode failed at point " + i);
+                    }
+
+                    if (raised)
+                    {
+                        // 水の上の点: 地面からの高さを覚えさせる(橋脚はゲームが置く)
+                        nm.m_nodes.m_buffer[node].m_elevation = (byte)Mathf.Clamp(Mathf.RoundToInt(ys[i] - ground[i]), 1, 255);
+                        nm.m_nodes.m_buffer[node].m_flags &= ~NetNode.Flags.OnGround;
                     }
 
                     sim.m_currentBuildIndex++;
@@ -203,7 +324,7 @@ namespace AIMayor
                     dir.y = 0f;
                     dir.Normalize();
                     ushort seg;
-                    if (!nm.CreateSegment(out seg, ref rnd, info, prevNode, node, dir, -dir,
+                    if (!nm.CreateSegment(out seg, ref rnd, onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info, prevNode, node, dir, -dir,
                             sim.m_currentBuildIndex, sim.m_currentBuildIndex, false))
                     {
                         return HttpBridge.Error("CreateSegment failed at point " + i);
@@ -218,11 +339,73 @@ namespace AIMayor
             }
 
             return "{\"ok\":true,\"prefab\":" + Json.Str(prefab) + ",\"nodes\":" + nodes + ",\"segments\":" + segments
-                + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + "}";
+                + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"bridgeSegments\":" + bridges
+                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + "}";
+        }
+
+        // 橋の種類(道路と線路の AI が m_bridgeInfo に持つ)。なければ null
+        private static NetInfo BridgeInfo(NetInfo info)
+        {
+            return AiField(info, "m_bridgeInfo");
+        }
+
+        // 道路と線路の AI が持つ、別の種類への参照(m_bridgeInfo、m_elevatedInfo など)。なければ null
+        private static NetInfo AiField(NetInfo info, string name)
+        {
+            var field = info.m_netAI.GetType().GetField(name);
+            return field != null ? field.GetValue(info.m_netAI) as NetInfo : null;
+        }
+
+        private static float WaterDepth(Vector3 p)
+        {
+            var t = TerrainManager.instance;
+            return t.SampleRawHeightSmoothWithWater(p, false, 0f) - t.SampleRawHeightSmooth(p);
+        }
+
+        // 区間の途中に水があるか(8mおきに調べる)。点の間に細い川があっても見落とさないため
+        private static bool CrossesWater(Vector3 a, Vector3 b)
+        {
+            int steps = Mathf.Max(1, Mathf.CeilToInt(Vector3.Distance(a, b) / 8f));
+            for (int k = 1; k < steps; k++)
+            {
+                if (WaterDepth(Vector3.Lerp(a, b, (float)k / steps)) > 0.5f)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         // POST /net/remove?prefab=Train%20Track&tolerance=20  本文: "x1,z1;x2,z2;..."
         // 座標の並び(線)に沿った区間を消す。区間の両端が線から tolerance 以内のものが対象。prefab を省くと種類を問わない。
+        // 出発点の街を作り直すための準備用。人が curl で呼ぶ。払い戻しはない
+        private static string RemoveAll(HttpListenerRequest req)
+        {
+            string prefab = req.QueryString["prefab"];
+            if (string.IsNullOrEmpty(prefab))
+            {
+                return HttpBridge.Error("prefab is required");
+            }
+
+            return HttpBridge.OnSimulation(() =>
+            {
+                var nm = NetManager.instance;
+                var segs = nm.m_segments.m_buffer;
+                int removed = 0;
+                for (int i = 1; i < segs.Length; i++)
+                {
+                    if ((segs[i].m_flags & NetSegment.Flags.Created) != 0 && segs[i].Info != null && segs[i].Info.name == prefab)
+                    {
+                        nm.ReleaseSegment((ushort)i, false);
+                        removed++;
+                    }
+                }
+
+                return "{\"ok\":true,\"prefab\":" + Json.Str(prefab) + ",\"removedSegments\":" + removed + "}";
+            });
+        }
+
         private static string Remove(HttpListenerRequest req)
         {
             string prefab = req.QueryString["prefab"];
@@ -442,7 +625,7 @@ namespace AIMayor
         }
 
         // 近くにある、同じ種類の既存の点を探す
-        private static ushort FindNode(Vector3 pos, NetInfo info)
+        internal static ushort FindNode(Vector3 pos, NetInfo info)
         {
             var buf = NetManager.instance.m_nodes.m_buffer;
             ushort best = 0;
@@ -467,14 +650,16 @@ namespace AIMayor
             return best;
         }
 
-        private static List<Vector3> Parse(string body)
+        internal static List<Vector3> Parse(string body)
         {
             var list = new List<Vector3>();
             foreach (var part in body.Split(new[] { ';', '\n' }, StringSplitOptions.RemoveEmptyEntries))
             {
+                // "x,z" または "x,z,地面からの高さ"。高さは y に入れて運ぶ(高架で引くときに使う)
                 var xy = part.Split(',');
                 list.Add(new Vector3(
-                    float.Parse(xy[0].Trim(), CultureInfo.InvariantCulture), 0f,
+                    float.Parse(xy[0].Trim(), CultureInfo.InvariantCulture),
+                    xy.Length > 2 ? float.Parse(xy[2].Trim(), CultureInfo.InvariantCulture) : 0f,
                     float.Parse(xy[1].Trim(), CultureInfo.InvariantCulture)));
             }
 
@@ -482,7 +667,7 @@ namespace AIMayor
         }
 
         // 区間が MaxSegment より長ければ、間に点を足す
-        private static List<Vector3> Densify(List<Vector3> pts)
+        internal static List<Vector3> Densify(List<Vector3> pts)
         {
             var outPts = new List<Vector3>();
             for (int i = 0; i < pts.Count; i++)

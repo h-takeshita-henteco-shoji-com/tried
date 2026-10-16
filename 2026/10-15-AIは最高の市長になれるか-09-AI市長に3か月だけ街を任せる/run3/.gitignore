@@ -1,0 +1,6 @@
+# 作り直せる大きなファイル(GitHub の上限を超える、または近い)
+*.mov
+assets/voice/overlay.wav
+assets/voice/cut.wav
+# Mac の中のフォルダの場所を含む
+assets/voice/cut_list.txt

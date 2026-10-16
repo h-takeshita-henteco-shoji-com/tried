@@ -2,6 +2,9 @@
 
 範囲は中央25タイル(実寸19.2km四方)。川の再現がいちばん効く範囲に絞り、配信元への負担を抑える。
 出力: ~/.cache/ai-mayor-dem/rivers.geojson
+
+FULL=1 なら地図全体(実寸34.56km四方)を取り、rivers_full.geojson に出す。川の上流まで入れるため(#73)。
+取ったタイルは rvrcl/ に残すので、2回目からは足りない分だけを取る。
 出典: 国土地理院ベクトルタイル(河川中心線)
 """
 import json
@@ -13,7 +16,8 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 CENTER = (33.59018, 130.40987)
-HALF_M = 9600 + 500   # 中央25タイルの半辺(実寸)+余白
+FULL = os.environ.get("FULL", "0") == "1"
+HALF_M = (17280 if FULL else 9600) + 500   # 範囲の半辺(実寸)+余白
 Z = 16
 URL = "https://cyberjapandata.gsi.go.jp/xyz/experimental_rvrcl/{z}/{x}/{y}.geojson"
 OUT = os.path.expanduser("~/.cache/ai-mayor-dem")
@@ -55,7 +59,8 @@ def main():
         for d in ex.map(get, xys):
             if d:
                 feats += d["features"]
-    json.dump({"type": "FeatureCollection", "features": feats}, open(f"{OUT}/rivers.geojson", "w"), ensure_ascii=False)
+    name = "rivers_full.geojson" if FULL else "rivers.geojson"
+    json.dump({"type": "FeatureCollection", "features": feats}, open(f"{OUT}/{name}", "w"), ensure_ascii=False)
     print(f"{len(feats)} features")
 
 
