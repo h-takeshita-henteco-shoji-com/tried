@@ -27,7 +27,10 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 | `traffic` | GET `/traffic` | 交通の流れ(%)、止まっている車、混んでいる区間、車の止まっている場所 |
 | `services` | GET `/services` | サービスの充足状況(電気、水、下水、ごみ、消防、警察、医療、教育など)の不足と余り |
 | `zones_at` | GET `/zone/cells` | 指定した範囲の区画マスの指定の種類(確認用) |
-| `buildings_near` | GET `/buildings` | 指定した範囲にある建物の一覧(種類、位置、状態) |
+| `buildings_near` | GET `/buildings` | 指定した範囲にある建物の一覧(種類、位置、状態、電気・水・下水が来ているか、管のつなぎ口) |
+| `net_near` | GET `/net/near` | 指定した範囲にある道路・管・送電線の一覧(種類、両端の座標と点の番号、車線の向き) |
+| `net_reach` | GET `/net/reach` | つなぎ口から車で来られない・出られない建物と道路(#81) |
+| `zone_map` | GET `/map/data` | 区画を色分けした地図。線と建物、電気・水・下水が来ない建物も描く(#81。絵はMCP側で描く) |
 | `events` | GET `/events` | 前回から起きた出来事(つぶやき、節目、災害の警報など)。判断のきっかけに使う |
 
 ### 市民の声
@@ -36,7 +39,7 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 
 | 道具 | 窓口 | 内容 |
 |---|---|---|
-| `citizens_summary` | GET `/citizens/summary` | 市民の内訳(年齢層、学歴、豊かさ、就業・失業、健康と幸福度の平均、電気や水が来ない市民の数) |
+| `citizens_summary` | GET `/citizens/summary` | 市民の内訳(年齢層、学歴、豊かさ、就業・失業、健康と幸福度の平均、電気や水が来ない市民の数、引っ越しの途中の数) |
 | `citizen_voices` | GET `/citizens/sample` | 無作為に選んだ市民の姿(属性、仕事、住まい、困りごと)。市民の立場から考える材料 |
 | `complaints` | GET `/complaints` | 建物の困りごとの印を種類ごとに数え、多い場所を返す。苦情の地図 |
 | `events` | GET `/events` | つぶやき(市民の声)。上の「見る」と同じ |
@@ -56,7 +59,7 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 |---|---|---|
 | `unlock_all_areas` | GET `/areas/unlock_all` | 全区画を無料で解放する |
 | `build_line` | POST `/net/build` | 座標の並びに沿って線を引く(道路、線路、高速道路、水道管、送電線など)。端点は近くの点につなぎ、点がなければ既存の区間を途中で分けて交差点を作る。コマ撮りGIFも撮れる |
-| `place_building` | GET `/building/place` | 建物(サービス施設、駅、空港など)を、位置と向きを指定して置く |
+| `place_building` | GET `/building/place` | 建物(サービス施設、駅、空港など)を、位置と向きを指定して置く。入口の位置・向きと、そばの道路を返す |
 | `zone_area` | GET `/zone/area` | 円の中の区画マスを、住宅地・商業地・工業地・オフィスなどに指定する。解除もできる |
 | `remove_line` | POST `/net/remove` | 線に沿った区間を消す |
 | `bulldoze` | GET `/bulldoze` | 円の中の道路・線路と建物を取り壊す |

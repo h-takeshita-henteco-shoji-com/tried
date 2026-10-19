@@ -32,8 +32,15 @@ namespace AIMayor
             routes["/complaints"] = req => HttpBridge.OnMain(Complaints);
         }
 
-        // 住んでいる市民(観光客と亡くなった人を除く)か
+        // 住んでいる市民(観光客、亡くなった人、引っ越しの途中の人を除く)か。
+        // ゲームの人口も引っ越しの途中の人を数えない(Citizen.GetCitizenHomeBehaviour)ので、それに合わせる
         private static bool IsResident(ref Citizen c)
+        {
+            return HasHome(ref c) && (c.m_flags & Citizen.Flags.MovingIn) == 0;
+        }
+
+        // 家が決まっている市民(引っ越しの途中を含む)か
+        private static bool HasHome(ref Citizen c)
         {
             return (c.m_flags & Citizen.Flags.Created) != 0 && (c.m_flags & (Citizen.Flags.Tourist | Citizen.Flags.Dead)) == 0
                 && c.m_homeBuilding != 0;
@@ -53,8 +60,19 @@ namespace AIMayor
                 { "noElectricity", 0 }, { "noWater", 0 }, { "noSewage", 0 }, { "badHealth", 0 }, { "longUnemployed", 0 },
             };
 
+            // 引っ越しの途中の人。つなぎ口から家までの道順が見つかると、印が外れて人口に入る(HumanAI.PathfindSuccess)
+            int movingIn = 0, movingInTraveling = 0;
             for (int i = 1; i < buf.Length; i++)
             {
+                if (HasHome(ref buf[i]) && (buf[i].m_flags & Citizen.Flags.MovingIn) != 0)
+                {
+                    movingIn++;
+                    if (buf[i].m_instance != 0 || buf[i].m_vehicle != 0)
+                    {
+                        movingInTraveling++;
+                    }
+                }
+
                 if (!IsResident(ref buf[i]))
                 {
                     continue;
@@ -94,6 +112,7 @@ namespace AIMayor
             }
 
             var sb = new StringBuilder("{\"ok\":true,\"residents\":").Append(total);
+            sb.Append(",\"movingIn\":{\"total\":").Append(movingIn).Append(",\"traveling\":").Append(movingInTraveling).Append('}');
             sb.Append(",\"age\":{\"child\":").Append(age[0]).Append(",\"teen\":").Append(age[1]).Append(",\"young\":").Append(age[2])
               .Append(",\"adult\":").Append(age[3]).Append(",\"senior\":").Append(age[4]).Append('}');
             sb.Append(",\"education\":{\"uneducated\":").Append(edu[0]).Append(",\"elementary\":").Append(edu[1])

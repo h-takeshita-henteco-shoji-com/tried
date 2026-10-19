@@ -1,0 +1,668 @@
+[
+ {
+  "no": 1,
+  "title": "3回目のはじまり(00:00〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、また、あたらしい市長が来たの?",
+    "pauseBefore": false,
+    "file": "s01_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。そうなんだよ。今日は、これで3回目のはじまりなんだ。",
+    "pauseBefore": false,
+    "file": "s01_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "前の2回はね、途中で人が止めたんだよ。市長は、AIの市長がゲームを動かすためのMODを使ってるんだ。そのMODに足りないところがあって、直してたんだよ。",
+    "pauseBefore": false,
+    "file": "s01_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、もっど? もっと、がんばれってこと?",
+    "pauseBefore": false,
+    "file": "s01_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "似てるねぇ。でもMODは、ゲームに足す部品のことなんだ。道がつながってるか確かめるしくみとか、色分けした地図とかを、新しく足したんだよ。",
+    "pauseBefore": false,
+    "file": "s01_04_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "今度は1年、12か月任せるんだ。最後まで、いっしょに見ていこうか。",
+    "pauseBefore": false,
+    "file": "s01_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 2,
+  "title": "道をつなぎ直す(00:12〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、道がマス目になってるよ。あみだくじなの?",
+    "pauseBefore": false,
+    "file": "s02_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "あみだくじに見えるよねぇ。これは家を建てるための道なんだ。自動車道に、北行きの出口と入口もつけたんだよ。",
+    "pauseBefore": false,
+    "file": "s02_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "1本だけ、交差点でつながってない道があったんだ。市長は、MODでつながりを確かめて気づいて、引き直したんだよ。",
+    "pauseBefore": false,
+    "file": "s02_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、まちがえたら、おこられるの?",
+    "pauseBefore": false,
+    "file": "s02_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。1,920のお金が、むだになっちゃったけどね。気づいて直せたのは、よかったねぇ。",
+    "pauseBefore": false,
+    "file": "s02_04_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "1回目のときは、つながってないことに2か月気づけなかったんだ。MODひとつで、ずいぶん変わるんだねぇ。",
+    "pauseBefore": false,
+    "file": "s02_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 3,
+  "title": "水を取る所にも電気(00:38〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、川から水をもらうの? 川は、いいよって言ったの?",
+    "pauseBefore": false,
+    "file": "s03_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "ふふ、川は何も言わないんだよ。上の方で水をくんで、下の方に使った水を流すんだ。",
+    "pauseBefore": false,
+    "file": "s03_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "置いてから、市長は気づいたんだよ。水をくむ機械にも、電気がいるってことに。",
+    "pauseBefore": false,
+    "file": "s03_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "それで、送電線を足したんだ。置いて終わりにしないで、見直してくれたねぇ。",
+    "pauseBefore": false,
+    "file": "s03_03_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 4,
+  "title": "お金が減っていく(01:41〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、お金が、へってるよ。市長は、だいじょうぶ?",
+    "pauseBefore": false,
+    "file": "s04_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。いまは家を建てたばかりでね、まだ税金が少ないんだ。週の収支が、マイナス823になっちゃったんだよ。",
+    "pauseBefore": false,
+    "file": "s04_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "でも市長は、水を作りすぎてるのを見つけたんだ。作れる量の、ほんの少ししか使ってなかったんだよ。",
+    "pauseBefore": false,
+    "file": "s04_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "だから水道のお金を、少しだけ減らした。数字を見てから削ったんだねぇ。",
+    "pauseBefore": false,
+    "file": "s04_03_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 5,
+  "title": "働く場所がない(02:44〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、136人も、おやすみしてるの?",
+    "pauseBefore": false,
+    "file": "s05_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "おやすみしたくて、してるんじゃないんだよ。働く場所が、16人分しかなかったんだ。",
+    "pauseBefore": false,
+    "file": "s05_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "それで市長は、南に工場の場所を作ったんだよ。",
+    "pauseBefore": false,
+    "file": "s05_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、みんな、はたらけた?",
+    "pauseBefore": false,
+    "file": "s05_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "うん。働き口は184になったんだ。お金も、12月のはじめには黒字に戻ったんだよ。よかったねぇ。",
+    "pauseBefore": false,
+    "file": "s05_04_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 6,
+  "title": "まだ使えない建物(04:42〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、ごみを、うめるの? ぬめも、うめられちゃう?",
+    "pauseBefore": false,
+    "file": "s06_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。ぬめは埋めないよ、だいじょうぶ。街のごみを、ここに集めて埋めるんだ。",
+    "pauseBefore": false,
+    "file": "s06_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "困った印が出る前に、先に用意したんだよ。それは、いい考えだねぇ。",
+    "pauseBefore": false,
+    "file": "s06_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "ただね、この埋立地は、まだ使えない建物だったんだ。人口が460になると使えるようになるんだよ。",
+    "pauseBefore": false,
+    "file": "s06_03_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "MODが、使えない建物も置けちゃったんだ。だから市長のせいじゃないんだよ。人も、そのまま残すって決めたんだ。",
+    "pauseBefore": false,
+    "file": "s06_04_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 7,
+  "title": "はじめての節目(06:12〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、おめでとうって、出てるよ。だれの、おたんじょうび?",
+    "pauseBefore": false,
+    "file": "s07_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "似てるねぇ。街の人が460人になった、お祝いなんだよ。",
+    "pauseBefore": false,
+    "file": "s07_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "お祝いに、お金も約21,000もらえたんだ。",
+    "pauseBefore": false,
+    "file": "s07_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、市長は、よろこんでる?",
+    "pauseBefore": false,
+    "file": "s07_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。この知らせが出ると、市長は止まって、人に「閉じていい?」って聞くんだよ。ボタンを押すしくみは、MODにまだないんだ。",
+    "pauseBefore": false,
+    "file": "s07_04_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 8,
+  "title": "言われなくても学校(08:00〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、こどもが、86人もいるよ。どこで、あそんでるの?",
+    "pauseBefore": false,
+    "file": "s08_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。遊んでるかもしれないねぇ。学校が、まだ1つもなかったんだ。",
+    "pauseBefore": false,
+    "file": "s08_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "市長との約束に、学校のことは入ってないんだよ。人口と、電気や水と、お金のことだけなんだ。",
+    "pauseBefore": false,
+    "file": "s08_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "それでも市長は、子どもの数を見て、自分から小学校を建てたんだ。",
+    "pauseBefore": false,
+    "file": "s08_03_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、ぬめも、ほめていい?",
+    "pauseBefore": false,
+    "file": "s08_04_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "もちろんだよ。前の市長は、約束にないことには手を出さなかったんだ。いっしょに、ほめてあげよう。",
+    "pauseBefore": false,
+    "file": "s08_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 9,
+  "title": "1日だけ進めて確かめる(11:38〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、いま、ちょっとだけ、じかんが進んだよ?",
+    "pauseBefore": false,
+    "file": "s09_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "よく見てたねぇ。1日だけ進めたんだよ。",
+    "pauseBefore": false,
+    "file": "s09_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "水道管を引いたら、前からある家の8軒で、水が来てないって出たんだ。",
+    "pauseBefore": false,
+    "file": "s09_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "市長は、それをすぐ確かめたかったんだねぇ。1日たったら、ちゃんと戻ってたんだよ。",
+    "pauseBefore": false,
+    "file": "s09_03_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、よかったね。",
+    "pauseBefore": false,
+    "file": "s09_04_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "うん、よかった。約束の「水が来ない人をなくす」を、大事にしてるんだねぇ。",
+    "pauseBefore": false,
+    "file": "s09_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 10,
+  "title": "保存が終わらない(12:38〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、くるくるが、ずっと回ってるよ。めが、まわらない?",
+    "pauseBefore": false,
+    "file": "s10_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。あれはね、街を保存してる印なんだ。それが、終わらなくなっちゃったんだよ。",
+    "pauseBefore": false,
+    "file": "s10_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "保存が終わるまで、市長は建物を置けなかったんだ。",
+    "pauseBefore": false,
+    "file": "s10_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、市長は、どうしたの?",
+    "pauseBefore": false,
+    "file": "s10_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "市長は、無理に続けないで、止まって人に知らせたんだよ。人がゲームの時間を少し進めたら、保存は終わったんだ。",
+    "pauseBefore": false,
+    "file": "s10_04_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "なんで止まったのかは、まだ分かってないんだよ。MODの側の宿題だねぇ。",
+    "pauseBefore": false,
+    "file": "s10_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 11,
+  "title": "診療所がふたつ(14:24〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、びょうきの人が、34人だって。ぬめが、なめてあげたら、なおる?",
+    "pauseBefore": false,
+    "file": "s11_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。ぬめはやさしいねぇ。でも、なめても治らないんだ。だから市長は、診療所を建てようとしたんだよ。",
+    "pauseBefore": false,
+    "file": "s11_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "でもね、さっきの保存のせいで、建てるときにMODが「間に合わなかった」って返したんだ。市長は、もう1回やってみたんだよ。",
+    "pauseBefore": false,
+    "file": "s11_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "ほんとうは、2回とも、あとから建ってたんだ。同じ場所に、診療所がふたつ。",
+    "pauseBefore": false,
+    "file": "s11_03_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、ふたごなの?",
+    "pauseBefore": false,
+    "file": "s11_04_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "ふたごみたいだねぇ。MODが、失敗って言ったのに、あとで動いちゃったんだ。市長のせいじゃないんだよ。",
+    "pauseBefore": false,
+    "file": "s11_05_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "人は、ふたつとも残すって決めたんだ。採点のときに、そのことを書き添えるんだよ。",
+    "pauseBefore": false,
+    "file": "s11_06_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 12,
+  "title": "1,000人(16:27〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、まちが、おおきくなったね。",
+    "pauseBefore": false,
+    "file": "s12_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "そうだねぇ。この月で、住む人が1,000人を超えたんだよ。",
+    "pauseBefore": false,
+    "file": "s12_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "半年前は、ここ、ただの野原だったんだ。",
+    "pauseBefore": false,
+    "file": "s12_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、ぬめ、ここに、すめる?",
+    "pauseBefore": false,
+    "file": "s12_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。ぬめの家は、もう少し湿ったところがいいかもしれないねぇ。",
+    "pauseBefore": false,
+    "file": "s12_04_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 13,
+  "title": "高い買い物(20:09〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、けむりの、たんちき? けむりを、さがすの?",
+    "pauseBefore": false,
+    "file": "s13_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "そうなんだよ。家に火事を知らせる機械を配るんだ。火事の印が4つ出てたからね。",
+    "pauseBefore": false,
+    "file": "s13_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "消防署は高くて、今月は建てられなかったんだ。だから、代わりにこれを選んだんだよ。",
+    "pauseBefore": false,
+    "file": "s13_02_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "市長は、週に200もかからないって読んでたんだ。でも本当は、週に1,700くらいかかったんだよ。",
+    "pauseBefore": false,
+    "file": "s13_03_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、はちばいも?",
+    "pauseBefore": false,
+    "file": "s13_04_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。そうなんだよ。政策にいくらかかるか、前もって教えるしくみが、MODになかったんだ。読めなくても、しかたなかったんだねぇ。",
+    "pauseBefore": false,
+    "file": "s13_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 14,
+  "title": "警察と消防(24:27〜、26:15〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、わるい人が、ふえてるの?",
+    "pauseBefore": false,
+    "file": "s14_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。犯罪率が34まで上がってたんだ。警察が、まだなかったんだよ。",
+    "pauseBefore": false,
+    "file": "s14_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "警察署を建てたら、10日で11に下がったんだ。次の月には6まで下がったんだよ。",
+    "pauseBefore": false,
+    "file": "s14_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、こんどは、しょうぼうしょ?",
+    "pauseBefore": false,
+    "file": "s14_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "うん。お金がたまったから、消防署を建てて、あの高い政策をやめたんだよ。",
+    "pauseBefore": false,
+    "file": "s14_04_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "支出が、週に1,379も減ったんだ。市長の読みは「約1,300減る」で、ぴったりだったねぇ。",
+    "pauseBefore": false,
+    "file": "s14_05_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、市長、まちがえたのを、なおしたんだね。",
+    "pauseBefore": false,
+    "file": "s14_06_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "そうなんだよ。外れたら、次の月にちゃんと直す。それができる市長なんだねぇ。",
+    "pauseBefore": false,
+    "file": "s14_07_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 15,
+  "title": "最後の月の水(28:10〜)",
+  "lines": [
+   {
+    "speaker": "ぬめ",
+    "text": "どん、おうちが、こげてるよ……。",
+    "pauseBefore": false,
+    "file": "s15_00_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。火事の印だと思ってたのは、焼けたあとの家だったんだ。市長は、それを片づけて、新しい家が建てられるようにしたんだよ。",
+    "pauseBefore": false,
+    "file": "s15_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "それから、西に住宅地を広げたんだ。人口は1,801になったんだよ。",
+    "pauseBefore": false,
+    "file": "s15_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、みんな、おみず、のめてる?",
+    "pauseBefore": false,
+    "file": "s15_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……そこなんだよ。最後の日に、北西の家で、水が切れちゃったんだ。6人に、水が届かなかったんだよ。",
+    "pauseBefore": false,
+    "file": "s15_04_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "西の住宅地を、同じ水道管につないだからかもしれないって、市長は書いてたんだ。でも、確かめる前に任期が終わっちゃったんだよ。",
+    "pauseBefore": false,
+    "file": "s15_05_don.wav"
+   }
+  ]
+ },
+ {
+  "no": 16,
+  "title": "採点(29:50〜)",
+  "lines": [
+   {
+    "speaker": "どん",
+    "text": "住む人は、毎月ちゃんと増えたんだ。0人から、1,801人になったんだよ。",
+    "pauseBefore": false,
+    "file": "s16_00_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "赤字は最初の1回だけ。そのあとは、11回つづけて黒字だったんだ。",
+    "pauseBefore": false,
+    "file": "s16_01_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "でもね、「水が来ない人をなくす」約束は、最後の日に6人残っちゃったんだ。約束は、3つのうち2つ守ったんだよ。",
+    "pauseBefore": false,
+    "file": "s16_02_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、ろくにんは、のどが、かわいてる?",
+    "pauseBefore": false,
+    "file": "s16_03_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。かわいてるかもしれないねぇ。次の市長への申し送りに、直し方を書いてくれてたんだ。",
+    "pauseBefore": false,
+    "file": "s16_04_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "約束にない学校や診療所、警察や消防も、自分から建てたんだ。前の市長より、街の人をよく見てたねぇ。",
+    "pauseBefore": false,
+    "file": "s16_05_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "どん、はなまる?",
+    "pauseBefore": false,
+    "file": "s16_06_nume.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "……んー。まるに、ちいさい葉っぱをつけようか。はなは、水が届いたら咲かせようねぇ。",
+    "pauseBefore": false,
+    "file": "s16_07_don.wav"
+   },
+   {
+    "speaker": "どん",
+    "text": "12か月、おつかれさまだったねぇ。",
+    "pauseBefore": false,
+    "file": "s16_08_don.wav"
+   },
+   {
+    "speaker": "ぬめ",
+    "text": "……んしょ。",
+    "pauseBefore": false,
+    "file": "s16_09_nume.wav"
+   }
+  ]
+ }
+]
