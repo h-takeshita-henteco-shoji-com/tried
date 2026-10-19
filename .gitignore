@@ -1,1 +1,7 @@
 .DS_Store
+
+# 録画の動画は大きいので置かない(#81)。記事用の短い動画は GIF にする
+*.mov
+*.mp4
+# 動画に重ねるためにつないだ声。overlay.py で作り直せる(#81)
+**/voice/overlay/voice.wav

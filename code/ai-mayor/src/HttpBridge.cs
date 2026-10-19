@@ -44,6 +44,8 @@ namespace AIMayor
             DialogWatch.Register(routes);
             SaveApi.Register(routes);
             TrafficApi.Register(routes);
+            NetworkApi.Register(routes);
+            MapApi.Register(routes);
 
             listener = new HttpListener();
             listener.Prefixes.Add(Prefix);

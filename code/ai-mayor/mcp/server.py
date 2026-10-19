@@ -11,6 +11,7 @@ import inspect
 import io
 import itertools
 import json
+import math
 import os
 import time
 import urllib.error
@@ -19,6 +20,7 @@ import urllib.request
 
 from mcp.server.mcpserver import Image, MCPServer
 from PIL import Image as PILImage
+from PIL import ImageDraw
 
 BASE = os.environ.get("AIMAYOR_URL", "http://127.0.0.1:8781")
 
@@ -194,6 +196,110 @@ def traffic(x: float | None = None, z: float | None = None, radius: float = 500,
 
 
 @tool()
+def net_near(x: float, z: float, radius: float = 200, service: str | None = None, limit: int = 50) -> dict:
+    """円の中の線(道路・水道管・送電線など)の一覧。管や道路をつなぐ前に、既存の線の位置を確かめる。
+    service: "Road" / "Water" / "Electricity" などで絞る。省くと全部。
+    segments: 区間ごとに segment、prefab、service、start と end(点の番号 node と x, z)、length。
+    node が同じ区間どうしはつながっている。build_line の端をその点の座標に合わせると、そこにつながる。
+    道路には carLanes(startToEnd / endToStart: その向きに車が走れる車線の数)。片方が0なら一方通行(高速道路など)。"""
+    return call("/net/near", timeout=30, x=x, z=z, radius=radius, service=service, limit=limit)
+
+
+@tool()
+def net_reach(x: float | None = None, z: float | None = None, radius: float = 500, limit: int = 10) -> dict:
+    """外の街から車で来られるかを確かめる。つなぎ口から道路を一方通行の向きどおりにたどる。
+    引っ越してくる人は、つなぎ口から家まで車で来られないと着かず、人口に入らない(citizens_summary の movingIn が減らない)。
+    x, z, radius を渡すとその円の中だけ、省くと街全体。
+    roads: 道路の区間の数、つなぎ口から入れない数(notEnterable)、つなぎ口へ出られない数(notLeavable)。
+    buildings: 建物の数、道路に面していない数(noRoad)、来られない数(notReachable)、出られない数(cannotLeave)。
+    noRoad には、風力発電や給水塔など道路の要らない建物も入る。住宅・商業・工業が noRoad なら道路を確かめる。
+    badBuildings / badSegments: 問題のある建物と区間(位置つき)。
+    交差点で曲がれる向きは見ないので、ゲームより甘い。ここで問題があれば、ゲームでも来られない。"""
+    return call("/net/reach", timeout=60, x=x, z=z, radius=radius if x is not None else None, limit=limit)
+
+
+# 区画の地図の色(区画の種類ごと)。建物が建ったマスは濃く、空いたマスは薄く塗る
+ZONE_COLORS = {
+    "RL": ((60, 170, 60), (170, 225, 170)), "RH": ((20, 110, 20), (130, 190, 130)),
+    "CL": ((50, 110, 220), (170, 195, 245)), "CH": ((20, 50, 160), (130, 150, 215)),
+    "I": ((215, 170, 20), (245, 225, 150)), "O": ((20, 170, 190), (150, 220, 230)),
+    "U": ((205, 205, 205), (232, 232, 232)),
+}
+LINE_STYLES = {"Road": ((70, 70, 70), 3), "Water": ((30, 120, 255), 1), "Electricity": ((255, 120, 0), 1)}
+
+
+@tool()
+def zone_map(x: float, z: float, radius: float = 500, size: int = 900, save_to: str | None = None) -> Image:
+    """区画を色分けした地図を、真上から北を上にして描いて返す。画面写真には区画の色が出ないので、これで見る。
+    x, z: 地図の中心。radius: 中心から端までの距離(m、50〜2000)。size: 画像の一辺(画素)。
+    区画の色: 低密度住宅=緑、高密度住宅=濃い緑、低密度商業=青、高密度商業=紺、工業=黄、オフィス=水色、
+    未指定(区画にできるマス)=灰。建物が建ったマスは濃く、空いたマスは薄い。
+    線: 道路=濃い灰(太い)、水道管=青、送電線=橙。建物=黒い枠。電気・水・下水のどれかが来ていない建物は赤い枠。
+    100mごとに細い格子線と座標の数字を描く。
+    save_to: 同じ画像を JPEG で保存するファイルの絶対パス。省くと保存しない。"""
+    d = call("/map/data", timeout=60, x=x, z=z, radius=radius)
+    if not d.get("ok"):
+        raise RuntimeError(d.get("error"))
+    r = d["radius"]
+    cx, cz = d["x"], d["z"]
+    scale = size / (2 * r)
+
+    def px(wx, wz):
+        return ((wx - cx + r) * scale, (cz - wz + r) * scale)
+
+    img = PILImage.new("RGB", (size, size), (250, 250, 245))
+    draw = ImageDraw.Draw(img)
+
+    # 100mごとの格子と座標
+    step = 100 if r <= 1000 else 500
+    for g in range(int((cx - r) // step) * step, int(cx + r) + step, step):
+        gx, _ = px(g, cz)
+        draw.line([(gx, 0), (gx, size)], fill=(225, 225, 225))
+        draw.text((gx + 2, 2), str(g), fill=(150, 150, 150))
+    for g in range(int((cz - r) // step) * step, int(cz + r) + step, step):
+        _, gz = px(cx, g)
+        draw.line([(0, gz), (size, gz)], fill=(225, 225, 225))
+        draw.text((2, gz + 2), str(g), fill=(150, 150, 150))
+
+    half = 4 * scale
+    for cxw, czw, code, occupied in d["cells"]:
+        color = ZONE_COLORS.get(code, ZONE_COLORS["U"])[0 if occupied else 1]
+        p = px(cxw, czw)
+        draw.rectangle([p[0] - half, p[1] - half, p[0] + half, p[1] + half], fill=color)
+
+    for ax, az, mx, mz, bx, bz, service, raised in d["lines"]:
+        color, width = LINE_STYLES.get(service, ((150, 150, 150), 1))
+        if service == "Road":
+            width = max(2, round(8 * scale))
+        draw.line([px(ax, az), px(mx, mz), px(bx, bz)], fill=color, width=width)
+
+    for bxw, bzw, w, l, angle, service, e, wtr, sew in d["buildings"]:
+        cos, sin = math.cos(angle), math.sin(angle)
+        corners = []
+        for rx, fz in ((-w / 2, -l / 2), (w / 2, -l / 2), (w / 2, l / 2), (-w / 2, l / 2)):
+            corners.append(px(bxw + rx * cos - fz * sin, bzw + rx * sin + fz * cos))
+        ok = e and wtr and sew
+        draw.polygon(corners, outline=(0, 0, 0) if ok else (230, 0, 0), width=1 if ok else 3)
+
+    # 凡例
+    legend = [("RL", "res low"), ("RH", "res high"), ("CL", "com low"), ("CH", "com high"), ("I", "industry"),
+              ("O", "office"), ("U", "unzoned")]
+    for i, (code, label) in enumerate(legend):
+        y = size - 14 * (len(legend) - i) - 4
+        draw.rectangle([4, y, 14, y + 10], fill=ZONE_COLORS[code][0])
+        draw.text((18, y - 1), label, fill=(40, 40, 40))
+    draw.text((size - 60, 4), "N up", fill=(40, 40, 40))
+
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG", quality=85)
+    if save_to:
+        os.makedirs(os.path.dirname(save_to), exist_ok=True)
+        with open(save_to, "wb") as f:
+            f.write(buf.getvalue())
+    return Image(data=buf.getvalue(), format="jpeg")
+
+
+@tool()
 def height_at(x: float, z: float) -> dict:
     """指定した場所の地面の高さと、水面を含めた高さを返す(ゲーム上のm。海面は約40m)。"""
     return call("/height", x=x, z=z)
@@ -258,7 +364,12 @@ def build_line(prefab: str, points: list[list[float]], frames: int = 0, gif_name
     pay: True(既定)なら、ゲームの道具と同じく建設費を予算から差し引く。足りなければ建てずに断る。
     人が置く骨格(#69)だけ False にする。
     follow: True なら、区間を引くたびにカメラをその区間の先端へ動かしてから撮る(長い線を追いかけて撮る)。
-    size: follow のときのカメラの引き。"""
+    size: follow のときのカメラの引き。
+    戻り値の snapped(既存の点につないだ数)と split(既存の区間を分けてつないだ数)が両方0なら、新しい線はどこにもつながっていない。
+    高速道路は上り・下りが別の線なので、間の中央分離帯に端を置くとつながらない。net_near で車線の位置を確かめてから引く。
+    ends: 始点と終点が何につながったか。connectedTo は "node"(既存の点)/ "split"(既存の区間を分けた)/ "none"。
+    building は、端が建物の管のつなぎ口につながったときの建物の id(なければ 0)。
+    insideBuilding は、端が敷地の中にある建物の id。送電線は端が建物の敷地に入れば電気が通る。"""
     if len(points) < 2:
         return {"ok": False, "error": "points は2点以上"}
     if frames <= 0:
@@ -402,20 +513,28 @@ def list_building_types(service: str | None = None) -> dict:
     """置ける建物(サービス施設、駅、空港など)の一覧。名前、サービス、大きさ(マス)、建設費、週の維持費。
     upkeepPerWeek は、建てたときの週の支出の増え分(予算100%のとき。予算を下げると減る)。
     service で絞れる(例: "Electricity", "Water", "Garbage", "HealthCare", "FireDepartment", "PoliceDepartment",
-    "Education", "Beautification", "PublicTransport", "Monument")。"""
+    "Education", "Beautification", "PublicTransport", "Monument")。
+    ports: 管・送電線のつなぎ口になりうる点。建物の中心から、正面(入口)を向いて右へ right m、前へ forward m。
+    置いた後の正確な位置は place_building の ports で確かめる。"""
     return call("/building/prefabs", timeout=30, service=service)
 
 
 @tool()
 def place_building(prefab: str, x: float, z: float, angle: float = 0, pay: bool = True) -> dict:
     """建物を (x, z) に置く。angle は向き(度)。正面(入口)を道路に向けること。建物は道路に面していないと働かない。
-    pay: True(既定)なら建設費を予算から払う。足りなければ置かずに断る。人が置く骨格だけ False。"""
+    pay: True(既定)なら建設費を予算から払う。足りなければ置かずに断る。人が置く骨格だけ False。
+    entrance: 置いた建物の入口の x, z、正面の向き(facing: north など / bearing: 北0・東90の度)、
+    入口から16m以内の道路(road。なければ null)。road が null なら、道路を引くか、向きを変えて置き直す。
+    ports: 管・送電線のつなぎ口の x, z と、外の線につながっているか(connected)。管はこの点に端を合わせて引く。"""
     return call("/building/place", prefab=prefab, x=x, z=z, angle=angle, pay=str(pay).lower())
 
 
 @tool()
 def buildings_near(x: float, z: float, radius: float = 200, limit: int = 50) -> dict:
-    """円の中の建物の一覧(id、種類、サービス、位置、放棄されたか、困りごとの印)。total は円の中の総数。"""
+    """円の中の建物の一覧(id、種類、サービス、位置、放棄されたか、困りごとの印)。total は円の中の総数。
+    grid: 建物の場所に電気・水・下水が来ているか(electricity / water / sewage)。ゲームの建物が見るのと同じ値。
+    時間を進めたときに更新されるので、管や送電線を引いた直後は advance(1) してから見る。
+    ports: 建物の管・送電線のつなぎ口(service、x, z)と、外の線につながっているか(connected)。つなぎ口のない建物は []。"""
     return call("/buildings", x=x, z=z, radius=radius, limit=limit)
 
 
@@ -468,7 +587,10 @@ def advance(days: int = 30, speed: int = 3, max_seconds: int = 600) -> dict:
 @tool()
 def citizens_summary() -> dict:
     """住んでいる市民の内訳。年齢層、学歴、豊かさ、就業・失業・学生・病気の数、健康・暮らし向き・幸福度の平均(0〜100)、
-    電気・水・下水が来ない、体調が悪い、長く失業している市民の数。"""
+    電気・水・下水が来ない、体調が悪い、長く失業している市民の数。
+    residents はゲームの人口と同じ数え方で、引っ越しの途中の人を含まない。
+    movingIn: 家は決まったが、まだ着いていない人(total)と、そのうち移動中の人(traveling)。
+    つなぎ口から家までの道順が見つかると着いて人口に入る。減らないなら、外から街へ道がつながっていない。"""
     return call("/citizens/summary", timeout=30)
 
 

@@ -272,6 +272,7 @@ namespace AIMayor
             Randomizer rnd = sim.m_randomizer;
 
             int nodes = 0, segments = 0, snapped = 0, split = 0;
+            var ends = new StringBuilder();
             ushort prevNode = 0;
             Vector3 prevPos = Vector3.zero;
             for (int i = 0; i < points.Count; i++)
@@ -282,6 +283,7 @@ namespace AIMayor
                 ushort node = 0;
                 if (i == 0 || i == points.Count - 1)
                 {
+                    string how = "none";
                     node = FindNode(pos, info);
                     if (node == 0)
                     {
@@ -293,18 +295,23 @@ namespace AIMayor
                             if (node != 0)
                             {
                                 split++;
+                                how = "split";
                             }
                         }
                     }
                     else
                     {
                         snapped++;
+                        how = "node";
                     }
 
                     if (node != 0)
                     {
                         pos = nm.m_nodes.m_buffer[node].m_position;
                     }
+
+                    // 端が何につながったか。#81 の市長は、管や送電線が建物につながったかを知る手段がなかった
+                    ends.Append(ends.Length == 0 ? "" : ",").Append(EndJson(pos, node, how));
                 }
 
                 if (node == 0)
@@ -348,8 +355,47 @@ namespace AIMayor
             }
 
             return "{\"ok\":true,\"prefab\":" + Json.Str(prefab) + ",\"nodes\":" + nodes + ",\"segments\":" + segments
-                + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"bridgeSegments\":" + bridges
+                + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"ends\":[" + ends + "],\"bridgeSegments\":" + bridges
                 + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + "}";
+        }
+
+        // 端の様子: {"x","z","connectedTo":"node"|"split"|"none","building":つなぎ口の建物,"insideBuilding":端が敷地に入っている建物}
+        // 管は建物のつなぎ口の点につながる(building)。送電線は端が建物の敷地に入れば電気が通る(insideBuilding)
+        private static string EndJson(Vector3 pos, ushort node, string how)
+        {
+            ushort owner = node != 0 ? NetManager.instance.m_nodes.m_buffer[node].m_building : (ushort)0;
+            return "{\"x\":" + Mathf.RoundToInt(pos.x) + ",\"z\":" + Mathf.RoundToInt(pos.z) + ",\"connectedTo\":" + Json.Str(how)
+                + ",\"building\":" + owner + ",\"insideBuilding\":" + BuildingAt(pos) + "}";
+        }
+
+        // その点を敷地に含む建物。なければ 0
+        private static ushort BuildingAt(Vector3 pos)
+        {
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            for (int i = 1; i < bs.Length; i++)
+            {
+                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null || bs[i].m_parentBuilding != 0)
+                {
+                    continue;
+                }
+
+                var d = pos - bs[i].m_position;
+                if (d.x * d.x + d.z * d.z > 10000f)
+                {
+                    continue;
+                }
+
+                // 建物の向きに合わせて回す。前は (-sin, cos)、右は (cos, sin)(Building.CalculateSidewalkPosition と同じ向き)
+                float a = bs[i].m_angle;
+                float right = d.x * Mathf.Cos(a) + d.z * Mathf.Sin(a);
+                float forward = -d.x * Mathf.Sin(a) + d.z * Mathf.Cos(a);
+                if (Mathf.Abs(right) <= bs[i].Info.m_cellWidth * 4f && Mathf.Abs(forward) <= bs[i].Info.m_cellLength * 4f)
+                {
+                    return (ushort)i;
+                }
+            }
+
+            return 0;
         }
 
         // 橋の種類(道路と線路の AI が m_bridgeInfo に持つ)。なければ null

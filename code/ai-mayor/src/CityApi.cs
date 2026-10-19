@@ -223,7 +223,7 @@ namespace AIMayor
         // ---- 区画の指定 ----
 
         // 区画マスの中心の位置(ゲームの ZoneBlock と同じ計算)
-        private static Vector3 CellPosition(ref ZoneBlock block, int x, int z)
+        public static Vector3 CellPosition(ref ZoneBlock block, int x, int z)
         {
             var a = new Vector3(Mathf.Cos(block.m_angle), 0f, Mathf.Sin(block.m_angle)) * 8f;
             var b = new Vector3(a.z, 0f, -a.x);
@@ -391,7 +391,8 @@ namespace AIMayor
                   .Append(",\"subService\":").Append(Json.Str(info.m_class.m_subService.ToString()))
                   .Append(",\"width\":").Append(info.m_cellWidth).Append(",\"length\":").Append(info.m_cellLength)
                   .Append(",\"cost\":").Append(info.GetConstructionCost() / 100)
-                  .Append(",\"upkeepPerWeek\":").Append(Money.PerWeek(info.GetMaintenanceCost())).Append('}');
+                  .Append(",\"upkeepPerWeek\":").Append(Money.PerWeek(info.GetMaintenanceCost()))
+                  .Append(",\"ports\":").Append(MapApi.PrefabPortsJson(info)).Append('}');
                 first = false;
             }
 
@@ -438,7 +439,58 @@ namespace AIMayor
             }
 
             return "{\"ok\":true,\"id\":" + id + ",\"prefab\":" + Json.Str(name) + ",\"cost\":" + cost / 100
-                + ",\"paid\":" + (pay ? "true" : "false") + "}";
+                + ",\"paid\":" + (pay ? "true" : "false") + ",\"entrance\":" + Entrance(id) + ",\"ports\":" + MapApi.PortsJson(id) + "}";
+        }
+
+        // 置いた建物の入口(正面の歩道の位置)、正面の向き、入口のそばの道路。
+        // #81 の市長は angle とどの面が正面かの対応が分からず、ごみ処理場を道路に向けられなかった
+        private static string Entrance(ushort id)
+        {
+            var b = BuildingManager.instance.m_buildings.m_buffer[id];
+            var door = b.CalculateSidewalkPosition();
+            var dir = door - b.m_position;
+            // 方位は北が0、東が90(時計回り)
+            float bearing = (Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + 360f) % 360f;
+            string[] names = { "north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest" };
+            string facing = names[Mathf.RoundToInt(bearing / 45f) % 8];
+
+            // 入口から16m以内でいちばん近い道路。ゲームが建物に道路を割り当てるのは時間を進めた後なので、ここで先に見る
+            var nets = NetManager.instance;
+            ushort best = 0;
+            float bestDist = 16f;
+            for (int i = 1; i < nets.m_segments.m_size; i++)
+            {
+                var seg = nets.m_segments.m_buffer[i];
+                if ((seg.m_flags & NetSegment.Flags.Created) == 0 || seg.Info == null
+                    || seg.Info.m_class.m_service != ItemClass.Service.Road)
+                {
+                    continue;
+                }
+
+                var p = seg.GetClosestPosition(door);
+                float d = new Vector2(p.x - door.x, p.z - door.z).magnitude - seg.Info.m_halfWidth;
+                if (d < bestDist)
+                {
+                    bestDist = d;
+                    best = (ushort)i;
+                }
+            }
+
+            var sb = new StringBuilder("{\"x\":").Append(N(door.x)).Append(",\"z\":").Append(N(door.z))
+                .Append(",\"facing\":").Append(Json.Str(facing)).Append(",\"bearing\":").Append(Mathf.RoundToInt(bearing))
+                .Append(",\"road\":");
+            if (best == 0)
+            {
+                sb.Append("null");
+            }
+            else
+            {
+                var seg = nets.m_segments.m_buffer[best];
+                sb.Append("{\"segment\":").Append(best).Append(",\"prefab\":").Append(Json.Str(seg.Info.name))
+                  .Append(",\"distance\":").Append(N(Mathf.Max(0f, bestDist))).Append('}');
+            }
+
+            return sb.Append('}').ToString();
         }
 
         // /buildings?x=..&z=..&radius=200&limit=50  円の中の建物の一覧
@@ -453,7 +505,7 @@ namespace AIMayor
             int count = 0, total = 0;
             for (int i = 1; i < bs.Length; i++)
             {
-                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null)
+                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null || MapApi.IsNetPart(ref bs[i]))
                 {
                     continue;
                 }
@@ -477,7 +529,9 @@ namespace AIMayor
                   .Append(",\"service\":").Append(Json.Str(info.m_class.m_service.ToString()))
                   .Append(",\"x\":").Append(N(bs[i].m_position.x)).Append(",\"z\":").Append(N(bs[i].m_position.z))
                   .Append(",\"abandoned\":").Append((bs[i].m_flags & Building.Flags.Abandoned) != 0 ? "true" : "false")
-                  .Append(",\"problems\":").Append(Json.Str(bs[i].m_problems.ToString())).Append('}');
+                  .Append(",\"problems\":").Append(Json.Str(bs[i].m_problems.ToString()))
+                  .Append(",\"grid\":").Append(MapApi.GridJson(ref bs[i]))
+                  .Append(",\"ports\":").Append(MapApi.PortsJson((ushort)i)).Append('}');
                 count++;
             }
 
