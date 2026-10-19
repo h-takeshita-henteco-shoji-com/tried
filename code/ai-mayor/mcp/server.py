@@ -171,12 +171,26 @@ def screenshot(view: str = "current", max_width: int = 1280, save_to: str | None
 @tool()
 def move_camera(x: float | None = None, z: float | None = None, size: float | None = None,
                 pitch: float | None = None, yaw: float | None = None) -> dict:
-    """カメラを動かす。省略した値は今のまま。
-    x, z: 見る場所(ゲーム上のm。x が東、z が北)。size: 引きの大きさ(大きいほど広く見える。地図全体は約4800)。
-    pitch: 見下ろす角度(90で真下)。yaw: 向き(0で北)。
-    ゲーム本編では引きの上限が4000。また引くほど角度の下限が上がる(引き4000で約73度、2000で65度、1000で約58度)。
-    戻り値の current が、実際のカメラの値。"""
+    """カメラを動かし、動き終わってから実際の値を返す。省略した値は今のまま。
+    x, z: 見る場所(ゲーム上のm。x が東、z が北)。size: 引きの大きさ(大きいほど広く見える)。
+    pitch: 実際に見下ろす角度(90で真下)。yaw: 向き(0で北)。
+    ゲーム本編では引きの上限が sizeMax(約4000)。引くほど浅い角度にできない(pitchMin。引き4000で約55度、2000で40度、1000で約26度)。
+    届かない値は届く値に直し、notes に書く。戻り値の current が実際のカメラの値で、settled が false ならまだ動いている。
+    current.offset は、指定した x, z と実際に見ている場所の差(m)。地図の端の近くでは、カメラが地図の外に出ないよう
+    ゲームが見る場所をずらす。offset が大きいときは、size を小さくするか、端を背にする向き(yaw)にする。"""
     return call("/camera", x=x, z=z, size=size, pitch=pitch, yaw=yaw)
+
+
+@tool()
+def traffic(x: float | None = None, z: float | None = None, radius: float = 500, limit: int = 10) -> dict:
+    """交通の詰まりを見る。詰まりは events にも complaints にも出ないので、これで確かめる。
+    x, z, radius を渡すとその円の中だけ、省くと街全体。
+    flow: 街全体の交通の流れ(%、交通の情報画面と同じ。低いほど詰まっている)。
+    cars: 走っている車の数。blocked: 進めずに止まっている車。congestion: 渋滞の印が付いた車。
+    averageDensity: 道路の区間の混み具合の平均(0〜100)。
+    busiest: 混み具合が高い区間(segment、prefab、中点の x, z、density)。
+    blockedSpots: 止まっている車が多い場所(200m四方ごとの車の位置の平均と台数)。"""
+    return call("/traffic", timeout=30, x=x, z=z, radius=radius if x is not None else None, limit=limit)
 
 
 @tool()
@@ -220,7 +234,9 @@ def latlon_to_game(lat: float, lon: float) -> dict:
 
 @tool()
 def list_net_types(service: str | None = None) -> dict:
-    """引ける線の種類(道路、線路、高速道路など)の名前の一覧。service で絞れる(例: "Road", "PublicTransport")。"""
+    """引ける線の種類(道路、線路、高速道路など)の名前の一覧。service で絞れる(例: "Road", "PublicTransport")。
+    costPerKm: 1kmあたりの建設費(地面の上。高架やトンネルは高くなる)。
+    upkeepPerWeekPerKm: 1kmあたりの週の維持費(週の支出と同じ単位、予算100%のとき)。"""
     r = call("/net/prefabs")
     if service and r.get("ok"):
         r["prefabs"] = [p for p in r["prefabs"] if p.get("service") == service]
@@ -328,7 +344,7 @@ def economy_breakdown() -> dict:
     """お金の内訳。週の支出が何から来ているかを確かめるのに使う。
     total: 週の収入と支出の合計(city_info と同じ)。services: サービスごとの週の収入と支出
     (Road は道路と高速道路、PublicTransport は subServices に鉄道やバスの内訳)。policyExpenses: 政策の費用。
-    networks: 線の種類ごとの本数、長さ(km)、維持費。維持費は週の支出とは単位が違い、種類どうしを比べるのに使う。
+    networks: 線の種類ごとの本数、長さ(km)、週の維持費(upkeepPerWeek。週の支出と同じ単位、予算100%のとき)。
     freeSegments と freeLengthKm は、マップエディターで置いたなどの理由で維持費がかからない区間。"""
     return call("/economy/breakdown", timeout=30)
 
@@ -383,7 +399,8 @@ def zones_at(x: float, z: float, radius: float = 100) -> dict:
 
 @tool()
 def list_building_types(service: str | None = None) -> dict:
-    """置ける建物(サービス施設、駅、空港など)の一覧。名前、サービス、大きさ(マス)、建設費、維持費。
+    """置ける建物(サービス施設、駅、空港など)の一覧。名前、サービス、大きさ(マス)、建設費、週の維持費。
+    upkeepPerWeek は、建てたときの週の支出の増え分(予算100%のとき。予算を下げると減る)。
     service で絞れる(例: "Electricity", "Water", "Garbage", "HealthCare", "FireDepartment", "PoliceDepartment",
     "Education", "Beautification", "PublicTransport", "Monument")。"""
     return call("/building/prefabs", timeout=30, service=service)
@@ -467,6 +484,20 @@ def complaints() -> dict:
     """建物の困りごとの印(電気、水、ごみ、犯罪、騒音、汚染、税が高すぎる、働き手が足りない など)を種類ごとに数え、
     いちばん多い区画(1.92km四方)の中心の座標を返す。苦情の地図として使う。"""
     return call("/complaints", timeout=30)
+
+
+@tool()
+def save_city(name: str, overwrite: bool = False) -> dict:
+    """街を保存する。ゲームの保存の画面と同じ処理で、終わるまで待つ(数秒〜数十秒)。
+    name: 保存の名前(例: "fukuoka-base-2027-01")。同じ名前があると失敗する。上書きは overwrite=true。
+    読み込みは人が行う。戻り値の gameDate は、保存したゲーム内の日付。"""
+    return call("/save", timeout=90, name=name, overwrite="true" if overwrite else None)
+
+
+@tool()
+def list_saves() -> dict:
+    """保存した街の一覧(新しい順)。名前、保存した日時、大きさ(MB)。"""
+    return call("/saves")
 
 
 @tool()

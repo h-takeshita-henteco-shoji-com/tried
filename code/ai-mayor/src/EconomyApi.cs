@@ -93,8 +93,7 @@ namespace AIMayor
             public long Maintenance; // 維持費を取られる区間の GetMaintenanceCost の合計(ゲーム内部の単位)
         }
 
-        // 線の種類ごとに、本数・長さ(km)・維持費を集める。維持費は区間ごとの GetMaintenanceCost の合計で、
-        // 週の支出とは単位が違う。種類どうしの比べ合いに使う
+        // 線の種類ごとに、本数・長さ(km)・週の維持費を集める。週の維持費は、予算100%のときの値で、週の支出と同じ単位
         private static string Networks()
         {
             var nets = NetManager.instance;
@@ -146,7 +145,7 @@ namespace AIMayor
                   .Append(",\"freeSegments\":").Append(s.Free)
                   .Append(",\"lengthKm\":").Append(Km(s.Length))
                   .Append(",\"freeLengthKm\":").Append(Km(s.FreeLength))
-                  .Append(",\"maintenance\":").Append(s.Maintenance).Append('}');
+                  .Append(",\"upkeepPerWeek\":").Append(Money.PerWeek(s.Maintenance)).Append('}');
             }
 
             return sb.Append(']').ToString();
@@ -155,6 +154,16 @@ namespace AIMayor
         private static string Km(double meters)
         {
             return (meters / 1000.0).ToString("0.00", CultureInfo.InvariantCulture);
+        }
+    }
+
+    // ゲーム内部の維持費を、週の支出と同じ単位に直す。ゲームの画面(LocaleFormatter.FormatUpkeep)と同じ 0.0016 倍。
+    // 建物の一覧の「維持費」は、これまで内部の値を100で割って返していた(風力500)。週の支出では80になる
+    public static class Money
+    {
+        public static string PerWeek(long internalCost)
+        {
+            return (internalCost * 0.0016).ToString("0.##", CultureInfo.InvariantCulture);
         }
     }
 }

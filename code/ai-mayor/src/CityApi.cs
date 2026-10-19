@@ -391,7 +391,7 @@ namespace AIMayor
                   .Append(",\"subService\":").Append(Json.Str(info.m_class.m_subService.ToString()))
                   .Append(",\"width\":").Append(info.m_cellWidth).Append(",\"length\":").Append(info.m_cellLength)
                   .Append(",\"cost\":").Append(info.GetConstructionCost() / 100)
-                  .Append(",\"maintenance\":").Append(info.GetMaintenanceCost() / 100).Append('}');
+                  .Append(",\"upkeepPerWeek\":").Append(Money.PerWeek(info.GetMaintenanceCost())).Append('}');
                 first = false;
             }
 

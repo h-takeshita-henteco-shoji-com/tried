@@ -49,8 +49,17 @@ namespace AIMayor
                 }
 
                 sb.Append("{\"name\":").Append(Json.Str(info.name))
-                  .Append(",\"service\":").Append(Json.Str(info.m_class != null ? info.m_class.m_service.ToString() : null))
-                  .Append('}');
+                  .Append(",\"service\":").Append(Json.Str(info.m_class != null ? info.m_class.m_service.ToString() : null));
+
+                // 1kmあたりの建設費と週の維持費。ゲームは8mごとに数える(PlayerNetAI)。高架やトンネルは建設費が上がる
+                var ai = info.m_netAI as PlayerNetAI;
+                if (ai != null)
+                {
+                    sb.Append(",\"costPerKm\":").Append((long)ai.GetConstructionCost() * 125 / 100)
+                      .Append(",\"upkeepPerWeekPerKm\":").Append(Money.PerWeek((long)ai.GetMaintenanceCost() * 125));
+                }
+
+                sb.Append('}');
             }
 
             return sb.Append("]}").ToString();

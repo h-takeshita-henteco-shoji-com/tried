@@ -23,6 +23,8 @@ EDGE = 8600.0
 MAIN_WIDTHS = {"5.5m-13m未満", "13m-19.5m未満", "19.5m以上"}  # 本線。ランプ(5.5m未満)は外す
 HEIGHT = 10.0      # 高架の高さ(地面から、m)
 RAMP = 5           # 地上と高架の間を上げ下げする点の数(48m × 5 = 240m。勾配は約4%)
+LOOP_ALONG = 150.0  # 寄り道とみなす、線に沿って進んだ長さの下限(m)
+LOOP_NEAR = 40.0    # 寄り道とみなす、戻ってきた点の近さ(m)。上りと下りの間隔(約26m)より少し広い
 GROUND_PTS = 6     # all のとき、インターチェンジの前後と地図の端で地上にする点の数(約290m)
 
 # 北から南へ、通るはずの地点(ゲーム座標)。地図に高速道路の線を描いて読み取った(緯度経度で推測すると外れた)
@@ -44,7 +46,7 @@ def to_game(lat, lon):
 
 def load_graph():
     feats = json.load(open(f"{SRC}/expressways_full.geojson"))["features"]
-    adj = {}
+    adj, main = {}, set()
     for f in feats:
         p = f["properties"]
         if f["geometry"]["type"] != "LineString":
@@ -53,6 +55,8 @@ def load_graph():
         weight = 1.0 if p.get("rnkWidth") in MAIN_WIDTHS else 5.0
         elevated = p.get("state") == "橋・高架"
         keys = [(round(x, 1), round(z, 1)) for x, z in (to_game(lat, lon) for lon, lat in f["geometry"]["coordinates"])]
+        if weight == 1.0:
+            main.update(keys)
         for a, b in zip(keys, keys[1:]):
             d = math.dist(a, b) * weight
             adj.setdefault(a, []).append((b, d, elevated))
@@ -69,7 +73,7 @@ def load_graph():
                         if a < b and math.dist(a, b) <= 5 and all(n != b for n, _, _ in adj[a]):
                             adj[a].append((b, math.dist(a, b), False))
                             adj[b].append((a, math.dist(a, b), False))
-    return adj
+    return adj, main
 
 
 def shortest(adj, a, b):
@@ -96,10 +100,11 @@ def shortest(adj, a, b):
 
 
 def main():
-    adj = load_graph()
+    adj, main = load_graph()
     nodes, snaps = [], []
     for p in ROUTE:
-        k = min(adj, key=lambda k: math.dist(k, p))
+        # 通る地点は本線の点に寄せる。ランプの点に寄せると、ランプを回って戻る輪ができる(#77、福岡インター)
+        k = min(main, key=lambda k: math.dist(k, p))
         nodes.append(k)
         snaps.append(round(math.dist(k, p)))
     path, flags = [nodes[0]], []
@@ -120,6 +125,19 @@ def main():
         clean.append(k)
         cflags.append(e)
     path, flags = clean, cflags
+
+    # 近くの点に戻ってきた寄り道も取り除く(#77)。福岡インターでは、行きと帰りで別の点を通り、上の処理で残った。
+    # 線に沿って LOOP_ALONG m 以上進んだのに、前の点から LOOP_NEAR m 以内に戻っていたら、その間を寄り道とみなす
+    i = 0
+    while i < len(path):
+        along, cut = 0.0, None
+        for j in range(i + 1, len(path)):
+            along += math.dist(path[j - 1], path[j])
+            if along >= LOOP_ALONG and math.dist(path[i], path[j]) <= LOOP_NEAR:
+                cut = j
+        if cut is not None:
+            path, flags = path[:i + 1] + path[cut + 1:], flags[:i] + flags[cut:]
+        i += 1
 
     # 48m おきに点を打ち、各点の構造は、その点を含む区間の構造にする
     pts, elev = [path[0]], [flags[0] if flags else False]
