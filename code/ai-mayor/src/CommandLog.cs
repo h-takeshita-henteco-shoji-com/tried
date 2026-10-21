@@ -33,6 +33,8 @@ namespace AIMayor
         }
 
         private const int Max = 100;
+        public const string DefaultTitle = "AI Mayor - MCP commands / reasons";
+        private static string title = DefaultTitle;
         private static readonly List<Entry> entries = new List<Entry>();
         private static int version;
         private static bool newStart;
@@ -45,6 +47,8 @@ namespace AIMayor
             routes["/ui/command"] = Receive;
             // /ui/note?action=..&reason=..  判断。日本語は UTF-8 の URL エンコードで送る
             routes["/ui/note"] = ReceiveNote;
+            // /ui/title?text=..  パネルの見出しを変える(段階6で、どの市長が運営しているかを画面に出す。#92)。text を省くと元に戻す
+            routes["/ui/title"] = ReceiveTitle;
             // /ui/log  今のログファイルの場所
             routes["/ui/log"] = req =>
             {
@@ -83,6 +87,18 @@ namespace AIMayor
                 lock (entries)
                 {
                     return version;
+                }
+            }
+        }
+
+        // パネルの見出し。記録とは別に持ち、行が流れても消えない
+        public static string Title
+        {
+            get
+            {
+                lock (entries)
+                {
+                    return title;
                 }
             }
         }
@@ -230,6 +246,25 @@ namespace AIMayor
             }
 
             return "{\"ok\":true}";
+        }
+
+        private static string ReceiveTitle(HttpListenerRequest req)
+        {
+            string text = Query(req.Url.Query, "text");
+            if (string.IsNullOrEmpty(text))
+            {
+                text = DefaultTitle;
+            }
+
+            lock (entries)
+            {
+                title = text;
+                version++;
+            }
+
+            // ログファイルにも残し、録画の中でどの市長の時間かを後から分けられるようにする
+            Write(new Entry { At = DateTime.Now, GameDate = GameDate() }, "TITLE", text);
+            return "{\"ok\":true,\"title\":" + Json.Str(text) + "}";
         }
 
         // ログファイルに1行書き足す。書けなくてもパネルの表示は止めない

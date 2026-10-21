@@ -13,6 +13,7 @@ import itertools
 import json
 import math
 import os
+import re
 import time
 import urllib.error
 import urllib.parse
@@ -56,12 +57,25 @@ def notify(**params) -> None:
 
 def notify_note(action: str, reason: str) -> None:
     """判断(何をするか、なぜするか)をパネルに出す。届かなくても止めない。"""
-    query = urllib.parse.urlencode({"action": action[:200], "reason": reason[:300]})
+    query = urllib.parse.urlencode({"action": _hide_paths(action)[:200], "reason": _hide_paths(reason)[:300]})
     try:
         with urllib.request.urlopen(f"{BASE}/ui/note?{query}", timeout=0.5) as r:
             r.read()
     except Exception:
         pass
+
+
+# 空白を含むフォルダ(Application Support など)も1つのパスとして拾う。空白の後に / を含む語が続くときだけ、つなげる
+_PATH = re.compile(r"(?:~|/Users|/home|/private|/tmp|/var|/Volumes)/(?:[^\s'\"]| (?=[^\s'\"/]+/))*")
+
+
+def _hide_paths(v):
+    """パネルとログに手元のパスを出さない(ユーザー名が録画に映るため。#92)。ファイル名だけを残す。"""
+    if isinstance(v, str):
+        if v.startswith(("/", "~")):
+            return os.path.basename(v.rstrip("/")) or v
+        return _PATH.sub(lambda m: os.path.basename(m.group(0).rstrip("/")), v)
+    return v
 
 
 def _short(v, limit: int = 60) -> str:
@@ -167,7 +181,7 @@ def tool():
         def wrapper(*args, **kwargs):
             cid = str(next(_seq))
             bound = sig.bind(*args, **kwargs)
-            shown = " ".join(f"{k}={_short(v)}" for k, v in bound.arguments.items())
+            shown = " ".join(f"{k}={_short(_hide_paths(v))}" for k, v in bound.arguments.items())
             notify(phase="start", id=cid, tool=fn.__name__, args=_short(shown, 200))
             t0 = time.time()
             # 区画を指定するときは、区画の色を見せてから寄る。どんな区画かを見ている人が分かるように(#82)
@@ -184,11 +198,11 @@ def tool():
                     if zoning:
                         call("/ui/zoning", timeout=3, show="false")
             except Exception as e:
-                notify(phase="end", id=cid, ok="false", detail=_short(str(e), 120))
+                notify(phase="end", id=cid, ok="false", detail=_short(_hide_paths(str(e)), 120))
                 raise
             sec = f"{time.time() - t0:.1f}s"
             if isinstance(result, dict) and result.get("ok") is False:
-                notify(phase="end", id=cid, ok="false", detail=_short(f"{result.get('error')} ({sec})", 120))
+                notify(phase="end", id=cid, ok="false", detail=_short(_hide_paths(f"{result.get('error')} ({sec})"), 120))
             else:
                 # 建設費を返す道具は、ログにも費用を残す
                 cost = result.get("cost") if isinstance(result, dict) else None
@@ -248,6 +262,15 @@ def explain(action: str, reason: str) -> dict:
     見ている人に向けた短い説明なので、それぞれ80字以内にする。"""
     notify_note(action, reason)
     return {"ok": True}
+
+
+@mcp.tool()
+def set_panel_title(text: str = "") -> dict:
+    """ゲーム画面のパネルの見出しを変える。どの市長が運営しているかを、録画に映すために使う(#92)。
+    呼ぶのは親(人と話している Claude)だけ。市長のサブエージェントには渡さない。
+    text: 見出し。例: "AI Mayor - Money / お金市長"。空にすると元の見出しに戻す。
+    変えたことは、ログファイルにも TITLE の行で残る。"""
+    return call("/ui/title", text=text or None)
 
 
 @tool()
