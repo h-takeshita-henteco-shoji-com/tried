@@ -1,0 +1,293 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-21 15:35:41
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-21 15:53:03	2040-06-21	OK	city_info  -> 0.0s
+2026-10-21 15:53:16	2040-06-21	OK	services  -> 0.0s
+2026-10-21 15:53:16	2040-06-21	OK	citizens_summary  -> 0.0s
+2026-10-21 15:53:16	2040-06-21	OK	complaints  -> 0.0s
+2026-10-21 15:53:16	2040-06-21	OK	demand_breakdown  -> 0.0s
+2026-10-21 15:53:17	2040-06-21	OK	new_buildings since=38136  -> 0.0s
+2026-10-21 15:53:18	2040-06-21	OK	screenshot view=top max_width=800 save_to=/Users/takeshita/orca/workspaces/tried/mod-2/2026/10-20-A...  -> 1.2s
+2026-10-21 15:53:23	2040-06-21	OK	zones_at x=-1280.0 z=-1370.0 radius=450.0  -> 0.0s
+2026-10-21 15:53:23	2040-06-21	OK	buildings_near x=1000.0 z=-300.0 radius=5000.0 limit=50 problems_only=false problem=LandfillFull service=Garbage  -> 0.0s
+2026-10-21 15:53:24	2040-06-21	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 15:53:27	2040-06-21	OK	zone_map x=-1500.0 z=-1300.0 radius=600.0 size=900 save_to=null  -> 0.0s
+2026-10-21 15:53:31	2040-06-21	OK	height_at x=-1950.0 z=-1300.0  -> 0.0s
+2026-10-21 15:53:32	2040-06-21	OK	height_at x=-2150.0 z=-1600.0  -> 0.0s
+2026-10-21 15:53:32	2040-06-21	OK	height_at x=-2150.0 z=-1000.0  -> 0.0s
+2026-10-21 15:53:33	2040-06-21	OK	zone_map x=-2100.0 z=-1100.0 radius=500.0 size=700 save_to=null  -> 0.0s
+2026-10-21 15:53:56	2040-06-21	OK	net_near x=-1640.0 z=-1200.0 radius=300.0 service=Water limit=50  -> 0.0s
+2026-10-21 15:53:57	2040-06-21	OK	net_near x=-1640.0 z=-1100.0 radius=300.0 service=Road limit=50  -> 0.0s
+2026-10-21 15:54:15	2040-06-21	OK	list_building_types service=Water locked=false  -> 0.0s
+2026-10-21 15:54:18	2040-06-21	OK	buildings_near x=-200.0 z=1580.0 radius=350.0 limit=50 problems_only=false problem=null service=Water  -> 0.0s
+2026-10-21 15:54:22	2040-06-21	OK	height_at x=-600.0 z=1600.0  -> 0.0s
+2026-10-21 15:54:23	2040-06-21	OK	height_at x=-1200.0 z=900.0  -> 0.0s
+2026-10-21 15:54:23	2040-06-21	OK	height_at x=-1600.0 z=700.0  -> 0.0s
+2026-10-21 15:54:26	2040-06-21	OK	height_at x=-1200.0 z=600.0  -> 0.0s
+2026-10-21 15:54:26	2040-06-21	OK	height_at x=-1200.0 z=750.0  -> 0.0s
+2026-10-21 15:54:26	2040-06-21	OK	net_near x=-1200.0 z=400.0 radius=400.0 service=null limit=50  -> 0.0s
+2026-10-21 15:54:29	2040-06-21	OK	height_at x=-1200.0 z=300.0  -> 0.0s
+2026-10-21 15:54:29	2040-06-21	OK	height_at x=-1200.0 z=450.0  -> 0.0s
+2026-10-21 15:54:40	2040-06-21	DO	天神の南の西に高密度住宅の街区を作る(公約1)
+2026-10-21 15:54:40	2040-06-21	WHY	住宅target20、天神の南の空き住宅マス1,175で1〜2か月分。西は空き地。予想: 次の月から住宅が月30棟以上建ち続ける
+2026-10-21 15:54:42	2040-06-21	NG	build_line prefab=Basic Road points=[[-1640.0, -1010.0], [-2360.0, -1010.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.6s)
+2026-10-21 15:54:53	2040-06-21	OK	build_line prefab=Basic Road points=[[-1640.0, -1010.0], [-2360.0, -1010.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.2s cost=3600
+2026-10-21 15:54:58	2040-06-21	OK	build_line prefab=Basic Road points=[[-1640.0, -1100.0], [-2360.0, -1100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=3600
+2026-10-21 15:55:02	2040-06-21	OK	build_line prefab=Basic Road points=[[-1640.0, -1190.0], [-2360.0, -1190.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=3600
+2026-10-21 15:55:05	2040-06-21	OK	build_line prefab=Basic Road points=[[-1640.0, -1280.0], [-2360.0, -1280.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=3600
+2026-10-21 15:55:08	2040-06-21	OK	build_line prefab=Basic Road points=[[-1640.0, -1370.0], [-2360.0, -1370.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=3600
+2026-10-21 15:55:12	2040-06-21	OK	build_line prefab=Basic Road points=[[-1640.0, -1460.0], [-2360.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=3600
+2026-10-21 15:55:17	2040-06-21	OK	build_line prefab=Basic Road points=[[-1820.0, -830.0], [-1820.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=3240
+2026-10-21 15:55:23	2040-06-21	OK	net_near x=-1830.0 z=-830.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-21 15:55:25	2040-06-21	OK	build_line prefab=Basic Road points=[[-1820.0, -830.0], [-1845.0, -830.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=120
+2026-10-21 15:55:32	2040-06-21	OK	build_line prefab=Basic Road points=[[-2000.0, -1010.0], [-2000.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=2320
+2026-10-21 15:55:35	2040-06-21	OK	build_line prefab=Basic Road points=[[-2180.0, -1010.0], [-2180.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=2320
+2026-10-21 15:55:39	2040-06-21	OK	build_line prefab=Basic Road points=[[-2360.0, -1010.0], [-2360.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=2320
+2026-10-21 15:55:57	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1640.0, -1015.0], [-2365.0, -1015.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1800
+2026-10-21 15:56:01	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1640.0, -1195.0], [-2365.0, -1195.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1800
+2026-10-21 15:56:04	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1640.0, -1375.0], [-2365.0, -1375.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1800
+2026-10-21 15:56:07	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1640.0, -1105.0], [-2365.0, -1105.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1800
+2026-10-21 15:56:11	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1640.0, -1285.0], [-2365.0, -1285.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1800
+2026-10-21 15:56:14	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1640.0, -1465.0], [-2365.0, -1465.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1800
+2026-10-21 15:56:21	2040-06-21	OK	build_line prefab=Power Line points=[[-2060.0, -872.0], [-2090.0, -1150.0], [-2090.0, -1420.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1440
+2026-10-21 15:56:24	2040-06-21	OK	zone_rect x1=-2400.0 z1=-1500.0 x2=-1690.0 z2=-970.0 type=residential_high  -> 3.4s
+2026-10-21 15:56:32	2040-06-21	OK	zone_rect x1=-1865.0 z1=-1000.0 x2=-1775.0 z2=-845.0 type=office  -> 3.4s
+2026-10-21 15:56:35	2040-06-21	OK	net_reach x=-2000.0 z=-1240.0 radius=450.0 limit=10  -> 0.0s
+2026-10-21 15:56:38	2040-06-21	DO	天神の西の北の海に下水処理場を置く(公約2)
+2026-10-21 15:56:38	2040-06-21	WHY	下水74%(1,062,400/1,440,000)。新しい街区で使用が増える。湾の西は排水口で埋まった。予想: 下水の容量+160,000、使用66%前後
+2026-10-21 15:56:39	2040-06-21	OK	place_building prefab=Water Treatment Plant x=-1200.0 z=440.0 angle=0 pay=true facing=south  -> 3.6s cost=15000
+2026-10-21 15:56:47	2040-06-21	OK	build_line prefab=Water Pipe points=[[-1200.0, 408.0], [-1200.0, 220.0], [-1280.0, 140.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=760
+2026-10-21 15:56:50	2040-06-21	OK	build_line prefab=Power Line points=[[-1218.0, 142.0], [-1215.0, 440.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=720
+2026-10-21 15:56:57	2040-06-21	OK	list_building_types service=Education locked=false  -> 0.0s
+2026-10-21 15:57:03	2040-06-21	DO	新しい街区に高校1校と小学校2校(公約1)
+2026-10-21 15:57:03	2040-06-21	WHY	子ども7,665に小学校の席6,600、10代12,954に高校12,000。新しい街区で増える。予想: 席 小+600・高+1,000
+2026-10-21 15:57:04	2040-06-21	OK	place_building prefab=High School x=-1910.0 z=-1218.0 angle=0 pay=true facing=north  -> 3.4s cost=24000
+2026-10-21 15:57:07	2040-06-21	OK	place_building prefab=Elementary School x=-2270.0 z=-1214.0 angle=0 pay=true facing=north  -> 3.4s cost=10000
+2026-10-21 15:57:11	2040-06-21	OK	place_building prefab=Elementary School x=-2270.0 z=-1394.0 angle=0 pay=true facing=north  -> 3.4s cost=10000
+2026-10-21 15:57:16	2040-06-21	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 8.8s
+2026-10-21 15:57:28	2040-06-22	OK	buildings_near x=-2090.0 z=-1300.0 radius=250.0 limit=50 problems_only=false problem=null service=Education  -> 0.0s
+2026-10-21 15:57:28	2040-06-22	OK	buildings_near x=-1200.0 z=440.0 radius=30.0 limit=50 problems_only=false problem=null service=null  -> 0.0s
+2026-10-21 15:57:34	2040-06-22	OK	build_line prefab=Power Line points=[[-1965.0, -840.0], [-2060.0, -872.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.6s cost=240
+2026-10-21 15:57:40	2040-06-22	OK	net_near x=-1965.0 z=-840.0 radius=150.0 service=Electricity limit=50  -> 0.0s
+2026-10-21 15:57:43	2040-06-22	OK	buildings_near x=-2060.0 z=-872.0 radius=20.0 limit=50 problems_only=false problem=null service=null  -> 0.0s
+2026-10-21 15:57:48	2040-06-22	OK	net_near x=-1700.0 z=-1300.0 radius=500.0 service=Electricity limit=50  -> 0.0s
+2026-10-21 15:57:53	2040-06-22	OK	buildings_near x=-1665.0 z=-1140.0 radius=30.0 limit=50 problems_only=false problem=null service=null  -> 0.0s
+2026-10-21 15:57:55	2040-06-22	OK	build_line prefab=Power Line points=[[-1664.0, -1153.0], [-1880.0, -1150.0], [-2090.0, -1150.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1080
+2026-10-21 15:58:00	2040-06-22	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 7.7s
+2026-10-21 15:58:09	2040-06-23	OK	buildings_near x=-2090.0 z=-1300.0 radius=250.0 limit=50 problems_only=false problem=null service=Education  -> 0.0s
+2026-10-21 15:58:13	2040-06-23	OK	build_line prefab=Power Line points=[[-2090.0, -1218.0], [-2265.0, -1222.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=420
+2026-10-21 15:58:17	2040-06-23	OK	build_line prefab=Power Line points=[[-2090.0, -1420.0], [-2265.0, -1400.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=420
+2026-10-21 15:58:33	2040-06-23	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 6.6s
+2026-10-21 15:58:42	2040-06-24	OK	buildings_near x=-2270.0 z=-1300.0 radius=110.0 limit=50 problems_only=false problem=null service=Education  -> 0.0s
+2026-10-21 15:58:44	2040-06-24	OK	advance days=27 speed=3 max_seconds=600 turbo=null  -> 177.3s
+2026-10-21 16:01:43	2040-07-21	OK	city_info  -> 0.0s
+2026-10-21 16:01:43	2040-07-21	OK	services  -> 0.0s
+2026-10-21 16:01:43	2040-07-21	OK	citizens_summary  -> 0.0s
+2026-10-21 16:01:43	2040-07-21	OK	complaints  -> 0.0s
+2026-10-21 16:01:44	2040-07-21	OK	demand_breakdown  -> 0.0s
+2026-10-21 16:01:44	2040-07-21	OK	new_buildings since=38428  -> 0.0s
+2026-10-21 16:01:44	2040-07-21	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 16:01:49	2040-07-21	OK	buildings_near x=1000.0 z=-300.0 radius=5000.0 limit=50 problems_only=false problem=LandfillFull service=Garbage  -> 0.0s
+2026-10-21 16:01:49	2040-07-21	OK	buildings_near x=2100.0 z=1350.0 radius=500.0 limit=50 problems_only=false problem=null service=Garbage  -> 0.0s
+2026-10-21 16:01:52	2040-07-21	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-21 16:01:59	2040-07-21	DO	新しい街区の z=−1190 の通りを高密度商業に(公約1)
+2026-10-21 16:01:59	2040-07-21	WHY	商業の需要44、天神の南の空き商業マス84。g101・g104は商業マスを足して1か月で店+31〜37。予想: 1か月で店+25棟
+2026-10-21 16:01:59	2040-07-21	OK	zone_rect x1=-2400.0 z1=-1230.0 x2=-1690.0 z2=-1148.0 type=commercial_high  -> 3.5s
+2026-10-21 16:02:06	2040-07-21	DO	満ちた処理場3つを取り壊し、同じ場所・向きに置き直す(公約1)
+2026-10-21 16:02:06	2040-07-21	WHY	1204・35656・38201 が100%で収集車0台。北の工業に Garbage 7。g81・g101 と同じ手。予想: Garbage 7 → 2以下
+2026-10-21 16:02:07	2040-07-21	OK	bulldoze x=-1885.0 z=-565.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:02:10	2040-07-21	OK	bulldoze x=2525.0 z=522.0 radius=3.0 what=building  -> 3.6s
+2026-10-21 16:02:14	2040-07-21	OK	bulldoze x=2240.0 z=522.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:02:20	2040-07-21	OK	place_building prefab=Landfill Site x=-1885.0 z=-565.0 angle=0 pay=true facing=east  -> 3.5s cost=4000
+2026-10-21 16:02:23	2040-07-21	OK	place_building prefab=Landfill Site x=2525.0 z=522.0 angle=0 pay=true facing=north  -> 3.5s cost=4000
+2026-10-21 16:02:27	2040-07-21	OK	place_building prefab=Landfill Site x=2240.0 z=522.0 angle=0 pay=true facing=north  -> 3.4s cost=4000
+2026-10-21 16:02:35	2040-07-21	OK	building_stats x=2400.0 z=-300.0 radius=450.0  -> 0.0s
+2026-10-21 16:02:35	2040-07-21	OK	list_building_types service=Monument locked=false  -> 0.0s
+2026-10-21 16:02:40	2040-07-21	OK	zone_map x=2400.0 z=-300.0 radius=300.0 size=700 save_to=null  -> 0.0s
+2026-10-21 16:02:51	2040-07-21	OK	advance days=30 speed=3 max_seconds=600 turbo=null  -> 193.4s
+2026-10-21 16:06:07	2040-08-20	OK	city_info  -> 0.0s
+2026-10-21 16:06:08	2040-08-20	OK	services  -> 0.0s
+2026-10-21 16:06:08	2040-08-20	OK	citizens_summary  -> 0.0s
+2026-10-21 16:06:08	2040-08-20	OK	complaints  -> 0.0s
+2026-10-21 16:06:08	2040-08-20	OK	demand_breakdown  -> 0.0s
+2026-10-21 16:06:08	2040-08-20	OK	new_buildings since=39123  -> 0.0s
+2026-10-21 16:06:09	2040-08-20	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 16:06:14	2040-08-20	NG	buildings_near x=1000.0 z=0.0 radius=5000.0 limit=80 problems_only=false problem=Abandoned service=null  -> unknown problem: Abandoned (use a type name from /complaints, e.g. Garbage) (0.0s)
+2026-10-21 16:06:16	2040-08-20	OK	buildings_near x=1000.0 z=0.0 radius=5000.0 limit=80 problems_only=false problem=NoResources service=null  -> 0.0s
+2026-10-21 16:06:19	2040-08-20	OK	trade  -> 0.0s
+2026-10-21 16:06:30	2040-08-20	OK	map_layer type=ore x=null z=null radius=500 n=7  -> 0.0s
+2026-10-21 16:06:31	2040-08-20	OK	map_layer type=fertility x=null z=null radius=500 n=7  -> 0.0s
+2026-10-21 16:06:31	2040-08-20	OK	map_layer type=oil x=null z=null radius=500 n=7  -> 0.0s
+2026-10-21 16:06:31	2040-08-20	OK	map_layer type=forest x=null z=null radius=500 n=7  -> 0.0s
+2026-10-21 16:06:49	2040-08-20	DO	放棄された工場39棟を取り壊し、空いた工業マスをオフィスに(公約1)
+2026-10-21 16:06:49	2040-08-20	WHY	工業の放棄60、NoResources130棟。原料は輸入頼みで足りない。大学卒の失業6,069。予想: 2か月でオフィス+40棟、放棄30以下
+2026-10-21 16:06:53	2040-08-20	OK	bulldoze x=-2384.0 z=-403.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:06:56	2040-08-20	OK	bulldoze x=-2564.0 z=-750.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:00	2040-08-20	OK	bulldoze x=-2460.0 z=-56.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:03	2040-08-20	OK	bulldoze x=-2556.0 z=-6.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:07:06	2040-08-20	OK	bulldoze x=-2564.0 z=-666.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:10	2040-08-20	OK	bulldoze x=-2136.0 z=-806.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:13	2040-08-20	OK	bulldoze x=-2580.0 z=-806.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:17	2040-08-20	OK	bulldoze x=-2432.0 z=-194.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:20	2040-08-20	OK	bulldoze x=-2436.0 z=-280.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:07:24	2040-08-20	OK	bulldoze x=-2460.0 z=-146.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:07:27	2040-08-20	OK	bulldoze x=-2696.0 z=-666.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:30	2040-08-20	OK	bulldoze x=-2408.0 z=-56.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:34	2040-08-20	OK	bulldoze x=-2408.0 z=-146.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:07:40	2040-08-20	OK	bulldoze x=2100.8 z=-1030.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:07:43	2040-08-20	OK	bulldoze x=2124.8 z=-1026.0 radius=3.0 what=building  -> 3.2s
+2026-10-21 16:07:47	2040-08-20	OK	bulldoze x=2132.0 z=-926.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:07:50	2040-08-20	OK	bulldoze x=2832.0 z=-1216.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:54	2040-08-20	OK	bulldoze x=3424.0 z=-1264.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:07:57	2040-08-20	OK	bulldoze x=2568.0 z=-1174.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:00	2040-08-20	OK	bulldoze x=2136.0 z=-1184.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:04	2040-08-20	OK	bulldoze x=3036.0 z=-1170.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:08:08	2040-08-20	OK	bulldoze x=3184.0 z=-1316.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:11	2040-08-20	OK	bulldoze x=1902.0 z=-1074.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:14	2040-08-20	OK	bulldoze x=2102.0 z=-1184.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:18	2040-08-20	OK	bulldoze x=3264.0 z=-1174.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:21	2040-08-20	OK	bulldoze x=2204.0 z=-966.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:25	2040-08-20	OK	bulldoze x=2048.0 z=-1184.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:31	2040-08-20	OK	bulldoze x=1884.0 z=1153.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:08:35	2040-08-20	OK	bulldoze x=2624.0 z=1128.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:38	2040-08-20	OK	bulldoze x=2126.0 z=1304.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:42	2040-08-20	OK	bulldoze x=2368.0 z=1214.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:45	2040-08-20	OK	bulldoze x=2624.0 z=1083.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:49	2040-08-20	OK	bulldoze x=2048.0 z=1304.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:52	2040-08-20	OK	bulldoze x=2508.0 z=1076.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:55	2040-08-20	OK	bulldoze x=2122.0 z=1394.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:08:59	2040-08-20	OK	bulldoze x=2460.0 z=1256.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:09:02	2040-08-20	OK	bulldoze x=3519.3 z=-506.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:09:06	2040-08-20	OK	bulldoze x=3808.0 z=-554.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:09:09	2040-08-20	OK	bulldoze x=3748.7 z=-554.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:09:20	2040-08-20	OK	zone_rect x1=-2760.0 z1=-900.0 x2=-2100.0 z2=20.0 type=office  -> 3.5s
+2026-10-21 16:09:23	2040-08-20	OK	zone_rect x1=1880.0 z1=-1340.0 x2=3300.0 z2=-905.0 type=office  -> 3.5s
+2026-10-21 16:09:27	2040-08-20	OK	zone_rect x1=1860.0 z1=1060.0 x2=2650.0 z2=1500.0 type=office  -> 3.5s
+2026-10-21 16:09:31	2040-08-20	OK	zone_rect x1=3330.0 z1=-680.0 x2=3850.0 z2=-470.0 type=office  -> 3.5s
+2026-10-21 16:09:37	2040-08-20	OK	zones_at x=-2000.0 z=-1235.0 radius=420.0  -> 0.0s
+2026-10-21 16:09:44	2040-08-20	OK	advance days=30 speed=3 max_seconds=600 turbo=null  -> 206.8s
+2026-10-21 16:13:12	2040-09-19	OK	save_city name=fukuoka-grow-g109 overwrite=false  -> 2.6s
+2026-10-21 16:13:17	2040-09-19	OK	city_info  -> 0.0s
+2026-10-21 16:13:18	2040-09-19	OK	services  -> 0.0s
+2026-10-21 16:13:18	2040-09-19	OK	citizens_summary  -> 0.0s
+2026-10-21 16:13:18	2040-09-19	OK	complaints  -> 0.0s
+2026-10-21 16:13:18	2040-09-19	OK	demand_breakdown  -> 0.0s
+2026-10-21 16:13:19	2040-09-19	OK	new_buildings since=39415  -> 0.0s
+2026-10-21 16:13:19	2040-09-19	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 16:14:00	2040-09-19	DO	新しい街区の z=−1010・−1370 の通りを高密度商業に(公約1)
+2026-10-21 16:14:00	2040-09-19	WHY	商業の需要38。働き口が増えず jobTermRaw −28 で住宅target 11。商業は別の枠で建つ。予想: 1か月で店+25棟、働き口+200
+2026-10-21 16:14:01	2040-09-19	OK	zone_rect x1=-2400.0 z1=-1050.0 x2=-1690.0 z2=-968.0 type=commercial_high  -> 3.5s
+2026-10-21 16:14:04	2040-09-19	OK	zone_rect x1=-2400.0 z1=-1410.0 x2=-1690.0 z2=-1328.0 type=commercial_high  -> 3.4s
+2026-10-21 16:14:12	2040-09-19	DO	新しい街区の南に給水塔4基(公約2)
+2026-10-21 16:14:12	2040-09-19	WHY	水73%(1,090,032/1,500,000)。容量は月に1,500,000〜1,620,000で揺れる。処理場から600m。予想: 水の容量+240,000、使用63%前後
+2026-10-21 16:14:12	2040-09-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1465.0], [-2365.0, -1545.0], [-1990.0, -1545.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1100
+2026-10-21 16:14:21	2040-09-19	OK	place_building prefab=Water Tower x=-2300.0 z=-1570.0 angle=0 pay=true facing=null  -> 3.4s cost=3500
+2026-10-21 16:14:25	2040-09-19	OK	place_building prefab=Water Tower x=-2200.0 z=-1570.0 angle=0 pay=true facing=null  -> 3.3s cost=3500
+2026-10-21 16:14:28	2040-09-19	OK	place_building prefab=Water Tower x=-2100.0 z=-1570.0 angle=0 pay=true facing=null  -> 3.3s cost=3500
+2026-10-21 16:14:32	2040-09-19	OK	place_building prefab=Water Tower x=-2000.0 z=-1570.0 angle=0 pay=true facing=null  -> 3.3s cost=3500
+2026-10-21 16:14:39	2040-09-19	OK	build_line prefab=Water Pipe points=[[-2300.0, -1545.0], [-2300.0, -1570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=60
+2026-10-21 16:14:42	2040-09-19	OK	build_line prefab=Water Pipe points=[[-2200.0, -1545.0], [-2200.0, -1570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=60
+2026-10-21 16:14:46	2040-09-19	OK	build_line prefab=Water Pipe points=[[-2100.0, -1545.0], [-2100.0, -1570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=60
+2026-10-21 16:14:49	2040-09-19	OK	build_line prefab=Water Pipe points=[[-1990.0, -1545.0], [-2000.0, -1570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=60
+2026-10-21 16:14:55	2040-09-19	OK	build_line prefab=Power Line points=[[-2090.0, -1420.0], [-2100.0, -1566.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=360
+2026-10-21 16:14:59	2040-09-19	OK	build_line prefab=Power Line points=[[-2104.0, -1566.0], [-2200.0, -1566.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=240
+2026-10-21 16:15:02	2040-09-19	OK	build_line prefab=Power Line points=[[-2204.0, -1566.0], [-2300.0, -1566.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=240
+2026-10-21 16:15:05	2040-09-19	OK	build_line prefab=Power Line points=[[-2096.0, -1566.0], [-2000.0, -1566.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=240
+2026-10-21 16:15:11	2040-09-19	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 6.8s
+2026-10-21 16:15:20	2040-09-20	OK	buildings_near x=-2150.0 z=-1570.0 radius=170.0 limit=50 problems_only=false problem=null service=Water  -> 0.0s
+2026-10-21 16:15:21	2040-09-20	OK	map_layer type=water_pollution x=-2150.0 z=-1570.0 radius=150.0 n=3  -> 0.0s
+2026-10-21 16:15:27	2040-09-20	OK	advance days=29 speed=3 max_seconds=600 turbo=null  -> 184.1s
+2026-10-21 16:18:33	2040-10-19	OK	city_info  -> 0.0s
+2026-10-21 16:18:34	2040-10-19	OK	services  -> 0.0s
+2026-10-21 16:18:34	2040-10-19	OK	citizens_summary  -> 0.0s
+2026-10-21 16:18:34	2040-10-19	OK	complaints  -> 0.0s
+2026-10-21 16:18:34	2040-10-19	OK	demand_breakdown  -> 0.0s
+2026-10-21 16:18:34	2040-10-19	OK	new_buildings since=39675  -> 0.0s
+2026-10-21 16:18:34	2040-10-19	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 16:18:50	2040-10-19	OK	buildings_near x=3300.0 z=-250.0 radius=1200.0 limit=50 problems_only=false problem=null service=HealthCare  -> 0.0s
+2026-10-21 16:18:51	2040-10-19	OK	zones_at x=-2000.0 z=-1235.0 radius=420.0  -> 0.0s
+2026-10-21 16:19:01	2040-10-19	OK	height_at x=-2600.0 z=-1200.0  -> 0.0s
+2026-10-21 16:19:02	2040-10-19	OK	height_at x=-2700.0 z=-1450.0  -> 0.0s
+2026-10-21 16:19:02	2040-10-19	OK	height_at x=-2700.0 z=-1000.0  -> 0.0s
+2026-10-21 16:19:03	2040-10-19	OK	net_near x=4090.0 z=-210.0 radius=70.0 service=Road limit=50  -> 0.0s
+2026-10-21 16:19:04	2040-10-19	OK	net_near x=3580.0 z=618.0 radius=70.0 service=Road limit=50  -> 0.0s
+2026-10-21 16:19:16	2040-10-19	DO	満ちた墓地2つを取り壊し、同じ場所に置き直す(公約1)
+2026-10-21 16:19:16	2040-10-19	WHY	墓地47315が3,000/3,000で霊柩車0台、37619は92%。古い街の東にDeath 14。予想: Death 14 → 5以下
+2026-10-21 16:19:17	2040-10-19	OK	bulldoze x=4090.0 z=-210.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:19:20	2040-10-19	OK	bulldoze x=3580.0 z=618.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:19:26	2040-10-19	OK	place_building prefab=Cemetery x=4090.0 z=-210.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-21 16:19:30	2040-10-19	OK	place_building prefab=Cemetery x=3580.0 z=618.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-21 16:19:36	2040-10-19	DO	新しい街区を西へ x=−2720 まで広げ、高密度住宅に(公約1)
+2026-10-21 16:19:36	2040-10-19	WHY	新しい街区の空いた住宅マス1,091で1か月分。家は空きマスがあれば月46棟建つ。西は平らな空き地。予想: 次の月も家が月40棟以上
+2026-10-21 16:19:37	2040-10-19	OK	build_line prefab=Basic Road points=[[-2360.0, -1010.0], [-2720.0, -1010.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=1800
+2026-10-21 16:19:40	2040-10-19	NG	build_line prefab=Basic Road points=[[-2360.0, -1100.0], [-2720.0, -1100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.2s)
+2026-10-21 16:19:42	2040-10-19	NG	build_line prefab=Basic Road points=[[-2360.0, -1190.0], [-2720.0, -1190.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.3s)
+2026-10-21 16:19:43	2040-10-19	NG	build_line prefab=Basic Road points=[[-2360.0, -1280.0], [-2720.0, -1280.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.2s)
+2026-10-21 16:19:44	2040-10-19	NG	build_line prefab=Basic Road points=[[-2360.0, -1370.0], [-2720.0, -1370.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.3s)
+2026-10-21 16:19:46	2040-10-19	NG	build_line prefab=Basic Road points=[[-2360.0, -1460.0], [-2720.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.3s)
+2026-10-21 16:19:53	2040-10-19	OK	build_line prefab=Basic Road points=[[-2360.0, -1100.0], [-2720.0, -1100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.4s cost=1800
+2026-10-21 16:19:56	2040-10-19	OK	build_line prefab=Basic Road points=[[-2360.0, -1190.0], [-2720.0, -1190.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=1800
+2026-10-21 16:19:59	2040-10-19	OK	build_line prefab=Basic Road points=[[-2360.0, -1280.0], [-2720.0, -1280.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.2s cost=1800
+2026-10-21 16:20:03	2040-10-19	OK	build_line prefab=Basic Road points=[[-2360.0, -1370.0], [-2720.0, -1370.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=1800
+2026-10-21 16:20:06	2040-10-19	OK	build_line prefab=Basic Road points=[[-2360.0, -1460.0], [-2720.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.3s cost=1800
+2026-10-21 16:20:12	2040-10-19	OK	build_line prefab=Basic Road points=[[-2540.0, -1010.0], [-2540.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=2320
+2026-10-21 16:20:16	2040-10-19	OK	build_line prefab=Basic Road points=[[-2720.0, -830.0], [-2720.0, -1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=3240
+2026-10-21 16:20:22	2040-10-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1015.0], [-2725.0, -1015.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=900
+2026-10-21 16:20:26	2040-10-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1105.0], [-2725.0, -1105.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=900
+2026-10-21 16:20:29	2040-10-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1195.0], [-2725.0, -1195.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=900
+2026-10-21 16:20:32	2040-10-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1285.0], [-2725.0, -1285.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.2s cost=900
+2026-10-21 16:20:36	2040-10-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1375.0], [-2725.0, -1375.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=900
+2026-10-21 16:20:39	2040-10-19	OK	build_line prefab=Water Pipe points=[[-2365.0, -1465.0], [-2725.0, -1465.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=900
+2026-10-21 16:20:42	2040-10-19	OK	build_line prefab=Power Line points=[[-2300.0, -1566.0], [-2450.0, -1420.0], [-2630.0, -1240.... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1660
+2026-10-21 16:20:50	2040-10-19	OK	zone_rect x1=-2765.0 z1=-1505.0 x2=-2400.0 z2=-968.0 type=residential_high  -> 3.4s
+2026-10-21 16:20:54	2040-10-19	OK	zone_rect x1=-2765.0 z1=-1000.0 x2=-2675.0 z2=-870.0 type=office  -> 3.4s
+2026-10-21 16:20:57	2040-10-19	OK	net_reach x=-2540.0 z=-1235.0 radius=300.0 limit=10  -> 0.0s
+2026-10-21 16:21:08	2040-10-19	OK	advance days=30 speed=3 max_seconds=600 turbo=null  -> 196.5s
+2026-10-21 16:24:26	2040-11-18	OK	city_info  -> 0.0s
+2026-10-21 16:24:27	2040-11-18	OK	services  -> 0.0s
+2026-10-21 16:24:27	2040-11-18	OK	citizens_summary  -> 0.0s
+2026-10-21 16:24:27	2040-11-18	OK	complaints  -> 0.0s
+2026-10-21 16:24:27	2040-11-18	OK	demand_breakdown  -> 0.0s
+2026-10-21 16:24:27	2040-11-18	OK	new_buildings since=40006  -> 0.0s
+2026-10-21 16:24:27	2040-11-18	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 16:24:33	2040-11-18	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-21 16:24:38	2040-11-18	OK	height_at x=-1550.0 z=300.0  -> 0.0s
+2026-10-21 16:24:39	2040-11-18	OK	height_at x=-1550.0 z=400.0  -> 0.0s
+2026-10-21 16:24:39	2040-11-18	OK	height_at x=-1550.0 z=500.0  -> 0.0s
+2026-10-21 16:24:40	2040-11-18	OK	height_at x=-1550.0 z=600.0  -> 0.0s
+2026-10-21 16:24:40	2040-11-18	OK	screenshot view=current max_width=800 save_to=null  -> 0.5s
+2026-10-21 16:24:58	2040-11-18	OK	buildings_near x=1000.0 z=0.0 radius=5000.0 limit=200 problems_only=false problem=NoResources service=null  -> 0.0s
+2026-10-21 16:25:06	2040-11-18	OK	buildings_near x=-2420.0 z=-420.0 radius=480.0 limit=60 problems_only=false problem=NoResources service=null  -> 0.0s
+2026-10-21 16:25:22	2040-11-18	DO	天神の西の外の放棄した工場18棟を取り壊し、空いた工業マスをオフィスに(公約1)
+2026-10-21 16:25:22	2040-11-18	WHY	原料が届かずNoResources37棟、うち放棄18。建っては放棄を繰り返し、働き口は3か月43,000のまま。予想: 2か月で放棄5以下
+2026-10-21 16:25:25	2040-11-18	OK	bulldoze x=-2220.0 z=-806.0 radius=3.0 what=building  -> 3.5s
+2026-10-21 16:25:28	2040-11-18	OK	bulldoze x=-2504.0 z=-64.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:32	2040-11-18	OK	bulldoze x=-2492.0 z=-460.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:35	2040-11-18	OK	bulldoze x=-2021.3 z=-686.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:39	2040-11-18	OK	bulldoze x=-2432.0 z=-56.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:42	2040-11-18	OK	bulldoze x=-2436.0 z=-416.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:46	2040-11-18	OK	bulldoze x=-2380.0 z=-104.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:49	2040-11-18	OK	bulldoze x=-2404.0 z=-194.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:25:52	2040-11-18	OK	bulldoze x=-2392.0 z=-424.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:56	2040-11-18	OK	bulldoze x=-2616.0 z=-686.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:25:59	2040-11-18	OK	bulldoze x=-2156.0 z=-666.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:26:03	2040-11-18	OK	bulldoze x=-2336.0 z=-754.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:26:06	2040-11-18	OK	bulldoze x=-2488.0 z=-374.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:26:10	2040-11-18	OK	bulldoze x=-2460.0 z=-374.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:26:13	2040-11-18	OK	bulldoze x=-2468.0 z=-686.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:26:16	2040-11-18	OK	bulldoze x=-2252.0 z=-806.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:26:20	2040-11-18	OK	bulldoze x=-2464.0 z=-330.0 radius=3.0 what=building  -> 3.4s
+2026-10-21 16:26:23	2040-11-18	OK	bulldoze x=-2464.0 z=-236.0 radius=3.0 what=building  -> 3.3s
+2026-10-21 16:26:29	2040-11-18	OK	zone_rect x1=-2760.0 z1=-900.0 x2=-1960.0 z2=20.0 type=office  -> 3.4s
+2026-10-21 16:26:37	2040-11-18	OK	zone_map x=-2150.0 z=-400.0 radius=500.0 size=700 save_to=null  -> 0.0s
+2026-10-21 16:26:44	2040-11-18	OK	advance days=30 speed=3 max_seconds=600 turbo=null  -> 198.7s
+2026-10-21 16:30:05	2040-12-18	OK	save_city name=fukuoka-grow-g112 overwrite=false  -> 2.0s
+2026-10-21 16:30:07	2040-12-18	OK	city_info  -> 0.0s
+2026-10-21 16:30:07	2040-12-18	OK	services  -> 0.0s
+2026-10-21 16:30:07	2040-12-18	OK	citizens_summary  -> 0.0s
+2026-10-21 16:30:07	2040-12-18	OK	complaints  -> 0.0s
+2026-10-21 16:30:07	2040-12-18	OK	demand_breakdown  -> 0.0s
+2026-10-21 16:30:07	2040-12-18	OK	new_buildings since=40477  -> 0.0s
+2026-10-21 16:30:08	2040-12-18	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-21 16:30:11	2040-12-18	OK	buildings_near x=1000.0 z=-300.0 radius=5000.0 limit=50 problems_only=false problem=LandfillFull service=Garbage  -> 0.0s
+2026-10-21 16:30:12	2040-12-18	OK	zones_at x=-2200.0 z=-1235.0 radius=560.0  -> 0.0s
+2026-10-21 16:30:13	2040-12-18	OK	screenshot view=top max_width=800 save_to=/Users/takeshita/orca/workspaces/tried/mod-2/2026/10-20-A...  -> 1.1s

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using ColossalFramework.IO;
 using ColossalFramework.UI;
+using UnityEngine;
 
 namespace AIMayor
 {
@@ -18,6 +19,23 @@ namespace AIMayor
         {
             routes["/save"] = Save;
             routes["/saves"] = req => List();
+            routes["/sim/health"] = req => Health();
+            // 試験用(MCP の道具にはしない)。計算スレッドを、一時停止が解けるまで(最大 ms)ふさぐ。
+            // 一時停止のまま保存が止まる様子と、時間切れの命令の取り消しを、狙って起こすため
+            routes["/sim/test/block"] = req =>
+            {
+                int ms;
+                int.TryParse(req.QueryString["ms"] ?? "15000", out ms);
+                SimulationManager.instance.AddAction(() =>
+                {
+                    var t = DateTime.Now;
+                    while (SimulationManager.instance.SimulationPaused && (DateTime.Now - t).TotalMilliseconds < ms)
+                    {
+                        Thread.Sleep(50);
+                    }
+                });
+                return "{\"ok\":true,\"blockingMs\":" + ms + "}";
+            };
         }
 
         // /save?name=fukuoka-base-2027-01&overwrite=false
@@ -65,7 +83,13 @@ namespace AIMayor
                 return started;
             }
 
+            // 一時停止のまま保存が終わらないことがある(#81 で2回。節目のダイアログを閉じた直後)。
+            // ゲームの保存は、水のシミュレーションが計算に追いつくのを待つ(WaterSimulation.Data.Serialize)。
+            // 水の処理は描画の進みも待つため、一時停止のままだと追いつかずに止まることがある。
+            // そのときは一時停止を解いて描画を進め、保存の直後に計算スレッドの上で止め直す。
+            // 止め直しは保存と同じ待ち行列に入れるので、保存が終わってから時間が進む前に効く。ゲーム内の時間は進まない
             var t0 = DateTime.Now;
+            bool nudged = false;
             while ((DateTime.Now - t0).TotalSeconds < 60)
             {
                 Thread.Sleep(500);
@@ -75,11 +99,73 @@ namespace AIMayor
                     return "{\"ok\":true,\"name\":" + Json.Str(name) + ",\"path\":" + Json.Str(path)
                         + ",\"gameDate\":" + Json.Str(date) + ",\"sizeMB\":"
                         + (f.Length / 1048576.0).ToString("0.0", CultureInfo.InvariantCulture)
-                        + ",\"seconds\":" + (DateTime.Now - t0).TotalSeconds.ToString("0.0", CultureInfo.InvariantCulture) + "}";
+                        + ",\"seconds\":" + (DateTime.Now - t0).TotalSeconds.ToString("0.0", CultureInfo.InvariantCulture)
+                        + ",\"nudged\":" + (nudged ? "true" : "false") + "}";
+                }
+
+                if (!nudged && (DateTime.Now - t0).TotalSeconds >= 3)
+                {
+                    nudged = Nudge();
                 }
             }
 
-            return HttpBridge.Error("save did not finish in 60 seconds (isSaving=" + SavePanel.isSaving + ")");
+            return HttpBridge.Error("save did not finish in 60 seconds (isSaving=" + SavePanel.isSaving + ", nudged=" + nudged + ")");
+        }
+
+        // 保存が計算スレッドで止まっていて、一時停止中なら、一時停止を解き、保存の直後に止め直す。解いたら true
+        private static bool Nudge()
+        {
+            string r = HttpBridge.OnMain(() =>
+            {
+                var sim = SimulationManager.instance;
+                var task = LoadSaveStatus.activeTask;
+                if (!sim.SimulationPaused || task == null || task.completedOrFailed)
+                {
+                    return "no";
+                }
+
+                sim.AddAction(() => { sim.SimulationPaused = true; });
+                sim.SimulationPaused = false;
+                return "yes";
+            });
+            if (r == "yes")
+            {
+                CommandLog.AddDialog("SaveNudge", "save was stuck while paused; unpaused until the save finished");
+                return true;
+            }
+
+            return false;
+        }
+
+        // /sim/health  計算スレッドが命令を受け付けるか(1秒以内に空の命令が終わるか)と、保存・水の処理の様子。
+        // 道具が時間切れになったときの切り分けに使う
+        private static string Health()
+        {
+            var t0 = DateTime.Now;
+            string ping = HttpBridge.OnSimulation(() => "{\"ok\":true}", 1000);
+            bool alive = ping.StartsWith("{\"ok\":true", StringComparison.Ordinal);
+            double ms = (DateTime.Now - t0).TotalMilliseconds;
+            return HttpBridge.OnMain(() =>
+            {
+                var sim = SimulationManager.instance;
+                var task = LoadSaveStatus.activeTask;
+                var water = TerrainManager.instance.WaterSimulation;
+                return "{\"ok\":true,\"simulationResponds\":" + (alive ? "true" : "false")
+                    + ",\"pingMs\":" + Mathf.RoundToInt((float)ms)
+                    + ",\"paused\":" + (sim.SimulationPaused ? "true" : "false")
+                    + ",\"forcedPaused\":" + (sim.ForcedSimulationPaused ? "true" : "false")
+                    + ",\"saving\":" + (SavePanel.isSaving ? "true" : "false")
+                    + ",\"activeTask\":" + Json.Str(task != null && !task.completedOrFailed ? task.name : null)
+                    + ",\"frame\":" + sim.m_currentFrameIndex
+                    + ",\"waterFrame\":" + Field(water, "m_waterFrameIndex")
+                    + ",\"waterTargetFrame\":" + Field(water, "m_simulationFrameIndex") + "}";
+            });
+        }
+
+        private static string Field(object o, string name)
+        {
+            var f = o.GetType().GetField(name, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            return f != null ? Convert.ToString(f.GetValue(o), CultureInfo.InvariantCulture) : "null";
         }
 
         // /saves  保存した街の一覧(新しい順)

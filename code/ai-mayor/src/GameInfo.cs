@@ -31,6 +31,8 @@ namespace AIMayor
             sb.Append(",\"demand\":{\"residential\":").Append(zone.m_residentialDemand)
               .Append(",\"commercial\":").Append(zone.m_commercialDemand)
               .Append(",\"workplace\":").Append(zone.m_workplaceDemand).Append('}');
+            // 電気・水・下水が来ない市民の数(公約2の測り方と同じ)
+            sb.Append(",\"citizensWithoutService\":").Append(CitizenApi.NoServiceJson());
             sb.Append(",\"ownedTiles\":").Append(GameAreaManager.instance.m_areaCount);
             // ゲームに出ているダイアログ(破産の警告など)。なければ null
             sb.Append(",\"dialog\":").Append(DialogWatch.Current);

@@ -78,7 +78,7 @@ namespace AIMayor
             // 道路の区間
             var nets = NetManager.instance;
             var segs = new List<KeyValuePair<int, ushort>>();
-            int roads = 0;
+            int roads = 0, excludedOutside = 0;
             long densitySum = 0;
             for (int i = 1; i < nets.m_segments.m_size; i++)
             {
@@ -99,6 +99,13 @@ namespace AIMayor
                 densitySum += seg.m_trafficDensity;
                 if (seg.m_trafficDensity > 0)
                 {
+                    // 地図の外へのつなぎ口の区間は、混んでいても市長には手が出せない。上位を占めて街の中が押し出されたので外す(#82)
+                    if (IsOutside(ref seg))
+                    {
+                        excludedOutside++;
+                        continue;
+                    }
+
                     segs.Add(new KeyValuePair<int, ushort>(seg.m_trafficDensity, (ushort)i));
                 }
             }
@@ -112,6 +119,7 @@ namespace AIMayor
             sb.Append(",\"roadSegments\":").Append(roads)
               .Append(",\"averageDensity\":").Append(roads > 0 ? densitySum / roads : 0);
 
+            sb.Append(",\"excludedOutside\":").Append(excludedOutside);
             sb.Append(",\"busiest\":[");
             for (int i = 0; i < segs.Count && i < limit; i++)
             {
@@ -136,6 +144,19 @@ namespace AIMayor
             }
 
             return sb.Append("]}").ToString();
+        }
+
+        // 地図の外へのつなぎ口の区間か。端の点に Outside の印があるか、中点が地図の端(±8640)から100m以内
+        private static bool IsOutside(ref NetSegment seg)
+        {
+            var nodes = NetManager.instance.m_nodes.m_buffer;
+            if ((nodes[seg.m_startNode].m_flags & NetNode.Flags.Outside) != 0 || (nodes[seg.m_endNode].m_flags & NetNode.Flags.Outside) != 0)
+            {
+                return true;
+            }
+
+            var m = seg.m_middlePosition;
+            return Mathf.Abs(m.x) > 8540f || Mathf.Abs(m.z) > 8540f;
         }
 
         private static float F(HttpListenerRequest req, string key, float fallback)

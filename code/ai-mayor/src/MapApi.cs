@@ -40,7 +40,7 @@ namespace AIMayor
             bool first = true;
             for (int i = 1; i < blocks.Length; i++)
             {
-                if (blocks[i].m_flags == 0 || Flat(blocks[i].m_position - c) > r + 64f)
+                if (blocks[i].m_flags == 0 || Box(blocks[i].m_position - c) > r + 64f)
                 {
                     continue;
                 }
@@ -62,7 +62,7 @@ namespace AIMayor
                         }
 
                         var p = CityApi.CellPosition(ref blocks[i], xx, zz);
-                        if (Flat(p - c) > r)
+                        if (Box(p - c) > r)
                         {
                             continue;
                         }
@@ -78,6 +78,7 @@ namespace AIMayor
             // 線: [始点x, 始点z, 中点x, 中点z, 終点x, 終点z, サービス, 高架や橋か(1/0)]
             sb.Append("],\"lines\":[");
             var nets = NetManager.instance;
+            var owned = OwnedNodes();
             first = true;
             for (int i = 1; i < nets.m_segments.m_size; i++)
             {
@@ -90,14 +91,14 @@ namespace AIMayor
                 var a = nets.m_nodes.m_buffer[seg.m_startNode].m_position;
                 var b = nets.m_nodes.m_buffer[seg.m_endNode].m_position;
                 var m = seg.m_middlePosition;
-                if (Flat(a - c) > r && Flat(b - c) > r && Flat(m - c) > r)
+                if (Box(a - c) > r && Box(b - c) > r && Box(m - c) > r)
                 {
                     continue;
                 }
 
-                // 建物の中の管などは描かない。高架の点は橋脚(線の一部の建物)とひも付くので、それは除く
-                if (InsideBuilding(nets.m_nodes.m_buffer[seg.m_startNode].m_building)
-                    && InsideBuilding(nets.m_nodes.m_buffer[seg.m_endNode].m_building))
+                // 建物の中の管などは描かない(両端とも建物が持つ点の線)。
+                // 以前は NetNode.m_building で見ていたが、管の継ぎ目の建物も指すため、新しい管が抜けた(#82)
+                if (owned.Contains(seg.m_startNode) && owned.Contains(seg.m_endNode))
                 {
                     continue;
                 }
@@ -117,13 +118,18 @@ namespace AIMayor
             for (int i = 1; i < bs.Length; i++)
             {
                 if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null || bs[i].m_parentBuilding != 0
-                    || IsNetPart(ref bs[i]) || Flat(bs[i].m_position - c) > r)
+                    || IsNetPart(ref bs[i]) || Box(bs[i].m_position - c) > r)
                 {
                     continue;
                 }
 
-                bool e, w, s;
+                // 1 は「来ている、または要らない」。要らないものまで赤い枠にしない(#82。風車や給水塔が赤くなった)
+                bool e, w, s, ne, nw, ns;
                 Grid(ref bs[i], out e, out w, out s);
+                Needs(ref bs[i], out ne, out nw, out ns);
+                e |= !ne;
+                w |= !nw;
+                s |= !ns;
                 var info = bs[i].Info;
                 sb.Append(first ? "" : ",").Append('[').Append(R(bs[i].m_position.x)).Append(',').Append(R(bs[i].m_position.z))
                   .Append(',').Append(info.m_cellWidth * 8).Append(',').Append(info.m_cellLength * 8)
@@ -144,12 +150,35 @@ namespace AIMayor
             WaterManager.instance.CheckWater(b.m_position, out water, out sewage, out pollution);
         }
 
-        // "grid":{"electricity":..,"water":..,"sewage":..}
+        // 建物が電気・水・下水を要るか。区画の建物はすべて要る。サービスの建物は、使う量が0でないものだけ(#82)。
+        // 風車は水も下水も使わず、給水塔は電気だけを使う(WaterFacilityAI の m_waterConsumption は0)
+        public static void Needs(ref Building b, out bool electricity, out bool water, out bool sewage)
+        {
+            var ai = b.Info != null ? b.Info.m_buildingAI : null;
+            var pai = ai as PlayerBuildingAI;
+            if (pai != null)
+            {
+                electricity = pai.m_electricityConsumption > 0;
+                water = pai.m_waterConsumption > 0;
+                sewage = pai.m_sewageAccumulation > 0;
+                return;
+            }
+
+            bool zoned = ai is PrivateBuildingAI;
+            electricity = zoned;
+            water = zoned;
+            sewage = zoned;
+        }
+
+        // "grid":{"electricity":..,"water":..,"sewage":..,"needs":{"electricity":..,"water":..,"sewage":..}}
+        // needs が false の種類は、grid が false でも困らない
         public static string GridJson(ref Building b)
         {
-            bool e, w, s;
+            bool e, w, s, ne, nw, ns;
             Grid(ref b, out e, out w, out s);
-            return "{\"electricity\":" + B(e) + ",\"water\":" + B(w) + ",\"sewage\":" + B(s) + "}";
+            Needs(ref b, out ne, out nw, out ns);
+            return "{\"electricity\":" + B(e) + ",\"water\":" + B(w) + ",\"sewage\":" + B(s)
+                + ",\"needs\":{\"electricity\":" + B(ne) + ",\"water\":" + B(nw) + ",\"sewage\":" + B(ns) + "}}";
         }
 
         // 建物の管・送電線のつなぎ口(建物の中の線の端)と、外の線につながっているか。なければ "[]"
@@ -263,10 +292,29 @@ namespace AIMayor
             return n.Length == 1 ? new[] { n[0] } : new[] { n[0], n[n.Length - 1] };
         }
 
-        // 点がひも付く建物が、市長の建てる建物か(橋脚や電柱でないか)
-        private static bool InsideBuilding(ushort id)
+        // 建物が持つ点(Building.m_netNode からたどれる点)。電柱や継ぎ目など、線の一部の建物は除く
+        private static HashSet<ushort> OwnedNodes()
         {
-            return id != 0 && !IsNetPart(ref BuildingManager.instance.m_buildings.m_buffer[id]);
+            var set = new HashSet<ushort>();
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            var nodes = NetManager.instance.m_nodes.m_buffer;
+            for (int i = 1; i < bs.Length; i++)
+            {
+                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].m_netNode == 0 || IsNetPart(ref bs[i]))
+                {
+                    continue;
+                }
+
+                ushort n = bs[i].m_netNode;
+                int guard = 0;
+                while (n != 0 && guard++ < 1024)
+                {
+                    set.Add(n);
+                    n = nodes[n].m_nextBuildingNode;
+                }
+            }
+
+            return set;
         }
 
         // 線の一部としてゲームが置く建物(電柱、管の継ぎ目、橋脚)か。市長が建てる建物ではないので、一覧から外す
@@ -287,9 +335,11 @@ namespace AIMayor
             return R(p.x) + "," + R(p.z);
         }
 
-        private static float Flat(Vector3 d)
+        // 地図は正方形に描くので、円ではなく正方形の内側を返す(#82)。
+        // 円で選ぶと、地図の四隅の道路や建物が描かれなかった(中心 (3650,-950)・半径750 で南東の高速道路が抜けた)
+        private static float Box(Vector3 d)
         {
-            return new Vector2(d.x, d.z).magnitude;
+            return Mathf.Max(Mathf.Abs(d.x), Mathf.Abs(d.z));
         }
 
         private static string B(bool v)
