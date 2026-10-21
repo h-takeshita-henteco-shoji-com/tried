@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Net;
 using System.Text;
+using UnityEngine;
 
 namespace AIMayor
 {
@@ -46,6 +47,13 @@ namespace AIMayor
 
                 sb.Append(first ? "" : ",").Append("{\"service\":").Append(Json.Str(s.ToString()))
                   .Append(",\"income\":").Append(income / 100).Append(",\"expenses\":").Append(expenses / 100);
+
+                // Citizen と Tourism は、商業の収入を客で分けた内訳(ゲームの財務の画面の「市民」「観光客」)。
+                // 合計に二重には入らない。観光客がいないと Citizen は Commercial と同じ値になる(#82 で市長が二重と読んだ)
+                if (s == ItemClass.Service.Citizen || s == ItemClass.Service.Tourism)
+                {
+                    sb.Append(",\"partOf\":\"Commercial\"");
+                }
 
                 // 公共交通は、鉄道・バスなどの内訳も付ける
                 if (s == ItemClass.Service.PublicTransport)
@@ -115,20 +123,22 @@ namespace AIMayor
                 }
 
                 bool free = (seg.m_flags & (NetSegment.Flags.Original | NetSegment.Flags.Untouchable)) != 0;
+                var a = nets.m_nodes.m_buffer[seg.m_startNode].m_position;
+                var b = nets.m_nodes.m_buffer[seg.m_endNode].m_position;
+                // 車線のない線(管、送電線)は m_averageLength が0なので、両端の距離で数える(#82)
+                double length = seg.m_averageLength > 0f ? seg.m_averageLength : Vector3.Distance(a, b);
                 sum.Segments++;
-                sum.Length += seg.m_averageLength;
+                sum.Length += length;
                 if (free)
                 {
                     sum.Free++;
-                    sum.FreeLength += seg.m_averageLength;
+                    sum.FreeLength += length;
                     continue;
                 }
 
                 var ai = info.m_netAI as PlayerNetAI;
                 if (ai != null)
                 {
-                    var a = nets.m_nodes.m_buffer[seg.m_startNode].m_position;
-                    var b = nets.m_nodes.m_buffer[seg.m_endNode].m_position;
                     sum.Maintenance += ai.GetMaintenanceCost(a, b);
                 }
             }

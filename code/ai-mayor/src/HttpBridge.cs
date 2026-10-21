@@ -46,6 +46,17 @@ namespace AIMayor
             TrafficApi.Register(routes);
             NetworkApi.Register(routes);
             MapApi.Register(routes);
+            UpgradeApi.Register(routes);
+            TransportLineApi.Register(routes);
+            DistrictApi.Register(routes);
+            BuildingOpsApi.Register(routes);
+            JunctionApi.Register(routes);
+            BuildingStatsApi.Register(routes);
+            MapLayerApi.Register(routes);
+            TreeApi.Register(routes);
+            TradeApi.Register(routes);
+            TerrainGameApi.Register(routes);
+            CargoApi.Register(routes);
 
             listener = new HttpListener();
             listener.Prefixes.Add(Prefix);
@@ -137,14 +148,22 @@ namespace AIMayor
             return OnSimulation(work, 10000);
         }
 
-        // 時間のかかる処理(木をたくさん植えるなど)は、待つ時間を延ばす
+        // 時間のかかる処理(木をたくさん植えるなど)は、待つ時間を延ばす。
+        // 時間切れのときは、まだ始まっていなければ取り消す。#81 では、時間切れを返した place_building が
+        // 一時停止を解いた後で実行され、診療所が二重に建った。始まっていたら、終わるまで待って結果を返す
         public static string OnSimulation(Func<string> work, int timeoutMs)
         {
             string result = null;
             Exception error = null;
             var done = new ManualResetEvent(false);
+            int state = Pending;
             SimulationManager.instance.AddAction(() =>
             {
+                if (Interlocked.CompareExchange(ref state, Running, Pending) != Pending)
+                {
+                    return; // 取り消し済み
+                }
+
                 try
                 {
                     result = work();
@@ -161,11 +180,20 @@ namespace AIMayor
 
             if (!done.WaitOne(timeoutMs))
             {
-                return Error("simulation thread timeout");
+                if (Interlocked.CompareExchange(ref state, Cancelled, Pending) == Pending)
+                {
+                    return "{\"ok\":false,\"error\":\"simulation thread timeout. The command was cancelled and NOT executed."
+                        + " The simulation thread is busy (a save may be waiting). Check /sim/health before retrying\""
+                        + ",\"executed\":false}";
+                }
+
+                done.WaitOne(); // もう始まっている。途中で止められないので、終わりを待つ
             }
 
             return error != null ? Error(error.ToString()) : result;
         }
+
+        private const int Pending = 0, Running = 1, Cancelled = 2;
 
         private static void Loop()
         {

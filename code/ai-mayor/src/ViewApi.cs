@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Globalization;
 using System.IO;
@@ -21,6 +22,9 @@ namespace AIMayor
             routes["/camera"] = Camera;
             routes["/height"] = req => HttpBridge.OnMain(() => Height(req));
             routes["/screenshot"] = Screenshot;
+            // /ui/zoning?show=true&zone=residential_low  区画を色で見せる(ゲームの区画の道具を選んだ状態にする)。#82。
+            // 区画を指定するところを、見ている人が色で分かるようにするため。show=false で元の道具に戻す
+            routes["/ui/zoning"] = req => HttpBridge.OnMain(() => Zoning(req));
         }
 
         // /camera?x=0&z=0&size=4800&pitch=90&yaw=0  (省略した値は今のまま)
@@ -50,6 +54,38 @@ namespace AIMayor
             }
 
             return set.Substring(0, set.Length - 1) + ",\"current\":" + now + "}";
+        }
+
+        private static readonly Dictionary<string, ItemClass.Zone> ZoneNames = new Dictionary<string, ItemClass.Zone>
+        {
+            { "residential_low", ItemClass.Zone.ResidentialLow }, { "residential_high", ItemClass.Zone.ResidentialHigh },
+            { "commercial_low", ItemClass.Zone.CommercialLow }, { "commercial_high", ItemClass.Zone.CommercialHigh },
+            { "industrial", ItemClass.Zone.Industrial }, { "office", ItemClass.Zone.Office }, { "none", ItemClass.Zone.Unzoned },
+        };
+
+        private static string Zoning(HttpListenerRequest req)
+        {
+            if (req.QueryString["show"] == "false")
+            {
+                ToolsModifierControl.SetTool<DefaultTool>();
+                return "{\"ok\":true,\"zoning\":false}";
+            }
+
+            var tool = ToolsModifierControl.SetTool<ZoneTool>();
+            if (tool == null)
+            {
+                return HttpBridge.Error("zone tool not found");
+            }
+
+            // 選択の形にしておく。人がマウスを動かしても、塗りの見本が出にくいように
+            tool.m_mode = ZoneTool.Mode.Select;
+            ItemClass.Zone zone;
+            if (ZoneNames.TryGetValue(req.QueryString["zone"] ?? "", out zone))
+            {
+                tool.m_zone = zone;
+            }
+
+            return "{\"ok\":true,\"zoning\":true}";
         }
 
         // 引き size のときに届く一番浅い角度
@@ -160,7 +196,19 @@ namespace AIMayor
                     cam.m_targetAngle = new Vector2(0f, view == "top" ? 90f : RawPitch(cam, size, 45f));
                     return "{}";
                 });
-                Thread.Sleep(2500); // カメラが動き終わるのを待つ
+
+                // カメラが動き終わるのを待つ(最大6秒)。以前は2.5秒で撮っていて、街から遠い所へ動く途中を写した(#82)
+                var want = Vector2.zero;
+                for (int i = 0; i < 60; i++)
+                {
+                    Thread.Sleep(100);
+                    bool settled = false;
+                    HttpBridge.OnMain(() => ReadCamera(want, out settled));
+                    if (settled && i >= 5)
+                    {
+                        break;
+                    }
+                }
             }
 
             Directory.CreateDirectory(ShotDir);

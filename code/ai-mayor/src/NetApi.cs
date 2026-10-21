@@ -21,7 +21,7 @@ namespace AIMayor
 
         public static void Register(Dictionary<string, Func<HttpListenerRequest, string>> routes)
         {
-            routes["/net/prefabs"] = req => HttpBridge.OnMain(Prefabs);
+            routes["/net/prefabs"] = req => HttpBridge.OnMain(() => Prefabs(req.QueryString["locked"] == "true"));
             routes["/net/build"] = Build;
             routes["/net/remove"] = Remove;
             // /net/remove_all?prefab=Train%20Track  準備用。その種類の線をすべて消す。MCP の道具にはしない
@@ -30,15 +30,25 @@ namespace AIMayor
             routes["/areas/unlock_all"] = req => HttpBridge.OnSimulation(UnlockAllAreas);
         }
 
-        // /net/prefabs  使える種類の名前の一覧(道路、線路など)
-        private static string Prefabs()
+        // /net/prefabs?locked=false  使える種類の名前の一覧(道路、線路など)。
+        // ゲームの道具の一覧と同じく、手で引く線だけにする(GeneratedScrollPanel.IsPlacementRelevant)。
+        // 既定では解禁された線だけ。locked=true で、解禁前の線も unlocked=false と条件つきで返す(#82)。
+        // #82 の試運転で、市長が解禁前の道路まで約140種を受け取っていた
+        private static string Prefabs(bool withLocked)
         {
             var sb = new StringBuilder("{\"ok\":true,\"prefabs\":[");
             int n = PrefabCollection<NetInfo>.LoadedCount();
             for (uint i = 0; i < n; i++)
             {
                 var info = PrefabCollection<NetInfo>.GetLoaded(i);
-                if (info == null)
+                if (info == null || info.m_placementStyle != ItemClass.Placement.Manual
+                    || (info.m_availableIn & ItemClass.Availability.Game) == 0)
+                {
+                    continue;
+                }
+
+                bool locked = !ToolsModifierControl.IsUnlocked(info.GetUnlockMilestone());
+                if (locked && !withLocked)
                 {
                     continue;
                 }
@@ -49,7 +59,12 @@ namespace AIMayor
                 }
 
                 sb.Append("{\"name\":").Append(Json.Str(info.name))
-                  .Append(",\"service\":").Append(Json.Str(info.m_class != null ? info.m_class.m_service.ToString() : null));
+                  .Append(",\"service\":").Append(Json.Str(info.m_class != null ? info.m_class.m_service.ToString() : null))
+                  .Append(",\"unlocked\":").Append(locked ? "false" : "true");
+                if (locked)
+                {
+                    sb.Append(",\"unlock\":").Append(UnlockJson(info));
+                }
 
                 // 1kmあたりの建設費と週の維持費。ゲームは8mごとに数える(PlayerNetAI)。高架やトンネルは建設費が上がる
                 var ai = info.m_netAI as PlayerNetAI;
@@ -63,6 +78,20 @@ namespace AIMayor
             }
 
             return sb.Append("]}").ToString();
+        }
+
+        // 解禁の条件。人口の節目なら、その人口(CityApi.UnlockJson と同じ形)
+        private static string UnlockJson(PrefabInfo info)
+        {
+            var m = info.GetUnlockMilestone();
+            if (m == null)
+            {
+                return "null";
+            }
+
+            var p = m.GetLocalizedProgress();
+            return "{\"milestone\":" + Json.Str(m.GetLocalizedName()) + ",\"current\":" + Mathf.RoundToInt(p.m_current)
+                + ",\"target\":" + Mathf.RoundToInt(p.m_max) + ",\"description\":" + Json.Str(p.m_description) + "}";
         }
 
         // /areas/unlock_all  地図のすべての区画を、お金をかけずに街のものにする。
@@ -122,21 +151,30 @@ namespace AIMayor
             }
 
             bool pay = req.QueryString["pay"] != "false";
-            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay));
+            bool demolish = req.QueryString["demolish"] == "true";
+            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, null, demolish));
         }
 
-        private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay)
-        {
-            return BuildOnSimulation(prefab, points, pay, null);
-        }
-
-        // fixedY を渡すと、地面の高さの代わりにその高さで点を置く(船の航路や飛行機の経路に使う)
+        // fixedY を渡すと、地面の高さの代わりにその高さで点を置く(船の航路や飛行機の経路に使う)。
+        // マップエディターの道具から呼ぶ。重なる建物は確かめない
         internal static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY)
+        {
+            return BuildOnSimulation(prefab, points, pay, fixedY, true);
+        }
+
+        // demolish=false なら、建物に重なるときは建てずに断る(#82)
+        private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish)
         {
             var info = PrefabCollection<NetInfo>.FindLoaded(prefab);
             if (info == null)
             {
                 return HttpBridge.Error("prefab not found: " + prefab + " (see /net/prefabs)");
+            }
+
+            // 解禁前の線は断る(#82)。人が置く骨格(pay=false)とマップエディターの道具は問わない
+            if (pay && !ToolsModifierControl.IsUnlocked(info.GetUnlockMilestone()))
+            {
+                return HttpBridge.Error("this network is not unlocked yet: " + prefab);
             }
 
             var nm = NetManager.instance;
@@ -169,6 +207,33 @@ namespace AIMayor
                 points = kept;
             }
 
+            // 地下に引く点(3つ目の値が負。地面からの深さ)。#82。
+            // ゲームの NetTool は、地面より8m以上深い点を地下の点(Underground)にし、区間は NetAI.GetInfo で選ぶ。
+            // 両端が地下ならトンネルの種類(m_tunnelInfo)、片方だけなら坂の種類(m_slopeInfo)。同じ決まりにする
+            var tunnelInfo = fixedY == null ? AiField(info, "m_tunnelInfo") : null;
+            var slopeInfo = fixedY == null ? AiField(info, "m_slopeInfo") : null;
+            bool wantTunnel = false;
+            foreach (var p in points)
+            {
+                wantTunnel |= p.y < -0.5f;
+            }
+
+            if (wantTunnel && tunnelInfo == null)
+            {
+                return HttpBridge.Error("this line type cannot go underground (no tunnel type): " + prefab);
+            }
+
+            // 途中で交わる既存の道路・水道管に交差点を作る(#82)。ゲームの線を引く道具と同じ動き。
+            // 前は端だけをつないだので、途中の交わりは重なるだけだった(g01 から何度も実害。g84 は24区間を引き直した)
+            var joins = new HashSet<int>();
+            int crossings = 0;
+            if (fixedY == null && !wantElevated && !wantTunnel
+                && (info.m_class.m_service == ItemClass.Service.Road || info.m_class.m_service == ItemClass.Service.Water))
+            {
+                points = InsertCrossings(points, info, joins);
+                crossings = joins.Count;
+            }
+
             // 川や海を渡る区間は、橋の種類で引く(ゲームの線を引く道具と同じ)。高さを固定するとき(船・飛行機)は使わない
             var bridge = fixedY == null ? BridgeInfo(info) : null;
             int n = points.Count;
@@ -180,6 +245,18 @@ namespace AIMayor
                 ground[i] = fixedY ?? terrain.SampleRawHeightSmooth(points[i]);
                 ys[i] = ground[i];
                 wet[i] = bridge != null && WaterDepth(points[i]) > 0.5f;
+            }
+
+            // 地下の点は、地面から指定の深さ(8mより浅ければ9m)に置く。水の上でも橋にしない
+            var under = new bool[n];
+            for (int i = 0; i < n; i++)
+            {
+                if (wantTunnel && points[i].y < -0.5f)
+                {
+                    under[i] = true;
+                    wet[i] = false;
+                    ys[i] = ground[i] - Mathf.Max(-points[i].y, 9f);
+                }
             }
 
             var onBridge = new bool[n]; // onBridge[i]: points[i-1] から points[i] までの区間
@@ -219,6 +296,25 @@ namespace AIMayor
                 }
             }
 
+            // 地下の区間(片方でも地下の点)の種類。両端が地下ならトンネル、片方なら坂(なければトンネル)
+            var undergroundInfo = new NetInfo[n]; // undergroundInfo[i]: points[i-1] から points[i] までの区間。地上なら null
+            int tunnels = 0;
+            for (int i = 1; i < n; i++)
+            {
+                if (!under[i - 1] && !under[i])
+                {
+                    continue;
+                }
+
+                undergroundInfo[i] = under[i - 1] && under[i] ? tunnelInfo : (slopeInfo ?? tunnelInfo);
+                tunnels++;
+                if (onBridge[i])
+                {
+                    onBridge[i] = false;
+                    bridges--;
+                }
+            }
+
             // 高架の点は、指定の高さまで持ち上げる。高架の区間は高架の種類で引く(水の上でも、橋ではなく高架にする)
             var useElevated = new bool[n];
             if (wantElevated && elevatedInfo != null)
@@ -245,6 +341,22 @@ namespace AIMayor
                 }
             }
 
+            // 道路や線路が建物の敷地に重なると、ゲームはその建物を壊す。戻り値には出ないため、
+            // #82 の試運転では市長が人口の減りで初めて気づいた。費用を払う前に、重なる建物を探す
+            // 両端が地下の区間は地面の建物と重ならないので、高架と同じく調べない
+            var skipOverlap = new bool[n];
+            for (int i = 0; i < n; i++)
+            {
+                skipOverlap[i] = useElevated[i] || (i > 0 && under[i - 1] && under[i]);
+            }
+
+            string overlaps = Overlaps(info, points, onBridge, skipOverlap);
+            if (overlaps != "[]" && !demolish)
+            {
+                return "{\"ok\":false,\"error\":\"the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway\""
+                    + ",\"overlaps\":" + overlaps + "}";
+            }
+
             // 先に建設費の合計を計算し、足りるときだけ建てる(途中で止まって中途半端にならないように)
             int cost = 0;
             for (int i = 1; i < n; i++)
@@ -253,8 +365,8 @@ namespace AIMayor
                 var b = points[i];
                 a.y = ys[i - 1];
                 b.y = ys[i];
-                var segInfo = onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info;
-                // 橋の費用は、地面からの高さで増える
+                var segInfo = undergroundInfo[i] ?? (onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info);
+                // 橋の費用は、地面からの高さで増える。トンネルは深さ(負の高さ)で決まる
                 cost += segInfo.m_netAI.GetConstructionCost(a, b, ys[i - 1] - ground[i - 1], ys[i] - ground[i]);
             }
 
@@ -281,14 +393,16 @@ namespace AIMayor
                 pos.y = ys[i];
 
                 ushort node = 0;
-                if (i == 0 || i == points.Count - 1)
+                bool isEnd = i == 0 || i == points.Count - 1;
+                if (isEnd || joins.Contains(i))
                 {
                     string how = "none";
-                    node = FindNode(pos, info);
+                    // 地下の端は地下の点・区間に、地上の端は地上の点・区間にだけつなぐ(#82)
+                    node = FindNode(pos, info, under[i]);
                     if (node == 0)
                     {
                         // 点がなければ、近くの区間を途中で分けて、交差点を作る
-                        ushort seg = FindSegment(pos, info);
+                        ushort seg = FindSegment(pos, info, under[i]);
                         if (seg != 0)
                         {
                             node = SplitSegment(seg, pos, ref rnd);
@@ -311,23 +425,39 @@ namespace AIMayor
                     }
 
                     // 端が何につながったか。#81 の市長は、管や送電線が建物につながったかを知る手段がなかった
-                    ends.Append(ends.Length == 0 ? "" : ",").Append(EndJson(pos, node, how));
+                    if (isEnd)
+                    {
+                        ends.Append(ends.Length == 0 ? "" : ",").Append(EndJson(pos, node, how, info));
+                    }
                 }
 
                 if (node == 0)
                 {
                     bool raised = ys[i] - ground[i] > 0.5f;
-                    var nodeInfo = wet[i] && bridge != null && !wantElevated ? bridge : raised && elevatedInfo != null ? elevatedInfo : info;
+                    var nodeInfo = under[i] ? tunnelInfo
+                        : wet[i] && bridge != null && !wantElevated ? bridge : raised && elevatedInfo != null ? elevatedInfo : info;
                     if (!nm.CreateNode(out node, ref rnd, nodeInfo, pos, sim.m_currentBuildIndex))
                     {
                         return HttpBridge.Error("CreateNode failed at point " + i);
                     }
 
-                    if (raised)
+                    if (under[i])
+                    {
+                        // 地下の点: ゲームの NetTool と同じく、高さ0・Underground の印・地面の印なし
+                        nm.m_nodes.m_buffer[node].m_elevation = 0;
+                        nm.m_nodes.m_buffer[node].m_flags |= NetNode.Flags.Underground;
+                        nm.m_nodes.m_buffer[node].m_flags &= ~NetNode.Flags.OnGround;
+                    }
+                    else if (raised)
                     {
                         // 水の上の点: 地面からの高さを覚えさせる(橋脚はゲームが置く)
                         nm.m_nodes.m_buffer[node].m_elevation = (byte)Mathf.Clamp(Mathf.RoundToInt(ys[i] - ground[i]), 1, 255);
                         nm.m_nodes.m_buffer[node].m_flags &= ~NetNode.Flags.OnGround;
+                    }
+                    else if (fixedY == null)
+                    {
+                        // 地面の点: ゲームの NetTool と同じく OnGround の印を付ける(#82。前は付けていなかった)
+                        nm.m_nodes.m_buffer[node].m_flags |= NetNode.Flags.OnGround;
                     }
 
                     sim.m_currentBuildIndex++;
@@ -340,7 +470,7 @@ namespace AIMayor
                     dir.y = 0f;
                     dir.Normalize();
                     ushort seg;
-                    if (!nm.CreateSegment(out seg, ref rnd, onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info, prevNode, node, dir, -dir,
+                    if (!nm.CreateSegment(out seg, ref rnd, undergroundInfo[i] ?? (onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info), prevNode, node, dir, -dir,
                             sim.m_currentBuildIndex, sim.m_currentBuildIndex, false))
                     {
                         return HttpBridge.Error("CreateSegment failed at point " + i);
@@ -355,17 +485,165 @@ namespace AIMayor
             }
 
             return "{\"ok\":true,\"prefab\":" + Json.Str(prefab) + ",\"nodes\":" + nodes + ",\"segments\":" + segments
-                + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"ends\":[" + ends + "],\"bridgeSegments\":" + bridges
-                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + "}";
+                + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"crossings\":" + crossings + ",\"ends\":[" + ends + "],\"bridgeSegments\":" + bridges
+                + ",\"undergroundSegments\":" + tunnels
+                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + ",\"overlaps\":" + overlaps + "}";
         }
 
-        // 端の様子: {"x","z","connectedTo":"node"|"split"|"none","building":つなぎ口の建物,"insideBuilding":端が敷地に入っている建物}
-        // 管は建物のつなぎ口の点につながる(building)。送電線は端が建物の敷地に入れば電気が通る(insideBuilding)
-        private static string EndJson(Vector3 pos, ushort node, string how)
+        // 線が敷地に重なる建物の JSON の配列。重ならなければ "[]"。
+        // 衝突する線(道路、線路、歩道)の地面の区間だけを調べる。橋と高架は建物の上を通れるので調べない。
+        // 区間を4mおきの点で調べ、建物の長方形を線の半幅だけ広げた中に入るかで判定する。
+        // 区画の建物は道路の端(中心から半幅)に接して建つので、広げる幅は2m控え、沿って引いた道路を重なりと数えない
+        private static string Overlaps(NetInfo info, List<Vector3> points, bool[] onBridge, bool[] useElevated)
         {
-            ushort owner = node != 0 ? NetManager.instance.m_nodes.m_buffer[node].m_building : (ushort)0;
-            return "{\"x\":" + Mathf.RoundToInt(pos.x) + ",\"z\":" + Mathf.RoundToInt(pos.z) + ",\"connectedTo\":" + Json.Str(how)
-                + ",\"building\":" + owner + ",\"insideBuilding\":" + BuildingAt(pos) + "}";
+            var svc = info.m_class.m_service;
+            if (!info.m_canCollide || (svc != ItemClass.Service.Road && svc != ItemClass.Service.PublicTransport
+                && svc != ItemClass.Service.Beautification))
+            {
+                return "[]";
+            }
+
+            float pad = Mathf.Max(0f, info.m_halfWidth - 2f);
+            float minX = float.MaxValue, maxX = float.MinValue, minZ = float.MaxValue, maxZ = float.MinValue;
+            foreach (var p in points)
+            {
+                minX = Mathf.Min(minX, p.x);
+                maxX = Mathf.Max(maxX, p.x);
+                minZ = Mathf.Min(minZ, p.z);
+                maxZ = Mathf.Max(maxZ, p.z);
+            }
+
+            // 線の近く(外接の四角 + 100m)の建物だけを先に集める
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            var near = new List<ushort>();
+            for (int i = 1; i < bs.Length; i++)
+            {
+                var f = bs[i].m_flags;
+                if ((f & Building.Flags.Created) == 0 || (f & Building.Flags.Deleted) != 0 || bs[i].Info == null
+                    || bs[i].m_parentBuilding != 0 || MapApi.IsNetPart(ref bs[i]))
+                {
+                    continue;
+                }
+
+                var q = bs[i].m_position;
+                if (q.x < minX - 100f || q.x > maxX + 100f || q.z < minZ - 100f || q.z > maxZ + 100f)
+                {
+                    continue;
+                }
+
+                near.Add((ushort)i);
+            }
+
+            var hit = new List<ushort>();
+            for (int i = 1; i < points.Count; i++)
+            {
+                if (onBridge[i] || useElevated[i])
+                {
+                    continue;
+                }
+
+                var a = points[i - 1];
+                var b = points[i];
+                int steps = Mathf.Max(1, Mathf.CeilToInt(new Vector2(b.x - a.x, b.z - a.z).magnitude / 4f));
+                for (int k = 0; k <= steps; k++)
+                {
+                    var p = Vector3.Lerp(a, b, (float)k / steps);
+                    foreach (var id in near)
+                    {
+                        if (!hit.Contains(id) && InsideLot(ref bs[id], p, pad))
+                        {
+                            hit.Add(id);
+                        }
+                    }
+                }
+            }
+
+            var sb = new StringBuilder("[");
+            for (int i = 0; i < hit.Count; i++)
+            {
+                var b = bs[hit[i]];
+                sb.Append(i > 0 ? "," : "").Append("{\"id\":").Append(hit[i]).Append(",\"prefab\":").Append(Json.Str(b.Info.name))
+                  .Append(",\"service\":").Append(Json.Str(b.Info.m_class.m_service.ToString()))
+                  .Append(",\"x\":").Append(Mathf.RoundToInt(b.m_position.x)).Append(",\"z\":").Append(Mathf.RoundToInt(b.m_position.z))
+                  // 敷地の幅と奥行き(m)と向き。中心だけでは避ける線を決められない(#82 の42か月目)
+                  .Append(",\"width\":").Append(b.Info.m_cellWidth * 8).Append(",\"length\":").Append(b.Info.m_cellLength * 8)
+                  .Append(",\"angle\":").Append(Mathf.RoundToInt(b.m_angle * Mathf.Rad2Deg)).Append('}');
+            }
+
+            return sb.Append(']').ToString();
+        }
+
+        // 点が、建物の敷地(長方形を pad だけ広げたもの)に入るか。向きの回し方は BuildingAt と同じ
+        private static bool InsideLot(ref Building b, Vector3 pos, float pad)
+        {
+            var d = pos - b.m_position;
+            float a = b.m_angle;
+            float right = d.x * Mathf.Cos(a) + d.z * Mathf.Sin(a);
+            float forward = -d.x * Mathf.Sin(a) + d.z * Mathf.Cos(a);
+            return Mathf.Abs(right) <= b.Info.m_cellWidth * 4f + pad && Mathf.Abs(forward) <= b.Info.m_cellLength * 4f + pad;
+        }
+
+        // 端の様子: {"x","z","connectedTo":"node"|"split"|"none","net":つながった線の種類,"building":つなぎ口の建物,"insideBuilding":端が敷地に入っている建物}
+        // 管は建物のつなぎ口の点につながる(building)。送電線は端が建物の敷地に入れば電気が通る(insideBuilding)。
+        // 一般道の端が高速道路の本線につながったら warning を足す。#82 の試運転で、北へ延ばした道路が本線の点につながった。
+        // 街の出入りに使うこともあるので、つなぐのは止めない
+        private static string EndJson(Vector3 pos, ushort node, string how, NetInfo built)
+        {
+            ushort owner = node != 0 ? OwnerBuilding(node) : (ushort)0;
+            var net = node != 0 ? NetManager.instance.m_nodes.m_buffer[node].Info : null;
+            var sb = new StringBuilder("{\"x\":").Append(Mathf.RoundToInt(pos.x)).Append(",\"z\":").Append(Mathf.RoundToInt(pos.z))
+                .Append(",\"connectedTo\":").Append(Json.Str(how)).Append(",\"net\":").Append(Json.Str(net != null ? net.name : null))
+                .Append(",\"building\":").Append(owner).Append(",\"insideBuilding\":").Append(BuildingAt(pos));
+            if (net != null && !IsHighwayMain(built) && IsHighwayMain(net))
+            {
+                sb.Append(",\"warning\":\"connected to a highway main line\"");
+            }
+
+            return sb.Append('}').ToString();
+        }
+
+        // 高速道路の本線か(ランプは除く)
+        private static bool IsHighwayMain(NetInfo info)
+        {
+            return info.name.IndexOf("Highway", StringComparison.Ordinal) >= 0 && info.name.IndexOf("Ramp", StringComparison.Ordinal) < 0;
+        }
+
+        // 点を持つ建物(つなぎ口の点なら、その建物)。なければ 0。
+        // NetNode.m_building は、電柱や管の継ぎ目など、点の飾りの建物を指す(#81 で電柱の番号が返った)。
+        // 建物が持つ点は Building.m_netNode からたどれるので、近くの建物の並びに入っているかで持ち主を決める
+        internal static ushort OwnerBuilding(ushort node)
+        {
+            var nodes = NetManager.instance.m_nodes.m_buffer;
+            var pos = nodes[node].m_position;
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            for (int i = 1; i < bs.Length; i++)
+            {
+                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].m_netNode == 0 || MapApi.IsNetPart(ref bs[i]))
+                {
+                    continue;
+                }
+
+                var d = pos - bs[i].m_position;
+                if (d.x * d.x + d.z * d.z > 40000f)
+                {
+                    continue;
+                }
+
+                ushort n = bs[i].m_netNode;
+                int guard = 0;
+                while (n != 0 && guard++ < 1024)
+                {
+                    if (n == node)
+                    {
+                        // 建物の一部(サブ建物)なら、親の建物を返す
+                        return bs[i].m_parentBuilding != 0 ? bs[i].m_parentBuilding : (ushort)i;
+                    }
+
+                    n = nodes[n].m_nextBuildingNode;
+                }
+            }
+
+            return 0;
         }
 
         // その点を敷地に含む建物。なければ 0
@@ -374,7 +652,8 @@ namespace AIMayor
             var bs = BuildingManager.instance.m_buildings.m_buffer;
             for (int i = 1; i < bs.Length; i++)
             {
-                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null || bs[i].m_parentBuilding != 0)
+                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null || bs[i].m_parentBuilding != 0
+                    || MapApi.IsNetPart(ref bs[i]))
                 {
                     continue;
                 }
@@ -525,6 +804,8 @@ namespace AIMayor
             r2 *= r2;
             string what = req.QueryString["what"] ?? "all";
             int nets = 0, buildings = 0;
+            // 壊した建物の一覧(最大50件)。#82 の試運転で、市長は何を壊したかを数でしか知れなかった
+            var removed = new StringBuilder();
 
             if (what == "all" || what == "net")
             {
@@ -547,7 +828,10 @@ namespace AIMayor
                 }
             }
 
-            if (what == "all" || what == "building")
+            // what=abandoned: 放棄された建物と、壊れた・焼けた建物(Collapsed)だけを壊す。区画の建物だけで、サービスの建物と道路は残す。
+            // #82 の育てる期間で、市長は放棄された建物を1棟ずつ57回 bulldoze した
+            bool abandonedOnly = what == "abandoned";
+            if (what == "all" || what == "building" || abandonedOnly)
             {
                 var bm = BuildingManager.instance;
                 var bs = bm.m_buildings.m_buffer;
@@ -558,17 +842,30 @@ namespace AIMayor
                         continue;
                     }
 
+                    if (abandonedOnly && ((bs[i].m_flags & (Building.Flags.Abandoned | Building.Flags.Collapsed)) == 0
+                        || bs[i].Info == null || !(bs[i].Info.m_buildingAI is PrivateBuildingAI) || bs[i].m_parentBuilding != 0))
+                    {
+                        continue;
+                    }
+
                     var d = bs[i].m_position - c;
                     d.y = 0f;
                     if (d.sqrMagnitude <= r2)
                     {
+                        if (buildings < 50 && bs[i].Info != null)
+                        {
+                            removed.Append(removed.Length == 0 ? "" : ",").Append("{\"id\":").Append(i)
+                              .Append(",\"prefab\":").Append(Json.Str(bs[i].Info.name))
+                              .Append(",\"service\":").Append(Json.Str(bs[i].Info.m_class.m_service.ToString())).Append('}');
+                        }
+
                         bm.ReleaseBuilding((ushort)i);
                         buildings++;
                     }
                 }
             }
 
-            return "{\"ok\":true,\"removedSegments\":" + nets + ",\"removedBuildings\":" + buildings + "}";
+            return "{\"ok\":true,\"removedSegments\":" + nets + ",\"removedBuildings\":" + buildings + ",\"buildings\":[" + removed + "]}";
         }
 
         private static float Q(HttpListenerRequest req, string key, float fallback)
@@ -600,6 +897,12 @@ namespace AIMayor
         // 近くにある、同じサービスの区間を探す(両端の点からは離れた所に限る)
         private static ushort FindSegment(Vector3 pos, NetInfo info)
         {
+            return FindSegment(pos, info, null);
+        }
+
+        // underground を渡すと、地下の区間(または地上の区間)だけを探す。地下と地上の線は高さが違い、つなげないため(#82)
+        private static ushort FindSegment(Vector3 pos, NetInfo info, bool? underground)
+        {
             var nm = NetManager.instance;
             var segs = nm.m_segments.m_buffer;
             ushort best = 0;
@@ -607,7 +910,8 @@ namespace AIMayor
             for (int i = 1; i < segs.Length; i++)
             {
                 if ((segs[i].m_flags & NetSegment.Flags.Created) == 0 || segs[i].Info == null
-                    || segs[i].Info.m_class.m_service != info.m_class.m_service)
+                    || !SameKind(segs[i].Info, info)
+                    || (underground != null && segs[i].Info.m_netAI.IsUnderground() != underground.Value))
                 {
                     continue;
                 }
@@ -670,6 +974,22 @@ namespace AIMayor
                 return 0;
             }
 
+            // 分けた点の高さの印を、ゲームの NetTool(区間を分ける処理)と同じに付ける。
+            // 地下の区間を分けた点に Underground を付けないと、地上の点として扱われる(#82)
+            var nodes = nm.m_nodes.m_buffer;
+            if (info.m_netAI.IsUnderground())
+            {
+                nodes[mid].m_elevation = (byte)((nodes[startNode].m_elevation + nodes[endNode].m_elevation) / 2);
+                nodes[mid].m_flags |= NetNode.Flags.Underground;
+                nodes[mid].m_flags &= ~NetNode.Flags.OnGround;
+            }
+            else if (info.m_netAI.IsOverground())
+            {
+                float terrainY = TerrainManager.instance.SampleRawHeightSmooth(at);
+                nodes[mid].m_elevation = (byte)Mathf.Clamp(Mathf.RoundToInt(at.y - terrainY), 1, 255);
+                nodes[mid].m_flags &= ~NetNode.Flags.OnGround;
+            }
+
             sim.m_currentBuildIndex++;
             ushort a, b;
             nm.CreateSegment(out a, ref rnd, info, startNode, mid, startDir, -dir, buildIndex, sim.m_currentBuildIndex, invert);
@@ -682,13 +1002,33 @@ namespace AIMayor
         // 近くにある、同じ種類の既存の点を探す
         internal static ushort FindNode(Vector3 pos, NetInfo info)
         {
+            return FindNode(pos, info, null);
+        }
+
+        // つないでよい種類か。サービスが同じで、公共交通は小分類(地下鉄と鉄道など)も同じ。
+        // 以前はサービスだけを見ていたので、地下鉄の線路が鉄道の点につながりえた(#82)
+        private static bool SameKind(NetInfo a, NetInfo b)
+        {
+            if (a.m_class.m_service != b.m_class.m_service)
+            {
+                return false;
+            }
+
+            return a.m_class.m_service != ItemClass.Service.PublicTransport || a.m_class.m_subService == b.m_class.m_subService;
+        }
+
+        // underground を渡すと、地下の点(Underground の印)か地上の点だけを探す。
+        // 地下鉄の駅の乗り場(駅の建物の中の地下の線路の端)も地下の点なので、端をそこに置けばつながる(#82)
+        internal static ushort FindNode(Vector3 pos, NetInfo info, bool? underground)
+        {
             var buf = NetManager.instance.m_nodes.m_buffer;
             ushort best = 0;
             float bestD = SnapDistance * SnapDistance;
             for (int i = 1; i < buf.Length; i++)
             {
                 if ((buf[i].m_flags & NetNode.Flags.Created) == 0 || buf[i].Info == null
-                    || buf[i].Info.m_class.m_service != info.m_class.m_service)
+                    || !SameKind(buf[i].Info, info)
+                    || (underground != null && ((buf[i].m_flags & NetNode.Flags.Underground) != 0) != underground.Value))
                 {
                     continue;
                 }
@@ -722,6 +1062,129 @@ namespace AIMayor
         }
 
         // 区間が MaxSegment より長ければ、間に点を足す
+        // 線の途中で、同じサービスの既存の区間(地上のもの)と交わる点を求め、点の並びに足す。足した点の番号を joins に入れる。
+        // 交わる点では、既存の点につなぐか、既存の区間を分けて交差点を作る(端と同じ処理)。
+        // 一般道は高速道路の本線とは交差点を作らない(本線を平面で横切らせないため)
+        private static List<Vector3> InsertCrossings(List<Vector3> pts, NetInfo info, HashSet<int> joins)
+        {
+            var nm = NetManager.instance;
+            var segs = nm.m_segments.m_buffer;
+            var nodes = nm.m_nodes.m_buffer;
+            bool isHighway = info.name.Contains("Highway");
+            var result = new List<Vector3> { pts[0] };
+            for (int k = 1; k < pts.Count; k++)
+            {
+                Vector3 a = pts[k - 1], b = pts[k];
+                var hits = new List<KeyValuePair<float, Vector3>>();
+                float minX = Mathf.Min(a.x, b.x) - 20f, maxX = Mathf.Max(a.x, b.x) + 20f;
+                float minZ = Mathf.Min(a.z, b.z) - 20f, maxZ = Mathf.Max(a.z, b.z) + 20f;
+                float len = new Vector2(b.x - a.x, b.z - a.z).magnitude;
+                for (int i = 1; i < segs.Length; i++)
+                {
+                    if ((segs[i].m_flags & NetSegment.Flags.Created) == 0 || segs[i].Info == null
+                        || segs[i].Info.m_class.m_service != info.m_class.m_service)
+                    {
+                        continue;
+                    }
+
+                    var other = segs[i].Info;
+                    if (!isHighway && other.name.Contains("Highway") && !other.name.Contains("Ramp"))
+                    {
+                        continue;
+                    }
+
+                    var n0 = nodes[segs[i].m_startNode];
+                    var n1 = nodes[segs[i].m_endNode];
+                    // 道路は地上の区間だけ(高架・橋・トンネルとは平面で交わらない)。水道管はすべて地下なので問わない。
+                    // OnGround の印は MOD が引いた点に付いていないことがあるので、高さと地下の印で見る
+                    if (info.m_class.m_service == ItemClass.Service.Road
+                        && (n0.m_elevation > 0 || n1.m_elevation > 0
+                            || (n0.m_flags & NetNode.Flags.Underground) != 0 || (n1.m_flags & NetNode.Flags.Underground) != 0))
+                    {
+                        continue;
+                    }
+
+                    Vector3 c = n0.m_position, d = n1.m_position;
+                    if (Mathf.Max(c.x, d.x) < minX || Mathf.Min(c.x, d.x) > maxX || Mathf.Max(c.z, d.z) < minZ || Mathf.Min(c.z, d.z) > maxZ)
+                    {
+                        continue;
+                    }
+
+                    float t, u;
+                    if (!Intersect(a, b, c, d, out t, out u))
+                    {
+                        continue;
+                    }
+
+                    // 線全体の両端の近くは除く(端の処理に任せる)。相手の区間の端(既存の交差点)で交わるときも拾い、
+                    // 既存の点につなぐ(FindNode)。前は除いていたので、既存の交差点を通る線がつながらなかった(#82 の g93)
+                    if ((k == 1 && t * len < 10f) || (k == pts.Count - 1 && (1f - t) * len < 10f))
+                    {
+                        continue;
+                    }
+
+                    var p = Vector3.Lerp(a, b, t);
+                    p.y = 0f;
+                    hits.Add(new KeyValuePair<float, Vector3>(t, p));
+                }
+
+                hits.Sort((x, y) => x.Key.CompareTo(y.Key));
+                float lastT = -1f;
+                Vector3? endJoin = null;
+                foreach (var h in hits)
+                {
+                    if ((h.Key - lastT) * len < 8f)
+                    {
+                        continue; // 近すぎる交わりは1つにまとめる
+                    }
+
+                    lastT = h.Key;
+                    if (h.Key * len < 8f)
+                    {
+                        // 区切りの点(Densify の点や途中の点)のすぐそばで交わる: その点を交わりへ動かしてつなぐ
+                        result[result.Count - 1] = h.Value;
+                        joins.Add(result.Count - 1);
+                        continue;
+                    }
+
+                    if ((1f - h.Key) * len < 8f)
+                    {
+                        endJoin = h.Value; // 次の区切りの点を交わりへ動かす
+                        continue;
+                    }
+
+                    result.Add(h.Value);
+                    joins.Add(result.Count - 1);
+                }
+
+                result.Add(endJoin ?? b);
+                if (endJoin != null)
+                {
+                    joins.Add(result.Count - 1);
+                }
+            }
+
+            return result;
+        }
+
+        // 2本の線分 a-b と c-d の交わり(水平面)。t は a-b の上の位置、u は c-d の上の位置(0〜1)
+        private static bool Intersect(Vector3 a, Vector3 b, Vector3 c, Vector3 d, out float t, out float u)
+        {
+            t = u = 0f;
+            float rx = b.x - a.x, rz = b.z - a.z, sx = d.x - c.x, sz = d.z - c.z;
+            float denom = rx * sz - rz * sx;
+            if (Mathf.Abs(denom) < 1e-4f)
+            {
+                return false;
+            }
+
+            float qx = c.x - a.x, qz = c.z - a.z;
+            t = (qx * sz - qz * sx) / denom;
+            u = (qx * rz - qz * rx) / denom;
+            // 相手の区間の端をわずかに外れても拾う(点の座標は丸められるため)
+            return t > 0f && t < 1f && u >= -0.02f && u <= 1.02f;
+        }
+
         internal static List<Vector3> Densify(List<Vector3> pts)
         {
             var outPts = new List<Vector3>();

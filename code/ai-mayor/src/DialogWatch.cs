@@ -24,6 +24,7 @@ namespace AIMayor
             public string OpenedAt; // ゲーム内の日付
             public string ClosedAt;
             public UIComponent Component;
+            public bool AutoClosed; // MOD が閉じたお知らせ。今出ているダイアログとしては返さない
         }
 
         private const int MaxHistory = 50;
@@ -32,7 +33,34 @@ namespace AIMayor
         private static readonly object gate = new object();
         private static readonly List<Record> history = new List<Record>();
         private static Record current;
-        private static int seq;
+        // 連番はファイルに残し、ゲームを再起動しても続きから振る(#82 で再起動の後に 7 から 3 に戻り、前の値と比べられなかった)
+        private static readonly string SeqFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(CommandLog.LogDir), "dialog-seq.txt");
+        private static int seq = LoadSeq();
+
+        private static int LoadSeq()
+        {
+            try
+            {
+                int v;
+                return System.IO.File.Exists(SeqFile) && int.TryParse(System.IO.File.ReadAllText(SeqFile).Trim(), out v) ? v : 0;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        private static void SaveSeq(int v)
+        {
+            try
+            {
+                System.IO.File.WriteAllText(SeqFile, v.ToString(CultureInfo.InvariantCulture));
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[AIMayor] dialog seq save: " + e.Message);
+            }
+        }
 
         // 開いた直後は本文がまだ入っていないことがあるので、次のフレームから読む
         private static UIComponent pending;
@@ -59,7 +87,7 @@ namespace AIMayor
             {
                 lock (gate)
                 {
-                    return current != null ? Entry(current) : "null";
+                    return current != null && !current.AutoClosed ? Entry(current) : "null";
                 }
             }
         }
@@ -127,7 +155,54 @@ namespace AIMayor
             }
 
             pending = null;
-            Open(c, texts, buttons);
+            var unlocking = c.GetComponent<UnlockingPanel>();
+            Open(c, texts, buttons, unlocking != null);
+            if (unlocking != null)
+            {
+                CloseUnlocking(unlocking);
+            }
+        }
+
+        // 人口の節目のお知らせ(UnlockingPanel)は、選ぶものがないので MOD が閉じる(#82)。
+        // #81 では出るたびに市長が止まり、人が閉じた。破産の警告など、判断の要る窓は閉じない。
+        // ゲームの閉じる処理は速度を1に戻すので、閉じる前の速度と一時停止に戻す
+        private static void CloseUnlocking(UnlockingPanel panel)
+        {
+            var sim = SimulationManager.instance;
+            int speed = sim.SelectedSimulationSpeed;
+            panel.Hide();
+            sim.AddAction(() =>
+            {
+                bool paused = sim.SimulationPaused;
+                sim.SelectedSimulationSpeed = speed;
+                sim.SimulationPaused = paused;
+            });
+        }
+
+        // 閉じたのに知らせが来なかったダイアログを片づける。1秒ごとに DialogWatcher から呼ぶ。
+        // #82 の試しで、ポーズメニューから設定の画面を開いて閉じると、ポーズメニューが開いたままの記録に残った。
+        // 残ると city_info の dialog が null にならず、advance がすぐ止まる
+        public static void Sweep()
+        {
+            UIComponent top = UIView.HasModalInput() ? UIView.GetModalComponent() : null;
+            lock (gate)
+            {
+                if (current != null && (current.Component == null || !current.Component.isVisible || current.Component != top))
+                {
+                    current.ClosedAt = GameDate();
+                    current = null;
+                }
+
+                // 上に別の窓が重なって current でなくなった記録も、見えなくなったら閉じた日を付ける(#82。
+                // ポーズメニューの上に設定の窓を開くと、ポーズメニューの記録が閉じた日 null のまま残った)
+                foreach (var r in history)
+                {
+                    if (r != current && r.ClosedAt == null && (r.Component == null || !r.Component.isVisible))
+                    {
+                        r.ClosedAt = GameDate();
+                    }
+                }
+            }
         }
 
         // Harmony がないときの見回り。1秒ごとに DialogWatcher から呼ぶ
@@ -174,17 +249,19 @@ namespace AIMayor
             }
         }
 
-        private static void Open(UIComponent c, List<string> texts, List<string> buttons)
+        private static void Open(UIComponent c, List<string> texts, List<string> buttons, bool autoClose)
         {
             var sb = new StringBuilder("{\"name\":").Append(Json.Str(c.name));
             sb.Append(",\"type\":").Append(Json.Str(c.GetType().Name));
+            sb.Append(",\"autoClosed\":").Append(autoClose ? "true" : "false");
             sb.Append(",\"texts\":").Append(Array(texts));
             sb.Append(",\"buttons\":").Append(Array(buttons)).Append('}');
 
             lock (gate)
             {
                 seq++;
-                current = new Record { Seq = seq, Json = sb.ToString(), OpenedAt = GameDate(), Component = c };
+                SaveSeq(seq);
+                current = new Record { Seq = seq, Json = sb.ToString(), OpenedAt = GameDate(), Component = c, AutoClosed = autoClose };
                 history.Add(current);
                 if (history.Count > MaxHistory)
                 {
@@ -193,7 +270,7 @@ namespace AIMayor
             }
 
             // パネルには画面の名前を出す(型は UIPanel のことが多く、区別できない)
-            CommandLog.AddDialog(c.name.Replace("(Library) ", ""), texts.Count > 0 ? texts[0] : c.name);
+            CommandLog.AddDialog(c.name.Replace("(Library) ", "") + (autoClose ? " (auto-closed)" : ""), texts.Count > 0 ? texts[0] : c.name);
         }
 
         private static void Collect(UIComponent c, out List<string> texts, out List<string> buttons)
@@ -299,11 +376,16 @@ namespace AIMayor
             {
                 DialogWatch.ReadPending();
 
-                // Harmony が効いていれば知らされるので、見に行かない
-                if (!DialogWatch.HooksActive && Time.realtimeSinceStartup >= next)
+                if (Time.realtimeSinceStartup >= next)
                 {
                     next = Time.realtimeSinceStartup + 1f;
-                    DialogWatch.Poll();
+                    // Harmony が効いていれば開いたことは知らされるので、見に行かない。閉じ忘れの片づけは毎回行う
+                    if (!DialogWatch.HooksActive)
+                    {
+                        DialogWatch.Poll();
+                    }
+
+                    DialogWatch.Sweep();
                 }
             }
             catch (Exception e)

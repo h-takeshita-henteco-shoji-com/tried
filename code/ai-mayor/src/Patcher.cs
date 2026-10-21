@@ -12,6 +12,7 @@ namespace AIMayor
     // 差し込む先:
     // - UIView.PushModal: ダイアログ(画面を止める窓)が開いた
     // - UIView.PopModal / PopAllModal: ダイアログが閉じた
+    // - SimulationManager.FinalSimulationSpeed: 速度3のときのコマの数(Turbo)
     public static class Patcher
     {
         private const string Id = "com.henteco.aimayor";
@@ -42,6 +43,10 @@ namespace AIMayor
                     count++;
                 }
             }
+
+            // 速度3のときに1回の計算で進めるコマの数を増やす(#82。街を育てる期間を早く進めるため)
+            var speedGetter = typeof(SimulationManager).GetProperty("FinalSimulationSpeed").GetGetMethod();
+            harmony.Patch(speedGetter, postfix: new HarmonyMethod(typeof(Patcher).GetMethod("SpeedPostfix", BindingFlags.Static | BindingFlags.NonPublic)));
 
             patched = true;
             DialogWatch.HooksActive = count > 0;
@@ -76,6 +81,18 @@ namespace AIMayor
                 Debug.Log("[AIMayor] PushPostfix: " + e.Message);
             }
         }
+
+        // ゲームは速度3で1回の計算に4コマ進める(マップエディターは9コマ)。Turbo が4より大きければ、その数にする
+        private static void SpeedPostfix(ref int __result)
+        {
+            if (__result == 4 && Turbo > 4)
+            {
+                __result = Turbo;
+            }
+        }
+
+        // 速度3のときのコマの数。4(ゲームの既定)〜16。/time?turbo= で変える
+        public static int Turbo = 4;
 
         private static void PopPostfix()
         {

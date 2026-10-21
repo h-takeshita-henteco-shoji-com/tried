@@ -10,7 +10,9 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 - ゲームの中身を読む処理はメインスレッド、作る・変える処理は計算スレッド(シミュレーション)で行う
 - 建てるものは、ゲームの道具と同じく建設費を予算から払う(`pay=true` が既定)。人が置く骨格だけ `pay=false`
 - 区画は最初から全81区画を持つ(#70 で決定)
-- 解放の節目(マイルストーン)は確かめない。実際の市長には「人口が増えるまで建てられない施設」という制約がないため。区画と同じ考え方
+- 区画の解放の節目は確かめない。区画は最初から全81区画を持つため
+- 建物の解禁の節目は守る(#82)。#81 で解禁前の埋立地を置けてしまい、一覧も区別しなかったため。`pay=false` の骨格だけは問わない
+- 計算スレッドの命令が時間切れになったら、まだ始まっていなければ取り消す(`executed: false`)。#81 では時間切れの後に実行され、診療所が二重に建った
 
 ## 道具の一覧
 
@@ -18,7 +20,8 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 
 | 道具 | 窓口 | 内容 |
 |---|---|---|
-| `city_info` | GET `/info` | 街の数字(人口、幸福度、所持金、週の収支、需要、日付、速度) |
+| `city_info` | GET `/info` | 街の数字(人口、幸福度、所持金、週の収支、需要、日付、速度、電気・水・下水が来ない市民の数) |
+| `sim_health` | GET `/sim/health` | 計算スレッドが命令を受け付けるか。保存の途中か。計算と水の処理のコマ番号(#82) |
 | `screenshot` | GET `/screenshot` | 画面写真。`save_to` で、同じ画像をファイルにも保存する(サブエージェント用) |
 | `move_camera` | GET `/camera` | カメラを動かす。動き終わってから実際の値を返す |
 | `height_at` | GET `/height` | 地点の地面と水面の高さ |
@@ -50,8 +53,8 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 |---|---|---|
 | `latlon_to_game` | (Modを呼ばない) | 緯度経度をゲームの座標に直す |
 | `list_net_types` | GET `/net/prefabs` | 引ける線の種類(道路、線路、水道管、送電線など)。1kmあたりの建設費と週の維持費 |
-| `list_building_types` | GET `/building/prefabs` | 置ける建物の種類(サービス、大きさ、建設費、週の維持費) |
-| `list_policies` | GET `/policies` | 政策の一覧と、今かかっているか |
+| `list_building_types` | GET `/building/prefabs` | 置ける建物の種類(サービス、大きさ、建設費、週の維持費)。既定は解禁された建物だけ。`locked=true` で解禁前の建物と条件も返す |
+| `list_policies` | GET `/policies` | 政策の一覧と、今かかっているか。かけたときの週の費用の見積もり(`costPerWeek`)と根拠 |
 
 ### 作る・消す
 
@@ -84,6 +87,10 @@ Mod(`code/ai-mayor/src/`)が 127.0.0.1:8781 で HTTP の窓口を開き、MCPサ
 - ゲームの保存の画面と同じ処理(`SavePanel.SaveGame`)を呼ぶ。保存先はゲームの `Saves/<名前>.crp`
 - 保存すると、ゲームの「続きから」もその保存を指す。起動時に `--continuelastsave` を付けると、そこから開く
 - 読み込みは人が行う
+- 一時停止のまま保存が3秒で終わらなければ、一時停止を解き、保存の直後に計算スレッドの上で止め直す(#82、`nudged: true`)
+  - ゲームの保存は、水のシミュレーションが計算のコマに追いつくのを待つ(`WaterSimulation.Data.Serialize`)
+  - 水の処理は描画の進みも待つ(`SetCurrentWaterFrame`)。一時停止のままだと追いつかず、保存が止まることがある
+  - 止め直しの命令は保存と同じ待ち行列に入れる。保存の直後、時間が進む前に効くので、ゲーム内の時間は進まない
 
 ### 時間
 
@@ -104,6 +111,97 @@ Mod はそれを貯め、ゲーム画面の左上のパネルに流す(新しい
 - パネルはプレイヤーの操作を止めない。× で閉じても、次の道具が始まると開き直す
 - ゲームの既定のフォントでは日本語が出ない恐れがあるため、パネルの見出しは英数字にする(未確認)
 
+### 3年目の後の更新(#82)
+
+5年の試運転の36か月目までに、市長が見つけた穴を直した。
+
+- `place_building`: `facing` で入口の向き(north など、または北0・東90の時計回りの度)を指定できる。angle は反時計回りで、入口の方位 = (360 − angle) % 360。以前の説明「0で南」は誤りで、0は北
+  - `needsRoad`(道路が要るか)と `needs`(電気・水・下水が要るか)を返す
+- `list_building_types`: `capacity`(`services` と同じ単位の容量)、`needsRoad`、`needs` を返す
+- `build_line`: 道路・線路が建物に重なるときは建てずに断り、`overlaps` を返す。`demolish=true` で壊して建てる。`ends` に、つながった線の種類(`net`)と、高速道路の本線につながったときの `warning`
+- `list_net_types`: 既定は解禁された、手で引く線だけ。`locked=true` で解禁前も返す
+- `bulldoze`: 壊した建物の一覧を返す
+- `water_trace`(新規): 建物の近くの水道管の網が、取水口・給水塔と排水口につながっているか
+- `buildings_near`: `problems_only` と `problem` で、困りごとの印のある建物に絞る。`grid.needs` を返す
+- `complaints`: hotspot を、区画の中の印のある建物の平均の位置にした(以前は区画の中心で、街の外を指した)。`examples` に建物を5件
+- `citizens_summary`: `unemployedDetail`(年齢と学歴の内訳)。失業は学歴の合う働き口や大学の席がないと残る
+- `zone_map`: 円ではなく正方形の中を描く(四隅が抜けていた)。要らないもの(風車の水など)は赤い枠にしない。道路 → 水道管 → 送電線の順に描く
+- `economy_breakdown`: Citizen と Tourism は Commercial の内訳(`partOf`)。管と送電線の長さ
+- `traffic`: busiest から地図の外とのつなぎ口の区間を外す(`excludedOutside`)
+- `dialog_events`: 下に隠れていたダイアログにも閉じた日を付ける
+- `screenshot(view="top")`: カメラが止まるまで待つ。地図全体は写らない(引きの上限)
+- 幸福度: `city_info` は住宅と働く場所の建物の平均(画面と同じ)。`citizens_summary` は住民だけの平均。採点には `city_info` を使う
+
+### 操作できなかった項目を足した(#82、育てる期間の g43 の後)
+
+ゲーム本編のプレイヤーの操作と見比べて、MOD になかったものを足した。3人のサブエージェント(fork)に、新しいファイルごとに分けて頼んだ。
+
+- 公共交通の路線(`TransportLineApi.cs`): `create_transport_line`、`list_transport_lines`、`remove_transport_line`、`set_transport_line_budget`
+  - ゲームの路線の道具(TransportTool)と同じ手順。バスは道路に停留所を置き、ほかは先に置いた駅の乗り場を使う。建設費はかからない
+  - 台数はゲームが決める(サービスの予算 × 路線の割合 × 長さ ÷ 車の間隔)
+  - 地下の地下鉄の線路は、まだ引けない(`build_line` が地面より下に引けない)
+- 道路を太くする(`UpgradeApi.cs`): `upgrade_road`、`reverse_road`
+  - ゲームのアップグレードと同じ `NetTool.CreateNode` を呼ぶ。区画は、ゲームが区間を作り直すときに古い区画を写す仕組み(ZoneManager の m_cachedBlocks)で保たれる
+- 地区(`DistrictApi.cs`): `list_districts`、`paint_district`、`set_district_policy`(産業の特化、地区の税を含む)、`rename_district`
+- 融資と建物(`BuildingOpsApi.cs`): `list_loans`、`take_loan`、`repay_loan`、`set_building_active`、`empty_building`、`set_historical`
+- `demand_breakdown`: 切る前の値(`jobTermRaw`、`homeTermRaw`)
+- 続けて足した(2人の fork)
+  - `build_line`: 地下に引く([x, z, −深さ])。トンネルと坂はゲームと同じ決まり(8m以上深い点が地下)。解禁前の線は断る
+  - 交差点(`JunctionApi.cs`): `junction_info`、`set_traffic_lights`、`set_yield_sign`(譲れの標識。ゲームの交通の情報画面のボタン RoadBaseAI.ClickNodeButton と同じ。DLCは要らない)
+  - `zone_polygon`、`zone_rect`(多角形・四角で区画)。`zone_area` も含め、解禁前の区画の種類は断る
+  - `set_budget` の `day`、`night`(昼と夜を分ける)
+  - `relocate_building`(建物を移す。費用は建設費の1/5)
+  - 運賃は足さない。ゲーム本編(DLCなし)では、運賃を変える画面は観光バス(DLC)の路線にしかない
+
+### 見る道具と景観の道具を足した(#82、育てる期間の g55 の後)
+
+ゲーム本編の情報画面と道具の一覧を、MOD の窓口と見比べて足した(3人の fork と親)。
+- `building_stats`、`land_value`、`new_buildings`: 建物のレベルと上がらない理由、地価、建った棟数
+  - レベル上げの条件は Building.m_levelUpProgress の下4ビットと上4ビット(住宅は学歴と地価、商業は豊かさと地価、工業・オフィスは学歴とサービス)
+- `map_layer`、`list_map_layers`: 情報画面と同じ値の地図(届き具合、地価、騒音、犯罪、汚染、風、天然資源など27種)
+- `buildings_near`: 働き口と働き手、住宅の家、使用中の車、埋立地・墓地のたまり具合、建物の画面の文(stats)
+- `zones_at`: 区画の種類ごとの空いたマス
+- `list_trees`、`plant_trees`、`remove_trees`: ゲームの中で木を植える(1本ごとに費用)。木は騒音を減らし、地価を上げる
+- `trade`: 輸出と輸入の量(外部接続の情報画面と同じ)
+- `terrain_dirt`、`level_terrain`、`raise_terrain`、`lower_terrain`: ゲームの中で地形を変える(景観の道具。土の値段を払う)。建物・道路の下は変えない
+- 直した穴: `upgrade_road` の費用、`place_building` の入口の道路の警告、`relocate_building` のぶつかった相手
+- 足さなかったもの: 人口の節目の一覧(人の判断)、DLC の機能
+
+### 残りの穴を直した(#82、出発点 fukuoka-grow-100k を決めた後)
+
+育てる期間に市長が挙げた穴を、3人の fork で直した。
+- `building_levelup`(新規): 1棟のレベル上げの中身。ゲームは2つの条件がそろっても、問題の印があるか、同じ大きさの上のレベルの建物がないと建て替えない(CheckBuildingLevel)。「条件を満たしたのに上がらない」のはこのため
+  - 工業・オフィスのサービスの点数は CalculateServiceValue と同じ。公共交通の効きがいちばん大きい
+- `building_stats`: ready のうち問題の印・上のレベルの建物なしで止まる棟、サービスでいちばん伸ばせる項目
+- `cargo`(新規): 荷物の車(運ぶもの・向き・止まっている場所)、荷物の駅・港の出入り、品物と原料の不足の場所
+- `transport_line`(新規): 路線の停留所ごとの道のりと遠回りの度合い
+- `bulldoze` の what=abandoned、`buildings_near` の abandoned / brief、`place_building` の demolished、`services` の満ちた埋立地・墓地
+- `water_trace` は建物のない点でも使える。`net_reach` は建ち途中・倒壊・道路の要らない建物を判定から外す
+- `events` は既読をファイルに残す。`citizen_voices` の失業は、ゲームの値が「仕事のない週の数」だった(unemployedWeeks)
+
+### build_line の途中の交差点(#82、育てる期間の g85 の後)
+
+- 道路と水道管は、線の途中で交わる既存の地上の区間にも交差点を作る(ゲームの線を引く道具と同じ)。戻り値の `crossings` が数
+- 前は端だけをつないだので、途中の交わりは重なるだけだった。g01 から何度も実害が出た(g84 は24区間を引き直し、約7,900の無駄)
+- 一般道は高速道路の本線とは交差点を作らない。高架・橋・トンネルとも交わらない
+
+### 操作の前にカメラを向ける(#82)
+
+ゲームの画面は録画して投稿されることが多い。見ている人が、どこを触るかを先に分かるようにする。
+
+- 場所を持つ道具(`build_line`、`remove_line`、`place_building`、`zone_area`、`bulldoze`)は、MCPサーバーが操作の前にカメラを寄せる
+  - 線は全部の点が入る幅、円は直径、建物は150mを収める。引きはその1.5倍(300〜4000)。見下ろす角度は45度
+- 寄ってから1秒待って操作し、成功したら2秒そのまま見せる。1回の操作が約3秒延びる
+- 市長には指示しない。指示だと省かれることがあり、市長のトークンも増えるため
+- 税・予算・政策は場所を持たないので、カメラを動かさない
+- カメラを寄せられなくても、操作は止めない
+- `advance` は、時間を進める前に街の全体をカメラに収める。10日ごとに街が育つ様子を映すため
+  - 建物の位置の5〜95%の範囲を収める(遠くの取水口などで引きすぎないように)。見下ろす角度は60度
+- 画面の左に道具のパネルがあるので、北を上にして見る場所を西へずらし、対象を画面の右寄りに出す
+- `zone_area` は、寄る前に区画の色を見せる(ゲームの区画の道具を選んだ状態にする。`/ui/zoning`)。終わったら元の道具に戻す。どんな区画を指定したかを、見ている人が色で分かるようにするため
+  - 区画の色を見せている間に人が画面をクリックすると、区画を塗ってしまう
+- 環境変数 `AIMAYOR_FOLLOW=0` で切れる(人が手で試すとき)
+
 ### 判断の理由とダイアログ
 
 | 道具 | 窓口 | 内容 |
@@ -121,6 +219,8 @@ Mod はそれを貯め、ゲーム画面の左上のパネルに流す(新しい
 - `advance` は、進める前の連番を覚えておき、連番が増えたらその場で止まる。進めている間に開いたダイアログを `dialogs` で返す。一瞬で閉じたものも拾える
 - 試験用の窓口 `/ui/dialog/test` で、ゲーム内蔵のメッセージの窓を開ける(`close=true` で閉じる)。MCP の道具にはしない
 - ボタンを押す道具は作らない。救済を受けるかどうかは、人が決める
+- 例外は人口の節目のお知らせ(`UnlockingPanel`)。選ぶものがないので MOD が閉じ、履歴に `autoClosed: true` で残す(#82)。`city_info` の `dialog` には出さず、`advance` も止めない
+  - ゲームの閉じる処理は速度を1に戻すので、閉じる前の速度と一時停止に戻す
 - パネルは新しい行を上に出し、長い行は折り返す
 - パネルに出した行は、テキストファイルにも書き足す。街を開くたびに新しいファイルを始める
   - 場所: `~/Library/Application Support/Colossal Order/Cities_Skylines/AIMayor/logs/<開いた日時>.txt`
