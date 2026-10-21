@@ -15,6 +15,7 @@ namespace AIMayor
 
         private static CommandPanel instance;
         private UILabel body;
+        private UILabel title;
         private int shown = -1;
 
         public static void Create()
@@ -39,7 +40,7 @@ namespace AIMayor
         // メインスレッドから毎フレーム呼ぶ。記録が変わったときだけ描き直す
         public static void Tick()
         {
-            if (instance == null || instance.body == null)
+            if (instance == null || instance.body == null || instance.title == null)
             {
                 return;
             }
@@ -52,6 +53,7 @@ namespace AIMayor
 
             instance.shown = v;
             instance.body.text = CommandLog.Render(Lines);
+            instance.title.text = CommandLog.Title;
             if (CommandLog.TakeNewStart() && !instance.isVisible)
             {
                 instance.Show();
@@ -72,8 +74,8 @@ namespace AIMayor
             drag.size = new Vector2(W, 40f);
             drag.relativePosition = Vector3.zero;
 
-            var title = AddUIComponent<UILabel>();
-            title.text = "AI Mayor - MCP commands / reasons";
+            title = AddUIComponent<UILabel>();
+            title.text = CommandLog.Title;
             title.relativePosition = new Vector3(14f, 12f);
 
             var close = AddUIComponent<UIButton>();
