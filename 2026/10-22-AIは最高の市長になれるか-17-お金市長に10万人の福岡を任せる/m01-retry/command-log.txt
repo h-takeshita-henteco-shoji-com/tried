@@ -1,0 +1,57 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-22 13:23:08
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-22 13:23:24	2041-01-17	OK	city_info  -> 0.0s
+2026-10-22 13:23:29	2041-01-17	TITLE	AI Mayor - Money Mayor
+2026-10-22 13:23:40	2041-01-17	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 13:23:40	2041-01-17	OK	save_city name=fukuoka-money-m01-retry overwrite=false  -> 2.5s
+2026-10-22 13:23:44	2041-01-17	OK	city_info  -> 0.0s
+2026-10-22 13:23:46	2041-01-17	OK	economy  -> 0.0s
+2026-10-22 13:23:46	2041-01-17	OK	services  -> 0.0s
+2026-10-22 13:23:46	2041-01-17	OK	citizens_summary  -> 0.0s
+2026-10-22 13:23:46	2041-01-17	OK	complaints  -> 0.0s
+2026-10-22 13:23:46	2041-01-17	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 13:23:46	2041-01-17	OK	events  -> 0.0s
+2026-10-22 13:23:49	2041-01-17	OK	move_camera x=-1692.0 z=-1360.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 13:23:51	2041-01-17	OK	screenshot view=current max_width=1024 save_to=m1-nogoods.jpg  -> 0.5s
+2026-10-22 13:23:54	2041-01-17	OK	economy_breakdown  -> 0.0s
+2026-10-22 13:23:54	2041-01-17	OK	cargo  -> 0.1s
+2026-10-22 13:23:55	2041-01-17	OK	demand_breakdown  -> 0.0s
+2026-10-22 13:24:17	2041-01-17	OK	list_policies  -> 0.0s
+2026-10-22 13:24:17	2041-01-17	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 13:24:22	2041-01-17	OK	zones_at x=0.0 z=0.0 radius=5000.0  -> 0.1s
+2026-10-22 13:24:29	2041-01-17	OK	traffic x=-400.0 z=1400.0 radius=700.0 limit=15  -> 0.1s
+2026-10-22 13:24:29	2041-01-17	OK	zone_map x=-400.0 z=1300.0 radius=600.0 size=900 save_to=null  -> 0.1s
+2026-10-22 13:24:34	2041-01-17	OK	net_near x=-380.0 z=1500.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-22 13:24:35	2041-01-17	OK	buildings_near x=-400.0 z=1555.0 radius=30.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 13:24:47	2041-01-17	OK	net_near x=-450.0 z=1515.0 radius=40.0 service=null limit=50  -> 0.0s
+2026-10-22 13:24:47	2041-01-17	OK	zone_map x=-300.0 z=900.0 radius=900.0 size=900 save_to=null  -> 0.0s
+2026-10-22 13:24:56	2041-01-17	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-22 13:25:00	2041-01-17	OK	zone_map x=-800.0 z=500.0 radius=700.0 size=900 save_to=null  -> 0.0s
+2026-10-22 13:25:11	2041-01-17	OK	net_near x=-380.0 z=96.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 13:25:52	2041-01-17	DO	貨物港の西の端から南へ2本目の出口を引く(公約2・1)
+2026-10-22 13:25:52	2041-01-17	WHY	港の出口は1車線1本で1,421台が止まる。品物がない店107。来月までに止まる車を1,000未満へ
+2026-10-22 13:25:53	2041-01-17	OK	build_line prefab=Medium Road points=[[-448.0, 1515.0], [-500.0, 1400.0], [-510.0, 1200.0], [-... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.8s cost=27300
+2026-10-22 13:25:59	2041-01-17	OK	net_reach x=-450.0 z=800.0 radius=800.0 limit=5  -> 0.0s
+2026-10-22 13:25:59	2041-01-17	OK	junction_info x=-448.0 z=1515.0  -> 0.0s
+2026-10-22 13:26:03	2041-01-17	DO	税を上げる 住宅低9→11・住宅高7→9・商業高3→5(公約1)
+2026-10-22 13:26:03	2041-01-17	WHY	収入の87%が住宅の税で税率が低い。10日後までに週の収入+25,000〜35,000を見込む
+2026-10-22 13:26:03	2041-01-17	OK	set_tax target=residential_low rate=11  -> 0.0s
+2026-10-22 13:26:04	2041-01-17	OK	set_tax target=residential_high rate=9  -> 0.0s
+2026-10-22 13:26:04	2041-01-17	OK	set_tax target=commercial_high rate=5  -> 0.0s
+2026-10-22 13:26:07	2041-01-17	DO	医療・消防・警察の予算を140→120に削る(公約1)
+2026-10-22 13:26:07	2041-01-17	WHY	3つで週59,920。医療は854/2,700、警察221/440で余る。週の支出が約8,500減る見込み
+2026-10-22 13:26:07	2041-01-17	OK	set_budget target=healthcare percent=120 day=null night=null  -> 0.0s
+2026-10-22 13:26:07	2041-01-17	OK	set_budget target=fire percent=120 day=null night=null  -> 0.0s
+2026-10-22 13:26:07	2041-01-17	OK	set_budget target=police percent=120 day=null night=null  -> 0.0s
+2026-10-22 13:26:10	2041-01-17	OK	move_camera x=-430.0 z=850.0 size=2000.0 pitch=70.0 yaw=0.0  -> 0.4s
+2026-10-22 13:26:12	2041-01-17	OK	screenshot view=current max_width=1024 save_to=m1-harbor-road.jpg  -> 0.5s
+2026-10-22 13:26:30	2041-01-17	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 111.4s
+2026-10-22 13:28:23	2041-01-27	OK	city_info  -> 0.0s
+2026-10-22 13:28:23	2041-01-27	OK	events  -> 0.0s
+2026-10-22 13:28:31	2041-01-27	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 118.2s
+2026-10-22 13:30:31	2041-02-06	OK	city_info  -> 0.0s
+2026-10-22 13:30:31	2041-02-06	OK	events  -> 0.0s
+2026-10-22 13:30:39	2041-02-06	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 112.3s
+2026-10-22 13:32:36	2041-02-16	OK	city_info  -> 0.0s
+2026-10-22 13:32:36	2041-02-16	OK	demand_breakdown  -> 0.0s
+2026-10-22 13:32:37	2041-02-16	OK	cargo  -> 0.0s

@@ -1,0 +1,1254 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-22 13:36:53
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-22 13:41:35	2041-02-16	OK	city_info  -> 0.0s
+2026-10-22 13:41:40	2041-02-16	TITLE	AI Mayor - Money Mayor
+2026-10-22 13:41:41	2041-02-16	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 13:41:47	2041-02-16	OK	screenshot view=current max_width=1512 save_to=m02-west.jpg  -> 0.5s
+2026-10-22 13:41:52	2041-02-16	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 13:41:58	2041-02-16	OK	screenshot view=current max_width=1512 save_to=m02-east.jpg  -> 0.6s
+2026-10-22 13:42:04	2041-02-16	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 13:42:10	2041-02-16	OK	screenshot view=current max_width=1512 save_to=m02-port.jpg  -> 0.4s
+2026-10-22 13:42:26	2041-02-16	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 13:42:26	2041-02-16	OK	save_city name=fukuoka-money-m02 overwrite=false  -> 3.1s
+2026-10-22 13:42:30	2041-02-16	OK	city_info  -> 0.0s
+2026-10-22 13:42:31	2041-02-16	OK	economy  -> 0.0s
+2026-10-22 13:42:31	2041-02-16	OK	services  -> 0.0s
+2026-10-22 13:42:31	2041-02-16	OK	citizens_summary  -> 0.0s
+2026-10-22 13:42:31	2041-02-16	OK	complaints  -> 0.0s
+2026-10-22 13:42:34	2041-02-16	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 13:42:34	2041-02-16	OK	events  -> 0.0s
+2026-10-22 13:42:34	2041-02-16	OK	screenshot view=current max_width=1024 save_to=null  -> 0.4s
+2026-10-22 13:42:37	2041-02-16	OK	move_camera x=-1685.0 z=-1352.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 13:42:38	2041-02-16	OK	economy_breakdown  -> 0.0s
+2026-10-22 13:42:38	2041-02-16	OK	cargo  -> 0.0s
+2026-10-22 13:42:38	2041-02-16	OK	demand_breakdown  -> 0.0s
+2026-10-22 13:42:46	2041-02-16	OK	screenshot view=current max_width=1280 save_to=m2-nogoods.jpg  -> 0.5s
+2026-10-22 13:42:47	2041-02-16	OK	net_near x=-400.0 z=1450.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-22 13:42:53	2041-02-16	OK	traffic x=-400.0 z=1300.0 radius=500.0 limit=10  -> 0.0s
+2026-10-22 13:42:53	2041-02-16	OK	move_camera x=-400.0 z=1450.0 size=600.0 pitch=70.0 yaw=0.0  -> 0.5s
+2026-10-22 13:42:56	2041-02-16	OK	screenshot view=current max_width=1280 save_to=m2-harbor.jpg  -> 0.5s
+2026-10-22 13:43:24	2041-02-16	OK	new_buildings since=0  -> 0.1s
+2026-10-22 13:43:25	2041-02-16	OK	building_stats x=null z=null radius=500  -> 0.1s
+2026-10-22 13:44:18	2041-02-16	DO	港の前の Harbor Road を4車線にする(公約2・1)
+2026-10-22 13:44:18	2041-02-16	WHY	港の前の1車線に荷物の車1,418台が詰まる。先の4車線は空き。品物がない店133を80以下に
+2026-10-22 13:44:18	2041-02-16	OK	upgrade_road prefab=Small 4 Lane Road points=[[-448.0, 1515.0], [-352.0, 1515.0]] tolerance=10.0 pay=true  -> 3.4s cost=0
+2026-10-22 13:44:28	2041-02-16	OK	net_near x=-448.0 z=1515.0 radius=40.0 service=null limit=50  -> 0.0s
+2026-10-22 13:44:28	2041-02-16	OK	height_at x=-460.0 z=1400.0  -> 0.0s
+2026-10-22 13:44:28	2041-02-16	OK	height_at x=-420.0 z=1300.0  -> 0.0s
+2026-10-22 13:44:35	2041-02-16	OK	build_line prefab=Small 4 Lane Road points=[[-448.0, 1515.0], [-450.0, 1440.0], [-400.0, 1385.0], [-... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=2520
+2026-10-22 13:44:41	2041-02-16	DO	放棄された建物を街じゅうで取り壊す(公約2)
+2026-10-22 13:44:41	2041-02-16	WHY	放棄された工業62棟・商業40棟は働き口0。壊せば建て直される。1か月で働き口+500〜1,000を見込む
+2026-10-22 13:44:41	2041-02-16	OK	bulldoze x=0.0 z=0.0 radius=6000.0 what=abandoned  -> 4.6s
+2026-10-22 13:44:48	2041-02-16	DO	電気の予算を100→80%にする(公約1)
+2026-10-22 13:44:48	2041-02-16	WHY	電気の支出25,846が最大で、容量の60%しか使っていない。週の支出を約5,000減らし、停電は出ない見込み
+2026-10-22 13:44:49	2041-02-16	OK	set_budget target=electricity percent=80 day=null night=null  -> 0.0s
+2026-10-22 13:44:56	2041-02-16	OK	net_reach x=-400.0 z=1450.0 radius=200.0 limit=10  -> 0.0s
+2026-10-22 13:45:12	2041-02-16	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 88.7s
+2026-10-22 13:46:43	2041-02-26	OK	city_info  -> 0.0s
+2026-10-22 13:46:43	2041-02-26	OK	events  -> 0.0s
+2026-10-22 13:46:52	2041-02-26	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 82.3s
+2026-10-22 13:48:16	2041-03-08	OK	city_info  -> 0.0s
+2026-10-22 13:48:16	2041-03-08	OK	events  -> 0.0s
+2026-10-22 13:48:23	2041-03-08	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 99.6s
+2026-10-22 13:50:06	2041-03-18	OK	city_info  -> 0.0s
+2026-10-22 13:50:06	2041-03-18	OK	demand_breakdown  -> 0.0s
+2026-10-22 13:50:06	2041-03-18	OK	cargo  -> 0.0s
+2026-10-22 13:50:06	2041-03-18	OK	new_buildings since=41297  -> 0.0s
+2026-10-22 13:50:19	2041-03-18	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 13:50:43	2041-03-18	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 13:50:48	2041-03-18	OK	screenshot view=current max_width=1512 save_to=m03-west.jpg  -> 0.5s
+2026-10-22 13:50:54	2041-03-18	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 13:51:00	2041-03-18	OK	screenshot view=current max_width=1512 save_to=m03-east.jpg  -> 0.4s
+2026-10-22 13:51:06	2041-03-18	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 13:51:12	2041-03-18	OK	screenshot view=current max_width=1512 save_to=m03-port.jpg  -> 0.4s
+2026-10-22 13:51:25	2041-03-18	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 13:51:25	2041-03-18	OK	save_city name=fukuoka-money-m03 overwrite=false  -> 2.0s
+2026-10-22 13:51:28	2041-03-18	OK	city_info  -> 0.0s
+2026-10-22 13:51:29	2041-03-18	OK	economy  -> 0.0s
+2026-10-22 13:51:29	2041-03-18	OK	services  -> 0.0s
+2026-10-22 13:51:29	2041-03-18	OK	citizens_summary  -> 0.0s
+2026-10-22 13:51:29	2041-03-18	OK	complaints  -> 0.0s
+2026-10-22 13:51:30	2041-03-18	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 13:51:30	2041-03-18	OK	events  -> 0.0s
+2026-10-22 13:51:33	2041-03-18	OK	move_camera x=-1728.0 z=-140.0 size=2500.0 pitch=null yaw=0.0  -> 0.4s
+2026-10-22 13:51:34	2041-03-18	OK	economy_breakdown  -> 0.0s
+2026-10-22 13:51:34	2041-03-18	OK	cargo  -> 0.0s
+2026-10-22 13:51:34	2041-03-18	OK	demand_breakdown  -> 0.0s
+2026-10-22 13:51:34	2041-03-18	OK	trade  -> 0.0s
+2026-10-22 13:51:51	2041-03-18	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-22 13:51:51	2041-03-18	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 13:51:58	2041-03-18	OK	screenshot view=current max_width=1024 save_to=m3-nogoods.jpg  -> 0.5s
+2026-10-22 13:52:01	2041-03-18	OK	zone_map x=0.0 z=1400.0 radius=1000.0 size=900 save_to=null  -> 0.1s
+2026-10-22 13:52:05	2041-03-18	OK	traffic x=-380.0 z=1200.0 radius=600.0 limit=12  -> 0.0s
+2026-10-22 13:52:08	2041-03-18	OK	net_near x=-250.0 z=650.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-22 13:52:08	2041-03-18	OK	zone_map x=-200.0 z=500.0 radius=400.0 size=800 save_to=null  -> 0.0s
+2026-10-22 13:52:13	2041-03-18	OK	zone_map x=0.0 z=500.0 radius=2000.0 size=1000 save_to=null  -> 0.1s
+2026-10-22 13:52:23	2041-03-18	OK	net_near x=-250.0 z=250.0 radius=230.0 service=Road limit=60  -> 0.0s
+2026-10-22 13:52:29	2041-03-18	OK	net_near x=-110.0 z=150.0 radius=70.0 service=Road limit=50  -> 0.0s
+2026-10-22 13:52:29	2041-03-18	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-22 13:52:38	2041-03-18	OK	net_near x=0.0 z=140.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 13:52:43	2041-03-18	OK	height_at x=-150.0 z=140.0  -> 0.0s
+2026-10-22 13:52:43	2041-03-18	OK	zone_map x=-150.0 z=150.0 radius=200.0 size=600 save_to=null  -> 0.0s
+2026-10-22 13:52:54	2041-03-18	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-22 13:52:54	2041-03-18	OK	map_layer type=deathcare x=null z=null radius=500 n=13  -> 0.0s
+2026-10-22 13:53:01	2041-03-18	OK	zone_map x=650.0 z=-50.0 radius=450.0 size=900 save_to=null  -> 0.0s
+2026-10-22 13:53:42	2041-03-18	DO	港から街への道を4車線にする(公約2・1)
+2026-10-22 13:53:42	2041-03-18	WHY	港の4車線は空き、流れ込む先の2車線が混み具合100。港前の止まった車1,385台を1,000以下に
+2026-10-22 13:53:42	2041-03-18	OK	upgrade_road prefab=Small 4 Lane Road points=[[-250.0, 640.0], [-150.0, 640.0], [-150.0, 190.0]] tolerance=10.0 pay=true  -> 3.6s cost=0
+2026-10-22 13:53:49	2041-03-18	OK	buildings_near x=-150.0 z=320.0 radius=30.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 13:53:52	2041-03-18	NG	build_line prefab=Small 4 Lane Road points=[[-150.0, 190.0], [-170.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.4s)
+2026-10-22 13:53:58	2041-03-18	OK	build_line prefab=Small 4 Lane Road points=[[-150.0, 190.0], [-164.0, 172.0], [-170.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.2s cost=1220
+2026-10-22 13:54:04	2041-03-18	OK	net_reach x=-150.0 z=400.0 radius=300.0 limit=5  -> 0.0s
+2026-10-22 13:54:07	2041-03-18	DO	住宅の税を+2(低13%、高11%)(公約1)
+2026-10-22 13:54:07	2041-03-18	WHY	収入の89%が住宅で月に約1万ずつ減る。週の収入+18,000〜24,000を見込む。幸福度は2〜4下がる
+2026-10-22 13:54:08	2041-03-18	OK	set_tax target=residential_low rate=13  -> 0.0s
+2026-10-22 13:54:08	2041-03-18	OK	set_tax target=residential_high rate=11  -> 0.0s
+2026-10-22 13:54:10	2041-03-18	DO	東のオフィス街に墓地を置く(公約2)
+2026-10-22 13:54:10	2041-03-18	WHY	葬祭でレベルが上がらないオフィス318棟。建設費8,000、維持費160。1か月で働き口+300以上を見込む
+2026-10-22 13:54:11	2041-03-18	OK	place_building prefab=Cemetery x=694.0 z=-250.0 angle=0 pay=true facing=west  -> 3.6s cost=8000
+2026-10-22 13:54:33	2041-03-18	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 73.9s
+2026-10-22 13:55:49	2041-03-28	OK	city_info  -> 0.0s
+2026-10-22 13:55:49	2041-03-28	OK	events  -> 0.0s
+2026-10-22 13:55:49	2041-03-28	OK	buildings_near x=694.0 z=-250.0 radius=10.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 13:55:58	2041-03-28	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 75.9s
+2026-10-22 13:57:15	2041-04-07	OK	city_info  -> 0.0s
+2026-10-22 13:57:15	2041-04-07	OK	events  -> 0.0s
+2026-10-22 13:57:23	2041-04-07	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.3s
+2026-10-22 13:58:55	2041-04-17	OK	city_info  -> 0.0s
+2026-10-22 13:58:55	2041-04-17	OK	demand_breakdown  -> 0.0s
+2026-10-22 13:58:55	2041-04-17	OK	cargo  -> 0.0s
+2026-10-22 13:58:55	2041-04-17	OK	traffic x=-200.0 z=450.0 radius=300.0 limit=6  -> 0.0s
+2026-10-22 13:58:56	2041-04-17	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 13:59:11	2041-04-17	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 13:59:43	2041-04-17	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 13:59:49	2041-04-17	OK	screenshot view=current max_width=1512 save_to=m04-west.jpg  -> 0.4s
+2026-10-22 13:59:56	2041-04-17	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 14:00:03	2041-04-17	OK	screenshot view=current max_width=1512 save_to=m04-east.jpg  -> 0.7s
+2026-10-22 14:00:09	2041-04-17	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.4s
+2026-10-22 14:00:15	2041-04-17	OK	screenshot view=current max_width=1512 save_to=m04-port.jpg  -> 0.4s
+2026-10-22 14:00:30	2041-04-17	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 14:00:30	2041-04-17	OK	save_city name=fukuoka-money-m04 overwrite=false  -> 3.1s
+2026-10-22 14:00:35	2041-04-17	OK	city_info  -> 0.0s
+2026-10-22 14:00:36	2041-04-17	OK	economy  -> 0.0s
+2026-10-22 14:00:36	2041-04-17	OK	services  -> 0.0s
+2026-10-22 14:00:36	2041-04-17	OK	citizens_summary  -> 0.0s
+2026-10-22 14:00:36	2041-04-17	OK	complaints  -> 0.0s
+2026-10-22 14:00:38	2041-04-17	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 14:00:38	2041-04-17	OK	events  -> 0.0s
+2026-10-22 14:00:41	2041-04-17	OK	move_camera x=-1700.0 z=-200.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 14:00:44	2041-04-17	OK	screenshot view=current max_width=1000 save_to=m4-nogoods.jpg  -> 0.6s
+2026-10-22 14:00:47	2041-04-17	OK	economy_breakdown  -> 0.0s
+2026-10-22 14:00:47	2041-04-17	OK	cargo  -> 0.0s
+2026-10-22 14:00:47	2041-04-17	OK	demand_breakdown  -> 0.0s
+2026-10-22 14:00:58	2041-04-17	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-22 14:01:24	2041-04-17	OK	new_buildings since=41511  -> 0.0s
+2026-10-22 14:01:24	2041-04-17	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 14:01:30	2041-04-17	OK	map_layer type=public_transport x=null z=null radius=500 n=15  -> 0.0s
+2026-10-22 14:01:31	2041-04-17	OK	zone_map x=0.0 z=0.0 radius=2000.0 size=1000 save_to=m4-zonemap.jpg  -> 0.1s
+2026-10-22 14:01:40	2041-04-17	OK	height_at x=-1500.0 z=400.0  -> 0.0s
+2026-10-22 14:01:40	2041-04-17	OK	height_at x=-1500.0 z=700.0  -> 0.0s
+2026-10-22 14:01:41	2041-04-17	OK	height_at x=-1200.0 z=400.0  -> 0.0s
+2026-10-22 14:01:42	2041-04-17	OK	net_near x=-400.0 z=1555.0 radius=400.0 service=PublicTransport limit=30  -> 0.0s
+2026-10-22 14:01:48	2041-04-17	OK	move_camera x=-1000.0 z=800.0 size=3000.0 pitch=90.0 yaw=0.0  -> 0.4s
+2026-10-22 14:01:51	2041-04-17	OK	screenshot view=current max_width=1000 save_to=m4-bay.jpg  -> 0.5s
+2026-10-22 14:02:01	2041-04-17	OK	net_near x=-1000.0 z=330.0 radius=150.0 service=Road limit=20  -> 0.0s
+2026-10-22 14:02:01	2041-04-17	OK	height_at x=-1000.0 z=380.0  -> 0.0s
+2026-10-22 14:02:02	2041-04-17	OK	height_at x=-1000.0 z=440.0  -> 0.0s
+2026-10-22 14:02:02	2041-04-17	OK	height_at x=-1000.0 z=330.0  -> 0.0s
+2026-10-22 14:02:05	2041-04-17	OK	net_near x=-1000.0 z=200.0 radius=150.0 service=Road limit=30  -> 0.0s
+2026-10-22 14:02:06	2041-04-17	OK	height_at x=-1000.0 z=280.0  -> 0.0s
+2026-10-22 14:02:23	2041-04-17	OK	building_stats x=1200.0 z=500.0 radius=400.0  -> 0.0s
+2026-10-22 14:02:24	2041-04-17	OK	building_stats x=400.0 z=-250.0 radius=400.0  -> 0.0s
+2026-10-22 14:02:24	2041-04-17	OK	building_stats x=1900.0 z=-300.0 radius=500.0  -> 0.0s
+2026-10-22 14:02:27	2041-04-17	OK	building_stats x=-1600.0 z=-1300.0 radius=600.0  -> 0.0s
+2026-10-22 14:02:28	2041-04-17	OK	building_stats x=3000.0 z=-500.0 radius=1200.0  -> 0.0s
+2026-10-22 14:02:33	2041-04-17	OK	zone_map x=3000.0 z=0.0 radius=1500.0 size=900 save_to=null  -> 0.2s
+2026-10-22 14:02:39	2041-04-17	OK	net_near x=2500.0 z=0.0 radius=3000.0 service=PublicTransport limit=200  -> 0.0s
+2026-10-22 14:02:53	2041-04-17	OK	buildings_near x=3000.0 z=-220.0 radius=80.0 limit=15 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 14:02:55	2041-04-17	OK	building_levelup id=21834  -> 0.0s
+2026-10-22 14:03:16	2041-04-17	OK	list_policies  -> 0.0s
+2026-10-22 14:03:18	2041-04-17	OK	list_districts  -> 0.0s
+2026-10-22 14:03:40	2041-04-17	OK	buildings_near x=2250.0 z=1277.0 radius=100.0 limit=10 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 14:03:42	2041-04-17	OK	building_levelup id=14364  -> 0.0s
+2026-10-22 14:03:47	2041-04-17	OK	zone_map x=2250.0 z=1300.0 radius=500.0 size=800 save_to=null  -> 0.1s
+2026-10-22 14:04:43	2041-04-17	DO	西の湾に2つ目の貨物港を置く(公約2・1)
+2026-10-22 14:04:43	2041-04-17	WHY	輸入が北の港1か所に集まり港の中で1,337台が止まる。品物がない店166を1か月で130以下に
+2026-10-22 14:04:43	2041-04-17	OK	place_building prefab=Cargo Harbor x=-1000.0 z=300.0 angle=0 pay=true facing=south  -> 3.7s cost=60000
+2026-10-22 14:04:50	2041-04-17	OK	net_near x=-1000.0 z=300.0 radius=150.0 service=null limit=20  -> 0.0s
+2026-10-22 14:04:54	2041-04-17	NG	build_line prefab=Medium Road points=[[-952.0, 260.0], [-920.0, 180.0], [-920.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.3s)
+2026-10-22 14:05:00	2041-04-17	OK	buildings_near x=-1000.0 z=135.0 radius=110.0 limit=30 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 14:05:08	2041-04-17	NG	build_line prefab=Medium Road points=[[-952.0, 260.0], [-904.0, 215.0], [-904.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.2s)
+2026-10-22 14:05:18	2041-04-17	NG	build_line prefab=Small 4 Lane Road points=[[-952.0, 260.0], [-904.0, 215.0], [-904.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.2s)
+2026-10-22 14:05:23	2041-04-17	OK	build_line prefab=Small 4 Lane Road points=[[-952.0, 260.0], [-904.0, 215.0], [-904.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.2s cost=880
+2026-10-22 14:05:30	2041-04-17	NG	build_line prefab=Small 4 Lane Road points=[[-1048.0, 260.0], [-1125.0, 215.0], [-1125.0, 100.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.3s)
+2026-10-22 14:05:35	2041-04-17	OK	net_reach x=-950.0 z=200.0 radius=200.0 limit=10  -> 0.0s
+2026-10-22 14:05:39	2041-04-17	OK	net_near x=2250.0 z=1480.0 radius=380.0 service=Road limit=60  -> 0.0s
+2026-10-22 14:05:39	2041-04-17	OK	height_at x=2250.0 z=1580.0  -> 0.0s
+2026-10-22 14:05:47	2041-04-17	DO	北東の工業の北に貨物駅を置く(公約2)
+2026-10-22 14:05:47	2041-04-17	WHY	工業459棟が荷物の便でレベルを上げられない(100点満点で0点)。1か月で工業の働き口+300以上を見込む
+2026-10-22 14:05:47	2041-04-17	NG	build_line prefab=Basic Road points=[[1900.0, 1460.0], [1900.0, 1540.0], [2250.0, 1540.0], [2... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.5s)
+2026-10-22 14:05:54	2041-04-17	OK	build_line prefab=Basic Road points=[[1900.0, 1460.0], [1880.0, 1485.0], [1880.0, 1545.0], [2... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=2280
+2026-10-22 14:06:01	2041-04-17	OK	place_building prefab=Cargo Center x=2160.0 z=1586.0 angle=0 pay=true facing=south  -> 3.5s cost=60000
+2026-10-22 14:06:08	2041-04-17	DO	高密度住宅の税を11→13%に上げる(公約1)
+2026-10-22 14:06:08	2041-04-17	WHY	収入の91%が住宅で大半が高密度。前回+2で収入+21,703、幸福度は不変。週の収入+15,000〜20,000を見込む
+2026-10-22 14:06:08	2041-04-17	OK	set_tax target=residential_high rate=13  -> 0.0s
+2026-10-22 14:06:12	2041-04-17	OK	buildings_near x=2160.0 z=1586.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:06:12	2041-04-17	OK	buildings_near x=-1000.0 z=300.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:06:17	2041-04-17	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 9.0s
+2026-10-22 14:06:29	2041-04-18	OK	water_trace x=-1000.0 z=300.0  -> 0.1s
+2026-10-22 14:06:29	2041-04-18	OK	water_trace x=2160.0 z=1586.0  -> 0.0s
+2026-10-22 14:06:33	2041-04-18	OK	net_near x=-1050.0 z=250.0 radius=250.0 service=Water limit=20  -> 0.0s
+2026-10-22 14:06:34	2041-04-18	OK	net_near x=2160.0 z=1500.0 radius=200.0 service=Water limit=20  -> 0.0s
+2026-10-22 14:06:38	2041-04-18	OK	build_line prefab=Water Pipe points=[[2176.0, 1455.0], [2176.0, 1570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=280
+2026-10-22 14:06:41	2041-04-18	OK	build_line prefab=Water Pipe points=[[-992.0, 95.0], [-992.0, 280.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=480
+2026-10-22 14:06:48	2041-04-18	OK	build_line prefab=Power Line points=[[-1005.0, 132.0], [-1005.0, 295.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=420
+2026-10-22 14:06:53	2041-04-18	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 7.8s
+2026-10-22 14:07:04	2041-04-19	OK	buildings_near x=-1000.0 z=300.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:07:04	2041-04-19	OK	buildings_near x=2160.0 z=1586.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:07:07	2041-04-19	OK	building_levelup id=14364  -> 0.0s
+2026-10-22 14:07:30	2041-04-19	OK	advance days=8 speed=3 max_seconds=600 turbo=null  -> 64.5s
+2026-10-22 14:08:37	2041-04-27	OK	city_info  -> 0.0s
+2026-10-22 14:08:37	2041-04-27	OK	events  -> 0.0s
+2026-10-22 14:08:48	2041-04-27	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 73.8s
+2026-10-22 14:10:04	2041-05-07	OK	city_info  -> 0.0s
+2026-10-22 14:10:04	2041-05-07	OK	events  -> 0.0s
+2026-10-22 14:10:15	2041-05-07	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 79.9s
+2026-10-22 14:11:38	2041-05-17	OK	city_info  -> 0.0s
+2026-10-22 14:11:39	2041-05-17	OK	demand_breakdown  -> 0.0s
+2026-10-22 14:11:39	2041-05-17	OK	cargo  -> 0.0s
+2026-10-22 14:11:39	2041-05-17	OK	building_stats x=2250.0 z=1300.0 radius=400.0  -> 0.0s
+2026-10-22 14:11:39	2041-05-17	OK	complaints  -> 0.0s
+2026-10-22 14:11:46	2041-05-17	OK	buildings_near x=-1000.0 z=300.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:11:46	2041-05-17	OK	services  -> 0.0s
+2026-10-22 14:11:46	2041-05-17	OK	building_levelup id=14364  -> 0.0s
+2026-10-22 14:11:49	2041-05-17	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 14:12:13	2041-05-17	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 14:12:39	2041-05-17	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 14:12:45	2041-05-17	OK	screenshot view=current max_width=1512 save_to=m05-west.jpg  -> 0.5s
+2026-10-22 14:12:52	2041-05-17	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 14:12:58	2041-05-17	OK	screenshot view=current max_width=1512 save_to=m05-east.jpg  -> 0.5s
+2026-10-22 14:13:04	2041-05-17	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.4s
+2026-10-22 14:13:11	2041-05-17	OK	screenshot view=current max_width=1512 save_to=m05-port.jpg  -> 0.5s
+2026-10-22 14:13:25	2041-05-17	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 14:13:25	2041-05-17	OK	save_city name=fukuoka-money-m05 overwrite=false  -> 2.0s
+2026-10-22 14:13:28	2041-05-17	OK	city_info  -> 0.0s
+2026-10-22 14:13:30	2041-05-17	OK	economy  -> 0.0s
+2026-10-22 14:13:30	2041-05-17	OK	services  -> 0.0s
+2026-10-22 14:13:30	2041-05-17	OK	citizens_summary  -> 0.0s
+2026-10-22 14:13:30	2041-05-17	OK	complaints  -> 0.0s
+2026-10-22 14:13:30	2041-05-17	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 14:13:30	2041-05-17	OK	events  -> 0.0s
+2026-10-22 14:13:33	2041-05-17	OK	move_camera x=-1500.0 z=-600.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 14:13:35	2041-05-17	OK	screenshot view=current max_width=1024 save_to=m5-southwest.jpg  -> 0.5s
+2026-10-22 14:13:38	2041-05-17	OK	economy_breakdown  -> 0.0s
+2026-10-22 14:13:38	2041-05-17	OK	cargo  -> 0.0s
+2026-10-22 14:13:38	2041-05-17	OK	demand_breakdown  -> 0.0s
+2026-10-22 14:13:50	2041-05-17	OK	list_building_types service=Electricity locked=false  -> 0.0s
+2026-10-22 14:13:59	2041-05-17	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=60 problems_only=false problem=null service=Electricity abandoned=false brief=false  -> 0.0s
+2026-10-22 14:14:16	2041-05-17	OK	buildings_near x=-1000.0 z=300.0 radius=60.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:14:16	2041-05-17	OK	net_near x=-700.0 z=900.0 radius=1200.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 14:14:22	2041-05-17	OK	net_near x=-400.0 z=1700.0 radius=350.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 14:14:28	2041-05-17	OK	list_net_types service=PublicTransport locked=false  -> 0.0s
+2026-10-22 14:14:31	2041-05-17	OK	net_near x=0.0 z=0.0 radius=8000.0 service=PublicTransport limit=300  -> 0.0s
+2026-10-22 14:14:49	2041-05-17	OK	zone_map x=-550.0 z=1600.0 radius=400.0 size=800 save_to=null  -> 0.0s
+2026-10-22 14:14:57	2041-05-17	OK	height_at x=-700.0 z=1560.0  -> 0.0s
+2026-10-22 14:14:57	2041-05-17	OK	height_at x=-700.0 z=1640.0  -> 0.0s
+2026-10-22 14:14:57	2041-05-17	OK	height_at x=-1000.0 z=420.0  -> 0.0s
+2026-10-22 14:14:58	2041-05-17	OK	height_at x=-1000.0 z=700.0  -> 0.0s
+2026-10-22 14:15:03	2041-05-17	OK	height_at x=-700.0 z=1480.0  -> 0.0s
+2026-10-22 14:15:03	2041-05-17	OK	height_at x=-700.0 z=1420.0  -> 0.0s
+2026-10-22 14:15:03	2041-05-17	OK	height_at x=-700.0 z=1520.0  -> 0.0s
+2026-10-22 14:15:06	2041-05-17	OK	move_camera x=-550.0 z=1350.0 size=1500.0 pitch=90.0 yaw=0.0  -> 0.4s
+2026-10-22 14:15:09	2041-05-17	OK	screenshot view=current max_width=1024 save_to=m5-harbor-area.jpg  -> 0.5s
+2026-10-22 14:15:17	2041-05-17	OK	zone_map x=-900.0 z=1000.0 radius=800.0 size=800 save_to=null  -> 0.0s
+2026-10-22 14:15:24	2041-05-17	OK	height_at x=-560.0 z=1150.0  -> 0.0s
+2026-10-22 14:15:24	2041-05-17	OK	height_at x=-700.0 z=1150.0  -> 0.0s
+2026-10-22 14:15:24	2041-05-17	OK	height_at x=-450.0 z=1150.0  -> 0.0s
+2026-10-22 14:15:24	2041-05-17	OK	height_at x=-400.0 z=1000.0  -> 0.0s
+2026-10-22 14:15:35	2041-05-17	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-22 14:15:40	2041-05-17	OK	height_at x=-620.0 z=1150.0  -> 0.0s
+2026-10-22 14:15:41	2041-05-17	OK	height_at x=-620.0 z=1020.0  -> 0.0s
+2026-10-22 14:15:41	2041-05-17	OK	height_at x=-620.0 z=1280.0  -> 0.0s
+2026-10-22 14:15:41	2041-05-17	OK	height_at x=-560.0 z=1280.0  -> 0.0s
+2026-10-22 14:15:49	2041-05-17	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 14:15:54	2041-05-17	OK	map_layer type=deathcare x=null z=null radius=500 n=15  -> 0.0s
+2026-10-22 14:15:58	2041-05-17	OK	building_stats x=-470.0 z=-800.0 radius=450.0  -> 0.0s
+2026-10-22 14:16:02	2041-05-17	OK	building_stats x=450.0 z=-300.0 radius=400.0  -> 0.0s
+2026-10-22 14:16:02	2041-05-17	OK	building_stats x=1500.0 z=-300.0 radius=600.0  -> 0.0s
+2026-10-22 14:16:18	2041-05-17	DO	西の港を外海の岸へ移し、南西への専用の道を引く(公約2・1)
+2026-10-22 14:16:18	2041-05-17	WHY	西の港は閉じた入り江で船0台。北の港の中で荷物の車1,236台が止まる。外海に2つ目の入口を作り、品物がない店184を減らす
+2026-10-22 14:16:45	2041-05-17	NG	relocate_building id=3590 x=-610.0 z=1150.0 angle=0 facing=east pay=true  -> cannot relocate here (1.5s)
+2026-10-22 14:16:49	2041-05-17	NG	relocate_building id=3590 x=-650.0 z=1150.0 angle=0 facing=east pay=true  -> cannot relocate here (1.3s)
+2026-10-22 14:16:54	2041-05-17	OK	height_at x=-400.0 z=1530.0  -> 0.0s
+2026-10-22 14:16:54	2041-05-17	OK	height_at x=-1000.0 z=260.0  -> 0.0s
+2026-10-22 14:16:54	2041-05-17	OK	height_at x=-590.0 z=1150.0  -> 0.0s
+2026-10-22 14:16:58	2041-05-17	NG	relocate_building id=3590 x=-580.0 z=1150.0 angle=0 facing=east pay=true  -> cannot relocate here (1.3s)
+2026-10-22 14:17:07	2041-05-17	OK	height_at x=-540.0 z=1230.0  -> 0.0s
+2026-10-22 14:17:07	2041-05-17	OK	height_at x=-540.0 z=980.0  -> 0.0s
+2026-10-22 14:17:07	2041-05-17	OK	height_at x=-600.0 z=1050.0  -> 0.0s
+2026-10-22 14:17:14	2041-05-17	OK	move_camera x=-1300.0 z=1200.0 size=3000.0 pitch=90.0 yaw=0.0  -> 0.5s
+2026-10-22 14:17:16	2041-05-17	OK	screenshot view=current max_width=1024 save_to=null  -> 0.4s
+2026-10-22 14:17:29	2041-05-17	OK	height_at x=-1900.0 z=820.0  -> 0.0s
+2026-10-22 14:17:29	2041-05-17	OK	height_at x=-1900.0 z=740.0  -> 0.0s
+2026-10-22 14:17:30	2041-05-17	OK	height_at x=-1900.0 z=660.0  -> 0.0s
+2026-10-22 14:17:30	2041-05-17	OK	height_at x=-1900.0 z=580.0  -> 0.0s
+2026-10-22 14:17:33	2041-05-17	OK	height_at x=-1760.0 z=620.0  -> 0.0s
+2026-10-22 14:17:33	2041-05-17	OK	height_at x=-2040.0 z=620.0  -> 0.0s
+2026-10-22 14:17:33	2041-05-17	OK	height_at x=-1900.0 z=620.0  -> 0.0s
+2026-10-22 14:17:37	2041-05-17	NG	relocate_building id=3590 x=-1900.0 z=540.0 angle=0 facing=south pay=true  -> cannot relocate here (1.4s)
+2026-10-22 14:17:40	2041-05-17	NG	relocate_building id=3590 x=-1900.0 z=580.0 angle=0 facing=south pay=true  -> cannot relocate here (1.3s)
+2026-10-22 14:17:48	2041-05-17	NG	relocate_building id=3590 x=-1900.0 z=610.0 angle=0 facing=south pay=true  -> cannot relocate here (1.3s)
+2026-10-22 14:17:53	2041-05-17	NG	relocate_building id=3590 x=-1000.0 z=310.0 angle=0 facing=south pay=true  -> cannot relocate here (1.4s)
+2026-10-22 14:17:58	2041-05-17	OK	place_building prefab=Cargo Harbor x=-1900.0 z=580.0 angle=0 pay=true facing=south  -> 3.4s cost=60000
+2026-10-22 14:18:03	2041-05-17	OK	zone_map x=-1800.0 z=300.0 radius=450.0 size=800 save_to=null  -> 0.0s
+2026-10-22 14:18:14	2041-05-17	OK	net_near x=-1840.0 z=100.0 radius=40.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:18:15	2041-05-17	OK	net_near x=-1900.0 z=560.0 radius=120.0 service=null limit=50  -> 0.0s
+2026-10-22 14:18:19	2041-05-17	NG	build_line prefab=Small 4 Lane Road points=[[-1852.0, 540.0], [-1835.0, 420.0], [-1830.0, 280.0], [-... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.3s)
+2026-10-22 14:18:25	2041-05-17	OK	build_line prefab=Small 4 Lane Road points=[[-1852.0, 540.0], [-1842.0, 420.0], [-1840.0, 280.0], [-... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.2s cost=2280
+2026-10-22 14:18:35	2041-05-17	OK	net_near x=-1860.0 z=130.0 radius=120.0 service=Water limit=50  -> 0.0s
+2026-10-22 14:18:39	2041-05-17	OK	build_line prefab=Water Pipe points=[[-1840.0, 95.0], [-1846.0, 300.0], [-1875.0, 575.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1260
+2026-10-22 14:18:46	2041-05-17	OK	build_line prefab=Power Line points=[[-1808.0, 132.0], [-1880.0, 570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1080
+2026-10-22 14:18:55	2041-05-17	DO	電気の予算を80→100%に戻す(公約1・2)
+2026-10-22 14:18:55	2041-05-17	WHY	容量の99%を使い電気が来ない市民43。石炭・石油の発電所5つは燃料切れ。支出+約5,300、容量110万以上を見込む
+2026-10-22 14:18:55	2041-05-17	OK	set_budget target=electricity percent=100 day=null night=null  -> 0.0s
+2026-10-22 14:18:58	2041-05-17	OK	zone_map x=3000.0 z=-1000.0 radius=450.0 size=800 save_to=null  -> 0.0s
+2026-10-22 14:19:03	2041-05-17	OK	zone_map x=3150.0 z=-1500.0 radius=400.0 size=700 save_to=null  -> 0.0s
+2026-10-22 14:19:10	2041-05-17	OK	height_at x=3150.0 z=-1500.0  -> 0.0s
+2026-10-22 14:19:10	2041-05-17	OK	net_near x=2760.0 z=-1420.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:19:15	2041-05-17	OK	height_at x=2900.0 z=-1530.0  -> 0.0s
+2026-10-22 14:19:15	2041-05-17	OK	height_at x=3200.0 z=-1530.0  -> 0.0s
+2026-10-22 14:19:15	2041-05-17	OK	height_at x=3050.0 z=-1445.0  -> 0.0s
+2026-10-22 14:19:20	2041-05-17	DO	南東の工業の南に Cargo Center を置き、道を引く(公約2)
+2026-10-22 14:19:20	2041-05-17	WHY	北東の貨物駅で工業の働き口+290。荷物の便で止まる工業がまだ376棟。南東の原料がない工場34。1か月で働き口+200を見込む
+2026-10-22 14:19:21	2041-05-17	OK	place_building prefab=Cargo Center x=2980.0 z=-1525.0 angle=0 pay=true facing=north  -> 3.7s cost=60000
+2026-10-22 14:19:30	2041-05-17	OK	build_line prefab=Basic Road points=[[2760.0, -1490.0], [2900.0, -1486.0], [3060.0, -1486.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1520
+2026-10-22 14:19:36	2041-05-17	OK	net_near x=2800.0 z=-1470.0 radius=150.0 service=Water limit=10  -> 0.0s
+2026-10-22 14:19:39	2041-05-17	OK	build_line prefab=Water Pipe points=[[2936.0, -1345.0], [2960.0, -1500.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=400
+2026-10-22 14:19:45	2041-05-17	OK	advance days=2 speed=3 max_seconds=600 turbo=null  -> 16.0s
+2026-10-22 14:20:05	2041-05-19	OK	buildings_near x=2980.0 z=-1525.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:20:05	2041-05-19	OK	buildings_near x=-1900.0 z=580.0 radius=30.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:20:05	2041-05-19	OK	net_reach x=-1860.0 z=350.0 radius=300.0 limit=10  -> 0.0s
+2026-10-22 14:20:06	2041-05-19	OK	net_reach x=2950.0 z=-1500.0 radius=150.0 limit=10  -> 0.0s
+2026-10-22 14:20:29	2041-05-19	OK	advance days=8 speed=3 max_seconds=600 turbo=null  -> 60.4s
+2026-10-22 14:21:31	2041-05-27	OK	city_info  -> 0.0s
+2026-10-22 14:21:31	2041-05-27	OK	events  -> 0.0s
+2026-10-22 14:21:34	2041-05-27	OK	cargo  -> 0.0s
+2026-10-22 14:21:49	2041-05-27	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 76.7s
+2026-10-22 14:23:07	2041-06-06	OK	city_info  -> 0.0s
+2026-10-22 14:23:07	2041-06-06	OK	events  -> 0.0s
+2026-10-22 14:23:15	2041-06-06	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 79.8s
+2026-10-22 14:24:38	2041-06-16	OK	city_info  -> 0.0s
+2026-10-22 14:24:38	2041-06-16	OK	demand_breakdown  -> 0.0s
+2026-10-22 14:24:38	2041-06-16	OK	cargo  -> 0.0s
+2026-10-22 14:24:38	2041-06-16	OK	services  -> 0.0s
+2026-10-22 14:24:38	2041-06-16	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 14:24:38	2041-06-16	OK	events  -> 0.0s
+2026-10-22 14:24:41	2041-06-16	OK	complaints  -> 0.0s
+2026-10-22 14:25:00	2041-06-16	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 14:25:30	2041-06-16	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 14:25:36	2041-06-16	OK	screenshot view=current max_width=1512 save_to=m06-west.jpg  -> 0.6s
+2026-10-22 14:25:43	2041-06-16	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 14:25:50	2041-06-16	OK	screenshot view=current max_width=1512 save_to=m06-east.jpg  -> 0.6s
+2026-10-22 14:25:57	2041-06-16	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 14:26:03	2041-06-16	OK	screenshot view=current max_width=1512 save_to=m06-port.jpg  -> 0.5s
+2026-10-22 14:26:18	2041-06-16	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 14:26:18	2041-06-16	OK	save_city name=fukuoka-money-m06 overwrite=false  -> 3.1s
+2026-10-22 14:26:23	2041-06-16	OK	city_info  -> 0.0s
+2026-10-22 14:26:24	2041-06-16	OK	economy  -> 0.0s
+2026-10-22 14:26:24	2041-06-16	OK	services  -> 0.0s
+2026-10-22 14:26:24	2041-06-16	OK	citizens_summary  -> 0.0s
+2026-10-22 14:26:24	2041-06-16	OK	complaints  -> 0.0s
+2026-10-22 14:26:24	2041-06-16	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 14:26:24	2041-06-16	OK	events  -> 0.0s
+2026-10-22 14:26:27	2041-06-16	OK	move_camera x=-1683.0 z=-189.0 size=2500.0 pitch=null yaw=0.0  -> 0.5s
+2026-10-22 14:26:30	2041-06-16	OK	screenshot view=current max_width=1000 save_to=m6-nogoods-west.jpg  -> 0.6s
+2026-10-22 14:26:33	2041-06-16	OK	economy_breakdown  -> 0.0s
+2026-10-22 14:26:33	2041-06-16	OK	cargo  -> 0.0s
+2026-10-22 14:26:33	2041-06-16	OK	demand_breakdown  -> 0.0s
+2026-10-22 14:26:40	2041-06-16	OK	list_building_types service=Education locked=false  -> 0.0s
+2026-10-22 14:27:00	2041-06-16	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 14:27:13	2041-06-16	OK	traffic x=-400.0 z=1300.0 radius=500.0 limit=15  -> 0.0s
+2026-10-22 14:27:25	2041-06-16	OK	list_net_types service=PublicTransport locked=false  -> 0.0s
+2026-10-22 14:27:28	2041-06-16	OK	net_near x=0.0 z=0.0 radius=8000.0 service=PublicTransport limit=60  -> 0.0s
+2026-10-22 14:27:30	2041-06-16	OK	net_near x=2160.0 z=1586.0 radius=300.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 14:27:41	2041-06-16	OK	net_near x=6500.0 z=3000.0 radius=3500.0 service=PublicTransport limit=80  -> 0.0s
+2026-10-22 14:27:45	2041-06-16	OK	net_near x=5000.0 z=-4000.0 radius=3500.0 service=PublicTransport limit=80  -> 0.0s
+2026-10-22 14:27:45	2041-06-16	OK	net_near x=-4000.0 z=-4000.0 radius=3500.0 service=PublicTransport limit=80  -> 0.0s
+2026-10-22 14:27:54	2041-06-16	OK	building_stats x=-2375.0 z=-620.0 radius=600.0  -> 0.0s
+2026-10-22 14:27:59	2041-06-16	OK	building_stats x=2600.0 z=-900.0 radius=700.0  -> 0.0s
+2026-10-22 14:27:59	2041-06-16	OK	building_stats x=2250.0 z=1200.0 radius=600.0  -> 0.0s
+2026-10-22 14:28:03	2041-06-16	OK	zone_map x=500.0 z=0.0 radius=2000.0 size=900 save_to=null  -> 0.1s
+2026-10-22 14:28:07	2041-06-16	OK	zone_map x=3300.0 z=0.0 radius=1600.0 size=800 save_to=null  -> 0.2s
+2026-10-22 14:28:10	2041-06-16	OK	building_stats x=3850.0 z=-800.0 radius=700.0  -> 0.0s
+2026-10-22 14:28:13	2041-06-16	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-22 14:28:17	2041-06-16	OK	zone_map x=3800.0 z=-950.0 radius=550.0 size=900 save_to=null  -> 0.0s
+2026-10-22 14:28:54	2041-06-16	OK	map_layer type=deathcare x=null z=null radius=500 n=15  -> 0.0s
+2026-10-22 14:29:08	2041-06-16	OK	net_near x=0.0 z=-5500.0 radius=3500.0 service=PublicTransport limit=30  -> 0.0s
+2026-10-22 14:29:08	2041-06-16	OK	net_near x=7000.0 z=-1000.0 radius=3000.0 service=PublicTransport limit=30  -> 0.0s
+2026-10-22 14:29:12	2041-06-16	OK	net_near x=-6500.0 z=0.0 radius=3500.0 service=PublicTransport limit=30  -> 0.0s
+2026-10-22 14:29:16	2041-06-16	OK	building_stats x=-150.0 z=-250.0 radius=500.0  -> 0.0s
+2026-10-22 14:29:20	2041-06-16	OK	building_stats x=-1300.0 z=-1100.0 radius=700.0  -> 0.0s
+2026-10-22 14:29:24	2041-06-16	OK	zone_map x=-1250.0 z=-1200.0 radius=500.0 size=900 save_to=null  -> 0.0s
+2026-10-22 14:29:29	2041-06-16	OK	zone_map x=-1250.0 z=-1750.0 radius=350.0 size=700 save_to=null  -> 0.0s
+2026-10-22 14:29:39	2041-06-16	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-22 14:29:50	2041-06-16	OK	zone_map x=3900.0 z=-1350.0 radius=400.0 size=800 save_to=null  -> 0.0s
+2026-10-22 14:30:04	2041-06-16	OK	height_at x=3515.0 z=-807.0  -> 0.0s
+2026-10-22 14:30:04	2041-06-16	OK	height_at x=3860.0 z=-1500.0  -> 0.0s
+2026-10-22 14:30:05	2041-06-16	OK	net_near x=3420.0 z=-767.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:30:05	2041-06-16	OK	net_near x=3750.0 z=-1420.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:30:09	2041-06-16	OK	net_near x=3750.0 z=-1380.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:30:09	2041-06-16	OK	height_at x=3750.0 z=-1400.0  -> 0.0s
+2026-10-22 14:30:19	2041-06-16	OK	net_near x=4000.0 z=-1420.0 radius=50.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:30:19	2041-06-16	OK	height_at x=3964.0 z=-1490.0  -> 0.0s
+2026-10-22 14:30:20	2041-06-16	OK	height_at x=4000.0 z=-1420.0  -> 0.0s
+2026-10-22 14:30:28	2041-06-16	OK	net_near x=-1200.0 z=-1730.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:30:28	2041-06-16	OK	height_at x=-1200.0 z=-1830.0  -> 0.0s
+2026-10-22 14:30:39	2041-06-16	OK	net_near x=-910.0 z=-1730.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 14:30:43	2041-06-16	OK	buildings_near x=-930.0 z=-1755.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 14:30:48	2041-06-16	DO	東の工業の真ん中に貨物駅と道を置く(公約2)
+2026-10-22 14:30:48	2041-06-16	WHY	東の工業286棟のうち203棟が荷物の便でレベル止まり。L3は3棟。前2つの貨物駅で工業の働き口+290、+466
+2026-10-22 14:31:22	2041-06-16	NG	build_line prefab=Basic Road points=[[3400.0, -770.0], [3500.0, -770.0], [3600.0, -770.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (2.1s)
+2026-10-22 14:31:29	2041-06-16	OK	buildings_near x=3470.0 z=-760.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 14:31:38	2041-06-16	OK	build_line prefab=Basic Road points=[[3400.0, -757.0], [3500.0, -757.0], [3600.0, -757.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.2s cost=960
+2026-10-22 14:31:44	2041-06-16	OK	place_building prefab=Cargo Center x=3522.0 z=-795.0 angle=0 pay=true facing=north  -> 3.4s cost=60000
+2026-10-22 14:31:50	2041-06-16	OK	water_trace x=3522.0 z=-795.0  -> 0.0s
+2026-10-22 14:31:53	2041-06-16	OK	net_near x=3522.0 z=-760.0 radius=150.0 service=Water limit=50  -> 0.0s
+2026-10-22 14:31:58	2041-06-16	OK	build_line prefab=Water Pipe points=[[3405.0, -765.0], [3600.0, -765.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.2s cost=480
+2026-10-22 14:32:05	2041-06-16	DO	東の工業の南東に2つ目の貨物駅と道を置く(公約2)
+2026-10-22 14:32:05	2041-06-16	WHY	東の工業は南北1.3km。真ん中の駅だけでは南の端に届かない恐れ。2つで止まる棟203→100以下を見込む
+2026-10-22 14:32:07	2041-06-16	OK	build_line prefab=Basic Road points=[[4000.0, -1420.0], [4000.0, -1490.0], [4000.0, -1570.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=760
+2026-10-22 14:32:14	2041-06-16	OK	place_building prefab=Cargo Center x=3964.0 z=-1495.0 angle=0 pay=true facing=east  -> 3.3s cost=60000
+2026-10-22 14:32:20	2041-06-16	OK	net_near x=4000.0 z=-1420.0 radius=150.0 service=Water limit=50  -> 0.0s
+2026-10-22 14:32:25	2041-06-16	OK	build_line prefab=Water Pipe points=[[4005.0, -1415.0], [4005.0, -1560.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=360
+2026-10-22 14:32:32	2041-06-16	DO	南西のオフィス街の南に墓地と道を置く(公約2)
+2026-10-22 14:32:32	2041-06-16	WHY	南西のオフィス133棟は L3 が0、73棟が葬祭で止まる。東の墓地は働き口+184。止まる棟73→40以下を見込む
+2026-10-22 14:32:32	2041-06-16	NG	build_line prefab=Basic Road points=[[-920.0, -1730.0], [-904.0, -1760.0], [-904.0, -1792.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.6s)
+2026-10-22 14:32:40	2041-06-16	OK	build_line prefab=Basic Road points=[[-920.0, -1730.0], [-898.0, -1740.0], [-898.0, -1792.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.2s cost=2440
+2026-10-22 14:32:46	2041-06-16	OK	place_building prefab=Cemetery x=-1240.0 z=-1828.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 14:32:52	2041-06-16	OK	net_near x=-1150.0 z=-1760.0 radius=120.0 service=Water limit=50  -> 0.0s
+2026-10-22 14:32:54	2041-06-16	OK	build_line prefab=Water Pipe points=[[-1240.0, -1735.0], [-1240.0, -1800.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=160
+2026-10-22 14:33:01	2041-06-16	OK	advance days=2 speed=3 max_seconds=600 turbo=null  -> 19.1s
+2026-10-22 14:33:23	2041-06-18	OK	buildings_near x=3522.0 z=-795.0 radius=20.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:33:24	2041-06-18	OK	buildings_near x=3964.0 z=-1495.0 radius=20.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-22 14:33:24	2041-06-18	OK	buildings_near x=-1240.0 z=-1828.0 radius=20.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-22 14:33:28	2041-06-18	OK	net_reach x=3700.0 z=-1100.0 radius=600.0 limit=3  -> 0.0s
+2026-10-22 14:33:28	2041-06-18	OK	net_reach x=-1100.0 z=-1790.0 radius=250.0 limit=3  -> 0.0s
+2026-10-22 14:33:53	2041-06-18	OK	advance days=8 speed=3 max_seconds=600 turbo=null  -> 62.6s
+2026-10-22 14:34:58	2041-06-26	OK	city_info  -> 0.0s
+2026-10-22 14:34:58	2041-06-26	OK	events  -> 0.0s
+2026-10-22 14:35:07	2041-06-26	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 123.6s
+2026-10-22 14:37:13	2041-07-06	OK	city_info  -> 0.1s
+2026-10-22 14:37:13	2041-07-06	OK	events  -> 0.0s
+2026-10-22 14:37:21	2041-07-06	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 144.4s
+2026-10-22 14:39:48	2041-07-16	OK	city_info  -> 0.0s
+2026-10-22 14:39:49	2041-07-16	OK	demand_breakdown  -> 0.0s
+2026-10-22 14:39:50	2041-07-16	OK	building_stats x=3850.0 z=-800.0 radius=700.0  -> 0.0s
+2026-10-22 14:39:50	2041-07-16	OK	building_stats x=-1300.0 z=-1100.0 radius=700.0  -> 0.0s
+2026-10-22 14:39:51	2041-07-16	OK	cargo  -> 0.0s
+2026-10-22 14:39:54	2041-07-16	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 14:39:55	2041-07-16	OK	complaints  -> 0.0s
+2026-10-22 14:39:55	2041-07-16	OK	services  -> 0.0s
+2026-10-22 14:40:17	2041-07-16	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 14:40:38	2041-07-16	OK	save_city name=fukuoka-money-m06-end overwrite=false  -> 2.0s
+2026-10-22 15:09:55	2041-07-16	OK	city_info  -> 0.0s
+2026-10-22 15:10:01	2041-07-16	TITLE	AI Mayor - Money Mayor
+2026-10-22 15:10:01	2041-07-16	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 15:10:05	2041-07-16	OK	screenshot view=current max_width=1512 save_to=m07-west.jpg  -> 0.8s
+2026-10-22 15:10:10	2041-07-16	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.6s
+2026-10-22 15:10:15	2041-07-16	OK	screenshot view=current max_width=1512 save_to=m07-east.jpg  -> 1.0s
+2026-10-22 15:10:20	2041-07-16	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 15:10:25	2041-07-16	OK	screenshot view=current max_width=1512 save_to=m07-port.jpg  -> 0.7s
+2026-10-22 15:10:42	2041-07-16	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 15:10:46	2041-07-16	DIALOG	SaveNudge: save was stuck while paused; unpaused until the save finished
+2026-10-22 15:10:42	2041-07-16	OK	save_city name=fukuoka-money-m07 overwrite=false  -> 4.7s
+2026-10-22 15:10:49	2041-07-16	OK	city_info  -> 0.0s
+2026-10-22 15:10:50	2041-07-16	OK	economy  -> 0.0s
+2026-10-22 15:10:51	2041-07-16	OK	services  -> 0.0s
+2026-10-22 15:10:51	2041-07-16	OK	citizens_summary  -> 0.1s
+2026-10-22 15:10:51	2041-07-16	OK	complaints  -> 0.0s
+2026-10-22 15:10:51	2041-07-16	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 15:10:51	2041-07-16	OK	events  -> 0.0s
+2026-10-22 15:10:55	2041-07-16	OK	move_camera x=-1500.0 z=-300.0 size=2500.0 pitch=60.0 yaw=0.0  -> 1.5s
+2026-10-22 15:11:00	2041-07-16	OK	screenshot view=current max_width=1024 save_to=m7-nogoods-west.jpg  -> 0.7s
+2026-10-22 15:11:01	2041-07-16	OK	economy_breakdown  -> 0.1s
+2026-10-22 15:11:01	2041-07-16	OK	cargo  -> 0.0s
+2026-10-22 15:11:01	2041-07-16	OK	demand_breakdown  -> 0.0s
+2026-10-22 15:11:17	2041-07-16	OK	net_near x=0.0 z=0.0 radius=9000.0 service=PublicTransportTrain limit=50  -> 0.0s
+2026-10-22 15:11:20	2041-07-16	OK	net_near x=0.0 z=0.0 radius=9000.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 15:11:24	2041-07-16	OK	net_near x=-400.0 z=1550.0 radius=600.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 15:11:28	2041-07-16	OK	net_near x=3000.0 z=8000.0 radius=1500.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 15:11:32	2041-07-16	OK	net_near x=0.0 z=-7000.0 radius=4000.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-22 15:11:34	2041-07-16	OK	net_near x=5000.0 z=-6000.0 radius=4500.0 service=PublicTransport limit=50  -> 0.1s
+2026-10-22 15:11:52	2041-07-16	OK	traffic x=-400.0 z=1400.0 radius=400.0 limit=10  -> 0.1s
+2026-10-22 15:12:06	2041-07-16	OK	building_stats x=null z=null radius=500  -> 0.1s
+2026-10-22 15:12:15	2041-07-16	OK	buildings_near x=500.0 z=-300.0 radius=300.0 limit=15 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 15:12:18	2041-07-16	OK	building_levelup id=229  -> 0.1s
+2026-10-22 15:12:18	2041-07-16	OK	building_levelup id=1796  -> 0.0s
+2026-10-22 15:12:23	2041-07-16	OK	list_building_types service=Education locked=false  -> 0.1s
+2026-10-22 15:12:24	2041-07-16	OK	list_building_types service=Disaster locked=false  -> 0.0s
+2026-10-22 15:12:24	2041-07-16	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-22 15:12:28	2041-07-16	OK	map_layer type=education_university x=null z=null radius=500 n=15  -> 0.0s
+2026-10-22 15:12:29	2041-07-16	OK	map_layer type=education_high x=null z=null radius=500 n=15  -> 0.0s
+2026-10-22 15:12:45	2041-07-16	OK	building_stats x=300.0 z=-300.0 radius=500.0  -> 0.0s
+2026-10-22 15:13:08	2041-07-16	OK	map_layer type=public_transport x=300.0 z=-250.0 radius=600.0 n=13  -> 0.0s
+2026-10-22 15:13:08	2041-07-16	OK	map_layer type=deathcare x=300.0 z=-250.0 radius=600.0 n=13  -> 0.0s
+2026-10-22 15:13:17	2041-07-16	OK	zone_map x=-300.0 z=1400.0 radius=600.0 size=900 save_to=null  -> 0.2s
+2026-10-22 15:13:22	2041-07-16	OK	move_camera x=-200.0 z=1300.0 size=1800.0 pitch=89.0 yaw=0.0  -> 0.4s
+2026-10-22 15:13:26	2041-07-16	OK	screenshot view=current max_width=1024 save_to=m7-north-harbor.jpg  -> 0.7s
+2026-10-22 15:13:40	2041-07-16	OK	list_transport_lines type=null  -> 0.1s
+2026-10-22 15:13:44	2041-07-16	OK	map_layer type=public_transport x=null z=null radius=500 n=25  -> 0.0s
+2026-10-22 15:13:49	2041-07-16	OK	building_stats x=-1300.0 z=-1200.0 radius=700.0  -> 0.0s
+2026-10-22 15:13:49	2041-07-16	OK	building_stats x=-400.0 z=-500.0 radius=500.0  -> 0.0s
+2026-10-22 15:13:50	2041-07-16	OK	building_stats x=1200.0 z=-600.0 radius=600.0  -> 0.0s
+2026-10-22 15:13:55	2041-07-16	OK	buildings_near x=-1300.0 z=-1650.0 radius=350.0 limit=40 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 15:13:57	2041-07-16	OK	building_levelup id=6103  -> 0.0s
+2026-10-22 15:13:57	2041-07-16	OK	building_levelup id=8962  -> 0.0s
+2026-10-22 15:14:01	2041-07-16	OK	list_building_types service=Beautification locked=false  -> 0.0s
+2026-10-22 15:14:09	2041-07-16	OK	map_layer type=entertainment x=-1300.0 z=-1500.0 radius=500.0 n=11  -> 0.0s
+2026-10-22 15:14:15	2041-07-16	OK	buildings_near x=-1300.0 z=-1600.0 radius=450.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-22 15:14:19	2041-07-16	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-22 15:14:19	2041-07-16	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=30 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-22 15:14:34	2041-07-16	OK	zone_map x=2205.0 z=-140.0 radius=450.0 size=900 save_to=null  -> 0.1s
+2026-10-22 15:14:48	2041-07-16	OK	zone_map x=2850.0 z=-250.0 radius=350.0 size=700 save_to=null  -> 0.1s
+2026-10-22 15:14:57	2041-07-16	OK	zone_map x=3550.0 z=500.0 radius=300.0 size=600 save_to=null  -> 0.1s
+2026-10-22 15:15:05	2041-07-16	OK	zone_map x=-1300.0 z=-1600.0 radius=400.0 size=800 save_to=null  -> 0.1s
+2026-10-22 15:15:18	2041-07-16	OK	zone_map x=350.0 z=-450.0 radius=350.0 size=700 save_to=null  -> 0.0s
+2026-10-22 15:15:55	2041-07-16	DO	北東に埋立地を3つ置く(公約1・2)
+2026-10-22 15:15:55	2041-07-16	WHY	埋立地6つが満杯でごみの印558棟。住宅の放棄は税収の92%に響く。1か月で印450以下を見込む
+2026-10-22 15:15:56	2041-07-16	OK	net_near x=3600.0 z=585.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-22 15:16:01	2041-07-16	NG	build_line prefab=Basic Road points=[[3640.0, 580.0], [3770.0, 580.0], [3900.0, 580.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.7s)
+2026-10-22 15:16:07	2041-07-16	NG	build_line prefab=Basic Road points=[[3640.0, 580.0], [3690.0, 592.0], [3900.0, 592.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.2s)
+2026-10-22 15:16:15	2041-07-16	OK	build_line prefab=Basic Road points=[[3640.0, 580.0], [3770.0, 580.0], [3900.0, 580.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=true  -> 3.2s cost=1280
+2026-10-22 15:16:21	2041-07-16	OK	place_building prefab=Landfill Site x=3720.0 z=622.0 angle=0 pay=true facing=south  -> 3.4s cost=4000
+2026-10-22 15:16:24	2041-07-16	OK	place_building prefab=Landfill Site x=3820.0 z=622.0 angle=0 pay=true facing=south  -> 3.3s cost=4000
+2026-10-22 15:16:28	2041-07-16	OK	place_building prefab=Landfill Site x=3780.0 z=538.0 angle=0 pay=true facing=north  -> 3.4s cost=4000
+2026-10-22 15:16:36	2041-07-16	DO	南西のオフィス街の南に公園を3つ(公約2)
+2026-10-22 15:16:36	2041-07-16	WHY	南西のオフィス138棟は L3 が0で娯楽0点(満点16)。1か月で L3 15棟以上、働き口+100を見込む
+2026-10-22 15:16:37	2041-07-16	OK	net_near x=-1320.0 z=-1792.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-22 15:16:42	2041-07-16	OK	build_line prefab=Basic Road points=[[-1320.0, -1792.0], [-1490.0, -1795.0], [-1660.0, -1795.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.8s cost=1680
+2026-10-22 15:16:49	2041-07-16	OK	place_building prefab=Expensive Park x=-1400.0 z=-1852.0 angle=0 pay=true facing=north  -> 3.6s cost=4500
+2026-10-22 15:16:53	2041-07-16	OK	place_building prefab=Expensive Park x=-1580.0 z=-1852.0 angle=0 pay=true facing=north  -> 3.4s cost=4500
+2026-10-22 15:16:57	2041-07-16	OK	place_building prefab=Expensive Park x=-1100.0 z=-1852.0 angle=0 pay=true facing=north  -> 3.4s cost=4500
+2026-10-22 15:17:04	2041-07-16	DO	中央のオフィス街の南西に大学を置く(公約2)
+2026-10-22 15:17:04	2041-07-16	WHY	中央のオフィス255棟は大学の届き具合が0。あと3点の棟もある。1か月で L3 60→80棟、働き口+150を見込む
+2026-10-22 15:17:04	2041-07-16	OK	net_near x=200.0 z=-533.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 15:17:07	2041-07-16	OK	build_line prefab=Basic Road points=[[200.0, -530.0], [200.0, -620.0], [200.0, -710.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.6s cost=2500
+2026-10-22 15:17:14	2041-07-16	OK	height_at x=245.0 z=-640.0  -> 0.0s
+2026-10-22 15:17:14	2041-07-16	OK	height_at x=140.0 z=-640.0  -> 0.0s
+2026-10-22 15:17:17	2041-07-16	OK	remove_line points=[[200.0, -535.0], [200.0, -710.0]] prefab=null tolerance=10.0  -> 3.3s
+2026-10-22 15:17:27	2041-07-16	OK	zone_map x=-100.0 z=-400.0 radius=300.0 size=600 save_to=null  -> 0.1s
+2026-10-22 15:17:32	2041-07-16	OK	height_at x=-150.0 z=-340.0  -> 0.1s
+2026-10-22 15:17:33	2041-07-16	OK	height_at x=-50.0 z=-330.0  -> 0.0s
+2026-10-22 15:17:38	2041-07-16	OK	height_at x=-85.0 z=-325.0  -> 0.0s
+2026-10-22 15:17:41	2041-07-16	OK	place_building prefab=University x=-125.0 z=-301.0 angle=0 pay=true facing=north  -> 3.5s cost=75000
+2026-10-22 15:17:48	2041-07-16	OK	advance days=2 speed=3 max_seconds=600 turbo=null  -> 57.7s
+2026-10-22 15:18:50	2041-07-18	OK	buildings_near x=-125.0 z=-301.0 radius=20.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 15:18:50	2041-07-18	OK	buildings_near x=-1350.0 z=-1852.0 radius=260.0 limit=50 problems_only=false problem=null service=Beautification abandoned=false brief=false  -> 0.0s
+2026-10-22 15:18:51	2041-07-18	OK	buildings_near x=3780.0 z=580.0 radius=80.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-22 15:18:54	2041-07-18	OK	water_trace x=-125.0 z=-301.0  -> 0.0s
+2026-10-22 15:18:57	2041-07-18	OK	net_near x=-125.0 z=-280.0 radius=450.0 service=Water limit=15  -> 0.2s
+2026-10-22 15:19:00	2041-07-18	OK	build_line prefab=Water Pipe points=[[-385.0, -265.0], [-150.0, -265.0], [80.0, -265.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.6s cost=1200
+2026-10-22 15:19:06	2041-07-18	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 18.4s
+2026-10-22 15:19:27	2041-07-19	OK	buildings_near x=-125.0 z=-301.0 radius=20.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 15:19:28	2041-07-19	OK	net_reach x=3780.0 z=580.0 radius=200.0 limit=10  -> 0.0s
+2026-10-22 15:19:28	2041-07-19	OK	net_reach x=-1400.0 z=-1800.0 radius=350.0 limit=10  -> 0.0s
+2026-10-22 15:19:32	2041-07-19	OK	building_levelup id=229  -> 0.0s
+2026-10-22 15:19:32	2041-07-19	OK	building_levelup id=6103  -> 0.0s
+2026-10-22 15:20:03	2041-07-19	OK	advance days=7 speed=3 max_seconds=600 turbo=null  -> 87.6s
+2026-10-22 15:21:33	2041-07-26	OK	city_info  -> 0.0s
+2026-10-22 15:21:33	2041-07-26	OK	events  -> 0.0s
+2026-10-22 15:21:35	2041-07-26	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 97.6s
+2026-10-22 15:23:15	2041-08-05	OK	city_info  -> 0.0s
+2026-10-22 15:23:15	2041-08-05	OK	events  -> 0.0s
+2026-10-22 15:23:25	2041-08-05	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 86.1s
+2026-10-22 15:24:54	2041-08-15	OK	city_info  -> 0.0s
+2026-10-22 15:24:54	2041-08-15	OK	demand_breakdown  -> 0.0s
+2026-10-22 15:24:55	2041-08-15	OK	building_stats x=-1300.0 z=-1200.0 radius=700.0  -> 0.0s
+2026-10-22 15:24:55	2041-08-15	OK	building_stats x=300.0 z=-300.0 radius=500.0  -> 0.0s
+2026-10-22 15:24:55	2041-08-15	OK	complaints  -> 0.0s
+2026-10-22 15:24:55	2041-08-15	OK	events  -> 0.0s
+2026-10-22 15:24:59	2041-08-15	OK	cargo  -> 0.0s
+2026-10-22 15:25:20	2041-08-15	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 15:25:47	2041-08-15	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 15:25:54	2041-08-15	OK	screenshot view=current max_width=1512 save_to=m08-west.jpg  -> 0.4s
+2026-10-22 15:26:02	2041-08-15	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 15:26:10	2041-08-15	OK	screenshot view=current max_width=1512 save_to=m08-east.jpg  -> 0.4s
+2026-10-22 15:26:17	2041-08-15	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 15:26:26	2041-08-15	OK	screenshot view=current max_width=1512 save_to=m08-port.jpg  -> 0.4s
+2026-10-22 15:26:45	2041-08-15	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 15:26:45	2041-08-15	OK	save_city name=fukuoka-money-m08 overwrite=false  -> 2.0s
+2026-10-22 15:26:49	2041-08-15	OK	city_info  -> 0.0s
+2026-10-22 15:26:50	2041-08-15	OK	economy  -> 0.0s
+2026-10-22 15:26:50	2041-08-15	OK	services  -> 0.0s
+2026-10-22 15:26:51	2041-08-15	OK	citizens_summary  -> 0.0s
+2026-10-22 15:26:51	2041-08-15	OK	complaints  -> 0.0s
+2026-10-22 15:26:51	2041-08-15	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 15:26:51	2041-08-15	OK	events  -> 0.0s
+2026-10-22 15:26:54	2041-08-15	OK	move_camera x=3363.0 z=167.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 15:26:57	2041-08-15	OK	screenshot view=current max_width=1024 save_to=m8-garbage-east.jpg  -> 0.5s
+2026-10-22 15:27:06	2041-08-15	OK	economy_breakdown  -> 0.0s
+2026-10-22 15:27:06	2041-08-15	OK	demand_breakdown  -> 0.0s
+2026-10-22 15:27:06	2041-08-15	OK	cargo  -> 0.0s
+2026-10-22 15:27:06	2041-08-15	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 15:27:21	2041-08-15	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-22 15:27:25	2041-08-15	OK	buildings_near x=-125.0 z=-301.0 radius=30.0 limit=50 problems_only=false problem=null service=Education abandoned=false brief=false  -> 0.0s
+2026-10-22 15:27:46	2041-08-15	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=30 problems_only=false problem=null service=Electricity abandoned=false brief=false  -> 0.0s
+2026-10-22 15:27:55	2041-08-15	OK	buildings_near x=3770.0 z=590.0 radius=120.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-22 15:27:56	2041-08-15	OK	buildings_near x=694.0 z=-250.0 radius=30.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 15:27:56	2041-08-15	OK	buildings_near x=-1400.0 z=-1852.0 radius=30.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 15:28:10	2041-08-15	OK	buildings_near x=0.0 z=0.0 radius=2500.0 limit=15 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-22 15:28:10	2041-08-15	OK	buildings_near x=0.0 z=0.0 radius=2000.0 limit=10 problems_only=false problem=null service=Education abandoned=false brief=false  -> 0.0s
+2026-10-22 15:28:31	2041-08-15	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-22 15:28:31	2041-08-15	OK	building_levelup id=6103  -> 0.0s
+2026-10-22 15:28:36	2041-08-15	OK	zone_map x=-1300.0 z=-1400.0 radius=700.0 size=900 save_to=null  -> 0.1s
+2026-10-22 15:28:50	2041-08-15	OK	list_building_types service=Education locked=false  -> 0.0s
+2026-10-22 15:28:51	2041-08-15	OK	list_building_types service=PoliceDepartment locked=false  -> 0.0s
+2026-10-22 15:28:51	2041-08-15	OK	list_building_types service=FireDepartment locked=false  -> 0.0s
+2026-10-22 15:28:59	2041-08-15	OK	height_at x=-1400.0 z=-1980.0  -> 0.0s
+2026-10-22 15:29:00	2041-08-15	OK	height_at x=-1400.0 z=-2150.0  -> 0.0s
+2026-10-22 15:29:00	2041-08-15	OK	height_at x=-900.0 z=-1900.0  -> 0.0s
+2026-10-22 15:29:04	2041-08-15	OK	move_camera x=-1250.0 z=-1950.0 size=1500.0 pitch=90.0 yaw=0.0  -> 0.5s
+2026-10-22 15:29:07	2041-08-15	OK	screenshot view=current max_width=1024 save_to=null  -> 0.4s
+2026-10-22 15:29:21	2041-08-15	OK	list_transport_lines type=null  -> 0.0s
+2026-10-22 15:29:30	2041-08-15	OK	net_near x=-1200.0 z=-1800.0 radius=550.0 service=Road limit=60  -> 0.0s
+2026-10-22 15:30:28	2041-08-15	OK	map_layer type=public_transport x=-1270.0 z=-1650.0 radius=400.0 n=9  -> 0.0s
+2026-10-22 15:30:28	2041-08-15	OK	map_layer type=deathcare x=-1270.0 z=-1650.0 radius=400.0 n=9  -> 0.0s
+2026-10-22 15:31:03	2041-08-15	DO	南西のオフィス街の南に道を引き、墓地を約40並べる(公約2・1)
+2026-10-22 15:31:03	2041-08-15	WHY	墓地は働き口30で維持費160と最安。失業の大卒9,442人。月末に働き口+900以上、45,800を見込む
+2026-10-22 15:31:09	2041-08-15	OK	net_near x=-1660.0 z=-1795.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 15:31:09	2041-08-15	OK	net_near x=-898.0 z=-1792.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-22 15:31:15	2041-08-15	OK	build_line prefab=Basic Road points=[[-898.0, -1792.0], [-898.0, -1900.0], [-898.0, -2000.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=5920
+2026-10-22 15:31:22	2041-08-15	OK	build_line prefab=Basic Road points=[[-898.0, -2000.0], [-898.0, -2090.0], [-898.0, -2180.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=5760
+2026-10-22 15:31:35	2041-08-15	OK	place_building prefab=Cemetery x=-1650.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.6s cost=8000
+2026-10-22 15:31:43	2041-08-15	OK	place_building prefab=Cemetery x=-1562.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:31:46	2041-08-15	OK	place_building prefab=Cemetery x=-1474.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:31:50	2041-08-15	OK	place_building prefab=Cemetery x=-1386.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:31:53	2041-08-15	OK	place_building prefab=Cemetery x=-1298.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:31:57	2041-08-15	OK	place_building prefab=Cemetery x=-1210.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:32:01	2041-08-15	OK	place_building prefab=Cemetery x=-1122.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 15:32:04	2041-08-15	OK	place_building prefab=Cemetery x=-1034.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:32:08	2041-08-15	OK	place_building prefab=Cemetery x=-946.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:32:15	2041-08-15	OK	place_building prefab=Cemetery x=-1650.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 15:32:18	2041-08-15	OK	place_building prefab=Cemetery x=-1562.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:22	2041-08-15	OK	place_building prefab=Cemetery x=-1474.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:25	2041-08-15	OK	place_building prefab=Cemetery x=-1386.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:29	2041-08-15	OK	place_building prefab=Cemetery x=-1298.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:33	2041-08-15	OK	place_building prefab=Cemetery x=-1210.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:36	2041-08-15	OK	place_building prefab=Cemetery x=-1122.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 15:32:40	2041-08-15	OK	place_building prefab=Cemetery x=-1034.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:44	2041-08-15	OK	place_building prefab=Cemetery x=-946.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:32:51	2041-08-15	OK	place_building prefab=Cemetery x=-1650.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 15:32:54	2041-08-15	OK	place_building prefab=Cemetery x=-1562.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:32:58	2041-08-15	OK	place_building prefab=Cemetery x=-1474.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:33:01	2041-08-15	OK	place_building prefab=Cemetery x=-1386.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:33:05	2041-08-15	OK	place_building prefab=Cemetery x=-1298.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:33:09	2041-08-15	OK	place_building prefab=Cemetery x=-1210.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.6s cost=8000
+2026-10-22 15:33:12	2041-08-15	OK	place_building prefab=Cemetery x=-1122.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:33:16	2041-08-15	OK	place_building prefab=Cemetery x=-1034.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:33:19	2041-08-15	OK	place_building prefab=Cemetery x=-946.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:33:27	2041-08-15	OK	place_building prefab=Cemetery x=-1650.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 15:33:30	2041-08-15	OK	place_building prefab=Cemetery x=-1562.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:33:34	2041-08-15	OK	place_building prefab=Cemetery x=-1474.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:33:37	2041-08-15	OK	place_building prefab=Cemetery x=-1386.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:33:41	2041-08-15	OK	place_building prefab=Cemetery x=-1298.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:33:44	2041-08-15	OK	place_building prefab=Cemetery x=-1210.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:33:48	2041-08-15	OK	place_building prefab=Cemetery x=-1122.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:33:51	2041-08-15	OK	place_building prefab=Cemetery x=-1034.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:33:54	2041-08-15	OK	place_building prefab=Cemetery x=-946.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:34:01	2041-08-15	OK	net_near x=-1240.0 z=-1800.0 radius=200.0 service=Water limit=50  -> 0.0s
+2026-10-22 15:34:09	2041-08-15	OK	build_line prefab=Water Pipe points=[[-1240.0, -1800.0], [-1254.0, -1890.0], [-1254.0, -2000.... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1000
+2026-10-22 15:34:17	2041-08-15	OK	build_line prefab=Water Pipe points=[[-1700.0, -2000.0], [-1600.0, -2000.0], [-1500.0, -2000.... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1940
+2026-10-22 15:34:20	2041-08-15	OK	build_line prefab=Water Pipe points=[[-1700.0, -2180.0], [-1600.0, -2180.0], [-1500.0, -2180.... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1940
+2026-10-22 15:34:28	2041-08-15	OK	net_near x=-1254.0 z=-2000.0 radius=15.0 service=Water limit=50  -> 0.0s
+2026-10-22 15:34:33	2041-08-15	OK	build_line prefab=Water Pipe points=[[-1254.0, -1945.0], [-1200.0, -2000.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=200
+2026-10-22 15:34:37	2041-08-15	OK	build_line prefab=Water Pipe points=[[-1254.0, -2135.0], [-1200.0, -2180.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=180
+2026-10-22 15:34:49	2041-08-15	DO	南西のオフィス街の南の2本の通りにバス路線を引く(公約2)
+2026-10-22 15:34:49	2041-08-15	WHY	公共交通で止まるオフィスが南西で115棟。南の端は届き具合が約30。月末に80以上、止まる棟90以下を見込む
+2026-10-22 15:34:49	2041-08-15	OK	create_transport_line type=bus stops=[[-1000.0, -1730.0], [-1200.0, -1730.0], [-1400.0, -1730....  -> 3.7s
+2026-10-22 15:34:55	2041-08-15	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 9.9s
+2026-10-22 15:35:10	2041-08-16	OK	zone_map x=-1300.0 z=-2000.0 radius=450.0 size=800 save_to=m8-cemetery-campus-map.jpg  -> 0.1s
+2026-10-22 15:35:10	2041-08-16	OK	list_transport_lines type=bus  -> 0.0s
+2026-10-22 15:35:14	2041-08-16	OK	buildings_near x=-1300.0 z=-2090.0 radius=60.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-22 15:35:17	2041-08-16	OK	net_reach x=-1300.0 z=-2090.0 radius=450.0 limit=10  -> 0.0s
+2026-10-22 15:35:31	2041-08-16	OK	city_info  -> 0.0s
+2026-10-22 15:35:55	2041-08-16	OK	move_camera x=-1300.0 z=-2050.0 size=1200.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 15:35:59	2041-08-16	OK	screenshot view=current max_width=1024 save_to=m8-cemetery-campus.jpg  -> 0.5s
+2026-10-22 15:36:02	2041-08-16	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 76.1s
+2026-10-22 15:37:21	2041-08-25	OK	city_info  -> 0.0s
+2026-10-22 15:37:21	2041-08-25	OK	events  -> 0.0s
+2026-10-22 15:37:34	2041-08-25	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 83.8s
+2026-10-22 15:39:00	2041-09-04	OK	city_info  -> 0.0s
+2026-10-22 15:39:00	2041-09-04	OK	events  -> 0.0s
+2026-10-22 15:39:09	2041-09-04	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 116.1s
+2026-10-22 15:41:10	2041-09-14	OK	city_info  -> 0.0s
+2026-10-22 15:41:10	2041-09-14	OK	demand_breakdown  -> 0.0s
+2026-10-22 15:41:10	2041-09-14	OK	economy_breakdown  -> 0.0s
+2026-10-22 15:41:10	2041-09-14	OK	citizens_summary  -> 0.0s
+2026-10-22 15:41:16	2041-09-14	OK	buildings_near x=-1300.0 z=-2090.0 radius=450.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-22 15:41:23	2041-09-14	OK	building_stats x=-1300.0 z=-1200.0 radius=700.0  -> 0.1s
+2026-10-22 15:41:23	2041-09-14	OK	map_layer type=public_transport x=-1270.0 z=-1650.0 radius=400.0 n=9  -> 0.0s
+2026-10-22 15:41:23	2041-09-14	OK	transport_line line=211  -> 0.5s
+2026-10-22 15:41:28	2041-09-14	OK	complaints  -> 0.1s
+2026-10-22 15:41:29	2041-09-14	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 15:41:52	2041-09-14	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 15:42:22	2041-09-14	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 15:42:29	2041-09-14	OK	screenshot view=current max_width=1512 save_to=m09-west.jpg  -> 0.6s
+2026-10-22 15:42:37	2041-09-14	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 15:42:44	2041-09-14	OK	screenshot view=current max_width=1512 save_to=m09-east.jpg  -> 0.6s
+2026-10-22 15:42:53	2041-09-14	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 1.0s
+2026-10-22 15:43:02	2041-09-14	OK	screenshot view=current max_width=1512 save_to=m09-port.jpg  -> 0.5s
+2026-10-22 15:43:22	2041-09-14	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 15:43:22	2041-09-14	OK	save_city name=fukuoka-money-m09 overwrite=false  -> 2.6s
+2026-10-22 15:43:26	2041-09-14	OK	city_info  -> 0.0s
+2026-10-22 15:43:27	2041-09-14	OK	economy  -> 0.0s
+2026-10-22 15:43:27	2041-09-14	OK	services  -> 0.0s
+2026-10-22 15:43:27	2041-09-14	OK	citizens_summary  -> 0.0s
+2026-10-22 15:43:27	2041-09-14	OK	complaints  -> 0.0s
+2026-10-22 15:43:27	2041-09-14	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 15:43:27	2041-09-14	OK	events  -> 0.0s
+2026-10-22 15:43:30	2041-09-14	OK	move_camera x=-1764.0 z=-158.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 15:43:33	2041-09-14	OK	screenshot view=current max_width=1000 save_to=m9-nogoods-west.jpg  -> 0.5s
+2026-10-22 15:44:00	2041-09-14	OK	economy_breakdown  -> 0.0s
+2026-10-22 15:44:00	2041-09-14	OK	demand_breakdown  -> 0.0s
+2026-10-22 15:44:00	2041-09-14	OK	cargo  -> 0.0s
+2026-10-22 15:44:07	2041-09-14	OK	list_loans  -> 0.4s
+2026-10-22 15:44:08	2041-09-14	OK	building_stats x=null z=null radius=500  -> 0.1s
+2026-10-22 15:44:14	2041-09-14	OK	building_stats x=300.0 z=-300.0 radius=600.0  -> 0.0s
+2026-10-22 15:44:15	2041-09-14	OK	building_stats x=-1300.0 z=-1200.0 radius=700.0  -> 0.0s
+2026-10-22 15:44:15	2041-09-14	OK	map_layer type=public_transport x=null z=null radius=500 n=20  -> 0.0s
+2026-10-22 15:44:22	2041-09-14	OK	zone_map x=-700.0 z=-300.0 radius=2000.0 size=900 save_to=null  -> 0.3s
+2026-10-22 15:44:22	2041-09-14	OK	zone_map x=2600.0 z=-300.0 radius=2000.0 size=900 save_to=null  -> 0.1s
+2026-10-22 15:44:28	2041-09-14	OK	building_stats x=2200.0 z=1100.0 radius=550.0  -> 0.0s
+2026-10-22 15:44:29	2041-09-14	OK	building_stats x=1700.0 z=0.0 radius=600.0  -> 0.0s
+2026-10-22 15:44:29	2041-09-14	OK	building_stats x=3300.0 z=-500.0 radius=800.0  -> 0.0s
+2026-10-22 15:44:30	2041-09-14	OK	building_stats x=-2400.0 z=-300.0 radius=600.0  -> 0.0s
+2026-10-22 15:44:43	2041-09-14	OK	list_building_types service=null locked=false  -> 0.0s
+2026-10-22 15:44:49	2041-09-14	OK	buildings_near x=-1400.0 z=-1852.0 radius=30.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 15:44:50	2041-09-14	OK	buildings_near x=0.0 z=0.0 radius=3000.0 limit=15 problems_only=false problem=null service=Beautification abandoned=false brief=false  -> 0.0s
+2026-10-22 15:44:58	2041-09-14	OK	height_at x=-1300.0 z=-2400.0  -> 0.0s
+2026-10-22 15:44:58	2041-09-14	OK	height_at x=-1300.0 z=-2650.0  -> 0.0s
+2026-10-22 15:44:59	2041-09-14	OK	height_at x=-900.0 z=-2600.0  -> 0.0s
+2026-10-22 15:44:59	2041-09-14	OK	height_at x=-1700.0 z=-2600.0  -> 0.0s
+2026-10-22 15:45:02	2041-09-14	OK	zone_map x=-1300.0 z=-2300.0 radius=500.0 size=700 save_to=null  -> 0.0s
+2026-10-22 15:45:15	2041-09-14	OK	zone_map x=3200.0 z=-300.0 radius=700.0 size=900 save_to=null  -> 0.1s
+2026-10-22 15:45:25	2041-09-14	OK	net_near x=3500.0 z=-250.0 radius=400.0 service=Road limit=60  -> 0.0s
+2026-10-22 15:45:35	2041-09-14	OK	zone_map x=250.0 z=-350.0 radius=450.0 size=900 save_to=null  -> 0.0s
+2026-10-22 15:45:42	2041-09-14	OK	list_transport_lines type=bus  -> 0.0s
+2026-10-22 15:46:24	2041-09-14	DO	南西の墓地の南に道3本と墓地54を足す(公約2)
+2026-10-22 15:46:24	2041-09-14	WHY	先月の墓地36で働き口+2,252。1つ30の働き口で維持費192と最も安い。月末に働き口48,800以上を見込む
+2026-10-22 15:46:24	2041-09-14	OK	net_near x=-1300.0 z=-2180.0 radius=450.0 service=null limit=60  -> 0.0s
+2026-10-22 15:46:29	2041-09-14	OK	build_line prefab=Basic Road points=[[-898.0, -2180.0], [-898.0, -2360.0], [-1700.0, -2360.0]... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=5880
+2026-10-22 15:46:35	2041-09-14	OK	build_line prefab=Basic Road points=[[-898.0, -2360.0], [-898.0, -2540.0], [-1700.0, -2540.0]... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=5880
+2026-10-22 15:46:41	2041-09-14	OK	build_line prefab=Basic Road points=[[-898.0, -2540.0], [-898.0, -2720.0], [-1700.0, -2720.0]... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=5880
+2026-10-22 15:46:48	2041-09-14	OK	build_line prefab=Water Pipe points=[[-1254.0, -2180.0], [-1254.0, -2720.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1400
+2026-10-22 15:46:56	2041-09-14	OK	build_line prefab=Water Pipe points=[[-1700.0, -2360.0], [-898.0, -2360.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=1980
+2026-10-22 15:46:59	2041-09-14	OK	build_line prefab=Water Pipe points=[[-1700.0, -2540.0], [-898.0, -2540.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1980
+2026-10-22 15:47:03	2041-09-14	OK	build_line prefab=Water Pipe points=[[-1700.0, -2720.0], [-898.0, -2720.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1980
+2026-10-22 15:47:11	2041-09-14	OK	place_building prefab=Cemetery x=-1650.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 15:47:19	2041-09-14	OK	place_building prefab=Cemetery x=-1562.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:47:22	2041-09-14	OK	place_building prefab=Cemetery x=-1474.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:47:26	2041-09-14	OK	place_building prefab=Cemetery x=-1386.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:47:29	2041-09-14	OK	place_building prefab=Cemetery x=-1298.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:47:33	2041-09-14	OK	place_building prefab=Cemetery x=-1210.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:47:36	2041-09-14	OK	place_building prefab=Cemetery x=-1122.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:47:39	2041-09-14	OK	place_building prefab=Cemetery x=-1034.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:47:43	2041-09-14	OK	place_building prefab=Cemetery x=-946.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:47:51	2041-09-14	OK	place_building prefab=Cemetery x=-1650.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 15:47:55	2041-09-14	OK	place_building prefab=Cemetery x=-1562.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:47:58	2041-09-14	OK	place_building prefab=Cemetery x=-1474.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:48:02	2041-09-14	OK	place_building prefab=Cemetery x=-1386.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:48:05	2041-09-14	OK	place_building prefab=Cemetery x=-1298.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:48:09	2041-09-14	OK	place_building prefab=Cemetery x=-1210.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:48:12	2041-09-14	OK	place_building prefab=Cemetery x=-1122.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:48:16	2041-09-14	OK	place_building prefab=Cemetery x=-1034.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:48:19	2041-09-14	OK	place_building prefab=Cemetery x=-946.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:48:26	2041-09-14	OK	place_building prefab=Cemetery x=-1650.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 15:48:30	2041-09-14	OK	place_building prefab=Cemetery x=-1562.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:48:33	2041-09-14	OK	place_building prefab=Cemetery x=-1474.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:48:37	2041-09-14	OK	place_building prefab=Cemetery x=-1386.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:48:41	2041-09-14	OK	place_building prefab=Cemetery x=-1298.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:48:44	2041-09-14	OK	place_building prefab=Cemetery x=-1210.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:48:48	2041-09-14	OK	place_building prefab=Cemetery x=-1122.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:48:51	2041-09-14	OK	place_building prefab=Cemetery x=-1034.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:48:55	2041-09-14	OK	place_building prefab=Cemetery x=-946.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:49:01	2041-09-14	OK	place_building prefab=Cemetery x=-1650.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 15:49:05	2041-09-14	OK	place_building prefab=Cemetery x=-1562.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:49:08	2041-09-14	OK	place_building prefab=Cemetery x=-1474.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:49:12	2041-09-14	OK	place_building prefab=Cemetery x=-1386.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:49:15	2041-09-14	OK	place_building prefab=Cemetery x=-1298.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:49:19	2041-09-14	OK	place_building prefab=Cemetery x=-1210.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:49:22	2041-09-14	OK	place_building prefab=Cemetery x=-1122.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:49:26	2041-09-14	OK	place_building prefab=Cemetery x=-1034.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:49:29	2041-09-14	OK	place_building prefab=Cemetery x=-946.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:49:36	2041-09-14	OK	place_building prefab=Cemetery x=-1650.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 15:49:40	2041-09-14	OK	place_building prefab=Cemetery x=-1562.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:49:43	2041-09-14	OK	place_building prefab=Cemetery x=-1474.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:49:47	2041-09-14	OK	place_building prefab=Cemetery x=-1386.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 15:49:50	2041-09-14	OK	place_building prefab=Cemetery x=-1298.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:49:53	2041-09-14	OK	place_building prefab=Cemetery x=-1210.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:49:57	2041-09-14	OK	place_building prefab=Cemetery x=-1122.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:50:00	2041-09-14	OK	place_building prefab=Cemetery x=-1034.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:50:04	2041-09-14	OK	place_building prefab=Cemetery x=-946.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 15:50:10	2041-09-14	OK	place_building prefab=Cemetery x=-1650.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 15:50:14	2041-09-14	OK	place_building prefab=Cemetery x=-1562.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:17	2041-09-14	OK	place_building prefab=Cemetery x=-1474.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:21	2041-09-14	OK	place_building prefab=Cemetery x=-1386.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:24	2041-09-14	OK	place_building prefab=Cemetery x=-1298.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:28	2041-09-14	OK	place_building prefab=Cemetery x=-1210.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:31	2041-09-14	OK	place_building prefab=Cemetery x=-1122.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:34	2041-09-14	OK	place_building prefab=Cemetery x=-1034.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:38	2041-09-14	OK	place_building prefab=Cemetery x=-946.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 15:50:46	2041-09-14	DO	東と中央のオフィス街にバス路線を2本足す(公約2)
+2026-10-22 15:50:46	2041-09-14	WHY	公共交通でレベルが上がらないオフィスが東144、中央111棟。南西は路線1本で115→18棟。月末に半分以下を見込む
+2026-10-22 15:50:46	2041-09-14	OK	create_transport_line type=bus stops=[[3200.0, -254.0], [3440.0, -252.0], [3665.0, -250.0], [3...  -> 3.8s
+2026-10-22 15:50:55	2041-09-14	OK	create_transport_line type=bus stops=[[190.0, -172.0], [410.0, -172.0], [620.0, -172.0], [520....  -> 3.6s
+2026-10-22 15:51:01	2041-09-14	DO	高密度住宅の税を13→15%に上げる(公約1)
+2026-10-22 15:51:01	2041-09-14	WHY	墓地54で週の支出が約1万増える。税が高い印は6棟。前回+2で収入+14,490。週の収支+55,000前後を保つ見込み
+2026-10-22 15:51:02	2041-09-14	OK	set_tax target=residential_high rate=15  -> 0.0s
+2026-10-22 15:51:04	2041-09-14	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 8.8s
+2026-10-22 15:51:18	2041-09-15	OK	zone_map x=-1300.0 z=-2450.0 radius=450.0 size=600 save_to=m9-cemeteries.jpg  -> 0.0s
+2026-10-22 15:51:18	2041-09-15	OK	net_reach x=-1300.0 z=-2450.0 radius=500.0 limit=10  -> 0.0s
+2026-10-22 15:51:18	2041-09-15	OK	list_transport_lines type=bus  -> 0.0s
+2026-10-22 15:51:18	2041-09-15	OK	demand_breakdown  -> 0.0s
+2026-10-22 15:51:18	2041-09-15	OK	city_info  -> 0.0s
+2026-10-22 15:51:26	2041-09-15	OK	water_trace x=-1562.0 z=-2398.0  -> 0.1s
+2026-10-22 15:51:30	2041-09-15	OK	net_near x=-1254.0 z=-2360.0 radius=60.0 service=Water limit=50  -> 0.0s
+2026-10-22 15:51:34	2041-09-15	OK	build_line prefab=Water Pipe points=[[-1254.0, -2334.0], [-1263.0, -2360.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=80
+2026-10-22 15:51:38	2041-09-15	OK	net_near x=-1254.0 z=-2540.0 radius=60.0 service=Water limit=50  -> 0.0s
+2026-10-22 15:51:38	2041-09-15	OK	net_near x=-1254.0 z=-2720.0 radius=60.0 service=Water limit=50  -> 0.0s
+2026-10-22 15:51:41	2041-09-15	OK	build_line prefab=Water Pipe points=[[-1254.0, -2566.0], [-1263.0, -2540.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=80
+2026-10-22 15:51:47	2041-09-15	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 9.7s
+2026-10-22 15:52:00	2041-09-16	OK	water_trace x=-1562.0 z=-2398.0  -> 0.0s
+2026-10-22 15:52:01	2041-09-16	OK	zone_map x=-1300.0 z=-2450.0 radius=450.0 size=500 save_to=m9-cemeteries.jpg  -> 0.0s
+2026-10-22 15:52:29	2041-09-16	OK	advance days=8 speed=3 max_seconds=600 turbo=null  -> 63.4s
+2026-10-22 15:53:34	2041-09-24	OK	city_info  -> 0.0s
+2026-10-22 15:53:34	2041-09-24	OK	events  -> 0.0s
+2026-10-22 17:51:57	2041-09-24	OK	city_info  -> 0.1s
+2026-10-22 17:52:25	2041-09-24	OK	transport_line line=83  -> 0.1s
+2026-10-22 17:52:38	2041-09-24	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 74.6s
+2026-10-22 17:53:55	2041-10-04	OK	city_info  -> 0.0s
+2026-10-22 17:53:55	2041-10-04	OK	events  -> 0.0s
+2026-10-22 17:54:05	2041-10-04	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 71.3s
+2026-10-22 17:55:18	2041-10-14	OK	city_info  -> 0.0s
+2026-10-22 17:55:18	2041-10-14	OK	demand_breakdown  -> 0.0s
+2026-10-22 17:55:19	2041-10-14	OK	building_stats x=3300.0 z=-500.0 radius=800.0  -> 0.0s
+2026-10-22 17:55:20	2041-10-14	OK	building_stats x=300.0 z=-300.0 radius=600.0  -> 0.0s
+2026-10-22 17:55:20	2041-10-14	OK	complaints  -> 0.0s
+2026-10-22 17:55:20	2041-10-14	OK	events  -> 0.0s
+2026-10-22 17:55:20	2041-10-14	OK	citizens_summary  -> 0.0s
+2026-10-22 17:55:21	2041-10-14	OK	economy_breakdown  -> 0.0s
+2026-10-22 17:55:39	2041-10-14	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 17:56:31	2041-10-14	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 17:56:39	2041-10-14	OK	screenshot view=current max_width=1512 save_to=m10-west.jpg  -> 0.5s
+2026-10-22 17:56:47	2041-10-14	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 17:56:55	2041-10-14	OK	screenshot view=current max_width=1512 save_to=m10-east.jpg  -> 0.4s
+2026-10-22 17:57:03	2041-10-14	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.4s
+2026-10-22 17:57:11	2041-10-14	OK	screenshot view=current max_width=1512 save_to=m10-port.jpg  -> 0.4s
+2026-10-22 17:57:32	2041-10-14	OK	save_city name=fukuoka-money-m10 overwrite=false  -> 2.0s
+2026-10-22 17:57:34	2041-10-14	OK	city_info  -> 0.0s
+2026-10-22 17:57:34	2041-10-14	OK	economy  -> 0.0s
+2026-10-22 17:57:35	2041-10-14	OK	services  -> 0.0s
+2026-10-22 17:57:35	2041-10-14	OK	citizens_summary  -> 0.0s
+2026-10-22 17:57:35	2041-10-14	OK	complaints  -> 0.0s
+2026-10-22 17:57:37	2041-10-14	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 17:57:37	2041-10-14	OK	events  -> 0.0s
+2026-10-22 17:57:37	2041-10-14	OK	demand_breakdown  -> 0.0s
+2026-10-22 17:57:37	2041-10-14	OK	economy_breakdown  -> 0.0s
+2026-10-22 17:58:11	2041-10-14	OK	move_camera x=2253.0 z=-44.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 17:58:14	2041-10-14	OK	screenshot view=current max_width=1024 save_to=m10-taxhigh-east.jpg  -> 0.5s
+2026-10-22 17:58:18	2041-10-14	OK	zone_map x=-1300.0 z=-2800.0 radius=600.0 size=800 save_to=null  -> 0.0s
+2026-10-22 17:58:29	2041-10-14	OK	map_layer type=water_pollution x=-1300.0 z=-3100.0 radius=900.0 n=9  -> 0.0s
+2026-10-22 17:58:32	2041-10-14	OK	height_at x=-1300.0 z=-3100.0  -> 0.0s
+2026-10-22 17:58:32	2041-10-14	OK	height_at x=-1700.0 z=-3300.0  -> 0.0s
+2026-10-22 17:58:32	2041-10-14	OK	height_at x=-900.0 z=-3300.0  -> 0.0s
+2026-10-22 17:58:33	2041-10-14	OK	height_at x=-900.0 z=-2900.0  -> 0.0s
+2026-10-22 17:58:33	2041-10-14	OK	height_at x=-1700.0 z=-2900.0  -> 0.0s
+2026-10-22 17:58:37	2041-10-14	OK	height_at x=-1700.0 z=-3080.0  -> 0.0s
+2026-10-22 17:58:37	2041-10-14	OK	height_at x=-1300.0 z=-3260.0  -> 0.0s
+2026-10-22 17:58:37	2041-10-14	OK	height_at x=-1700.0 z=-3260.0  -> 0.0s
+2026-10-22 17:58:42	2041-10-14	OK	zone_map x=-900.0 z=-2500.0 radius=800.0 size=800 save_to=null  -> 0.1s
+2026-10-22 17:58:44	2041-10-14	OK	height_at x=-300.0 z=-2400.0  -> 0.0s
+2026-10-22 17:58:44	2041-10-14	OK	height_at x=-300.0 z=-2800.0  -> 0.0s
+2026-10-22 17:58:45	2041-10-14	OK	height_at x=-600.0 z=-2600.0  -> 0.0s
+2026-10-22 17:58:45	2041-10-14	OK	height_at x=-300.0 z=-2180.0  -> 0.0s
+2026-10-22 17:59:12	2041-10-14	OK	net_near x=-898.0 z=-2360.0 radius=420.0 service=Road limit=50  -> 0.0s
+2026-10-22 17:59:25	2041-10-14	OK	building_stats x=null z=null radius=500  -> 0.1s
+2026-10-22 17:59:54	2041-10-14	DO	南西の墓地の東に道を延ばし墓地を約70置く(公約2)
+2026-10-22 17:59:54	2041-10-14	WHY	働き口48,740で目標まで6,260。墓地1つで30。月末51,000以上、週の支出+約11,200を見込む
+2026-10-22 17:59:58	2041-10-14	OK	build_line prefab=Basic Road points=[[-898.0, -2000.0], [-274.0, -2000.0], [-274.0, -2180.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.7s cost=10240
+2026-10-22 18:00:05	2041-10-14	OK	build_line prefab=Basic Road points=[[-898.0, -2180.0], [-274.0, -2180.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=3200
+2026-10-22 18:00:08	2041-10-14	OK	build_line prefab=Basic Road points=[[-898.0, -2360.0], [-274.0, -2360.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=3200
+2026-10-22 18:00:11	2041-10-14	OK	build_line prefab=Basic Road points=[[-898.0, -2540.0], [-274.0, -2540.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=3200
+2026-10-22 18:00:20	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 18:00:26	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:00:29	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:00:33	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:00:36	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:00:40	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:00:43	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:00:46	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:00:50	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:00:53	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:00:57	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:00	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:04	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:07	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:13	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:01:16	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:01:20	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:01:23	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:01:26	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:01:30	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:01:33	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:01:37	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:01:40	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:43	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:47	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:50	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:54	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:01:57	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:02:03	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 18:02:07	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:02:10	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:02:13	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:02:17	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:02:20	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:02:24	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:02:27	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:02:31	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:02:34	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:02:38	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:02:41	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:02:45	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:02:48	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:02:54	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 18:02:58	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:02	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:05	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:09	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:12	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:03:16	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:03:19	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 18:03:23	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:03:26	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:03:30	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:03:34	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:03:37	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:03:41	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:03:47	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:50	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:54	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:03:58	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:04:01	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:04:04	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:04:08	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:04:11	2041-10-14	OK	place_building prefab=Cemetery x=-850.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 18:04:15	2041-10-14	OK	place_building prefab=Cemetery x=-762.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:04:19	2041-10-14	OK	place_building prefab=Cemetery x=-674.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:04:22	2041-10-14	OK	place_building prefab=Cemetery x=-586.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:04:26	2041-10-14	OK	place_building prefab=Cemetery x=-498.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:04:29	2041-10-14	OK	place_building prefab=Cemetery x=-410.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:04:32	2041-10-14	OK	place_building prefab=Cemetery x=-322.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:04:38	2041-10-14	OK	net_near x=-1000.0 z=-2360.0 radius=450.0 service=Water limit=50  -> 0.0s
+2026-10-22 18:04:44	2041-10-14	OK	build_line prefab=Water Pipe points=[[-274.0, -2000.0], [-274.0, -2180.0], [-274.0, -2360.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=1920
+2026-10-22 18:04:50	2041-10-14	OK	build_line prefab=Water Pipe points=[[-898.0, -2000.0], [-274.0, -2000.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=1600
+2026-10-22 18:04:53	2041-10-14	OK	build_line prefab=Water Pipe points=[[-898.0, -2180.0], [-274.0, -2180.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1600
+2026-10-22 18:04:57	2041-10-14	OK	build_line prefab=Water Pipe points=[[-898.0, -2360.0], [-274.0, -2360.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1600
+2026-10-22 18:05:00	2041-10-14	OK	build_line prefab=Water Pipe points=[[-898.0, -2540.0], [-274.0, -2540.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1600
+2026-10-22 18:05:04	2041-10-14	OK	build_line prefab=Water Pipe points=[[-898.0, -2720.0], [-274.0, -2720.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1600
+2026-10-22 18:05:10	2041-10-14	DO	医療の予算を120→100%に下げる(公約1)
+2026-10-22 18:05:10	2041-10-14	WHY	医療の支出41,184が最大。墓地の維持費も1つ192→160。次の見回りで医療の支出 −約6,900を見込む
+2026-10-22 18:05:11	2041-10-14	OK	set_budget target=healthcare percent=100 day=null night=null  -> 0.0s
+2026-10-22 18:05:13	2041-10-14	DO	船の来ない入り江の港3590を止める(公約1)
+2026-10-22 18:05:13	2041-10-14	WHY	5か月続けて船も車も0台。週1,920を払い続けている。止めると船の支出5,760→約3,840、働き口−75
+2026-10-22 18:05:14	2041-10-14	OK	set_building_active id=3590 active=false  -> 0.1s
+2026-10-22 18:05:16	2041-10-14	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 12.3s
+2026-10-22 18:05:31	2041-10-15	OK	zone_map x=-650.0 z=-2360.0 radius=500.0 size=800 save_to=m10-cemeteries.jpg  -> 0.1s
+2026-10-22 18:05:32	2041-10-15	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:05:32	2041-10-15	OK	net_reach x=-600.0 z=-2360.0 radius=500.0 limit=10  -> 0.0s
+2026-10-22 18:05:35	2041-10-15	OK	city_info  -> 0.0s
+2026-10-22 18:06:00	2041-10-15	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 100.9s
+2026-10-22 18:07:43	2041-10-24	OK	city_info  -> 0.0s
+2026-10-22 18:07:43	2041-10-24	OK	events  -> 0.0s
+2026-10-22 18:07:54	2041-10-24	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 96.1s
+2026-10-22 18:09:32	2041-11-03	OK	city_info  -> 0.0s
+2026-10-22 18:09:32	2041-11-03	OK	events  -> 0.0s
+2026-10-22 18:09:43	2041-11-03	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 77.8s
+2026-10-22 18:11:03	2041-11-13	OK	city_info  -> 0.0s
+2026-10-22 18:11:03	2041-11-13	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:11:03	2041-11-13	OK	economy_breakdown  -> 0.0s
+2026-10-22 18:11:04	2041-11-13	OK	complaints  -> 0.0s
+2026-10-22 18:11:04	2041-11-13	OK	events  -> 0.0s
+2026-10-22 18:11:04	2041-11-13	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 18:11:04	2041-11-13	OK	citizens_summary  -> 0.0s
+2026-10-22 18:11:27	2041-11-13	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 18:11:52	2041-11-13	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 18:12:00	2041-11-13	OK	screenshot view=current max_width=1512 save_to=m11-west.jpg  -> 0.5s
+2026-10-22 18:12:08	2041-11-13	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 18:12:17	2041-11-13	OK	screenshot view=current max_width=1512 save_to=m11-east.jpg  -> 0.4s
+2026-10-22 18:12:25	2041-11-13	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 18:12:33	2041-11-13	OK	screenshot view=current max_width=1512 save_to=m11-port.jpg  -> 0.4s
+2026-10-22 18:12:57	2041-11-13	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 18:12:57	2041-11-13	OK	save_city name=fukuoka-money-m11 overwrite=false  -> 2.0s
+2026-10-22 18:13:01	2041-11-13	OK	city_info  -> 0.0s
+2026-10-22 18:13:02	2041-11-13	OK	economy  -> 0.0s
+2026-10-22 18:13:02	2041-11-13	OK	services  -> 0.0s
+2026-10-22 18:13:02	2041-11-13	OK	citizens_summary  -> 0.0s
+2026-10-22 18:13:02	2041-11-13	OK	complaints  -> 0.0s
+2026-10-22 18:13:03	2041-11-13	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 18:13:03	2041-11-13	OK	events  -> 0.0s
+2026-10-22 18:13:06	2041-11-13	OK	move_camera x=2249.0 z=-41.0 size=2500.0 pitch=null yaw=null  -> 0.5s
+2026-10-22 18:13:07	2041-11-13	OK	economy_breakdown  -> 0.0s
+2026-10-22 18:13:07	2041-11-13	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 18:13:07	2041-11-13	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:13:09	2041-11-13	OK	screenshot view=current max_width=1000 save_to=m11-taxhigh-east.jpg  -> 0.5s
+2026-10-22 18:13:19	2041-11-13	OK	buildings_near x=3780.0 z=580.0 radius=80.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-22 18:13:19	2041-11-13	OK	list_building_types service=null locked=false  -> 0.0s
+2026-10-22 18:13:24	2041-11-13	OK	zone_map x=-100.0 z=-2400.0 radius=700.0 size=800 save_to=null  -> 0.0s
+2026-10-22 18:13:27	2041-11-13	OK	map_layer type=water_pollution x=50.0 z=-2360.0 radius=400.0 n=5  -> 0.0s
+2026-10-22 18:13:28	2041-11-13	OK	height_at x=0.0 z=-2000.0  -> 0.0s
+2026-10-22 18:13:28	2041-11-13	OK	height_at x=300.0 z=-2000.0  -> 0.0s
+2026-10-22 18:13:29	2041-11-13	OK	height_at x=300.0 z=-2720.0  -> 0.0s
+2026-10-22 18:13:29	2041-11-13	OK	height_at x=0.0 z=-2720.0  -> 0.0s
+2026-10-22 18:13:29	2041-11-13	OK	height_at x=150.0 z=-2360.0  -> 0.0s
+2026-10-22 18:13:33	2041-11-13	OK	net_near x=100.0 z=-2360.0 radius=450.0 service=null limit=20  -> 0.0s
+2026-10-22 18:13:33	2041-11-13	OK	buildings_near x=100.0 z=-2360.0 radius=350.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-22 18:14:40	2041-11-13	DO	南西の墓地の東に道を延ばし、墓地を70並べる(公約2)
+2026-10-22 18:14:40	2041-11-13	WHY	働き口50,993であと4,007。墓地1つで30、置いた翌日に数えに入る。53,000以上を見込む。建設費約59万
+2026-10-22 18:14:45	2041-11-13	OK	build_line prefab=Basic Road points=[[-274.0, -2000.0], [350.0, -2000.0], [350.0, -2720.0], [... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.6s cost=10000
+2026-10-22 18:14:52	2041-11-13	OK	build_line prefab=Basic Road points=[[-274.0, -2180.0], [350.0, -2180.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=3200
+2026-10-22 18:14:55	2041-11-13	OK	build_line prefab=Basic Road points=[[-274.0, -2360.0], [350.0, -2360.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=3200
+2026-10-22 18:14:59	2041-11-13	OK	build_line prefab=Basic Road points=[[-274.0, -2540.0], [350.0, -2540.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=3200
+2026-10-22 18:15:06	2041-11-13	OK	build_line prefab=Water Pipe points=[[350.0, -2000.0], [350.0, -2180.0], [350.0, -2360.0], [3... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=1920
+2026-10-22 18:15:13	2041-11-13	OK	build_line prefab=Water Pipe points=[[-274.0, -2000.0], [350.0, -2000.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=1600
+2026-10-22 18:15:16	2041-11-13	OK	build_line prefab=Water Pipe points=[[-274.0, -2180.0], [350.0, -2180.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1600
+2026-10-22 18:15:20	2041-11-13	OK	build_line prefab=Water Pipe points=[[-274.0, -2360.0], [350.0, -2360.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=1600
+2026-10-22 18:15:23	2041-11-13	OK	build_line prefab=Water Pipe points=[[-274.0, -2540.0], [350.0, -2540.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1600
+2026-10-22 18:15:27	2041-11-13	OK	build_line prefab=Water Pipe points=[[-274.0, -2720.0], [350.0, -2720.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.4s cost=1600
+2026-10-22 18:15:35	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 18:15:41	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:15:45	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:15:48	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:15:52	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:15:55	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:15:58	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-1962.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:05	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 18:16:08	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:16:12	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:16:15	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:16:18	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:16:22	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:16:25	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2038.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:16:32	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:16:35	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:38	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:42	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:45	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:49	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:52	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2142.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:16:58	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.5s cost=8000
+2026-10-22 18:17:02	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:17:05	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:17:09	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:17:12	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:17:16	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:17:19	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2218.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:17:26	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:17:29	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:17:33	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:17:36	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:17:40	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:17:43	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:17:46	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2322.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:17:53	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:17:57	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:00	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:04	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:07	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:11	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:14	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2398.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:20	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.5s cost=8000
+2026-10-22 18:18:24	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:18:27	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:18:31	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:18:34	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:18:37	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:18:41	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2502.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:18:47	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:18:51	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:54	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:18:58	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:01	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:04	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:08	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2578.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:14	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.4s cost=8000
+2026-10-22 18:19:18	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:19:21	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:19:24	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:19:28	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:19:31	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:19:34	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2682.0 angle=0 pay=true facing=south  -> 3.3s cost=8000
+2026-10-22 18:19:41	2041-11-13	OK	place_building prefab=Cemetery x=-226.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.4s cost=8000
+2026-10-22 18:19:44	2041-11-13	OK	place_building prefab=Cemetery x=-138.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:48	2041-11-13	OK	place_building prefab=Cemetery x=-50.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:51	2041-11-13	OK	place_building prefab=Cemetery x=38.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:55	2041-11-13	OK	place_building prefab=Cemetery x=126.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:19:58	2041-11-13	OK	place_building prefab=Cemetery x=214.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:20:01	2041-11-13	OK	place_building prefab=Cemetery x=302.0 z=-2758.0 angle=0 pay=true facing=north  -> 3.3s cost=8000
+2026-10-22 18:20:08	2041-11-13	DO	医療の予算を100→80%に下げる(公約1)
+2026-10-22 18:20:08	2041-11-13	WHY	医療の支出45,520の大半は墓地の維持費。墓地の容量は使用の80倍。墓地70を足した後の額から約2割、週−11,000を見込む
+2026-10-22 18:20:09	2041-11-13	OK	set_budget target=healthcare percent=80 day=null night=null  -> 0.0s
+2026-10-22 18:20:10	2041-11-13	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 11.0s
+2026-10-22 18:20:25	2041-11-14	OK	zone_map x=40.0 z=-2360.0 radius=450.0 size=800 save_to=m11-cemeteries.jpg  -> 0.0s
+2026-10-22 18:20:25	2041-11-14	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:20:25	2041-11-14	OK	net_reach x=40.0 z=-2360.0 radius=450.0 limit=10  -> 0.0s
+2026-10-22 18:20:26	2041-11-14	OK	city_info  -> 0.0s
+2026-10-22 18:20:40	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2045.0 angle=0 pay=true facing=west  -> 3.6s cost=8000
+2026-10-22 18:20:47	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2135.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:20:50	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2225.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:20:53	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2315.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:20:57	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2405.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:21:00	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2495.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:21:04	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2585.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:21:07	2041-11-14	OK	place_building prefab=Cemetery x=390.0 z=-2675.0 angle=0 pay=true facing=west  -> 3.3s cost=8000
+2026-10-22 18:21:12	2041-11-14	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 11.0s
+2026-10-22 18:21:26	2041-11-15	OK	buildings_near x=390.0 z=-2360.0 radius=340.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-22 18:21:26	2041-11-15	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:21:26	2041-11-15	OK	city_info  -> 0.0s
+2026-10-22 18:21:52	2041-11-15	OK	advance days=8 speed=3 max_seconds=600 turbo=null  -> 72.7s
+2026-10-22 18:23:06	2041-11-23	OK	city_info  -> 0.0s
+2026-10-22 18:23:06	2041-11-23	OK	events  -> 0.0s
+2026-10-22 18:23:14	2041-11-23	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 79.8s
+2026-10-22 18:24:35	2041-12-03	OK	city_info  -> 0.0s
+2026-10-22 18:24:35	2041-12-03	OK	events  -> 0.0s
+2026-10-22 18:24:39	2041-12-03	OK	citizens_summary  -> 0.0s
+2026-10-22 18:24:39	2041-12-03	OK	complaints  -> 0.0s
+2026-10-22 18:24:39	2041-12-03	OK	services  -> 0.0s
+2026-10-22 18:24:39	2041-12-03	OK	dialog_events since=55  -> 0.0s
+2026-10-22 18:24:42	2041-12-03	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 18:24:43	2041-12-03	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:24:43	2041-12-03	OK	economy_breakdown  -> 0.0s
+2026-10-22 18:25:16	2041-12-03	OK	buildings_near x=2252.0 z=-43.0 radius=300.0 limit=10 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-22 18:25:31	2041-12-03	DO	臨時: 高密度住宅の税を15→13%に下げる(公約1・2)
+2026-10-22 18:25:31	2041-12-03	WHY	税が高い印で高密度住宅1,282棟が放棄、人口−43%。13%の9月は印6棟。残る約1,186棟の放棄を止める
+2026-10-22 18:25:32	2041-12-03	OK	set_tax target=residential_high rate=13  -> 0.0s
+2026-10-22 18:25:40	2041-12-03	NG	set_policy name=__dummy_never_called__ active=false  -> unknown policy: __dummy_never_called__ (see /policies) (0.1s)
+2026-10-22 18:25:45	2041-12-03	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 69.6s
+2026-10-22 18:26:57	2041-12-13	OK	city_info  -> 0.0s
+2026-10-22 18:26:58	2041-12-13	OK	events  -> 0.0s
+2026-10-22 18:26:58	2041-12-13	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:26:58	2041-12-13	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-22 18:26:58	2041-12-13	OK	economy_breakdown  -> 0.0s
+2026-10-22 18:26:58	2041-12-13	OK	citizens_summary  -> 0.0s
+2026-10-22 18:27:02	2041-12-13	OK	complaints  -> 0.0s
+2026-10-22 18:27:36	2041-12-13	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-22 18:28:04	2041-12-13	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.3s
+2026-10-22 18:28:10	2041-12-13	OK	screenshot view=current max_width=1512 save_to=m12-west.jpg  -> 0.5s
+2026-10-22 18:28:16	2041-12-13	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-22 18:28:21	2041-12-13	OK	screenshot view=current max_width=1512 save_to=m12-east.jpg  -> 0.4s
+2026-10-22 18:28:27	2041-12-13	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-22 18:28:33	2041-12-13	OK	screenshot view=current max_width=1512 save_to=m12-port.jpg  -> 0.5s
+2026-10-22 18:28:55	2041-12-13	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-22 18:28:56	2041-12-13	OK	save_city name=fukuoka-money-m12 overwrite=false  -> 2.0s
+2026-10-22 18:29:00	2041-12-13	OK	city_info  -> 0.0s
+2026-10-22 18:29:01	2041-12-13	OK	economy  -> 0.0s
+2026-10-22 18:29:01	2041-12-13	OK	services  -> 0.0s
+2026-10-22 18:29:01	2041-12-13	OK	citizens_summary  -> 0.0s
+2026-10-22 18:29:01	2041-12-13	OK	complaints  -> 0.0s
+2026-10-22 18:29:01	2041-12-13	OK	citizen_voices n=5  -> 0.0s
+2026-10-22 18:29:01	2041-12-13	OK	events  -> 0.0s
+2026-10-22 18:29:04	2041-12-13	OK	move_camera x=2257.0 z=-48.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-22 18:29:04	2041-12-13	OK	economy_breakdown  -> 0.0s
+2026-10-22 18:29:05	2041-12-13	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:29:05	2041-12-13	OK	list_loans  -> 0.0s
+2026-10-22 18:29:08	2041-12-13	OK	screenshot view=current max_width=1024 save_to=m12-abandoned-east.jpg  -> 0.6s
+2026-10-22 18:29:58	2041-12-13	OK	list_building_types service=null locked=false  -> 0.0s
+2026-10-22 18:30:04	2041-12-13	OK	buildings_near x=-1400.0 z=-1852.0 radius=30.0 limit=5 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 18:30:05	2041-12-13	OK	buildings_near x=3720.0 z=622.0 radius=30.0 limit=5 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 18:30:07	2041-12-13	OK	buildings_near x=-226.0 z=-1962.0 radius=30.0 limit=3 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 18:31:07	2041-12-13	OK	set_building_active id=37693 active=false  -> 0.0s
+2026-10-22 18:31:07	2041-12-13	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:31:10	2041-12-13	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 6.8s
+2026-10-22 18:31:17	2041-12-14	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:31:20	2041-12-14	OK	buildings_near x=-226.0 z=-1962.0 radius=100.0 limit=4 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-22 18:31:35	2041-12-14	OK	buildings_near x=0.0 z=0.0 radius=9000.0 limit=50 problems_only=false problem=null service=Monument abandoned=false brief=true  -> 0.0s
+2026-10-22 18:31:35	2041-12-14	OK	list_policies  -> 0.0s
+2026-10-22 18:31:46	2041-12-14	OK	zone_map x=-650.0 z=-2350.0 radius=1150.0 size=900 save_to=null  -> 0.1s
+2026-10-22 18:32:40	2041-12-14	DO	サービスの予算を下げ、教育の政策を外す(公約1)
+2026-10-22 18:32:40	2041-12-14	WHY	週の収支−26,789。電気と水は容量の半分しか使わない。支出約−33,000を見込む
+2026-10-22 18:32:40	2041-12-14	OK	set_budget target=electricity percent=80 day=null night=null  -> 0.0s
+2026-10-22 18:32:40	2041-12-14	OK	set_budget target=water percent=80 day=null night=null  -> 0.0s
+2026-10-22 18:32:41	2041-12-14	OK	set_budget target=healthcare percent=60 day=null night=null  -> 0.0s
+2026-10-22 18:32:41	2041-12-14	OK	set_budget target=education percent=80 day=null night=null  -> 0.0s
+2026-10-22 18:32:42	2041-12-14	OK	set_budget target=fire percent=100 day=null night=null  -> 0.0s
+2026-10-22 18:32:42	2041-12-14	OK	set_budget target=police percent=100 day=null night=null  -> 0.0s
+2026-10-22 18:32:43	2041-12-14	OK	set_budget target=roads percent=80 day=null night=null  -> 0.0s
+2026-10-22 18:32:43	2041-12-14	OK	set_policy name=EducationBoost active=false  -> 0.1s
+2026-10-22 18:32:46	2041-12-14	DO	商業・工業・オフィスの税を+2(公約1)
+2026-10-22 18:32:46	2041-12-14	WHY	工業とオフィスは1%で収入は各約1,600。+2で週の収入約+12,000を見込む
+2026-10-22 18:32:47	2041-12-14	OK	set_tax target=commercial_low rate=11  -> 0.0s
+2026-10-22 18:32:47	2041-12-14	OK	set_tax target=commercial_high rate=5  -> 0.0s
+2026-10-22 18:32:47	2041-12-14	OK	set_tax target=industrial rate=3  -> 0.0s
+2026-10-22 18:32:48	2041-12-14	OK	set_tax target=office rate=3  -> 0.0s
+2026-10-22 18:32:52	2041-12-14	DO	南西の墓地238を取り壊し、記念碑7つを止める(公約1)
+2026-10-22 18:32:52	2041-12-14	WHY	墓地は止めても働き口に残るため壊す。週の支出約−25,000。働き口は約−7,100
+2026-10-22 18:32:53	2041-12-14	OK	bulldoze x=-1606.0 z=-2000.0 radius=100.0 what=building  -> 3.6s
+2026-10-22 18:33:07	2041-12-14	OK	bulldoze x=-1550.0 z=-2250.0 radius=250.0 what=building  -> 3.5s
+2026-10-22 18:33:11	2041-12-14	OK	bulldoze x=-1250.0 z=-2250.0 radius=250.0 what=building  -> 3.5s
+2026-10-22 18:33:14	2041-12-14	OK	bulldoze x=-950.0 z=-2250.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:18	2041-12-14	OK	bulldoze x=-650.0 z=-2250.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:21	2041-12-14	OK	bulldoze x=-350.0 z=-2250.0 radius=250.0 what=building  -> 3.5s
+2026-10-22 18:33:25	2041-12-14	OK	bulldoze x=-50.0 z=-2250.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:28	2041-12-14	OK	bulldoze x=250.0 z=-2250.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:35	2041-12-14	OK	bulldoze x=-1550.0 z=-2550.0 radius=250.0 what=building  -> 3.5s
+2026-10-22 18:33:39	2041-12-14	OK	bulldoze x=-1250.0 z=-2550.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:42	2041-12-14	OK	bulldoze x=-950.0 z=-2550.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:46	2041-12-14	OK	bulldoze x=-650.0 z=-2550.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:49	2041-12-14	OK	bulldoze x=-350.0 z=-2550.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:52	2041-12-14	OK	bulldoze x=-50.0 z=-2550.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:33:56	2041-12-14	OK	bulldoze x=250.0 z=-2550.0 radius=250.0 what=building  -> 3.3s
+2026-10-22 18:34:03	2041-12-14	OK	bulldoze x=-1250.0 z=-2850.0 radius=250.0 what=building  -> 3.5s
+2026-10-22 18:34:06	2041-12-14	OK	bulldoze x=-650.0 z=-2850.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:34:10	2041-12-14	OK	bulldoze x=-50.0 z=-2850.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:34:13	2041-12-14	OK	bulldoze x=-1550.0 z=-2850.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:34:17	2041-12-14	OK	bulldoze x=-950.0 z=-2850.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:34:20	2041-12-14	OK	bulldoze x=-350.0 z=-2850.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:34:24	2041-12-14	OK	bulldoze x=250.0 z=-2850.0 radius=250.0 what=building  -> 3.4s
+2026-10-22 18:34:30	2041-12-14	OK	buildings_near x=-650.0 z=-2300.0 radius=1300.0 limit=100 problems_only=false problem=null service=HealthCare abandoned=false brief=true  -> 0.0s
+2026-10-22 18:34:36	2041-12-14	OK	bulldoze x=-1430.0 z=-1990.0 radius=100.0 what=building  -> 3.5s
+2026-10-22 18:34:39	2041-12-14	OK	bulldoze x=-1254.0 z=-1975.0 radius=80.0 what=building  -> 3.4s
+2026-10-22 18:34:43	2041-12-14	OK	bulldoze x=-1078.0 z=-1975.0 radius=80.0 what=building  -> 3.3s
+2026-10-22 18:34:46	2041-12-14	OK	bulldoze x=-898.0 z=-1975.0 radius=80.0 what=building  -> 3.4s
+2026-10-22 18:34:50	2041-12-14	OK	bulldoze x=-718.0 z=-1975.0 radius=80.0 what=building  -> 3.4s
+2026-10-22 18:34:53	2041-12-14	OK	bulldoze x=-542.0 z=-2000.0 radius=100.0 what=building  -> 3.4s
+2026-10-22 18:34:57	2041-12-14	OK	bulldoze x=-366.0 z=-1975.0 radius=80.0 what=building  -> 3.4s
+2026-10-22 18:35:00	2041-12-14	OK	bulldoze x=-182.0 z=-1975.0 radius=80.0 what=building  -> 3.3s
+2026-10-22 18:35:03	2041-12-14	OK	bulldoze x=-6.0 z=-1975.0 radius=80.0 what=building  -> 3.3s
+2026-10-22 18:35:07	2041-12-14	OK	bulldoze x=170.0 z=-1975.0 radius=80.0 what=building  -> 3.4s
+2026-10-22 18:35:10	2041-12-14	OK	bulldoze x=302.0 z=-1975.0 radius=50.0 what=building  -> 3.3s
+2026-10-22 18:35:17	2041-12-14	OK	set_building_active id=2374 active=false  -> 0.1s
+2026-10-22 18:35:17	2041-12-14	OK	set_building_active id=9113 active=false  -> 0.0s
+2026-10-22 18:35:17	2041-12-14	OK	set_building_active id=29187 active=false  -> 0.0s
+2026-10-22 18:35:18	2041-12-14	OK	set_building_active id=30532 active=false  -> 0.0s
+2026-10-22 18:35:18	2041-12-14	OK	set_building_active id=37107 active=false  -> 0.0s
+2026-10-22 18:35:18	2041-12-14	OK	set_building_active id=41780 active=false  -> 0.0s
+2026-10-22 18:35:19	2041-12-14	OK	set_building_active id=45587 active=false  -> 0.0s
+2026-10-22 18:35:21	2041-12-14	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 6.8s
+2026-10-22 18:35:28	2041-12-15	OK	city_info  -> 0.0s
+2026-10-22 18:35:28	2041-12-15	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:35:28	2041-12-15	OK	services  -> 0.0s
+2026-10-22 18:36:02	2041-12-15	OK	advance days=8 speed=3 max_seconds=600 turbo=null  -> 51.2s
+2026-10-22 18:36:53	2041-12-23	OK	city_info  -> 0.0s
+2026-10-22 18:36:53	2041-12-23	OK	events  -> 0.0s
+2026-10-22 18:37:04	2041-12-23	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 62.4s
+2026-10-22 18:38:07	2042-01-02	OK	city_info  -> 0.0s
+2026-10-22 18:38:07	2042-01-02	OK	events  -> 0.0s
+2026-10-22 18:38:18	2042-01-02	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 57.4s
+2026-10-22 18:39:15	2042-01-12	OK	city_info  -> 0.0s
+2026-10-22 18:39:15	2042-01-12	OK	demand_breakdown  -> 0.0s
+2026-10-22 18:39:15	2042-01-12	OK	economy_breakdown  -> 0.0s
+2026-10-22 18:39:15	2042-01-12	OK	complaints  -> 0.0s
+2026-10-22 18:39:15	2042-01-12	OK	services  -> 0.0s
+2026-10-22 18:39:16	2042-01-12	OK	events  -> 0.0s
+2026-10-22 18:39:16	2042-01-12	OK	citizens_summary  -> 0.0s
+2026-10-22 18:39:18	2042-01-12	OK	building_stats x=null z=null radius=500  -> 0.0s

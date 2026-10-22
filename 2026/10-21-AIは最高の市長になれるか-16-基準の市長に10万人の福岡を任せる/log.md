@@ -3,11 +3,11 @@ date: 2026-10-21
 title: 基準の市長に10万人の福岡を任せる
 issue: 89
 parent: 39
-ai:
-minutes:
-result:
-status: 未公開
-url:
+ai: Claude Code (Opus 5.5)
+minutes: 210
+result: 基準の市長が12か月を運営。人口100,140→106,966、週の収支は毎月黒字で、公約は3つのうち2つ。7か月目に古い港を取り壊して詰まりを解いたが、品物の不足は残った
+status: 公開済
+url: https://note.com/tried_hs/n/n2f90001b7279
 qiita_url:
 ---
 
