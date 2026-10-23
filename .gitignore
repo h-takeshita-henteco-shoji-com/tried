@@ -5,3 +5,7 @@
 *.mp4
 # 動画に重ねるためにつないだ声。overlay.py で作り直せる(#81)
 **/voice/overlay/voice.wav
+# 実況の声。voice_lines.py で作り直せる(#98)
+2026/10-23-*-20-*/assets/voice/
+# Python が自動で作るファイル
+__pycache__/
