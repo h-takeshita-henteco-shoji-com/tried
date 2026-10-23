@@ -1,0 +1,389 @@
+[
+ {
+  "section": 1,
+  "mayor": "4分割",
+  "label": "4人の12か月目の最後の数秒を2×2で並べる",
+  "start": "END-12",
+  "end": "END",
+  "speed": 1,
+  "out_sec": 0
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2a 福岡がもと",
+  "start": "10-14-AIは最高の市長になれるか-02-福岡の再現範囲と公開条件を決める/assets/range-map-half.png",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 20
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2a 福岡がもと",
+  "start": "10-14-AIは最高の市長になれるか-04-地形を読み込み海と川を整える/assets/terrain-imported.png",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 10
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2b 10万人まで育てた",
+  "start": "10-20-AIは最高の市長になれるか-13-MODを直して基準の市長にもう一度任せる/grow/assets/g*-town.jpg",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 35
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2c エリアの特徴",
+  "start": "10-23-AIは最高の市長になれるか-20-4人の市長の1年を実況動画にする/assets/map-areas.jpg",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 45
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2c エリアの特徴",
+  "start": "10-21-AIは最高の市長になれるか-14-4人を市長として定義する/assets/tenjin.jpg",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 10
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2d 問題点",
+  "start": "10-21-AIは最高の市長になれるか-14-4人を市長として定義する/assets/map-problems.jpg",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 20
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2d 問題点",
+  "start": "10-22-AIは最高の市長になれるか-17-お金市長に10万人の福岡を任せる/assets/chart-problem-chain.png",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 20
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2d 問題点",
+  "start": "10-21-AIは最高の市長になれるか-14-4人を市長として定義する/assets/harbor.jpg",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 10
+ },
+ {
+  "section": 2,
+  "mayor": "静止画",
+  "label": "2e 4人の市長",
+  "start": "10-22-AIは最高の市長になれるか-17-お金市長に10万人の福岡を任せる/assets/chart-mayors.png",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 40
+ },
+ {
+  "section": 3,
+  "mayor": "base",
+  "label": "調べてから焼却場と火葬場を建てる",
+  "start": "0:02:40",
+  "end": "0:03:25",
+  "speed": 4,
+  "out_sec": 11.2
+ },
+ {
+  "section": 3,
+  "mayor": "money",
+  "label": "住宅の税を上げ、予算を下げる",
+  "start": "0:02:30",
+  "end": "0:02:55",
+  "speed": 2,
+  "out_sec": 12.5
+ },
+ {
+  "section": 3,
+  "mayor": "population",
+  "label": "墓地6と高校4を建てる",
+  "start": "0:09:40",
+  "end": "0:12:55",
+  "speed": 8,
+  "out_sec": 24.4
+ },
+ {
+  "section": 3,
+  "mayor": "livable",
+  "label": "埋立地を空に、病院、禁煙",
+  "start": "0:03:40",
+  "end": "0:04:10",
+  "speed": 2,
+  "out_sec": 15.0
+ },
+ {
+  "section": 4,
+  "mayor": "base",
+  "label": "2つ目の荷物の港を置く",
+  "start": "0:43:20",
+  "end": "0:44:10",
+  "speed": 4,
+  "out_sec": 12.5
+ },
+ {
+  "section": 4,
+  "mayor": "base",
+  "label": "港2か所を止め、輸入を道路へ",
+  "start": "0:53:40",
+  "end": "0:54:05",
+  "speed": 2,
+  "out_sec": 12.5
+ },
+ {
+  "section": 4,
+  "mayor": "base",
+  "label": "止めた港を取り壊す",
+  "start": "1:02:20",
+  "end": "1:02:50",
+  "speed": 2,
+  "out_sec": 15.0
+ },
+ {
+  "section": 4,
+  "mayor": "base",
+  "label": "放棄を壊し跡をオフィスに",
+  "start": "1:22:20",
+  "end": "1:23:15",
+  "speed": 4,
+  "out_sec": 13.8
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "住宅の税+2、最初の墓地",
+  "start": "0:21:55",
+  "end": "0:22:10",
+  "speed": 2,
+  "out_sec": 7.5
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "墓地を約40並べる",
+  "start": "1:34:05",
+  "end": "1:37:45",
+  "speed": 16,
+  "out_sec": 13.8
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "墓地54を足す",
+  "start": "1:49:30",
+  "end": "1:53:44",
+  "speed": 16,
+  "out_sec": 15.9
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "高密度住宅の税を15%に",
+  "start": "1:54:05",
+  "end": "1:54:12",
+  "speed": 1,
+  "out_sec": 7.0
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "墓地を約70並べる(10月)",
+  "start": "1:58:56",
+  "end": "2:04:06",
+  "speed": 16,
+  "out_sec": 19.4
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "墓地を70並べる(11月)",
+  "start": "2:13:42",
+  "end": "2:19:03",
+  "speed": 16,
+  "out_sec": 20.1
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "11/23→12/03 の進行(崩れる10日)",
+  "start": "2:22:16",
+  "end": "2:23:36",
+  "speed": 4,
+  "out_sec": 20.0
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "臨時に税を下げる",
+  "start": "2:24:30",
+  "end": "2:24:40",
+  "speed": 1,
+  "out_sec": 10.0
+ },
+ {
+  "section": 5,
+  "mayor": "money",
+  "label": "墓地238を取り壊す",
+  "start": "2:31:54",
+  "end": "2:34:21",
+  "speed": 8,
+  "out_sec": 18.4
+ },
+ {
+  "section": 6,
+  "mayor": "population",
+  "label": "高密度住宅の税を9%に",
+  "start": "1:07:10",
+  "end": "1:07:20",
+  "speed": 1,
+  "out_sec": 10.0
+ },
+ {
+  "section": 6,
+  "mayor": "population",
+  "label": "南西に埋立地を最大40",
+  "start": "1:22:19",
+  "end": "1:25:33",
+  "speed": 12,
+  "out_sec": 16.2
+ },
+ {
+  "section": 6,
+  "mayor": "population",
+  "label": "住宅の税を13%に",
+  "start": "1:46:03",
+  "end": "1:46:10",
+  "speed": 1,
+  "out_sec": 7.0
+ },
+ {
+  "section": 6,
+  "mayor": "population",
+  "label": "税を11%に戻す",
+  "start": "2:02:48",
+  "end": "2:02:55",
+  "speed": 1,
+  "out_sec": 7.0
+ },
+ {
+  "section": 6,
+  "mayor": "population",
+  "label": "埋立地60を並べる",
+  "start": "2:02:54",
+  "end": "2:07:10",
+  "speed": 16,
+  "out_sec": 16.0
+ },
+ {
+  "section": 6,
+  "mayor": "population",
+  "label": "最後の埋立地20",
+  "start": "3:48:21",
+  "end": "3:50:14",
+  "speed": 12,
+  "out_sec": 9.4
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "禁煙の政策",
+  "start": "0:04:03",
+  "end": "0:04:10",
+  "speed": 1,
+  "out_sec": 7.0
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "東の工業の列を壊し事務所へ",
+  "start": "0:27:05",
+  "end": "0:28:30",
+  "speed": 4,
+  "out_sec": 21.2
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "工場の行を壊す(56件)",
+  "start": "0:38:04",
+  "end": "0:41:40",
+  "speed": 12,
+  "out_sec": 18.0
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "貨物港を止める",
+  "start": "0:41:54",
+  "end": "0:42:00",
+  "speed": 1,
+  "out_sec": 6.0
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "貨物港を取り壊す",
+  "start": "0:52:37",
+  "end": "0:52:45",
+  "speed": 1,
+  "out_sec": 8.0
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "西の海辺に貨物港を置く",
+  "start": "1:38:10",
+  "end": "1:38:45",
+  "speed": 2,
+  "out_sec": 17.5
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "貨物港を航路の近くへ移す",
+  "start": "2:01:05",
+  "end": "2:01:40",
+  "speed": 2,
+  "out_sec": 17.5
+ },
+ {
+  "section": 7,
+  "mayor": "livable",
+  "label": "騒音の元の風車4基を止める",
+  "start": "2:24:33",
+  "end": "2:24:40",
+  "speed": 1,
+  "out_sec": 7.0
+ },
+ {
+  "section": 8,
+  "mayor": "静止画",
+  "label": "定点写真m01〜m12(西)を2×2で早送り",
+  "start": "-",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 0
+ },
+ {
+  "section": 9,
+  "mayor": "静止画",
+  "label": "結果の図と次回予告",
+  "start": "-",
+  "end": "-",
+  "speed": 0,
+  "out_sec": 0
+ }
+]

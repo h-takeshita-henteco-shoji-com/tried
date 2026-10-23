@@ -1,0 +1,107 @@
+[
+ {
+  "mayor": "base",
+  "video_start": 0,
+  "duration": 598.7,
+  "real_start": "2026-10-21 21:17:53",
+  "months": "1か月目"
+ },
+ {
+  "mayor": "base",
+  "video_start": 598.7,
+  "duration": 3012.233,
+  "real_start": "2026-10-22 08:36:57",
+  "months": "2〜6か月目"
+ },
+ {
+  "mayor": "base",
+  "video_start": 3610.933,
+  "duration": 3337.3,
+  "real_start": "2026-10-22 09:49:00",
+  "months": "7〜12か月目(途中まで)"
+ },
+ {
+  "mayor": "base",
+  "video_start": 6948.233,
+  "duration": 447.967,
+  "real_start": "2026-10-22 10:45:23",
+  "months": "12か月目の残り"
+ },
+ {
+  "mayor": "money",
+  "video_start": 0,
+  "duration": 558.333,
+  "real_start": "2026-10-22 13:08:58",
+  "months": "1か月目"
+ },
+ {
+  "mayor": "money",
+  "video_start": 558.333,
+  "duration": 3813.8,
+  "real_start": "2026-10-22 13:41:25",
+  "months": "2〜6か月目"
+ },
+ {
+  "mayor": "money",
+  "video_start": 4372.133,
+  "duration": 2713.067,
+  "real_start": "2026-10-22 15:09:46",
+  "months": "7〜9か月目(中断まで)"
+ },
+ {
+  "mayor": "money",
+  "video_start": 7085.2,
+  "duration": 3257.367,
+  "real_start": "2026-10-22 17:59:03",
+  "months": "9か月目の後半〜12か月目"
+ },
+ {
+  "mayor": "population",
+  "video_start": 0,
+  "duration": 1685.3,
+  "real_start": "2026-10-22 21:12:18",
+  "months": "1か月目"
+ },
+ {
+  "mayor": "population",
+  "video_start": 1685.3,
+  "duration": 6508.033,
+  "real_start": "2026-10-23 04:35:55",
+  "months": "2〜6か月目"
+ },
+ {
+  "mayor": "population",
+  "video_start": 8193.333,
+  "duration": 6278.267,
+  "real_start": "2026-10-23 09:14:36",
+  "months": "7〜12か月目"
+ },
+ {
+  "mayor": "livable",
+  "video_start": 0,
+  "duration": 790.8,
+  "real_start": "2026-10-23 11:30:17",
+  "months": "1か月目"
+ },
+ {
+  "mayor": "livable",
+  "video_start": 790.8,
+  "duration": 3424.433,
+  "real_start": "2026-10-23 12:12:56",
+  "months": "2〜6か月目"
+ },
+ {
+  "mayor": "livable",
+  "video_start": 4215.233,
+  "duration": 1208.233,
+  "real_start": "2026-10-23 13:33:41",
+  "months": "7か月目"
+ },
+ {
+  "mayor": "livable",
+  "video_start": 5423.467,
+  "duration": 4326.967,
+  "real_start": "2026-10-23 16:20:33",
+  "months": "8〜12か月目"
+ }
+]
