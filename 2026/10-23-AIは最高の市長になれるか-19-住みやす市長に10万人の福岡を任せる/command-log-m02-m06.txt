@@ -1,0 +1,389 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-23 12:12:44
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-23 12:13:09	2041-02-15	OK	city_info  -> 0.1s
+2026-10-23 12:13:23	2041-02-15	TITLE	AI Mayor - Livable Mayor
+2026-10-23 12:13:24	2041-02-15	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:13:31	2041-02-15	OK	screenshot view=current max_width=1512 save_to=m02-west.jpg  -> 0.7s
+2026-10-23 12:13:38	2041-02-15	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:13:44	2041-02-15	OK	screenshot view=current max_width=1512 save_to=m02-east.jpg  -> 0.5s
+2026-10-23 12:13:52	2041-02-15	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.6s
+2026-10-23 12:13:59	2041-02-15	OK	screenshot view=current max_width=1512 save_to=m02-port.jpg  -> 0.5s
+2026-10-23 12:14:16	2041-02-15	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-23 12:14:16	2041-02-15	OK	save_city name=fukuoka-livable-m02 overwrite=false  -> 3.1s
+2026-10-23 12:14:21	2041-02-15	OK	city_info  -> 0.0s
+2026-10-23 12:14:22	2041-02-15	OK	economy  -> 0.0s
+2026-10-23 12:14:22	2041-02-15	OK	services  -> 0.0s
+2026-10-23 12:14:22	2041-02-15	OK	citizens_summary  -> 0.0s
+2026-10-23 12:14:22	2041-02-15	OK	complaints  -> 0.0s
+2026-10-23 12:14:22	2041-02-15	OK	citizen_voices n=5  -> 0.0s
+2026-10-23 12:14:22	2041-02-15	OK	events  -> 0.0s
+2026-10-23 12:14:25	2041-02-15	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=30 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 12:14:31	2041-02-15	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-23 12:14:31	2041-02-15	OK	list_policies  -> 0.0s
+2026-10-23 12:14:39	2041-02-15	OK	move_camera x=2426.0 z=356.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 12:14:42	2041-02-15	OK	screenshot view=current max_width=1000 save_to=m2-garbage-east.jpg  -> 0.5s
+2026-10-23 12:14:48	2041-02-15	OK	buildings_near x=3950.0 z=-400.0 radius=600.0 limit=50 problems_only=false problem=Pollution service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:14:49	2041-02-15	OK	map_layer type=pollution x=3950.0 z=-400.0 radius=600.0 n=13  -> 0.0s
+2026-10-23 12:14:54	2041-02-15	OK	zone_map x=3900.0 z=-500.0 radius=600.0 size=900 save_to=m2-pollution-east-zone.jpg  -> 0.4s
+2026-10-23 12:15:02	2041-02-15	OK	buildings_near x=3650.0 z=-400.0 radius=350.0 limit=50 problems_only=false problem=null service=Electricity abandoned=false brief=true  -> 0.0s
+2026-10-23 12:15:22	2041-02-15	OK	building_stats x=3680.0 z=-560.0 radius=220.0  -> 0.2s
+2026-10-23 12:15:33	2041-02-15	OK	buildings_near x=3680.0 z=-560.0 radius=260.0 limit=120 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:15:43	2041-02-15	OK	cargo  -> 0.1s
+2026-10-23 12:15:48	2041-02-15	OK	traffic x=-400.0 z=1400.0 radius=600.0 limit=8  -> 0.1s
+2026-10-23 12:15:52	2041-02-15	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=40 problems_only=false problem=null service=HealthCare abandoned=false brief=true  -> 0.0s
+2026-10-23 12:16:09	2041-02-15	OK	map_layer type=pollution x=3900.0 z=-580.0 radius=160.0 n=9  -> 0.0s
+2026-10-23 12:16:24	2041-02-15	OK	zone_map x=4000.0 z=-1100.0 radius=600.0 size=900 save_to=null  -> 0.1s
+2026-10-23 12:17:20	2041-02-15	DO	埋立地4か所を空にするのをやめる(公約3)
+2026-10-23 12:17:20	2041-02-15	WHY	空にする間ごみを受けず、収集車73台が運び出しに回った。ごみの印11→24。来月12以下を見込む
+2026-10-23 12:17:22	2041-02-15	OK	empty_building id=4946 active=false  -> 0.2s
+2026-10-23 12:17:23	2041-02-15	OK	empty_building id=11708 active=false  -> 0.0s
+2026-10-23 12:17:23	2041-02-15	OK	empty_building id=12700 active=false  -> 0.0s
+2026-10-23 12:17:23	2041-02-15	OK	empty_building id=43004 active=false  -> 0.0s
+2026-10-23 12:17:26	2041-02-15	DO	リサイクルの政策をかける(公約3)
+2026-10-23 12:17:26	2041-02-15	WHY	ごみを15%減らす。直接の費用0、住宅税収-5%は週+13,760の黒字に収まる。ごみの印を減らす
+2026-10-23 12:17:26	2041-02-15	OK	set_policy name=Recycling active=true  -> 0.1s
+2026-10-23 12:17:29	2041-02-15	DO	東の埋立地10533を取り壊す(公約3・2)
+2026-10-23 12:17:29	2041-02-15	WHY	敷地の地面汚染255が東の戸建てに及び、汚染の印6棟中4棟が隣接。来月汚染の印10→7以下を見込む
+2026-10-23 12:17:30	2041-02-15	OK	bulldoze x=3900.0 z=-575.0 radius=10.0 what=building  -> 5.0s
+2026-10-23 12:17:51	2041-02-15	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 110.0s
+2026-10-23 12:19:44	2041-02-25	OK	city_info  -> 0.2s
+2026-10-23 12:19:44	2041-02-25	OK	events  -> 0.0s
+2026-10-23 12:19:54	2041-02-25	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 86.3s
+2026-10-23 12:21:22	2041-03-07	OK	city_info  -> 0.0s
+2026-10-23 12:21:22	2041-03-07	OK	events  -> 0.0s
+2026-10-23 12:21:30	2041-03-07	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 72.6s
+2026-10-23 12:22:45	2041-03-17	OK	city_info  -> 0.0s
+2026-10-23 12:22:45	2041-03-17	OK	citizens_summary  -> 0.0s
+2026-10-23 12:22:45	2041-03-17	OK	complaints  -> 0.0s
+2026-10-23 12:22:56	2041-03-17	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-23 12:23:21	2041-03-17	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:23:28	2041-03-17	OK	screenshot view=current max_width=1512 save_to=m03-west.jpg  -> 0.5s
+2026-10-23 12:23:35	2041-03-17	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:23:42	2041-03-17	OK	screenshot view=current max_width=1512 save_to=m03-east.jpg  -> 0.5s
+2026-10-23 12:23:49	2041-03-17	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-23 12:23:56	2041-03-17	OK	screenshot view=current max_width=1512 save_to=m03-port.jpg  -> 0.4s
+2026-10-23 12:24:11	2041-03-17	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-23 12:24:11	2041-03-17	OK	save_city name=fukuoka-livable-m03 overwrite=false  -> 2.5s
+2026-10-23 12:24:15	2041-03-17	OK	city_info  -> 0.0s
+2026-10-23 12:24:16	2041-03-17	OK	economy  -> 0.0s
+2026-10-23 12:24:16	2041-03-17	OK	services  -> 0.0s
+2026-10-23 12:24:16	2041-03-17	OK	citizens_summary  -> 0.0s
+2026-10-23 12:24:16	2041-03-17	OK	complaints  -> 0.0s
+2026-10-23 12:24:17	2041-03-17	OK	citizen_voices n=5  -> 0.0s
+2026-10-23 12:24:17	2041-03-17	OK	events  -> 0.0s
+2026-10-23 12:24:20	2041-03-17	OK	move_camera x=3800.0 z=-400.0 size=2000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 12:24:22	2041-03-17	OK	screenshot view=current max_width=1024 save_to=m3-pollution-east.jpg  -> 0.5s
+2026-10-23 12:24:26	2041-03-17	OK	buildings_near x=3900.0 z=-300.0 radius=900.0 limit=50 problems_only=false problem=Pollution service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:24:26	2041-03-17	OK	map_layer type=pollution x=3900.0 z=-450.0 radius=450.0 n=10  -> 0.0s
+2026-10-23 12:24:30	2041-03-17	OK	buildings_near x=4260.0 z=-600.0 radius=120.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:24:42	2041-03-17	OK	zone_map x=3900.0 z=-550.0 radius=450.0 size=900 save_to=m3-east-zone.jpg  -> 0.1s
+2026-10-23 12:25:06	2041-03-17	OK	map_layer type=noise x=2000.0 z=-60.0 radius=250.0 n=11  -> 0.0s
+2026-10-23 12:25:07	2041-03-17	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-23 12:25:11	2041-03-17	OK	map_layer type=deathcare x=0.0 z=-150.0 radius=700.0 n=8  -> 0.0s
+2026-10-23 12:25:12	2041-03-17	OK	buildings_near x=0.0 z=-150.0 radius=2000.0 limit=20 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-23 12:25:15	2041-03-17	OK	zone_map x=150.0 z=-300.0 radius=250.0 size=700 save_to=null  -> 0.0s
+2026-10-23 12:25:22	2041-03-17	DO	中心部の南に火葬場を置く(公約1)
+2026-10-23 12:25:22	2041-03-17	WHY	死体の印が11→17棟、中心は(-49,-187)。南の葬祭の届きが0。来月の印を8以下に、幸福度を保つと見込む
+2026-10-23 12:25:26	2041-03-17	OK	net_near x=1850.0 z=-20.0 radius=80.0 service=Road limit=15  -> 0.1s
+2026-10-23 12:25:29	2041-03-17	OK	buildings_near x=1850.0 z=-20.0 radius=50.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:25:33	2041-03-17	OK	cargo  -> 0.0s
+2026-10-23 12:25:38	2041-03-17	OK	traffic x=-400.0 z=1450.0 radius=400.0 limit=8  -> 0.0s
+2026-10-23 12:25:39	2041-03-17	OK	net_near x=-400.0 z=1500.0 radius=150.0 service=Road limit=20  -> 0.0s
+2026-10-23 12:26:10	2041-03-17	OK	place_building prefab=Crematory x=180.0 z=-325.0 angle=0 pay=true facing=east  -> 3.9s cost=25000
+2026-10-23 12:26:17	2041-03-17	DO	貨物港の出口の道路を4車線に広げる(公約1)
+2026-10-23 12:26:17	2041-03-17	WHY	港の車1,646台が片側1車線の出口に並び、品物なしが158棟。来月、品物なしを120以下と見込む
+2026-10-23 12:26:18	2041-03-17	OK	upgrade_road prefab=Small 4 Lane Road points=[[-448.0, 1515.0], [-352.0, 1515.0]] tolerance=8.0 pay=true  -> 3.5s cost=0
+2026-10-23 12:26:26	2041-03-17	OK	junction_info x=-352.0 z=1515.0  -> 0.0s
+2026-10-23 12:26:39	2041-03-17	OK	buildings_near x=4250.0 z=-370.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:26:53	2041-03-17	DO	東の工業の列を取り壊し、事務所の区画にする(公約3・2)
+2026-10-23 12:26:53	2041-03-17	WHY	汚染の印の家6棟中5棟が x=4184 の列で、東隣の工業の列の地面汚染は255。来月、汚染の印を6以下と見込む
+2026-10-23 12:26:53	2041-03-17	OK	bulldoze x=4240.0 z=-280.0 radius=36.0 what=building  -> 3.7s
+2026-10-23 12:27:00	2041-03-17	OK	bulldoze x=4240.0 z=-320.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:03	2041-03-17	OK	bulldoze x=4240.0 z=-360.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:07	2041-03-17	OK	bulldoze x=4240.0 z=-400.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:10	2041-03-17	OK	bulldoze x=4240.0 z=-440.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:14	2041-03-17	OK	bulldoze x=4240.0 z=-480.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:17	2041-03-17	OK	bulldoze x=4240.0 z=-520.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:24	2041-03-17	OK	bulldoze x=4240.0 z=-560.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:27	2041-03-17	OK	bulldoze x=4240.0 z=-600.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:31	2041-03-17	OK	bulldoze x=4240.0 z=-640.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:34	2041-03-17	OK	bulldoze x=4240.0 z=-680.0 radius=36.0 what=building  -> 3.4s
+2026-10-23 12:27:38	2041-03-17	OK	bulldoze x=4240.0 z=-720.0 radius=36.0 what=building  -> 3.3s
+2026-10-23 12:27:41	2041-03-17	OK	bulldoze x=4293.0 z=-552.0 radius=27.0 what=building  -> 3.4s
+2026-10-23 12:27:48	2041-03-17	OK	buildings_near x=4260.0 z=-500.0 radius=260.0 limit=80 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:27:52	2041-03-17	OK	bulldoze x=4278.4 z=-529.1 radius=6.0 what=building  -> 3.3s
+2026-10-23 12:27:59	2041-03-17	OK	bulldoze x=4307.8 z=-575.7 radius=6.0 what=building  -> 3.3s
+2026-10-23 12:28:02	2041-03-17	OK	bulldoze x=4305.5 z=-527.8 radius=6.0 what=building  -> 3.3s
+2026-10-23 12:28:06	2041-03-17	OK	bulldoze x=4280.7 z=-577.1 radius=6.0 what=building  -> 3.3s
+2026-10-23 12:28:14	2041-03-17	OK	zone_polygon points=[[4206.0, -262.0], [4316.0, -262.0], [4316.0, -728.0], [4... type=office  -> 3.5s
+2026-10-23 12:28:21	2041-03-17	OK	zone_map x=4200.0 z=-500.0 radius=280.0 size=700 save_to=m3-east-office-zone.jpg  -> 0.0s
+2026-10-23 12:28:42	2041-03-17	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 82.4s
+2026-10-23 12:30:06	2041-03-27	OK	city_info  -> 0.0s
+2026-10-23 12:30:07	2041-03-27	OK	events  -> 0.0s
+2026-10-23 12:30:09	2041-03-27	OK	citizens_without_service type=electricity limit=20  -> 0.1s
+2026-10-23 12:30:09	2041-03-27	OK	services  -> 0.0s
+2026-10-23 12:30:14	2041-03-27	OK	list_net_types service=Electricity locked=false  -> 0.0s
+2026-10-23 12:30:24	2041-03-27	DO	東端の家に送電線を引く(臨時、公約1)
+2026-10-23 12:30:24	2041-03-27	WHY	工場を壊した列の東の家1棟で電気がとぎれた(来ない市民0→1)。次の見回りで0に戻ると見込む
+2026-10-23 12:30:26	2041-03-27	OK	build_line prefab=Power Line points=[[4323.8, -574.9], [4184.0, -607.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.7s cost=360
+2026-10-23 12:30:45	2041-03-27	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 102.1s
+2026-10-23 12:32:29	2041-04-06	OK	city_info  -> 0.0s
+2026-10-23 12:32:30	2041-04-06	OK	events  -> 0.0s
+2026-10-23 12:32:30	2041-04-06	OK	buildings_near x=4300.0 z=-550.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-23 12:32:33	2041-04-06	OK	citizens_without_service type=electricity limit=20  -> 0.0s
+2026-10-23 12:32:33	2041-04-06	OK	net_near x=4260.0 z=-580.0 radius=100.0 service=Electricity limit=50  -> 0.0s
+2026-10-23 12:32:49	2041-04-06	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 112.6s
+2026-10-23 12:34:44	2041-04-16	OK	city_info  -> 0.0s
+2026-10-23 12:34:44	2041-04-16	OK	citizens_summary  -> 0.0s
+2026-10-23 12:34:44	2041-04-16	OK	complaints  -> 0.0s
+2026-10-23 12:34:45	2041-04-16	OK	events  -> 0.0s
+2026-10-23 12:34:48	2041-04-16	OK	map_layer type=pollution x=3900.0 z=-450.0 radius=450.0 n=10  -> 0.0s
+2026-10-23 12:35:05	2041-04-16	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-23 12:35:31	2041-04-16	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:35:36	2041-04-16	OK	screenshot view=current max_width=1512 save_to=m04-west.jpg  -> 0.5s
+2026-10-23 12:35:41	2041-04-16	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:35:46	2041-04-16	OK	screenshot view=current max_width=1512 save_to=m04-east.jpg  -> 0.4s
+2026-10-23 12:35:51	2041-04-16	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-23 12:35:57	2041-04-16	OK	screenshot view=current max_width=1512 save_to=m04-port.jpg  -> 0.5s
+2026-10-23 12:36:09	2041-04-16	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-23 12:36:09	2041-04-16	OK	save_city name=fukuoka-livable-m04 overwrite=false  -> 2.5s
+2026-10-23 12:36:13	2041-04-16	OK	city_info  -> 0.0s
+2026-10-23 12:36:14	2041-04-16	OK	economy  -> 0.0s
+2026-10-23 12:36:14	2041-04-16	OK	services  -> 0.0s
+2026-10-23 12:36:14	2041-04-16	OK	citizens_summary  -> 0.0s
+2026-10-23 12:36:14	2041-04-16	OK	complaints  -> 0.0s
+2026-10-23 12:36:15	2041-04-16	OK	citizen_voices n=5  -> 0.1s
+2026-10-23 12:36:15	2041-04-16	OK	events  -> 0.0s
+2026-10-23 12:36:21	2041-04-16	OK	move_camera x=3800.0 z=-500.0 size=2000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 12:36:24	2041-04-16	OK	screenshot view=current max_width=1000 save_to=m4-pollution-east.jpg  -> 0.5s
+2026-10-23 12:36:27	2041-04-16	OK	cargo  -> 0.0s
+2026-10-23 12:36:27	2041-04-16	OK	buildings_near x=3680.0 z=-560.0 radius=230.0 limit=100 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:36:36	2041-04-16	OK	net_near x=-380.0 z=1480.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-23 12:36:37	2041-04-16	OK	traffic x=-400.0 z=1400.0 radius=500.0 limit=10  -> 0.0s
+2026-10-23 12:36:56	2041-04-16	OK	map_layer type=pollution x=3850.0 z=-450.0 radius=500.0 n=11  -> 0.0s
+2026-10-23 12:36:57	2041-04-16	OK	buildings_near x=4000.0 z=-450.0 radius=400.0 limit=50 problems_only=false problem=Pollution service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:37:01	2041-04-16	OK	buildings_near x=3700.0 z=-260.0 radius=200.0 limit=80 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:37:27	2041-04-16	OK	buildings_near x=4320.0 z=-550.0 radius=50.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-23 12:37:27	2041-04-16	OK	net_near x=4300.0 z=-560.0 radius=120.0 service=Electricity limit=50  -> 0.0s
+2026-10-23 12:37:50	2041-04-16	DO	東の工場の行の工業を取り壊し、事務所の区画にする(公約3・2)
+2026-10-23 12:37:50	2041-04-16	WHY	汚染の印12棟のうち7棟が地面の汚染250前後の工場の行の東隣。来月7以下を見込む
+2026-10-23 12:37:58	2041-04-16	OK	bulldoze x=3488.7 z=-644.0 radius=4.0 what=building  -> 3.6s
+2026-10-23 12:38:02	2041-04-16	OK	bulldoze x=3828.0 z=-546.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:06	2041-04-16	OK	bulldoze x=3718.7 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:09	2041-04-16	OK	bulldoze x=3674.0 z=-596.0 radius=4.0 what=building  -> 3.2s
+2026-10-23 12:38:13	2041-04-16	OK	bulldoze x=3824.0 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:16	2041-04-16	OK	bulldoze x=3520.7 z=-596.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:38:19	2041-04-16	OK	bulldoze x=3622.0 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:23	2041-04-16	OK	bulldoze x=3492.7 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:29	2041-04-16	OK	bulldoze x=3839.3 z=-604.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:38:32	2041-04-16	OK	bulldoze x=3811.3 z=-596.0 radius=4.0 what=building  -> 3.2s
+2026-10-23 12:38:36	2041-04-16	OK	bulldoze x=3512.7 z=-644.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:38:39	2041-04-16	OK	bulldoze x=3495.3 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:43	2041-04-16	OK	bulldoze x=3558.7 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:46	2041-04-16	OK	bulldoze x=3650.0 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:49	2041-04-16	OK	bulldoze x=3804.0 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:53	2041-04-16	OK	bulldoze x=3827.3 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:56	2041-04-16	OK	bulldoze x=3772.7 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:38:59	2041-04-16	OK	bulldoze x=3791.3 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:05	2041-04-16	OK	bulldoze x=3646.0 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:09	2041-04-16	OK	bulldoze x=3662.0 z=-636.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:12	2041-04-16	OK	bulldoze x=3836.0 z=-567.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:39:16	2041-04-16	OK	bulldoze x=3738.7 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:19	2041-04-16	OK	bulldoze x=3815.3 z=-644.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:22	2041-04-16	OK	bulldoze x=3585.3 z=-644.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:39:26	2041-04-16	OK	bulldoze x=3523.3 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:29	2041-04-16	OK	bulldoze x=3844.0 z=-551.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:39:33	2041-04-16	OK	bulldoze x=3694.0 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:36	2041-04-16	OK	bulldoze x=3586.7 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:42	2041-04-16	OK	bulldoze x=3618.0 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:45	2041-04-16	OK	bulldoze x=3681.3 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:48	2041-04-16	OK	bulldoze x=3746.7 z=-644.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:52	2041-04-16	OK	bulldoze x=3848.0 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:55	2041-04-16	OK	bulldoze x=3586.7 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:39:59	2041-04-16	OK	bulldoze x=3540.7 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:02	2041-04-16	OK	bulldoze x=3766.7 z=-644.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:05	2041-04-16	OK	bulldoze x=3638.0 z=-596.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:40:09	2041-04-16	OK	bulldoze x=3795.3 z=-644.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:40:13	2041-04-16	OK	bulldoze x=3654.0 z=-604.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:19	2041-04-16	OK	bulldoze x=3642.0 z=-644.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:22	2041-04-16	OK	bulldoze x=3839.3 z=-644.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:26	2041-04-16	OK	bulldoze x=3709.3 z=-554.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:29	2041-04-16	OK	bulldoze x=3565.3 z=-596.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:32	2041-04-16	OK	bulldoze x=3744.7 z=-506.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:36	2041-04-16	OK	bulldoze x=3827.3 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:39	2041-04-16	OK	bulldoze x=3578.8 z=-274.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:40:43	2041-04-16	OK	bulldoze x=3898.2 z=-274.0 radius=4.0 what=building  -> 3.4s
+2026-10-23 12:40:46	2041-04-16	OK	bulldoze x=3681.7 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:50	2041-04-16	OK	bulldoze x=3720.5 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:56	2041-04-16	OK	bulldoze x=3866.2 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:40:59	2041-04-16	OK	bulldoze x=3744.5 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:41:02	2041-04-16	OK	bulldoze x=3618.8 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:41:06	2041-04-16	OK	bulldoze x=3764.5 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:41:09	2041-04-16	OK	bulldoze x=3795.3 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:41:13	2041-04-16	OK	bulldoze x=3653.7 z=-274.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:41:16	2041-04-16	OK	bulldoze x=3598.8 z=-270.0 radius=4.0 what=building  -> 3.3s
+2026-10-23 12:41:24	2041-04-16	OK	zones_at x=3680.0 z=-460.0 radius=260.0  -> 0.1s
+2026-10-23 12:41:26	2041-04-16	OK	zone_polygon points=[[3440.0, -245.0], [3925.0, -245.0], [3925.0, -670.0], [3... type=office  -> 3.4s
+2026-10-23 12:41:32	2041-04-16	OK	zones_at x=3680.0 z=-460.0 radius=300.0  -> 0.0s
+2026-10-23 12:41:35	2041-04-16	DO	東端の家22559に送電線を引く(公約1)
+2026-10-23 12:41:35	2041-04-16	WHY	先月の工場の取り壊しで電気が切れた家が1棟残る。約48m、費用約120。次の見回りで0を見込む
+2026-10-23 12:41:35	2041-04-16	OK	build_line prefab=Power Line points=[[4324.0, -575.0], [4321.5, -527.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.5s cost=120
+2026-10-23 12:41:42	2041-04-16	DO	貨物港43449を止める(公約1)。壊さず止めるので戻せる
+2026-10-23 12:41:42	2041-04-16	WHY	港の中に荷物の車1420台が止まり品物なしの印181棟。来月100以下、幸福度87以上を見込む
+2026-10-23 12:41:42	2041-04-16	OK	set_building_active id=43449 active=false  -> 0.1s
+2026-10-23 12:42:00	2041-04-16	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 80.0s
+2026-10-23 12:43:22	2041-04-26	OK	city_info  -> 0.0s
+2026-10-23 12:43:22	2041-04-26	OK	events  -> 0.0s
+2026-10-23 12:43:25	2041-04-26	OK	citizens_without_service type=electricity limit=5  -> 0.0s
+2026-10-23 12:43:26	2041-04-26	OK	buildings_near x=3700.0 z=-450.0 radius=350.0 limit=50 problems_only=true problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:43:26	2041-04-26	OK	cargo  -> 0.0s
+2026-10-23 12:43:40	2041-04-26	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 77.8s
+2026-10-23 12:45:00	2041-05-06	OK	city_info  -> 0.0s
+2026-10-23 12:45:00	2041-05-06	OK	events  -> 0.0s
+2026-10-23 12:45:02	2041-05-06	OK	cargo  -> 0.0s
+2026-10-23 12:45:02	2041-05-06	OK	citizens_without_service type=electricity limit=5  -> 0.0s
+2026-10-23 12:45:15	2041-05-06	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 79.1s
+2026-10-23 12:46:36	2041-05-16	OK	city_info  -> 0.0s
+2026-10-23 12:46:36	2041-05-16	OK	citizens_summary  -> 0.0s
+2026-10-23 12:46:37	2041-05-16	OK	complaints  -> 0.0s
+2026-10-23 12:46:37	2041-05-16	OK	events  -> 0.0s
+2026-10-23 12:46:53	2041-05-16	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-23 12:47:21	2041-05-16	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:47:29	2041-05-16	OK	screenshot view=current max_width=1512 save_to=m05-west.jpg  -> 0.4s
+2026-10-23 12:47:36	2041-05-16	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:47:44	2041-05-16	OK	screenshot view=current max_width=1512 save_to=m05-east.jpg  -> 0.5s
+2026-10-23 12:47:52	2041-05-16	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.4s
+2026-10-23 12:47:59	2041-05-16	OK	screenshot view=current max_width=1512 save_to=m05-port.jpg  -> 0.4s
+2026-10-23 12:48:14	2041-05-16	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-23 12:48:14	2041-05-16	OK	save_city name=fukuoka-livable-m05 overwrite=false  -> 2.0s
+2026-10-23 12:48:18	2041-05-16	OK	city_info  -> 0.0s
+2026-10-23 12:48:18	2041-05-16	OK	economy  -> 0.0s
+2026-10-23 12:48:18	2041-05-16	OK	services  -> 0.0s
+2026-10-23 12:48:18	2041-05-16	OK	citizens_summary  -> 0.0s
+2026-10-23 12:48:19	2041-05-16	OK	complaints  -> 0.0s
+2026-10-23 12:48:19	2041-05-16	OK	citizen_voices n=5  -> 0.0s
+2026-10-23 12:48:19	2041-05-16	OK	events  -> 0.0s
+2026-10-23 12:48:23	2041-05-16	OK	move_camera x=-1768.0 z=-170.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:48:23	2041-05-16	OK	cargo  -> 0.0s
+2026-10-23 12:48:26	2041-05-16	OK	screenshot view=current max_width=1280 save_to=m5-nogoods-west.jpg  -> 0.5s
+2026-10-23 12:48:33	2041-05-16	OK	trade  -> 0.1s
+2026-10-23 12:48:33	2041-05-16	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-23 12:48:47	2041-05-16	OK	list_policies  -> 0.0s
+2026-10-23 12:48:59	2041-05-16	OK	map_layer type=noise x=1900.0 z=-9.0 radius=150.0 n=9  -> 0.0s
+2026-10-23 12:49:00	2041-05-16	OK	buildings_near x=1900.0 z=-9.0 radius=120.0 limit=60 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:49:01	2041-05-16	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=50 problems_only=false problem=Pollution service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:49:11	2041-05-16	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=50 problems_only=false problem=Noise service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:49:12	2041-05-16	OK	net_near x=1880.0 z=-20.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-23 12:49:16	2041-05-16	OK	net_near x=-380.0 z=1480.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-23 12:49:16	2041-05-16	OK	traffic x=-350.0 z=1200.0 radius=500.0 limit=10  -> 0.0s
+2026-10-23 12:49:26	2041-05-16	OK	map_layer type=health x=null z=null radius=500 n=15  -> 0.0s
+2026-10-23 12:49:30	2041-05-16	OK	building_stats x=500.0 z=-1200.0 radius=500.0  -> 0.0s
+2026-10-23 12:49:33	2041-05-16	OK	zone_map x=800.0 z=0.0 radius=2000.0 size=900 save_to=null  -> 0.2s
+2026-10-23 12:49:44	2041-05-16	OK	map_layer type=health x=2200.0 z=100.0 radius=700.0 n=9  -> 0.0s
+2026-10-23 12:49:45	2041-05-16	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=true  -> 0.0s
+2026-10-23 12:49:53	2041-05-16	OK	zone_map x=2000.0 z=150.0 radius=450.0 size=900 save_to=null  -> 0.0s
+2026-10-23 12:50:01	2041-05-16	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-23 12:50:19	2041-05-16	OK	net_near x=1820.0 z=360.0 radius=120.0 service=null limit=50  -> 0.0s
+2026-10-23 12:50:19	2041-05-16	OK	buildings_near x=1820.0 z=380.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:50:30	2041-05-16	OK	zone_map x=-1400.0 z=-500.0 radius=700.0 size=900 save_to=null  -> 0.1s
+2026-10-23 12:50:39	2041-05-16	OK	buildings_near x=-1135.0 z=-955.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:50:40	2041-05-16	OK	net_near x=-1135.0 z=-955.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-23 12:50:44	2041-05-16	OK	buildings_near x=-1185.0 z=-965.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:51:04	2041-05-16	OK	zones_at x=-1740.0 z=-1110.0 radius=60.0  -> 0.0s
+2026-10-23 12:51:05	2041-05-16	OK	buildings_near x=-1740.0 z=-1110.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:51:06	2041-05-16	OK	net_near x=-1740.0 z=-1110.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-23 12:51:15	2041-05-16	OK	buildings_near x=3945.0 z=-274.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:51:16	2041-05-16	OK	map_layer type=pollution x=3800.0 z=150.0 radius=600.0 n=13  -> 0.0s
+2026-10-23 12:51:19	2041-05-16	OK	buildings_near x=3500.0 z=600.0 radius=120.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:51:24	2041-05-16	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=30 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 12:51:28	2041-05-16	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-23 12:51:39	2041-05-16	OK	zone_map x=-200.0 z=850.0 radius=400.0 size=800 save_to=null  -> 0.0s
+2026-10-23 12:51:53	2041-05-16	OK	height_at x=-345.0 z=1000.0  -> 0.0s
+2026-10-23 12:51:53	2041-05-16	OK	height_at x=-345.0 z=880.0  -> 0.0s
+2026-10-23 12:51:54	2041-05-16	OK	net_near x=-320.0 z=940.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-23 12:52:25	2041-05-16	DO	貨物港43449を取り壊す(公約1・幸福度)
+2026-10-23 12:52:25	2041-05-16	WHY	止めても港内の荷物車1166台がはけず品物なし184棟。壊して注文をやり直させ、品物なし100以下を見込む
+2026-10-23 12:52:26	2041-05-16	OK	bulldoze x=-400.0 z=1555.0 radius=10.0 what=building  -> 3.6s
+2026-10-23 12:52:32	2041-05-16	DO	中心部の北に焼却施設を2つ置く(公約3・ごみ)
+2026-10-23 12:52:32	2041-05-16	WHY	中心の埋立地4か所が96〜99%で満杯間近。家から約300m離れた空き地に置き、ごみの印3以下を保つ
+2026-10-23 12:52:33	2041-05-16	OK	place_building prefab=Combustion Plant x=-334.0 z=1000.0 angle=0 pay=true facing=east  -> 3.5s cost=30000
+2026-10-23 12:52:41	2041-05-16	OK	place_building prefab=Combustion Plant x=-330.0 z=900.0 angle=0 pay=true facing=east  -> 3.3s cost=30000
+2026-10-23 12:52:46	2041-05-16	OK	water_trace x=-334.0 z=950.0  -> 0.1s
+2026-10-23 12:52:49	2041-05-16	OK	net_near x=-334.0 z=950.0 radius=260.0 service=Water limit=50  -> 0.0s
+2026-10-23 12:52:54	2041-05-16	OK	build_line prefab=Water Pipe points=[[-480.0, 1100.0], [-365.0, 1000.0], [-362.0, 900.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=640
+2026-10-23 12:53:01	2041-05-16	DO	満杯の埋立地40118を取り壊す(公約3・汚染)
+2026-10-23 12:53:01	2041-05-16	WHY	満杯で収集車0台。西隣の家の地面の汚染251で汚染の印あり。跡の汚染は1か月で引く見込み、印4→3以下
+2026-10-23 12:53:01	2041-05-16	OK	bulldoze x=3560.0 z=540.0 radius=10.0 what=building  -> 3.9s
+2026-10-23 12:53:32	2041-05-16	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 68.8s
+2026-10-23 12:54:43	2041-05-26	OK	city_info  -> 0.0s
+2026-10-23 12:54:44	2041-05-26	OK	events  -> 0.0s
+2026-10-23 12:54:44	2041-05-26	OK	buildings_near x=-332.0 z=950.0 radius=70.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 12:54:44	2041-05-26	OK	cargo  -> 0.0s
+2026-10-23 12:54:53	2041-05-26	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 69.6s
+2026-10-23 12:56:05	2041-06-05	OK	city_info  -> 0.0s
+2026-10-23 12:56:05	2041-06-05	OK	events  -> 0.0s
+2026-10-23 12:56:11	2041-06-05	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 72.6s
+2026-10-23 12:57:26	2041-06-15	OK	city_info  -> 0.0s
+2026-10-23 12:57:26	2041-06-15	OK	citizens_summary  -> 0.0s
+2026-10-23 12:57:26	2041-06-15	OK	complaints  -> 0.0s
+2026-10-23 12:57:26	2041-06-15	OK	events  -> 0.0s
+2026-10-23 12:57:27	2041-06-15	OK	cargo  -> 0.0s
+2026-10-23 12:57:31	2041-06-15	OK	map_layer type=pollution x=3850.0 z=-450.0 radius=450.0 n=11  -> 0.0s
+2026-10-23 12:57:31	2041-06-15	OK	building_stats x=3850.0 z=-450.0 radius=450.0  -> 0.0s
+2026-10-23 12:57:54	2041-06-15	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-23 12:58:19	2041-06-15	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:58:26	2041-06-15	OK	screenshot view=current max_width=1512 save_to=m06-west.jpg  -> 0.5s
+2026-10-23 12:58:31	2041-06-15	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 12:58:39	2041-06-15	OK	screenshot view=current max_width=1512 save_to=m06-east.jpg  -> 0.4s
+2026-10-23 12:58:46	2041-06-15	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.5s
+2026-10-23 12:58:54	2041-06-15	OK	screenshot view=current max_width=1512 save_to=m06-port.jpg  -> 0.4s
+2026-10-23 12:59:11	2041-06-15	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-23 12:59:11	2041-06-15	OK	save_city name=fukuoka-livable-m06 overwrite=false  -> 2.0s
+2026-10-23 12:59:15	2041-06-15	OK	city_info  -> 0.0s
+2026-10-23 12:59:15	2041-06-15	OK	economy  -> 0.0s
+2026-10-23 12:59:15	2041-06-15	OK	services  -> 0.0s
+2026-10-23 12:59:15	2041-06-15	OK	citizens_summary  -> 0.0s
+2026-10-23 12:59:16	2041-06-15	OK	complaints  -> 0.0s
+2026-10-23 12:59:17	2041-06-15	OK	citizen_voices n=5  -> 0.0s
+2026-10-23 12:59:17	2041-06-15	OK	events  -> 0.0s
+2026-10-23 12:59:20	2041-06-15	OK	move_camera x=3900.0 z=-300.0 size=2000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 12:59:23	2041-06-15	OK	screenshot view=current max_width=1024 save_to=m6-pollution-east.jpg  -> 0.4s
+2026-10-23 12:59:27	2041-06-15	OK	buildings_near x=4000.0 z=-400.0 radius=700.0 limit=50 problems_only=false problem=Pollution service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:59:28	2041-06-15	OK	map_layer type=pollution x=3900.0 z=-400.0 radius=600.0 n=13  -> 0.0s
+2026-10-23 12:59:33	2041-06-15	OK	buildings_near x=0.0 z=0.0 radius=9000.0 limit=50 problems_only=false problem=Pollution service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:59:33	2041-06-15	OK	buildings_near x=3945.0 z=-274.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 12:59:38	2041-06-15	OK	buildings_near x=0.0 z=0.0 radius=9000.0 limit=40 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 12:59:50	2041-06-15	OK	cargo  -> 0.0s
+2026-10-23 12:59:51	2041-06-15	OK	trade  -> 0.0s
+2026-10-23 13:00:00	2041-06-15	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-23 13:00:08	2041-06-15	OK	zone_map x=-700.0 z=1300.0 radius=700.0 size=900 save_to=null  -> 0.0s
+2026-10-23 13:00:14	2041-06-15	OK	map_layer type=pollution x=-330.0 z=900.0 radius=200.0 n=9  -> 0.0s
+2026-10-23 13:00:15	2041-06-15	OK	map_layer type=noise x=-330.0 z=950.0 radius=200.0 n=9  -> 0.0s
+2026-10-23 13:00:28	2041-06-15	OK	list_policies  -> 0.0s
+2026-10-23 13:00:32	2041-06-15	OK	economy_breakdown  -> 0.1s
+2026-10-23 13:01:14	2041-06-15	DO	満杯の埋立地3か所を取り壊す(公約3・2)
+2026-10-23 13:01:14	2041-06-15	WHY	汚染の印12。中心部南の高層4棟は満杯の埋立地43004の北。収集車0台。跡は1か月で汚染が引く。来月8以下を見込む
+2026-10-23 13:01:15	2041-06-15	OK	bulldoze x=-650.0 z=-490.0 radius=10.0 what=building  -> 3.5s
+2026-10-23 13:01:18	2041-06-15	OK	bulldoze x=-262.0 z=800.0 radius=10.0 what=building  -> 3.4s
+2026-10-23 13:01:22	2041-06-15	OK	bulldoze x=4127.0 z=-1490.0 radius=10.0 what=building  -> 3.6s
+2026-10-23 13:01:28	2041-06-15	DO	東の北の行に残る工場2棟を取り壊し、事務所の区画にする(公約3・2)
+2026-10-23 13:01:28	2041-06-15	WHY	工業の区画が残り工場が建て替わった。東の家5棟に汚染の印。来月3以下、2か月後0を見込む
+2026-10-23 13:01:29	2041-06-15	OK	bulldoze x=3957.0 z=-274.0 radius=6.0 what=building  -> 3.4s
+2026-10-23 13:01:32	2041-06-15	OK	bulldoze x=3933.0 z=-274.0 radius=6.0 what=building  -> 3.3s
+2026-10-23 13:01:37	2041-06-15	OK	zones_at x=3945.0 z=-280.0 radius=60.0  -> 0.0s
+2026-10-23 13:01:40	2041-06-15	OK	zone_map x=3945.0 z=-290.0 radius=120.0 size=600 save_to=null  -> 0.0s
+2026-10-23 13:01:44	2041-06-15	OK	zone_rect x1=3915.0 z1=-250.0 x2=3970.0 z2=-302.0 type=office  -> 3.2s
+2026-10-23 13:01:50	2041-06-15	OK	zones_at x=3945.0 z=-280.0 radius=60.0  -> 0.0s
+2026-10-23 13:02:21	2041-06-15	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 72.8s
+2026-10-23 13:03:35	2041-06-25	OK	city_info  -> 0.0s
+2026-10-23 13:03:36	2041-06-25	OK	events  -> 0.0s
+2026-10-23 13:03:37	2041-06-25	OK	buildings_near x=-450.0 z=150.0 radius=800.0 limit=50 problems_only=false problem=Electricity service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 13:03:40	2041-06-25	OK	buildings_near x=0.0 z=0.0 radius=9000.0 limit=20 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-23 13:03:50	2041-06-25	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 85.1s
+2026-10-23 13:05:17	2041-07-05	OK	city_info  -> 0.0s
+2026-10-23 13:05:17	2041-07-05	OK	events  -> 0.0s
+2026-10-23 13:05:25	2041-07-05	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 83.0s
+2026-10-23 13:06:50	2041-07-15	OK	city_info  -> 0.0s
+2026-10-23 13:06:50	2041-07-15	OK	events  -> 0.0s
+2026-10-23 13:06:51	2041-07-15	OK	citizens_summary  -> 0.0s
+2026-10-23 13:06:51	2041-07-15	OK	complaints  -> 0.0s
