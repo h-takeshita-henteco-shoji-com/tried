@@ -1,0 +1,71 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-23 13:31:22
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-23 13:33:52	2041-07-15	OK	city_info  -> 0.1s
+2026-10-23 13:33:56	2041-07-15	TITLE	AI Mayor - Livable Mayor
+2026-10-23 13:33:57	2041-07-15	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 13:34:02	2041-07-15	OK	screenshot view=current max_width=1512 save_to=m07-west.jpg  -> 0.5s
+2026-10-23 13:34:06	2041-07-15	OK	move_camera x=300.0 z=0.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-23 13:34:11	2041-07-15	OK	screenshot view=current max_width=1512 save_to=m07-east.jpg  -> 0.6s
+2026-10-23 13:34:16	2041-07-15	OK	move_camera x=-750.0 z=1350.0 size=1000.0 pitch=45.0 yaw=0.0  -> 0.4s
+2026-10-23 13:34:21	2041-07-15	OK	screenshot view=current max_width=1512 save_to=m07-port.jpg  -> 0.4s
+2026-10-23 13:34:34	2041-07-15	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-23 13:34:40	2041-07-15	OK	save_city name=fukuoka-livable-m07 overwrite=false  -> 3.1s
+2026-10-23 13:34:43	2041-07-15	OK	city_info  -> 0.0s
+2026-10-23 13:34:43	2041-07-15	OK	economy  -> 0.0s
+2026-10-23 13:34:43	2041-07-15	OK	services  -> 0.0s
+2026-10-23 13:34:43	2041-07-15	OK	citizens_summary  -> 0.0s
+2026-10-23 13:34:43	2041-07-15	OK	complaints  -> 0.0s
+2026-10-23 13:34:43	2041-07-15	OK	citizen_voices n=5  -> 0.0s
+2026-10-23 13:34:43	2041-07-15	OK	events  -> 0.0s
+2026-10-23 13:34:46	2041-07-15	OK	move_camera x=2372.0 z=1282.0 size=2000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 13:34:49	2041-07-15	OK	screenshot view=current max_width=1024 save_to=m7-garbage-northeast.jpg  -> 0.5s
+2026-10-23 13:34:52	2041-07-15	OK	buildings_near x=2372.0 z=1282.0 radius=2500.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 13:34:55	2041-07-15	OK	buildings_near x=0.0 z=0.0 radius=9000.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=true  -> 0.0s
+2026-10-23 13:35:03	2041-07-15	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-23 13:35:04	2041-07-15	OK	buildings_near x=2377.0 z=192.0 radius=2500.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-23 13:35:14	2041-07-15	OK	zone_map x=2400.0 z=1100.0 radius=500.0 size=900 save_to=m7-northeast-zone.jpg  -> 0.2s
+2026-10-23 13:35:28	2041-07-15	OK	buildings_near x=2665.0 z=1300.0 radius=120.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 13:35:29	2041-07-15	OK	net_near x=2640.0 z=1300.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-23 13:35:43	2041-07-15	OK	zone_map x=2450.0 z=300.0 radius=350.0 size=800 save_to=null  -> 0.0s
+2026-10-23 13:36:13	2041-07-15	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-23 13:36:14	2041-07-15	OK	buildings_near x=2400.0 z=450.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 13:36:22	2041-07-15	OK	net_near x=2400.0 z=560.0 radius=60.0 service=null limit=50  -> 0.0s
+2026-10-23 13:36:31	2041-07-15	OK	buildings_near x=2640.0 z=1540.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 13:36:31	2041-07-15	OK	net_near x=2625.0 z=1500.0 radius=120.0 service=null limit=50  -> 0.0s
+2026-10-23 13:36:45	2041-07-15	OK	map_layer type=pollution x=3800.0 z=-100.0 radius=800.0 n=9  -> 0.0s
+2026-10-23 13:37:19	2041-07-15	DO	北東の工業の端に焼却施設を置く(公約3)
+2026-10-23 13:37:19	2041-07-15	WHY	ごみの印22のうち15棟が北東の工業。近くの埋立地の収集車は19/19台出払い。来月ごみの印8以下を見込む
+2026-10-23 13:37:20	2041-07-15	OK	build_line prefab=Basic Road points=[[2625.0, 1460.0], [2690.0, 1460.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.8s cost=320
+2026-10-23 13:37:26	2041-07-15	OK	place_building prefab=Combustion Plant x=2665.0 z=1486.0 angle=0 pay=true facing=south  -> 3.3s cost=30000
+2026-10-23 13:37:31	2041-07-15	OK	build_line prefab=Water Pipe points=[[2625.0, 1455.0], [2672.0, 1455.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.3s cost=120
+2026-10-23 13:37:37	2041-07-15	DO	99%の埋立地4946を取り壊す(公約3・2)
+2026-10-23 13:37:37	2041-07-15	WHY	西隣の家2棟に汚染の印、地面の汚染250。収集車は1/19台。来月汚染の印7→5以下を見込む
+2026-10-23 13:37:38	2041-07-15	OK	bulldoze x=3499.0 z=618.0 radius=10.0 what=building  -> 3.5s
+2026-10-23 13:37:44	2041-07-15	DO	東の高層住宅の北に火葬場を置く(公約1)
+2026-10-23 13:37:44	2041-07-15	WHY	死体の印23のうち12棟が(2377,192)。近くの火葬場・墓地の霊柩車は出払い。来月死体の印12以下を見込む
+2026-10-23 13:37:44	2041-07-15	OK	build_line prefab=Basic Road points=[[2400.0, 560.0], [2400.0, 430.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false  -> 3.7s cost=640
+2026-10-23 13:37:50	2041-07-15	OK	place_building prefab=Crematory x=2400.0 z=410.0 angle=0 pay=true facing=north  -> 3.4s cost=25000
+2026-10-23 13:37:56	2041-07-15	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 15.4s
+2026-10-23 13:38:14	2041-07-16	OK	buildings_near x=2400.0 z=410.0 radius=15.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-23 13:38:15	2041-07-16	OK	buildings_near x=2665.0 z=1486.0 radius=15.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 13:38:18	2041-07-16	OK	buildings_near x=3499.0 z=618.0 radius=300.0 limit=50 problems_only=true problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-23 13:38:44	2041-07-16	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 159.9s
+2026-10-23 13:41:26	2041-07-26	OK	city_info  -> 0.1s
+2026-10-23 13:41:27	2041-07-26	OK	events  -> 0.1s
+2026-10-23 13:41:30	2041-07-26	OK	buildings_near x=2665.0 z=1486.0 radius=15.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 13:41:30	2041-07-26	OK	buildings_near x=2400.0 z=410.0 radius=15.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.1s
+2026-10-23 13:41:43	2041-07-26	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 169.2s
+2026-10-23 13:44:34	2041-08-05	OK	city_info  -> 0.0s
+2026-10-23 13:44:35	2041-08-05	OK	events  -> 0.0s
+2026-10-23 13:44:45	2041-08-05	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 194.3s
+2026-10-23 13:48:02	2041-08-15	OK	city_info  -> 0.0s
+2026-10-23 13:48:02	2041-08-15	OK	events  -> 0.0s
+2026-10-23 13:48:03	2041-08-15	OK	citizens_summary  -> 0.0s
+2026-10-23 13:48:03	2041-08-15	OK	complaints  -> 0.0s
+2026-10-23 13:48:06	2041-08-15	OK	buildings_near x=-1900.0 z=-900.0 radius=1100.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-23 13:48:24	2041-08-15	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-23 13:48:51	2041-08-15	OK	move_camera x=-1700.0 z=200.0 size=4000.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-23 15:59:03	2041-08-15	OK	list_saves  -> 0.2s
+2026-10-23 15:59:10	2041-08-15	OK	save_city name=fukuoka-livable-m07-end overwrite=false  -> 3.0s
+2026-10-23 15:59:57	2041-08-15	DIALOG	PauseMenu: PAUSE MENU
+2026-10-23 15:59:59	2041-08-15	DIALOG	ExitConfirmPanel: All unsaved progress will be lost. Where to go next? 
