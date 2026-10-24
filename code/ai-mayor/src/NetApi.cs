@@ -152,7 +152,15 @@ namespace AIMayor
 
             bool pay = req.QueryString["pay"] != "false";
             bool demolish = req.QueryString["demolish"] == "true";
-            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, null, demolish));
+            // y を渡すと、地面の高さの代わりにその高さで点を置く。船の航路を水面に引くため(#100)
+            float? fixedY = null;
+            string ys = req.QueryString["y"];
+            if (!string.IsNullOrEmpty(ys))
+            {
+                fixedY = float.Parse(ys, System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, fixedY, demolish));
         }
 
         // fixedY を渡すと、地面の高さの代わりにその高さで点を置く(船の航路や飛行機の経路に使う)。

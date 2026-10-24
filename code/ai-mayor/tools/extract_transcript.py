@@ -7,6 +7,13 @@
 
     python3 code/ai-mayor/tools/extract_transcript.py <agent id> <出力の .md> [--raw-dir ~/ai-mayor-transcripts/<運営>]
 
+Workflow のサブエージェント(#100)は、置き場所が Agent の道具と違う見込み。そこで次も受ける。
+agent id の代わりに agent-<id>.jsonl のパスを渡せる。--dir で探す場所(Workflow の transcriptDir)を絞れる。
+--list <フォルダ> で、その下の agent-*.jsonl と定義の名前を並べる(どの id がどの役かを選ぶため)。
+
+    python3 code/ai-mayor/tools/extract_transcript.py --list <transcriptDir>
+    python3 code/ai-mayor/tools/extract_transcript.py <agent id> <出力の .md> --dir <transcriptDir>
+
 thinking の中身は記録に残らない(欄はあるが空)。判断の理由は、市政ノートと explain で追う。
 """
 
@@ -23,11 +30,44 @@ ARG_LIMIT = 300
 RESULT_LIMIT = 300
 
 
-def find(agent_id):
-    hits = list(PROJECTS.glob(f"*/*/subagents/agent-{agent_id}.jsonl"))
+def find(agent_id, base=None):
+    # パスを渡されたら、そのまま使う
+    p = Path(agent_id).expanduser()
+    if p.suffix == ".jsonl" and p.exists():
+        return p
+    agent_id = agent_id.removeprefix("agent-")
+    # これまでのサブエージェントは <セッション>/subagents/ の下。Workflow の記録は置き場所が違うので、下を全部探す
+    root = Path(base).expanduser() if base else PROJECTS
+    hits = {h.resolve() for h in root.rglob(f"agent-{agent_id}.jsonl")}
     if len(hits) != 1:
-        raise SystemExit(f"agent-{agent_id}.jsonl が {len(hits)} 件見つかった")
-    return hits[0]
+        raise SystemExit(f"agent-{agent_id}.jsonl が {root} の下に {len(hits)} 件見つかった")
+    return hits.pop()
+
+
+def read_meta(src):
+    # 定義の名前などは agent-<id>.meta.json にある。ない記録もある
+    meta_path = src.with_suffix(".meta.json")
+    try:
+        return meta_path, json.loads(meta_path.read_text())
+    except (OSError, ValueError):
+        return meta_path, {}
+
+
+def list_agents(base):
+    # Workflow の記録のフォルダから、どの id がどの役かを並べる
+    files = sorted(Path(base).expanduser().rglob("agent-*.jsonl"), key=lambda p: p.stat().st_mtime)
+    for f in files:
+        _, meta = read_meta(f)
+        first = ""
+        for line in f.read_text(encoding="utf-8").splitlines():
+            msg = (json.loads(line).get("message") or {})
+            if msg.get("role") == "user" and isinstance(msg.get("content"), str):
+                first = short(msg["content"], 80)
+                break
+        aid = f.stem.removeprefix("agent-")
+        print(f"{aid}\t{meta.get('agentType', '?')}\t{meta.get('description', '')}\t{first}")
+    if not files:
+        print(f"agent-*.jsonl が {base} の下にない")
 
 
 ROOTS = {REPO}
@@ -61,14 +101,23 @@ def result_text(content):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("agent_id")
-    ap.add_argument("out")
+    ap.add_argument("agent_id", nargs="?")
+    ap.add_argument("out", nargs="?")
     ap.add_argument("--raw-dir")
+    ap.add_argument("--dir", help="探す場所(Workflow の transcriptDir など)。省くと ~/.claude/projects の下全部")
+    ap.add_argument("--list", metavar="DIR", help="DIR の下の agent-*.jsonl を並べて終える")
     a = ap.parse_args()
 
-    src = find(a.agent_id)
-    meta_path = src.with_suffix(".meta.json")
-    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+    if a.list:
+        list_agents(a.list)
+        return
+    if not (a.agent_id and a.out):
+        ap.error("agent_id と out が要る")
+    src = find(a.agent_id, a.dir)
+    meta_path, meta = read_meta(src)
+    # 市長の記録はこれまでどおり「市長」。市役所と議会の役は定義の名前で書く
+    speaker = meta.get("agentType", "")
+    speaker = speaker if speaker.startswith("council-") else "市長"
 
     rows, calls, model = [], {}, None
     for line in src.read_text(encoding="utf-8").splitlines():
@@ -85,7 +134,7 @@ def main():
         for c in content or []:
             kind = c.get("type")
             if kind == "text" and c.get("text", "").strip():
-                who = "市長" if o.get("type") == "assistant" else "依頼"
+                who = speaker if o.get("type") == "assistant" else "依頼"
                 rows.append(f"### {t} {who}\n\n{scrub(c['text'].strip())}\n")
             elif kind == "tool_use":
                 name = c.get("name", "").replace("mcp__cities-skylines__", "")

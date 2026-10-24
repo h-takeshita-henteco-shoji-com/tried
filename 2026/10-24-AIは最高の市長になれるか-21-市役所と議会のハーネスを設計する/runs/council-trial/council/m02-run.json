@@ -1,0 +1,248 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2041-02-16",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "6-1 都心部の機能強化",
+      "8-1 物流・人流のゲートウェイ",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 150000,
+    "upkeepCap": 9000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "title": "東部 (520,398) に Regular Playground を1棟置く",
+      "buildCost": 1250,
+      "upkeepPerWeek": 24,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "title": "都心の南北の道 x=520(z=10〜190)を Medium Road に太くする",
+      "buildCost": 930,
+      "upkeepPerWeek": 7,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "title": "ごみの予算を150%から170%に上げる",
+      "buildCost": 0,
+      "upkeepPerWeek": 544,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算"
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "title": "西部 (-332,-56) と (-332,-104) に小学校を2棟置く",
+      "buildCost": 20000,
+      "upkeepPerWeek": 400,
+      "reversible": true,
+      "planItems": [
+        "2-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "title": "東部の消防の空白に Fire House を1棟置く",
+      "buildCost": 12000,
+      "upkeepPerWeek": 560,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "Regular Playground 1棟は建設費1,250・週24で枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "Medium Road 4区間は建設費約930・週約7で枠に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "案なし(費用0)。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "ごみ予算+20は上限ちょうど、週約544で幅9,000に収まる。"
+      },
+      {
+        "bureau": "education",
+        "verdict": "可",
+        "reason": "小学校2棟は建設費20,000・週約400で枠に収まる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "Fire House 1棟は建設費12,000・週560で枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 150000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "health",
+        "title": "ごみの予算を150%から170%に上げる",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "roads",
+        "title": "都心の南北の道 x=520 を Medium Road に太くする",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "education",
+        "title": "西部に Elementary School を2棟建てる",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "2-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "Regular Playground 1棟では公園22→23で目標40にも地価46(4-1)にも動きが出ず、確認済みの場所を来月に残した"
+      },
+      {
+        "bureau": "fire",
+        "reason": "火事+犯罪は先月、施策なしで8→5に下がっており、週560を固定で払う前にもう1か月様子を見る"
+      },
+      {
+        "bureau": "port",
+        "reason": "案なし。止まった1,351台が出口の詰まりか荷待ちか見分けられず、実行できる形に届かなかった"
+      },
+      {
+        "bureau": "economy",
+        "reason": "案なし。働き口と品物を縛るのは港の荷の割り振りと事務所の公共交通で、同局の建物や税では動かせない"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-1",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "4つの点のどれにも当たらない。先月の外れた手(m01-2 満杯の埋立地を空にする)を繰り返さず、切り替えた理由が議案と局の案の両方に書かれている。交通と財政への響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m02-2",
+    "m02-3",
+    "m02-1"
+  ],
+  "done": {
+    "executed": [
+      "m02-3"
+    ],
+    "failed": [
+      "m02-1",
+      "m02-2"
+    ],
+    "patrols": [
+      {
+        "gameDate": "2041-02-26",
+        "population": 101994,
+        "money": 487592,
+        "weeklyBalance": 12670,
+        "happiness": 82,
+        "alert": false
+      },
+      {
+        "gameDate": "2041-03-08",
+        "population": 102527,
+        "money": 506126,
+        "weeklyBalance": 12864,
+        "happiness": 82,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "report": "2か月目(2041-02-16 → 2041-03-18)。3件のうち打てたのは m02-3 のみ。m02-3 は Elementary School を (-332,-56) 南向き(id 7654)と (-332,-104) 北向き(id 8831)に設置(各10,000、取り壊し0棟)。電気が届かなかったため議案記載どおり Power Line を2本(各100)引き、advance 後に2棟とも電気・水・下水 true、生徒 299/300 と 300/300 を確認。費用合計20,200。m02-2 は最初の区間 (520,10)〜(520,55) の build_line(Medium Road)が沿道11棟(商業8・住宅3)の取り壊しを要求し、議案の中止条件に該当。取り壊しの議決がなく予備候補もないため、残り3区間も引かず全部見送り(道路は未変更、費用0)。m02-1 は set_budget(garbage 170)が ok:true を返しつつ値が150のまま変わらず、予算の指定範囲が50〜150%でごみは既に上限だったため見送り(費用0、支出増なし)。見回り2回とも境目に当たらず、臨時なし。ダイアログは一度も出ていない。hooks に止められた手はなし。人口 101,520 → 102,527、週 +12,864、所持金 489,669 → 506,126、電気・水・下水が来ない市民 0/0/0 で、公約3つはいずれも維持。次の月への申し送りとして、(1) 局の議案に、ゲームで指定できない値(予算170%)や取り壊しを伴う操作を書かせない、(2) 建設を伴う議案には予備候補を必ず1つ書かせる、をノートの「次にやること」に記録した。"
+  }
+}
