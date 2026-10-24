@@ -57,6 +57,7 @@ namespace AIMayor
             TradeApi.Register(routes);
             TerrainGameApi.Register(routes);
             CargoApi.Register(routes);
+            PlanningApi.Register(routes);
 
             listener = new HttpListener();
             listener.Prefixes.Add(Prefix);

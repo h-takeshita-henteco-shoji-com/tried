@@ -222,6 +222,7 @@ def city_info() -> dict:
     市民ごとの数えで、家に来ていないことに少なくとも1回気づいた住民の数。来れば次の更新で0に戻る。
     棟の数(zone_map の赤い枠)とは単位も時点も違う。
     happiness はゲームの画面と同じ街の幸福度で、住宅と働く場所の建物の平均(困りごとの印があると下がる)。
+    tourists: 観光客。now は今いる観光客の数、visits は訪問の平均(ゲームの統計と同じ値)。
     dialog: ゲームの画面に出ているダイアログ(破産の警告など)。なければ null。
     出ていたら、見出し(texts)とボタン(buttons)を読み、判断の材料にする。
     dialogSeq: 最後に開いたダイアログの連番。前回より増えていたら、dialog_events で閉じたものも読める。
@@ -480,11 +481,12 @@ def latlon_to_game(lat: float, lon: float) -> dict:
 
 
 @tool()
-def list_net_types(service: str | None = None, locked: bool = False) -> dict:
+def list_net_types(service: str | None = None, locked: bool = True) -> dict:
     """引ける線の種類(道路、線路、高速道路など)の名前の一覧。service で絞れる(例: "Road", "PublicTransport")。
     costPerKm: 1kmあたりの建設費(地面の上。高架やトンネルは高くなる)。
     upkeepPerWeekPerKm: 1kmあたりの週の維持費(週の支出と同じ単位、予算100%のとき)。
-    既定では、解禁された線だけを返す。locked=True で、解禁前の線も unlocked=false と解禁の条件(unlock)つきで返す。"""
+    既定では、解禁前の線も unlocked=false と解禁の条件(unlock)つきで返す。locked=False で解禁された線だけにする。
+    解禁前の線は、条件を満たすと引けるようになる。例: 線路(Train Track)は、駅か貨物駅を1つ建てると解禁される(#100)。"""
     r = call("/net/prefabs", locked="true" if locked else None)
     if service and r.get("ok"):
         r["prefabs"] = [p for p in r["prefabs"] if p.get("service") == service]
@@ -493,7 +495,8 @@ def list_net_types(service: str | None = None, locked: bool = False) -> dict:
 
 @tool()
 def build_line(prefab: str, points: list[list[float]], frames: int = 0, gif_name: str | None = None,
-               pay: bool = True, follow: bool = False, size: float = 2500, demolish: bool = False) -> dict:
+               pay: bool = True, follow: bool = False, size: float = 2500, demolish: bool = False,
+               y: float | None = None) -> dict:
     """座標の並び [[x, z], ...] に沿って、線(道路・線路など)を引く。
     道路と水道管は、線の途中で交わる既存の地上の道路・管にも交差点を作る(戻り値の crossings。一般道は高速道路の本線とは交差点を作らない)。
     端点の12m以内に同じサービスの点があれば、そこにつなぐ。点がなく16m以内に区間があれば、その区間を途中で分けて
@@ -519,12 +522,14 @@ def build_line(prefab: str, points: list[list[float]], frames: int = 0, gif_name
     点を [x, z, −深さ] にすると、地下にその深さ(8mより浅いと9m)で引く。両端が地下の区間はトンネル、片方だけの区間は坂
     (地上への出入り口)になる。トンネルの種類がない線(管・送電線など)は断る。地下の端は地下の点(地下鉄の駅の乗り場の線路の端を含む)
     にだけつなぐ。地下の区間は地面の建物と重ならない。戻り値の undergroundSegments が地下と坂の区間の数。
+    y: 点の高さを固定するとき(m)。地面の高さの代わりにこの高さで引き、橋・高架・トンネルにはしない。
+    船の航路(Ship Path)を水面(約40m)に引くときに使う(#100)。省くと地面の高さ。
     解禁前の線は断る。"""
     if len(points) < 2:
         return {"ok": False, "error": "points は2点以上"}
     if frames <= 0:
         return call("/net/build", timeout=60, body=";".join(",".join(str(v) for v in p) for p in points), prefab=prefab,
-                    pay=str(pay).lower(), demolish="true" if demolish else None)
+                    pay=str(pay).lower(), demolish="true" if demolish else None, y=y)
 
     # 区間の長さがそろうように、点の並びを frames 個に分ける(区間どうしは端点を共有する)
     import math
@@ -555,7 +560,7 @@ def build_line(prefab: str, points: list[list[float]], frames: int = 0, gif_name
     for a, b in zip(cuts, cuts[1:]):
         part = points[a:b + 1]
         r = call("/net/build", timeout=60, body=";".join(",".join(str(v) for v in p) for p in part), prefab=prefab,
-                 pay=str(pay).lower(), demolish="true" if demolish else None)
+                 pay=str(pay).lower(), demolish="true" if demolish else None, y=y)
         results.append(r)
         if not r.get("ok"):
             break
@@ -1276,6 +1281,34 @@ def rebridge(points: list[list[float]] | None = None, x: float | None = None, z:
     body = _poly(points) if points else None
     return call("/editor/rebridge", timeout=60, body=body, x=x, z=z, radius=radius, prefab=prefab)
 
+
+
+@tool()
+def preview_bulldoze(x: float, z: float, radius: float = 50, what: str = "all") -> dict:
+    """[読むだけ] bulldoze と同じ円・同じ選び方で、壊したら何が起きるかを見積もる。街は変えない。
+    targets: 壊す建物と区間の数、電気の線の区間の数、建物の一覧(id、種類、働き口、家の数。最大50件)。
+    lost: 壊す建物が持っていた働き口(jobs)と家(homes)の合計。
+    waterFacilities / transportStations: 壊すものに含まれる水の施設と、港・駅・空港。
+    power: 壊した後に電気が届かなくなる建物の数(buildingsLosingPower)、その家と働き口、一覧(最大30件)、壊す発電所の数。
+    ゲームでは、電気は送電線だけでなく建物から建物へ伝わる。工場や店を壊すと、その先の家が停電することがある(#93)。
+    電気の網はゲームと同じ決まりで計算するが、発電所の容量が足りるかは見ない。
+    modelAgreement は、見積もりの網がゲームの今の網と一致した割合。低いときは信じすぎない。"""
+    return call("/preview/bulldoze", timeout=30, x=x, z=z, radius=radius, what=what)
+
+
+@tool()
+def transport_reach() -> dict:
+    """[読むだけ] 港・駅・空港が、地図の外とのつなぎ口まで線でつながっているか。
+    stations: 建物ごとに kind(ship / train / plane / metro など)、位置、outsideConnected(船の航路・線路・飛行機の経路で
+    外のつなぎ口まで届くか)、outsideLines(ゲームが建物と外の間に自動で作った線の区間の数。0なら外と行き来できていない)。
+    viaLaneConnection: 見えない車線のつなぎを通って届いたか。
+    船着き場の端は、区間がなくても、いちばん近い航路の車線へ見えないつなぎを自動で張る。航路から船着き場までのまっすぐな線が
+    全部水の上なら、距離は問わない。途中に陸があるとつながらず、船は来ない(#93 の西の港)。
+    つながっていなければ gap に、外へつながる網までのいちばん近いすき間(meters)と両端の座標(from は建物の側、to は外の側)。
+    港に船が来ていても、港の中で止まったトラック(cargo の stoppedSpots)が多いときは、港から道路へ出る出口が詰まっている。
+    港の出口の道(Harbor Road)は建物の一部で太くできない。港を足して荷を分けるなどで手当てする(#100)。
+    船の航路はプレイヤーには引けない。"""
+    return call("/transport/reach", timeout=30)
 
 if __name__ == "__main__":
     mcp.run()

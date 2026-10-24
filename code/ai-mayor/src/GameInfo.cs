@@ -25,6 +25,9 @@ namespace AIMayor
             sb.Append(",\"speed\":").Append(sim.SelectedSimulationSpeed);
             sb.Append(",\"population\":").Append(city.m_populationData.m_finalCount);
             sb.Append(",\"happiness\":").Append(city.m_finalHappiness);
+            // 観光客(#100)。now は今いる観光客、visits は訪問の平均(ゲームの統計 TouristVisits と同じ値)。豊かさ3段の合計
+            sb.Append(",\"tourists\":{\"now\":").Append(city.m_tourist1Data.m_finalCount + city.m_tourist2Data.m_finalCount + city.m_tourist3Data.m_finalCount)
+              .Append(",\"visits\":").Append(city.m_tourist1Data.m_averageVisits + city.m_tourist2Data.m_averageVisits + city.m_tourist3Data.m_averageVisits).Append('}');
             sb.Append(",\"money\":").Append(Num(eco.LastCashAmount / 100));
             sb.Append(",\"weeklyIncome\":").Append(Num(income / 100));
             sb.Append(",\"weeklyExpenses\":").Append(Num(expenses / 100));
