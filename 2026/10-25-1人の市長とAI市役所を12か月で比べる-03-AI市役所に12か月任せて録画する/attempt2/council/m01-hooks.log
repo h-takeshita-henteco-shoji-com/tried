@@ -1,0 +1,130 @@
+2026-10-25T23:22:33+09:00	council-mayor-desk	set_time	ok	paused=True
+2026-10-25T23:22:39+09:00	council-mayor-desk	save_city	ok	name=fukuoka-plan-m01 overwrite=True
+2026-10-25T23:22:42+09:00	council-mayor-desk	city_info	ok	
+2026-10-25T23:22:43+09:00	council-mayor-desk	economy	ok	
+2026-10-25T23:22:43+09:00	council-mayor-desk	services	ok	
+2026-10-25T23:22:43+09:00	council-mayor-desk	citizens_summary	ok	
+2026-10-25T23:22:43+09:00	council-mayor-desk	complaints	ok	
+2026-10-25T23:22:48+09:00	council-mayor-desk	citizen_voices	ok	n=5
+2026-10-25T23:22:48+09:00	council-mayor-desk	events	ok	
+2026-10-25T23:22:52+09:00	council-mayor-desk	move_camera	ok	x=-362 z=-80 size=2500 pitch=60 yaw=0
+2026-10-25T23:22:56+09:00	council-mayor-desk	screenshot	ok	save_to=~/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m01-nogoods.jpg max_width=1024
+2026-10-25T23:22:59+09:00	council-mayor-desk	building_stats	ok	
+2026-10-25T23:22:59+09:00	council-mayor-desk	traffic	ok	limit=5
+2026-10-25T23:22:59+09:00	council-mayor-desk	demand_breakdown	ok	
+2026-10-25T23:22:59+09:00	council-mayor-desk	cargo	ok	
+2026-10-25T23:23:03+09:00	council-mayor-desk	buildings_near	ok	x=0 z=0 radius=8000 service=Beautification brief=True limit=1
+2026-10-25T23:24:07+09:00	council-finance	city_info	ok	
+2026-10-25T23:24:07+09:00	council-finance	economy	ok	
+2026-10-25T23:24:07+09:00	council-finance	list_loans	ok	
+2026-10-25T23:24:08+09:00	council-finance	economy_breakdown	ok	
+2026-10-25T23:24:28+09:00	council-health	citizens_summary	ok	
+2026-10-25T23:24:28+09:00	council-fire	complaints	ok	
+2026-10-25T23:24:28+09:00	council-economy	list_policies	ok	
+2026-10-25T23:24:28+09:00	council-health	complaints	ok	
+2026-10-25T23:24:28+09:00	council-fire	events	ok	
+2026-10-25T23:24:28+09:00	council-economy	demand_breakdown	ok	
+2026-10-25T23:24:28+09:00	council-economy	cargo	ok	
+2026-10-25T23:24:28+09:00	council-fire	list_policies	ok	
+2026-10-25T23:24:28+09:00	council-health	list_policies	ok	
+2026-10-25T23:24:29+09:00	council-education	services	ok	
+2026-10-25T23:24:29+09:00	council-health	services	ok	
+2026-10-25T23:24:29+09:00	council-education	citizens_summary	ok	
+2026-10-25T23:24:29+09:00	council-education	list_policies	ok	
+2026-10-25T23:24:29+09:00	council-urban	list_policies	ok	
+2026-10-25T23:24:29+09:00	council-urban	demand_breakdown	ok	
+2026-10-25T23:24:29+09:00	council-port	cargo	ok	
+2026-10-25T23:24:29+09:00	council-urban	city_info	ok	
+2026-10-25T23:24:30+09:00	council-port	list_policies	ok	
+2026-10-25T23:24:30+09:00	council-roads	traffic	ok	
+2026-10-25T23:24:30+09:00	council-roads	city_info	ok	
+2026-10-25T23:24:30+09:00	council-port	list_transport_lines	ok	
+2026-10-25T23:24:30+09:00	council-roads	list_policies	ok	
+2026-10-25T23:24:32+09:00	council-health	buildings_near	ok	x=0 z=0 radius=6000 service=Garbage limit=60
+2026-10-25T23:24:33+09:00	council-fire	economy	ok	
+2026-10-25T23:24:33+09:00	council-economy	vehicles_stuck	ok	building=28755 limit=15
+2026-10-25T23:24:33+09:00	council-fire	services	ok	
+2026-10-25T23:24:33+09:00	council-economy	building_stats	ok	
+2026-10-25T23:24:34+09:00	council-economy	net_near	ok	x=3449 z=-1555 radius=250 service=Road
+2026-10-25T23:24:34+09:00	council-fire	map_layer	ok	type=fire n=15 radius=2000
+2026-10-25T23:24:34+09:00	council-roads	traffic	ok	x=3449 z=-1555 radius=400 limit=5
+2026-10-25T23:24:34+09:00	council-fire	buildings_near	ok	x=3272 z=-311 radius=1200 problem=Fire
+2026-10-25T23:24:34+09:00	council-roads	junction_info	ok	x=2309 z=-925
+2026-10-25T23:24:35+09:00	council-roads	net_near	ok	x=2309 z=-925 radius=120 service=Road
+2026-10-25T23:24:35+09:00	council-port	vehicles_stuck	ok	kind=truck building=28755 limit=15
+2026-10-25T23:24:35+09:00	council-port	trade	ok	
+2026-10-25T23:24:35+09:00	council-port	transport_reach	ok	
+2026-10-25T23:24:36+09:00	council-port	net_near	ok	x=3449 z=-1555 radius=250 service=Road
+2026-10-25T23:24:36+09:00	council-port	traffic	ok	x=3449 z=-1555 radius=300
+2026-10-25T23:24:38+09:00	council-health	list_building_types	ok	service=Garbage
+2026-10-25T23:24:38+09:00	council-health	zone_map	ok	x=-500 z=-1600 radius=500
+2026-10-25T23:24:39+09:00	council-fire	buildings_near	ok	x=3200 z=-300 radius=1500 service=FireDepartment limit=10
+2026-10-25T23:24:40+09:00	council-economy	buildings_near	ok	x=0 z=0 radius=6000 abandoned=True brief=True limit=200
+2026-10-25T23:24:40+09:00	council-fire	buildings_near	ok	x=2255 z=836 radius=800 service=PoliceDepartment limit=10
+2026-10-25T23:24:40+09:00	council-fire	map_layer	ok	type=crime x=2255 z=836 radius=600 n=7
+2026-10-25T23:24:41+09:00	council-port	buildings_near	ok	x=3449 z=-1555 radius=120 service=PublicTransport
+2026-10-25T23:24:41+09:00	council-urban	zone_summary	ok	grid=2000
+2026-10-25T23:24:41+09:00	council-port	zone_map	ok	x=3449 z=-1555 radius=200 size=800
+2026-10-25T23:24:41+09:00	council-urban	building_stats	ok	
+2026-10-25T23:24:44+09:00	council-roads	list_net_types	ok	service=Road locked=False
+2026-10-25T23:24:47+09:00	council-fire	list_building_types	ok	service=PoliceDepartment
+2026-10-25T23:24:48+09:00	council-fire	zone_map	ok	x=2055 z=1036 radius=250 size=900
+2026-10-25T23:24:49+09:00	council-economy	preview_bulldoze	ok	x=0 z=0 radius=6000 what=abandoned
+2026-10-25T23:24:49+09:00	council-fire	buildings_near	ok	x=2255 z=836 radius=400 problem=Crime brief=True
+2026-10-25T23:24:49+09:00	council-roads	net_near	ok	x=2100 z=-950 radius=90 service=Road
+2026-10-25T23:24:49+09:00	council-roads	traffic	ok	x=2240 z=-950 radius=120 limit=6
+2026-10-25T23:24:51+09:00	council-urban	buildings_near	ok	x=0 z=0 radius=6000 abandoned=True brief=True limit=20
+2026-10-25T23:24:51+09:00	council-urban	zones_at	ok	x=-1000 z=-1000 radius=1000
+2026-10-25T23:25:30+09:00	council-finance	city_info	ok	
+2026-10-25T23:25:30+09:00	council-finance	economy	ok	
+2026-10-25T23:26:47+09:00	council-mayor-desk	buildings_near	ok	x=2240 z=-950 radius=120 abandoned=True brief=True
+2026-10-25T23:26:48+09:00	council-mayor-desk	buildings_near	ok	x=-650 z=-490 radius=300 abandoned=True brief=True
+2026-10-25T23:26:48+09:00	council-mayor-desk	city_info	ok	
+2026-10-25T23:29:01+09:00	council-mayor-field	set_time	ok	paused=True
+2026-10-25T23:29:01+09:00	council-mayor-field	city_info	ok	
+2026-10-25T23:29:02+09:00	council-mayor-field	net_near	ok	x=2240 z=-950 radius=120 service=Road
+2026-10-25T23:29:08+09:00	council-mayor-field	explain	ok	action=m01-1 z=-950の絞られた3区間を4車線にそろえる(試し、計画6-3) reason=半径120で止まった車54、密度95。前後は4車線で間の3区間だけ2車線。止まった車27以下を見込む
+2026-10-25T23:29:12+09:00	council-mayor-field	upgrade_road	ok	prefab=Small 4 Lane Road points=[[2160, -950], [2280, -950]] tolerance=10 pay=True demolish=False
+2026-10-25T23:29:16+09:00	council-mayor-field	buildings_near	ok	x=-650 z=-490 radius=50 service=Garbage
+2026-10-25T23:29:17+09:00	council-mayor-field	services	ok	
+2026-10-25T23:29:21+09:00	council-mayor-field	explain	ok	action=m01-2 満杯の埋立地16914を空にする(試し、計画4-4) reason=埋立地16914は100%で車0台。満杯7つ、全体の空き3,511万。満杯7→6、ごみの印15の減りを月末に見る
+2026-10-25T23:29:21+09:00	council-mayor-field	empty_building	ok	id=16914 active=True
+2026-10-25T23:29:25+09:00	council-mayor-field	move_camera	ok	x=2240 z=-950 size=600 pitch=60 yaw=0
+2026-10-25T23:29:30+09:00	council-mayor-field	screenshot	ok	max_width=960 save_to=~/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m01-road-z950.jpg
+2026-10-25T23:31:22+09:00	council-mayor-field	advance	ok	days=10
+2026-10-25T23:31:24+09:00	council-mayor-field	city_info	ok	
+2026-10-25T23:31:24+09:00	council-mayor-field	events	ok	
+2026-10-25T23:31:27+09:00	council-mayor-field	buildings_near	ok	x=-650 z=-490 radius=50 service=Garbage
+2026-10-25T23:31:28+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=30
+2026-10-25T23:31:28+09:00	council-mayor-field	cargo	ok	
+2026-10-25T23:31:28+09:00	council-mayor-field	traffic	ok	x=3449 z=-1555 radius=300
+2026-10-25T23:31:31+09:00	council-mayor-field	zone_summary	ok	grid=1000
+2026-10-25T23:31:31+09:00	council-mayor-field	demand_breakdown	ok	
+2026-10-25T23:31:31+09:00	council-mayor-field	new_buildings	ok	since=0
+2026-10-25T23:31:32+09:00	council-mayor-field	buildings_near	ok	x=-458 z=-1468 radius=400 problem=Garbage limit=30
+2026-10-25T23:31:33+09:00	council-mayor-field	buildings_near	ok	x=-570 z=-1840 radius=300 service=Garbage
+2026-10-25T23:33:32+09:00	council-mayor-field	advance	ok	days=10
+2026-10-25T23:33:34+09:00	council-mayor-field	city_info	ok	
+2026-10-25T23:33:34+09:00	council-mayor-field	events	ok	
+2026-10-25T23:33:34+09:00	council-mayor-field	buildings_near	ok	x=-650 z=-490 radius=50 service=Garbage
+2026-10-25T23:33:37+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=30
+2026-10-25T23:33:37+09:00	council-mayor-field	cargo	ok	
+2026-10-25T23:33:38+09:00	council-mayor-field	traffic	ok	x=3449 z=-1555 radius=300
+2026-10-25T23:33:39+09:00	council-mayor-field	zone_summary	ok	grid=1000
+2026-10-25T23:33:39+09:00	council-mayor-field	demand_breakdown	ok	
+2026-10-25T23:33:39+09:00	council-mayor-field	new_buildings	ok	since=92181
+2026-10-25T23:33:40+09:00	council-mayor-field	buildings_near	ok	x=-458 z=-1468 radius=400 problem=Garbage limit=30
+2026-10-25T23:33:41+09:00	council-mayor-field	buildings_near	ok	x=-570 z=-1840 radius=300 service=Garbage
+2026-10-25T23:35:40+09:00	council-mayor-field	advance	ok	days=10
+2026-10-25T23:35:42+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=30
+2026-10-25T23:35:42+09:00	council-mayor-field	cargo	ok	
+2026-10-25T23:35:43+09:00	council-mayor-field	traffic	ok	x=3449 z=-1555 radius=300
+2026-10-25T23:35:43+09:00	council-mayor-field	zone_summary	ok	grid=1000
+2026-10-25T23:35:44+09:00	council-mayor-field	demand_breakdown	ok	
+2026-10-25T23:35:44+09:00	council-mayor-field	new_buildings	ok	since=92273
+2026-10-25T23:35:45+09:00	council-mayor-field	buildings_near	ok	x=-458 z=-1468 radius=400 problem=Garbage limit=30
+2026-10-25T23:35:46+09:00	council-mayor-field	buildings_near	ok	x=-570 z=-1840 radius=300 service=Garbage
+2026-10-25T23:35:47+09:00	council-mayor-field	buildings_near	ok	x=-650 z=-490 radius=50 service=Garbage
+2026-10-25T23:35:51+09:00	council-mayor-field	services	ok	
+2026-10-25T23:35:52+09:00	council-mayor-field	city_info	ok	
+2026-10-25T23:36:41+09:00	council-mayor-field	save_log	ok	save_to=~/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt

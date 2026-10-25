@@ -376,6 +376,51 @@ namespace AIMayor
                     + ",\"overlaps\":" + overlaps + "}";
             }
 
+            // ゲームの線を引く道具と同じ判定で、区間ごとに引けるかを試す(#105)。前は判定を通さずに引いたので、
+            // 取り除けない相手(別の道路の交差点の近く、サービスの建物、建物の一部の線など)に重なっても引けた。
+            // 人が引くと断られる「ぶつかる」(ObjectCollision)だけで断る。ほかの理由(短すぎ、坂が急すぎなど)は、
+            // この窓口の引き方(直線の区間、橋の高さの決め方)がゲームの道具と少し違うため、gameCheck に返すだけにする
+            var gameCheck = new StringBuilder();
+            if (pay && fixedY == null)
+            {
+                var buffer = new FastList<NetTool.NodePosition>();
+                for (int i = 1; i < n; i++)
+                {
+                    var a = TestPoint(points[i - 1], ys[i - 1], ground[i - 1], info, under[i - 1], i - 1 == 0 || joins.Contains(i - 1));
+                    var b = TestPoint(points[i], ys[i], ground[i], info, under[i], i == n - 1 || joins.Contains(i));
+                    var dir = b.m_position - a.m_position;
+                    dir.y = 0f;
+                    if (dir.sqrMagnitude < 0.01f)
+                    {
+                        continue;
+                    }
+
+                    dir.Normalize();
+                    a.m_direction = dir;
+                    b.m_direction = dir;
+                    var mid = default(NetTool.ControlPoint);
+                    mid.m_position = (a.m_position + b.m_position) * 0.5f;
+                    mid.m_direction = dir;
+                    mid.m_elevation = Mathf.Lerp(a.m_elevation, b.m_elevation, 0.5f);
+                    ushort tn, ts;
+                    int tc, tr;
+                    var errors = NetTool.CreateNode(info, a, mid, b, buffer, 1000, true, false, true, false, false, false, 0, out tn, out ts, out tc, out tr);
+                    if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
+                    {
+                        return "{\"ok\":false,\"error\":\"the game refuses this line: it collides with something that cannot be removed (ObjectCollision)\""
+                            + ",\"atSegment\":{\"from\":" + i + ",\"fromX\":" + Mathf.RoundToInt(a.m_position.x) + ",\"fromZ\":" + Mathf.RoundToInt(a.m_position.z)
+                            + ",\"toX\":" + Mathf.RoundToInt(b.m_position.x) + ",\"toZ\":" + Mathf.RoundToInt(b.m_position.z) + "}"
+                            + ",\"reasons\":" + Json.Str(errors.ToString()) + ",\"colliding\":" + UpgradeApi.Colliding() + "}";
+                    }
+
+                    if (errors != ToolBase.ToolErrors.None)
+                    {
+                        gameCheck.Append(gameCheck.Length == 0 ? "" : ",").Append("{\"segment\":").Append(i)
+                            .Append(",\"reasons\":").Append(Json.Str(errors.ToString())).Append('}');
+                    }
+                }
+            }
+
             // 先に建設費の合計を計算し、足りるときだけ建てる(途中で止まって中途半端にならないように)
             int cost = 0;
             for (int i = 1; i < n; i++)
@@ -506,7 +551,35 @@ namespace AIMayor
             return "{\"ok\":true,\"prefab\":" + Json.Str(prefab) + ",\"nodes\":" + nodes + ",\"segments\":" + segments
                 + ",\"snapped\":" + snapped + ",\"split\":" + split + ",\"crossings\":" + crossings + ",\"ends\":[" + ends + "],\"bridgeSegments\":" + bridges
                 + ",\"undergroundSegments\":" + tunnels
-                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + ",\"overlaps\":" + overlaps + "}";
+                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false") + ",\"overlaps\":" + overlaps
+                + (gameCheck.Length > 0 ? ",\"gameCheck\":[" + gameCheck + "]" : "") + "}";
+        }
+
+        // 試しに引くときの点(ゲームの道具が点や区間を指したときと同じ)。端と交差点は、既存の点か区間につなぐ
+        private static NetTool.ControlPoint TestPoint(Vector3 p, float y, float ground, NetInfo info, bool under, bool connect)
+        {
+            var cp = default(NetTool.ControlPoint);
+            p.y = y;
+            cp.m_position = p;
+            cp.m_elevation = y - ground;
+            if (connect)
+            {
+                ushort node = FindNode(p, info, under);
+                if (node != 0)
+                {
+                    var nn = NetManager.instance.m_nodes.m_buffer[node];
+                    cp.m_node = node;
+                    cp.m_position = nn.m_position;
+                    cp.m_elevation = under ? -nn.m_elevation : nn.m_elevation;
+                    cp.m_outside = (nn.m_flags & NetNode.Flags.Outside) != 0;
+                }
+                else
+                {
+                    cp.m_segment = FindSegment(p, info, under);
+                }
+            }
+
+            return cp;
         }
 
         // 線が敷地に重なる建物の JSON の配列。重ならなければ "[]"。

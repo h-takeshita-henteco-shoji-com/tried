@@ -1,0 +1,1178 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-25 23:21:33
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-25 23:21:59	2050-01-01	OK	city_info  -> 0.1s
+2026-10-25 23:22:07	2050-01-01	TITLE	AI Mayor - City Council
+2026-10-25 23:22:33	2050-01-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 23:22:37	2050-01-01	OK	save_city name=fukuoka-plan-m01 overwrite=true  -> 2.5s
+2026-10-25 23:22:42	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:22:42	2050-01-01	OK	economy  -> 0.0s
+2026-10-25 23:22:43	2050-01-01	OK	services  -> 0.0s
+2026-10-25 23:22:43	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-25 23:22:43	2050-01-01	OK	complaints  -> 0.0s
+2026-10-25 23:22:48	2050-01-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 23:22:48	2050-01-01	OK	events  -> 0.0s
+2026-10-25 23:22:52	2050-01-01	OK	move_camera x=-362.0 z=-80.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 23:22:56	2050-01-01	OK	screenshot view=current max_width=1024 save_to=m01-nogoods.jpg  -> 0.5s
+2026-10-25 23:22:59	2050-01-01	OK	building_stats x=null z=null radius=500  -> 0.1s
+2026-10-25 23:22:59	2050-01-01	OK	traffic x=null z=null radius=500 limit=5  -> 0.0s
+2026-10-25 23:22:59	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:22:59	2050-01-01	OK	cargo  -> 0.0s
+2026-10-25 23:23:03	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-25 23:24:07	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:24:07	2050-01-01	OK	economy  -> 0.0s
+2026-10-25 23:24:07	2050-01-01	OK	list_loans  -> 0.0s
+2026-10-25 23:24:07	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	complaints  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	complaints  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	events  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	cargo  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:28	2050-01-01	OK	services  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	services  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	cargo  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:24:29	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:30	2050-01-01	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-25 23:24:30	2050-01-01	OK	list_transport_lines type=null number=null name=null  -> 0.0s
+2026-10-25 23:24:30	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:24:30	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 23:24:32	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=60 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:24:33	2050-01-01	OK	economy  -> 0.0s
+2026-10-25 23:24:33	2050-01-01	OK	vehicles_stuck kind=truck building=28755 limit=15  -> 0.1s
+2026-10-25 23:24:33	2050-01-01	OK	services  -> 0.0s
+2026-10-25 23:24:33	2050-01-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 23:24:34	2050-01-01	OK	net_near x=3449.0 z=-1555.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:24:34	2050-01-01	OK	map_layer type=fire x=null z=null radius=2000.0 n=15  -> 0.0s
+2026-10-25 23:24:34	2050-01-01	OK	traffic x=3449.0 z=-1555.0 radius=400.0 limit=5  -> 0.0s
+2026-10-25 23:24:34	2050-01-01	OK	buildings_near x=3272.0 z=-311.0 radius=1200.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:24:34	2050-01-01	OK	junction_info x=2309.0 z=-925.0  -> 0.0s
+2026-10-25 23:24:35	2050-01-01	OK	net_near x=2309.0 z=-925.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:24:35	2050-01-01	OK	vehicles_stuck kind=truck building=28755 limit=15  -> 0.0s
+2026-10-25 23:24:35	2050-01-01	OK	trade  -> 0.0s
+2026-10-25 23:24:35	2050-01-01	OK	transport_reach  -> 0.0s
+2026-10-25 23:24:36	2050-01-01	OK	net_near x=3449.0 z=-1555.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:24:36	2050-01-01	OK	traffic x=3449.0 z=-1555.0 radius=300.0 limit=10  -> 0.0s
+2026-10-25 23:24:38	2050-01-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 23:24:38	2050-01-01	OK	zone_map x=-500.0 z=-1600.0 radius=500.0 size=900 save_to=null  -> 0.1s
+2026-10-25 23:24:39	2050-01-01	OK	buildings_near x=3200.0 z=-300.0 radius=1500.0 limit=10 problems_only=false problem=null service=FireDepartment abandoned=false brief=false  -> 0.0s
+2026-10-25 23:24:40	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=200 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.1s
+2026-10-25 23:24:40	2050-01-01	OK	buildings_near x=2255.0 z=836.0 radius=800.0 limit=10 problems_only=false problem=null service=PoliceDepartment abandoned=false brief=false  -> 0.0s
+2026-10-25 23:24:40	2050-01-01	OK	map_layer type=crime x=2255.0 z=836.0 radius=600.0 n=7  -> 0.0s
+2026-10-25 23:24:41	2050-01-01	OK	buildings_near x=3449.0 z=-1555.0 radius=120.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-25 23:24:41	2050-01-01	OK	zone_summary grid=2000.0  -> 0.1s
+2026-10-25 23:24:41	2050-01-01	OK	zone_map x=3449.0 z=-1555.0 radius=200.0 size=800 save_to=null  -> 0.1s
+2026-10-25 23:24:41	2050-01-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 23:24:44	2050-01-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-25 23:24:47	2050-01-01	OK	list_building_types service=PoliceDepartment locked=false  -> 0.0s
+2026-10-25 23:24:48	2050-01-01	OK	zone_map x=2055.0 z=1036.0 radius=250.0 size=900 save_to=null  -> 0.0s
+2026-10-25 23:24:48	2050-01-01	OK	preview_bulldoze x=0.0 z=0.0 radius=6000.0 what=abandoned  -> 0.2s
+2026-10-25 23:24:49	2050-01-01	OK	buildings_near x=2255.0 z=836.0 radius=400.0 limit=50 problems_only=false problem=Crime service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:24:49	2050-01-01	OK	net_near x=2100.0 z=-950.0 radius=90.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:24:49	2050-01-01	OK	traffic x=2240.0 z=-950.0 radius=120.0 limit=6  -> 0.0s
+2026-10-25 23:24:51	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=20 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:24:51	2050-01-01	OK	zones_at x=-1000.0 z=-1000.0 radius=1000.0  -> 0.1s
+2026-10-25 23:25:30	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:25:30	2050-01-01	OK	economy  -> 0.0s
+2026-10-25 23:26:47	2050-01-01	OK	buildings_near x=2240.0 z=-950.0 radius=120.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:26:48	2050-01-01	OK	buildings_near x=-650.0 z=-490.0 radius=300.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:26:48	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:29:01	2050-01-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 23:29:01	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 23:29:02	2050-01-01	OK	net_near x=2240.0 z=-950.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:29:07	2050-01-01	DO	m01-1 z=-950の絞られた3区間を4車線にそろえる(試し、計画6-3)
+2026-10-25 23:29:07	2050-01-01	WHY	半径120で止まった車54、密度95。前後は4車線で間の3区間だけ2車線。止まった車27以下を見込む
+2026-10-25 23:29:09	2050-01-01	OK	upgrade_road prefab=Small 4 Lane Road points=[[2160.0, -950.0], [2280.0, -950.0]] tolerance=10.0 pay=true demolish=false  -> 3.6s cost=0
+2026-10-25 23:29:16	2050-01-01	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:29:17	2050-01-01	OK	services  -> 0.0s
+2026-10-25 23:29:21	2050-01-01	DO	m01-2 満杯の埋立地16914を空にする(試し、計画4-4)
+2026-10-25 23:29:21	2050-01-01	WHY	埋立地16914は100%で車0台。満杯7つ、全体の空き3,511万。満杯7→6、ごみの印15の減りを月末に見る
+2026-10-25 23:29:21	2050-01-01	OK	empty_building id=16914 active=true  -> 0.0s
+2026-10-25 23:29:25	2050-01-01	OK	move_camera x=2240.0 z=-950.0 size=600.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-25 23:29:29	2050-01-01	OK	screenshot view=current max_width=960 save_to=m01-road-z950.jpg  -> 0.5s
+2026-10-25 23:29:46	2050-01-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 95.6s
+2026-10-25 23:31:24	2050-01-11	OK	city_info  -> 0.0s
+2026-10-25 23:31:24	2050-01-11	OK	events  -> 0.0s
+2026-10-25 23:31:27	2050-01-11	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:31:28	2050-01-11	OK	vehicles_stuck kind=truck building=28755 limit=30  -> 0.0s
+2026-10-25 23:31:28	2050-01-11	OK	cargo  -> 0.0s
+2026-10-25 23:31:28	2050-01-11	OK	traffic x=3449.0 z=-1555.0 radius=300.0 limit=10  -> 0.0s
+2026-10-25 23:31:31	2050-01-11	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-25 23:31:31	2050-01-11	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:31:31	2050-01-11	OK	new_buildings since=0  -> 0.0s
+2026-10-25 23:31:32	2050-01-11	OK	buildings_near x=-458.0 z=-1468.0 radius=400.0 limit=30 problems_only=false problem=Garbage service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:31:32	2050-01-11	OK	buildings_near x=-570.0 z=-1840.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:31:59	2050-01-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.3s
+2026-10-25 23:33:33	2050-01-21	OK	city_info  -> 0.0s
+2026-10-25 23:33:34	2050-01-21	OK	events  -> 0.0s
+2026-10-25 23:33:34	2050-01-21	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:33:37	2050-01-21	OK	vehicles_stuck kind=truck building=28755 limit=30  -> 0.0s
+2026-10-25 23:33:37	2050-01-21	OK	cargo  -> 0.0s
+2026-10-25 23:33:38	2050-01-21	OK	traffic x=3449.0 z=-1555.0 radius=300.0 limit=10  -> 0.0s
+2026-10-25 23:33:38	2050-01-21	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-25 23:33:39	2050-01-21	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:33:39	2050-01-21	OK	new_buildings since=92181  -> 0.0s
+2026-10-25 23:33:40	2050-01-21	OK	buildings_near x=-458.0 z=-1468.0 radius=400.0 limit=30 problems_only=false problem=Garbage service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:33:41	2050-01-21	OK	buildings_near x=-570.0 z=-1840.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:34:08	2050-01-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.1s
+2026-10-25 23:35:42	2050-01-31	OK	vehicles_stuck kind=truck building=28755 limit=30  -> 0.0s
+2026-10-25 23:35:42	2050-01-31	OK	cargo  -> 0.0s
+2026-10-25 23:35:43	2050-01-31	OK	traffic x=3449.0 z=-1555.0 radius=300.0 limit=10  -> 0.0s
+2026-10-25 23:35:43	2050-01-31	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-25 23:35:43	2050-01-31	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:35:44	2050-01-31	OK	new_buildings since=92273  -> 0.0s
+2026-10-25 23:35:45	2050-01-31	OK	buildings_near x=-458.0 z=-1468.0 radius=400.0 limit=30 problems_only=false problem=Garbage service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:35:46	2050-01-31	OK	buildings_near x=-570.0 z=-1840.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:35:47	2050-01-31	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:35:51	2050-01-31	OK	services  -> 0.0s
+2026-10-25 23:35:52	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:36:41	2050-01-31	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 23:37:32	2050-01-31	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 23:37:35	2050-01-31	OK	save_city name=fukuoka-plan-m02 overwrite=true  -> 2.0s
+2026-10-25 23:37:40	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:37:45	2050-01-31	OK	economy  -> 0.0s
+2026-10-25 23:37:47	2050-01-31	OK	services  -> 0.0s
+2026-10-25 23:37:50	2050-01-31	OK	citizens_summary  -> 0.0s
+2026-10-25 23:37:52	2050-01-31	OK	complaints  -> 0.0s
+2026-10-25 23:37:55	2050-01-31	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 23:37:58	2050-01-31	OK	events  -> 0.0s
+2026-10-25 23:38:02	2050-01-31	OK	move_camera x=-328.0 z=-56.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 23:38:06	2050-01-31	OK	screenshot view=current max_width=1024 save_to=m02-nogoods.jpg  -> 0.5s
+2026-10-25 23:38:09	2050-01-31	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 23:38:10	2050-01-31	OK	traffic x=null z=null radius=500 limit=5  -> 0.0s
+2026-10-25 23:38:10	2050-01-31	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:38:10	2050-01-31	OK	cargo  -> 0.0s
+2026-10-25 23:38:13	2050-01-31	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-25 23:38:14	2050-01-31	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:39:53	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:39:53	2050-01-31	OK	economy  -> 0.0s
+2026-10-25 23:39:53	2050-01-31	OK	list_loans  -> 0.0s
+2026-10-25 23:39:53	2050-01-31	OK	economy_breakdown  -> 0.0s
+2026-10-25 23:40:16	2050-01-31	OK	complaints  -> 0.0s
+2026-10-25 23:40:16	2050-01-31	OK	events  -> 0.0s
+2026-10-25 23:40:16	2050-01-31	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-25 23:40:16	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:16	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:17	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:40:17	2050-01-31	OK	cargo  -> 0.0s
+2026-10-25 23:40:17	2050-01-31	OK	trade  -> 0.0s
+2026-10-25 23:40:17	2050-01-31	OK	list_transport_lines type=null number=null name=null  -> 0.0s
+2026-10-25 23:40:17	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:19	2050-01-31	OK	services  -> 0.0s
+2026-10-25 23:40:19	2050-01-31	OK	citizens_summary  -> 0.0s
+2026-10-25 23:40:20	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:23	2050-01-31	OK	net_near x=2240.0 z=-950.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	traffic x=2240.0 z=-950.0 radius=200.0 limit=10  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	cargo  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	building_stats x=null z=null radius=8000.0  -> 0.0s
+2026-10-25 23:40:24	2050-01-31	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-25 23:40:24	2050-01-31	OK	zone_summary grid=1000.0  -> 0.2s
+2026-10-25 23:40:24	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:40:26	2050-01-31	OK	list_policies  -> 0.0s
+2026-10-25 23:40:26	2050-01-31	OK	services  -> 0.0s
+2026-10-25 23:40:26	2050-01-31	OK	complaints  -> 0.0s
+2026-10-25 23:40:26	2050-01-31	OK	buildings_near x=3256.0 z=-789.0 radius=1500.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:40:26	2050-01-31	OK	citizens_summary  -> 0.0s
+2026-10-25 23:40:27	2050-01-31	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:40:27	2050-01-31	OK	map_layer type=fire x=3256.0 z=-789.0 radius=800.0 n=9  -> 0.0s
+2026-10-25 23:40:27	2050-01-31	OK	buildings_near x=3256.0 z=-789.0 radius=1500.0 limit=50 problems_only=false problem=null service=FireDepartment abandoned=false brief=true  -> 0.0s
+2026-10-25 23:40:28	2050-01-31	OK	buildings_near x=908.0 z=160.0 radius=1200.0 limit=50 problems_only=false problem=null service=PoliceDepartment abandoned=false brief=true  -> 0.0s
+2026-10-25 23:40:29	2050-01-31	OK	junction_info x=2236.0 z=-950.0  -> 0.0s
+2026-10-25 23:40:29	2050-01-31	OK	map_layer type=police x=908.0 z=160.0 radius=600.0 n=7  -> 0.0s
+2026-10-25 23:40:29	2050-01-31	OK	junction_info x=2220.0 z=-950.0  -> 0.0s
+2026-10-25 23:40:29	2050-01-31	OK	buildings_near x=3449.0 z=-1555.0 radius=120.0 limit=20 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:40:29	2050-01-31	OK	buildings_near x=2230.0 z=-950.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:40:30	2050-01-31	OK	net_near x=3449.0 z=-1555.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:40:30	2050-01-31	OK	transport_reach  -> 0.0s
+2026-10-25 23:40:32	2050-01-31	OK	zone_map x=2500.0 z=500.0 radius=600.0 size=1000 save_to=null  -> 0.1s
+2026-10-25 23:40:33	2050-01-31	OK	zones_at x=2500.0 z=500.0 radius=600.0  -> 0.0s
+2026-10-25 23:40:33	2050-01-31	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=200 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:40:34	2050-01-31	OK	preview_bulldoze x=0.0 z=0.0 radius=6000.0 what=abandoned  -> 0.1s
+2026-10-25 23:40:37	2050-01-31	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 23:40:37	2050-01-31	OK	economy_breakdown  -> 0.0s
+2026-10-25 23:40:38	2050-01-31	OK	traffic x=2236.0 z=-950.0 radius=60.0 limit=5  -> 0.0s
+2026-10-25 23:40:38	2050-01-31	OK	zone_map x=-520.0 z=-1500.0 radius=500.0 size=900 save_to=null  -> 0.0s
+2026-10-25 23:40:39	2050-01-31	OK	buildings_near x=3000.0 z=-800.0 radius=1500.0 limit=200 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:40:39	2050-01-31	OK	buildings_near x=908.0 z=160.0 radius=150.0 limit=50 problems_only=false problem=Crime service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:40:40	2050-01-31	OK	zones_at x=2720.0 z=880.0 radius=100.0  -> 0.0s
+2026-10-25 23:40:41	2050-01-31	OK	zone_map x=2720.0 z=880.0 radius=150.0 size=900 save_to=null  -> 0.0s
+2026-10-25 23:40:41	2050-01-31	OK	net_near x=2720.0 z=880.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:40:48	2050-01-31	OK	preview_bulldoze x=3388.0 z=-742.0 radius=5.0 what=all  -> 0.1s
+2026-10-25 23:40:48	2050-01-31	OK	preview_bulldoze x=3125.0 z=-836.0 radius=5.0 what=all  -> 0.1s
+2026-10-25 23:40:49	2050-01-31	OK	vehicles_stuck kind=garbage building=16914 limit=10  -> 0.0s
+2026-10-25 23:40:49	2050-01-31	OK	preview_bulldoze x=2184.0 z=-918.0 radius=5.0 what=all  -> 0.1s
+2026-10-25 23:40:52	2050-01-31	OK	zones_at x=2685.0 z=872.0 radius=40.0  -> 0.0s
+2026-10-25 23:40:52	2050-01-31	OK	zones_at x=2640.0 z=985.0 radius=30.0  -> 0.0s
+2026-10-25 23:40:53	2050-01-31	OK	buildings_near x=2685.0 z=872.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:40:53	2050-01-31	OK	land_value x=2685.0 z=872.0 radius=60.0  -> 0.0s
+2026-10-25 23:40:56	2050-01-31	OK	water_trace x=2685.0 z=872.0  -> 0.0s
+2026-10-25 23:40:56	2050-01-31	OK	map_layer type=electricity_service x=2685.0 z=872.0 radius=60.0 n=5  -> 0.0s
+2026-10-25 23:41:39	2050-01-31	OK	city_info  -> 0.1s
+2026-10-25 23:41:39	2050-01-31	OK	economy  -> 0.0s
+2026-10-25 23:43:46	2050-01-31	OK	buildings_near x=2685.0 z=872.0 radius=100.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:43:47	2050-01-31	OK	buildings_near x=-650.0 z=-490.0 radius=200.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:43:48	2050-01-31	OK	buildings_near x=2236.0 z=-950.0 radius=100.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:43:54	2050-01-31	OK	preview_bulldoze x=3388.0 z=-742.0 radius=5.0 what=abandoned  -> 0.1s
+2026-10-25 23:43:54	2050-01-31	OK	preview_bulldoze x=3125.0 z=-836.0 radius=5.0 what=abandoned  -> 0.1s
+2026-10-25 23:43:55	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:46:05	2050-01-31	OK	preview_bulldoze x=0.0 z=0.0 radius=6000.0 what=abandoned  -> 0.1s
+2026-10-25 23:46:06	2050-01-31	OK	preview_bulldoze x=3125.0 z=-836.0 radius=5.0 what=building  -> 0.1s
+2026-10-25 23:46:06	2050-01-31	OK	services  -> 0.0s
+2026-10-25 23:46:41	2050-01-31	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 23:46:41	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:46:46	2050-01-31	DO	道に面した空き地34マスを事務所の区画にする(試し、公約1)
+2026-10-25 23:46:46	2050-01-31	WHY	事務所の空き1,642マスは道に面さず新築0。大卒失業7,205。月末までに1棟以上建つと予想
+2026-10-25 23:46:46	2050-01-31	OK	zones_at x=2685.0 z=872.0 radius=40.0  -> 0.0s
+2026-10-25 23:46:53	2050-01-31	OK	zone_area x=2685.0 z=872.0 radius=40.0 type=office  -> 3.5s
+2026-10-25 23:47:00	2050-01-31	OK	zones_at x=2685.0 z=872.0 radius=40.0  -> 0.0s
+2026-10-25 23:47:01	2050-01-31	OK	buildings_near x=2685.0 z=872.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:47:01	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:47:05	2050-01-31	OK	move_camera x=2685.0 z=872.0 size=600.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-25 23:47:07	2050-01-31	OK	zone_map x=2685.0 z=872.0 radius=150.0 size=600 save_to=m02-office-zonemap.jpg  -> 0.0s
+2026-10-25 23:47:09	2050-01-31	OK	screenshot view=current max_width=800 save_to=m02-office-zone.jpg  -> 0.5s
+2026-10-25 23:47:12	2050-01-31	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:47:15	2050-01-31	DO	埋立地16914を空ける作業から受け入れに戻す(試し、市の計画4-4)
+2026-10-25 23:47:15	2050-01-31	WHY	30日95%・車19/19で減らない。運ぶ車は渋滞。戻すと車が減り印が減ると予想
+2026-10-25 23:47:15	2050-01-31	OK	empty_building id=16914 active=false  -> 0.0s
+2026-10-25 23:47:17	2050-01-31	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:47:19	2050-01-31	OK	preview_bulldoze x=0.0 z=0.0 radius=6000.0 what=abandoned  -> 0.1s
+2026-10-25 23:47:23	2050-01-31	DO	放棄・焼けた建物128棟と焼けた小学校を片づける(市の計画6-4・7-1、3-4)
+2026-10-25 23:47:23	2050-01-31	WHY	失う働き口0・家0・停電0。品物がない店233→130前後、火事の印4→1と予想
+2026-10-25 23:47:23	2050-01-31	OK	bulldoze x=0.0 z=0.0 radius=6000.0 what=abandoned  -> 4.8s
+2026-10-25 23:47:30	2050-01-31	OK	cargo  -> 0.0s
+2026-10-25 23:47:31	2050-01-31	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=50 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:47:31	2050-01-31	OK	services  -> 0.0s
+2026-10-25 23:47:33	2050-01-31	OK	bulldoze x=3125.0 z=-836.0 radius=5.0 what=building  -> 3.6s
+2026-10-25 23:47:39	2050-01-31	OK	complaints  -> 0.0s
+2026-10-25 23:47:40	2050-01-31	OK	buildings_near x=3000.0 z=-800.0 radius=1500.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:47:40	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 23:48:04	2050-01-31	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.4s
+2026-10-25 23:49:38	2050-02-10	OK	city_info  -> 0.0s
+2026-10-25 23:49:39	2050-02-10	OK	events  -> 0.0s
+2026-10-25 23:49:40	2050-02-10	OK	vehicles_stuck kind=garbage building=16914 limit=20  -> 0.0s
+2026-10-25 23:49:40	2050-02-10	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:49:41	2050-02-10	OK	buildings_near x=-570.0 z=-1840.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:49:59	2050-02-10	OK	zones_at x=2685.0 z=872.0 radius=40.0  -> 0.0s
+2026-10-25 23:49:59	2050-02-10	OK	buildings_near x=2685.0 z=872.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:49:59	2050-02-10	OK	services  -> 0.0s
+2026-10-25 23:50:00	2050-02-10	OK	complaints  -> 0.0s
+2026-10-25 23:50:06	2050-02-10	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.1s
+2026-10-25 23:51:37	2050-02-20	OK	city_info  -> 0.0s
+2026-10-25 23:51:38	2050-02-20	OK	events  -> 0.0s
+2026-10-25 23:51:38	2050-02-20	OK	vehicles_stuck kind=garbage building=16914 limit=20  -> 0.0s
+2026-10-25 23:51:39	2050-02-20	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:51:40	2050-02-20	OK	buildings_near x=-570.0 z=-1840.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:51:41	2050-02-20	OK	zones_at x=2685.0 z=872.0 radius=40.0  -> 0.0s
+2026-10-25 23:51:41	2050-02-20	OK	buildings_near x=2685.0 z=872.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:51:44	2050-02-20	OK	services  -> 0.0s
+2026-10-25 23:51:44	2050-02-20	OK	complaints  -> 0.0s
+2026-10-25 23:51:58	2050-02-20	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 88.1s
+2026-10-25 23:53:29	2050-03-02	OK	vehicles_stuck kind=garbage building=16914 limit=20  -> 0.0s
+2026-10-25 23:53:30	2050-03-02	OK	buildings_near x=-650.0 z=-490.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:53:30	2050-03-02	OK	buildings_near x=-570.0 z=-1840.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:53:31	2050-03-02	OK	zones_at x=2685.0 z=872.0 radius=40.0  -> 0.0s
+2026-10-25 23:53:32	2050-03-02	OK	buildings_near x=2685.0 z=872.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:53:32	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 23:53:35	2050-03-02	OK	services  -> 0.0s
+2026-10-25 23:53:35	2050-03-02	OK	complaints  -> 0.0s
+2026-10-25 23:53:35	2050-03-02	OK	cargo  -> 0.0s
+2026-10-25 23:53:36	2050-03-02	OK	buildings_near x=3000.0 z=-800.0 radius=1500.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:54:17	2050-03-02	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 23:54:55	2050-03-02	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 23:55:00	2050-03-02	OK	save_city name=fukuoka-plan-m03 overwrite=true  -> 2.0s
+2026-10-25 23:55:05	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 23:55:05	2050-03-02	OK	economy  -> 0.0s
+2026-10-25 23:55:05	2050-03-02	OK	services  -> 0.0s
+2026-10-25 23:55:05	2050-03-02	OK	citizens_summary  -> 0.0s
+2026-10-25 23:55:05	2050-03-02	OK	complaints  -> 0.0s
+2026-10-25 23:55:09	2050-03-02	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 23:55:09	2050-03-02	OK	events  -> 0.0s
+2026-10-25 23:55:09	2050-03-02	OK	move_camera x=-2126.0 z=-1842.0 size=2500.0 pitch=null yaw=null  -> 0.5s
+2026-10-25 23:55:13	2050-03-02	OK	screenshot view=current max_width=1024 save_to=m03-garbage.jpg  -> 0.4s
+2026-10-25 23:55:17	2050-03-02	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 23:55:18	2050-03-02	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-25 23:55:18	2050-03-02	OK	traffic x=null z=null radius=500 limit=5  -> 0.0s
+2026-10-25 23:55:18	2050-03-02	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:55:18	2050-03-02	OK	cargo  -> 0.0s
+2026-10-25 23:55:24	2050-03-02	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=10 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 23:57:05	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 23:57:05	2050-03-02	OK	economy  -> 0.0s
+2026-10-25 23:57:05	2050-03-02	OK	economy_breakdown  -> 0.0s
+2026-10-25 23:57:05	2050-03-02	OK	list_loans  -> 0.0s
+2026-10-25 23:57:30	2050-03-02	OK	complaints  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	citizens_summary  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	complaints  -> 0.0s
+2026-10-25 23:57:31	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:33	2050-03-02	OK	services  -> 0.0s
+2026-10-25 23:57:33	2050-03-02	OK	citizens_summary  -> 0.0s
+2026-10-25 23:57:33	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:35	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:35	2050-03-02	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:57:35	2050-03-02	OK	cargo  -> 0.0s
+2026-10-25 23:57:36	2050-03-02	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 23:57:36	2050-03-02	OK	net_near x=-1760.0 z=-1460.0 radius=250.0 service=Road limit=40  -> 0.0s
+2026-10-25 23:57:36	2050-03-02	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-25 23:57:36	2050-03-02	OK	traffic x=-1760.0 z=-1460.0 radius=300.0 limit=10  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	buildings_near x=-1800.0 z=-1750.0 radius=1200.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	list_policies  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	services  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	cargo  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	demand_breakdown  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	trade  -> 0.0s
+2026-10-25 23:57:37	2050-03-02	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-25 23:57:38	2050-03-02	OK	list_transport_lines type=null number=null name=null  -> 0.1s
+2026-10-25 23:57:38	2050-03-02	OK	zones_at x=2685.0 z=872.0 radius=60.0  -> 0.0s
+2026-10-25 23:57:38	2050-03-02	OK	transport_reach  -> 0.0s
+2026-10-25 23:57:38	2050-03-02	OK	vehicles_stuck kind=truck building=28755 limit=10  -> 0.0s
+2026-10-25 23:57:42	2050-03-02	OK	buildings_near x=-1720.0 z=-1460.0 radius=100.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:57:42	2050-03-02	OK	zone_map x=2500.0 z=500.0 radius=500.0 size=1000 save_to=null  -> 0.1s
+2026-10-25 23:57:43	2050-03-02	OK	zone_map x=2500.0 z=500.0 radius=500.0 size=1000 save_to=null  -> 0.0s
+2026-10-25 23:57:43	2050-03-02	OK	net_near x=-1720.0 z=-1460.0 radius=45.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:57:43	2050-03-02	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-25 23:57:43	2050-03-02	OK	zone_map x=-2300.0 z=-1950.0 radius=500.0 size=1000 save_to=null  -> 0.0s
+2026-10-25 23:57:44	2050-03-02	OK	buildings_near x=-2300.0 z=-1950.0 radius=600.0 limit=50 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:57:48	2050-03-02	OK	zone_map x=2100.0 z=650.0 radius=250.0 size=1000 save_to=null  -> 0.0s
+2026-10-25 23:57:48	2050-03-02	OK	zones_at x=2100.0 z=650.0 radius=250.0  -> 0.0s
+2026-10-25 23:57:49	2050-03-02	OK	zone_map x=2150.0 z=800.0 radius=200.0 size=1000 save_to=null  -> 0.0s
+2026-10-25 23:57:49	2050-03-02	NG	junction_info x=-1720.0 z=-1460.0  -> no road junction within 40m (0.0s)
+2026-10-25 23:57:49	2050-03-02	OK	junction_info x=-1800.0 z=-1460.0  -> 0.0s
+2026-10-25 23:57:49	2050-03-02	OK	junction_info x=-1640.0 z=-1460.0  -> 0.0s
+2026-10-25 23:57:50	2050-03-02	OK	buildings_near x=3449.0 z=-1555.0 radius=200.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-25 23:57:50	2050-03-02	OK	net_near x=3449.0 z=-1555.0 radius=250.0 service=null limit=50  -> 0.0s
+2026-10-25 23:57:51	2050-03-02	OK	zone_map x=3449.0 z=-1555.0 radius=300.0 size=900 save_to=null  -> 0.0s
+2026-10-25 23:57:54	2050-03-02	OK	buildings_near x=-2300.0 z=-2250.0 radius=400.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 23:57:55	2050-03-02	OK	zone_map x=-2000.0 z=-2150.0 radius=250.0 size=1000 save_to=null  -> 0.0s
+2026-10-25 23:57:56	2050-03-02	OK	zones_at x=2127.0 z=785.0 radius=20.0  -> 0.0s
+2026-10-25 23:57:57	2050-03-02	OK	zones_at x=2127.0 z=425.0 radius=22.0  -> 0.0s
+2026-10-25 23:57:57	2050-03-02	OK	zones_at x=2175.0 z=795.0 radius=20.0  -> 0.0s
+2026-10-25 23:57:58	2050-03-02	OK	zones_at x=2130.0 z=682.0 radius=20.0  -> 0.0s
+2026-10-25 23:58:00	2050-03-02	OK	zones_at x=2240.0 z=520.0 radius=45.0  -> 0.0s
+2026-10-25 23:58:01	2050-03-02	OK	net_near x=-1845.0 z=-730.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:58:01	2050-03-02	OK	zones_at x=2525.0 z=520.0 radius=45.0  -> 0.0s
+2026-10-25 23:58:01	2050-03-02	OK	traffic x=-1845.0 z=-730.0 radius=150.0 limit=10  -> 0.0s
+2026-10-25 23:58:01	2050-03-02	OK	zones_at x=2220.0 z=670.0 radius=35.0  -> 0.0s
+2026-10-25 23:58:02	2050-03-02	OK	buildings_near x=2240.0 z=520.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:58:02	2050-03-02	OK	net_near x=-1960.0 z=-2200.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:58:02	2050-03-02	OK	height_at x=-1900.0 z=-2280.0  -> 0.0s
+2026-10-25 23:58:02	2050-03-02	OK	height_at x=-1960.0 z=-2260.0  -> 0.0s
+2026-10-25 23:58:03	2050-03-02	OK	water_trace x=2127.0 z=425.0  -> 0.0s
+2026-10-25 23:58:03	2050-03-02	OK	water_trace x=2127.0 z=785.0  -> 0.0s
+2026-10-25 23:58:04	2050-03-02	OK	net_near x=2127.0 z=425.0 radius=40.0 service=Road limit=50  -> 0.0s
+2026-10-25 23:58:04	2050-03-02	OK	map_layer type=electricity_service x=2150.0 z=600.0 radius=250.0 n=5  -> 0.0s
+2026-10-25 23:58:07	2050-03-02	OK	buildings_near x=-1845.0 z=-700.0 radius=170.0 limit=80 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:58:07	2050-03-02	OK	zone_map x=-1845.0 z=-700.0 radius=200.0 size=800 save_to=null  -> 0.0s
+2026-10-25 23:58:11	2050-03-02	OK	zones_at x=2150.0 z=750.0 radius=120.0  -> 0.0s
+2026-10-25 23:58:11	2050-03-02	OK	zones_at x=2130.0 z=772.0 radius=20.0  -> 0.0s
+2026-10-25 23:58:11	2050-03-02	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-25 23:58:12	2050-03-02	OK	zones_at x=-1915.0 z=-2255.0 radius=70.0  -> 0.0s
+2026-10-25 23:58:12	2050-03-02	OK	net_near x=3410.0 z=-1558.0 radius=40.0 service=null limit=50  -> 0.0s
+2026-10-25 23:58:12	2050-03-02	OK	buildings_near x=-1915.0 z=-2255.0 radius=120.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:58:13	2050-03-02	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-25 23:58:13	2050-03-02	NG	junction_info x=3400.0 z=-1567.0  -> no road junction within 40m (0.0s)
+2026-10-25 23:58:15	2050-03-02	OK	zones_at x=2670.0 z=540.0 radius=80.0  -> 0.0s
+2026-10-25 23:58:15	2050-03-02	OK	zones_at x=2500.0 z=500.0 radius=500.0  -> 0.0s
+2026-10-25 23:58:18	2050-03-02	OK	zones_at x=2830.0 z=800.0 radius=90.0  -> 0.0s
+2026-10-25 23:58:19	2050-03-02	OK	zones_at x=2830.0 z=620.0 radius=90.0  -> 0.0s
+2026-10-25 23:58:19	2050-03-02	OK	zones_at x=2400.0 z=830.0 radius=90.0  -> 0.0s
+2026-10-25 23:58:21	2050-03-02	OK	zone_map x=2830.0 z=710.0 radius=200.0 size=1000 save_to=null  -> 0.0s
+2026-10-25 23:58:22	2050-03-02	OK	net_near x=2830.0 z=710.0 radius=200.0 service=Road limit=40  -> 0.0s
+2026-10-25 23:58:28	2050-03-02	OK	economy_breakdown  -> 0.0s
+2026-10-25 23:58:29	2050-03-02	OK	traffic x=null z=null radius=500 limit=8  -> 0.0s
+2026-10-25 23:58:37	2050-03-02	OK	buildings_near x=2830.0 z=710.0 radius=200.0 limit=80 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:58:38	2050-03-02	OK	water_trace x=2850.0 z=750.0  -> 0.0s
+2026-10-25 23:58:38	2050-03-02	OK	water_trace x=2790.0 z=600.0  -> 0.0s
+2026-10-25 23:58:38	2050-03-02	OK	map_layer type=electricity_service x=2830.0 z=710.0 radius=200.0 n=9  -> 0.0s
+2026-10-25 23:58:52	2050-03-02	OK	vehicles_stuck kind=truck building=null limit=20  -> 0.0s
+2026-10-25 23:58:53	2050-03-02	OK	buildings_near x=-1156.0 z=-1055.0 radius=200.0 limit=10 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 23:59:56	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 23:59:57	2050-03-02	OK	economy  -> 0.0s
+2026-10-26 00:00:00	2050-03-02	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-26 00:00:01	2050-03-02	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-26 00:01:20	2050-03-02	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:01:55	2050-03-02	OK	traffic x=2830.0 z=710.0 radius=200.0 limit=3  -> 0.0s
+2026-10-26 00:01:55	2050-03-02	OK	traffic x=2140.0 z=610.0 radius=250.0 limit=3  -> 0.0s
+2026-10-26 00:01:55	2050-03-02	OK	city_info  -> 0.0s
+2026-10-26 00:04:07	2050-03-02	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:04:49	2050-03-02	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 00:04:49	2050-03-02	OK	city_info  -> 0.0s
+2026-10-26 00:04:53	2050-03-02	OK	zones_at x=2127.0 z=425.0 radius=22.0  -> 0.0s
+2026-10-26 00:04:53	2050-03-02	OK	zones_at x=2127.0 z=785.0 radius=20.0  -> 0.0s
+2026-10-26 00:04:54	2050-03-02	OK	zones_at x=2175.0 z=795.0 radius=20.0  -> 0.0s
+2026-10-26 00:04:55	2050-03-02	OK	zones_at x=2130.0 z=682.0 radius=20.0  -> 0.0s
+2026-10-26 00:05:00	2050-03-02	DO	m03-1 空きの店の区画39マスを事務所に塗り替える試し(公約1)
+2026-10-26 00:05:00	2050-03-02	WHY	大卒の失業7,092が空いた働き口3,212の倍超。商業の需要2で店は建たない。4円の空き16/6/9/8を確認、事務所が建つか見る
+2026-10-26 00:05:01	2050-03-02	OK	buildings_near x=2127.0 z=425.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:05:01	2050-03-02	OK	buildings_near x=2127.0 z=785.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:05:02	2050-03-02	OK	buildings_near x=2175.0 z=795.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:05:03	2050-03-02	OK	buildings_near x=2130.0 z=682.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:05:07	2050-03-02	OK	zone_area x=2127.0 z=425.0 radius=22.0 type=office  -> 3.6s
+2026-10-26 00:05:11	2050-03-02	OK	zone_area x=2127.0 z=785.0 radius=20.0 type=office  -> 3.4s
+2026-10-26 00:05:14	2050-03-02	OK	zone_area x=2175.0 z=795.0 radius=20.0 type=office  -> 3.3s
+2026-10-26 00:05:18	2050-03-02	OK	zone_area x=2130.0 z=682.0 radius=20.0 type=office  -> 3.3s
+2026-10-26 00:05:25	2050-03-02	OK	zones_at x=2127.0 z=425.0 radius=22.0  -> 0.0s
+2026-10-26 00:05:25	2050-03-02	OK	zones_at x=2127.0 z=785.0 radius=20.0  -> 0.0s
+2026-10-26 00:05:26	2050-03-02	OK	zones_at x=2175.0 z=795.0 radius=20.0  -> 0.0s
+2026-10-26 00:05:27	2050-03-02	OK	zones_at x=2130.0 z=682.0 radius=20.0  -> 0.0s
+2026-10-26 00:05:27	2050-03-02	OK	city_info  -> 0.0s
+2026-10-26 00:05:31	2050-03-02	OK	zone_map x=2150.0 z=610.0 radius=250.0 size=700 save_to=m03-office-shop-zonemap.jpg  -> 0.0s
+2026-10-26 00:05:34	2050-03-02	OK	move_camera x=2150.0 z=610.0 size=800.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-26 00:05:35	2050-03-02	OK	screenshot view=current max_width=800 save_to=m03-office-shop.jpg  -> 0.5s
+2026-10-26 00:05:38	2050-03-02	OK	zones_at x=2830.0 z=800.0 radius=90.0  -> 0.0s
+2026-10-26 00:05:39	2050-03-02	OK	zones_at x=2830.0 z=620.0 radius=90.0  -> 0.0s
+2026-10-26 00:05:39	2050-03-02	OK	buildings_near x=2830.0 z=800.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:05:40	2050-03-02	OK	buildings_near x=2830.0 z=620.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:05:44	2050-03-02	DO	m03-2 道に面した空き地144マスを事務所の区画にする試し(公約1)
+2026-10-26 00:05:44	2050-03-02	WHY	m02-1で同じ種類の34マスに10日で3棟建った。働き口の需要59。2円の空き76/68を確認。月末に5棟以上を見込む
+2026-10-26 00:05:44	2050-03-02	OK	zone_area x=2830.0 z=800.0 radius=90.0 type=office  -> 3.4s
+2026-10-26 00:05:48	2050-03-02	OK	zone_area x=2830.0 z=620.0 radius=90.0 type=office  -> 3.4s
+2026-10-26 00:05:54	2050-03-02	OK	zones_at x=2830.0 z=800.0 radius=90.0  -> 0.0s
+2026-10-26 00:05:54	2050-03-02	OK	zones_at x=2830.0 z=620.0 radius=90.0  -> 0.0s
+2026-10-26 00:05:56	2050-03-02	OK	zone_map x=2830.0 z=710.0 radius=200.0 size=700 save_to=m03-office-unzoned-zonemap.jpg  -> 0.0s
+2026-10-26 00:05:59	2050-03-02	OK	move_camera x=2830.0 z=710.0 size=700.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-26 00:06:00	2050-03-02	OK	screenshot view=current max_width=800 save_to=m03-office-unzoned.jpg  -> 0.4s
+2026-10-26 00:06:03	2050-03-02	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:06:07	2050-03-02	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:06:11	2050-03-02	DO	m03-3 乗客の少ないバス5路線の台数割合を200%から180%に下げる試し(公約3)
+2026-10-26 00:06:11	2050-03-02	WHY	週の収支が+9,965から+7,175へ縮んだ。5路線は463台で前期の乗客152人。バスの支出22,094を減らす
+2026-10-26 00:06:11	2050-03-02	OK	set_transport_line_budget line=21 percent=180  -> 0.0s
+2026-10-26 00:06:14	2050-03-02	OK	set_transport_line_budget line=139 percent=180  -> 0.0s
+2026-10-26 00:06:14	2050-03-02	OK	set_transport_line_budget line=136 percent=180  -> 0.0s
+2026-10-26 00:06:14	2050-03-02	OK	set_transport_line_budget line=127 percent=180  -> 0.0s
+2026-10-26 00:06:15	2050-03-02	OK	set_transport_line_budget line=126 percent=180  -> 0.0s
+2026-10-26 00:06:18	2050-03-02	OK	list_transport_lines type=bus number=39 name=null  -> 0.0s
+2026-10-26 00:06:19	2050-03-02	OK	list_transport_lines type=bus number=38 name=null  -> 0.0s
+2026-10-26 00:06:19	2050-03-02	OK	list_transport_lines type=bus number=28 name=null  -> 0.0s
+2026-10-26 00:06:20	2050-03-02	OK	list_transport_lines type=bus number=37 name=null  -> 0.0s
+2026-10-26 00:06:20	2050-03-02	OK	list_transport_lines type=bus number=41 name=null  -> 0.0s
+2026-10-26 00:06:46	2050-03-02	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.6s
+2026-10-26 00:08:21	2050-03-12	OK	city_info  -> 0.0s
+2026-10-26 00:08:21	2050-03-12	OK	events  -> 0.0s
+2026-10-26 00:08:25	2050-03-12	OK	zones_at x=2127.0 z=425.0 radius=22.0  -> 0.0s
+2026-10-26 00:08:26	2050-03-12	OK	zones_at x=2127.0 z=785.0 radius=20.0  -> 0.0s
+2026-10-26 00:08:27	2050-03-12	OK	zones_at x=2175.0 z=795.0 radius=20.0  -> 0.0s
+2026-10-26 00:08:27	2050-03-12	OK	zones_at x=2130.0 z=682.0 radius=20.0  -> 0.0s
+2026-10-26 00:08:28	2050-03-12	OK	zones_at x=2830.0 z=800.0 radius=90.0  -> 0.0s
+2026-10-26 00:08:29	2050-03-12	OK	zones_at x=2830.0 z=620.0 radius=90.0  -> 0.0s
+2026-10-26 00:08:31	2050-03-12	OK	buildings_near x=2127.0 z=425.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:08:32	2050-03-12	OK	buildings_near x=2127.0 z=785.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:08:33	2050-03-12	OK	buildings_near x=2175.0 z=795.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:08:34	2050-03-12	OK	buildings_near x=2130.0 z=682.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:08:34	2050-03-12	OK	buildings_near x=2830.0 z=800.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:08:35	2050-03-12	OK	buildings_near x=2830.0 z=620.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:08:40	2050-03-12	OK	list_transport_lines type=bus number=39 name=null  -> 0.0s
+2026-10-26 00:08:40	2050-03-12	OK	list_transport_lines type=bus number=38 name=null  -> 0.0s
+2026-10-26 00:08:41	2050-03-12	OK	list_transport_lines type=bus number=28 name=null  -> 0.0s
+2026-10-26 00:08:41	2050-03-12	OK	list_transport_lines type=bus number=37 name=null  -> 0.0s
+2026-10-26 00:08:42	2050-03-12	OK	list_transport_lines type=bus number=41 name=null  -> 0.0s
+2026-10-26 00:08:42	2050-03-12	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:08:45	2050-03-12	OK	vehicles_stuck kind=truck building=28755 limit=10  -> 0.0s
+2026-10-26 00:08:46	2050-03-12	OK	net_near x=3495.0 z=-1558.0 radius=40.0 service=null limit=50  -> 0.0s
+2026-10-26 00:08:46	2050-03-12	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:08:50	2050-03-12	OK	buildings_near x=-1156.0 z=-1055.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:08:50	2050-03-12	OK	buildings_near x=2230.0 z=800.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:08:50	2050-03-12	OK	cargo  -> 0.0s
+2026-10-26 00:08:53	2050-03-12	OK	vehicles_stuck kind=garbage building=41481 limit=20  -> 0.0s
+2026-10-26 00:08:54	2050-03-12	OK	buildings_near x=-1796.0 z=-1745.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:08:54	2050-03-12	OK	complaints  -> 0.0s
+2026-10-26 00:09:31	2050-03-12	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.1s
+2026-10-26 00:11:04	2050-03-22	OK	city_info  -> 0.0s
+2026-10-26 00:11:04	2050-03-22	OK	events  -> 0.0s
+2026-10-26 00:11:07	2050-03-22	OK	zones_at x=2127.0 z=425.0 radius=22.0  -> 0.0s
+2026-10-26 00:11:08	2050-03-22	OK	zones_at x=2127.0 z=785.0 radius=20.0  -> 0.0s
+2026-10-26 00:11:08	2050-03-22	OK	zones_at x=2175.0 z=795.0 radius=20.0  -> 0.0s
+2026-10-26 00:11:09	2050-03-22	OK	zones_at x=2130.0 z=682.0 radius=20.0  -> 0.0s
+2026-10-26 00:11:10	2050-03-22	OK	zones_at x=2830.0 z=800.0 radius=90.0  -> 0.0s
+2026-10-26 00:11:10	2050-03-22	OK	zones_at x=2830.0 z=620.0 radius=90.0  -> 0.0s
+2026-10-26 00:11:13	2050-03-22	OK	buildings_near x=2127.0 z=425.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:11:14	2050-03-22	OK	buildings_near x=2127.0 z=785.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:11:15	2050-03-22	OK	buildings_near x=2175.0 z=795.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:11:16	2050-03-22	OK	buildings_near x=2130.0 z=682.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:11:16	2050-03-22	OK	buildings_near x=2830.0 z=800.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:11:17	2050-03-22	OK	buildings_near x=2830.0 z=620.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:11:21	2050-03-22	OK	list_transport_lines type=bus number=39 name=null  -> 0.0s
+2026-10-26 00:11:21	2050-03-22	OK	list_transport_lines type=bus number=38 name=null  -> 0.0s
+2026-10-26 00:11:22	2050-03-22	OK	list_transport_lines type=bus number=28 name=null  -> 0.0s
+2026-10-26 00:11:22	2050-03-22	OK	list_transport_lines type=bus number=37 name=null  -> 0.0s
+2026-10-26 00:11:23	2050-03-22	OK	list_transport_lines type=bus number=41 name=null  -> 0.0s
+2026-10-26 00:11:25	2050-03-22	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:11:27	2050-03-22	OK	vehicles_stuck kind=truck building=28755 limit=10  -> 0.1s
+2026-10-26 00:11:28	2050-03-22	OK	net_near x=3495.0 z=-1558.0 radius=40.0 service=null limit=50  -> 0.0s
+2026-10-26 00:11:28	2050-03-22	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:11:31	2050-03-22	OK	buildings_near x=-1156.0 z=-1055.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:11:32	2050-03-22	OK	buildings_near x=2230.0 z=800.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:11:32	2050-03-22	OK	cargo  -> 0.0s
+2026-10-26 00:11:35	2050-03-22	OK	vehicles_stuck kind=garbage building=41481 limit=20  -> 0.0s
+2026-10-26 00:11:36	2050-03-22	OK	buildings_near x=-1796.0 z=-1745.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:11:36	2050-03-22	OK	complaints  -> 0.0s
+2026-10-26 00:12:07	2050-03-22	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.2s
+2026-10-26 00:13:41	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:13:41	2050-04-01	OK	zones_at x=2127.0 z=425.0 radius=22.0  -> 0.0s
+2026-10-26 00:13:42	2050-04-01	OK	zones_at x=2127.0 z=785.0 radius=20.0  -> 0.0s
+2026-10-26 00:13:43	2050-04-01	OK	zones_at x=2175.0 z=795.0 radius=20.0  -> 0.0s
+2026-10-26 00:13:43	2050-04-01	OK	zones_at x=2130.0 z=682.0 radius=20.0  -> 0.0s
+2026-10-26 00:13:44	2050-04-01	OK	zones_at x=2830.0 z=800.0 radius=90.0  -> 0.0s
+2026-10-26 00:13:44	2050-04-01	OK	zones_at x=2830.0 z=620.0 radius=90.0  -> 0.0s
+2026-10-26 00:13:47	2050-04-01	OK	buildings_near x=2127.0 z=425.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:13:48	2050-04-01	OK	buildings_near x=2127.0 z=785.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:13:48	2050-04-01	OK	buildings_near x=2175.0 z=795.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:13:49	2050-04-01	OK	buildings_near x=2130.0 z=682.0 radius=40.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:13:50	2050-04-01	OK	buildings_near x=2830.0 z=800.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:13:51	2050-04-01	OK	buildings_near x=2830.0 z=620.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:13:55	2050-04-01	OK	list_transport_lines type=bus number=39 name=null  -> 0.0s
+2026-10-26 00:13:56	2050-04-01	OK	list_transport_lines type=bus number=38 name=null  -> 0.0s
+2026-10-26 00:13:56	2050-04-01	OK	list_transport_lines type=bus number=28 name=null  -> 0.0s
+2026-10-26 00:13:57	2050-04-01	OK	list_transport_lines type=bus number=37 name=null  -> 0.0s
+2026-10-26 00:13:57	2050-04-01	OK	list_transport_lines type=bus number=41 name=null  -> 0.0s
+2026-10-26 00:13:57	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:14:00	2050-04-01	OK	vehicles_stuck kind=truck building=28755 limit=10  -> 0.0s
+2026-10-26 00:14:01	2050-04-01	OK	net_near x=3495.0 z=-1558.0 radius=40.0 service=null limit=50  -> 0.0s
+2026-10-26 00:14:01	2050-04-01	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:14:04	2050-04-01	OK	buildings_near x=-1156.0 z=-1055.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:14:08	2050-04-01	OK	buildings_near x=-1156.0 z=-1055.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:14:09	2050-04-01	OK	buildings_near x=2230.0 z=800.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:14:09	2050-04-01	OK	cargo  -> 0.0s
+2026-10-26 00:14:11	2050-04-01	OK	vehicles_stuck kind=garbage building=41481 limit=20  -> 0.0s
+2026-10-26 00:14:12	2050-04-01	OK	buildings_near x=-1796.0 z=-1745.0 radius=300.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:14:12	2050-04-01	OK	complaints  -> 0.0s
+2026-10-26 00:15:18	2050-04-01	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-26 00:16:02	2050-04-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 00:16:05	2050-04-01	OK	save_city name=fukuoka-plan-m04 overwrite=true  -> 2.0s
+2026-10-26 00:16:11	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:16:13	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:16:14	2050-04-01	OK	services  -> 0.0s
+2026-10-26 00:16:14	2050-04-01	OK	citizens_summary  -> 0.0s
+2026-10-26 00:16:14	2050-04-01	OK	complaints  -> 0.0s
+2026-10-26 00:16:19	2050-04-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-26 00:16:19	2050-04-01	OK	events  -> 0.0s
+2026-10-26 00:16:23	2050-04-01	OK	move_camera x=2022.0 z=235.0 size=2500.0 pitch=null yaw=null  -> 0.4s
+2026-10-26 00:16:27	2050-04-01	OK	screenshot view=current max_width=1024 save_to=m04-nogoods.jpg  -> 0.5s
+2026-10-26 00:16:30	2050-04-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:16:31	2050-04-01	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-26 00:16:31	2050-04-01	OK	traffic x=null z=null radius=500 limit=5  -> 0.0s
+2026-10-26 00:16:31	2050-04-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:16:32	2050-04-01	OK	cargo  -> 0.0s
+2026-10-26 00:16:35	2050-04-01	OK	traffic x=2830.0 z=710.0 radius=200.0 limit=3  -> 0.0s
+2026-10-26 00:16:36	2050-04-01	OK	traffic x=2140.0 z=610.0 radius=250.0 limit=3  -> 0.0s
+2026-10-26 00:16:36	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:18:46	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:18:47	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:18:47	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:18:47	2050-04-01	OK	list_loans  -> 0.0s
+2026-10-26 00:19:07	2050-04-01	OK	complaints  -> 0.0s
+2026-10-26 00:19:07	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:07	2050-04-01	OK	citizens_summary  -> 0.0s
+2026-10-26 00:19:07	2050-04-01	OK	complaints  -> 0.0s
+2026-10-26 00:19:07	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:08	2050-04-01	OK	services  -> 0.0s
+2026-10-26 00:19:08	2050-04-01	OK	citizens_summary  -> 0.0s
+2026-10-26 00:19:08	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:08	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:13	2050-04-01	OK	services  -> 0.0s
+2026-10-26 00:19:13	2050-04-01	OK	events  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	list_building_types service=Beautification locked=false  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	traffic x=null z=null radius=500 limit=15  -> 0.0s
+2026-10-26 00:19:14	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:19:15	2050-04-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-26 00:19:15	2050-04-01	OK	services  -> 0.0s
+2026-10-26 00:19:17	2050-04-01	OK	cargo  -> 0.0s
+2026-10-26 00:19:17	2050-04-01	OK	trade  -> 0.0s
+2026-10-26 00:19:17	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:17	2050-04-01	OK	transport_reach  -> 0.0s
+2026-10-26 00:19:18	2050-04-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:19:18	2050-04-01	OK	net_near x=3495.0 z=-1558.0 radius=60.0 service=null limit=50  -> 0.0s
+2026-10-26 00:19:20	2050-04-01	OK	net_near x=3495.0 z=-1558.0 radius=60.0 service=null limit=50  -> 0.0s
+2026-10-26 00:19:20	2050-04-01	OK	net_near x=2194.0 z=-950.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:19:21	2050-04-01	OK	vehicles_stuck kind=truck building=28755 limit=8  -> 0.0s
+2026-10-26 00:19:22	2050-04-01	OK	zone_map x=-2300.0 z=-1900.0 radius=500.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:19:22	2050-04-01	OK	buildings_near x=-2300.0 z=-1900.0 radius=700.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:19:24	2050-04-01	OK	list_policies  -> 0.0s
+2026-10-26 00:19:25	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:19:25	2050-04-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:19:25	2050-04-01	OK	cargo  -> 0.0s
+2026-10-26 00:19:25	2050-04-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:19:25	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:19:28	2050-04-01	OK	zone_map x=-2300.0 z=-2450.0 radius=300.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:19:29	2050-04-01	OK	net_near x=-2300.0 z=-2300.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:19:30	2050-04-01	OK	net_near x=3410.0 z=-1557.0 radius=60.0 service=null limit=50  -> 0.0s
+2026-10-26 00:19:30	2050-04-01	OK	vehicles_stuck kind=truck building=28755 limit=8  -> 0.0s
+2026-10-26 00:19:31	2050-04-01	OK	zone_map x=3470.0 z=-1555.0 radius=150.0 size=700 save_to=null  -> 0.0s
+2026-10-26 00:19:31	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:19:31	2050-04-01	NG	junction_info x=3496.0 z=-1558.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:19:32	2050-04-01	OK	net_reach x=3480.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:19:32	2050-04-01	OK	traffic x=513.0 z=-719.0 radius=150.0 limit=6  -> 0.0s
+2026-10-26 00:19:33	2050-04-01	OK	zone_map x=2750.0 z=700.0 radius=400.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 00:19:33	2050-04-01	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-26 00:19:40	2050-04-01	OK	net_near x=513.0 z=-719.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:19:40	2050-04-01	NG	junction_info x=513.0 z=-719.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:19:40	2050-04-01	OK	buildings_near x=2760.0 z=700.0 radius=200.0 limit=50 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-26 00:19:40	2050-04-01	OK	net_near x=2700.0 z=720.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:19:42	2050-04-01	OK	junction_info x=450.0 z=-708.0  -> 0.0s
+2026-10-26 00:19:42	2050-04-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-26 00:19:43	2050-04-01	OK	zone_map x=-1700.0 z=-1850.0 radius=350.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:19:43	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:19:43	2050-04-01	OK	vehicles_stuck kind=truck building=28755 limit=10  -> 0.0s
+2026-10-26 00:19:44	2050-04-01	OK	trade  -> 0.0s
+2026-10-26 00:19:50	2050-04-01	OK	net_near x=450.0 z=-900.0 radius=100.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:19:51	2050-04-01	OK	buildings_near x=450.0 z=-784.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:19:51	2050-04-01	OK	height_at x=450.0 z=-784.0  -> 0.0s
+2026-10-26 00:19:56	2050-04-01	OK	buildings_near x=2715.0 z=725.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:19:56	2050-04-01	OK	zones_at x=2700.0 z=720.0 radius=60.0  -> 0.0s
+2026-10-26 00:19:57	2050-04-01	OK	map_layer type=electricity_service x=2715.0 z=725.0 radius=100.0 n=5  -> 0.0s
+2026-10-26 00:19:59	2050-04-01	OK	buildings_near x=-1720.0 z=-1810.0 radius=140.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:20:00	2050-04-01	OK	net_near x=-1740.0 z=-1810.0 radius=130.0 service=null limit=50  -> 0.0s
+2026-10-26 00:20:00	2050-04-01	OK	zones_at x=-1690.0 z=-1840.0 radius=60.0  -> 0.0s
+2026-10-26 00:20:01	2050-04-01	OK	height_at x=-1690.0 z=-1840.0  -> 0.0s
+2026-10-26 00:20:01	2050-04-01	OK	height_at x=-1750.0 z=-1800.0  -> 0.0s
+2026-10-26 00:20:06	2050-04-01	OK	zone_map x=3550.0 z=450.0 radius=300.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 00:20:06	2050-04-01	OK	list_net_types service=Beautification locked=false  -> 0.0s
+2026-10-26 00:20:07	2050-04-01	OK	traffic x=3495.0 z=-1558.0 radius=150.0 limit=5  -> 0.0s
+2026-10-26 00:20:07	2050-04-01	OK	buildings_near x=-1850.0 z=-2010.0 radius=130.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:20:08	2050-04-01	OK	net_near x=-1850.0 z=-2010.0 radius=130.0 service=null limit=50  -> 0.0s
+2026-10-26 00:20:08	2050-04-01	OK	zones_at x=-1860.0 z=-2000.0 radius=60.0  -> 0.0s
+2026-10-26 00:20:09	2050-04-01	OK	height_at x=-1860.0 z=-2000.0  -> 0.0s
+2026-10-26 00:20:09	2050-04-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-26 00:20:14	2050-04-01	OK	net_near x=3405.0 z=-1557.0 radius=30.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:20:14	2050-04-01	OK	net_near x=3430.0 z=490.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:20:15	2050-04-01	OK	buildings_near x=3450.0 z=470.0 radius=90.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:20:16	2050-04-01	OK	map_layer type=electricity_service x=3450.0 z=470.0 radius=90.0 n=5  -> 0.0s
+2026-10-26 00:20:16	2050-04-01	OK	zones_at x=3450.0 z=470.0 radius=60.0  -> 0.0s
+2026-10-26 00:20:19	2050-04-01	OK	list_map_layers  -> 0.0s
+2026-10-26 00:20:19	2050-04-01	OK	net_reach x=3470.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:20:20	2050-04-01	OK	buildings_near x=3470.0 z=-1555.0 radius=100.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:20:24	2050-04-01	OK	buildings_near x=3560.0 z=570.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:20:25	2050-04-01	OK	zones_at x=3560.0 z=600.0 radius=40.0  -> 0.0s
+2026-10-26 00:20:25	2050-04-01	OK	map_layer type=electricity_service x=3560.0 z=570.0 radius=100.0 n=5  -> 0.0s
+2026-10-26 00:20:37	2050-04-01	NG	junction_info x=3400.0 z=-1557.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:20:37	2050-04-01	NG	junction_info x=3495.0 z=-1557.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:20:37	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:22:02	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:22:08	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:22:08	2050-04-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-26 00:22:08	2050-04-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-26 00:23:34	2050-04-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-26 00:23:35	2050-04-01	OK	buildings_near x=-1862.0 z=-2000.0 radius=150.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:23:35	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:26:19	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:26:19	2050-04-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:27:13	2050-04-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 00:27:18	2050-04-01	DO	満杯の埋立地3つの南に埋立地を1棟足す(試し、市の計画4-4)
+2026-10-26 00:27:18	2050-04-01	WHY	ごみの印74のうち26が(-2430,-1807)に集中、周りの埋立地3つは100%。受け入れ先を足し月末に印60以下を見込む
+2026-10-26 00:27:19	2050-04-01	OK	buildings_near x=-1862.0 z=-2000.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:27:20	2050-04-01	OK	net_near x=-1820.0 z=-2000.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:27:20	2050-04-01	OK	services  -> 0.0s
+2026-10-26 00:27:24	2050-04-01	OK	build_line prefab=Basic Road points=[[-1820.0, -1960.0], [-1820.0, -2040.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.5s cost=400
+2026-10-26 00:27:31	2050-04-01	OK	place_building prefab=Landfill Site x=-1862.0 z=-2000.0 angle=0 pay=true facing=east  -> 3.3s cost=4000
+2026-10-26 00:27:37	2050-04-01	OK	services  -> 0.0s
+2026-10-26 00:27:38	2050-04-01	OK	buildings_near x=-1862.0 z=-2000.0 radius=60.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:27:38	2050-04-01	OK	zones_at x=-1820.0 z=-2000.0 radius=50.0  -> 0.0s
+2026-10-26 00:27:42	2050-04-01	OK	move_camera x=-1850.0 z=-1980.0 size=600.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-26 00:27:46	2050-04-01	OK	screenshot view=current max_width=800 save_to=m04-landfill.jpg  -> 0.5s
+2026-10-26 00:27:49	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:27:49	2050-04-01	OK	city_info  -> 0.0s
+2026-10-26 00:27:52	2050-04-01	DO	事務所の税率を3%から5%に上げる(試し、公約3)
+2026-10-26 00:27:52	2050-04-01	WHY	週の収支は4か月続けて下がり+5,197。事務所の税収24,598に+2で週+10,000以上の増を見込む。働き口86,000割れを見張る
+2026-10-26 00:27:53	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:27:53	2050-04-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:27:55	2050-04-01	OK	set_tax target=office rate=5  -> 0.0s
+2026-10-26 00:27:56	2050-04-01	OK	economy  -> 0.0s
+2026-10-26 00:27:57	2050-04-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:27:58	2050-04-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:28:02	2050-04-01	DO	乗客の少ないバス13路線の台数割合を20ずつ下げる(試し、公約3)
+2026-10-26 00:28:02	2050-04-01	WHY	13路線は427台で前の期間の乗客114人。先月同じ手で支出-479、乗客は減らず。台数370前後を見込む
+2026-10-26 00:28:03	2050-04-01	OK	set_transport_line_budget line=200 percent=80  -> 0.0s
+2026-10-26 00:28:03	2050-04-01	OK	set_transport_line_budget line=210 percent=80  -> 0.0s
+2026-10-26 00:28:04	2050-04-01	OK	set_transport_line_budget line=202 percent=80  -> 0.0s
+2026-10-26 00:28:05	2050-04-01	OK	set_transport_line_budget line=83 percent=80  -> 0.0s
+2026-10-26 00:28:05	2050-04-01	OK	set_transport_line_budget line=46 percent=80  -> 0.0s
+2026-10-26 00:28:06	2050-04-01	OK	set_transport_line_budget line=9 percent=80  -> 0.0s
+2026-10-26 00:28:06	2050-04-01	OK	set_transport_line_budget line=107 percent=80  -> 0.0s
+2026-10-26 00:28:07	2050-04-01	OK	set_transport_line_budget line=131 percent=80  -> 0.0s
+2026-10-26 00:28:07	2050-04-01	OK	set_transport_line_budget line=203 percent=180  -> 0.0s
+2026-10-26 00:28:08	2050-04-01	OK	set_transport_line_budget line=139 percent=160  -> 0.0s
+2026-10-26 00:28:09	2050-04-01	OK	set_transport_line_budget line=21 percent=160  -> 0.0s
+2026-10-26 00:28:09	2050-04-01	OK	set_transport_line_budget line=127 percent=160  -> 0.0s
+2026-10-26 00:28:09	2050-04-01	OK	set_transport_line_budget line=126 percent=160  -> 0.0s
+2026-10-26 00:28:15	2050-04-01	OK	list_transport_lines type=bus number=null name=Bus Line 1  -> 0.0s
+2026-10-26 00:28:46	2050-04-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.7s
+2026-10-26 00:30:20	2050-04-11	OK	city_info  -> 0.0s
+2026-10-26 00:30:21	2050-04-11	OK	events  -> 0.0s
+2026-10-26 00:30:25	2050-04-11	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 00:30:25	2050-04-11	OK	cargo  -> 0.0s
+2026-10-26 00:30:26	2050-04-11	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:30:30	2050-04-11	OK	buildings_near x=961.0 z=264.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:30:30	2050-04-11	OK	vehicles_stuck kind=truck building=28755 limit=30  -> 0.0s
+2026-10-26 00:30:34	2050-04-11	OK	map_layer type=pollution x=3823.0 z=-183.0 radius=600.0 n=13  -> 0.0s
+2026-10-26 00:30:35	2050-04-11	OK	buildings_near x=3823.0 z=-183.0 radius=500.0 limit=30 problems_only=false problem=Pollution service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:30:37	2050-04-11	OK	complaints  -> 0.0s
+2026-10-26 00:30:38	2050-04-11	OK	services  -> 0.0s
+2026-10-26 00:30:39	2050-04-11	OK	buildings_near x=-1862.0 z=-2000.0 radius=60.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:30:39	2050-04-11	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:30:41	2050-04-11	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:30:43	2050-04-11	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:31:37	2050-04-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 93.4s
+2026-10-26 00:33:13	2050-04-21	OK	city_info  -> 0.0s
+2026-10-26 00:33:13	2050-04-21	OK	events  -> 0.0s
+2026-10-26 00:33:15	2050-04-21	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 00:33:16	2050-04-21	OK	cargo  -> 0.0s
+2026-10-26 00:33:16	2050-04-21	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:33:26	2050-04-21	OK	buildings_near x=961.0 z=264.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:33:27	2050-04-21	OK	vehicles_stuck kind=truck building=28755 limit=30  -> 0.0s
+2026-10-26 00:33:29	2050-04-21	OK	map_layer type=pollution x=3823.0 z=-183.0 radius=600.0 n=13  -> 0.0s
+2026-10-26 00:33:30	2050-04-21	OK	buildings_near x=3823.0 z=-183.0 radius=500.0 limit=30 problems_only=false problem=Pollution service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:33:31	2050-04-21	OK	complaints  -> 0.0s
+2026-10-26 00:33:31	2050-04-21	OK	services  -> 0.0s
+2026-10-26 00:33:32	2050-04-21	OK	buildings_near x=-1862.0 z=-2000.0 radius=60.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:33:32	2050-04-21	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:33:36	2050-04-21	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:33:39	2050-04-21	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:34:33	2050-04-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.4s
+2026-10-26 00:36:08	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:36:09	2050-05-01	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 00:36:09	2050-05-01	OK	cargo  -> 0.0s
+2026-10-26 00:36:09	2050-05-01	OK	traffic x=3430.0 z=-1555.0 radius=120.0 limit=10  -> 0.0s
+2026-10-26 00:36:15	2050-05-01	OK	buildings_near x=961.0 z=264.0 radius=300.0 limit=30 problems_only=false problem=NoGoods service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:36:16	2050-05-01	OK	vehicles_stuck kind=truck building=28755 limit=30  -> 0.0s
+2026-10-26 00:36:17	2050-05-01	OK	map_layer type=pollution x=3823.0 z=-183.0 radius=600.0 n=13  -> 0.0s
+2026-10-26 00:36:18	2050-05-01	OK	buildings_near x=3823.0 z=-183.0 radius=500.0 limit=30 problems_only=false problem=Pollution service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:36:20	2050-05-01	OK	complaints  -> 0.0s
+2026-10-26 00:36:20	2050-05-01	OK	services  -> 0.0s
+2026-10-26 00:36:21	2050-05-01	OK	buildings_near x=-1862.0 z=-2000.0 radius=60.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:36:21	2050-05-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:36:21	2050-05-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:36:21	2050-05-01	OK	events  -> 0.0s
+2026-10-26 00:36:23	2050-05-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:36:25	2050-05-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:37:40	2050-05-01	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-26 00:38:29	2050-05-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 00:38:29	2050-05-01	OK	save_city name=fukuoka-plan-m05 overwrite=true  -> 2.5s
+2026-10-26 00:38:35	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:38:35	2050-05-01	OK	economy  -> 0.0s
+2026-10-26 00:38:36	2050-05-01	OK	services  -> 0.0s
+2026-10-26 00:38:36	2050-05-01	OK	citizens_summary  -> 0.0s
+2026-10-26 00:38:36	2050-05-01	OK	complaints  -> 0.0s
+2026-10-26 00:38:36	2050-05-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-26 00:38:36	2050-05-01	OK	events  -> 0.0s
+2026-10-26 00:38:41	2050-05-01	OK	move_camera x=-2393.0 z=-261.0 size=2500.0 pitch=null yaw=0.0  -> 0.5s
+2026-10-26 00:38:46	2050-05-01	OK	screenshot view=current max_width=1024 save_to=m05-garbage.jpg  -> 0.5s
+2026-10-26 00:38:49	2050-05-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:38:49	2050-05-01	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-26 00:38:50	2050-05-01	OK	traffic x=null z=null radius=500 limit=5  -> 0.0s
+2026-10-26 00:38:50	2050-05-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:38:50	2050-05-01	OK	cargo  -> 0.0s
+2026-10-26 00:38:50	2050-05-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:39:24	2050-05-01	OK	buildings_near x=923.0 z=258.0 radius=300.0 limit=5 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:39:24	2050-05-01	OK	buildings_near x=2219.0 z=744.0 radius=300.0 limit=5 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:41:31	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:41:31	2050-05-01	OK	economy  -> 0.0s
+2026-10-26 00:41:31	2050-05-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:41:31	2050-05-01	OK	list_loans  -> 0.0s
+2026-10-26 00:41:50	2050-05-01	OK	services  -> 0.0s
+2026-10-26 00:41:50	2050-05-01	OK	citizens_summary  -> 0.0s
+2026-10-26 00:41:50	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	citizens_summary  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	cargo  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	complaints  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	list_transport_lines type=null number=null name=null  -> 0.0s
+2026-10-26 00:41:51	2050-05-01	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-26 00:41:52	2050-05-01	OK	complaints  -> 0.0s
+2026-10-26 00:41:53	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:53	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:58	2050-05-01	OK	traffic x=null z=null radius=500 limit=15  -> 0.0s
+2026-10-26 00:41:58	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:58	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:41:58	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:41:59	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:41:59	2050-05-01	OK	buildings_near x=3623.0 z=-583.0 radius=250.0 limit=80 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:41:59	2050-05-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:41:59	2050-05-01	OK	cargo  -> 0.0s
+2026-10-26 00:41:59	2050-05-01	OK	economy  -> 0.0s
+2026-10-26 00:41:59	2050-05-01	OK	zone_summary grid=1000  -> 0.1s
+2026-10-26 00:42:00	2050-05-01	OK	buildings_near x=3623.0 z=-30.0 radius=200.0 limit=80 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:00	2050-05-01	OK	zone_map x=3800.0 z=-350.0 radius=600.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:42:00	2050-05-01	OK	list_building_types service=Beautification locked=false  -> 0.0s
+2026-10-26 00:42:01	2050-05-01	OK	buildings_near x=2941.0 z=1335.0 radius=200.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:42:01	2050-05-01	OK	events  -> 0.0s
+2026-10-26 00:42:02	2050-05-01	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:42:02	2050-05-01	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-26 00:42:02	2050-05-01	OK	buildings_near x=2941.0 z=1335.0 radius=300.0 limit=50 problems_only=false problem=null service=FireDepartment abandoned=false brief=false  -> 0.0s
+2026-10-26 00:42:03	2050-05-01	OK	map_layer type=fire x=2941.0 z=1335.0 radius=600.0 n=7  -> 0.0s
+2026-10-26 00:42:03	2050-05-01	OK	list_building_types service=FireDepartment locked=false  -> 0.0s
+2026-10-26 00:42:03	2050-05-01	OK	net_near x=2068.0 z=284.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:42:04	2050-05-01	OK	traffic x=2068.0 z=284.0 radius=150.0 limit=8  -> 0.0s
+2026-10-26 00:42:04	2050-05-01	OK	list_building_types service=Electricity locked=false  -> 0.0s
+2026-10-26 00:42:05	2050-05-01	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=100 problems_only=false problem=null service=Electricity abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:05	2050-05-01	OK	services  -> 0.0s
+2026-10-26 00:42:07	2050-05-01	OK	junction_info x=2110.0 z=330.0  -> 0.0s
+2026-10-26 00:42:07	2050-05-01	NG	junction_info x=2110.0 z=285.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:42:07	2050-05-01	OK	junction_info x=2155.0 z=330.0  -> 0.0s
+2026-10-26 00:42:07	2050-05-01	OK	junction_info x=2110.0 z=240.0  -> 0.0s
+2026-10-26 00:42:08	2050-05-01	OK	preview_bulldoze x=2882.0 z=1434.0 radius=12.0 what=all  -> 0.1s
+2026-10-26 00:42:08	2050-05-01	OK	preview_bulldoze x=2971.0 z=1286.0 radius=22.0 what=all  -> 0.1s
+2026-10-26 00:42:09	2050-05-01	OK	buildings_near x=3604.0 z=-30.0 radius=15.0 limit=5 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 00:42:09	2050-05-01	OK	map_layer type=pollution x=3604.0 z=-30.0 radius=300.0 n=13  -> 0.0s
+2026-10-26 00:42:12	2050-05-01	OK	zones_at x=2830.0 z=710.0 radius=500.0  -> 0.0s
+2026-10-26 00:42:12	2050-05-01	OK	zones_at x=3500.0 z=500.0 radius=500.0  -> 0.0s
+2026-10-26 00:42:12	2050-05-01	OK	traffic x=2155.0 z=330.0 radius=120.0 limit=6  -> 0.0s
+2026-10-26 00:42:13	2050-05-01	OK	zones_at x=1500.0 z=1500.0 radius=500.0  -> 0.0s
+2026-10-26 00:42:13	2050-05-01	OK	buildings_near x=2155.0 z=330.0 radius=60.0 limit=15 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:13	2050-05-01	OK	zones_at x=500.0 z=-500.0 radius=500.0  -> 0.0s
+2026-10-26 00:42:13	2050-05-01	OK	zone_map x=2500.0 z=500.0 radius=500.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 00:42:14	2050-05-01	OK	traffic x=2140.0 z=610.0 radius=250.0 limit=10  -> 0.0s
+2026-10-26 00:42:15	2050-05-01	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=100 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:42:16	2050-05-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:42:18	2050-05-01	OK	net_near x=3480.0 z=-1560.0 radius=80.0 service=null limit=50  -> 0.0s
+2026-10-26 00:42:19	2050-05-01	NG	junction_info x=3495.0 z=-1565.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:42:19	2050-05-01	OK	transport_reach  -> 0.0s
+2026-10-26 00:42:19	2050-05-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:42:20	2050-05-01	OK	zone_map x=3500.0 z=500.0 radius=500.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:42:22	2050-05-01	OK	list_districts  -> 0.0s
+2026-10-26 00:42:23	2050-05-01	OK	buildings_near x=2200.0 z=450.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:24	2050-05-01	OK	net_near x=2200.0 z=450.0 radius=110.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:42:24	2050-05-01	OK	zones_at x=2200.0 z=450.0 radius=60.0  -> 0.0s
+2026-10-26 00:42:28	2050-05-01	OK	zone_map x=1500.0 z=1500.0 radius=500.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:42:28	2050-05-01	OK	buildings_near x=-2393.0 z=-261.0 radius=500.0 limit=60 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:29	2050-05-01	OK	zone_map x=-2393.0 z=-361.0 radius=500.0 size=900 save_to=null  -> 0.0s
+2026-10-26 00:42:29	2050-05-01	OK	building_stats x=-2393.0 z=-361.0 radius=400.0  -> 0.0s
+2026-10-26 00:42:30	2050-05-01	OK	zone_map x=2500.0 z=-500.0 radius=500.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 00:42:33	2050-05-01	OK	zones_at x=1755.0 z=1290.0 radius=190.0  -> 0.0s
+2026-10-26 00:42:33	2050-05-01	OK	zones_at x=1878.0 z=1690.0 radius=80.0  -> 0.0s
+2026-10-26 00:42:34	2050-05-01	OK	net_near x=1780.0 z=1290.0 radius=200.0 service=Road limit=10  -> 0.0s
+2026-10-26 00:42:34	2050-05-01	OK	buildings_near x=1755.0 z=1290.0 radius=190.0 limit=40 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:35	2050-05-01	OK	zones_at x=2172.0 z=-250.0 radius=150.0  -> 0.0s
+2026-10-26 00:42:36	2050-05-01	OK	zones_at x=2172.0 z=-550.0 radius=150.0  -> 0.0s
+2026-10-26 00:42:41	2050-05-01	OK	net_near x=1900.0 z=1690.0 radius=120.0 service=Road limit=10  -> 0.0s
+2026-10-26 00:42:41	2050-05-01	OK	water_trace x=1880.0 z=1690.0  -> 0.0s
+2026-10-26 00:42:42	2050-05-01	OK	zones_at x=1930.0 z=1690.0 radius=60.0  -> 0.0s
+2026-10-26 00:42:42	2050-05-01	OK	buildings_near x=1900.0 z=1690.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:42:43	2050-05-01	OK	map_layer type=electricity_service x=1900.0 z=1690.0 radius=100.0 n=5  -> 0.0s
+2026-10-26 00:42:46	2050-05-01	OK	water_trace x=2172.0 z=-250.0  -> 0.0s
+2026-10-26 00:42:46	2050-05-01	OK	traffic x=2172.0 z=-250.0 radius=200.0 limit=3  -> 0.0s
+2026-10-26 00:42:47	2050-05-01	OK	zones_at x=2172.0 z=-250.0 radius=25.0  -> 0.0s
+2026-10-26 00:42:47	2050-05-01	OK	building_stats x=2172.0 z=-250.0 radius=200.0  -> 0.0s
+2026-10-26 00:42:50	2050-05-01	OK	map_layer type=electricity_service x=1930.0 z=1690.0 radius=80.0 n=9  -> 0.0s
+2026-10-26 00:42:51	2050-05-01	OK	map_layer type=water_service x=1930.0 z=1690.0 radius=80.0 n=9  -> 0.0s
+2026-10-26 00:42:51	2050-05-01	OK	map_layer type=sewage_service x=1930.0 z=1690.0 radius=80.0 n=9  -> 0.0s
+2026-10-26 00:42:53	2050-05-01	OK	preview_bulldoze x=3604.0 z=-30.0 radius=10.0 what=building  -> 0.1s
+2026-10-26 00:42:54	2050-05-01	OK	buildings_near x=-1862.0 z=-2000.0 radius=400.0 limit=20 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:43:00	2050-05-01	OK	zones_at x=3550.0 z=590.0 radius=100.0  -> 0.0s
+2026-10-26 00:43:01	2050-05-01	OK	buildings_near x=3550.0 z=590.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:43:02	2050-05-01	OK	net_near x=3550.0 z=590.0 radius=120.0 service=Road limit=10  -> 0.0s
+2026-10-26 00:43:02	2050-05-01	OK	map_layer type=electricity_service x=3550.0 z=590.0 radius=100.0 n=9  -> 0.0s
+2026-10-26 00:43:07	2050-05-01	OK	map_layer type=water_service x=3550.0 z=590.0 radius=100.0 n=5  -> 0.0s
+2026-10-26 00:43:08	2050-05-01	OK	map_layer type=sewage_service x=3550.0 z=590.0 radius=100.0 n=5  -> 0.0s
+2026-10-26 00:43:08	2050-05-01	OK	zones_at x=3550.0 z=595.0 radius=45.0  -> 0.0s
+2026-10-26 00:43:12	2050-05-01	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:43:12	2050-05-01	OK	zones_at x=1928.0 z=1690.0 radius=30.0  -> 0.0s
+2026-10-26 00:44:02	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:44:09	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:44:10	2050-05-01	OK	economy  -> 0.0s
+2026-10-26 00:46:39	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:46:40	2050-05-01	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:46:40	2050-05-01	OK	list_districts  -> 0.0s
+2026-10-26 00:46:47	2050-05-01	OK	list_map_layers  -> 0.0s
+2026-10-26 00:49:31	2050-05-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:50:16	2050-05-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 00:50:16	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:50:20	2050-05-01	DO	道に面した空き地24マスを事務所の区画にする(試し、公約1)
+2026-10-26 00:50:20	2050-05-01	WHY	働き口の需要58だが事務所の空き区画は道に面さず建たない。(1928,1645)のUnzoned24に塗り、月末+4棟を見込む
+2026-10-26 00:50:21	2050-05-01	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:50:22	2050-05-01	OK	buildings_near x=1928.0 z=1645.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:50:26	2050-05-01	OK	zone_area x=1928.0 z=1645.0 radius=30.0 type=office  -> 3.5s
+2026-10-26 00:50:33	2050-05-01	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:50:33	2050-05-01	OK	city_info  -> 0.0s
+2026-10-26 00:50:34	2050-05-01	OK	move_camera x=1928.0 z=1645.0 size=400.0 pitch=60.0 yaw=0.0  -> 0.2s
+2026-10-26 00:50:38	2050-05-01	OK	screenshot view=current max_width=800 save_to=m05-office-zone.jpg  -> 0.5s
+2026-10-26 00:50:40	2050-05-01	OK	zone_map x=1928.0 z=1645.0 radius=150.0 size=500 save_to=m05-office-zonemap.jpg  -> 0.0s
+2026-10-26 00:50:44	2050-05-01	DO	西の工場街の地区だけにRecyclingをかける(試し、計画4-4)
+2026-10-26 00:50:44	2050-05-01	WHY	ごみの印74→132、(-2393,-261)に25棟。受け入れ先を足す手は効かず、出る量を減らす。週費用0、税収減は週230前後
+2026-10-26 00:50:44	2050-05-01	OK	list_districts  -> 0.0s
+2026-10-26 00:50:44	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:50:45	2050-05-01	OK	buildings_near x=-2393.0 z=-261.0 radius=500.0 limit=60 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:50:48	2050-05-01	OK	paint_district x=-2450.0 z=-650.0 radius=150.0 name=RecycleWest erase=false  -> 3.5s
+2026-10-26 00:50:54	2050-05-01	OK	paint_district x=-2450.0 z=-500.0 radius=150.0 name=RecycleWest erase=false  -> 3.4s
+2026-10-26 00:50:58	2050-05-01	OK	paint_district x=-2450.0 z=-350.0 radius=150.0 name=RecycleWest erase=false  -> 3.4s
+2026-10-26 00:51:01	2050-05-01	OK	paint_district x=-2450.0 z=-200.0 radius=150.0 name=RecycleWest erase=false  -> 3.4s
+2026-10-26 00:51:05	2050-05-01	OK	paint_district x=-2450.0 z=-50.0 radius=150.0 name=RecycleWest erase=false  -> 3.3s
+2026-10-26 00:51:09	2050-05-01	OK	list_districts  -> 0.0s
+2026-10-26 00:51:12	2050-05-01	OK	set_district_policy district=RecycleWest name=Recycling active=true  -> 0.0s
+2026-10-26 00:51:14	2050-05-01	OK	list_districts  -> 0.0s
+2026-10-26 00:51:15	2050-05-01	OK	list_policies  -> 0.0s
+2026-10-26 00:51:15	2050-05-01	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:51:19	2050-05-01	DO	乗客の少ないバス18路線の台数割合を20ずつ下げる(試し、公約3)
+2026-10-26 00:51:19	2050-05-01	WHY	18路線は637台で乗客283人。同じ手は2回当たり。台数530〜560、バスの支出-800〜-1,300を見込む
+2026-10-26 00:51:19	2050-05-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:51:29	2050-05-01	OK	set_transport_line_budget line=139 percent=140  -> 0.0s
+2026-10-26 00:51:30	2050-05-01	OK	set_transport_line_budget line=127 percent=140  -> 0.0s
+2026-10-26 00:51:30	2050-05-01	OK	set_transport_line_budget line=21 percent=140  -> 0.0s
+2026-10-26 00:51:31	2050-05-01	OK	set_transport_line_budget line=126 percent=140  -> 0.0s
+2026-10-26 00:51:31	2050-05-01	OK	set_transport_line_budget line=136 percent=160  -> 0.0s
+2026-10-26 00:51:32	2050-05-01	OK	set_transport_line_budget line=199 percent=180  -> 0.0s
+2026-10-26 00:51:34	2050-05-01	OK	set_transport_line_budget line=15 percent=180  -> 0.0s
+2026-10-26 00:51:35	2050-05-01	OK	set_transport_line_budget line=31 percent=180  -> 0.0s
+2026-10-26 00:51:35	2050-05-01	OK	set_transport_line_budget line=74 percent=180  -> 0.0s
+2026-10-26 00:51:35	2050-05-01	OK	set_transport_line_budget line=198 percent=180  -> 0.0s
+2026-10-26 00:51:36	2050-05-01	OK	set_transport_line_budget line=200 percent=60  -> 0.0s
+2026-10-26 00:51:36	2050-05-01	OK	set_transport_line_budget line=202 percent=60  -> 0.0s
+2026-10-26 00:51:39	2050-05-01	OK	set_transport_line_budget line=210 percent=60  -> 0.0s
+2026-10-26 00:51:39	2050-05-01	OK	set_transport_line_budget line=9 percent=60  -> 0.0s
+2026-10-26 00:51:40	2050-05-01	OK	set_transport_line_budget line=46 percent=60  -> 0.0s
+2026-10-26 00:51:40	2050-05-01	OK	set_transport_line_budget line=83 percent=60  -> 0.0s
+2026-10-26 00:51:41	2050-05-01	OK	set_transport_line_budget line=107 percent=60  -> 0.0s
+2026-10-26 00:51:41	2050-05-01	OK	set_transport_line_budget line=131 percent=60  -> 0.0s
+2026-10-26 00:52:29	2050-05-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.5s
+2026-10-26 00:54:05	2050-05-11	OK	city_info  -> 0.0s
+2026-10-26 00:54:05	2050-05-11	OK	events  -> 0.0s
+2026-10-26 00:54:10	2050-05-11	OK	net_near x=3496.0 z=-1560.0 radius=40.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:54:11	2050-05-11	NG	junction_info x=3495.0 z=-1560.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:54:11	2050-05-11	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 00:54:13	2050-05-11	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:54:14	2050-05-11	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:54:14	2050-05-11	OK	citizens_summary  -> 0.0s
+2026-10-26 00:54:17	2050-05-11	OK	vehicles_stuck kind=garbage building=37856 limit=20  -> 0.0s
+2026-10-26 00:54:17	2050-05-11	OK	buildings_near x=-1862.0 z=-2000.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:54:18	2050-05-11	OK	traffic x=-1862.0 z=-2000.0 radius=300.0 limit=10  -> 0.0s
+2026-10-26 00:54:21	2050-05-11	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:54:21	2050-05-11	OK	buildings_near x=1928.0 z=1645.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:54:22	2050-05-11	OK	buildings_near x=-2393.0 z=-261.0 radius=500.0 limit=60 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:54:49	2050-05-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.1s
+2026-10-26 00:56:22	2050-05-21	OK	city_info  -> 0.0s
+2026-10-26 00:56:22	2050-05-21	OK	events  -> 0.0s
+2026-10-26 00:56:25	2050-05-21	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:56:26	2050-05-21	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:56:26	2050-05-21	OK	citizens_summary  -> 0.0s
+2026-10-26 00:56:26	2050-05-21	OK	vehicles_stuck kind=garbage building=37856 limit=20  -> 0.0s
+2026-10-26 00:56:27	2050-05-21	OK	buildings_near x=-1862.0 z=-2000.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:56:28	2050-05-21	OK	traffic x=-1862.0 z=-2000.0 radius=300.0 limit=10  -> 0.0s
+2026-10-26 00:56:31	2050-05-21	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:56:31	2050-05-21	OK	buildings_near x=1928.0 z=1645.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:56:32	2050-05-21	OK	buildings_near x=-2393.0 z=-261.0 radius=500.0 limit=60 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:56:51	2050-05-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 88.0s
+2026-10-26 00:58:21	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 00:58:22	2050-05-31	OK	net_near x=3496.0 z=-1560.0 radius=40.0 service=Road limit=50  -> 0.0s
+2026-10-26 00:58:22	2050-05-31	NG	junction_info x=3495.0 z=-1560.0  -> no road junction within 40m (0.0s)
+2026-10-26 00:58:23	2050-05-31	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 00:58:25	2050-05-31	OK	demand_breakdown  -> 0.0s
+2026-10-26 00:58:26	2050-05-31	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 00:58:26	2050-05-31	OK	citizens_summary  -> 0.0s
+2026-10-26 00:58:26	2050-05-31	OK	vehicles_stuck kind=garbage building=37856 limit=20  -> 0.0s
+2026-10-26 00:58:27	2050-05-31	OK	buildings_near x=-1862.0 z=-2000.0 radius=50.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-26 00:58:27	2050-05-31	OK	traffic x=-1862.0 z=-2000.0 radius=300.0 limit=10  -> 0.0s
+2026-10-26 00:58:32	2050-05-31	OK	zones_at x=1928.0 z=1645.0 radius=30.0  -> 0.0s
+2026-10-26 00:58:32	2050-05-31	OK	buildings_near x=1928.0 z=1645.0 radius=60.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:58:34	2050-05-31	OK	buildings_near x=-2393.0 z=-261.0 radius=500.0 limit=60 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-26 00:58:34	2050-05-31	OK	economy_breakdown  -> 0.0s
+2026-10-26 00:58:36	2050-05-31	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 00:59:35	2050-05-31	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-26 01:00:24	2050-05-31	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 01:00:25	2050-05-31	OK	list_saves  -> 0.0s
+2026-10-26 01:00:29	2050-05-31	OK	save_city name=fukuoka-plan-m06 overwrite=true  -> 2.0s
+2026-10-26 01:00:34	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:00:35	2050-05-31	OK	economy  -> 0.0s
+2026-10-26 01:00:35	2050-05-31	OK	services  -> 0.0s
+2026-10-26 01:00:35	2050-05-31	OK	citizens_summary  -> 0.0s
+2026-10-26 01:00:35	2050-05-31	OK	complaints  -> 0.0s
+2026-10-26 01:00:36	2050-05-31	OK	citizen_voices n=5  -> 0.0s
+2026-10-26 01:00:36	2050-05-31	OK	events  -> 0.0s
+2026-10-26 01:00:40	2050-05-31	OK	move_camera x=-276.0 z=-1506.0 size=2500.0 pitch=null yaw=0.0  -> 0.5s
+2026-10-26 01:00:45	2050-05-31	OK	screenshot view=current max_width=1024 save_to=m06-garbage.jpg  -> 0.5s
+2026-10-26 01:00:47	2050-05-31	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 01:00:48	2050-05-31	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-26 01:00:49	2050-05-31	OK	traffic x=null z=null radius=500 limit=5  -> 0.0s
+2026-10-26 01:00:49	2050-05-31	OK	demand_breakdown  -> 0.0s
+2026-10-26 01:00:49	2050-05-31	OK	cargo  -> 0.0s
+2026-10-26 01:03:23	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:03:23	2050-05-31	OK	economy  -> 0.0s
+2026-10-26 01:03:24	2050-05-31	OK	economy_breakdown  -> 0.0s
+2026-10-26 01:03:24	2050-05-31	OK	list_loans  -> 0.0s
+2026-10-26 01:03:48	2050-05-31	OK	services  -> 0.0s
+2026-10-26 01:03:48	2050-05-31	OK	citizens_summary  -> 0.0s
+2026-10-26 01:03:48	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:49	2050-05-31	OK	citizens_summary  -> 0.0s
+2026-10-26 01:03:49	2050-05-31	OK	complaints  -> 0.0s
+2026-10-26 01:03:49	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:49	2050-05-31	OK	complaints  -> 0.0s
+2026-10-26 01:03:50	2050-05-31	OK	events  -> 0.0s
+2026-10-26 01:03:50	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:50	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:50	2050-05-31	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-26 01:03:50	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:03:55	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:55	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:55	2050-05-31	OK	cargo  -> 0.0s
+2026-10-26 01:03:55	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:03:55	2050-05-31	OK	demand_breakdown  -> 0.0s
+2026-10-26 01:03:55	2050-05-31	OK	zone_summary grid=1000.0  -> 0.1s
+2026-10-26 01:03:56	2050-05-31	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 01:03:56	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:03:56	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:03:56	2050-05-31	OK	demand_breakdown  -> 0.0s
+2026-10-26 01:03:56	2050-05-31	OK	cargo  -> 0.0s
+2026-10-26 01:03:56	2050-05-31	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-26 01:03:57	2050-05-31	OK	economy  -> 0.0s
+2026-10-26 01:03:58	2050-05-31	OK	list_districts  -> 0.0s
+2026-10-26 01:03:58	2050-05-31	OK	economy  -> 0.0s
+2026-10-26 01:03:59	2050-05-31	OK	buildings_near x=2941.0 z=1335.0 radius=8000.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 01:04:00	2050-05-31	OK	buildings_near x=-640.0 z=1074.0 radius=100.0 limit=50 problems_only=false problem=null service=PoliceDepartment abandoned=false brief=false  -> 0.0s
+2026-10-26 01:04:01	2050-05-31	OK	junction_info x=2155.0 z=330.0  -> 0.0s
+2026-10-26 01:04:01	2050-05-31	OK	traffic x=2155.0 z=330.0 radius=120.0 limit=5  -> 0.0s
+2026-10-26 01:04:01	2050-05-31	OK	net_near x=3480.0 z=-1560.0 radius=90.0 service=null limit=50  -> 0.0s
+2026-10-26 01:04:02	2050-05-31	OK	junction_info x=2110.0 z=330.0  -> 0.0s
+2026-10-26 01:04:02	2050-05-31	OK	buildings_near x=3449.0 z=-1555.0 radius=120.0 limit=20 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 01:04:03	2050-05-31	OK	zone_map x=2500.0 z=500.0 radius=700.0 size=1000 save_to=null  -> 0.1s
+2026-10-26 01:04:04	2050-05-31	OK	preview_bulldoze x=2961.0 z=1286.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:04:05	2050-05-31	OK	preview_bulldoze x=2882.0 z=1434.0 radius=5.0 what=building  -> 0.2s
+2026-10-26 01:04:05	2050-05-31	OK	preview_bulldoze x=2981.0 z=1286.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:04:09	2050-05-31	OK	zones_at x=2655.0 z=480.0 radius=80.0  -> 0.0s
+2026-10-26 01:04:09	2050-05-31	OK	zones_at x=2150.0 z=480.0 radius=100.0  -> 0.0s
+2026-10-26 01:04:15	2050-05-31	OK	zones_at x=2100.0 z=900.0 radius=150.0  -> 0.0s
+2026-10-26 01:04:16	2050-05-31	OK	zones_at x=2400.0 z=900.0 radius=150.0  -> 0.0s
+2026-10-26 01:04:16	2050-05-31	OK	zones_at x=2900.0 z=700.0 radius=150.0  -> 0.0s
+2026-10-26 01:04:17	2050-05-31	OK	zones_at x=2900.0 z=300.0 radius=150.0  -> 0.0s
+2026-10-26 01:04:17	2050-05-31	OK	zones_at x=2100.0 z=200.0 radius=150.0  -> 0.0s
+2026-10-26 01:04:18	2050-05-31	OK	buildings_near x=-1110.0 z=-813.0 radius=300.0 limit=100 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-26 01:04:22	2050-05-31	OK	buildings_near x=0.0 z=0.0 radius=6000.0 limit=200 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-26 01:04:24	2050-05-31	OK	zone_map x=2900.0 z=300.0 radius=200.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 01:04:29	2050-05-31	OK	preview_bulldoze x=2150.0 z=750.0 radius=350.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:30	2050-05-31	OK	zones_at x=2150.0 z=750.0 radius=350.0  -> 0.0s
+2026-10-26 01:04:30	2050-05-31	OK	zone_map x=2150.0 z=750.0 radius=400.0 size=900 save_to=null  -> 0.2s
+2026-10-26 01:04:31	2050-05-31	OK	zone_map x=2100.0 z=200.0 radius=170.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 01:04:33	2050-05-31	OK	vehicles_stuck kind=truck building=28755 limit=12  -> 0.0s
+2026-10-26 01:04:33	2050-05-31	NG	junction_info x=3495.0 z=-1565.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:04:34	2050-05-31	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-26 01:04:34	2050-05-31	OK	list_transport_lines type=metro number=null name=null  -> 0.0s
+2026-10-26 01:04:39	2050-05-31	OK	buildings_near x=2207.0 z=737.0 radius=400.0 limit=100 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-26 01:04:39	2050-05-31	OK	buildings_near x=-1110.0 z=-813.0 radius=400.0 limit=100 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-26 01:04:45	2050-05-31	OK	zones_at x=2136.0 z=576.0 radius=22.0  -> 0.0s
+2026-10-26 01:04:45	2050-05-31	OK	zones_at x=1924.0 z=1063.0 radius=22.0  -> 0.0s
+2026-10-26 01:04:46	2050-05-31	OK	net_near x=2150.0 z=600.0 radius=80.0 service=Road limit=10  -> 0.0s
+2026-10-26 01:04:46	2050-05-31	OK	land_value x=2150.0 z=750.0 radius=350.0  -> 0.0s
+2026-10-26 01:04:52	2050-05-31	OK	preview_bulldoze x=2150.0 z=580.0 radius=130.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:52	2050-05-31	OK	zone_map x=2150.0 z=580.0 radius=150.0 size=1000 save_to=null  -> 0.0s
+2026-10-26 01:04:53	2050-05-31	OK	preview_bulldoze x=2168.0 z=495.0 radius=12.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:54	2050-05-31	OK	preview_bulldoze x=2136.0 z=495.0 radius=12.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:54	2050-05-31	OK	preview_bulldoze x=2176.0 z=467.0 radius=12.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:55	2050-05-31	OK	preview_bulldoze x=2168.0 z=629.0 radius=12.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:56	2050-05-31	OK	preview_bulldoze x=2126.0 z=576.0 radius=16.0 what=abandoned  -> 0.2s
+2026-10-26 01:04:56	2050-05-31	OK	preview_bulldoze x=2136.0 z=666.0 radius=12.0 what=abandoned  -> 0.1s
+2026-10-26 01:04:57	2050-05-31	OK	preview_bulldoze x=2176.0 z=682.0 radius=12.0 what=abandoned  -> 0.1s
+2026-10-26 01:05:01	2050-05-31	OK	zones_at x=2172.0 z=481.0 radius=45.0  -> 0.0s
+2026-10-26 01:05:01	2050-05-31	OK	zones_at x=2127.0 z=576.0 radius=30.0  -> 0.0s
+2026-10-26 01:05:02	2050-05-31	OK	zones_at x=2168.0 z=629.0 radius=30.0  -> 0.0s
+2026-10-26 01:05:02	2050-05-31	OK	zones_at x=2156.0 z=674.0 radius=35.0  -> 0.0s
+2026-10-26 01:05:02	2050-05-31	OK	zones_at x=2150.0 z=580.0 radius=130.0  -> 0.0s
+2026-10-26 01:05:03	2050-05-31	NG	junction_info x=3400.0 z=-1567.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:05:03	2050-05-31	NG	junction_info x=3477.0 z=-1557.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:05:04	2050-05-31	NG	junction_info x=3417.0 z=-1557.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:05:04	2050-05-31	OK	economy_breakdown  -> 0.0s
+2026-10-26 01:05:05	2050-05-31	OK	building_stats x=2150.0 z=580.0 radius=130.0  -> 0.0s
+2026-10-26 01:05:12	2050-05-31	OK	net_near x=2380.0 z=-1282.0 radius=70.0 service=null limit=30  -> 0.0s
+2026-10-26 01:05:12	2050-05-31	OK	net_near x=-1780.0 z=-1605.0 radius=70.0 service=null limit=30  -> 0.0s
+2026-10-26 01:05:22	2050-05-31	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-26 01:06:45	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:06:45	2050-05-31	OK	economy  -> 0.0s
+2026-10-26 01:06:58	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:08:44	2050-05-31	OK	preview_bulldoze x=2150.0 z=580.0 radius=130.0 what=abandoned  -> 0.1s
+2026-10-26 01:08:45	2050-05-31	OK	zones_at x=2172.0 z=481.0 radius=45.0  -> 0.0s
+2026-10-26 01:08:46	2050-05-31	OK	zones_at x=2127.0 z=576.0 radius=30.0  -> 0.0s
+2026-10-26 01:08:46	2050-05-31	OK	zones_at x=2168.0 z=629.0 radius=30.0  -> 0.0s
+2026-10-26 01:08:47	2050-05-31	OK	zones_at x=2156.0 z=674.0 radius=35.0  -> 0.0s
+2026-10-26 01:08:53	2050-05-31	OK	preview_bulldoze x=2961.0 z=1286.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:08:54	2050-05-31	OK	preview_bulldoze x=2981.0 z=1286.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:08:55	2050-05-31	OK	preview_bulldoze x=2882.0 z=1434.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:08:55	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:11:21	2050-05-31	OK	preview_bulldoze x=2150.0 z=580.0 radius=130.0 what=abandoned  -> 0.1s
+2026-10-26 01:11:21	2050-05-31	OK	preview_bulldoze x=2961.0 z=1286.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:11:22	2050-05-31	OK	preview_bulldoze x=2981.0 z=1286.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:11:23	2050-05-31	OK	preview_bulldoze x=2882.0 z=1434.0 radius=5.0 what=building  -> 0.1s
+2026-10-26 01:12:14	2050-05-31	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-26 01:12:14	2050-05-31	OK	city_info  -> 0.0s
+2026-10-26 01:12:18	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:12:21	2050-05-31	DO	政策 SmokingBan(禁煙)をかける試し(m06-3、計画1-2)
+2026-10-26 01:12:21	2050-05-31	WHY	健康の平均77が5か月動かず目標80に届かない。週の費用0で戻せる。月末に健康78以上を見込む
+2026-10-26 01:12:22	2050-05-31	OK	set_policy name=SmokingBan active=true  -> 0.0s
+2026-10-26 01:12:25	2050-05-31	OK	list_policies  -> 0.0s
+2026-10-26 01:12:31	2050-05-31	DO	放棄の店8棟を壊し跡を事務所の区画に(m06-1、公約1・計画6-4)
+2026-10-26 01:12:31	2050-05-31	WHY	放棄の店が98→122に増え働き口が86,249に減った。8棟は働き口0・家0。跡に事務所4棟以上を見込む
+2026-10-26 01:12:32	2050-05-31	OK	preview_bulldoze x=2150.0 z=580.0 radius=130.0 what=abandoned  -> 0.1s
+2026-10-26 01:12:33	2050-05-31	OK	building_stats x=2150.0 z=580.0 radius=130.0  -> 0.0s
+2026-10-26 01:12:36	2050-05-31	OK	bulldoze x=2150.0 z=580.0 radius=130.0 what=abandoned  -> 3.5s
+2026-10-26 01:12:43	2050-05-31	OK	zone_area x=2172.0 z=481.0 radius=45.0 type=office  -> 3.3s
+2026-10-26 01:12:50	2050-05-31	OK	zone_area x=2127.0 z=576.0 radius=30.0 type=office  -> 3.3s
+2026-10-26 01:12:56	2050-05-31	OK	zone_area x=2168.0 z=629.0 radius=30.0 type=office  -> 3.3s
+2026-10-26 01:13:03	2050-05-31	OK	zone_area x=2156.0 z=674.0 radius=35.0 type=office  -> 3.3s
+2026-10-26 01:13:10	2050-05-31	OK	zones_at x=2172.0 z=481.0 radius=45.0  -> 0.0s
+2026-10-26 01:13:10	2050-05-31	OK	zones_at x=2127.0 z=576.0 radius=30.0  -> 0.0s
+2026-10-26 01:13:11	2050-05-31	OK	zones_at x=2168.0 z=629.0 radius=30.0  -> 0.0s
+2026-10-26 01:13:11	2050-05-31	OK	zones_at x=2156.0 z=674.0 radius=35.0  -> 0.0s
+2026-10-26 01:13:16	2050-05-31	OK	zone_map x=2150.0 z=580.0 radius=200.0 size=700 save_to=m06-office-zonemap.jpg  -> 0.0s
+2026-10-26 01:13:19	2050-05-31	OK	move_camera x=2150.0 z=580.0 size=700.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-26 01:13:22	2050-05-31	OK	screenshot view=current max_width=800 save_to=m06-office-cleared.jpg  -> 0.5s
+2026-10-26 01:13:25	2050-05-31	DO	焼けた事務所3棟を取り壊す(m06-2、計画3-4)
+2026-10-26 01:13:25	2050-05-31	WHY	火事の印4のうち3つが働き口0・家0の焼け跡。壊せば火事と犯罪の合計5→2で目標4以下に入る見込み
+2026-10-26 01:13:26	2050-05-31	OK	buildings_near x=2941.0 z=1335.0 radius=300.0 limit=50 problems_only=false problem=Fire service=null abandoned=false brief=false  -> 0.0s
+2026-10-26 01:13:28	2050-05-31	OK	bulldoze x=2961.0 z=1286.0 radius=5.0 what=building  -> 3.4s
+2026-10-26 01:13:33	2050-05-31	OK	bulldoze x=2981.0 z=1286.0 radius=5.0 what=building  -> 3.3s
+2026-10-26 01:13:39	2050-05-31	OK	bulldoze x=2882.0 z=1434.0 radius=5.0 what=building  -> 3.4s
+2026-10-26 01:13:44	2050-05-31	OK	complaints  -> 0.0s
+2026-10-26 01:14:08	2050-05-31	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.5s
+2026-10-26 01:15:43	2050-06-10	OK	city_info  -> 0.0s
+2026-10-26 01:15:44	2050-06-10	OK	events  -> 0.0s
+2026-10-26 01:15:44	2050-06-10	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 01:15:44	2050-06-10	OK	traffic x=3440.0 z=-1560.0 radius=150.0 limit=10  -> 0.0s
+2026-10-26 01:15:45	2050-06-10	NG	junction_info x=3400.0 z=-1567.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:15:49	2050-06-10	OK	building_stats x=2150.0 z=580.0 radius=130.0  -> 0.0s
+2026-10-26 01:15:49	2050-06-10	OK	citizens_summary  -> 0.0s
+2026-10-26 01:15:49	2050-06-10	OK	complaints  -> 0.0s
+2026-10-26 01:15:50	2050-06-10	OK	zones_at x=2172.0 z=481.0 radius=45.0  -> 0.0s
+2026-10-26 01:15:50	2050-06-10	OK	zones_at x=2127.0 z=576.0 radius=30.0  -> 0.0s
+2026-10-26 01:15:51	2050-06-10	OK	zones_at x=2168.0 z=629.0 radius=30.0  -> 0.0s
+2026-10-26 01:15:52	2050-06-10	OK	zones_at x=2156.0 z=674.0 radius=35.0  -> 0.0s
+2026-10-26 01:16:09	2050-06-10	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.2s
+2026-10-26 01:17:40	2050-06-20	OK	city_info  -> 0.0s
+2026-10-26 01:17:41	2050-06-20	OK	events  -> 0.0s
+2026-10-26 01:17:41	2050-06-20	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 01:17:41	2050-06-20	OK	traffic x=3440.0 z=-1560.0 radius=150.0 limit=10  -> 0.0s
+2026-10-26 01:17:42	2050-06-20	NG	junction_info x=3400.0 z=-1567.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:17:46	2050-06-20	OK	building_stats x=2150.0 z=580.0 radius=130.0  -> 0.0s
+2026-10-26 01:17:46	2050-06-20	OK	citizens_summary  -> 0.0s
+2026-10-26 01:17:46	2050-06-20	OK	complaints  -> 0.0s
+2026-10-26 01:17:47	2050-06-20	OK	zones_at x=2156.0 z=674.0 radius=35.0  -> 0.0s
+2026-10-26 01:17:47	2050-06-20	OK	zones_at x=2172.0 z=481.0 radius=45.0  -> 0.0s
+2026-10-26 01:17:48	2050-06-20	OK	zones_at x=2127.0 z=576.0 radius=30.0  -> 0.0s
+2026-10-26 01:17:48	2050-06-20	OK	zones_at x=2168.0 z=629.0 radius=30.0  -> 0.0s
+2026-10-26 01:18:02	2050-06-20	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 88.0s
+2026-10-26 01:19:33	2050-06-30	OK	vehicles_stuck kind=truck building=28755 limit=40  -> 0.0s
+2026-10-26 01:19:33	2050-06-30	OK	traffic x=3440.0 z=-1560.0 radius=150.0 limit=10  -> 0.0s
+2026-10-26 01:19:34	2050-06-30	NG	junction_info x=3400.0 z=-1567.0  -> no road junction within 40m (0.0s)
+2026-10-26 01:19:34	2050-06-30	OK	city_info  -> 0.0s
+2026-10-26 01:19:35	2050-06-30	OK	building_stats x=2150.0 z=580.0 radius=130.0  -> 0.0s
+2026-10-26 01:19:35	2050-06-30	OK	citizens_summary  -> 0.0s
+2026-10-26 01:19:35	2050-06-30	OK	complaints  -> 0.0s
+2026-10-26 01:19:39	2050-06-30	OK	zones_at x=2172.0 z=481.0 radius=45.0  -> 0.0s
+2026-10-26 01:19:39	2050-06-30	OK	zones_at x=2127.0 z=576.0 radius=30.0  -> 0.0s
+2026-10-26 01:19:39	2050-06-30	OK	zones_at x=2168.0 z=629.0 radius=30.0  -> 0.0s
+2026-10-26 01:19:40	2050-06-30	OK	zones_at x=2156.0 z=674.0 radius=35.0  -> 0.0s

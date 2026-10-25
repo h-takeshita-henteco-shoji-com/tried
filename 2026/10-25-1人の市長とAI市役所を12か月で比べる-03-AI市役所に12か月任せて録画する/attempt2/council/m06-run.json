@@ -1,0 +1,322 @@
+{
+  "month": 6,
+  "seen": {
+    "gameDate": "2050-05-31",
+    "saveName": "fukuoka-plan-m06",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1166220,
+    "upkeepCap": 6000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄の店8棟を壊し、跡を事務所の区画にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "交差点(2155,330)に信号を付ける(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ないバス18路線の台数割合を20ポイントずつ下げる(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の出口の Cargo Connection の端が道路から17〜18m離れて終わっているのが、車が一部しか出ない原因か",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=40)、traffic(x=3440, z=-1560, radius=150)、junction_info(x=3400, z=-1567)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄の店8棟を取り壊し、跡を事務所の区画にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1",
+        "6-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "街全体に政策 SmokingBan をかける(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "1-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268が子ども10,668を、高校24,360が10代22,134を上回り目標を満たす。増設は維持費だけ増える。予算-20は高校定員が10代を下回る見込み。EducationBoost解除は効果を確かめられない。有効な手段がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "焼けた事務所3棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費0・維持費0で枠に収まる。economy の案と壊す8棟が同じなので、どちらか1件だけ実行する。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の設置は建設費0・維持費の増え分0で、戻せる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス18路線の割合を各-20する案は建設費0で、予算の幅±20に収まり、バスの支出は減る見込み。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "建設費0・維持費0で枠に収まる。urban の案と対象が同じなので重ねて実行しない。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "SmokingBan は週0で、政策の変更は月1つの上限に収まる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "焼けた事務所3棟の取り壊しは建設費0・維持費0で、失う働き口と家もない。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1166220
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m06-1",
+        "fromBureau": "urban",
+        "title": "放棄の店8棟を壊し、跡を事務所の区画にする(試し)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m06-2",
+        "fromBureau": "fire",
+        "title": "焼けた事務所3棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m06-3",
+        "fromBureau": "health",
+        "title": "政策 SmokingBan をかける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "1-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "economy",
+        "reason": "urban と同じ8棟を壊す案で二重には打てず、本文に取り壊し直後のマスが Office に変わるかが未確認と残るため。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "信号の交差点が m06-1 の場所の250m南で測る数が混ざる恐れがあり、効きも見積もれないため。"
+      },
+      {
+        "bureau": "port",
+        "reason": "バスの台数の手は4回目で差し引きの効きが週 -419 と小さく流れも動かなかったので、施策の枠を目標に届く手と新しい手に使ったため。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s06-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の出口の Cargo Connection の端が道路から17〜18m離れて終わっているのが、車が一部しか出ない原因か"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m06-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldoze で8棟・働き口0・家0・停電0を確かめた。m02-3 で放棄が戻った結果に対し、跡を事務所の区画に替える理由と代わりの手の比べが書かれている。"
+      },
+      {
+        "measureId": "m06-2",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "3棟とも preview_bulldoze で1棟ずつ、働き口0・家0・停電0だった。代わりの手と比べてあり、3-4 の目標に向かう手である。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m06-3",
+    "m06-1",
+    "m06-2"
+  ],
+  "surveys": [
+    {
+      "id": "s06-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の出口の Cargo Connection の端が道路から17〜18m離れて終わっているのが、車が一部しか出ない原因か"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m06-3",
+      "m06-1",
+      "m06-2"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-06-10",
+        "population": 177166,
+        "money": 2353722,
+        "weeklyBalance": 14821,
+        "happiness": 86,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-06-20",
+        "population": 177431,
+        "money": 2372948,
+        "weeklyBalance": 13902,
+        "happiness": 86,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s06-1"
+    ],
+    "report": "3件とも打てた。建設費は0、維持費の増分も0。予備候補は使っていない。\n\n- m06-3(禁煙の政策 SmokingBan): 費用0でかけた。健康の平均は 77 → 87(06-10)→ 86(06-30)で、目標80を超えた。体調が悪い市民(sick)は 2,101 → 1,958。幸福度は 84 → 86。\n- m06-1(放棄の店8棟の取り壊しと事務所の区画): 8棟は働き口0・家0・停電0を確かめてから壊した。跡の68マスを事務所の区画に塗った。円の中の放棄の店は 8 → 0、事務所は 31 → 42棟、働き口は 420 → 489。Office の空きは 72 → 5。\n- m06-2(焼けた事務所3棟の取り壊し): 10582、24230、19149 を1棟ずつ壊した。火事と犯罪の印は直後に 5 → 2。ただし月末は火事2・犯罪5の計7に戻った。\n\n見回りは2回とも境目なし。臨時なし。hooks に止められた手なし。ダイアログなし。月末(06-30)の数字は次のとおり。人口 177,948(前の月例より +724)、週の収支 +15,006、電気・水・下水が来ない市民 0/0/0。ごみの印は 146 → 248 に悪化した。\n\n調査 s06-1 は、見回り1・2と月末に呼んだ。junction_info は3回とも交差点なし。出口の近くの止まった車は3回とも0。28755 のトラックは 684 → 685 → 651。\n\n結果の書き先は次の2つ。\n- /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/council/m06-survey-port.md\n- 市政ノート mayor-note.md\n\n型から外れた点が1つある。試しの答え合わせのため、見回りで city_info と events のほかに次の道具も呼んだ。どれも見るだけの道具。議案の「確かめるのは見回り1・2と月末」に従い、前の月の進め方に合わせた。\n- building_stats\n- zones_at\n- citizens_summary\n- complaints\n\ncommand-log.txt に写した。"
+  }
+}
