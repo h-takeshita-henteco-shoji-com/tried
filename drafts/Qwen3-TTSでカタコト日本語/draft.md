@@ -1,8 +1,8 @@
 ---
 title: Qwen3-TTSでカタコト日本語を読み上げる
 created: 2026-10-21
-status: 下書き
-issue:
+status: 起票済
+issue: 112
 ---
 
 ## きっかけ
