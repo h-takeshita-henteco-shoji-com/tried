@@ -1,0 +1,633 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-25 17:57:36
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-25 17:58:31	2050-01-01	OK	city_info  -> 0.1s
+2026-10-25 17:58:31	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 17:59:04	2050-01-01	TITLE	AI Mayor - Base Mayor
+2026-10-25 17:59:22	2050-01-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 17:59:23	2050-01-01	OK	save_city name=fukuoka-base-v3-m01 overwrite=false  -> 2.5s
+2026-10-25 17:59:29	2050-01-01	OK	city_info  -> 0.0s
+2026-10-25 17:59:29	2050-01-01	OK	economy  -> 0.0s
+2026-10-25 17:59:29	2050-01-01	OK	services  -> 0.0s
+2026-10-25 17:59:29	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-25 17:59:30	2050-01-01	OK	complaints  -> 0.0s
+2026-10-25 17:59:30	2050-01-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 17:59:30	2050-01-01	OK	events  -> 0.0s
+2026-10-25 17:59:37	2050-01-01	OK	move_camera x=-362.0 z=-80.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-25 17:59:41	2050-01-01	OK	screenshot view=current max_width=1024 save_to=m1-nogoods.jpg  -> 0.5s
+2026-10-25 17:59:44	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 17:59:44	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-25 17:59:44	2050-01-01	OK	cargo  -> 0.1s
+2026-10-25 17:59:45	2050-01-01	OK	zone_summary grid=2000.0  -> 0.1s
+2026-10-25 18:00:00	2050-01-01	OK	vehicles_stuck kind=truck building=28755 limit=8  -> 0.1s
+2026-10-25 18:00:01	2050-01-01	OK	buildings_near x=3449.0 z=-1555.0 radius=150.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:00:04	2050-01-01	OK	traffic x=3449.0 z=-1555.0 radius=600.0 limit=10  -> 0.0s
+2026-10-25 18:00:05	2050-01-01	OK	net_near x=3449.0 z=-1555.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:00:08	2050-01-01	OK	zone_map x=3400.0 z=-1400.0 radius=400.0 size=800 save_to=null  -> 0.1s
+2026-10-25 18:00:14	2050-01-01	OK	screenshot view=top max_width=1024 save_to=null  -> 1.3s
+2026-10-25 18:00:18	2050-01-01	OK	zone_map x=500.0 z=-500.0 radius=2000.0 size=1000 save_to=null  -> 0.4s
+2026-10-25 18:00:22	2050-01-01	OK	height_at x=1100.0 z=-1300.0  -> 0.0s
+2026-10-25 18:00:22	2050-01-01	OK	height_at x=1300.0 z=-1600.0  -> 0.0s
+2026-10-25 18:00:23	2050-01-01	OK	zone_map x=1100.0 z=-1300.0 radius=600.0 size=900 save_to=null  -> 0.0s
+2026-10-25 18:00:28	2050-01-01	OK	map_layer type=water_service x=1500.0 z=-1600.0 radius=500.0 n=11  -> 0.0s
+2026-10-25 18:00:28	2050-01-01	OK	screenshot view=current max_width=800 save_to=null  -> 0.5s
+2026-10-25 18:00:32	2050-01-01	OK	move_camera x=1500.0 z=-1500.0 size=1500.0 pitch=70.0 yaw=0.0  -> 0.4s
+2026-10-25 18:00:34	2050-01-01	OK	screenshot view=current max_width=1024 save_to=null  -> 0.5s
+2026-10-25 18:00:39	2050-01-01	OK	zone_map x=1800.0 z=-1600.0 radius=700.0 size=900 save_to=null  -> 0.0s
+2026-10-25 18:00:43	2050-01-01	OK	height_at x=1500.0 z=-1400.0  -> 0.0s
+2026-10-25 18:00:43	2050-01-01	OK	height_at x=1800.0 z=-1400.0  -> 0.0s
+2026-10-25 18:00:44	2050-01-01	OK	height_at x=1800.0 z=-1700.0  -> 0.0s
+2026-10-25 18:00:44	2050-01-01	OK	height_at x=2100.0 z=-1500.0  -> 0.0s
+2026-10-25 18:00:45	2050-01-01	OK	height_at x=1500.0 z=-1800.0  -> 0.0s
+2026-10-25 18:00:45	2050-01-01	OK	height_at x=1350.0 z=-1250.0  -> 0.0s
+2026-10-25 18:00:53	2050-01-01	OK	net_near x=1330.0 z=-1050.0 radius=80.0 service=null limit=50  -> 0.0s
+2026-10-25 18:00:54	2050-01-01	OK	net_near x=2000.0 z=-1180.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:01:16	2050-01-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-25 18:01:16	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-25 18:01:25	2050-01-01	OK	zone_map x=3300.0 z=-1300.0 radius=1000.0 size=900 save_to=null  -> 0.1s
+2026-10-25 18:01:33	2050-01-01	OK	buildings_near x=2240.0 z=186.0 radius=2500.0 limit=30 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.1s
+2026-10-25 18:01:42	2050-01-01	OK	net_near x=1900.0 z=-1160.0 radius=200.0 service=Water limit=20  -> 0.0s
+2026-10-25 18:01:43	2050-01-01	OK	net_near x=1900.0 z=-1160.0 radius=250.0 service=Electricity limit=20  -> 0.0s
+2026-10-25 18:02:02	2050-01-01	OK	height_at x=2050.0 z=-1300.0  -> 0.0s
+2026-10-25 18:02:03	2050-01-01	OK	height_at x=2100.0 z=-1640.0  -> 0.0s
+2026-10-25 18:02:03	2050-01-01	OK	height_at x=1600.0 z=-1160.0  -> 0.0s
+2026-10-25 18:02:04	2050-01-01	OK	height_at x=1400.0 z=-1640.0  -> 0.0s
+2026-10-25 18:02:04	2050-01-01	OK	height_at x=1400.0 z=-1160.0  -> 0.0s
+2026-10-25 18:02:08	2050-01-01	OK	map_layer type=water_pollution x=1800.0 z=-1450.0 radius=500.0 n=11  -> 0.0s
+2026-10-25 18:02:12	2050-01-01	OK	move_camera x=1750.0 z=-1400.0 size=1200.0 pitch=90.0 yaw=0.0  -> 0.4s
+2026-10-25 18:02:14	2050-01-01	OK	screenshot view=current max_width=1024 save_to=null  -> 0.5s
+2026-10-25 18:02:36	2050-01-01	OK	height_at x=1620.0 z=-1240.0  -> 0.0s
+2026-10-25 18:02:36	2050-01-01	OK	height_at x=1700.0 z=-1320.0  -> 0.0s
+2026-10-25 18:02:37	2050-01-01	OK	height_at x=1780.0 z=-1400.0  -> 0.0s
+2026-10-25 18:02:37	2050-01-01	OK	height_at x=1850.0 z=-1480.0  -> 0.0s
+2026-10-25 18:02:38	2050-01-01	OK	height_at x=1920.0 z=-1560.0  -> 0.0s
+2026-10-25 18:02:39	2050-01-01	OK	height_at x=2000.0 z=-1640.0  -> 0.0s
+2026-10-25 18:02:39	2050-01-01	OK	height_at x=1320.0 z=-1400.0  -> 0.0s
+2026-10-25 18:02:39	2050-01-01	OK	height_at x=1320.0 z=-1650.0  -> 0.0s
+2026-10-25 18:02:42	2050-01-01	OK	height_at x=1350.0 z=-1120.0  -> 0.0s
+2026-10-25 18:02:43	2050-01-01	OK	height_at x=1500.0 z=-1160.0  -> 0.0s
+2026-10-25 18:03:17	2050-01-01	DO	南東の空き地に新街区(オフィスと高密度住宅)を作る(公約1)
+2026-10-25 18:03:17	2050-01-01	WHY	道に面した住宅の空きが0、大卒の失業6,483人。来月までに新街区に建物が建ち人口+500を見込む
+2026-10-25 18:03:19	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1060.0], [1350.0, -1160.0], [1350.0, -1240.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.6s cost=2880
+2026-10-25 18:03:26	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1240.0], [1600.0, -1240.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=1280
+2026-10-25 18:03:30	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1320.0], [1600.0, -1320.0], [1680.0, -1320.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=1680
+2026-10-25 18:03:33	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1400.0], [1600.0, -1400.0], [1760.0, -1400.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=2080
+2026-10-25 18:03:36	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1480.0], [1600.0, -1480.0], [1830.0, -1480.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=2480
+2026-10-25 18:03:40	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1560.0], [1600.0, -1560.0], [1900.0, -1560.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=2720
+2026-10-25 18:03:43	2050-01-01	OK	build_line prefab=Basic Road points=[[1350.0, -1640.0], [1600.0, -1640.0], [1960.0, -1640.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=3080
+2026-10-25 18:03:49	2050-01-01	OK	build_line prefab=Basic Road points=[[1600.0, -1240.0], [1600.0, -1320.0], [1600.0, -1400.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=2000
+2026-10-25 18:03:56	2050-01-01	NG	junction_info x=1600.0 z=-1400.0  -> no road junction within 40m (0.0s)
+2026-10-25 18:03:58	2050-01-01	OK	net_near x=1600.0 z=-1400.0 radius=60.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:04:03	2050-01-01	OK	remove_line points=[[1600.0, -1240.0], [1600.0, -1640.0]] prefab=Basic Road tolerance=5.0  -> 3.2s
+2026-10-25 18:04:10	2050-01-01	OK	build_line prefab=Basic Road points=[[1600.0, -1240.0], [1600.0, -1320.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=400
+2026-10-25 18:04:14	2050-01-01	OK	build_line prefab=Basic Road points=[[1600.0, -1320.0], [1600.0, -1400.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.7s cost=400
+2026-10-25 18:04:18	2050-01-01	OK	build_line prefab=Basic Road points=[[1600.0, -1400.0], [1600.0, -1480.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=400
+2026-10-25 18:04:21	2050-01-01	OK	build_line prefab=Basic Road points=[[1600.0, -1480.0], [1600.0, -1560.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=400
+2026-10-25 18:04:24	2050-01-01	OK	build_line prefab=Basic Road points=[[1600.0, -1560.0], [1600.0, -1640.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=400
+2026-10-25 18:04:38	2050-01-01	OK	build_line prefab=Water Pipe points=[[1280.0, -1060.0], [1350.0, -1060.0], [1350.0, -1160.0],... frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.5s cost=1620
+2026-10-25 18:04:44	2050-01-01	OK	build_line prefab=Water Pipe points=[[1350.0, -1240.0], [1600.0, -1240.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=640
+2026-10-25 18:04:48	2050-01-01	OK	build_line prefab=Water Pipe points=[[1350.0, -1320.0], [1680.0, -1320.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=800
+2026-10-25 18:04:51	2050-01-01	OK	build_line prefab=Water Pipe points=[[1350.0, -1400.0], [1760.0, -1400.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=1080
+2026-10-25 18:04:54	2050-01-01	OK	build_line prefab=Water Pipe points=[[1350.0, -1480.0], [1830.0, -1480.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=1200
+2026-10-25 18:04:58	2050-01-01	OK	build_line prefab=Water Pipe points=[[1350.0, -1560.0], [1900.0, -1560.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=1400
+2026-10-25 18:05:01	2050-01-01	OK	build_line prefab=Water Pipe points=[[1350.0, -1640.0], [1960.0, -1640.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=1600
+2026-10-25 18:05:16	2050-01-01	OK	build_line prefab=Power Line points=[[1360.0, -1035.0], [1470.0, -1180.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=480
+2026-10-25 18:05:23	2050-01-01	OK	zone_rect x1=1300.0 z1=-1360.0 x2=1720.0 z2=-1060.0 type=office  -> 3.4s
+2026-10-25 18:05:27	2050-01-01	OK	zone_rect x1=1300.0 z1=-1690.0 x2=2000.0 z2=-1361.0 type=residential_high  -> 3.4s
+2026-10-25 18:05:34	2050-01-01	OK	zone_map x=1620.0 z=-1380.0 radius=380.0 size=800 save_to=m1-new-district-zones.jpg  -> 0.0s
+2026-10-25 18:05:39	2050-01-01	DO	警察の予算を150%から130%に下げる(公約3)
+2026-10-25 18:05:39	2050-01-01	WHY	留置の容量960に使用446、犯罪率5で余っている。週の支出が約4,600減り、犯罪率は7以内と見込む
+2026-10-25 18:05:40	2050-01-01	OK	set_budget target=police percent=130 day=null night=null  -> 0.0s
+2026-10-25 18:06:04	2050-01-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 93.7s
+2026-10-25 18:07:40	2050-01-11	OK	city_info  -> 0.0s
+2026-10-25 18:07:40	2050-01-11	OK	events  -> 0.0s
+2026-10-25 18:07:43	2050-01-11	OK	zone_map x=1620.0 z=-1380.0 radius=380.0 size=700 save_to=null  -> 0.0s
+2026-10-25 18:07:52	2050-01-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.3s
+2026-10-25 18:09:25	2050-01-21	OK	city_info  -> 0.0s
+2026-10-25 18:09:25	2050-01-21	OK	events  -> 0.0s
+2026-10-25 18:09:34	2050-01-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 90.3s
+2026-10-25 18:11:09	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 18:11:10	2050-01-31	OK	zones_at x=1600.0 z=-1450.0 radius=350.0  -> 0.0s
+2026-10-25 18:11:19	2050-01-31	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 18:11:51	2050-01-31	OK	city_info  -> 0.1s
+2026-10-25 18:12:40	2050-01-31	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 18:12:40	2050-01-31	OK	save_city name=fukuoka-base-v3-m02 overwrite=false  -> 2.1s
+2026-10-25 18:12:45	2050-01-31	OK	city_info  -> 0.0s
+2026-10-25 18:12:45	2050-01-31	OK	economy  -> 0.0s
+2026-10-25 18:12:45	2050-01-31	OK	services  -> 0.0s
+2026-10-25 18:12:46	2050-01-31	OK	citizens_summary  -> 0.0s
+2026-10-25 18:12:47	2050-01-31	OK	complaints  -> 0.0s
+2026-10-25 18:12:47	2050-01-31	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 18:12:47	2050-01-31	OK	events  -> 0.0s
+2026-10-25 18:12:51	2050-01-31	OK	move_camera x=-364.0 z=-54.0 size=2500.0 pitch=null yaw=null  -> 0.5s
+2026-10-25 18:12:55	2050-01-31	OK	screenshot view=current max_width=1024 save_to=m2-nogoods.jpg  -> 0.4s
+2026-10-25 18:12:58	2050-01-31	OK	demand_breakdown  -> 0.0s
+2026-10-25 18:12:58	2050-01-31	OK	zones_at x=1600.0 z=-1450.0 radius=350.0  -> 0.0s
+2026-10-25 18:12:59	2050-01-31	OK	economy_breakdown  -> 0.0s
+2026-10-25 18:12:59	2050-01-31	OK	vehicles_stuck kind=truck building=28755 limit=5  -> 0.0s
+2026-10-25 18:13:26	2050-01-31	OK	new_buildings since=0  -> 0.0s
+2026-10-25 18:13:26	2050-01-31	OK	zone_summary grid=2000.0  -> 0.1s
+2026-10-25 18:14:09	2050-01-31	OK	building_stats x=null z=null radius=500  -> 0.1s
+2026-10-25 18:14:13	2050-01-31	OK	traffic x=3449.0 z=-1555.0 radius=600.0 limit=10  -> 0.0s
+2026-10-25 18:14:15	2050-01-31	OK	zone_map x=3449.0 z=-1555.0 radius=450.0 size=900 save_to=m2-cargo-map.jpg  -> 0.0s
+2026-10-25 18:14:20	2050-01-31	OK	net_near x=3450.0 z=-1450.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:14:20	2050-01-31	OK	buildings_near x=3449.0 z=-1555.0 radius=120.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:14:28	2050-01-31	OK	zone_map x=3000.0 z=-1250.0 radius=600.0 size=900 save_to=null  -> 0.0s
+2026-10-25 18:14:38	2050-01-31	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-25 18:14:56	2050-01-31	OK	buildings_near x=-364.0 z=-54.0 radius=1500.0 limit=10 problems_only=false problem=null service=null abandoned=true brief=true  -> 0.0s
+2026-10-25 18:15:25	2050-01-31	DO	貨物駅の出口の道を4車線にする試し(公約1・3)
+2026-10-25 18:15:25	2050-01-31	WHY	品物が届かない店215棟、放棄100棟。貨物駅で499台が出口待ち。来月に400台以下を見込む
+2026-10-25 18:15:26	2050-01-31	OK	upgrade_road prefab=Small 4 Lane Road points=[[2780.0, -1340.0], [3495.0, -1340.0]] tolerance=12.0 pay=true demolish=false  -> 3.6s cost=0
+2026-10-25 18:15:33	2050-01-31	OK	upgrade_road prefab=Small 4 Lane Road points=[[3480.0, -1340.0], [3480.0, -1240.0]] tolerance=12.0 pay=true demolish=false  -> 3.4s cost=0
+2026-10-25 18:15:40	2050-01-31	OK	buildings_near x=3460.0 z=-1325.0 radius=45.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:16:18	2050-01-31	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.2s
+2026-10-25 18:17:55	2050-02-10	OK	city_info  -> 0.0s
+2026-10-25 18:17:55	2050-02-10	OK	events  -> 0.0s
+2026-10-25 18:17:55	2050-02-10	OK	vehicles_stuck kind=truck building=28755 limit=1  -> 0.0s
+2026-10-25 18:18:07	2050-02-10	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.3s
+2026-10-25 18:19:38	2050-02-20	OK	city_info  -> 0.0s
+2026-10-25 18:19:38	2050-02-20	OK	events  -> 0.0s
+2026-10-25 18:19:46	2050-02-20	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.2s
+2026-10-25 18:21:18	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 18:21:18	2050-03-02	OK	vehicles_stuck kind=truck building=28755 limit=1  -> 0.0s
+2026-10-25 18:21:19	2050-03-02	OK	traffic x=3449.0 z=-1555.0 radius=600.0 limit=3  -> 0.0s
+2026-10-25 18:21:27	2050-03-02	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 18:22:21	2050-03-02	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 18:22:21	2050-03-02	OK	save_city name=fukuoka-base-v3-m03 overwrite=false  -> 2.0s
+2026-10-25 18:22:27	2050-03-02	OK	city_info  -> 0.0s
+2026-10-25 18:22:27	2050-03-02	OK	economy  -> 0.0s
+2026-10-25 18:22:27	2050-03-02	OK	services  -> 0.0s
+2026-10-25 18:22:27	2050-03-02	OK	citizens_summary  -> 0.0s
+2026-10-25 18:22:28	2050-03-02	OK	complaints  -> 0.0s
+2026-10-25 18:22:28	2050-03-02	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 18:22:28	2050-03-02	OK	events  -> 0.0s
+2026-10-25 18:22:32	2050-03-02	OK	move_camera x=1995.0 z=315.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-25 18:22:33	2050-03-02	OK	demand_breakdown  -> 0.0s
+2026-10-25 18:22:33	2050-03-02	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 18:22:33	2050-03-02	OK	cargo  -> 0.0s
+2026-10-25 18:22:38	2050-03-02	OK	screenshot view=current max_width=1024 save_to=m3-nogoods.jpg  -> 0.5s
+2026-10-25 18:22:38	2050-03-02	OK	transport_reach  -> 0.0s
+2026-10-25 18:22:42	2050-03-02	OK	buildings_near x=3500.0 z=-1500.0 radius=200.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-25 18:22:42	2050-03-02	OK	vehicles_stuck kind=truck building=28755 limit=5  -> 0.0s
+2026-10-25 18:22:45	2050-03-02	OK	net_near x=3449.0 z=-1555.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:22:46	2050-03-02	OK	traffic x=3449.0 z=-1555.0 radius=600.0 limit=10  -> 0.0s
+2026-10-25 18:23:19	2050-03-02	OK	net_near x=3490.0 z=-1600.0 radius=250.0 service=PublicTransport limit=50  -> 0.0s
+2026-10-25 18:23:25	2050-03-02	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-25 18:23:27	2050-03-02	OK	vehicles_stuck kind=train building=null limit=11  -> 0.0s
+2026-10-25 18:23:41	2050-03-02	OK	economy_breakdown  -> 0.0s
+2026-10-25 18:24:18	2050-03-02	DO	隣の貨物駅13893を動かす(試し。公約1・3)
+2026-10-25 18:24:18	2050-03-02	WHY	貨物列車11本が全部28755へ。隣の13893は出す車0台。荷を2つに分け、空き待ち513台を400台以下に
+2026-10-25 18:24:18	2050-03-02	OK	set_building_active id=13893 active=true  -> 0.0s
+2026-10-25 18:24:21	2050-03-02	DO	消防の予算を140%から120%に下げる(公約3)
+2026-10-25 18:24:21	2050-03-02	WHY	黒字は収入の3.6%。消防の支出31,920に火事の印4棟。支出約4,500減、火事の印は8棟以内と予想
+2026-10-25 18:24:21	2050-03-02	OK	set_budget target=fire percent=120 day=null night=null  -> 0.0s
+2026-10-25 18:24:44	2050-03-02	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.6s
+2026-10-25 18:26:18	2050-03-12	OK	city_info  -> 0.0s
+2026-10-25 18:26:18	2050-03-12	OK	events  -> 0.0s
+2026-10-25 18:26:18	2050-03-12	OK	cargo  -> 0.0s
+2026-10-25 18:26:32	2050-03-12	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.3s
+2026-10-25 18:28:03	2050-03-22	OK	city_info  -> 0.0s
+2026-10-25 18:28:03	2050-03-22	OK	events  -> 0.0s
+2026-10-25 18:28:14	2050-03-22	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.1s
+2026-10-25 18:29:45	2050-04-01	OK	city_info  -> 0.0s
+2026-10-25 18:29:45	2050-04-01	OK	cargo  -> 0.0s
+2026-10-25 18:29:45	2050-04-01	OK	vehicles_stuck kind=truck building=28755 limit=1  -> 0.0s
+2026-10-25 18:29:54	2050-04-01	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 18:30:35	2050-04-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 18:30:35	2050-04-01	OK	save_city name=fukuoka-base-v3-m04 overwrite=false  -> 2.0s
+2026-10-25 18:30:40	2050-04-01	OK	city_info  -> 0.0s
+2026-10-25 18:30:40	2050-04-01	OK	economy  -> 0.0s
+2026-10-25 18:30:40	2050-04-01	OK	services  -> 0.0s
+2026-10-25 18:30:41	2050-04-01	OK	citizens_summary  -> 0.0s
+2026-10-25 18:30:41	2050-04-01	OK	complaints  -> 0.0s
+2026-10-25 18:30:44	2050-04-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 18:30:44	2050-04-01	OK	events  -> 0.0s
+2026-10-25 18:30:47	2050-04-01	OK	move_camera x=1994.0 z=250.0 size=2500.0 pitch=null yaw=null  -> 0.5s
+2026-10-25 18:30:51	2050-04-01	OK	screenshot view=current max_width=1000 save_to=m4-nogoods.jpg  -> 0.5s
+2026-10-25 18:30:54	2050-04-01	OK	economy_breakdown  -> 0.0s
+2026-10-25 18:30:54	2050-04-01	OK	cargo  -> 0.0s
+2026-10-25 18:30:54	2050-04-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 18:31:02	2050-04-01	OK	vehicles_stuck kind=truck building=28755 limit=5  -> 0.0s
+2026-10-25 18:31:04	2050-04-01	OK	zone_map x=3450.0 z=-1450.0 radius=250.0 size=900 save_to=m4-cargo-map.jpg  -> 0.0s
+2026-10-25 18:31:15	2050-04-01	OK	zone_summary grid=2000.0  -> 0.1s
+2026-10-25 18:31:22	2050-04-01	OK	zone_map x=1650.0 z=-1400.0 radius=380.0 size=900 save_to=null  -> 0.0s
+2026-10-25 18:31:40	2050-04-01	OK	buildings_near x=3449.0 z=-1555.0 radius=10.0 limit=50 problems_only=false problem=null service=PublicTransport abandoned=false brief=false  -> 0.0s
+2026-10-25 18:31:41	2050-04-01	OK	zones_at x=1650.0 z=-1620.0 radius=200.0  -> 0.0s
+2026-10-25 18:31:42	2050-04-01	OK	buildings_near x=-1118.0 z=-1041.0 radius=300.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:31:45	2050-04-01	OK	buildings_near x=-1118.0 z=-1041.0 radius=800.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:31:46	2050-04-01	OK	trade  -> 0.0s
+2026-10-25 18:32:20	2050-04-01	DO	南東の新街区の南2列の空いた住宅区画をオフィスに塗り替える(公約1、試し)
+2026-10-25 18:32:20	2050-04-01	WHY	働く場所の需要40でオフィスの空きが0。大卒の失業6,752、空き家5,107。来月、大卒の失業6,000以下を予想
+2026-10-25 18:32:21	2050-04-01	OK	zone_rect x1=1350.0 z1=-1690.0 x2=2000.0 z2=-1565.0 type=office  -> 3.4s
+2026-10-25 18:32:27	2050-04-01	OK	zones_at x=1650.0 z=-1620.0 radius=200.0  -> 0.0s
+2026-10-25 18:32:28	2050-04-01	DO	貨物駅28755を止める(公約1・3、試し)
+2026-10-25 18:32:28	2050-04-01	WHY	敷地内で518台が3か月出られず、道を広げても隣駅を動かしても不変。来月、西の品物不足の店48→35棟以下を予想
+2026-10-25 18:32:29	2050-04-01	OK	set_building_active id=28755 active=false  -> 0.0s
+2026-10-25 18:32:51	2050-04-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.8s
+2026-10-25 18:34:27	2050-04-11	OK	city_info  -> 0.0s
+2026-10-25 18:34:28	2050-04-11	OK	events  -> 0.0s
+2026-10-25 18:34:28	2050-04-11	OK	cargo  -> 0.0s
+2026-10-25 18:34:33	2050-04-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.3s
+2026-10-25 18:36:07	2050-04-21	OK	city_info  -> 0.0s
+2026-10-25 18:36:08	2050-04-21	OK	events  -> 0.0s
+2026-10-25 18:36:12	2050-04-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.2s
+2026-10-25 18:37:45	2050-05-01	OK	city_info  -> 0.0s
+2026-10-25 18:37:46	2050-05-01	OK	zones_at x=1650.0 z=-1620.0 radius=200.0  -> 0.0s
+2026-10-25 18:37:47	2050-05-01	OK	buildings_near x=-1118.0 z=-1041.0 radius=800.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:37:47	2050-05-01	OK	demand_breakdown  -> 0.0s
+2026-10-25 18:37:50	2050-05-01	OK	cargo  -> 0.0s
+2026-10-25 18:38:00	2050-05-01	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 18:38:47	2050-05-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 18:38:48	2050-05-01	OK	save_city name=fukuoka-base-v3-m05 overwrite=false  -> 2.0s
+2026-10-25 18:38:53	2050-05-01	OK	city_info  -> 0.0s
+2026-10-25 18:38:53	2050-05-01	OK	economy  -> 0.0s
+2026-10-25 18:38:54	2050-05-01	OK	services  -> 0.0s
+2026-10-25 18:38:54	2050-05-01	OK	citizens_summary  -> 0.0s
+2026-10-25 18:38:54	2050-05-01	OK	complaints  -> 0.0s
+2026-10-25 18:38:54	2050-05-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 18:38:54	2050-05-01	OK	events  -> 0.0s
+2026-10-25 18:38:59	2050-05-01	OK	move_camera x=-2543.0 z=-1478.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 18:39:00	2050-05-01	OK	buildings_near x=-2543.0 z=-1478.0 radius=1500.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 18:39:06	2050-05-01	OK	screenshot view=current max_width=1000 save_to=m5-garbage.jpg  -> 0.5s
+2026-10-25 18:39:07	2050-05-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 18:39:25	2050-05-01	OK	zone_map x=-2300.0 z=-1700.0 radius=800.0 size=900 save_to=null  -> 0.1s
+2026-10-25 18:39:34	2050-05-01	OK	net_near x=-1850.0 z=-1800.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:39:40	2050-05-01	OK	zone_map x=-1820.0 z=-1950.0 radius=250.0 size=600 save_to=null  -> 0.0s
+2026-10-25 18:39:44	2050-05-01	OK	height_at x=-1820.0 z=-2080.0  -> 0.0s
+2026-10-25 18:39:53	2050-05-01	OK	buildings_near x=-2300.0 z=-1500.0 radius=800.0 limit=5 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:39:53	2050-05-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-25 18:40:17	2050-05-01	DO	西に埋立地を2つ置く(公約1)
+2026-10-25 18:40:17	2050-05-01	WHY	西の埋立地7つ中6つが満杯で収集車0台。ごみの印40→93棟。次の月例で西の印23→10棟以下を見込む
+2026-10-25 18:40:18	2050-05-01	OK	build_line prefab=Basic Road points=[[-1820.0, -1960.0], [-1820.0, -2130.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=840
+2026-10-25 18:40:24	2050-05-01	OK	place_building prefab=Landfill Site x=-1860.0 z=-2050.0 angle=0 pay=true facing=east  -> 3.3s cost=4000
+2026-10-25 18:40:28	2050-05-01	OK	place_building prefab=Landfill Site x=-1780.0 z=-2050.0 angle=0 pay=true facing=west  -> 3.3s cost=4000
+2026-10-25 18:40:35	2050-05-01	OK	zone_map x=-1820.0 z=-1980.0 radius=200.0 size=500 save_to=m5-landfills-map.jpg  -> 0.0s
+2026-10-25 18:41:12	2050-05-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.9s
+2026-10-25 18:42:48	2050-05-11	OK	city_info  -> 0.0s
+2026-10-25 18:42:48	2050-05-11	OK	events  -> 0.0s
+2026-10-25 18:42:49	2050-05-11	OK	buildings_near x=-1820.0 z=-2050.0 radius=100.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 18:42:58	2050-05-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.2s
+2026-10-25 18:44:31	2050-05-21	OK	city_info  -> 0.0s
+2026-10-25 18:44:31	2050-05-21	OK	events  -> 0.0s
+2026-10-25 18:44:40	2050-05-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.4s
+2026-10-25 18:46:15	2050-05-31	OK	city_info  -> 0.0s
+2026-10-25 18:46:16	2050-05-31	OK	buildings_near x=-2300.0 z=-1500.0 radius=800.0 limit=3 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:46:16	2050-05-31	OK	complaints  -> 0.0s
+2026-10-25 18:46:18	2050-05-31	OK	buildings_near x=-1118.0 z=-1041.0 radius=800.0 limit=3 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:46:18	2050-05-31	OK	vehicles_stuck kind=truck building=28755 limit=3  -> 0.0s
+2026-10-25 18:46:34	2050-05-31	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 18:47:21	2050-05-31	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 18:47:21	2050-05-31	OK	save_city name=fukuoka-base-v3-m06 overwrite=false  -> 2.0s
+2026-10-25 18:47:27	2050-05-31	OK	city_info  -> 0.0s
+2026-10-25 18:47:27	2050-05-31	OK	economy  -> 0.0s
+2026-10-25 18:47:27	2050-05-31	OK	services  -> 0.0s
+2026-10-25 18:47:27	2050-05-31	OK	citizens_summary  -> 0.0s
+2026-10-25 18:47:27	2050-05-31	OK	complaints  -> 0.0s
+2026-10-25 18:47:31	2050-05-31	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 18:47:31	2050-05-31	OK	events  -> 0.0s
+2026-10-25 18:47:34	2050-05-31	OK	move_camera x=-453.0 z=-1451.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 18:47:38	2050-05-31	OK	screenshot view=current max_width=1000 save_to=m6-garbage.jpg  -> 0.5s
+2026-10-25 18:47:41	2050-05-31	OK	buildings_near x=-453.0 z=-1451.0 radius=1500.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 18:47:47	2050-05-31	OK	buildings_near x=-1118.0 z=-1041.0 radius=800.0 limit=3 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:47:47	2050-05-31	OK	cargo  -> 0.0s
+2026-10-25 18:47:47	2050-05-31	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 18:47:57	2050-05-31	OK	economy_breakdown  -> 0.0s
+2026-10-25 18:48:00	2050-05-31	OK	zone_map x=-500.0 z=-1750.0 radius=350.0 size=800 save_to=null  -> 0.0s
+2026-10-25 18:48:03	2050-05-31	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 18:48:06	2050-05-31	OK	net_near x=-600.0 z=-1855.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 18:48:49	2050-05-31	OK	buildings_near x=-453.0 z=-1451.0 radius=600.0 limit=3 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:48:50	2050-05-31	OK	buildings_near x=3440.0 z=-266.0 radius=800.0 limit=3 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:48:53	2050-05-31	DO	南の中央の焼却場の南に埋立地を2つ置く(公約1)
+2026-10-25 18:48:53	2050-05-31	WHY	ごみの印93→129棟。近くの焼却場と埋立地2つが満杯。次の月例で半径600の印を25棟から半分以下に
+2026-10-25 18:48:53	2050-05-31	OK	place_building prefab=Landfill Site x=-650.0 z=-1900.0 angle=0 pay=true facing=north  -> 3.5s cost=4000
+2026-10-25 18:49:00	2050-05-31	OK	net_near x=-700.0 z=-1860.0 radius=80.0 service=null limit=50  -> 0.0s
+2026-10-25 18:49:03	2050-05-31	OK	build_line prefab=Basic Road points=[[-620.0, -1860.0], [-700.0, -1860.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.3s cost=400
+2026-10-25 18:49:09	2050-05-31	OK	place_building prefab=Landfill Site x=-560.0 z=-1900.0 angle=0 pay=true facing=north  -> 3.3s cost=4000
+2026-10-25 18:49:12	2050-05-31	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 10.1s
+2026-10-25 18:49:25	2050-06-01	OK	buildings_near x=-605.0 z=-1900.0 radius=70.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 18:49:27	2050-06-01	DO	医療の予算を150→130%に下げる(試し、公約3)
+2026-10-25 18:49:27	2050-06-01	WHY	黒字は収入の3%で収入は5か月減少。病院の使用は41%。支出約1万減、死体の印43→60以内を見込む
+2026-10-25 18:49:28	2050-06-01	OK	set_budget target=healthcare percent=130 day=null night=null  -> 0.0s
+2026-10-25 18:49:31	2050-06-01	OK	zone_map x=-600.0 z=-1880.0 radius=150.0 size=600 save_to=m6-landfills-map.jpg  -> 0.0s
+2026-10-25 18:50:09	2050-06-01	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 83.0s
+2026-10-25 18:51:34	2050-06-10	OK	city_info  -> 0.0s
+2026-10-25 18:51:35	2050-06-10	OK	events  -> 0.0s
+2026-10-25 18:51:35	2050-06-10	OK	economy_breakdown  -> 0.0s
+2026-10-25 18:51:45	2050-06-10	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 93.5s
+2026-10-25 18:53:21	2050-06-20	OK	city_info  -> 0.0s
+2026-10-25 18:53:21	2050-06-20	OK	events  -> 0.0s
+2026-10-25 18:53:31	2050-06-20	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.1s
+2026-10-25 18:55:04	2050-06-30	OK	city_info  -> 0.0s
+2026-10-25 18:55:05	2050-06-30	OK	complaints  -> 0.0s
+2026-10-25 18:55:06	2050-06-30	OK	buildings_near x=-453.0 z=-1451.0 radius=600.0 limit=1 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:55:06	2050-06-30	OK	buildings_near x=3440.0 z=-266.0 radius=800.0 limit=1 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 18:55:22	2050-06-30	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 18:55:43	2050-06-30	OK	save_city name=fukuoka-base-v3-m06-end overwrite=false  -> 2.0s
+2026-10-25 18:55:50	2050-06-30	OK	city_info  -> 0.0s
+2026-10-25 19:07:47	2050-06-30	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 19:07:47	2050-06-30	OK	save_city name=fukuoka-base-v3-m07 overwrite=false  -> 2.0s
+2026-10-25 19:07:52	2050-06-30	OK	city_info  -> 0.0s
+2026-10-25 19:07:52	2050-06-30	OK	economy  -> 0.0s
+2026-10-25 19:07:52	2050-06-30	OK	services  -> 0.0s
+2026-10-25 19:07:53	2050-06-30	OK	citizens_summary  -> 0.0s
+2026-10-25 19:07:53	2050-06-30	OK	complaints  -> 0.0s
+2026-10-25 19:07:57	2050-06-30	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 19:07:57	2050-06-30	OK	events  -> 0.0s
+2026-10-25 19:07:58	2050-06-30	OK	move_camera x=1625.0 z=-1452.0 size=2000.0 pitch=null yaw=null  -> 0.5s
+2026-10-25 19:08:02	2050-06-30	OK	screenshot view=current max_width=1000 save_to=m7-garbage.jpg  -> 0.5s
+2026-10-25 19:08:06	2050-06-30	OK	buildings_near x=1625.0 z=-1452.0 radius=2000.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:08:06	2050-06-30	OK	buildings_near x=1625.0 z=-1452.0 radius=600.0 limit=5 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:08:14	2050-06-30	OK	demand_breakdown  -> 0.0s
+2026-10-25 19:08:14	2050-06-30	OK	economy_breakdown  -> 0.0s
+2026-10-25 19:08:15	2050-06-30	OK	zone_map x=1700.0 z=-1500.0 radius=500.0 size=800 save_to=null  -> 0.0s
+2026-10-25 19:08:30	2050-06-30	OK	cargo  -> 0.0s
+2026-10-25 19:08:30	2050-06-30	OK	height_at x=2040.0 z=-1750.0  -> 0.0s
+2026-10-25 19:08:30	2050-06-30	OK	trade  -> 0.0s
+2026-10-25 19:08:39	2050-06-30	OK	traffic x=-1900.0 z=300.0 radius=500.0 limit=10  -> 0.0s
+2026-10-25 19:08:39	2050-06-30	OK	vehicles_stuck kind=truck building=1366 limit=5  -> 0.0s
+2026-10-25 19:08:58	2050-06-30	OK	zone_map x=-1800.0 z=250.0 radius=400.0 size=800 save_to=null  -> 0.0s
+2026-10-25 19:09:05	2050-06-30	OK	junction_info x=-1965.0 z=100.0  -> 0.0s
+2026-10-25 19:09:06	2050-06-30	OK	buildings_near x=-1106.0 z=-839.0 radius=800.0 limit=3 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:09:12	2050-06-30	OK	net_near x=2000.0 z=-1680.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:09:12	2050-06-30	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 19:09:18	2050-06-30	OK	height_at x=2100.0 z=-1780.0  -> 0.0s
+2026-10-25 19:09:19	2050-06-30	OK	height_at x=1990.0 z=-1800.0  -> 0.0s
+2026-10-25 19:09:19	2050-06-30	OK	height_at x=2040.0 z=-1640.0  -> 0.0s
+2026-10-25 19:10:13	2050-06-30	DO	南東の新街区の南に埋立地を2つ置く(公約1)
+2026-10-25 19:10:13	2050-06-30	WHY	新街区のごみの印46棟。近くの埋立地は満杯。置いた2か所では印が減った。半径600で20棟以下を見込む
+2026-10-25 19:10:13	2050-06-30	OK	build_line prefab=Basic Road points=[[1960.0, -1640.0], [2040.0, -1640.0], [2040.0, -1840.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.4s cost=1360
+2026-10-25 19:10:19	2050-06-30	OK	place_building prefab=Landfill Site x=2000.0 z=-1760.0 angle=0 pay=true facing=east  -> 3.3s cost=4000
+2026-10-25 19:10:22	2050-06-30	OK	place_building prefab=Landfill Site x=2080.0 z=-1760.0 angle=0 pay=true facing=west  -> 3.3s cost=4000
+2026-10-25 19:10:29	2050-06-30	DO	西の港の出口のT字路の信号を外す(試し。公約1・3)
+2026-10-25 19:10:29	2050-06-30	WHY	荷が西の港に集まり出口先が混み100、港の車66台が止まる。外せば品物が南西の店43棟に届くか測る
+2026-10-25 19:10:30	2050-06-30	OK	set_traffic_lights x=-1964.0 z=100.0 active=false  -> 3.5s
+2026-10-25 19:10:33	2050-06-30	OK	zone_map x=2000.0 z=-1720.0 radius=200.0 size=600 save_to=m7-landfills-map.jpg  -> 0.0s
+2026-10-25 19:10:55	2050-06-30	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.5s
+2026-10-25 19:12:29	2050-07-10	OK	city_info  -> 0.0s
+2026-10-25 19:12:30	2050-07-10	OK	events  -> 0.0s
+2026-10-25 19:12:30	2050-07-10	OK	buildings_near x=2040.0 z=-1760.0 radius=100.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:12:40	2050-07-10	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.3s
+2026-10-25 19:14:14	2050-07-20	OK	city_info  -> 0.0s
+2026-10-25 19:14:14	2050-07-20	OK	events  -> 0.0s
+2026-10-25 19:14:23	2050-07-20	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.3s
+2026-10-25 19:15:57	2050-07-30	OK	city_info  -> 0.0s
+2026-10-25 19:15:57	2050-07-30	OK	events  -> 0.0s
+2026-10-25 19:15:58	2050-07-30	OK	buildings_near x=1625.0 z=-1452.0 radius=600.0 limit=1 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:15:59	2050-07-30	OK	buildings_near x=-1106.0 z=-839.0 radius=800.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:16:00	2050-07-30	OK	traffic x=-1900.0 z=300.0 radius=500.0 limit=3  -> 0.0s
+2026-10-25 19:16:01	2050-07-30	OK	vehicles_stuck kind=truck building=1366 limit=1  -> 0.0s
+2026-10-25 19:16:01	2050-07-30	OK	complaints  -> 0.0s
+2026-10-25 19:16:17	2050-07-30	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 19:17:10	2050-07-30	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 19:17:11	2050-07-30	OK	save_city name=fukuoka-base-v3-m08 overwrite=false  -> 2.0s
+2026-10-25 19:17:15	2050-07-30	OK	city_info  -> 0.0s
+2026-10-25 19:17:16	2050-07-30	OK	economy  -> 0.0s
+2026-10-25 19:17:16	2050-07-30	OK	services  -> 0.0s
+2026-10-25 19:17:16	2050-07-30	OK	citizens_summary  -> 0.0s
+2026-10-25 19:17:16	2050-07-30	OK	complaints  -> 0.0s
+2026-10-25 19:17:17	2050-07-30	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 19:17:17	2050-07-30	OK	events  -> 0.0s
+2026-10-25 19:17:21	2050-07-30	OK	move_camera x=2067.0 z=262.0 size=2500.0 pitch=null yaw=0.0  -> 0.5s
+2026-10-25 19:17:25	2050-07-30	OK	screenshot view=current max_width=1024 save_to=m8-nogoods.jpg  -> 0.5s
+2026-10-25 19:17:29	2050-07-30	OK	buildings_near x=3440.0 z=-266.0 radius=800.0 limit=50 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:17:29	2050-07-30	OK	economy_breakdown  -> 0.0s
+2026-10-25 19:17:29	2050-07-30	OK	demand_breakdown  -> 0.0s
+2026-10-25 19:17:30	2050-07-30	OK	cargo  -> 0.0s
+2026-10-25 19:17:48	2050-07-30	OK	buildings_near x=3500.0 z=-200.0 radius=1500.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:17:49	2050-07-30	OK	buildings_near x=2245.0 z=719.0 radius=800.0 limit=5 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:17:50	2050-07-30	OK	buildings_near x=3519.0 z=-102.0 radius=600.0 limit=5 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:17:53	2050-07-30	OK	zone_map x=3900.0 z=-550.0 radius=300.0 size=900 save_to=m8-east-landfill-before.jpg  -> 0.0s
+2026-10-25 19:18:18	2050-07-30	OK	zone_map x=3500.0 z=-150.0 radius=500.0 size=900 save_to=null  -> 0.1s
+2026-10-25 19:18:28	2050-07-30	OK	buildings_near x=3845.0 z=10.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:18:29	2050-07-30	OK	net_near x=3845.0 z=10.0 radius=110.0 service=null limit=50  -> 0.0s
+2026-10-25 19:18:32	2050-07-30	OK	net_near x=3930.0 z=0.0 radius=120.0 service=null limit=50  -> 0.0s
+2026-10-25 19:18:39	2050-07-30	OK	net_near x=3820.0 z=-720.0 radius=130.0 service=null limit=50  -> 0.0s
+2026-10-25 19:18:40	2050-07-30	OK	buildings_near x=3820.0 z=-740.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:18:49	2050-07-30	OK	buildings_near x=3860.0 z=-880.0 radius=110.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:18:49	2050-07-30	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 19:20:08	2050-07-30	DO	東の満杯の埋立地の南に埋立地を2つ置く(公約1)
+2026-10-25 19:20:08	2050-07-30	WHY	ごみの印は東(3519,-102)に27棟。近くの埋立地は満杯で車0。来月その円の印を21→10棟以下と見込む
+2026-10-25 19:20:09	2050-07-30	NG	build_line prefab=Basic Road points=[[3860.0, -620.0], [3860.0, -880.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.5s)
+2026-10-25 19:20:16	2050-07-30	OK	build_line prefab=Basic Road points=[[3860.0, -620.0], [3872.0, -672.0], [3872.0, -880.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> 3.2s cost=1360
+2026-10-25 19:20:22	2050-07-30	OK	place_building prefab=Landfill Site x=3832.0 z=-840.0 angle=0 pay=true facing=east  -> 3.3s cost=4000
+2026-10-25 19:20:25	2050-07-30	OK	place_building prefab=Landfill Site x=3912.0 z=-840.0 angle=0 pay=true facing=west  -> 3.3s cost=4000
+2026-10-25 19:20:33	2050-07-30	OK	zone_map x=3870.0 z=-750.0 radius=200.0 size=600 save_to=m8-landfills-map.jpg  -> 0.0s
+2026-10-25 19:20:36	2050-07-30	DO	貨物駅28755を動かし直す(試し。公約1・3)
+2026-10-25 19:20:36	2050-07-30	WHY	止めた4月から品物が届かない店は233→287棟。東(2245,719)の93棟が来月70棟以下になるかを測る
+2026-10-25 19:20:36	2050-07-30	OK	set_building_active id=28755 active=true  -> 0.0s
+2026-10-25 19:20:38	2050-07-30	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 19:20:42	2050-07-30	DO	オフィスの税を3%から5%に上げる(公約3)
+2026-10-25 19:20:42	2050-07-30	WHY	収入が毎月約3,000減り黒字は+10,683。オフィス税1点で約7,900。週の収入が約15,000増えると見込む
+2026-10-25 19:20:42	2050-07-30	OK	set_tax target=office rate=5  -> 0.0s
+2026-10-25 19:21:06	2050-07-30	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 96.8s
+2026-10-25 19:22:44	2050-08-09	OK	city_info  -> 0.0s
+2026-10-25 19:22:45	2050-08-09	OK	events  -> 0.0s
+2026-10-25 19:22:45	2050-08-09	OK	buildings_near x=3872.0 z=-840.0 radius=100.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:22:45	2050-08-09	OK	cargo  -> 0.0s
+2026-10-25 19:22:59	2050-08-09	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 93.3s
+2026-10-25 19:24:34	2050-08-19	OK	city_info  -> 0.0s
+2026-10-25 19:24:34	2050-08-19	OK	events  -> 0.0s
+2026-10-25 19:24:46	2050-08-19	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 93.2s
+2026-10-25 19:26:22	2050-08-29	OK	city_info  -> 0.0s
+2026-10-25 19:26:22	2050-08-29	OK	events  -> 0.0s
+2026-10-25 19:26:22	2050-08-29	OK	complaints  -> 0.0s
+2026-10-25 19:26:23	2050-08-29	OK	buildings_near x=3519.0 z=-102.0 radius=600.0 limit=1 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:26:24	2050-08-29	OK	buildings_near x=2245.0 z=719.0 radius=800.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:26:25	2050-08-29	OK	vehicles_stuck kind=truck building=28755 limit=1  -> 0.0s
+2026-10-25 19:26:45	2050-08-29	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 19:27:36	2050-08-29	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 19:27:37	2050-08-29	OK	save_city name=fukuoka-base-v3-m09 overwrite=false  -> 2.5s
+2026-10-25 19:27:42	2050-08-29	OK	city_info  -> 0.0s
+2026-10-25 19:27:42	2050-08-29	OK	economy  -> 0.0s
+2026-10-25 19:27:42	2050-08-29	OK	services  -> 0.0s
+2026-10-25 19:27:43	2050-08-29	OK	citizens_summary  -> 0.0s
+2026-10-25 19:27:43	2050-08-29	OK	complaints  -> 0.0s
+2026-10-25 19:27:43	2050-08-29	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 19:27:43	2050-08-29	OK	events  -> 0.0s
+2026-10-25 19:27:57	2050-08-29	OK	move_camera x=-2296.0 z=-221.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 19:28:01	2050-08-29	OK	screenshot view=current max_width=1000 save_to=m9-garbage-west.jpg  -> 0.5s
+2026-10-25 19:28:05	2050-08-29	OK	buildings_near x=-2296.0 z=-221.0 radius=1200.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:28:05	2050-08-29	OK	economy_breakdown  -> 0.0s
+2026-10-25 19:28:05	2050-08-29	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 19:28:08	2050-08-29	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 19:28:15	2050-08-29	OK	zone_map x=-2650.0 z=-250.0 radius=350.0 size=900 save_to=m9-west-map.jpg  -> 0.0s
+2026-10-25 19:28:26	2050-08-29	OK	cargo  -> 0.0s
+2026-10-25 19:28:26	2050-08-29	OK	demand_breakdown  -> 0.0s
+2026-10-25 19:28:31	2050-08-29	OK	traffic x=2256.0 z=740.0 radius=800.0 limit=10  -> 0.0s
+2026-10-25 19:28:31	2050-08-29	OK	trade  -> 0.0s
+2026-10-25 19:28:35	2050-08-29	OK	move_camera x=2300.0 z=450.0 size=1200.0 pitch=70.0 yaw=null  -> 0.5s
+2026-10-25 19:28:38	2050-08-29	OK	screenshot view=current max_width=1000 save_to=m9-east-traffic.jpg  -> 0.5s
+2026-10-25 19:28:41	2050-08-29	OK	net_near x=2152.0 z=420.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:28:51	2050-08-29	OK	buildings_near x=2256.0 z=740.0 radius=800.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:28:52	2050-08-29	OK	buildings_near x=-2296.0 z=-221.0 radius=600.0 limit=1 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:28:53	2050-08-29	OK	net_near x=2450.0 z=500.0 radius=250.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:29:34	2050-08-29	DO	西に焼却場を1つ置く(公約1)
+2026-10-25 19:29:34	2050-08-29	WHY	西のごみの印41棟。近くの埋立地4つは満杯か寸前で車がほぼ出ない。半径600の印31棟を15棟以下に
+2026-10-25 19:29:35	2050-08-29	OK	zone_map x=-2800.0 z=-550.0 radius=150.0 size=600 save_to=null  -> 0.0s
+2026-10-25 19:29:42	2050-08-29	OK	place_building prefab=Combustion Plant x=-2745.0 z=-520.0 angle=0 pay=true facing=east  -> 3.6s cost=30000
+2026-10-25 19:29:48	2050-08-29	DO	東の街区の1車線の道を4車線に(試し。公約1と3)
+2026-10-25 19:29:48	2050-08-29	WHY	東は止まった車236台、混み具合100の道が多い。品物が店に着けない見立て。印92棟を75棟以下に
+2026-10-25 19:29:49	2050-08-29	OK	upgrade_road prefab=Small 4 Lane Road points=[[2152.0, 483.0], [2152.0, 605.0]] tolerance=10.0 pay=true demolish=false  -> 3.5s cost=0
+2026-10-25 19:29:53	2050-08-29	OK	upgrade_road prefab=Small 4 Lane Road points=[[2089.0, 560.0], [2668.0, 560.0]] tolerance=10.0 pay=true demolish=false  -> 3.4s cost=0
+2026-10-25 19:29:56	2050-08-29	OK	upgrade_road prefab=Small 4 Lane Road points=[[2668.0, 330.0], [2668.0, 650.0]] tolerance=10.0 pay=true demolish=false  -> 3.4s cost=0
+2026-10-25 19:30:03	2050-08-29	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 10.0s
+2026-10-25 19:30:15	2050-08-30	OK	buildings_near x=-2745.0 z=-520.0 radius=20.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:30:50	2050-08-30	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 90.4s
+2026-10-25 19:32:22	2050-09-08	OK	city_info  -> 0.0s
+2026-10-25 19:32:22	2050-09-08	OK	events  -> 0.0s
+2026-10-25 19:32:23	2050-09-08	OK	buildings_near x=-2745.0 z=-520.0 radius=20.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:32:35	2050-09-08	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 96.3s
+2026-10-25 19:34:14	2050-09-18	OK	city_info  -> 0.0s
+2026-10-25 19:34:14	2050-09-18	OK	events  -> 0.0s
+2026-10-25 19:34:26	2050-09-18	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.3s
+2026-10-25 19:36:02	2050-09-28	OK	city_info  -> 0.0s
+2026-10-25 19:36:03	2050-09-28	OK	events  -> 0.0s
+2026-10-25 19:36:04	2050-09-28	OK	complaints  -> 0.0s
+2026-10-25 19:36:05	2050-09-28	OK	buildings_near x=-2296.0 z=-221.0 radius=600.0 limit=1 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:36:05	2050-09-28	OK	buildings_near x=2256.0 z=740.0 radius=800.0 limit=1 problems_only=false problem=NoGoods service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:36:06	2050-09-28	OK	traffic x=2256.0 z=740.0 radius=800.0 limit=3  -> 0.0s
+2026-10-25 19:36:24	2050-09-28	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 19:37:20	2050-09-28	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 19:37:21	2050-09-28	OK	save_city name=fukuoka-base-v3-m10 overwrite=false  -> 2.0s
+2026-10-25 19:37:26	2050-09-28	OK	city_info  -> 0.0s
+2026-10-25 19:37:26	2050-09-28	OK	economy  -> 0.0s
+2026-10-25 19:37:26	2050-09-28	OK	services  -> 0.0s
+2026-10-25 19:37:26	2050-09-28	OK	citizens_summary  -> 0.0s
+2026-10-25 19:37:26	2050-09-28	OK	complaints  -> 0.0s
+2026-10-25 19:37:29	2050-09-28	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 19:37:30	2050-09-28	OK	events  -> 0.0s
+2026-10-25 19:37:34	2050-09-28	OK	move_camera x=2250.0 z=50.0 size=2500.0 pitch=60.0 yaw=0.0  -> 0.4s
+2026-10-25 19:37:38	2050-09-28	OK	screenshot view=current max_width=1024 save_to=m10-east-nogoods-death.jpg  -> 0.5s
+2026-10-25 19:37:40	2050-09-28	OK	demand_breakdown  -> 0.0s
+2026-10-25 19:37:40	2050-09-28	OK	economy_breakdown  -> 0.0s
+2026-10-25 19:37:44	2050-09-28	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 19:37:51	2050-09-28	OK	cargo  -> 0.0s
+2026-10-25 19:38:19	2050-09-28	OK	buildings_near x=-437.0 z=-1390.0 radius=1200.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:38:20	2050-09-28	OK	buildings_near x=-437.0 z=-1390.0 radius=600.0 limit=50 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:38:25	2050-09-28	OK	zone_map x=-600.0 z=-1450.0 radius=550.0 size=900 save_to=m10-south-map.jpg  -> 0.1s
+2026-10-25 19:38:32	2050-09-28	OK	height_at x=-860.0 z=-1400.0  -> 0.0s
+2026-10-25 19:38:33	2050-09-28	OK	height_at x=-860.0 z=-1650.0  -> 0.0s
+2026-10-25 19:38:36	2050-09-28	OK	net_near x=-860.0 z=-1400.0 radius=130.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:38:40	2050-09-28	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 19:39:00	2050-09-28	OK	net_near x=-620.0 z=-1580.0 radius=90.0 service=null limit=50  -> 0.0s
+2026-10-25 19:39:00	2050-09-28	OK	buildings_near x=-620.0 z=-1620.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:39:04	2050-09-28	OK	net_near x=-520.0 z=-1700.0 radius=120.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:39:58	2050-09-28	DO	医療の予算を130%から150%に戻す(公約1)
+2026-10-25 19:39:58	2050-09-28	WHY	死体の印75棟で、決めていた戻す線60を越えた。来月55棟以下を見込む。支出は週約1万増える
+2026-10-25 19:39:58	2050-09-28	OK	set_budget target=healthcare percent=150 day=null night=null  -> 0.0s
+2026-10-25 19:40:01	2050-09-28	DO	南のごみの印の近くに焼却場を置く(試し、公約1)
+2026-10-25 19:40:01	2050-09-28	WHY	西に置くと印31→10棟。印は南へ移り、南の焼却場は96%で車が足りない。南の印18→8棟以下を見込む
+2026-10-25 19:40:01	2050-09-28	NG	build_line prefab=Basic Road points=[[-700.0, -1560.0], [-700.0, -1700.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.5s)
+2026-10-25 19:40:10	2050-09-28	NG	build_line prefab=Basic Road points=[[-700.0, -1560.0], [-735.0, -1560.0], [-735.0, -1700.0]] frames=0 gif_name=null pay=true follow=false size=2500 demolish=false y=null  -> the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway (1.2s)
+2026-10-25 19:40:15	2050-09-28	OK	zone_map x=-650.0 z=-1650.0 radius=150.0 size=600 save_to=null  -> 0.0s
+2026-10-25 19:40:26	2050-09-28	OK	net_near x=-660.0 z=-1850.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:40:27	2050-09-28	OK	buildings_near x=-660.0 z=-1820.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:40:30	2050-09-28	OK	place_building prefab=Combustion Plant x=-660.0 z=-1834.0 angle=0 pay=true facing=south  -> 3.3s cost=30000
+2026-10-25 19:40:36	2050-09-28	DO	オフィスの税を5%から7%に上げる(公約3)
+2026-10-25 19:40:36	2050-09-28	WHY	医療と焼却場で支出が週約1.15万増え、黒字は約3千に縮む。7月の+2で放棄0、収入+1.5万だった
+2026-10-25 19:40:36	2050-09-28	OK	set_tax target=office rate=7  -> 0.0s
+2026-10-25 19:40:38	2050-09-28	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 9.8s
+2026-10-25 19:40:50	2050-09-29	OK	buildings_near x=-660.0 z=-1834.0 radius=15.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:41:30	2050-09-29	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 89.4s
+2026-10-25 19:43:01	2050-10-08	OK	city_info  -> 0.0s
+2026-10-25 19:43:01	2050-10-08	OK	events  -> 0.0s
+2026-10-25 19:43:01	2050-10-08	OK	buildings_near x=-660.0 z=-1834.0 radius=15.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:43:12	2050-10-08	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 95.5s
+2026-10-25 19:44:49	2050-10-18	OK	city_info  -> 0.0s
+2026-10-25 19:44:49	2050-10-18	OK	events  -> 0.0s
+2026-10-25 19:44:58	2050-10-18	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 92.4s
+2026-10-25 19:46:33	2050-10-28	OK	city_info  -> 0.0s
+2026-10-25 19:46:33	2050-10-28	OK	events  -> 0.0s
+2026-10-25 19:46:34	2050-10-28	OK	complaints  -> 0.0s
+2026-10-25 19:46:35	2050-10-28	OK	buildings_near x=-437.0 z=-1390.0 radius=600.0 limit=1 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:46:35	2050-10-28	OK	economy_breakdown  -> 0.0s
+2026-10-25 19:46:50	2050-10-28	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 19:47:48	2050-10-28	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 19:47:49	2050-10-28	OK	save_city name=fukuoka-base-v3-m11 overwrite=false  -> 2.0s
+2026-10-25 19:47:54	2050-10-28	OK	city_info  -> 0.0s
+2026-10-25 19:47:55	2050-10-28	OK	economy  -> 0.0s
+2026-10-25 19:47:55	2050-10-28	OK	services  -> 0.0s
+2026-10-25 19:47:55	2050-10-28	OK	citizens_summary  -> 0.0s
+2026-10-25 19:47:55	2050-10-28	OK	complaints  -> 0.0s
+2026-10-25 19:47:58	2050-10-28	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 19:47:58	2050-10-28	OK	events  -> 0.0s
+2026-10-25 19:48:02	2050-10-28	OK	move_camera x=1845.0 z=-1270.0 size=2200.0 pitch=55.0 yaw=0.0  -> 0.5s
+2026-10-25 19:48:06	2050-10-28	OK	screenshot view=current max_width=1000 save_to=m11-garbage-southeast.jpg  -> 0.5s
+2026-10-25 19:48:10	2050-10-28	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-25 19:48:10	2050-10-28	OK	demand_breakdown  -> 0.0s
+2026-10-25 19:48:10	2050-10-28	OK	buildings_near x=1845.0 z=-1271.0 radius=900.0 limit=30 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:48:23	2050-10-28	OK	buildings_near x=2334.0 z=-66.0 radius=1500.0 limit=30 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-25 19:48:25	2050-10-28	OK	buildings_near x=2334.0 z=-66.0 radius=600.0 limit=40 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:48:25	2050-10-28	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-25 19:48:28	2050-10-28	OK	vehicles_stuck kind=hearse building=null limit=10  -> 0.0s
+2026-10-25 19:48:35	2050-10-28	OK	zone_map x=1950.0 z=-1250.0 radius=400.0 size=800 save_to=null  -> 0.1s
+2026-10-25 19:48:53	2050-10-28	OK	net_near x=2150.0 z=-1200.0 radius=150.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:48:57	2050-10-28	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-25 19:48:57	2050-10-28	OK	height_at x=2050.0 z=-1300.0  -> 0.0s
+2026-10-25 19:49:00	2050-10-28	OK	height_at x=2100.0 z=-1250.0  -> 0.0s
+2026-10-25 19:49:00	2050-10-28	OK	height_at x=2100.0 z=-1215.0  -> 0.0s
+2026-10-25 19:49:00	2050-10-28	OK	height_at x=2300.0 z=-1290.0  -> 0.0s
+2026-10-25 19:49:04	2050-10-28	OK	zone_map x=2300.0 z=-1300.0 radius=200.0 size=600 save_to=null  -> 0.0s
+2026-10-25 19:49:10	2050-10-28	OK	buildings_near x=2400.0 z=-1280.0 radius=250.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:49:36	2050-10-28	OK	buildings_near x=1845.0 z=-1271.0 radius=600.0 limit=50 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:50:10	2050-10-28	DO	南東の満杯の埋立地の南に焼却場を置く(試し、公約1)
+2026-10-25 19:50:10	2050-10-28	WHY	ごみの印は南で18→0棟、南東へ移り12棟。近くの埋立地は満杯で車0。次の月例で半径600の印10→4棟以下を見込む
+2026-10-25 19:50:10	2050-10-28	OK	place_building prefab=Combustion Plant x=2272.0 z=-1264.0 angle=0 pay=true facing=north  -> 3.5s cost=30000
+2026-10-25 19:50:16	2050-10-28	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 9.9s
+2026-10-25 19:50:28	2050-10-29	OK	buildings_near x=2272.0 z=-1264.0 radius=15.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:51:00	2050-10-29	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 91.5s
+2026-10-25 19:52:33	2050-11-07	OK	city_info  -> 0.0s
+2026-10-25 19:52:34	2050-11-07	OK	events  -> 0.0s
+2026-10-25 19:52:35	2050-11-07	OK	buildings_near x=2272.0 z=-1264.0 radius=15.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=false  -> 0.0s
+2026-10-25 19:52:45	2050-11-07	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.4s
+2026-10-25 19:54:22	2050-11-17	OK	city_info  -> 0.0s
+2026-10-25 19:54:22	2050-11-17	OK	events  -> 0.0s
+2026-10-25 19:54:31	2050-11-17	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 91.3s
+2026-10-25 19:56:04	2050-11-27	OK	city_info  -> 0.0s
+2026-10-25 19:56:06	2050-11-27	OK	events  -> 0.0s
+2026-10-25 19:56:06	2050-11-27	OK	complaints  -> 0.0s
+2026-10-25 19:56:06	2050-11-27	OK	buildings_near x=1845.0 z=-1271.0 radius=600.0 limit=50 problems_only=false problem=Garbage service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:56:07	2050-11-27	OK	buildings_near x=2334.0 z=-66.0 radius=600.0 limit=5 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:56:11	2050-11-27	OK	buildings_near x=2334.0 z=-66.0 radius=600.0 limit=40 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:56:25	2050-11-27	OK	save_log save_to=command-log.txt  -> 0.0s
+2026-10-25 19:57:19	2050-11-27	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-25 19:57:20	2050-11-27	OK	save_city name=fukuoka-base-v3-m12 overwrite=false  -> 2.0s
+2026-10-25 19:57:24	2050-11-27	OK	city_info  -> 0.0s
+2026-10-25 19:57:24	2050-11-27	OK	economy  -> 0.0s
+2026-10-25 19:57:25	2050-11-27	OK	services  -> 0.0s
+2026-10-25 19:57:25	2050-11-27	OK	citizens_summary  -> 0.0s
+2026-10-25 19:57:25	2050-11-27	OK	complaints  -> 0.0s
+2026-10-25 19:57:26	2050-11-27	OK	citizen_voices n=5  -> 0.0s
+2026-10-25 19:57:26	2050-11-27	OK	events  -> 0.0s
+2026-10-25 19:57:30	2050-11-27	OK	move_camera x=3550.0 z=-450.0 size=2200.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 19:57:34	2050-11-27	OK	screenshot view=current max_width=1024 save_to=m12-east-garbage-death.jpg  -> 0.5s
+2026-10-25 19:57:41	2050-11-27	OK	buildings_near x=3422.0 z=-502.0 radius=900.0 limit=20 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-25 19:57:41	2050-11-27	OK	vehicles_stuck kind=hearse building=null limit=5  -> 0.0s
+2026-10-25 19:57:52	2050-11-27	OK	zone_map x=3450.0 z=-500.0 radius=450.0 size=900 save_to=m12-east-map.jpg  -> 0.0s
+2026-10-25 19:57:52	2050-11-27	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-25 19:58:03	2050-11-27	OK	buildings_near x=3300.0 z=-470.0 radius=150.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:58:12	2050-11-27	OK	zone_map x=3950.0 z=-650.0 radius=250.0 size=700 save_to=null  -> 0.0s
+2026-10-25 19:58:28	2050-11-27	OK	buildings_near x=3650.0 z=-600.0 radius=600.0 limit=50 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:58:29	2050-11-27	OK	net_near x=3871.0 z=-710.0 radius=80.0 service=Road limit=50  -> 0.0s
+2026-10-25 19:58:30	2050-11-27	OK	buildings_near x=3910.0 z=-710.0 radius=70.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 19:58:36	2050-11-27	DO	東の死体の印の近くに墓地を1つ置く(試し。公約1)
+2026-10-25 19:58:36	2050-11-27	WHY	東の墓地は霊柩車13/13が出払い処理0。近くに車を足すと印が減るかを見る。半径600の死体の印10棟を5棟以下に
+2026-10-25 19:59:02	2050-11-27	OK	place_building prefab=Cemetery x=3911.0 z=-706.0 angle=0 pay=true facing=west  -> 3.5s cost=8000
+2026-10-25 19:59:08	2050-11-27	OK	advance days=1 speed=3 max_seconds=600 turbo=null  -> 10.0s
+2026-10-25 19:59:20	2050-11-28	OK	buildings_near x=3911.0 z=-706.0 radius=15.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-25 19:59:41	2050-11-28	OK	advance days=9 speed=3 max_seconds=600 turbo=null  -> 86.3s
+2026-10-25 20:01:09	2050-12-07	OK	city_info  -> 0.0s
+2026-10-25 20:01:10	2050-12-07	OK	events  -> 0.0s
+2026-10-25 20:01:10	2050-12-07	OK	buildings_near x=3911.0 z=-706.0 radius=15.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-25 20:01:19	2050-12-07	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 94.2s
+2026-10-25 20:02:55	2050-12-17	OK	city_info  -> 0.0s
+2026-10-25 20:02:55	2050-12-17	OK	events  -> 0.0s
+2026-10-25 20:03:05	2050-12-17	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 89.1s
+2026-10-25 20:04:37	2050-12-27	OK	city_info  -> 0.0s
+2026-10-25 20:04:37	2050-12-27	OK	events  -> 0.0s
+2026-10-25 20:04:37	2050-12-27	OK	citizens_summary  -> 0.0s
+2026-10-25 20:04:37	2050-12-27	OK	complaints  -> 0.0s
+2026-10-25 20:04:37	2050-12-27	OK	buildings_near x=3650.0 z=-600.0 radius=600.0 limit=50 problems_only=false problem=Death service=null abandoned=false brief=true  -> 0.0s
+2026-10-25 20:04:38	2050-12-27	OK	buildings_near x=3911.0 z=-706.0 radius=15.0 limit=50 problems_only=false problem=null service=HealthCare abandoned=false brief=false  -> 0.0s
+2026-10-25 20:04:41	2050-12-27	OK	vehicles_stuck kind=hearse building=36061 limit=5  -> 0.0s
+2026-10-25 20:04:45	2050-12-27	OK	move_camera x=2870.0 z=-492.0 size=1200.0 pitch=60.0 yaw=0.0  -> 0.5s
+2026-10-25 20:04:49	2050-12-27	OK	screenshot view=current max_width=1024 save_to=m12-hearse-jam.jpg  -> 0.5s

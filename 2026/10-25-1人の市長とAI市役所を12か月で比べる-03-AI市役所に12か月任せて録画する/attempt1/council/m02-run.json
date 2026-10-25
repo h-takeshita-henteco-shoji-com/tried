@@ -1,0 +1,195 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "4-4 資源循環",
+      "6-4、7-1 企業の立地、地場企業",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "候補は公園の新設(4-2、Regular Park 建設費1,000・週8)。(2128,-333)付近で敷地の重なり、道路への向き、電気の接続を確認できず、置き場が1か所も確認できないため案なし。Recycling(住宅税収の約13,000減)とHighTechHousing(週20,256)は黒字・維持費の枠を超える。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": false,
+      "noProposalReason": "",
+      "title": "東西道路 z=-950 の絞り3区間(x=2160〜2280)を4車線にそろえる",
+      "buildCost": 325,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755の西の出入口2本を幹線につなぐ試し",
+      "buildCost": 400,
+      "upkeepPerWeek": 5,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、事務所税の引き下げ、IndustrySpace、SmallBusiness、HighTechHousing、工業区画の追加。事務所税は週の減収が黒字+9,558を超える見込み。政策は品物がない店226や原料がない工場27への効き目の経路を道具で確認できず、HighTechHousingは週20,256で枠5,000を超える。工業区画は区画を引く道具と設置条件を確認できない。品物がない店の主因は貨物駅28755の詰まりで、経済側の手がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "空にしている埋立地7棟を受け入れに戻す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども11,068以上、高校24,360は10代22,323以上で、2-3の目標を満たしている。学校の新設は大卒の失業(6,021)に効かず、維持費だけが増える。EducationBoost(週7,940)の解除は、操作の引数が未確認で、影響も測れないため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事5・犯罪2。消防車は8台中0〜1台しか使われておらず、署の追加や予算増に効く根拠がない。SmokeDetectors(週57,764)は維持費の枠5,000を超える。犯罪2棟は近くに警察署があり、有効な手が見つからなかった。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費約400、維持費の増え分約5で、要領の枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え分0で、枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "health",
+        "title": "空にしている埋立地7棟を受け入れに戻す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "査定は可だが、Cargo Connection の端に Large Road が付くかを局自身が未確認と書いており、道路との接続という必須条件が残るため。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "実行可否が未確認で、置き換えの方法と沿道の敷地を確かめておらず、査定も対象外だったため。"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m02-1"
+  ],
+  "done": {
+    "executed": [
+      "m02-1"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-02-10",
+        "population": 178523,
+        "money": 2135923,
+        "weeklyBalance": 9050,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-20",
+        "population": 178425,
+        "money": 2148065,
+        "weeklyBalance": 8434,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "report": "m02-1 は議案どおり打った。実行前の buildings_near で、対象の埋立地7棟はすべて Emptying だった。storage は94〜95%で、中止の条件に当たる棟はなかった。empty_building(active=False) を7棟の順に呼び、7件とも ok(emptying=false)。費用は0で、所持金は変わらなかった。見回りは2回(02-10、02-20)で、どちらも境目に当たらず臨時はなし。人口は 178,631 から 178,523、178,425 と少しずつ減った。週の収支は +9,050、+8,434 で黒字。幸福度は85、電気・水・下水が来ない市民は 0/0/0。2050-03-02 まで進め、ダイアログは出なかった。hooks に止められた手はなく、型から外れた点もない。試しの答え合わせ(ごみの印、7棟の収集車、garbage.full)と traffic の確認は次の月例に回した。ノートは /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md、ログは同じフォルダの command-log.txt。"
+  }
+}

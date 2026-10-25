@@ -1,0 +1,8 @@
+{
+  "month": 3,
+  "rulings": [
+    {"measureId": "m03-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは働き口0・家0・停電0・小学校の定員348(使用0)と数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べもあり、2-3 の定員は子どもを上回ったまま。"},
+    {"measureId": "m03-2", "verdict": "可決", "kind": "予算", "point": null, "reason": "交通(乗客が車に替わるおそれ)と財政への響きが書かれ、外れた施策の続きでも市の計画に逆らう手でもない。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"]
+}

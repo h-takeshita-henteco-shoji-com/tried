@@ -1,6 +1,6 @@
 export const meta = {
   name: 'council-month',
-  description: '市役所と議会のハーネスで、Cities: Skylines の街を1か月運営する(#100)',
+  description: '市役所と議会のハーネスで、Cities: Skylines の街を1か月運営する(#100、#105 で調査と道具の説明を足した)',
   whenToUse: '/council-month から呼ぶ。args は { runDir, month }',
   phases: [
     { title: '見る', detail: '見てまとめる市長が街を見て、編成方針を書く' },
@@ -22,6 +22,7 @@ if (!runDir || !month) {
   throw new Error('args に runDir と month が要る')
 }
 const m = String(month).padStart(2, '0')
+const prev = month > 1 ? String(month - 1).padStart(2, '0') : null
 const council = `${runDir}/council`
 const BUREAUS = ['urban', 'roads', 'port', 'economy', 'health', 'education', 'fire']
 const VOTE_KINDS = ['税', '予算', '融資', '取り壊し']
@@ -42,6 +43,7 @@ const GUIDE = obj({ buildCap: num, upkeepCap: num, taxRange: num, budgetRange: n
 const PROPOSAL = obj({
   bureau: str, hasProposal: bool, executionReady: bool, noProposalReason: str, title: str, buildCost: num, upkeepPerWeek: num,
   reversible: bool, planItems: strs, needsVote: bool, voteKind: str,
+  survey: obj({ exists: bool, question: str, plan: str }),
 })
 const ASSESSMENT = obj({
   assessments: { type: 'array', items: obj({ bureau: str, verdict: { type: 'string', enum: ['可', '減額', '不可'] }, reason: str }) },
@@ -54,6 +56,7 @@ const BILL = obj({
     items: obj({ id: str, fromBureau: str, title: str, needsVote: bool, voteKind: str, planItems: strs }),
   },
   rejected: { type: 'array', items: obj({ bureau: str, reason: str }) },
+  surveys: { type: 'array', items: obj({ id: str, fromBureau: str, question: str }) },
 })
 const RULING = obj({
   rulings: {
@@ -77,6 +80,7 @@ const DONE = obj({
   emergency: bool,
   stop: bool,
   stopReason: str,
+  surveysDone: strs,
   report: str,
 })
 
@@ -107,7 +111,11 @@ const guide = await agent(
 phase('案')
 const proposals = await parallel(BUREAUS.map((b) => () => agent(
   `${common}段: 案を出す\n` +
-  `読む: ${council}/m${m}-policy.md、${council}/m${m}-guide.md、市政ノートの数字の表、${council}/ledger.jsonl の自分の局の行\n` +
+  `読む: ${council}/m${m}-policy.md、${council}/m${m}-guide.md、市政ノートの数字の表、${council}/ledger.jsonl の自分の局の行` +
+  (prev ? `、前の月の自分の調査の結果 ${council}/m${prev}-survey-${b}.md(あれば)` : '') +
+  `、街を作る・変える道具の説明 code/ai-mayor/mayor/tool-reference.md\n` +
+  `道具の名前と引数は tool-reference.md で確かめ、実行計画に道具の名前と引数の値を書く。そうすれば引数は確かめたことになる。\n` +
+  `原因が分からない、確証が持てない問題は、案なしで終えず、調査(見る道具だけ、見回りと月末に実行する市長が測る)を1件まで出せる。\n` +
   `案を決める前に list_policies で政策名・有効状態・週の費用を確認し、担当する問題に関係する政策の変更をほかの手段と比較する。取得結果は「見たもの」に記録し、取得できなければ未確認と書く。\n` +
   `建設場所や接続条件は局が調べ、確認済みの座標・操作・予備候補を実行計画に書く。実行役に場所探しを残さない。\n` +
   `期待する効果に、改善の見込み、数値と期限、確認方法、不確かな点、試しを書く。確認した事実と局の予測を分け、数値を見積もれなければその旨を書く。効き目が分からない案は試しとして、仮説・測る数・場所・基準を書く。\n` +
@@ -118,6 +126,8 @@ const proposals = await parallel(BUREAUS.map((b) => () => agent(
 
 // 条件未確認の案は、費用の査定が可でも採択・実行に進めない。
 const withProposal = proposals.filter((p, i) => p && p.bureau === BUREAUS[i] && p.hasProposal && p.executionReady === true)
+// 調査(#105 の作り直し)。街を変えないので、査定と議決はいらない。採るかは市長が決める
+const withSurvey = proposals.filter((p, i) => p && p.bureau === BUREAUS[i] && p.survey && p.survey.exists === true)
 const readyBureaus = withProposal.map((p) => p.bureau)
 const excludedProposals = proposals.filter((p) => p && p.hasProposal && !withProposal.includes(p))
 if (excludedProposals.length) {
@@ -133,8 +143,9 @@ let ruling = null
 let ruling2 = null
 let allowed = []
 
-if (withProposal.length > 0) {
-  // 4. 査定
+if (withProposal.length > 0 || withSurvey.length > 0) {
+  // 4. 査定(施策の案がある月だけ)
+  if (withProposal.length > 0) {
   phase('査定')
   assessed = await agent(
     `${common}段: 査定\n` +
@@ -143,13 +154,16 @@ if (withProposal.length > 0) {
     `書くファイル: ${council}/m${m}-finance.md`,
     { agentType: 'council-finance', model: MODEL.finance, label: `査定 m${m}`, schema: ASSESSMENT },
   )
+  }
 
   // 5. まとめ
   phase('まとめ')
   bill = await agent(
     `${common}段: まとめる段\n` +
     `読む: ${council}/m${m}-finance.md と7つの局の案\n` +
-    `採択できる局: ${readyBureaus.join("、")}。本文にも必須条件の未確認が残る案は採らない。前月の採否ではなく当月の根拠で選ぶ。\n` +
+    `採択できる局: ${readyBureaus.length ? readyBureaus.join("、") : 'なし(施策の案はない)'}。本文にも必須条件の未確認が残る案は採らない。前月の採否ではなく当月の根拠で選ぶ。\n` +
+    `調査を出した局: ${withSurvey.length ? withSurvey.map((p) => p.bureau).join('、') : 'なし'}。調査は施策とは別に3件まで採れる(査定と議決はいらない)。\n` +
+    `道具の引数は code/ai-mayor/mayor/tool-reference.md で確かめる。\n` +
     `書くファイル: ${council}/m${m}-bill.md。施策の id は m${m}-1、m${m}-2 のように付ける`,
     { agentType: 'council-mayor-desk', model: MODEL.desk, label: `まとめ m${m}`, schema: BILL },
   )
@@ -200,19 +214,21 @@ if (withProposal.length > 0) {
     }
   }
 } else {
-  log(`m${m}: 実行条件を確認済みの提案なし。査定とまとめを飛ばす`)
+  log(`m${m}: 実行条件を確認済みの提案も調査もなし。査定とまとめを飛ばす`)
 }
 
 allowed = [...new Set(allowed)]
+const surveys = ((bill && bill.surveys) || []).filter((x) => withSurvey.some((p) => p.bureau === x.fromBureau))
 
 // 7. 実行と見回り
 phase('実行')
 const done = await agent(
   `${common}段: 実行と見回り\n` +
   `実行してよい施策の id: ${allowed.length ? allowed.join('、') : 'なし'}\n` +
+  `実行してよい調査の id: ${surveys.length ? surveys.map((x) => `${x.id}(${x.fromBureau})`).join('、') : 'なし'}。調査は bill の「調査」から読み、決められた見る道具を見回りと月末に呼んで ${council}/m${m}-survey-<局>.md に書く\n` +
   `施策の中身は ${council}/m${m}-bill.md(直したときは ${council}/m${m}-bill-2.md も)から読む。` +
   `実行してよい施策のほかは打たない。実行計画の対象を最終確認して操作し、新しい候補地を探さない。条件が違えば記載の予備候補を使い、解決しなければ見送って報告する。臨時では議決が要る道具を使わない`,
   { agentType: 'council-mayor-field', model: MODEL.field, label: `実行 m${m}`, schema: DONE },
 )
 
-return { month, seen, guide, proposals, assessed, bill, ruling, ruling2, allowed, done }
+return { month, seen, guide, proposals, assessed, bill, ruling, ruling2, allowed, surveys, done }

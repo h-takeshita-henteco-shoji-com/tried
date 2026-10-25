@@ -1,0 +1,200 @@
+{
+  "month": 6,
+  "seen": {
+    "gameDate": "2050-05-31",
+    "saveName": "fukuoka-plan-m06",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "1-2 健やかで心豊かに暮らせる社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1156413,
+    "upkeepCap": 10000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "4-2 の手は公園の新設だけ(Regular Park 1,000・週8)。費用は枠に収まるが、空いて道路に面した敷地の座標を1か所も確認できず(円(2553,-682)の灰色は警察署、住宅(高密度)の空きは全部道路に面さない)、place_building の引数も確認できない。政策(HighTechHousing 週20,252 は枠超え、Recycling は税収減)は地価・公園に効く根拠がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": false,
+      "noProposalReason": "",
+      "title": "東西道路 z=-950 の絞り3区間を4車線にそろえる(試し)",
+      "buildCost": 325,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ない大型バス4路線の予算を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算"
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討したのは、事務所の税を3から2に下げる案、IndustrySpace を止める案、SmallBusiness の有効化、観光の Monument の設置の4つ。事務所の空きマス1,642は全部「道の奥」で、税では建物が増えにくい。IndustrySpace は2か月目で、効かないと言い切れない。SmallBusiness は品物がない店238の主因(荷物の届き方)に効く経路がない。Monument は座標・道・電気・水・下水を未確認で、実行可にできない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": false,
+      "noProposalReason": "",
+      "title": "ごみの印の区画の東に埋立地を1棟足す(試し)",
+      "buildCost": 4400,
+      "upkeepPerWeek": 163,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校 14,268 は子ども 10,848 を、高校 24,360 は10代 22,095 を上回り、2-3 の目標を満たしている。EducationBoost の解除は高校の定員が10代を下回るおそれがある。学校や大学の増設は、定員が余っており失業にも効かない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "3-4 は火事2・犯罪2 の合計4で目標4以下を満たしている。住宅45707 は入居17の住宅で、焼け跡ではなく取り壊しに見合わない。SmokeDetectors は週57,774で幅10,000を超える。警察は405/960で余裕があり、警察署も消防署も足す根拠がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0・維持費は減る見込みで、4路線の budget 200 を確かめ、予算の幅 ±20 に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1156413
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m06-1",
+        "fromBureau": "port",
+        "title": "乗客の少ない大型バス4路線の予算を200から180に下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "roads",
+        "reason": "z=-950 の4車線化は、局が実行可否を未確認と書き(置き換えの引数、沿道の建物との重なり)、査定の対象外だったため採らない。"
+      },
+      {
+        "bureau": "health",
+        "reason": "埋立地の新設の試しは、道の終点が橋の上か、place_building の向きの角度などの必須条件が未確認で、査定の対象外だったため採らない。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m06-1",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "4点のどれにも当たらない。戻せる予算の手で、人口・幸福度・財政・交通・保健環境への響きが議案に書かれており、似た前例 m03-2 は「当たり(台数)」で外れていない。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m06-1"
+  ],
+  "done": {
+    "executed": [
+      "m06-1"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-06-10",
+        "population": 177815,
+        "money": 2331725,
+        "weeklyBalance": 12904,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-06-20",
+        "population": 177729,
+        "money": 2351631,
+        "weeklyBalance": 13809,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "report": "m06-1 を議案どおりに打った。実行前の確認では、4路線(line 136・127・199・126)の budget はすべて200で、vehicles は合わせて348台だった。流れは54%で、中止の条件の60%に届いていなかった。set_transport_line_budget で4路線を順に180へ下げ、4件とも ok を返した。targetVehicles は 171・51・47・45 で、合わせて314台(実行前は349台)。直後の list_transport_lines で、4路線とも budget 180 になったことを確かめた。vehicles が実際に減ったかは、次の月例で見る。見回りは 06-10 と 06-20 の2回。どちらも境目に当たらず、臨時はしていない。人口は 177,919 → 177,815 → 177,729 で、少しずつ減っている。週の収支は +12,904、+13,809 で黒字を保った。幸福度は85のまま。電気・水・下水が来ない市民は 0/0/0 のまま。困りごとのつぶやきは、ごみと水が各1件で、3件に届かなかった。30日進めて 2050-06-30 で止めた。ダイアログは出なかった。hooks に止められた手はない。型から外れた点もない。ノートは /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md、ログは同じフォルダの command-log.txt に書いた。"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "month": 4,
+  "rulings": [
+    {"measureId": "m04-1", "verdict": "可決", "kind": "予算", "point": null, "reason": "健康・幸福度・交通・財政への響きと、150へ戻す目安と手が書かれている。新しい試しで、外れた手の継続でもない。"},
+    {"measureId": "m04-2", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは1棟・働き口0・家0・停電0で、議会の preview_bulldoze でも一致した。代わりの手とも比べ、m03-1 で当たった手の続きである。"}
+  ],
+  "approvedKinds": ["予算", "取り壊し"]
+}
