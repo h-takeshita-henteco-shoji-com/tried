@@ -282,16 +282,20 @@ namespace AIMayor
             pos.y = buildingY;
             var seg = default(ColossalFramework.Math.Segment3);
             int productionRate, constructionCost;
-            var errors = info.m_buildingAI.CheckBuildPosition(id, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
+            var posErrors = info.m_buildingAI.CheckBuildPosition(id, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
             var segBuf = new ulong[(NetManager.instance.m_segments.m_buffer.Length + 63) >> 6];
             var bldBuf = new ulong[(bs.Length + 63) >> 6];
-            errors |= BuildingTool.CheckSpace(info, info.m_placementMode, id, pos, minY, buildingY + info.m_collisionHeight, angle,
+            var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, id, pos, minY, buildingY + info.m_collisionHeight, angle,
                 info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
+            var errors = posErrors | spaceErrors;
             if (errors != ToolBase.ToolErrors.None)
             {
                 // ぶつかった相手を返す(#82)。ゲームの判定(CheckSpaceImpl)は、移す建物そのものと、その建物の道や管
-                // (IgnoreRelocateSegments)を除いている。それでも断られるなら、相手は別の道路や建物
+                // (IgnoreRelocateSegments)を除いている。それでも断られるなら、相手は別の道路や建物。
+                // 相手が空で断られるときのため、建物の型の判定(CheckBuildPosition)と場所の判定(CheckSpace)の理由を分けて返す(#107)。
+                // 区画に建つ建物とぶつかるときは、試しの判定(test=true)では断り、ゲームの道具は取り壊して置く
                 return "{\"ok\":false,\"error\":\"cannot relocate here\",\"reasons\":" + Json.Str(errors.ToString())
+                    + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
                     + ",\"collidingBuildings\":" + Bits(bldBuf, 20) + ",\"collidingSegments\":" + Bits(segBuf, 20) + "}";
             }
 

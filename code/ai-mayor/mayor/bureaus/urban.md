@@ -18,7 +18,7 @@ slug: urban
 ## 担当の数字と測り方
 
 - 人口: `city_info` の人口
-- 住宅の需要: `demand_breakdown` の住宅の需要。`city_info` の需要
+- 住宅の需要: `city_info` の需要(住宅)。家の数と空きは `demand_breakdown`
 - 地価: `land_value`。住宅(高密度)の地価の平均は `building_stats`
 
 ## 先に見る道具
@@ -27,7 +27,7 @@ slug: urban
 
 ## 担当する市の計画
 
-| 施策 | 測り方(道具) | 出発点 | 12か月後の目標(案) |
+| 施策 | 測り方(道具) | 出発点 | 12か月後の目標 |
 |---|---|---|---|
-| 4-1 都市と自然が調和したコンパクトなまち | `building_stats` の住宅(高密度)の地価の平均 | 45 | 50以上 |
-| 4-2 花や緑による潤い | `buildings_near` の公園など(Beautification)の数 | 22 | 40以上 |
+| 4-1 都市と自然が調和したコンパクトなまち | `building_stats` の住宅(高密度)の地価の平均 | 58 | 62以上 |
+| 4-2 花や緑による潤い | `buildings_near` の公園など(Beautification)の数 | 81 | 100以上 |

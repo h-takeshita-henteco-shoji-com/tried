@@ -25,6 +25,12 @@ from PIL import ImageDraw
 
 BASE = os.environ.get("AIMAYOR_URL", "http://127.0.0.1:8781")
 
+# 道具の出し方(#108)。main は比べる本番の形で、ゲームの式をそのまま見せる道具と欄を外す(council-design.md の10.6)。
+# grow は街を育てる期間の形で、全部を出す。既定は main。育て直すときだけ .mcp.json の env で AIMAYOR_MODE=grow にする
+MODE = os.environ.get("AIMAYOR_MODE", "main")
+# 本番で外す道具(ゲームの計算の中身を返すもの)
+MAIN_HIDDEN_TOOLS = {"building_levelup"}
+
 mcp = MCPServer("cities-skylines", instructions="Cities: Skylines の街を見て操作するための道具。座標はゲーム上のメートルで、x が東、z が北、地図の中心が (0, 0)。")
 
 
@@ -209,6 +215,8 @@ def tool():
                 notify(phase="end", id=cid, ok="true", detail=f"{sec} cost={cost}" if cost is not None else sec)
             return result
 
+        if MODE == "main" and fn.__name__ in MAIN_HIDDEN_TOOLS:
+            return wrapper  # 本番では道具として出さない
         return mcp.tool()(wrapper)
 
     return deco
@@ -221,7 +229,7 @@ def city_info() -> dict:
     citizensWithoutService: 電気・水・下水が来ない市民の数(citizens_summary の peopleWithProblems と同じ数え方)。
     市民ごとの数えで、家に来ていないことに少なくとも1回気づいた住民の数。来れば次の更新で0に戻る。
     棟の数(zone_map の赤い枠)とは単位も時点も違う。
-    happiness はゲームの画面と同じ街の幸福度で、住宅と働く場所の建物の平均(困りごとの印があると下がる)。
+    happiness はゲームの画面と同じ街の幸福度。
     tourists: 観光客。now は今いる観光客の数、visits は訪問の平均(ゲームの統計と同じ値)。
     dialog: ゲームの画面に出ているダイアログ(破産の警告など)。なければ null。
     出ていたら、見出し(texts)とボタン(buttons)を読み、判断の材料にする。
@@ -329,7 +337,8 @@ def traffic(x: float | None = None, z: float | None = None, radius: float = 500,
     cars: 走っている車の数。blocked: 進めずに止まっている車。congestion: 渋滞の印が付いた車。
     averageDensity: 道路の区間の混み具合の平均(0〜100)。
     busiest: 混み具合が高い区間(segment、prefab、中点の x, z、density)。
-    blockedSpots: 止まっている車が多い場所(200m四方ごとの車の位置の平均と台数)。
+    blockedSpots: 止まっている車が多い場所(200m四方ごとの車の位置の平均と台数)。道の上で止まった車だけを数える。
+    blockedOnRoads と blockedInBuildings: 止まっている車(blocked)を、道の上と、駅・港などの建物の敷地の中に分けた数。
     busiest からは、地図の外とのつなぎ口の区間を外す。外した数は excludedOutside。"""
     return call("/traffic", timeout=30, x=x, z=z, radius=radius if x is not None else None, limit=limit)
 
@@ -348,14 +357,13 @@ def net_near(x: float, z: float, radius: float = 200, service: str | None = None
 @tool()
 def net_reach(x: float | None = None, z: float | None = None, radius: float = 500, limit: int = 10) -> dict:
     """外の街から車で来られるかを確かめる。つなぎ口から道路を一方通行の向きどおりにたどる。
-    引っ越してくる人は、つなぎ口から家まで車で来られないと着かず、人口に入らない(citizens_summary の movingIn が減らない)。
     x, z, radius を渡すとその円の中だけ、省くと街全体。
     roads: 道路の区間の数、つなぎ口から入れない数(notEnterable)、つなぎ口へ出られない数(notLeavable)。
     buildings: 建物の数、道路に面していない数(noRoad)、来られない数(notReachable)、出られない数(cannotLeave)。
     noRoad には、風力発電や給水塔など道路の要らない建物も入る。住宅・商業・工業が noRoad なら道路を確かめる。
     badBuildings / badSegments: 問題のある建物と区間(位置つき)。
     交差点で曲がれる向きは見ないので、ゲームより甘い。ここで問題があれば、ゲームでも来られない。
-    建ち途中の建物、壊れた建物、道路の要らない建物は判定から外し、buildings.skipped に数える(ゲームは建物が建ち終わったときに道路を割り当てる)。"""
+    建ち途中の建物、壊れた建物、道路の要らない建物は判定から外し、buildings.skipped に数える。"""
     return call("/net/reach", timeout=60, x=x, z=z, radius=radius if x is not None else None, limit=limit)
 
 
@@ -486,7 +494,9 @@ def list_net_types(service: str | None = None, locked: bool = True) -> dict:
     costPerKm: 1kmあたりの建設費(地面の上。高架やトンネルは高くなる)。
     upkeepPerWeekPerKm: 1kmあたりの週の維持費(週の支出と同じ単位、予算100%のとき)。
     既定では、解禁前の線も unlocked=false と解禁の条件(unlock)つきで返す。locked=False で解禁された線だけにする。
-    解禁前の線は、条件を満たすと引けるようになる。例: 線路(Train Track)は、駅か貨物駅を1つ建てると解禁される(#100)。"""
+    解禁前の線は、条件を満たすと引けるようになる。例: 線路(Train Track)は、駅か貨物駅を1つ建てると解禁される(#100)。
+    地下鉄の線路は、手で置く種類でなくても出す(subService=PublicTransportMetro、placement、hasTunnel つき。#107)。
+    名前に Bus Lane / Bus lane / Bus Only のある道路は、バスなど一部の車(緊急車など)だけが通れる車線を持つ(ふつうの車とトラックは使えない)。"""
     r = call("/net/prefabs", locked="true" if locked else None)
     if service and r.get("ok"):
         r["prefabs"] = [p for p in r["prefabs"] if p.get("service") == service]
@@ -591,15 +601,22 @@ def remove_line(points: list[list[float]], prefab: str | None = None, tolerance:
 
 
 @tool()
-def upgrade_road(prefab: str, points: list[list[float]], tolerance: float = 20, pay: bool = True) -> dict:
+def upgrade_road(prefab: str, points: list[list[float]], tolerance: float = 20, pay: bool = True,
+                 demolish: bool = False) -> dict:
     """道路を別の種類に差し替える(例: "Basic Road" → "Medium Road"、"Large Road")。ゲームの道路の道具の「アップグレード」と同じ。
     points: [[x, z], ...] の線。両端の点が両方とも線から tolerance(m)以内にある道路の区間を差し替える。
-    区画の指定と沿道の建物は保たれる。ただし太くした道路の下になったマスと、ぶつかった建物は消える(ゲームと同じ)。
+    区画の指定と沿道の建物は保たれる。太くした道路の下になったマスは消える。
+    太くした道路の下になる区画の建物は、ゲームが壊す。
+    既定(demolish=False)では、そうなる区間は差し替えずに飛ばし、skipped に壊れる建物の番号と名前を返す。
+    demolish=True なら差し替え、壊れた建物を demolishedBuildings に返す。
+    サービスの建物(病院、学校など)や別の道にぶつかる区間は、ゲームが断るので飛ばす(ぶつかった区画の建物があれば、demolish=True で壊してやり直す)。
+    同じ幅の種類(Basic Road → Small 4 Lane Road など)への差し替えでは、沿道の建物は壊れない。
+    壊す前に preview_bulldoze で、失う家と席を見積もる。
     橋・高架・トンネルの区間は、ゲームが高さに合う種類を選ぶ。費用は新旧の建設費の差。足りなければその区間を飛ばす。
     戻り値: matched(選んだ区間の数)、upgraded(差し替えた数)、skipped(飛ばした区間と理由)、cost。
     一方通行の道路に差し替えると向きは元の区間のまま。逆にするときは reverse_road を使う。"""
     return call("/net/upgrade", timeout=60, body=";".join(f"{x},{z}" for x, z in points), prefab=prefab,
-                tolerance=tolerance, pay=str(pay).lower())
+                tolerance=tolerance, pay=str(pay).lower(), demolish=str(demolish).lower())
 
 
 @tool()
@@ -617,18 +634,33 @@ def create_transport_line(type: str, stops: list[list[float]]) -> dict:
     最も近いその種類の駅の乗り場を使う(駅は先に place_building で置く)。
     バスの路線は、先にバスの車庫(Bus Depot)を建てないと作れない(ゲームの決まり。地下鉄・鉄道も駅が要る)。
     どれか1つでも置けなければ、路線を作らずに断る(index に置けなかった停留所)。建設費はかからない。
-    台数はゲームが決める(サービスの予算 × 路線の割合 × 長さ)。道順は数日かけて計算されるので、
-    後で list_transport_lines の pathFailed を確かめる。"""
+    台数はゲームが決める。道順は数日かけて計算されるので、
+    後で list_transport_lines の pathFailed を確かめる。
+    バスの停留所は、点に最も近い車線に置かれ、進む向きは見ない。この街は右側通行なので、東へ進む区間は道の南側、
+    西へ進む区間は北側に点を置く(北へ進む区間は東側、南へ進む区間は西側)。
+    逆の側に置くと、隣の停留所まで遠回りする。"""
     return call("/transport/line/create", timeout=60, body=";".join(f"{x},{z}" for x, z in stops), type=type)
 
 
 @tool()
-def list_transport_lines(type: str | None = None) -> dict:
+def list_transport_lines(type: str | None = None, number: int | None = None, name: str | None = None) -> dict:
     """公共交通の路線の一覧。number は画面の路線の番号、stops は停留所の数、vehicles は今走っている台数、
     targetVehicles はゲームが目指す台数、budget は路線の台数の割合(%)、passengers は乗客(住民と観光客の平均)、
     lengthKm は長さ。complete は環状に閉じたか。pathFailed が1以上なら、停留所の間に道順が見つからない区間がある
-    (道がつながっていない、一方通行など)。"""
-    return call("/transport/lines", type=type)
+    (道がつながっていない、一方通行など)。
+    絞り込み(#107): type(bus など)、number(画面の路線の番号)、name(路線の名前の一部。大文字と小文字は問わない)。
+    name は路線の名前、ticketPrice は運賃。passengersLastPeriod は前の集計期間の乗客(住民と観光客)。
+    fareIncomeEstimate は運賃の収入の見積もり(passengersLastPeriod × ticketPrice)。economy_breakdown の
+    PublicTransport の収入と比べて、どの路線が稼いでいるかを見る。"""
+    return call("/transport/lines", type=type, number=number, name=name)
+
+
+@tool()
+def transport_depots(type: str | None = None) -> dict:
+    """車庫ごとの台数の余裕。type は bus など(省くと全部)。
+    vehicles は車庫が今出している車の数、maxVehicles は今出せる上限(上限のない車庫は -1)。
+    active は車庫が動いているか。"""
+    return call("/transport/depots", type=type)
 
 
 @tool()
@@ -647,7 +679,7 @@ def remove_transport_line(line: int) -> dict:
 
 @tool()
 def set_transport_line_budget(line: int, percent: int) -> dict:
-    """路線ごとの台数の割合を変える(10〜300%)。台数 = サービスの予算(set_budget の bus など) × この割合 × 長さ ÷ 車の間隔。"""
+    """路線ごとの台数の割合を変える(10〜300%)。"""
     return call("/transport/line/budget", line=line, percent=percent)
 
 
@@ -726,8 +758,7 @@ def junction_info(x: float, z: float) -> dict:
 @tool()
 def set_traffic_lights(x: float, z: float, active: bool) -> dict:
     """交差点の信号を付ける(active=True)・外す(False)。ゲームの交通の情報画面の「交差点」のボタンと同じ。
-    道路と線路が交わる交差点などは付けられない(junction_info の canEnableLights)。信号を外すと車は止まらずに通るが、
-    混む交差点では詰まることがある。"""
+    道路と線路が交わる交差点などは付けられない(junction_info の canEnableLights)。"""
     return call("/junction/lights", x=x, z=z, active=str(active).lower())
 
 
@@ -747,7 +778,7 @@ def list_trees() -> dict:
 @tool()
 def plant_trees(polygon: list[list[float]], prefab: str | None = None, spacing: float = 12, pay: bool = True) -> dict:
     """多角形 [[x, z], ...] の中に、spacing(m)おきに少しずらして木を植える。1本ごとに建設費を払う。
-    建物・道路・水の上には植えない(blocked)。お金が尽きたら止まる。木は近くの騒音を減らし、地価を上げる。"""
+    建物・道路・水の上には植えない(blocked)。お金が尽きたら止まる。"""
     return call("/trees/plant", timeout=60, body=_poly(polygon), prefab=prefab, spacing=spacing, pay=str(pay).lower())
 
 
@@ -808,45 +839,52 @@ def water_trace(x: float, z: float) -> dict:
     網がつながっているかだけを見て、水の量や圧は見ない。
     100m以内に建物がなければ、点そのもので調べる(building は null)。建物のまだない新しい街区で、管の網がつながったか、
     そのマスに水・下水が届いているかを確かめる。
-    cell は、その家のマスに今、水・下水が届いているか。waterPollution はそのマスの水の汚れ(0で汚れなし。汚れた水の印 DirtyWater の原因)。
-    網がつながっていても、街の量が施設の力を超えると、
-    施設から遠い網の端から cell が false になる。city は街全体の水と下水の容量(capacity)と使用量(used)。"""
+    cell は、その家のマスに今、水・下水が届いているか。waterPollution はそのマスの水の汚れ(0で汚れなし)。
+    city は街全体の水と下水の容量(capacity)と使用量(used)。"""
     return call("/net/water_trace", timeout=30, x=x, z=z)
 
 
 @tool()
 def demand_breakdown() -> dict:
-    """住宅と働き口の需要を、ゲームの計算と同じ項に分けて返す。需要が上がらない理由を確かめるのに使う。
-    residential: base(50〜100。家が多い街は50) + jobTerm(空いた働き口 − 失業。−50〜50) + homeTerm(家のない人 − 空き家。−50〜50)。
-    target がその合計で、actual はゲームの今の需要(target へ少しずつ近づく)。
-    jobTermRaw と homeTermRaw は、−50〜50 で切る前の値。切れているときに、施策で近づいているかを見る。
-    workplace: base(住んでいる家の数。0〜50) + jobTerm(失業 − 空いた働き口。−50〜50)。
+    """街全体の働き口と家の数、失業と家のない人の数を返す。
     jobs と emptyJobs は働き口の総数と空き、homes と emptyHomes は家の総数と空き。
-    unemployed と byEducation は、ゲームが需要に使う失業(働き口を探している人)。citizens_summary の unemployed とは数え方が違う。"""
-    return call("/demand")
+    unemployed は働き口を探している人、homeless は家のない人の数。citizens_summary の unemployed とは数え方が違う。
+    byEducation: 学歴(uneducated / elementary / highSchool / university)ごとの unemployed、eligibleWorkers(働ける人)、homeless。
+    residential と workplace の欄は、AIMAYOR_MODE=grow のときだけ返す。"""
+    r = call("/demand")
+    if MODE == "main" and r.get("ok"):
+        # 本番では、需要の式の項(base、jobTerm、homeTerm、切る前の値、target)を返さない。働き口・失業・家の数だけ残す(#108)
+        r.pop("residential", None)
+        r.pop("workplace", None)
+    return r
 
 
 @tool()
 def building_stats(x: float | None = None, z: float | None = None, radius: float = 500) -> dict:
     """区画の建物を種類(subService)ごとに数える。x を省くと街全体。
     levels: レベル1〜5の棟数。homes と jobs: 家族と働き口の数。averageLandValue: 建物の場所の地価の平均。
-    levelUp: ready はレベルを上げる条件を満たした棟数。limitedBy_* は、2つの条件のうち低い方で数えた棟数
-    (住宅は education(住民の学歴)と landValue(地価)、商業は wealth(客の豊かさ)と landValue、
-    工業・オフィスは education(働き手の学歴)と services(サービスの届き具合))。
-    レベルが上がると、1棟の家族・働き口が増える。どの条件で止まっているかを見て、学校・公園・サービスを選ぶ。
-    levelUp の readyBlockedByProblems は、条件を満たしたのに問題の印で上がらない棟、readyNoUpgradeModel は同じ大きさの
-    上のレベルの建物がなくて上がらない棟。servicesMostMissing は、サービスで止まっている工業・オフィスの、いちばん伸ばせる項目ごとの棟数。
-    1棟の詳しい中身は building_levelup で見る。"""
-    return call("/buildings/stats", timeout=30, x=x, z=z, radius=radius if x is not None else None)
+    atMaxLevel: 最上位のレベル(住宅5、ほかは3)の棟数。
+    levelUp の欄は、AIMAYOR_MODE=grow のときだけ返す。"""
+    r = call("/buildings/stats", timeout=30, x=x, z=z, radius=radius if x is not None else None)
+    if MODE == "main" and r.get("ok"):
+        # 本番では、レベルが上がらない理由(ゲームの判定の中身)を返さない。最上位の棟数だけ残す(#108)
+        for g in r.get("groups", []):
+            lu = g.pop("levelUp", None) or {}
+            if "atMaxLevel" in lu:
+                g["atMaxLevel"] = lu["atMaxLevel"]
+    return r
 
 
 @tool()
 def building_levelup(id: int) -> dict:
-    """区画の建物1棟の、レベル上げの中身(ゲームの CheckBuildingLevel と同じ計算)。progress は2つの条件の進み具合(0〜15。15で満たした)。
+    """AIMAYOR_MODE=grow のときだけ出す道具(本番の main では出さない)。
+    区画の建物1棟の、レベル上げの中身(ゲームの CheckBuildingLevel と同じ計算)。progress は2つの条件の進み具合(0〜15。15で満たした)。
     ゲームは2つがそろっても、問題の印(problems)があるか、同じ大きさの上のレベルの建物がない(upgradeModelExists=false)と建て替えない。
     blockers に上がらない理由。工業・オフィスは services に点数(value)と次のレベルに要る点(オフィス45/90、工業30/60)と、
     項目ごとの点(terms: 公共交通、警察、医療、消防、教育、娯楽などは足す、騒音・放棄・地面の汚染は引く)。mostMissing がいちばん伸ばせる項目。
-    住宅・商業は landValue と landValueForLevel(次のレベルに要る地価)。"""
+    住宅・商業は landValue と landValueForLevel(次のレベルに要る地価)。
+    商業・工業・オフィスは workers に、働き手の学歴の内訳(byEducation)と、働き口の学歴の段ごとの数(jobsByEducation)、
+    ゲームの学歴の点(educationScore。工業・オフィスは15でL2、30でL3)を返す(#107)。"""
     return call("/buildings/levelup", id=id)
 
 
@@ -854,23 +892,41 @@ def building_levelup(id: int) -> dict:
 def cargo() -> dict:
     """品物と原料の流れ。荷物の車を、運ぶもの(Goods、Oil、Ore、Logs、Grain など)と向き(import / export / local)ごとに数え、
     止まっている台数と、止まっている場所の上位(stoppedSpots)を返す。stations は荷物の駅・港(Cargo Harbor を含む)ごとの出入りの台数。
-    shortages は品物が届かない店(noGoods)と原料が届かない工場(noResources)の数と多い場所。港や駅を足す前後で比べて効き目を見る。"""
+    shortages は品物が届かない店(noGoods)と原料が届かない工場(noResources)の数と多い場所。港や駅を足す前後で比べて効き目を見る。
+    stoppedOnRoads と stoppedInBuildings: 止まっているトラックを、道の上と、駅・港などの建物の敷地の中に分けた数。
+    stoppedSpots は道の上だけ。stoppedInBuildingsTop は、敷地の中で止まったトラックが多い建物の上位5つ(建物の番号、名前、位置、台数)。"""
     return call("/cargo", timeout=30)
+
+
+@tool()
+def vehicles_stuck(kind: str = "truck", building: int | None = None, limit: int = 30) -> dict:
+    """止まった車を1台ずつ見る(#107)。kind は truck(荷物のトラック)/ train(貨物列車)/ ship(貨物船)/ hearse(霊柩車)/ garbage(ごみ収集車)/ bus(バス)。
+    bus は、samples に路線(line と画面の番号 lineNumber)と次の停留所(nextStop: 点の番号、位置、距離)を返し、amount は乗っている客の数。
+    byTarget は路線ごとの台数になる。停留所で客を乗せているバスは Stopped の印が付く。
+    truck・hearse・garbage・bus は、止まっているか、駅・港・施設などの敷地の中にいる車だけを数える(走っている車は数えない)。
+    train・ship は台数が少ないので、走っているものも含めて先頭の車両を全部返す。samples に車両の数(cars)と積んでいる荷物の数(cargoLoads)も返す。
+    building を渡すと、その建物の敷地の中にいるか、その建物を出発・行き先にする車だけにする(例: 貨物駅や火葬場の番号)。
+    byState: 状態ごとの台数。状態は印をつないだ文字列(WaitingPath=道順の計算待ち、WaitingTarget=行き先の決まり待ち、
+    WaitingCargo=荷物待ち、WaitingSpace=空き待ち、Congestion=渋滞、Stopped、GoingBack=戻る途中、Importing/Exporting、
+    InGrounds=敷地の中、OnRoad=道の上、Blocked=進めずに止まっている)。
+    byPath: 道順の状態ごとの台数(none=道順がない、queued/calculating=計算待ち、ready=できた、failed=見つからなかった)。
+    bySeenStopped: この道具で最初に止まっているのを見てからの長さごとの台数。初めて呼んだときは全部 <1day。数日後にもう一度呼ぶと、
+    止まり続けている車が分かる(ゲームを起動し直すと、見た記録は消える)。byTarget: 行き先の建物ごとの台数(vehicles)の上位10。
+    samples: 1台ずつの中身(状態、道順、荷物の種類と量、止まって見えている日数、位置、出発と行き先の建物、行き先までの距離)を limit 台まで。"""
+    return call("/vehicles/stuck", timeout=30, kind=kind, building=building, limit=limit)
 
 
 @tool()
 def land_value(x: float | None = None, z: float | None = None, radius: float = 500) -> dict:
     """地価(ゲームの地価の情報画面と同じ値)。x を省くと街の平均(cityAverage)。
-    x, z, radius を渡すと、円を囲む四角を9×9の点で測り、average、min、max と grid(北の行から、西から東へ)を返す。
-    公園、サービスの届き具合、交通の便が地価を上げ、汚染・騒音・ごみが下げる。"""
+    x, z, radius を渡すと、円を囲む四角を9×9の点で測り、average、min、max と grid(北の行から、西から東へ)を返す。"""
     return call("/landvalue", x=x, z=z, radius=radius if x is not None else None)
 
 
 @tool()
 def new_buildings(since: int = 0) -> dict:
     """since より後に建った区画の建物を、種類(subService)ごとに数える。戻り値の index を、次に呼ぶときの since に渡す。
-    月例ごとに呼べば、その月に建った棟数が分かる。区画の建物は、需要の種類ごとに1か月約25〜30棟が上限
-    (1棟建つたびにゲームが需要を5下げ、需要は半日ごとに2ずつ戻るため)。建て替えも数える。"""
+    月例ごとに呼べば、その月に建った棟数が分かる。建て替えも数える。"""
     return call("/buildings/new", timeout=30, since=since)
 
 
@@ -939,7 +995,7 @@ def set_budget(target: str, percent: int | None = None, day: int | None = None, 
 @tool()
 def services() -> dict:
     """サービスの充足状況。電気・水・下水・ごみ・医療・葬祭・警察は capacity(容量)と used(使用量)。
-    水と下水の used はどちらも週の量で、capacity と同じ単位。used が capacity を超えると、施設から遠い網の端から先に届かなくなる。
+    水と下水の used はどちらも週の量で、capacity と同じ単位。
     (#82 の4年目の後に直した。それまで下水の used は1/16に小さく出ていた)
     garbage.full と deathcare.full: 満ちて受け入れを止めた埋立地・墓地の数と id。empty_building で空にするか、置き直す。
     教育は学校の定員、働き手と働き口の数、犯罪率。"""
@@ -979,7 +1035,8 @@ def relocate_building(id: int, x: float, z: float, angle: float = 0, facing: str
     """サービスの建物を別の場所へ移す(ゲームの「移す」と同じ)。費用は建設費の1/5。facing / angle は place_building と同じ。
     置けない場所なら reasons に理由を返して断る。ぶつかる区画の建物は取り壊される。
     移した後は、道路・管・送電線のつながりを確かめ直す。
-    置けないときは、ぶつかった建物(collidingBuildings)と区間(collidingSegments)の番号を返す。移す建物そのものとの重なりは、
+    置けないときは、ぶつかった建物(collidingBuildings)と区間(collidingSegments)の番号を返す。理由は、建物の型の判定(positionReasons)と
+    場所の判定(spaceReasons)に分けても返す(#107。相手が空のまま断られたときの手がかり)。移す建物そのものとの重なりは、
     ゲームと同じく数えない。向きを変えると幅と奥行きが入れ替わり、隣の道路にぶつかることがある。"""
     return call("/building/relocate", id=id, x=x, z=z, angle=angle, facing=facing, pay=str(pay).lower())
 
@@ -1000,6 +1057,20 @@ def zones_at(x: float, z: float, radius: float = 100) -> dict:
 
 
 @tool()
+def zone_summary(grid: float = 1000) -> dict:
+    """街全体の区画マスを、種類ごと・場所ごとに数える。区画の台帳と同じ、統計の道具。
+    byType: 種類ごとの全部のマス(total)と、建物の建っていない空いたマス(empty)。
+    emptyShallow は、道の側から奥行き1マスしか続かない空き。
+    emptyNarrow は、道の側の空きが隣の列とつながらない、幅1列だけの空き。
+    emptyBehind は、道の側から続いていない空き(建物の裏の列など)。
+    emptyFacingRoad は、道の側から続く空き(empty − emptyBehind)。
+    tiles: grid(m)四方の区切りごとの、種類ごとの空いたマス。x, z は区切りの中心。どの地区でマスが切れかけているかを見る。
+    区画のある区切りは、空きが0でも返す(empty が空の {})。月どうしで同じ区切りを比べられる。
+    円の中だけを数えるなら zones_at を使う。"""
+    return call("/zone/summary", timeout=30, grid=grid)
+
+
+@tool()
 def list_building_types(service: str | None = None, locked: bool = False) -> dict:
     """置ける建物(サービス施設、駅、空港など)の一覧。名前、サービス、大きさ(マス)、建設費、週の維持費。
     upkeepPerWeek は、建てたときの週の支出の増え分(予算100%のとき。予算を下げると減る)。
@@ -1011,8 +1082,6 @@ def list_building_types(service: str | None = None, locked: bool = False) -> dic
     電気(風車は風で変わる。variesWithWind)、水、下水、ごみ(埋立地のみ)、医療、墓地、警察(留置の定員)、
     教育(elementary / high / university)。分からない種類は null。
     needsRoad: 道路が要るか。needs: 電気・水・下水が要るか。
-    排水口(Water Outlet)は、街の下水をその量の水として流れ込む先に足す。細い川や平らな低い土地の近くに置くと、
-    川が溢れて池になる(#82)。海か、太く流れのある川に置く。いくつも置くときは、同じ川の1か所に集めない。
     ports: 管・送電線のつなぎ口になりうる点。建物の中心から、正面(入口)を向いて右へ right m、前へ forward m。
     置いた後の正確な位置は place_building の ports で確かめる。"""
     return call("/building/prefabs", timeout=30, service=service, locked="true" if locked else None)
@@ -1125,10 +1194,7 @@ def citizens_summary() -> dict:
     電気・水・下水が来ない、体調が悪い、長く失業している市民の数。
     residents はゲームの人口と同じ数え方で、引っ越しの途中の人を含まない。
     movingIn: 家は決まったが、まだ着いていない人(total)と、そのうち移動中の人(traveling)。
-    つなぎ口から家までの道順が見つかると着いて人口に入る。減らないなら、外から街へ道がつながっていない。
     unemployed は、仕事も学校もない若者と大人(10代は入らない)。unemployedDetail で年齢と学歴の内訳を返す。
-    働き口は学歴ごとに分かれ、学歴のない人は学歴の要らない働き口しか探さない。働き口の総数が余っていても、
-    学歴の合う働き口や大学の席がないと失業に残る。
     average.happiness は住民だけの単純な平均。ゲームの画面の幸福度(city_info の happiness)とは違う。
     公約や採点には city_info の happiness を使う。"""
     return call("/citizens/summary", timeout=30)
@@ -1290,7 +1356,6 @@ def preview_bulldoze(x: float, z: float, radius: float = 50, what: str = "all") 
     lost: 壊す建物が持っていた働き口(jobs)と家(homes)の合計。
     waterFacilities / transportStations: 壊すものに含まれる水の施設と、港・駅・空港。
     power: 壊した後に電気が届かなくなる建物の数(buildingsLosingPower)、その家と働き口、一覧(最大30件)、壊す発電所の数。
-    ゲームでは、電気は送電線だけでなく建物から建物へ伝わる。工場や店を壊すと、その先の家が停電することがある(#93)。
     電気の網はゲームと同じ決まりで計算するが、発電所の容量が足りるかは見ない。
     modelAgreement は、見積もりの網がゲームの今の網と一致した割合。低いときは信じすぎない。"""
     return call("/preview/bulldoze", timeout=30, x=x, z=z, radius=radius, what=what)
@@ -1302,11 +1367,7 @@ def transport_reach() -> dict:
     stations: 建物ごとに kind(ship / train / plane / metro など)、位置、outsideConnected(船の航路・線路・飛行機の経路で
     外のつなぎ口まで届くか)、outsideLines(ゲームが建物と外の間に自動で作った線の区間の数。0なら外と行き来できていない)。
     viaLaneConnection: 見えない車線のつなぎを通って届いたか。
-    船着き場の端は、区間がなくても、いちばん近い航路の車線へ見えないつなぎを自動で張る。航路から船着き場までのまっすぐな線が
-    全部水の上なら、距離は問わない。途中に陸があるとつながらず、船は来ない(#93 の西の港)。
     つながっていなければ gap に、外へつながる網までのいちばん近いすき間(meters)と両端の座標(from は建物の側、to は外の側)。
-    港に船が来ていても、港の中で止まったトラック(cargo の stoppedSpots)が多いときは、港から道路へ出る出口が詰まっている。
-    港の出口の道(Harbor Road)は建物の一部で太くできない。港を足して荷を分けるなどで手当てする(#100)。
     船の航路はプレイヤーには引けない。"""
     return call("/transport/reach", timeout=30)
 

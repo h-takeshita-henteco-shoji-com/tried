@@ -33,6 +33,7 @@ namespace AIMayor
         {
             routes["/transport/line/create"] = Create;
             routes["/transport/lines"] = req => HttpBridge.OnMain(() => Lines(req));
+            routes["/transport/depots"] = req => HttpBridge.OnMain(() => Depots(req));
             routes["/transport/types"] = req => HttpBridge.OnMain(TypesJson);
             routes["/transport/line"] = req => HttpBridge.OnMain(() => Detail(req));
             routes["/transport/line/remove"] = req => HttpBridge.OnSimulation(() => Remove(req));
@@ -359,6 +360,10 @@ namespace AIMayor
         private static string Lines(HttpListenerRequest req)
         {
             string want = (req.QueryString["type"] ?? "").ToLowerInvariant();
+            // 路線の番号(画面の番号)と、名前の一部で絞る(#107。市長が「出力が大きくて絞れない」と書いた)
+            int wantNumber = 0;
+            int.TryParse(req.QueryString["number"] ?? "0", out wantNumber);
+            string wantName = (req.QueryString["name"] ?? "").ToLowerInvariant();
             var tm = TransportManager.instance;
             var lines = tm.m_lines.m_buffer;
             var sb = new StringBuilder("{\"ok\":true,\"lines\":[");
@@ -378,11 +383,29 @@ namespace AIMayor
                     continue;
                 }
 
+                if (wantNumber != 0 && lines[i].m_lineNumber != wantNumber)
+                {
+                    continue;
+                }
+
+                string lineName = tm.GetLineName((ushort)i) ?? "";
+                if (wantName.Length > 0 && lineName.ToLowerInvariant().IndexOf(wantName, StringComparison.Ordinal) < 0)
+                {
+                    continue;
+                }
+
                 int failed, waiting;
                 PathState((ushort)i, out failed, out waiting);
                 var p = lines[i].m_passengers;
+                // 運賃の収入の見積もり(#107): 前の集計期間の乗客(住民と観光客)× 路線の運賃。ゲームの運賃は100分の1の単位
+                uint lastPassengers = p.m_residentPassengers.m_finalCount + p.m_touristPassengers.m_finalCount;
+                long fare = (long)lastPassengers * lines[i].m_ticketPrice / 100;
                 sb.Append(first ? "" : ",").Append("{\"line\":").Append(i).Append(",\"number\":").Append(lines[i].m_lineNumber)
+                  .Append(",\"name\":").Append(Json.Str(lineName))
                   .Append(",\"type\":").Append(Json.Str(name))
+                  .Append(",\"ticketPrice\":").Append((lines[i].m_ticketPrice / 100f).ToString("0.00", CultureInfo.InvariantCulture))
+                  .Append(",\"passengersLastPeriod\":").Append(lastPassengers)
+                  .Append(",\"fareIncomeEstimate\":").Append(fare)
                   .Append(",\"stops\":").Append(lines[i].CountStops((ushort)i))
                   .Append(",\"vehicles\":").Append(lines[i].CountVehicles((ushort)i))
                   .Append(",\"targetVehicles\":").Append(lines[i].CalculateTargetVehicleCount())
@@ -391,6 +414,59 @@ namespace AIMayor
                   .Append(",\"lengthKm\":").Append((lines[i].m_totalLength / 1000f).ToString("0.00", CultureInfo.InvariantCulture))
                   .Append(",\"complete\":").Append(lines[i].Complete ? "true" : "false")
                   .Append(",\"pathFailed\":").Append(failed).Append(",\"pathWaiting\":").Append(waiting).Append('}');
+                first = false;
+            }
+
+            return sb.Append("]}").ToString();
+        }
+
+        // GET /transport/depots?type=bus  車庫ごとの台数の余裕(#107)。17回目に、バスの車庫が街に1つしかないと、
+        // 市長はほかの道具から推すしかなかった。車庫が出している車(建物の持つ車の連なり)と、出せる上限を返す。
+        // 上限はゲームと同じく、車庫の上限(m_maxVehicleCount)× 今の働きの割合(m_productionRate。予算と働き手で変わる)
+        private static string Depots(HttpListenerRequest req)
+        {
+            string want = (req.QueryString["type"] ?? "").ToLowerInvariant();
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            var vs = VehicleManager.instance.m_vehicles.m_buffer;
+            var sb = new StringBuilder("{\"ok\":true,\"depots\":[");
+            bool first = true;
+            for (int i = 1; i < bs.Length; i++)
+            {
+                if ((bs[i].m_flags & Building.Flags.Created) == 0 || bs[i].Info == null)
+                {
+                    continue;
+                }
+
+                var ai = bs[i].Info.m_buildingAI as DepotAI;
+                if (ai == null || ai.m_transportInfo == null)
+                {
+                    continue;
+                }
+
+                var t = ai.m_transportInfo.m_transportType;
+                string name = t == TransportInfo.TransportType.Airplane ? "plane" : t.ToString().ToLowerInvariant();
+                if (want.Length > 0 && want != name)
+                {
+                    continue;
+                }
+
+                int own = 0, guard = 0;
+                ushort v = bs[i].m_ownVehicles;
+                while (v != 0 && guard++ < 65536)
+                {
+                    own++;
+                    v = vs[v].m_nextOwnVehicle;
+                }
+
+                int rate = bs[i].m_productionRate;
+                int max = ai.m_maxVehicleCount >= 16384 ? -1 : (rate * ai.m_maxVehicleCount + 99) / 100;
+                bool active = (bs[i].m_flags & Building.Flags.Active) != 0;
+                sb.Append(first ? "" : ",").Append("{\"building\":").Append(i).Append(",\"prefab\":").Append(Json.Str(bs[i].Info.name))
+                  .Append(",\"type\":").Append(Json.Str(name))
+                  .Append(",\"x\":").Append(Mathf.RoundToInt(bs[i].m_position.x)).Append(",\"z\":").Append(Mathf.RoundToInt(bs[i].m_position.z))
+                  .Append(",\"active\":").Append(active ? "true" : "false")
+                  .Append(",\"vehicles\":").Append(own).Append(",\"maxVehicles\":").Append(max)
+                  .Append(",\"productionRate\":").Append(rate).Append('}');
                 first = false;
             }
 

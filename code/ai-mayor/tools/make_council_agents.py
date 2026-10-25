@@ -28,10 +28,10 @@ SONNET = "claude-sonnet-5-5"
 # 読むだけの道具(council-design.md の6.2)。list_* は展開して書く
 READ_ONLY = [
     "city_info", "economy", "economy_breakdown", "services", "citizens_summary", "complaints",
-    "citizen_voices", "events", "demand_breakdown", "cargo", "traffic", "trade", "building_stats",
-    "land_value", "new_buildings", "zones_at", "zone_map", "buildings_near", "net_near", "net_reach",
+    "citizen_voices", "events", "demand_breakdown", "cargo", "vehicles_stuck", "traffic", "trade", "building_stats",
+    "land_value", "new_buildings", "zones_at", "zone_summary", "zone_map", "buildings_near", "net_near", "net_reach",
     "junction_info", "water_trace", "map_layer",
-    "list_net_types", "list_building_types", "list_policies", "list_districts", "list_transport_lines",
+    "list_net_types", "list_building_types", "list_policies", "list_districts", "list_transport_lines", "transport_depots",
     "list_loans", "list_saves", "list_map_layers", "list_trees",
     "height_at", "latlon_to_game", "citizens_without_service", "sim_health", "preview_bulldoze",
     "transport_reach",
