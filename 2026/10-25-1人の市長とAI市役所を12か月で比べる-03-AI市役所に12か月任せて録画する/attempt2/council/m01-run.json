@@ -1,0 +1,300 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 520000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、事務所区画の追加、TaxLowerOffice(週0)、放棄建物の取り壊し、公園の追加。空き区画1,642マスはすべて道路に面さず(emptyBehind)、区画を足しても効かない見込み。放棄建物の主因は NoGoods で他局の領分。公園は場所を確認しておらず、急ぐ理由もない。事務所の空きが埋まらない理由は不明なので、調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "働き口の需要が60あるのに、事務所の空き区画1,642マスが埋まらず、大卒の失業7,720が残るのはなぜか。",
+        "plan": "zone_summary(grid=1000)、demand_breakdown、new_buildings(since=0)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "z=-950の絞られた3区間を4車線に差し替える",
+      "buildCost": 330,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "街全体の止まった車の多い場所は、車線が絞られた区間が原因か",
+        "plan": "traffic(-726,-736,r200)、traffic(2100,309,r200)、traffic(2240,-950,r120)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755で492台が空き待ちで止まるが、周りの道は渋滞0で原因が確かめられない。拡幅・増設・荷の分散は実行条件も効き目も未確認のため、調査を出す。バス予算とHeavyTrafficBan・FreeTransportは貨物の止まりに効く見込みがない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で止まったトラック492台は、出口の道の詰まりで動けないのか、入口側の空きを待っているのか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30)、cargo()、traffic(x=3449, z=-1555, radius=300)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された区画の建物131棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の中でトラックが WaitingSpace のまま止まり続けるのは、出口の道が詰まっているからか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=15)、traffic(x=3449, z=-1555, radius=300, limit=10)、cargo() を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "満杯の埋立地16914を空にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "ごみの印15棟は、収集車の不足と処理場の満杯のどちらから来ているか",
+        "plan": "buildings_near(x=-458,z=-1468,radius=400,problem=Garbage,limit=30) と buildings_near(x=-570,z=-1840,radius=300,service=Garbage) を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども11,344以上、高校24,360は10代22,372以上で目標を満たし、新設や予算増の効き先がない。EducationBoost解除は定員への影響が未確認のため見送った。大卒失業6,483の原因は調査で追う。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "大卒の失業6,483が残るのは、学歴の合う働き口が足りないからか。",
+        "plan": "citizens_summary、demand_breakdown、building_stats(街全体)を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "消防車は使用0〜1/8で届き具合も十分、警察は容量使用46%で余裕があり、差(7→4)が小さい。警察署の敷地は未確認。SmokeDetectors は週57,718で枠超え。印が一時的かを測る調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "火事4・犯罪3の印は一時的な発生か、消防車・パトカー不足か",
+        "plan": "見回り1・2・月末に complaints、buildings_near(x=2480,z=760,radius=700,service=PoliceDepartment)、buildings_near(x=3200,z=-300,radius=1500,service=FireDepartment)"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費は約330、週の維持費の増え分は0で、枠に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "取り壊しの費用は0で、維持費の増え分も0。枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "empty_building は費用0で、維持費の増え分も0。枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 520000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "roads",
+        "title": "東西の道 z=-950 の絞られた3区間を Small 4 Lane Road にそろえる(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "health",
+        "title": "満杯の埋立地 16914 を empty_building で空にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "economy",
+        "reason": "放棄された建物131棟の取り壊しは、m01-1 の試しの場所(x=2240, z=-950, 半径120)に焼けた工場12882を含み、1つの円では外せない。戻せず、noGoods の減り方の多くは数えから外れるだけで s01-1 の基準を動かすため、来月に比べ直す。"
+      },
+      {
+        "bureau": "urban",
+        "reason": "施策の案なし(調査は s01-2 として採った)。"
+      },
+      {
+        "bureau": "port",
+        "reason": "施策の案なし(調査は s01-1 として採った)。"
+      },
+      {
+        "bureau": "education",
+        "reason": "施策の案なし。調査は urban の s01-2 と同じ項目を見るため、枠3件の中で採らなかった。"
+      },
+      {
+        "bureau": "fire",
+        "reason": "施策の案なし。調査は目標との差が3と小さく重点の外のため、枠3件の中で採らなかった。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755で止まったトラック492台は、出口の道の詰まりで動けないのか、入口側の空きを待っているのか"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "urban",
+        "question": "働き口の需要が60あるのに、事務所の空き区画1,642マスが埋まらず、大卒の失業7,720が残るのはなぜか"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "health",
+        "question": "ごみの印15棟は、収集車の不足と処理場の満杯のどちらから来ているか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755で止まったトラック492台は、出口の道の詰まりで動けないのか、入口側の空きを待っているのか"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "urban",
+      "question": "働き口の需要が60あるのに、事務所の空き区画1,642マスが埋まらず、大卒の失業7,720が残るのはなぜか"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "health",
+      "question": "ごみの印15棟は、収集車の不足と処理場の満杯のどちらから来ているか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-2"
+    ],
+    "failed": [
+      "m01-1"
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-01-11",
+        "population": 178667,
+        "money": 2095043,
+        "weeklyBalance": 8875,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-21",
+        "population": 178475,
+        "money": 2107914,
+        "weeklyBalance": 9082,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "1か月目(2050-01-01〜01-31)は、2件のうち1件を打ち、1件を見送った。\n\n- m01-1(z=-950 の道路を4車線にそろえる)は失敗。upgrade_road は matched 3、upgraded 0、cost 0 だった。3334 と 19196 が ObjectCollision、36011 が TooShort で飛ばされた。議案の中止する条件に当たり、予備候補もないため、demolish=True でのやり直しはしなかった。道路は変わっていない。\n- m01-2(満杯の埋立地16914を空にする)は打った。100% を確かめてから empty_building(active=True) を呼んだ。ただし、01-11・01-21・01-31 のどれも 95%(7,620,000)のままで、車は 19/19 が出ている。空になっていないので、受け入れに戻す操作はしていない。月末の garbage.full は 7 から 6 に減った。\n- 見回り2回はどちらも境目に当たらず、臨時はなかった。hooks に止められた手はない。ダイアログも出ていない。\n- 調査の s01-1、s01-2、s01-3 は、見回り1・2と月末に呼び、council/m01-survey-*.md に書いた。\n  - 貨物駅28755: 敷地の中の WaitingSpace が 520 台。同じ車が30日止まり続けている。\n  - 事務所の空きマス 1,642 は、どれも道に面していない(emptyBehind)。今月、事務所は1棟も新しく建たなかった。\n  - ごみの印は、半径400の中で 10 → 6 → 5 棟に減った。\n- 月末の人口は 178,679 で、月初より 193 少ない。週の収支は +9,798。\n- 来月の月例に回すこと: m01-1 のぶつかる相手を roads に確かめてもらう。16914 が 95% で止まった理由を health に見てもらう。公約1の答え合わせをする。\n- 型どおりにできなかった点: 月末に city_info と services を1回ずつ余分に呼んだ。どちらも m01-2 の確かめのためで、施策は打っていない。\n\nファイル:\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- 操作のログ: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt"
+  }
+}

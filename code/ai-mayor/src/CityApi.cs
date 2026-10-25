@@ -1050,6 +1050,48 @@ namespace AIMayor
             ushort id = 0;
             // 敷地が重なる区画の建物。ゲームは重なった区画の建物を取り壊す(#82。市長は何棟壊れたか分からなかった)
             var overlapped = OverlappingZoned(info, pos, angle);
+            if (pay)
+            {
+                // ゲームの建物の道具と同じ判定で、置ける場所かを調べる(#105)。前は判定を通さずに置いたので、
+                // 道路やサービスの建物に重なる場所など、人には置けない場所にも置けた。
+                // 建物の型が位置と向きを直すことがある(岸に置く建物など)。試しの判定(test=true)は、
+                // 取り除けない相手(道路、サービスの建物など)にぶつかるときだけ断る。区画の建物は本番で取り壊す
+                float minY, maxY, buildingY;
+                Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
+                pos.y = buildingY;
+                var seg = default(ColossalFramework.Math.Segment3);
+                int productionRate, constructionCost;
+                var posErrors = info.m_buildingAI.CheckBuildPosition(0, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
+                Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
+                var segBuf = new ulong[(NetManager.instance.m_segments.m_buffer.Length + 63) >> 6];
+                var bldBuf = new ulong[(BuildingManager.instance.m_buildings.m_buffer.Length + 63) >> 6];
+                var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
+                    info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
+                if ((posErrors | spaceErrors) != ToolBase.ToolErrors.None)
+                {
+                    return "{\"ok\":false,\"error\":\"cannot place here\",\"reasons\":" + Json.Str((posErrors | spaceErrors).ToString())
+                        + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
+                        + ",\"colliding\":" + UpgradeApi.CollidingJson(segBuf, bldBuf) + "}";
+                }
+
+                // 本番: ゲームの道具と同じく、取り除ける相手(区画の建物など)を取り除いてから置く
+                overlapped = new List<ushort>();
+                foreach (int b in UpgradeApi.Bits(bldBuf))
+                {
+                    var bi = BuildingManager.instance.m_buildings.m_buffer[b].Info;
+                    if (bi != null && !bi.IgnoreBuildingCollision())
+                    {
+                        overlapped.Add((ushort)b);
+                    }
+                }
+
+                Array.Clear(segBuf, 0, segBuf.Length);
+                Array.Clear(bldBuf, 0, bldBuf.Length);
+                BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
+                    info.m_cellWidth, info.m_cellLength, false, segBuf, bldBuf);
+                angleDeg = angle * Mathf.Rad2Deg;
+            }
+
             if (!BuildingManager.instance.CreateBuilding(out id, ref rnd, info, pos, angle, info.m_cellLength, sim.m_currentBuildIndex))
             {
                 return HttpBridge.Error("CreateBuilding failed");

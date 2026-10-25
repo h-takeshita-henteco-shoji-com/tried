@@ -31,6 +31,9 @@ insideBuilding は、端が敷地の中にある建物の id。送電線は端�
 net は、端がつながった線の種類。一般道の端が高速道路の本線につながると warning が付く(つなぐのは止めない)。
 道路・線路が建物の敷地に重なるときは、建てずに断り、overlaps に重なる建物(id、種類、位置)を返す。
 重なった建物はゲームが取り壊す。壊してよければ demolish=True で引く。成功したときも overlaps を返す。
+ゲームの線を引く道具と同じく、取り除けない相手(交差点の近くの別の道路、サービスの建物など)にぶつかる線は引かずに断る。
+そのとき atSegment(ぶつかった区間の両端)と colliding(ぶつかった区間と建物。blocks=true が断る相手)を返す。
+gameCheck: ゲームの道具なら出るそのほかの注意(TooShort など)。引くことは引く。
 点を [x, z, −深さ] にすると、地下にその深さ(8mより浅いと9m)で引く。両端が地下の区間はトンネル、片方だけの区間は坂
 (地上への出入り口)になる。トンネルの種類がない線(管・送電線など)は断る。地下の端は地下の点(地下鉄の駅の乗り場の線路の端を含む)
 にだけつなぐ。地下の区間は地面の建物と重ならない。戻り値の undergroundSegments が地下と坂の区間の数。
@@ -56,6 +59,9 @@ demolish=True なら差し替え、壊れた建物を demolishedBuildings に返
 壊す前に preview_bulldoze で、失う家と席を見積もる。
 橋・高架・トンネルの区間は、ゲームが高さに合う種類を選ぶ。費用は新旧の建設費の差。足りなければその区間を飛ばす。
 戻り値: matched(選んだ区間の数)、upgraded(差し替えた数)、skipped(飛ばした区間と理由)、cost。
+ぶつかって断られた区間(reason に ObjectCollision)には colliding を付ける。ゲームの道具の画面で赤く塗られる相手と同じ。
+colliding.segments(区間の番号、種類、中ほどの位置)と colliding.buildings(建物の番号、種類、位置)。
+blocks=true の相手があると断られる。blocks=false の相手は、作るときにゲームが取り除く。
 一方通行の道路に差し替えると向きは元の区間のまま。逆にするときは reverse_road を使う。
 
 ### `reverse_road(points: list[list[float]], tolerance: float = 20)`
@@ -108,6 +114,9 @@ needsRoad が false の建物(風車など)は、entrance.road が null でも�
 demolished: 敷地が重なって取り壊される区画の建物の数(count)と id(ids、最大20)。removedNow は置いた直後にもう消えていた数。
 pay: True(既定)なら建設費を予算から払う。足りなければ置かずに断る。人が置く骨格だけ False。
 まだ解禁されていない建物は置かずに断る(unlock に条件を返す)。
+ゲームの建物の道具と同じ判定で、置けない場所(道路やサービスの建物に重なる、買っていない土地、岸がないなど)なら置かずに断る。
+そのとき reasons(理由)と colliding(ぶつかった区間と建物。blocks=true が断る相手)を返す。区画の建物は断る理由にならず、取り壊される。
+岸に置く建物などは、ゲームが位置と向きを直すことがある(angleUsed と entrance で確かめる)。
 "simulation thread timeout" が返ったら、建物は置かれていない(executed=false)。sim_health で確かめてから置き直す。
 entrance: 置いた建物の入口の x, z、正面の向き(facing: north など / bearing: 北0・東90の度)、
 入口から16m以内の道路(road。なければ null)。road が null なら、道路を引くか、向きを変えて置き直す。

@@ -1,0 +1,312 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業(働き口)",
+      "8-1 物流・人流のゲートウェイ",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1060825,
+    "upkeepCap": 9798,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "道に面した空き地34マスを事務所の区画にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "交差点(2236,-950)に信号を付ける(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755を止めて動かし直す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された区画の建物128棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "埋立地16914を空ける作業から受け入れに戻す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "満杯の埋立地の中身を運ぶ車が、遠い焼却場へ渋滞の中を向かい、いつまでも空にならないのは、行き先の遠さと道の詰まりのどちらが原因か",
+        "plan": "vehicles_stuck(kind=garbage, building=16914, limit=20)、buildings_near(x=-650, z=-490, radius=50, service=Garbage)、buildings_near(x=-570, z=-1840, radius=300, service=Garbage)を見回り1・2と月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども11,075、高校24,360は10代22,368を上回り、2-3の目標を満たしている。EducationBoost(週7,940)の解除は定員への影響を確かめられず、高校の余り1,992を割る恐れがあるため出さない。学校新設・予算変更も根拠がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "火事の印が残る焼けた建物3棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "区画を塗るだけで維持費0、建設費は枠に比べ小さい。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の設置で建設費0、維持費の増え分0。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "貨物駅の停止と再開で費用0、維持費の増え分0。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "放棄建物の取り壊しで費用0、維持費の増え分0。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地を受け入れに戻すだけで費用0、政策変更なし。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "焼けた建物3棟の取り壊しで費用0、維持費の増え分0。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1060825
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "urban",
+        "title": "道に面した空き地34マスを事務所の区画にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "health",
+        "title": "埋立地16914を空ける作業から受け入れに戻す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "economy,fire",
+        "title": "放棄・焼けた建物を片づける(128棟と焼けた小学校5804)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1",
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "駅を止めて半日〜1日で戻す手順は、advance(10)でしか進めず見回りで施策を打たない実行の手順では行えず、実行の必須条件が確かめられていない。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "信号の試しの場所から61mにある焼けた工場12882と放棄の工場14595をm02-3で壊すため試しの基準が動き、重点の外でもある。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "health",
+        "question": "満杯の埋立地の中身を運ぶ車が、遠い焼却場へ渋滞の中を向かい、いつまでも空にならないのは、行き先の遠さと道の詰まりのどちらが原因か"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(働き口0・家0・停電0・水の施設と駅なし、小学校5804の席348)が数字で書かれ、議会の preview_bulldoze でも128棟と5804の1棟で一致した。代わりの手との比べと教育の定員への響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m02-1",
+    "m02-2",
+    "m02-3"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "health",
+      "question": "満杯の埋立地の中身を運ぶ車が、遠い焼却場へ渋滞の中を向かい、いつまでも空にならないのは、行き先の遠さと道の詰まりのどちらが原因か"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-1",
+      "m02-2",
+      "m02-3"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-02-10",
+        "population": 178569,
+        "money": 2134475,
+        "weeklyBalance": 9223,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-20",
+        "population": 178577,
+        "money": 2146880,
+        "weeklyBalance": 8433,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1"
+    ],
+    "report": "今月の施策3件はすべて打てた。予備候補は使わず、建設費0、維持費の増分0。\n\n- m02-1(事務所の区画): (2685, 872) の34マスを事務所の区画にした。10日で事務所が3棟建ち、空きは2マス。3棟とも月末までにレベルが上がった\n- m02-2(埋立地16914): 受け入れに戻した。中身は月末に96%で、ほとんど減らない。ごみの印は 26 → 47 に増え、満杯の埋立地は6のまま\n- m02-3(取り壊し): 放棄・焼けた建物128棟と、焼けた小学校5804を壊した。失った働き口・家は0、停電0\n  - 品物がない店は 233 → 120 に減ったが、月末に174へ戻った\n  - 原料がない工場は 28 → 23 に減ったが、月末に33へ増えた\n  - 火事の印は 4 → 1。月末の犯罪の印は0\n\n見回りは2回とも境目に当たらず、臨時はない。hooks に止められた手もない。\n\n月末(03-02)の数字は次のとおり。\n- 人口 178,463(前の月例より216少ない。公約1は今月も未達)\n- 週の収支 +7,175、所持金 2,157,802\n- 来ない市民 0/0/0\n\n調査 s02-1 は3回分を council/m02-survey-health.md に書いた。中身を運ぶ車22台の多くは渋滞の中で、焼却場へ少しずつ近づいている。\n\n型から外れた点が1つある。見回りでは city_info と events のほかに、議案が見回りでの確かめを指定した読むだけの道具を呼んだ(zones_at、buildings_near、services、complaints)。\n\nファイル:\n- /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/council/m02-survey-health.md\n- /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt\n- /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m02-office-zone.jpg\n- /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m02-office-zonemap.jpg"
+  }
+}

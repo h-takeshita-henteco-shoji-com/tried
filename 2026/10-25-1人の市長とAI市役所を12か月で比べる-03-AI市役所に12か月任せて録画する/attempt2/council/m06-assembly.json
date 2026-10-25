@@ -1,0 +1,8 @@
+{
+  "month": 6,
+  "rulings": [
+    {"measureId": "m06-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldoze で8棟・働き口0・家0・停電0を確かめた。m02-3 で放棄が戻った結果に対し、跡を事務所の区画に替える理由と代わりの手の比べが書かれている。"},
+    {"measureId": "m06-2", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "3棟とも preview_bulldoze で1棟ずつ、働き口0・家0・停電0だった。代わりの手と比べてあり、3-4 の目標に向かう手である。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

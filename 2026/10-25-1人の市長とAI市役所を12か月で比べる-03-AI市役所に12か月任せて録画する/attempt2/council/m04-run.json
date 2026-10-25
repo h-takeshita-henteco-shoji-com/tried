@@ -1,0 +1,308 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-01",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 2500,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "4-2の公園(81、目標100)を足す案を考えたが、道に面し電気があり重ならない置き場所を1棟も確認できなかった。大学の敷地や、道に面さない裏の空きだった。事務所の区画拡大は大卒の失業に効かなかったため出さない。場所を絞る調査を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "公園を置ける、道に面した空き地は (3450, 470) の周りにあるか。",
+        "plan": "zone_map(x=3450,z=470,radius=120,size=900)、zones_at(x=3450,z=470,radius=60)、buildings_near(x=3450,z=470,radius=90,brief=true)を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、橋3区間(6791、23556、34850)の4車線化、28755の出口の道路のつなぎ足し、(2194,-950)と x=-1845 の差し替え、HeavyTrafficBan、信号の付け替え。どれも脇の建物との衝突や前後の絞りが未確認で、置いてから確かめる形になる。Cargo Connection は道具で引けない。28755の周り(半径150)は blocked 0 で、道路側の詰まりはない。そのため調査を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地の中で車が動かないのは出口の道路の側に原因があるか。あわせて(513,-719)の詰まりは橋の1車線から来るか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、traffic(x=3450, z=-1555, radius=150, limit=5)、traffic(x=513, z=-719, radius=150, limit=6)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ないバス13路線の台数割合を20ポイントずつ下げる(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で30日以上止まった車と新しく出ていく車は別の車か。出口は全く通らないのか、一部だけか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=40)、cargo()、traffic(x=3430, z=-1555, radius=120)を見回り1・2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "事務所の税率を3%から5%に上げる(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "税",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755に溜まった Goods のトラックの行き先は、品物がない店の3つ目の集まり (961, 264) の店と重なるか",
+        "plan": "buildings_near(x=961, z=264, radius=300, problem=\"NoGoods\", limit=30)、vehicles_stuck(kind=\"truck\", building=28755, limit=30)、cargo()。見回り1・見回り2・月末"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "埋立地を(-1862,-2000)に1棟足す(試し)",
+      "buildCost": 4400,
+      "upkeepPerWeek": 163,
+      "reversible": false,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "汚染の印が(3823,-183)の低密度の住宅に集まるのは、どの汚染源が近くにあるためか",
+        "plan": "map_layer(type=pollution, x=3823, z=-183, radius=600, n=13) と buildings_near(x=3823, z=-183, radius=500, problem=Pollution, limit=30) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども10,745、高校24,360は10代22,365を上回り、2-3の目標を満たす。建設は効く問題がなく維持費の枠も厳しい。予算を100%に下げると高校は約20,300で10代を割る。EducationBoost解除は定員への効きが未確認。大学は席が余り、失業は働き口不足の側で効かない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事1+犯罪1=2で目標4以下を満たす。警察は439/960で余裕がある。SmokeDetectorsは週57,810で維持費の幅2,500を超える。消防署や警察署の新設は、単発の2棟に効く見込みを示せない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0で維持費は減る見込み、各路線の変更幅-20は予算の上限±20に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "事務所税 3 から 5 は+2で税の上限内、建設費0で収入が増える見込み。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費 約4,400、週の維持費 約163で、枠(500,000 / 2,500)に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "health",
+        "title": "満杯の埋立地3つの南に埋立地を1棟足す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "economy",
+        "title": "事務所の税率を3%から5%に上げる(試し)",
+        "needsVote": true,
+        "voteKind": "税",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m04-3",
+        "fromBureau": "port",
+        "title": "乗客の少ないバス13路線の台数割合を20ポイントずつ下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s04-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の敷地で30日以上止まった車と、新しく出ていく車は別の車か。出口が全く通らないのか、一部だけ通るのか"
+      },
+      {
+        "id": "s04-2",
+        "fromBureau": "economy",
+        "question": "貨物駅28755に溜まった Goods のトラックのうち、店が品物を待つ分はどれだけで、品物がない店の集まり (961, 264) の店の行き先の荷と重なるか"
+      },
+      {
+        "id": "s04-3",
+        "fromBureau": "health",
+        "question": "汚染の印が (3823, -183) の低密度の住宅に集まるのは、どの汚染源(工場、埋立地、道路)が近くにあるためか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m04-2",
+        "verdict": "可決",
+        "kind": "税",
+        "point": null,
+        "reason": "働き口・事務所のレベル3・人口・幸福度への響きと、働き口86,000の見張りが書かれている。戻せる手で、外れた施策を続ける形でもない。"
+      },
+      {
+        "measureId": "m04-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "先月当たった m03-3 を広げる手で、流れ・観光客・幸福度への響きが書かれている。13路線の budget と台数は議案の表と一致した。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m04-1",
+    "m04-2",
+    "m04-3"
+  ],
+  "surveys": [
+    {
+      "id": "s04-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の敷地で30日以上止まった車と、新しく出ていく車は別の車か。出口が全く通らないのか、一部だけ通るのか"
+    },
+    {
+      "id": "s04-2",
+      "fromBureau": "economy",
+      "question": "貨物駅28755に溜まった Goods のトラックのうち、店が品物を待つ分はどれだけで、品物がない店の集まり (961, 264) の店の行き先の荷と重なるか"
+    },
+    {
+      "id": "s04-3",
+      "fromBureau": "health",
+      "question": "汚染の印が (3823, -183) の低密度の住宅に集まるのは、どの汚染源(工場、埋立地、道路)が近くにあるためか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2",
+      "m04-3"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-11",
+        "population": 178046,
+        "money": 2206870,
+        "weeklyBalance": 20711,
+        "happiness": 84,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-21",
+        "population": 177988,
+        "money": 2235817,
+        "weeklyBalance": 19861,
+        "happiness": 84,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s04-1",
+      "s04-2",
+      "s04-3"
+    ],
+    "report": "4か月目は3件とも打てた。臨時はなく、hooks に止められた手もない。m04-1: 埋立地37856と道80mを建てた(建設費4,400、overlaps なし、demolished 0)。ごみの容量は160M→168Mに増えたが、ごみの印は74→132に増えた。印の集まる場所は工場の区画(-2393,-261)に移り、満杯の埋立地は8→10になった(16914 がまた満杯)。m04-2: 事務所の税を3→5%にした。Office の税収は24,598→40,091、週の収支は+5,197→+18,289。働き口86,454は下限86,000を割らず、事務所の需要は15→58に上がった。m04-3: バス13路線の台数割合を下げた。台数427→370、バスの支出21,615→21,014、乗客114→176。見回り2回とも境目なし(人口は-0.16%と-0.03%、黒字、来ない市民0/0/0、dialog null)。月末の人口は177,734で、前の月例から589減った(4か月続けて減少)。調査3件は見回り1・2と月末に呼び、council/m04-survey-*.md に書いた。s04-2 の buildings_near(961,264,NoGoods) は3回とも0棟で、cargo の spot(923,258) 37棟と合わない。来月、引数を見直す必要がある。型から外れた点が1つある。m04-3 の実行直後の確かめを、全路線の一覧ではなく name で絞った一覧(4路線)で済ませた。13路線は set の戻り値と見回り1の全路線一覧で確かめた。command-log.txt は保存済み。"
+  }
+}

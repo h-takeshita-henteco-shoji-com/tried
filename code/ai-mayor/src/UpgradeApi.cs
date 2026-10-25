@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -135,6 +136,8 @@ namespace AIMayor
                 int c, rate;
                 var errors = NetTool.CreateNode(info, start, middle, end, buffer, 1000, true, false, true, pay, false, reverse, 0,
                     out node, out newSeg, out c, out rate);
+                // ゲームが断ったとき、ぶつかった相手(道具の画面で赤く塗られるもの)を返す(#105)
+                string coll = (errors & ToolBase.ToolErrors.ObjectCollision) != 0 ? Colliding() : null;
                 if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
                 {
                     // ぶつかった建物を探す(#107)。太くした道路の幅で、区間の線に敷地が重なる建物
@@ -167,14 +170,19 @@ namespace AIMayor
                     }
                     else if (ids.Count > 0)
                     {
-                        Skip(skipped, seg, errors + " with buildings " + names + (demolish ? " (not demolished: a service building is in the way)" : " (pass demolish=true to demolish zoned buildings)"));
+                        Skip(skipped, seg, errors + " with buildings " + names + (demolish ? " (not demolished: a service building is in the way)" : " (pass demolish=true to demolish zoned buildings)"), coll);
                         continue;
                     }
                 }
 
                 if (errors != ToolBase.ToolErrors.None)
                 {
-                    Skip(skipped, seg, errors.ToString());
+                    if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
+                    {
+                        coll = Colliding();
+                    }
+
+                    Skip(skipped, seg, errors.ToString(), coll);
                     continue;
                 }
 
@@ -278,9 +286,100 @@ namespace AIMayor
             return false;
         }
 
-        private static void Skip(StringBuilder sb, ushort seg, string reason)
+        private static void Skip(StringBuilder sb, ushort seg, string reason, string colliding = null)
         {
-            sb.Append(sb.Length > 0 ? "," : "").Append("{\"segment\":").Append(seg).Append(",\"reason\":").Append(Json.Str(reason)).Append('}');
+            sb.Append(sb.Length > 0 ? "," : "").Append("{\"segment\":").Append(seg).Append(",\"reason\":").Append(Json.Str(reason));
+            if (colliding != null)
+            {
+                sb.Append(",\"colliding\":").Append(colliding);
+            }
+
+            sb.Append('}');
+        }
+
+        private static readonly FieldInfo CollidingSegments = typeof(ToolController).GetField("m_collidingSegments2", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo CollidingBuildings = typeof(ToolController).GetField("m_collidingBuildings2", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly MethodInfo ImportantBuilding = typeof(BuildingTool).GetMethod("IsImportantBuilding", BindingFlags.Static | BindingFlags.NonPublic,
+            null, new[] { typeof(BuildingInfo), typeof(ushort) }, null);
+
+        // 直前の NetTool.CreateNode(試し)が残した、ぶつかった区間と建物の印(ToolController が赤く塗るのに使う)。
+        // blocks は、ゲームが取り除かずに断る相手か(NetTool.CheckCollidingSegments と BuildingTool.CheckCollidingBuildings と同じ決まり)。
+        // blocks=false の相手は、ゲームが作るときに取り除く
+        internal static string Colliding()
+        {
+            var props = ToolManager.instance.m_properties;
+            var segMask = CollidingSegments != null ? CollidingSegments.GetValue(props) as ulong[] : null;
+            var bldMask = CollidingBuildings != null ? CollidingBuildings.GetValue(props) as ulong[] : null;
+            return CollidingJson(segMask, bldMask);
+        }
+
+        // ぶつかった区間と建物の印から、相手の一覧を JSON にする(建物を置く道具、線を引く道具でも使う)
+        internal static string CollidingJson(ulong[] segMask, ulong[] bldMask)
+        {
+            var segs = NetManager.instance.m_segments.m_buffer;
+            var blds = BuildingManager.instance.m_buildings.m_buffer;
+            var sb = new StringBuilder("{\"segments\":[");
+            int n = 0;
+            foreach (int id in Bits(segMask))
+            {
+                var info = segs[id].Info;
+                if (info == null)
+                {
+                    continue;
+                }
+
+                bool blocks = (ItemClass.GetPublicServiceIndex(info.m_class.m_service) != -1 && !info.m_autoRemove)
+                    || (segs[id].m_flags & NetSegment.Flags.Untouchable) != 0;
+                var p = segs[id].m_middlePosition;
+                sb.Append(n++ == 0 ? "" : ",").Append("{\"segment\":").Append(id).Append(",\"prefab\":").Append(Json.Str(info.name))
+                  .Append(",\"service\":").Append(Json.Str(info.m_class.m_service.ToString()))
+                  .Append(",\"x\":").Append(Mathf.RoundToInt(p.x)).Append(",\"z\":").Append(Mathf.RoundToInt(p.z))
+                  .Append(",\"blocks\":").Append(blocks ? "true" : "false").Append('}');
+            }
+
+            sb.Append("],\"buildings\":[");
+            n = 0;
+            foreach (int id in Bits(bldMask))
+            {
+                var info = blds[id].Info;
+                if (info == null || info.IgnoreBuildingCollision())
+                {
+                    continue;
+                }
+
+                bool blocks = (blds[id].m_flags & Building.Flags.Untouchable) != 0
+                    || (ImportantBuilding != null && (bool)ImportantBuilding.Invoke(null, new object[] { info, (ushort)id }));
+                var p = blds[id].m_position;
+                sb.Append(n++ == 0 ? "" : ",").Append("{\"id\":").Append(id).Append(",\"prefab\":").Append(Json.Str(info.name))
+                  .Append(",\"x\":").Append(Mathf.RoundToInt(p.x)).Append(",\"z\":").Append(Mathf.RoundToInt(p.z))
+                  .Append(",\"blocks\":").Append(blocks ? "true" : "false").Append('}');
+            }
+
+            return sb.Append("]}").ToString();
+        }
+
+        internal static IEnumerable<int> Bits(ulong[] mask)
+        {
+            if (mask == null)
+            {
+                yield break;
+            }
+
+            for (int i = 0; i < mask.Length; i++)
+            {
+                if (mask[i] == 0)
+                {
+                    continue;
+                }
+
+                for (int j = 0; j < 64; j++)
+                {
+                    if ((mask[i] & (1UL << j)) != 0)
+                    {
+                        yield return (i << 6) | j;
+                    }
+                }
+            }
         }
 
         // 点から、折れ線までの水平の距離(NetApi の同名の処理と同じ)
