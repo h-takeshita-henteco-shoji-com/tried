@@ -164,7 +164,7 @@ BILL = { measures: [{ id: string, fromBureau: string, title: string, needsVote: 
          rejected: [{ bureau: string, reason: string }],
          surveys: [{ id: string, fromBureau: string, question: string }] }
 RULING = { rulings: [{ measureId: string, verdict: "可決"|"否決", kind: string, point: number|null, reason: string }] }
-DONE = { executed: string[], failed: string[], patrols: [{ gameDate: string, population: number, money: number,
+DONE = { executed: string[], failed: string[], failedReasons: [{ id: string, reason: string }], patrols: [{ gameDate: string, population: number, money: number,
          weeklyBalance: number, happiness: number, alert: boolean }], emergency: boolean, stop: boolean,
          stopReason: string, surveysDone: string[], report: string }
 ```
@@ -189,13 +189,14 @@ DONE = { executed: string[], failed: string[], patrols: [{ gameDate: string, pop
  "assessment": {"verdict": "可", "reason": "..."},
  "adopted": {"measureId": "m03-1", "reason": null},
  "vote": {"needed": false, "verdict": null, "point": null},
- "executed": {"ok": true, "cost": 1200},
+ "executed": {"ok": true, "cost": 1200, "reason": null},
  "review": null,
  "seenCheck": {"claimed": ["city_info", "services"], "unlogged": []}}
 ```
 
 - `id` は局の案の id(`m<月>-<局>`)。市長の施策の id(`measureId`)とは別
 - `adopted.measureId` は、採らなかったら null。`adopted.reason` は採らなかった理由
+- `executed.reason`: 打てなかった(`ok` が false)とき、実行する市長が返した理由(`failedReasons`)。翌月の局が読む
 - `review`: 翌月に `{"result": "当たり"|"外れ"|"半分", "reason": "..."}`
 - `seenCheck`: 各役のファイルの「見たもの」に書かれた道具(`claimed`)のうち、hooks の記録に呼んだ跡がないもの(`unlogged`)
 

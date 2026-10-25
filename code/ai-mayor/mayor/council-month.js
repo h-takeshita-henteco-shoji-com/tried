@@ -73,6 +73,8 @@ const RULING = obj({
 const DONE = obj({
   executed: strs,
   failed: strs,
+  // 打てなかった理由。道具が返した理由(ぶつかった相手など)を、翌月の局が台帳で読めるようにする(#105)
+  failedReasons: { type: 'array', items: obj({ id: str, reason: str }) },
   patrols: {
     type: 'array',
     items: obj({ gameDate: str, population: num, money: num, weeklyBalance: num, happiness: num, alert: bool }),

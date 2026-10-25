@@ -633,6 +633,39 @@ def reverse_road(points: list[list[float]], tolerance: float = 20) -> dict:
 
 
 @tool()
+def test_upgrade_road(prefab: str, points: list[list[float]], tolerance: float = 20, demolish: bool = False) -> dict:
+    """upgrade_road を試すだけ。街は変えず、お金も払わない。ゲームの道具で、クリックする前に赤く出るかを見るのと同じ。
+    引数と戻り値は upgrade_road と同じで、test=true、changed=false が付く。upgraded は差し替えられる区間の数。
+    断られる区間は skipped に理由と colliding(ぶつかった相手。blocks=true が断る相手)を返す。
+    demolish=True なら、区画の建物が壊れる区間も差し替えられる数に入れ、壊れる建物を demolishedBuildings に返す(壊さない)。"""
+    return call("/net/upgrade", timeout=60, body=";".join(f"{x},{z}" for x, z in points), prefab=prefab,
+                tolerance=tolerance, pay="true", demolish=str(demolish).lower(), test="true")
+
+
+@tool()
+def test_build_line(prefab: str, points: list[list[float]], demolish: bool = False) -> dict:
+    """build_line を試すだけ。街は変えず、お金も払わない。ゲームの道具で、引く前に赤く出るかを見るのと同じ。
+    points と demolish は build_line と同じ。引けるなら ok=true、test=true、built=false と、
+    区間の数(segments)、交差点の数(crossings)、橋・地下の区間の数、費用(cost)、足りるか(enoughMoney)、
+    重なる建物(overlaps)、ゲームのそのほかの注意(gameCheck)を返す。
+    断られるなら、build_line と同じ形(ok=false、atSegment、colliding、または overlaps)で返す。"""
+    if len(points) < 2:
+        return {"ok": False, "error": "points は2点以上"}
+    return call("/net/build", timeout=60, body=";".join(",".join(str(v) for v in p) for p in points), prefab=prefab,
+                pay="true", demolish="true" if demolish else None, test="true")
+
+
+@tool()
+def test_place_building(prefab: str, x: float, z: float, angle: float = 0, facing: str | None = None) -> dict:
+    """place_building を試すだけ。街は変えず、お金も払わない。ゲームの道具で、置く前に赤く出るかを見るのと同じ。
+    引数は place_building と同じ。置けるなら ok=true、test=true、placed=false と、ゲームが直した位置(x, z)と向き(angleUsed)、
+    費用(cost)、足りるか(enoughMoney)、入口(entrance。入口から16m以内の道路 road、なければ null)、
+    電気・水・下水が要るか(needs)、取り壊される区画の建物(wouldDemolish)を返す。
+    置けないなら、place_building と同じ形(ok=false、reasons、colliding)で返す。"""
+    return call("/building/place", prefab=prefab, x=x, z=z, angle=angle, pay="true", facing=facing, test="true")
+
+
+@tool()
 def create_transport_line(type: str, stops: list[list[float]]) -> dict:
     """公共交通の路線を作る。type は bus / metro / train / ship / plane。
     stops は停留所・駅の位置 [[x, z], ...] の並び(2つ以上)で、最後のあと最初の停留所に戻って環状になる。

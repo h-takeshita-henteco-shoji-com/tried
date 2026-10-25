@@ -1,0 +1,309 @@
+{
+  "month": 3,
+  "seen": {
+    "gameDate": "2050-03-02",
+    "saveName": "fukuoka-plan-m03",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "6-1 都心部の機能強化",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 400000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "JapaneseGarden を2か所に置く(2850,772 と 2850,740)",
+      "buildCost": 5000,
+      "upkeepPerWeek": 80,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "1716,-771 の交差点の信号を外す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "鉄道の予算を120%から100%へ戻す",
+      "buildCost": 0,
+      "upkeepPerWeek": -1700,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "28755 の敷地の中で60日動かない車は、出口の点(3441,-1555)の先頭の車が動かないことで列が止まっているのか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30)、cargo()、traffic(x=3441, z=-1555, radius=150)を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された店と工場121棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南西のごみの印の近くに埋立地を1棟置く(試し)",
+      "buildCost": 4000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども10,902以上、高校24,360は10代22,401以上で、2-3の目標を保てている。大学卒の失業5,922は働き口の不足で、学校の新設は効かず維持費だけが増える。EducationBoost解除や教育予算の引き下げは、定員への効きを道具で確認できず、高校の余り約8%を割るおそれがあるため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事1・犯罪0で合計1、目標の4以下に届いている。残る火事は稼働中の工場12882で、取り壊すと働き口を失う。SmokeDetectors は週57,810で枠超え。予算増は効きを測れない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "JapaneseGarden 2棟は建設費5,000・週80で、枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号を外す試しは建設費0・維持費0で、上限に当たらない。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "鉄道予算を120%から100%へ戻す案は-20ポイント以内で、維持費は減る側。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "放棄建物の取り壊しは建設費0・維持費0で、上限に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "Landfill Site 1棟は建設費4,000・週160で、枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 400000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m03-1",
+        "fromBureau": "economy",
+        "title": "放棄された区画の建物121棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m03-2",
+        "fromBureau": "health",
+        "title": "南西に埋立地を1棟置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m03-3",
+        "fromBureau": "port",
+        "title": "鉄道の予算を120%から100%へ戻す",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "8-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "JapaneseGarden 2棟は確認済みだが、4-2 への一歩が小さく重点の外で、枠3件を重点1・3と公約3の案に使った。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "信号を外す試しは揺れが大きく1か月で見分けにくく、分からないことの一覧の項目に直接当たらないため、今月の試しは埋立地に当てた。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s03-1",
+        "fromBureau": "port",
+        "question": "28755 の敷地の中で60日動かない車は、出口の点(3441,-1555)の先頭の車が動かないことで列が止まっているのか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m03-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "議会の preview_bulldoze でも121棟の働き口0・家0・停電0・水の施設と駅0で、放っておく代わりの手と比べ、8-1・3-4・観光への響きも書かれている。"
+      },
+      {
+        "measureId": "m03-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "効かないと答え合わせした m02-2 を決まりどおり戻す議案で、外れた手を続けるものではなく、6-3 と観光への小さな響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m03-2",
+    "m03-1",
+    "m03-3"
+  ],
+  "surveys": [
+    {
+      "id": "s03-1",
+      "fromBureau": "port",
+      "question": "28755 の敷地の中で60日動かない車は、出口の点(3441,-1555)の先頭の車が動かないことで列が止まっているのか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m03-1",
+      "m03-2",
+      "m03-3"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-03-12",
+        "population": 178337,
+        "money": 2159028,
+        "weeklyBalance": 9569,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-03-22",
+        "population": 178116,
+        "money": 2172905,
+        "weeklyBalance": 9581,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s03-1"
+    ],
+    "report": "3か月目(2050-03-02〜04-01)は、3件とも議案の操作順と引数で打てた。中止の条件には当たらず、予備候補も使っていない。\n\n- m03-1: 放棄された建物121棟を取り壊した(費用0)。失った働き口・家・電気は0。直後に品物がない店は229→123、原料がない工場は34→24で、局の見込みどおりだった。火事の印は1→0。ただし月末には166 / 29まで戻り始めた\n- m03-2: 埋立地 id 114 を (-1920,-2075) に置いた(建設費4,000)。入口は道路に面している。試しの基準は、南西の範囲のごみの印13、storage 0%、収集車 0/19。効き目は次の月例で測る\n- m03-3: 鉄道の予算を120%から100%に戻した。週の収支は +8,035 から、見回り2回とも +9,500 台になった\n\n見回りは2回とも境目に当たらず、臨時もない。ダイアログは出ず、hooks に止められた手もない。人口は少しずつ減り続けている(178,630→178,116)。\n\n調査 s03-1 は3回とも行い、council/m03-survey-port.md に書いた。28755 の敷地の中の車は、3回とも同じ点 (3441,-1555) で止まっていた。値は blockCounter 0・waitCounter 0。7日以上止まった車は 478→514→564 と増えた。出口の周り150mの blocked は3回とも0だった。\n\n記録は mayor-note.md、写真は assets/m03-landfill.jpg、ログは command-log.txt に残した。"
+  }
+}

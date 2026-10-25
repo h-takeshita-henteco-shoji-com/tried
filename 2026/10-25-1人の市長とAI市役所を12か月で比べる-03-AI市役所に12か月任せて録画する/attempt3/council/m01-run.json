@@ -1,0 +1,312 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 400000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "JapaneseGarden を2か所に置く",
+      "buildCost": 5000,
+      "upkeepPerWeek": 80,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "2160〜2280,-950 の道路のくびれを4車線に広げる",
+      "buildCost": 325,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ない大型バス3路線の台数を180%に下げる",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で492台が空き待ちで敷地に止まるのは、駅の出口の詰まりか、駅の処理の上限か",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、cargo()、traffic(x=3449, z=-1555, radius=300)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755で492台が空き待ちで止まる原因が未確認。周りの道は blocked 0 で、道の詰まりとは言えない。政策に直接効くものがなく、工業区画の追加は敷地と接続を確認できなかった。調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で空き待ちの荷が動かない原因は、出口の道の詰まりか、駅の中の容量か。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30)、traffic(x=3449, z=-1555, radius=400)、cargo を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "ごみの印(南西に8棟)と死体の印(52棟)の原因が、容量ではなく収集車の渋滞か確証がない。Recycling は税収-5%で収支が赤字になる。埋立地を空にしても移し先が足りない。焼却場や埋立地の新設は、原因が渋滞なら効かない。そのため調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "ごみの印と死体の印は、容量不足ではなく収集車の渋滞や詰まりで出ているのか。",
+        "plan": "vehicles_stuck(kind=garbage, limit=30)、vehicles_stuck(kind=hearse, limit=30)、buildings_near(x=-570, z=-1840, radius=300, service=Garbage)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども11,344以上、高校24,360は10代22,372以上で、2-3の目標を今満たす。増設は維持費の幅5,000に対し効く問題がない。EducationBoost(週7,940)の解除は定員への効き方が未確認で見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "消防の予算を140%から150%へ(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 2280,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "火事と犯罪の印の建物は、消防・警察の届き具合が低い場所に集まっているか",
+        "plan": "complaints、buildings_near(3272,-311,r600,Fire)、buildings_near(2255,836,r500,Crime)を見回り1・見回り2・月末に見る"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "JapaneseGarden 2棟で建設費5,000、維持費+80、枠内。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "同価格の道路への差し替えで建設費約325、維持費の増えは約0。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0で維持費は減る側、変更幅-20は上限内。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え約2,280で幅5,000内、変更幅+10は上限内。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 400000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "roads",
+        "title": "くびれ3区間を Small 4 Lane Road に差し替える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "urban",
+        "title": "JapaneseGarden を2棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m01-3",
+        "fromBureau": "port",
+        "title": "乗客の少ない大型バス3路線の台数を200%から180%へ",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "fire",
+        "reason": "消防の予算の引き上げは週の維持費が約2,280増え、薄い黒字の約2割を使ううえ、局自身が1か月では効きを見分けにくいとしているため、調査s01-3で場所の偏りを見てから判断する。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755で492台が空き待ちで敷地に止まるのは、駅の出口の詰まりか、駅の処理の上限か"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "health",
+        "question": "ごみの印(-458,-1468付近)と死体の印(2240,186付近)は、容量不足ではなく収集車・霊柩車の渋滞や詰まりで出ているのか"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "fire",
+        "question": "火事と犯罪の印の建物は、消防・警察の届き具合が低い場所に集まっているか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m01-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "戻せる予算の手で、交通と幸福度への響きが議案に書かれている。1か月目で外れた手の続けはなく、6-3 の流れの目標を悪くする見込みも小さい。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2",
+    "m01-3"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755で492台が空き待ちで敷地に止まるのは、駅の出口の詰まりか、駅の処理の上限か"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "health",
+      "question": "ごみの印(-458,-1468付近)と死体の印(2240,186付近)は、容量不足ではなく収集車・霊柩車の渋滞や詰まりで出ているのか"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "fire",
+      "question": "火事と犯罪の印の建物は、消防・警察の届き具合が低い場所に集まっているか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-2",
+      "m01-3"
+    ],
+    "failed": [
+      "m01-1"
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-01-11",
+        "population": 178827,
+        "money": 2090566,
+        "weeklyBalance": 9429,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-21",
+        "population": 178720,
+        "money": 2104839,
+        "weeklyBalance": 10194,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "1か月目(2050-01-01〜01-31)の実行と見回りを終えた。打てた施策は m01-2 と m01-3 の2件。m01-1 は打てなかった。\n- m01-1(くびれ3区間を4車線にする): 失敗。実行前に確かめた条件は議案と同じだった(blocked 86、61台)。upgrade_road の結果は matched 3、upgraded 0。区間36011(9m)が TooShort で断られた。3334 と 19196 も、36011 とぶつかる(ObjectCollision)ため飛ばされた。費用は0。予備候補がないので、代わりの手は作らずに見送った。試しは打てていない。\n- m01-2(JapaneseGarden を2棟): 成功。id は 47216 と 9048、建設費は合わせて5,000。入口は道路に面し、電気と水も来ている。buildings_near の total は24から26に増えた。写真は assets/m01-gardens.jpg。\n- m01-3(バス3路線を200%から180%へ): 成功。目標台数は line 139 が102→92、136 が190→171、21 が65→58 で、合わせて36台減った。予備の127 は使っていない。\n- 見回り2回は、どちらも境目に当たらなかった。来ない市民は0/0/0。ダイアログは出ず、臨時もなし。hooks に止められた手もない。\n- 調査の s01-1、s01-2、s01-3 は、見回り1・見回り2・月末の3回呼んだ。結果は council/m01-survey-{port,health,fire}.md に書いた。\n  - 貨物駅28755 では、敷地の中の空き待ちが約500台のまま減らなかった。駅のまわりの道路(r300)には止まった車が1台もない。\n  - 33797 Combustion Plant のたまりは99%から80%に下がった。ごみの印は19から33に増えた。\n  - 火事の印2棟(2002、5804)は、月の間ずっと同じ建物に残った。\n- ノートは mayor-note.md に書き、ログは command-log.txt に写した。"
+  }
+}

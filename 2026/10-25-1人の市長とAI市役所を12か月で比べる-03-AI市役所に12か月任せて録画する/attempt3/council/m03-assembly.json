@@ -1,0 +1,8 @@
+{
+  "month": 3,
+  "rulings": [
+    {"measureId": "m03-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "議会の preview_bulldoze でも121棟の働き口0・家0・停電0・水の施設と駅0で、放っておく代わりの手と比べ、8-1・3-4・観光への響きも書かれている。"},
+    {"measureId": "m03-3", "verdict": "可決", "kind": "予算", "point": null, "reason": "効かないと答え合わせした m02-2 を決まりどおり戻す議案で、外れた手を続けるものではなく、6-3 と観光への小さな響きも書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"]
+}
