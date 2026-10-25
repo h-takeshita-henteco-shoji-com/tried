@@ -48,6 +48,7 @@
     m01-bill.md          見てまとめる市長(まとめと議案)。直したら m01-bill-2.md
     m01-assembly.md      議会の判断。2回目は m01-assembly-2.md
     m01-assembly.json    議会の判断(hooks が読む)。2回目があれば上書きする
+    m01-survey-<局>.md   局の調査の結果(実行する市長が見回りと月末に書く。#105 の作り直し)
     m01-hooks.log        hooks の記録
     m01-run.json         Workflow の返り値をそのまま写したもの(親の手順が書く)
     m01-minutes.md       議事録(make_council_minutes.py)
@@ -155,18 +156,21 @@ SEEN = { gameDate: string, saveName: string, priorities: string[], stop: boolean
 GUIDE = { buildCap: number, upkeepCap: number, taxRange: number, budgetRange: number }
 PROPOSAL = { bureau: string, hasProposal: boolean, executionReady: boolean, noProposalReason: string,
              title: string, buildCost: number, upkeepPerWeek: number,
-             reversible: boolean, planItems: string[], needsVote: boolean, voteKind: string }
+             reversible: boolean, planItems: string[], needsVote: boolean, voteKind: string,
+             survey: { exists: boolean, question: string, plan: string } }
 ASSESSMENT = { assessments: [{ bureau: string, verdict: "可"|"減額"|"不可", reason: string }],
                taxProposal: { exists: boolean, summary: string }, totalCap: number }
 BILL = { measures: [{ id: string, fromBureau: string, title: string, needsVote: boolean, voteKind: string, planItems: string[] }],
-         rejected: [{ bureau: string, reason: string }] }
+         rejected: [{ bureau: string, reason: string }],
+         surveys: [{ id: string, fromBureau: string, question: string }] }
 RULING = { rulings: [{ measureId: string, verdict: "可決"|"否決", kind: string, point: number|null, reason: string }] }
 DONE = { executed: string[], failed: string[], patrols: [{ gameDate: string, population: number, money: number,
          weeklyBalance: number, happiness: number, alert: boolean }], emergency: boolean, stop: boolean,
-         stopReason: string, report: string }
+         stopReason: string, surveysDone: string[], report: string }
 ```
 
 - 施策の id は `m<月2桁>-<番号>`(例: `m03-1`)。市長がまとめる段で付ける
+- 調査の id は `s<月2桁>-<番号>`(例: `s03-1`)。施策の3件とは別に3件まで。査定と議決はいらない。Workflow は、施策の案がなくても調査があれば、まとめる段を呼ぶ
 - `voteKind` は議決が要らないとき空文字
 - 案がない局は `hasProposal: false`、`executionReady: false`、`title: ""`、数は0。`noProposalReason` に検討した候補と当月の根拠を書く
 - 提案がある場合の `noProposalReason` は空文字

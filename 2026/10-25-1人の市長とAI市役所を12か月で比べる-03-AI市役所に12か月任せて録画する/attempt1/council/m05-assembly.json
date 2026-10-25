@@ -1,0 +1,7 @@
+{
+  "month": 5,
+  "rulings": [
+    {"measureId": "m05-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うもの(建物1、家0、働き口0、停電0、働き手30人、発電15MW、ごみ処理 週60,000)が数字で書かれ、議会の preview_bulldoze とも一致した。4-4 への響きと代わりの手との比べも書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

@@ -1,0 +1,227 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-01",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "8-1 物流・人流のゲートウェイ",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1097133,
+    "upkeepCap": 6000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "公園(Regular Park 1,000、週8)で4-2に効く見込みはあるが、place_building の座標・向きの引数と棟ごとの敷地の重なりを読むだけの道具で確認できなかった。政策(SmallBusiness、IndustrySpace、HighTechHousing 週20,240は枠超過など)や税には、地価・働き口の差に効く経路が確認できなかった。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": false,
+      "noProposalReason": "",
+      "title": "東西道路 z=-950 の絞り1区間(segment 19196)を4車線にそろえる(試し)",
+      "buildCost": 160,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ない大きなバス8路線の予算を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算"
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は事務所税 3→2(週の収入が約8,100減り、収支+8,245をほぼ使い切る)、工場税の引き下げ(工の需要は58と高く、税が制約という根拠がない)、IndustrySpace(週4,809、効果の経路が確認できない)、SmallBusiness、HighTechHousing(週20,240で幅6,000を超える)、観光の施設(敷地と引数が未確認)。set_tax の引数は読むだけの道具では確かめられず、実行条件を満たせない。品物がない店の主因は貨物駅28755 のトラック滞留で、自局の手では動かせない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "医療の予算を150から130に下げる試し(霊柩車の渋滞と死体の印)",
+      "buildCost": 0,
+      "upkeepPerWeek": -10000,
+      "reversible": true,
+      "planItems": [
+        "1-2"
+      ],
+      "needsVote": true,
+      "voteKind": "予算"
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども10,885以上、高校24,360は10代22,305以上で、2-3の目標を満たしている。大卒の失業5,564は働き口の不足で、学校を足しても効かない。EducationBoost(週7,940)の解除は定員への影響を確認できず見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "火事の印が残る焼け跡の工場12882を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し"
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0、維持費は減る方向で、路線ごとの予算の下げ幅20ポイントは型の上限に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費0、医療予算を20ポイント下げる試しで、予算の型の上限(±20)に収まり維持費は増えない。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "焼け跡の取り壊しは建設費0・維持費の増え分0で、枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1097133
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "health",
+        "title": "医療の予算を150から130に下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "1-2"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "fire",
+        "title": "焼け跡の工場12882を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "実行条件は確認済みだが、街全体の車の数を動かすため m04-1 の試しと測る数(流れと霊柩車の渋滞)が混ざり、場所を分けられないので、分からないことの一覧に当たる m04-1 を優先した。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m04-1",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "健康・幸福度・交通・財政への響きと、150へ戻す目安と手が書かれている。新しい試しで、外れた手の継続でもない。"
+      },
+      {
+        "measureId": "m04-2",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは1棟・働き口0・家0・停電0で、議会の preview_bulldoze でも一致した。代わりの手とも比べ、m03-1 で当たった手の続きである。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m04-1",
+    "m04-2"
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-11",
+        "population": 178116,
+        "money": 2220137,
+        "weeklyBalance": 18620,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-21",
+        "population": 178211,
+        "money": 2241976,
+        "weeklyBalance": 14851,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "report": "4か月目は議案の2件とも、計画どおりに打てた。\n- m04-1: 医療の予算を 150/150 から 130/130 に下げた。実行前に healthcare 150/150、医療 used 1,926、Death 39 を確かめ、中止の条件には当たらなかった。週の支出は 331,832 から 321,714 に約1万減り、見積もりの約 -10,000 と同じ程度だった。\n- m04-2: 焼け跡の工場 12882 を取り壊した。preview_bulldoze で対象1棟、働き口0・家0・停電0(modelAgreement 1.0)を確かめた。取り壊しの後、半径30の火事の印は0棟になった。写真は assets/m04-fire-ruin-removed.jpg。費用はどちらも0だった。\n- 見回り: 04-11 と 04-21 の2回で、どちらも境目に当たらなかった。週の収支は +18,620 と +14,851 で、来ない市民は 0/0/0 だった。臨時はなく、ダイアログも出なかった(dialogSeq 130)。2050-05-01 まで進めた。\n- hooks: 止められた手はない。\n- 型から外れた点: 一時停止を確かめる set_time がこの段の道具になかった。代わりに city_info の paused=true で止まっていることを確かめた。\n- 記録: 市政ノートは /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md。パネルのログは同じフォルダの command-log.txt に写した。"
+  }
+}

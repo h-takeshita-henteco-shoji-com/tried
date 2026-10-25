@@ -1,0 +1,223 @@
+{
+  "month": 5,
+  "seen": {
+    "gameDate": "2050-05-01",
+    "saveName": "fukuoka-plan-m05",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "8-1 物流・人流のゲートウェイ",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1131301,
+    "upkeepCap": 10000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "公園(4-2)は効く経路があるが、place_buildingの引数と敷地・電気・道路接続が未確認。IndustrySpaceは効果の根拠が確認できず、HighTechHousing(週20,244)は維持費の幅10,000を超える。事務所の空き1,642は道の奥で、区画を足しても建たない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": false,
+      "noProposalReason": "",
+      "title": "東西道路 z=-950 の絞り3区間(x=2160〜2280)を4車線にそろえる(試し)",
+      "buildCost": 325,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ない大型バス6路線の予算を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算"
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "政策 IndustrySpace を有効にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 4846,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "汚染の中心の焼却場2267(3604,-30)を取り壊す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "4-3"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し"
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "2-3 の目標を満たしている。小学校の定員は14,268で子ども10,852を上回り、高校は24,360で10代22,294を上回る。学校の新設は不要。教育の予算を下げる案と EducationBoost を解除する案は、定員への効き方を道具で確かめられない。高校の余裕は9%と薄く、目標を割るおそれがあるため出さない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "犯罪の印6棟は散らばり、5棟は警察の届き具合が十分な場所にあり、警察の容量にも余裕がある。届き具合0の港32211の近くに Police Station を置く案は、敷地・向き・接続を確認できていない。火事の印は0。SmokeDetectors は週57,841で上限超過。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0、各路線の予算の下げ幅20で予算の型の上限(±20)に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "IndustrySpace は週4,846で維持費の幅10,000に収まり、政策の変更は1つ。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "取り壊しで建設費0、維持費は減る方向で、型の上限と枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1131301
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m05-1",
+        "fromBureau": "health",
+        "title": "汚染の中心の焼却場2267を取り壊す(試し)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-3",
+          "1-2"
+        ]
+      },
+      {
+        "id": "m05-2",
+        "fromBureau": "economy",
+        "title": "政策 IndustrySpace を街全体で有効にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "実行条件は確認済みだが、測る数の交通の流れが m05-1(ごみ収集車の道)と m05-2(荷物のトラック)の響きと混ざり、約50台の減りの効きを読み分けられないため採らない。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m05-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(建物1、家0、働き口0、停電0、働き手30人、発電15MW、ごみ処理 週60,000)が数字で書かれ、議会の preview_bulldoze とも一致した。4-4 への響きと代わりの手との比べも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m05-2",
+    "m05-1"
+  ],
+  "done": {
+    "executed": [
+      "m05-1",
+      "m05-2"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-05-11",
+        "population": 178036,
+        "money": 2277541,
+        "weeklyBalance": 10084,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-05-21",
+        "population": 177887,
+        "money": 2293531,
+        "weeklyBalance": 11492,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "report": "2つの施策を、議案どおりに打てました。\n\n- m05-1: 焼却場2267を取り壊しました。\n  - 実行前に preview_bulldoze で、建物1・道路区間0・停電0を確かめました。garbage.full は4のままで、中止の条件に当たりませんでした。\n  - 取り壊しは ok で、費用は0です。直後の buildings_near で、2267 が消えたことを確かめました。\n  - 写真は assets/m05-combustion-removed.jpg に保存しました。\n- m05-2: 政策 IndustrySpace を有効にしました。\n  - 実行前は無効で、週の費用は4,846(上限6,000以下)、収支は+14,081でした。中止の条件に当たりませんでした。\n  - set_policy は ok で、直後に active=true を確かめました。\n  - 一時停止中のため、policyExpensesPerWeek は10,677のまま変わっていません。\n\n見回りは2回で、どちらも境目に当たらず、臨時は行っていません。\n\n- 05-11: 人口178,036、週の収支+10,084、幸福度85、電気・水・下水が来ない市民0/0/0。\n- 05-21: 人口177,887、週の収支+11,492、幸福度85、電気・水・下水が来ない市民0/0/0。\n- 人口は2回とも約0.08%ずつ減りました。公約1は次の月例でも守れないおそれがあります。\n- 週の支出は+2,710で、IndustrySpace の見積もり4,846より小さく増えました。焼却場の維持費が減った分と相殺した見込みです。内訳は次の月例で economy_breakdown で見ます。\n\n3回目の advance は2050-05-31に着きました。議案の期限は2050-06-01と書いていました。ダイアログは出ていません(dialogSeq 130 のまま)。hooks に止められた手はありません。型から外れた点もありません。\n\n記録したファイルは次の2つです。\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- ログ: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt"
+  }
+}

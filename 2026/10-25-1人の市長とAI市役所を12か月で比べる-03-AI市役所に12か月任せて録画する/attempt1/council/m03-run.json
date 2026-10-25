@@ -1,0 +1,232 @@
+{
+  "month": 3,
+  "seen": {
+    "gameDate": "2050-03-02",
+    "saveName": "fukuoka-plan-m03",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "8-1 物流・人流のゲートウェイ",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 78000,
+    "upkeepCap": 4400,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "高密度住宅街の空き地に Japanese Garden を3棟置く(試し)",
+      "buildCost": 7500,
+      "upkeepPerWeek": 120,
+      "reversible": true,
+      "planItems": [
+        "4-2",
+        "4-1"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": false,
+      "noProposalReason": "",
+      "title": "東西道路 z=-950 の絞り3区間を4車線にそろえる",
+      "buildCost": 325,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ないバス8路線の予算を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算"
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は事務所税の引き下げ、IndustrySpace、SmallBusiness、工業税、放棄商業の取り壊しである。事務所税を1ポイント下げると週約8,100の減収になり、維持費の幅4,400と黒字+8,891を超える。IndustrySpace は週4,803で幅を超え、大卒の失業7,126にも効かない。SmallBusiness は働き口や品物がない店に結びつく経路がない。止まったトラックの原因の貨物駅28755は港湾空港局の担当で、税・政策では触れない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、印の区画(1203,-1140)の東に埋立地を足す案と、Recycling政策と、火葬場・墓地を足す案。埋立地は(1400,-880)と(700,-1000)が水面下で置けず、(1500,-1100)は道路との接続と入口の向きが未確認。Recycling は住宅の税収約-13,000/週で黒字+8,891を超える。死体の印は霊柩車の渋滞が原因に見え、容量の不足ではない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校定員14,268は子ども10,948以上、高校定員24,360は10代22,349以上で2-3の目標を満たす。学校新設・大学増設・EducationBoost解除・教育予算変更を検討したが、いずれも担当の数字を改善せず、有効な手段がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "火事の印が消えない焼け跡3棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し"
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費7,500、維持費の増え分は最大180で、枠78,000と幅4,400の内に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0で維持費は減る見込み。路線ごとの変更は-20までで予算の上限内。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "取り壊し3棟は建設費0・維持費の増え分0で、pay=falseの建設ではない。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 78000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m03-1",
+        "fromBureau": "fire",
+        "title": "焼け跡の建物3棟を取り壊す(試し)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m03-2",
+        "fromBureau": "port",
+        "title": "乗客のほぼいないバス8路線の予算を20ポイント下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "本文に place_building の引数を確かめていないとあり、3か所目が住宅44025に触れるおそれも残るため、必須条件の未確認として採らない。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "実行可否が未確認(置き換えの引数と側道の再接続)で、今回の査定の対象外のため。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m03-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは働き口0・家0・停電0・小学校の定員348(使用0)と数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べもあり、2-3 の定員は子どもを上回ったまま。"
+      },
+      {
+        "measureId": "m03-2",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "交通(乗客が車に替わるおそれ)と財政への響きが書かれ、外れた施策の続きでも市の計画に逆らう手でもない。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m03-1",
+    "m03-2"
+  ],
+  "done": {
+    "executed": [
+      "m03-1",
+      "m03-2"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-03-12",
+        "population": 178186,
+        "money": 2173115,
+        "weeklyBalance": 8284,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-03-22",
+        "population": 178228,
+        "money": 2182738,
+        "weeklyBalance": 6505,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "report": "3か月目は、2件とも議案どおりに打ちました。どちらも中止の条件に当たる対象はなく、費用は0です。\n\n- m03-1(焼け跡の建物3棟を取り壊す): 実行前に3棟(2002、5804、40369)とも \"Fire, FatalProblem\" のままでした。preview_bulldoze では各円の対象が1棟で、働き口・家・停電はすべて0でした。bulldoze は3件とも ok です。直後に同じ条件で数えると、火事の印の建物は3棟から0棟になりました。\n- m03-2(バス8路線の台数の割合を20下げる): 実行前の budget は議案どおりで、交通の流れは54%と60%未満でした。8件とも ok です。目標台数の合計は297から255に下がりました。\n\n見回りは03-12と03-22の2回で、境目にはどちらも当たらず、臨時は打っていません。電気・水・下水が来ない市民は0/0/0のままです。ダイアログも出ていません。\n\n週の収支は黒字のままですが、+8,891から+8,284、+6,505へと2回続けて薄くなりました。内訳は、次の月例の economy_breakdown で見ます。\n\nhooks に止められた手はありません。型から外れた点もありません。進めた後のゲーム内の日付は2050-04-01です。\n\n記録したファイルは次の3つです。\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- パネルのログ: 同じフォルダの command-log.txt\n- 画面写真: 同じフォルダの assets/m03-fire-ruins-removed.jpg"
+  }
+}
