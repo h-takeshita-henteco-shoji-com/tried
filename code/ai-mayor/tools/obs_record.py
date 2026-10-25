@@ -7,8 +7,11 @@ OBS の WebSocket サーバー(ツール > WebSocket サーバー設定)を使�
   uv run --with obsws-python python code/ai-mayor/tools/obs_record.py status
   uv run --with obsws-python python code/ai-mayor/tools/obs_record.py start ~/ai-mayor-recordings/base
   uv run --with obsws-python python code/ai-mayor/tools/obs_record.py stop
+  uv run --with obsws-python python code/ai-mayor/tools/obs_record.py pause
+  uv run --with obsws-python python code/ai-mayor/tools/obs_record.py resume
 
 start は、録画の置き場所を渡したフォルダにしてから始める。stop は、できたファイルのパスを返す。
+pause と resume は、月と月の間の待ち時間を録画に入れないために使う(ファイルは1本のまま)。
 設定(2026-10-25 に入れた): ゲームの窓だけ(macOS 画面キャプチャのウィンドウ)、横1920・毎秒30コマ、6000kbps、断片化 MP4。
 """
 import json
@@ -38,13 +41,19 @@ def main() -> None:
         c.set_record_directory(folder)
         c.start_record()
         print(json.dumps({"ok": True, "recording": True, "directory": folder}, ensure_ascii=False))
+    elif cmd == "pause":
+        c.pause_record()
+        print(json.dumps({"ok": True, "paused": True}, ensure_ascii=False))
+    elif cmd == "resume":
+        c.resume_record()
+        print(json.dumps({"ok": True, "paused": False}, ensure_ascii=False))
     elif cmd == "stop":
         r = c.stop_record()
         print(json.dumps({"ok": True, "recording": False, "file": r.output_path}, ensure_ascii=False))
     else:
         s = c.get_record_status()
         v = c.get_video_settings()
-        print(json.dumps({"ok": True, "recording": s.output_active, "duration": s.output_timecode,
+        print(json.dumps({"ok": True, "recording": s.output_active, "paused": s.output_paused, "duration": s.output_timecode,
                           "bytes": s.output_bytes, "directory": c.get_record_directory().record_directory,
                           "output": f"{v.output_width}x{v.output_height}@{v.fps_numerator}"}, ensure_ascii=False))
 

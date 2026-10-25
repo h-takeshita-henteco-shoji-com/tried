@@ -1217,6 +1217,24 @@ code/ai-mayor/tools/
 
 変えた部品: `council-month.js`(局の返り値に調査、議案に調査、実行に調査)、`council-agents/bureau.md`、`council-agents/mayor-desk.md`、`council-agents/mayor-field.md`、`tool-reference.md`(新規)。`protocol.md` と基準の市長の部品は変えていない(#104 の条件を保つため)。
 
+### 12.2 #105 の2回目と3回目で見つけた穴と、直し(2026-10-26)
+
+2回目(6か月)と3回目(4か月)で、建設の案が通らない穴が残った。人の判断で、直して最初からやり直す。記録は運営のフォルダの `attempt2/` と `attempt3/` に残す。
+
+1. ゲームが断った理由が分からない(2回目の後に直した)
+   - 道路下水道局の4車線化を、ゲームが「ObjectCollision」で断った。人には、ぶつかった相手が赤く見える。AI には見えず、局は原因を絞れなかった
+   - 直し: `upgrade_road` が、ぶつかった相手(`colliding`)を返す。`place_building` と `build_line` も、ゲームの道具と同じ判定を通し、断るときに相手を返す。前は判定を通さず、人には建てられない場所にも建った
+2. 局と市長は、建てる前に試せない
+   - 3回目、局は断られた理由(9m の区間が短すぎる)を知った。それでも「別の形なら通るか」を確かめる手段がなく、建設の案を自分で引っ込めた。人は、ゲームの道具をクリックする前に、赤く出るかで分かる
+   - 直し: 試すだけの道具(`test_upgrade_road`、`test_build_line`、`test_place_building`)を足し、局・財政局・議会・2つの市長に持たせた。街は変えず、お金も払わない。局は、建設の案を試しの道具で確かめてから出す
+3. 失敗と不採用の理由が、局に戻らない
+   - 台帳の実行の欄は「失敗、費用なし」だけだった。局は直前の月の市政ノートしか読まないので、4か月目には理由を忘れ、同じ引数の案を出し直した
+   - 直し: 実行する市長が、打てなかった理由を `failedReasons` で返し、台帳の `executed.reason` に入れる。局は台帳のすべての月の自分の行を読み、採られなかった理由(`adopted.reason`)と打てなかった理由に手当てがないなら、同じ案を出さない
+
+どう直すか(交差点を作り直すなど)は教えない。打ち手を考えるのは局の役目のまま。
+
+変えた部品: MOD(`UpgradeApi.cs`、`NetApi.cs`、`CityApi.cs`)、`mcp/server.py`、`tool-reference.md`、`council-month.js`(実行の返り値に `failedReasons`)、`council-agents/bureau.md`、`council-agents/mayor-desk.md`、`council-agents/mayor-field.md`、`tools/make_council_agents.py`(試しの道具)、`tools/make_council_ledger.py`(`executed.reason`)。基準の市長(#104)は、直す前の道具で12か月を終えている。比べるときに、この差を書く。
+
 ## 13. まだ決めていないこと
 
 2026-10-24 に人が決めたこと: 1か月目は1回だけ走らせる(たまたまの差は測らない)。基準の市長の走らせ直しと試運転の記録は、#100 のフォルダの `runs/` に置く。

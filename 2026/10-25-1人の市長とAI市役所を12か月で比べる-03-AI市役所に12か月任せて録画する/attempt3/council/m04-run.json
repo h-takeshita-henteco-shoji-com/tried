@@ -1,0 +1,324 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-01",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 100000,
+    "upkeepCap": 4700,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "JapaneseGarden を2か所に置く(2850,772 と 2850,740)",
+      "buildCost": 5000,
+      "upkeepPerWeek": 80,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "空き家が5,000超あるのに人口が減るのは、大学卒の失業が住宅の需要を押さえているからか。",
+        "plan": "demand_breakdown()、citizens_summary()、city_info() を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "2160〜2280,-950 の1車線のくびれ65mを4車線に差し替える(試し)",
+      "buildCost": 325,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客がほとんどいない大型・長距離バス5路線の台数を下げる(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅 28755 の西の線(3417,-1555 と 3417,-1560)と東の線(3477,-1555 と 3477,-1560)は、道路につながっているか",
+        "plan": "net_near(3417,-1557,r30)、net_near(3477,-1557,r30)、vehicles_stuck(truck,building=28755,limit=5)を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "z=1010 の道の南側の空いた商業マスを事務所区画にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "放棄された店と工場は、月のうち何日目ごろに、どの種類が増えるか",
+        "plan": "buildings_near(x=0,z=0,radius=10000,abandoned=true,brief=true,limit=100) と cargo() を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "満杯の埋立地157を空にして受け入れを再開する(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,788以上、高校24,360は10代22,229以上で、2-3の目標を保っている。学校の新設、EducationBoost解除、教育予算変更を検討したが、いずれも当月の数字に効く理由がない。大学卒の失業は働き口の不足が原因で、学校では解けない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "complaints で火事と犯罪の印はどちらも0で、目標(合計4以下)を満たしている。SmokeDetectors は週57,795で幅4,700を超え、予算の増減や新設も効かせる対象がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費5,000、週の維持費80で、上限と枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費は約0〜325、維持費の増えは約0で収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0、予算の変更幅は-20で上限内、支出は減る側。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "区画の指定のみで建設費0、維持費の増え0。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "empty_building は建設費0、維持費の増え0。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 100000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "economy",
+        "title": "道沿いの空いた高密度商業マスを事務所区画にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "health",
+        "title": "満杯の埋立地157を空にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m04-3",
+        "fromBureau": "port",
+        "title": "乗客のほとんどいない大型バス5路線の台数の割合を下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "局の本文に、2棟の位置そのものの水が未確認と必須条件の未確認が残り、置いてみないと確かめられないとしているため。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "同じ操作が m01-1 で区間36011(9m)の TooShort と ObjectCollision により upgraded 0 で、その理由への手当てがないまま同じ引数を出しているため。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s04-1",
+        "fromBureau": "urban",
+        "question": "空き家が5,000超あるのに人口が減るのは、大学卒の失業(働き口の不足)が住宅の需要を押さえているからか"
+      },
+      {
+        "id": "s04-2",
+        "fromBureau": "port",
+        "question": "貨物駅28755 の敷地の西の線(3417,-1555 と 3417,-1560)と東の線(3477,-1555 と 3477,-1560)は、道路につながっているか"
+      },
+      {
+        "id": "s04-3",
+        "fromBureau": "economy",
+        "question": "放棄された店と工場は、月のうち何日目ごろに、どの種類が増えるか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m04-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "5路線の budget・台数・乗客は議案のとおりで戻せる手であり、交通と財政への響きも書かれている。m01-3 は外れではなく、流れへの効きの未確かめの項目を測る数を絞って試し直す形になっている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m04-1",
+    "m04-2",
+    "m04-3"
+  ],
+  "surveys": [
+    {
+      "id": "s04-1",
+      "fromBureau": "urban",
+      "question": "空き家が5,000超あるのに人口が減るのは、大学卒の失業(働き口の不足)が住宅の需要を押さえているからか"
+    },
+    {
+      "id": "s04-2",
+      "fromBureau": "port",
+      "question": "貨物駅28755 の敷地の西の線(3417,-1555 と 3417,-1560)と東の線(3477,-1555 と 3477,-1560)は、道路につながっているか"
+    },
+    {
+      "id": "s04-3",
+      "fromBureau": "economy",
+      "question": "放棄された店と工場は、月のうち何日目ごろに、どの種類が増えるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2",
+      "m04-3"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-11",
+        "population": 178030,
+        "money": 2197789,
+        "weeklyBalance": 8122,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-21",
+        "population": 177953,
+        "money": 2208585,
+        "weeklyBalance": 7126,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s04-1",
+      "s04-2",
+      "s04-3"
+    ],
+    "report": "4か月目(2050-04-01〜05-01)は、3件とも議案の操作順と引数で打てた。予備候補は使っていない。\n\n施策の結果\n- m04-1(事務所区画): zone_rect で changedCells 61。5円の Office は 0→37 になった。月末には空きが37→7に減り、OfficeGeneric が0→3棟(L2)、jobs が0→35 になった。\n- m04-1 の中止の条件(c): 実行前の5円に Unzoned 2マスと、建物のある Industrial 1マスが出た。住宅のマスはなく、建物のあるマスは zone_rect が変えないので、(c)には当たらないと判断した。\n- m04-2(埋立地157を空にする): 157 の storage は 100%→94% まで下がった。その後、04-11 から月末まで 7,580,000 のまま動かなかった。止める条件の90%以下に届かないので止めておらず、月末も Emptying のまま。\n- m04-2 の試し: 範囲の Garbage の印は 13→6 に減った。一方、街全体のごみの印は 56→80 に増えた。\n- m04-2 の周りの道: blocked は 21→2→0 で、中止の条件には当たらなかった。\n- m04-3(バス5路線の台数の割合を下げる): 台数の合計は 383→334。バスの支出は 21,733→21,242(-491)。前期の乗客は 7/3/10/0/6→62/19/35/16/10。街全体の flow は参考で 54%。\n\n見回り\n- 2回とも境目に当たらず、臨時はなし。ダイアログもなし(dialogSeq 138 のまま)。\n- 週の収支は +9,477→+8,122→+7,126→+6,517(月末)と、黒字のまま薄くなった。\n- 人口は 178,178→177,854 で、公約1は4か月続けて守れない見込み。\n- 来ない市民は 0/0/0 を保った。\n\n型に従えなかった点\n- 見回りでは、2つの道具のほかに buildings_near(157)と traffic(-1820,-1554)を呼んだ。m04-2 の議案の操作2と中止の条件の判定に要るため。施策は打っていない。\n\n調査\n- s04-1/s04-2/s04-3 を council/m04-survey-*.md に書いた。\n- s04-1 では、demand_breakdown の戻り値に需要の項(base、jobTerm、homeTerm)が入っていなかった。\n- s04-3 では、放棄の建物が 76→85→94 と増え、大半が NoGoods の H3 の店だった。\n\nその他\n- hooks に止められた手はない。\n- 次にやること: 157 の空にする作業を止めるか続けるかを、翌月に health 局が決める。\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- ログ: 同じフォルダの command-log.txt"
+  }
+}

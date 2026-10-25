@@ -163,6 +163,8 @@ namespace AIMayor
 
             bool pay = req.QueryString["pay"] != "false";
             bool demolish = req.QueryString["demolish"] == "true";
+            // test=true なら、引けるかを確かめて、引かずに返す(#105。局と市長が、建てる前に試す。ゲームの道具の、引く前の赤い表示に当たる)
+            bool test = req.QueryString["test"] == "true";
             // y を渡すと、地面の高さの代わりにその高さで点を置く。船の航路を水面に引くため(#100)
             float? fixedY = null;
             string ys = req.QueryString["y"];
@@ -171,18 +173,18 @@ namespace AIMayor
                 fixedY = float.Parse(ys, System.Globalization.CultureInfo.InvariantCulture);
             }
 
-            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, fixedY, demolish));
+            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, fixedY, demolish, test));
         }
 
         // fixedY を渡すと、地面の高さの代わりにその高さで点を置く(船の航路や飛行機の経路に使う)。
         // マップエディターの道具から呼ぶ。重なる建物は確かめない
         internal static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY)
         {
-            return BuildOnSimulation(prefab, points, pay, fixedY, true);
+            return BuildOnSimulation(prefab, points, pay, fixedY, true, false);
         }
 
         // demolish=false なら、建物に重なるときは建てずに断る(#82)
-        private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish)
+        private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish, bool test)
         {
             var info = PrefabCollection<NetInfo>.FindLoaded(prefab);
             if (info == null)
@@ -381,7 +383,7 @@ namespace AIMayor
             // 人が引くと断られる「ぶつかる」(ObjectCollision)だけで断る。ほかの理由(短すぎ、坂が急すぎなど)は、
             // この窓口の引き方(直線の区間、橋の高さの決め方)がゲームの道具と少し違うため、gameCheck に返すだけにする
             var gameCheck = new StringBuilder();
-            if (pay && fixedY == null)
+            if ((pay || test) && fixedY == null)
             {
                 var buffer = new FastList<NetTool.NodePosition>();
                 for (int i = 1; i < n; i++)
@@ -432,6 +434,15 @@ namespace AIMayor
                 var segInfo = undergroundInfo[i] ?? (onBridge[i] ? bridge : useElevated[i] ? elevatedInfo : info);
                 // 橋の費用は、地面からの高さで増える。トンネルは深さ(負の高さ)で決まる
                 cost += segInfo.m_netAI.GetConstructionCost(a, b, ys[i - 1] - ground[i - 1], ys[i] - ground[i]);
+            }
+
+            if (test)
+            {
+                var money = EconomyManager.instance.LastCashAmount;
+                return "{\"ok\":true,\"test\":true,\"built\":false,\"prefab\":" + Json.Str(prefab) + ",\"segments\":" + (n - 1)
+                    + ",\"crossings\":" + crossings + ",\"bridgeSegments\":" + bridges + ",\"undergroundSegments\":" + tunnels
+                    + ",\"cost\":" + cost / 100 + ",\"enoughMoney\":" + (money >= cost ? "true" : "false") + ",\"overlaps\":" + overlaps
+                    + (gameCheck.Length > 0 ? ",\"gameCheck\":[" + gameCheck + "]" : "") + "}";
             }
 
             if (pay)

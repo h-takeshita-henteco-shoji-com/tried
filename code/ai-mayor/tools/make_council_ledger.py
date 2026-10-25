@@ -48,6 +48,14 @@ def find_measure(bill, bureau):
     return None
 
 
+def failed_reason(done, measure_id):
+    # 実行する市長が返した、打てなかった理由(#105)。翌月の局が読む
+    for r in (done or {}).get("failedReasons") or []:
+        if r.get("id") == measure_id:
+            return r.get("reason")
+    return None
+
+
 def executed_state(done, measure_id):
     # done.executed / failed は文字列の並び。施策の id を含むものを探す
     def hit(xs):
@@ -100,7 +108,8 @@ def rows_for_month(run_dir, month):
             "vote": {"needed": bool(measure and measure.get("needsVote")),
                      "verdict": r.get("verdict") if r else None, "point": r.get("point") if r else None},
             # 費用は実際に払った額ではなく、案の建設費(見込み)。払った額は返り値にないため
-            "executed": {"ok": ok, "cost": p.get("buildCost") if ok else None},
+            "executed": {"ok": ok, "cost": p.get("buildCost") if ok else None,
+                         "reason": failed_reason(done, mid) if ok is False else None},
             "review": None,
             "seenCheck": seen_check(md, hooks, f"council-{bureau}"),
         })

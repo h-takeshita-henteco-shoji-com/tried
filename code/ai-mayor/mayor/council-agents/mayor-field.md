@@ -170,6 +170,7 @@ hooks:
 {
   "executed": ["m03-1"],
   "failed": ["m03-2"],
+  "failedReasons": [{"id": "m03-2", "reason": "<道具が返した理由。断られたら、reasons と、ぶつかった相手(colliding の番号・種類・位置)>"}],
   "patrols": [
     {"gameDate": "2041-03-26", "population": 100140, "money": 498704, "weeklyBalance": 13170, "happiness": 62, "alert": false}
   ],
@@ -182,6 +183,7 @@ hooks:
 ```
 
 - `executed`: 打てた施策の id。`failed`: 打てなかった施策の id
+- `failedReasons`: `failed` の施策ごとに、道具が返した理由。翌月の局が台帳で読み、案を直す材料にする。部分実行なら、どこまで打てて、どこが何で断られたか
 - `patrols`: 見回りの数字。2回分(止まった月は、できた分だけ)
 - `surveysDone`: 結果を書き終えた調査の id。調査がなければ空の配列
 - `emergency`: 臨時を行ったか

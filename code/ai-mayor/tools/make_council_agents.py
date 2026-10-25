@@ -35,6 +35,8 @@ READ_ONLY = [
     "list_loans", "list_saves", "list_map_layers", "list_trees",
     "height_at", "latlon_to_game", "citizens_without_service", "sim_health", "preview_bulldoze",
     "transport_reach",
+    # 試すだけの道具(#105)。街は変えない。ゲームの道具で、建てる前に赤く出るかを見るのと同じ
+    "test_upgrade_road", "test_build_line", "test_place_building",
 ]
 
 # 見てまとめる市長が足す道具(council-design.md の6.2)。街は動かさない
@@ -50,7 +52,10 @@ def tools_line(file_tools, game_tools):
 def field_tools():
     """実行する市長の道具。これまでの市長の雛形(agent-template.md)と同じ全部の道具にする。"""
     text = (MAYOR / "agent-template.md").read_text(encoding="utf-8")
-    return re.search(r"^tools:\s*(.+)$", text, re.M).group(1).strip()
+    line = re.search(r"^tools:\s*(.+)$", text, re.M).group(1).strip()
+    # 試すだけの道具も持たせる(#105)。打つ前に、同じ引数で試せるように
+    tests = [MCP + t for t in ("test_upgrade_road", "test_build_line", "test_place_building") if MCP + t not in line]
+    return ", ".join([line] + tests)
 
 
 def load(path, shift=2):

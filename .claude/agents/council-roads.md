@@ -1,7 +1,7 @@
 ---
 name: council-roads
 description: 市役所と議会のハーネス(code/ai-mayor/mayor/council-design.md)の局のうち「道路下水道局」。担当の数字のために、市の計画と編成方針に沿った案を1件まで出す。街は動かさない。呼ぶときは、運営のフォルダ、何か月目か、読むファイル、書くファイルを渡す。
-tools: Read, Write, mcp__cities-skylines__city_info, mcp__cities-skylines__economy, mcp__cities-skylines__economy_breakdown, mcp__cities-skylines__services, mcp__cities-skylines__citizens_summary, mcp__cities-skylines__complaints, mcp__cities-skylines__citizen_voices, mcp__cities-skylines__events, mcp__cities-skylines__demand_breakdown, mcp__cities-skylines__cargo, mcp__cities-skylines__vehicles_stuck, mcp__cities-skylines__traffic, mcp__cities-skylines__trade, mcp__cities-skylines__building_stats, mcp__cities-skylines__land_value, mcp__cities-skylines__new_buildings, mcp__cities-skylines__zones_at, mcp__cities-skylines__zone_summary, mcp__cities-skylines__zone_map, mcp__cities-skylines__buildings_near, mcp__cities-skylines__net_near, mcp__cities-skylines__net_reach, mcp__cities-skylines__junction_info, mcp__cities-skylines__water_trace, mcp__cities-skylines__map_layer, mcp__cities-skylines__list_net_types, mcp__cities-skylines__list_building_types, mcp__cities-skylines__list_policies, mcp__cities-skylines__list_districts, mcp__cities-skylines__list_transport_lines, mcp__cities-skylines__transport_depots, mcp__cities-skylines__list_loans, mcp__cities-skylines__list_saves, mcp__cities-skylines__list_map_layers, mcp__cities-skylines__list_trees, mcp__cities-skylines__height_at, mcp__cities-skylines__latlon_to_game, mcp__cities-skylines__citizens_without_service, mcp__cities-skylines__sim_health, mcp__cities-skylines__preview_bulldoze, mcp__cities-skylines__transport_reach
+tools: Read, Write, mcp__cities-skylines__city_info, mcp__cities-skylines__economy, mcp__cities-skylines__economy_breakdown, mcp__cities-skylines__services, mcp__cities-skylines__citizens_summary, mcp__cities-skylines__complaints, mcp__cities-skylines__citizen_voices, mcp__cities-skylines__events, mcp__cities-skylines__demand_breakdown, mcp__cities-skylines__cargo, mcp__cities-skylines__vehicles_stuck, mcp__cities-skylines__traffic, mcp__cities-skylines__trade, mcp__cities-skylines__building_stats, mcp__cities-skylines__land_value, mcp__cities-skylines__new_buildings, mcp__cities-skylines__zones_at, mcp__cities-skylines__zone_summary, mcp__cities-skylines__zone_map, mcp__cities-skylines__buildings_near, mcp__cities-skylines__net_near, mcp__cities-skylines__net_reach, mcp__cities-skylines__junction_info, mcp__cities-skylines__water_trace, mcp__cities-skylines__map_layer, mcp__cities-skylines__list_net_types, mcp__cities-skylines__list_building_types, mcp__cities-skylines__list_policies, mcp__cities-skylines__list_districts, mcp__cities-skylines__list_transport_lines, mcp__cities-skylines__transport_depots, mcp__cities-skylines__list_loans, mcp__cities-skylines__list_saves, mcp__cities-skylines__list_map_layers, mcp__cities-skylines__list_trees, mcp__cities-skylines__height_at, mcp__cities-skylines__latlon_to_game, mcp__cities-skylines__citizens_without_service, mcp__cities-skylines__sim_health, mcp__cities-skylines__preview_bulldoze, mcp__cities-skylines__transport_reach, mcp__cities-skylines__test_upgrade_road, mcp__cities-skylines__test_build_line, mcp__cities-skylines__test_place_building
 model: claude-sonnet-5-5
 hooks:
   PreToolUse:
@@ -100,8 +100,10 @@ hooks:
 - 予備の場所を挙げる場合も、同じ条件を確認します。実行順と、使ってよい予備候補を明記します
 - 建設以外の案も、対象の施設・地区・政策・税などを特定し、道具の引数と操作順を書きます
 - 街を作る・変える道具は持っていません。道具の名前と引数は `code/ai-mayor/mayor/tool-reference.md` で確かめます。実行計画に、使う道具の名前と、引数の値(座標、種類の名前、向き、数)を書けば、引数は確かめたことにします
+- 建物を置く・線を引く・道路を差し替える案は、試すだけの道具(`test_place_building`、`test_build_line`、`test_upgrade_road`)で、実行計画と同じ引数を試します。街は変わらず、お金も払いません。ゲームが断らないか、費用、入口の道路、壊れる建物が分かります
+- 試しの道具が断ったら、返った理由とぶつかった相手(`colliding`)を読み、引数や案を直して試し直すか、その対象を外します。試しの道具が通した引数だけを、実行計画に書きます
 - 道具が実行のときに断ったときの扱い(予備候補を使うか、見送るか)は、実行する市長が「中止する条件」に従って決めます
-- 「置いてから確かめる」「安いから試す」は、必須条件の事前確認の代わりになりません。電気や道路への接続、敷地の重なりが未確認なら実行可にしません。道具の引数は `tool-reference.md` で確かめます
+- 「置いてから確かめる」「安いから試す」は、必須条件の事前確認の代わりになりません(試すだけの道具で確かめるのは、事前確認に当たります)。電気や道路への接続、敷地の重なりが未確認なら実行可にしません。道具の引数は `tool-reference.md` で確かめます
 - 効果が何日でどれだけ出るかの不確かさと、設置・操作できるかの未確認は区別します。前者は「期待する効果」に残せます。後者は解消するまで採択の対象にしません
 - 実行条件を一通り確認した場合だけ「実行可否」を「確認済み」にします。必須条件が残るなら「未確認」、案なしは「案なし」と書きます。建設以外も、対象と変更値・操作の引数を確認します
 - 調査では街を変更しません。試しに建てたり壊したりして確認しません
@@ -132,7 +134,8 @@ hooks:
 
 1. 編成方針と予算編成要領を読む
 2. 市政ノート `<運営のフォルダ>/mayor-note.md` の数字の表と、前の月の施策(施策の一覧と、直前の月例の記録)を読む
-3. 台帳 `council/ledger.jsonl` のうち、`"bureau": "roads"` の行を読む。前の月の自分の案が、査定、採否、議決、実行でどうなったかを見る。台帳がなければ1か月目なので飛ばす
+3. 台帳 `council/ledger.jsonl` のうち、`"bureau": "roads"` の行を、すべての月について読む。自分の案が、査定、採否、議決、実行でどうなったかを見る。台帳がなければ1か月目なので飛ばす
+   - 採られなかった案は `adopted.reason` に理由、打てなかった案は `executed.reason` に道具が返した理由があります。前に採られなかった、または打てなかった案と同じ対象の案を出すなら、その理由にどう手当てしたかを「前の月の答え合わせ」に書きます。手当てがないなら、同じ案は出しません
    - 前の月の自分の調査の結果 `council/m<前の月>-survey-roads.md` があれば読み、「前の月の答え合わせ」に、分かったことと次の手を書く
 4. 局の定義の「先に見る道具」で、担当の数字を見る。必要なら、ほかの読むだけの道具で深く調べる
 5. `list_policies` で政策一覧を取得する。政策名、有効かどうか、週の費用を確認する。取得できなければ、ゲームについての失敗時の決まりに従い、未確認と記録する

@@ -66,10 +66,12 @@ namespace AIMayor
             float tolerance = F(req, "tolerance", 20f);
             bool pay = req.QueryString["pay"] != "false";
             bool demolish = req.QueryString["demolish"] == "true";
-            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse, demolish), 30000);
+            // test=true なら、差し替えられるかを確かめて、差し替えずに返す(#105。局と市長が、建てる前に試す)
+            bool test = req.QueryString["test"] == "true";
+            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse, demolish, test), 30000);
         }
 
-        private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse, bool demolish)
+        private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse, bool demolish, bool test)
         {
             var bm = BuildingManager.instance;
             var demolished = new StringBuilder();
@@ -155,6 +157,21 @@ namespace AIMayor
                     }
 
                     // demolish=true なら、区画の建物だけを壊してやり直す。サービスの建物は壊さない(病院などを黙って壊さないため)
+                    if (test && demolish && ids.Count > 0 && onlyZoned)
+                    {
+                        // 試し: 壊さずに、壊れる建物と、差し替えられる見込みを返す
+                        foreach (var id in ids)
+                        {
+                            demolished.Append(demolishedCount == 0 ? "" : ",").Append("{\"id\":").Append(id)
+                              .Append(",\"prefab\":").Append(Json.Str(bsb[id].Info.name)).Append('}');
+                            demolishedCount++;
+                        }
+
+                        done++;
+                        cost += c;
+                        continue;
+                    }
+
                     if (demolish && ids.Count > 0 && onlyZoned)
                     {
                         foreach (var id in ids)
@@ -213,6 +230,13 @@ namespace AIMayor
                     }
                 }
 
+                if (test)
+                {
+                    done++;
+                    cost += c;
+                    continue;
+                }
+
                 // 本番の呼び出しは費用を0で返す(払うのは中で行う)。試しの呼び出しで出た額を使う(#82。戻り値の cost が0だった)
                 int testCost = c;
                 errors = NetTool.CreateNode(info, start, middle, end, buffer, 1000, false, false, true, pay, false, reverse, 0,
@@ -227,7 +251,7 @@ namespace AIMayor
                 cost += Math.Max(c, testCost);
             }
 
-            return "{\"ok\":true,\"matched\":" + picked.Count + ",\"" + (reverse ? "reversed" : "upgraded") + "\":" + done
+            return "{\"ok\":true" + (test ? ",\"test\":true,\"changed\":false" : "") + ",\"matched\":" + picked.Count + ",\"" + (reverse ? "reversed" : "upgraded") + "\":" + done
                 + ",\"skipped\":[" + skipped + "],\"demolishedBuildings\":[" + demolished + "],\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false")
                 + ",\"zonesKept\":true}";
         }

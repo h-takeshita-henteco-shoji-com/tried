@@ -1014,6 +1014,8 @@ namespace AIMayor
             }
 
             bool pay = req.QueryString["pay"] != "false";
+            // test=true なら、置けるかを確かめて、置かずに返す(#105。局と市長が、建てる前に試す。ゲームの道具の、置く前の赤い表示に当たる)
+            bool test = req.QueryString["test"] == "true";
             // 人が置く骨格(pay=false)は、解禁を問わない
             if (pay && IsLocked(info))
             {
@@ -1037,7 +1039,7 @@ namespace AIMayor
             int cost = info.GetConstructionCost();
 
             var eco = EconomyManager.instance;
-            if (pay)
+            if (pay && !test)
             {
                 if (eco.PeekResource(EconomyManager.Resource.Construction, cost) != cost)
                 {
@@ -1050,7 +1052,7 @@ namespace AIMayor
             ushort id = 0;
             // 敷地が重なる区画の建物。ゲームは重なった区画の建物を取り壊す(#82。市長は何棟壊れたか分からなかった)
             var overlapped = OverlappingZoned(info, pos, angle);
-            if (pay)
+            if (pay || test)
             {
                 // ゲームの建物の道具と同じ判定で、置ける場所かを調べる(#105)。前は判定を通さずに置いたので、
                 // 道路やサービスの建物に重なる場所など、人には置けない場所にも置けた。
@@ -1085,11 +1087,20 @@ namespace AIMayor
                     }
                 }
 
+                angleDeg = angle * Mathf.Rad2Deg;
+                if (test)
+                {
+                    return "{\"ok\":true,\"test\":true,\"placed\":false,\"prefab\":" + Json.Str(name) + ",\"x\":" + Mathf.RoundToInt(pos.x)
+                        + ",\"z\":" + Mathf.RoundToInt(pos.z) + ",\"angleUsed\":" + N(angleDeg) + ",\"cost\":" + cost / 100
+                        + ",\"enoughMoney\":" + (eco.LastCashAmount >= cost ? "true" : "false") + ",\"needsRoad\":" + NeedsRoadJson(info)
+                        + ",\"needs\":" + NeedsJson(info) + ",\"entrance\":" + Entrance(pos, angle, info.m_cellLength)
+                        + ",\"wouldDemolish\":" + DemolishedJson(overlapped) + "}";
+                }
+
                 Array.Clear(segBuf, 0, segBuf.Length);
                 Array.Clear(bldBuf, 0, bldBuf.Length);
                 BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
                     info.m_cellWidth, info.m_cellLength, false, segBuf, bldBuf);
-                angleDeg = angle * Mathf.Rad2Deg;
             }
 
             if (!BuildingManager.instance.CreateBuilding(out id, ref rnd, info, pos, angle, info.m_cellLength, sim.m_currentBuildIndex))
@@ -1195,8 +1206,14 @@ namespace AIMayor
         private static string Entrance(ushort id)
         {
             var b = BuildingManager.instance.m_buildings.m_buffer[id];
-            var door = b.CalculateSidewalkPosition();
-            var dir = door - b.m_position;
+            return Entrance(b.m_position, b.m_angle, b.Length);
+        }
+
+        // 置く前の建物の入口(Building.CalculateSidewalkPosition と同じ計算)。試し(test=true)で使う
+        private static string Entrance(Vector3 position, float angle, int length)
+        {
+            var door = Building.CalculateSidewalkPosition(position, angle, length);
+            var dir = door - position;
             // 方位は北が0、東が90(時計回り)
             float bearing = (Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + 360f) % 360f;
             string[] names = { "north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest" };

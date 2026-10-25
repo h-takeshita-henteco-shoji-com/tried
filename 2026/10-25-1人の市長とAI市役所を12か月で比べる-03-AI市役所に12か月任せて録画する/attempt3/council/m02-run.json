@@ -1,0 +1,331 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1058771,
+    "upkeepCap": 4400,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "JapaneseGarden を2か所に置く(2850,772 と 2850,740)",
+      "buildCost": 5000,
+      "upkeepPerWeek": 80,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "2236,-950 と 2220,-950 の脇道に譲れの標識を付ける(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "2250,-950 付近の止まった車の数は、日による揺れの幅がどれだけか",
+        "plan": "traffic(x=2250, z=-950, radius=200) を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "鉄道の予算を120%へ上げ、貨物駅の空き待ちを試す",
+      "buildCost": 0,
+      "upkeepPerWeek": 2200,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755 の空き待ち約500台は、出口の1点(3441,-1555)の出し入れの速さで止まっているのか。予算の試しの前後で流れる量が変わるか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、cargo()、buildings_near(x=3449, z=-1555, radius=120, service=PublicTransport)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "3470,-1040 の道沿いの未指定マスを工業区画にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討したのは Recycling 政策、南西への埋立地新設、東への墓地新設、病院増設、満杯の埋立地を空ける手。Recycling は住宅の税収が週約13,000減り、維持費の幅4,400を超える。新設は、80x64m の空き地を zone_map で確認できなかった。病院は医療の使用が1,873/5,000で余裕がある。満杯の埋立地を空ける手は、効く根拠がない。焼却場33797 の収集車が印の家へ行かない原因は未確定のため、調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "焼却場33797 の収集車は、南西のごみの印の家へ行かず遠い家へ向かっているのか。向かっても渋滞で着かないのか",
+        "plan": "見回り1・見回り2・月末に vehicles_stuck(kind=garbage, building=33797, limit=40)、buildings_near(x=-540, z=-1340, radius=400, problem=Garbage, brief=true)、traffic(x=-550, z=-1600, radius=400)"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども11,118以上、高校24,360は10代22,385以上で、2-3の目標を満たす。大学の席36,540は足りており、大学卒の失業6,081は働き口の不足による。学校の新設は効かず、EducationBoost(週7,940)の解除は効きを測る材料がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "火事の印が付いたままの焼け跡2棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "JapaneseGarden 2棟は建設費5,000・週の維持費80で、上限と枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "譲れの標識は費用0で戻せる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "鉄道の予算+20ポイントは週約2,195の増えで、維持費の幅4,400に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "工業区画の指定は費用0とされ、上限と枠に収まる。実行結果で費用を確かめる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "焼け跡2棟の取り壊しは建設費も維持費の増えもない。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1058771
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "economy",
+        "title": "道沿いの未指定マスを工業区画にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "port",
+        "title": "鉄道の予算を100%から120%へ上げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "8-1"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "fire",
+        "title": "焼け跡2棟(2002、5804)を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "条件は確認済みだが、4-2 への一歩が2棟と小さく重点の外のため、施策の枠を 3-4 の目標に1か月で届く取り壊しに使った。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "この場所の止まった車は何もせず86→24と揺れ、1か月の比べで効きを見分けにくいため、調査 s02-3 で揺れの幅を先に測る。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755 の空き待ちの約500台は、出口の1点(3441,-1555)での出し入れの速さで止まっているのか。予算の試しの前後で流れる量が変わるか"
+      },
+      {
+        "id": "s02-2",
+        "fromBureau": "health",
+        "question": "焼却場33797 の収集車が、南西のごみの印の家に行かず遠い家へ向かっているのか。それとも向かっても渋滞で着かないのか"
+      },
+      {
+        "id": "s02-3",
+        "fromBureau": "roads",
+        "question": "2250,-950 付近の止まった車の数は、日による揺れの幅がどれだけか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-2",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "財政と6-3への響き、戻す条件が書かれ、外れた手の続きでもなく、8-1に沿う試し。"
+      },
+      {
+        "measureId": "m02-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは働き口0・家0・停電0と生徒0の小学校の定員348で再測と一致。代わりの手との比べもあり、2-3の定員は子どもを上回る。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m02-1",
+    "m02-2",
+    "m02-3"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755 の空き待ちの約500台は、出口の1点(3441,-1555)での出し入れの速さで止まっているのか。予算の試しの前後で流れる量が変わるか"
+    },
+    {
+      "id": "s02-2",
+      "fromBureau": "health",
+      "question": "焼却場33797 の収集車が、南西のごみの印の家に行かず遠い家へ向かっているのか。それとも向かっても渋滞で着かないのか"
+    },
+    {
+      "id": "s02-3",
+      "fromBureau": "roads",
+      "question": "2250,-950 付近の止まった車の数は、日による揺れの幅がどれだけか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-1",
+      "m02-2",
+      "m02-3"
+    ],
+    "failed": [],
+    "patrols": [
+      {
+        "gameDate": "2050-02-10",
+        "population": 178720,
+        "money": 2127093,
+        "weeklyBalance": 6741,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-20",
+        "population": 178678,
+        "money": 2137243,
+        "weeklyBalance": 7181,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1",
+      "s02-2",
+      "s02-3"
+    ],
+    "report": "3件の施策はすべて議案どおりに打てた(期間 2050-01-31〜03-02)。中止の条件には当たらず、予備候補も使っていない。\n\n- m02-1(工業区画): 4つの四角で70マスを工業にした。zones_at(3470,-1040、r130)で Industrial は31→101(空き71)、未指定は154→86。低密度住宅の空きマスも2つ工業に変わった。\n- m02-2(鉄道の予算): 100%→120%にした。敷地の中で止まったトラック(stoppedInBuildings)は 496→527→527→555 と増えた。28755 だけでは 496→534、7日以上止まった車は455→485。20日目の目安(400以下)に届かなかったので、翌月に100%へ戻す案の材料にする。鉄道の支出は 10,973→12,701 だった。\n- m02-3(焼け跡2棟の取り壊し): 取り壊しの理由をノートに書いてから、2002 と 5804 を取り壊した。火事の印は3→1、犯罪は3のままで、合わせて4になり目標に届いた。\n\n見回り2回は、どちらも境目に当たらなかった。臨時は打っていない。ダイアログは出ず、来ない市民は0/0/0のまま。人口は 178,862→178,678 と少し減り続けている。週の収支は +6,741 と +7,181 で黒字を保った。\n\n調査3件は、見回り2回と月末に呼び、council/m02-survey-port.md・health.md・roads.md に書いた。s02-2 では、行き先が南西のごみの印の範囲に入る収集車は3回とも0台だった。s02-3 の blocked は 28→48→21 と動いた。\n\nhooks に止められた手はない。型との食い違いが1つある。議案は見回りでも economy_breakdown と building_stats を測るとしていたが、見回りは2つの道具だけの決まりに従った。economy_breakdown は月末に1回だけ測り、building_stats は翌月の月例に回した。市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md"
+  }
+}
