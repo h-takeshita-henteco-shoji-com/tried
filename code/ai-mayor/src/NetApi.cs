@@ -41,8 +41,14 @@ namespace AIMayor
             for (uint i = 0; i < n; i++)
             {
                 var info = PrefabCollection<NetInfo>.GetLoaded(i);
-                if (info == null || info.m_placementStyle != ItemClass.Placement.Manual
-                    || (info.m_availableIn & ItemClass.Availability.Game) == 0)
+                if (info == null || (info.m_availableIn & ItemClass.Availability.Game) == 0)
+                {
+                    continue;
+                }
+
+                // 地下鉄の線路は、手で置く種類(Manual)に入っていないことがある。地下鉄だけは種類を問わず出す(#107)
+                bool metro = info.m_class != null && info.m_class.m_subService == ItemClass.SubService.PublicTransportMetro;
+                if (info.m_placementStyle != ItemClass.Placement.Manual && !metro)
                 {
                     continue;
                 }
@@ -61,6 +67,11 @@ namespace AIMayor
                 sb.Append("{\"name\":").Append(Json.Str(info.name))
                   .Append(",\"service\":").Append(Json.Str(info.m_class != null ? info.m_class.m_service.ToString() : null))
                   .Append(",\"unlocked\":").Append(locked ? "false" : "true");
+                if (metro)
+                {
+                    sb.Append(",\"subService\":\"PublicTransportMetro\",\"placement\":").Append(Json.Str(info.m_placementStyle.ToString()))
+                      .Append(",\"hasTunnel\":").Append(AiField(info, "m_tunnelInfo") != null ? "true" : "false");
+                }
                 if (locked)
                 {
                     sb.Append(",\"unlock\":").Append(UnlockJson(info));
@@ -504,11 +515,31 @@ namespace AIMayor
         // 区画の建物は道路の端(中心から半幅)に接して建つので、広げる幅は2m控え、沿って引いた道路を重なりと数えない
         private static string Overlaps(NetInfo info, List<Vector3> points, bool[] onBridge, bool[] useElevated)
         {
+            var hit = OverlapIds(info, points, onBridge, useElevated);
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            var sb = new StringBuilder("[");
+            for (int i = 0; i < hit.Count; i++)
+            {
+                var b = bs[hit[i]];
+                sb.Append(i > 0 ? "," : "").Append("{\"id\":").Append(hit[i]).Append(",\"prefab\":").Append(Json.Str(b.Info.name))
+                  .Append(",\"service\":").Append(Json.Str(b.Info.m_class.m_service.ToString()))
+                  .Append(",\"x\":").Append(Mathf.RoundToInt(b.m_position.x)).Append(",\"z\":").Append(Mathf.RoundToInt(b.m_position.z))
+                  // 敷地の幅と奥行き(m)と向き。中心だけでは避ける線を決められない(#82 の42か月目)
+                  .Append(",\"width\":").Append(b.Info.m_cellWidth * 8).Append(",\"length\":").Append(b.Info.m_cellLength * 8)
+                  .Append(",\"angle\":").Append(Mathf.RoundToInt(b.m_angle * Mathf.Rad2Deg)).Append('}');
+            }
+
+            return sb.Append(']').ToString();
+        }
+
+        // 線が敷地に重なる建物の番号。upgrade_road でも使う(#107)
+        internal static List<ushort> OverlapIds(NetInfo info, List<Vector3> points, bool[] onBridge, bool[] useElevated)
+        {
             var svc = info.m_class.m_service;
             if (!info.m_canCollide || (svc != ItemClass.Service.Road && svc != ItemClass.Service.PublicTransport
                 && svc != ItemClass.Service.Beautification))
             {
-                return "[]";
+                return new List<ushort>();
             }
 
             float pad = Mathf.Max(0f, info.m_halfWidth - 2f);
@@ -566,19 +597,7 @@ namespace AIMayor
                 }
             }
 
-            var sb = new StringBuilder("[");
-            for (int i = 0; i < hit.Count; i++)
-            {
-                var b = bs[hit[i]];
-                sb.Append(i > 0 ? "," : "").Append("{\"id\":").Append(hit[i]).Append(",\"prefab\":").Append(Json.Str(b.Info.name))
-                  .Append(",\"service\":").Append(Json.Str(b.Info.m_class.m_service.ToString()))
-                  .Append(",\"x\":").Append(Mathf.RoundToInt(b.m_position.x)).Append(",\"z\":").Append(Mathf.RoundToInt(b.m_position.z))
-                  // 敷地の幅と奥行き(m)と向き。中心だけでは避ける線を決められない(#82 の42か月目)
-                  .Append(",\"width\":").Append(b.Info.m_cellWidth * 8).Append(",\"length\":").Append(b.Info.m_cellLength * 8)
-                  .Append(",\"angle\":").Append(Mathf.RoundToInt(b.m_angle * Mathf.Rad2Deg)).Append('}');
-            }
-
-            return sb.Append(']').ToString();
+            return hit;
         }
 
         // 点が、建物の敷地(長方形を pad だけ広げたもの)に入るか。向きの回し方は BuildingAt と同じ

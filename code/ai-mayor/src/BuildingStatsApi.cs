@@ -28,7 +28,7 @@ namespace AIMayor
 
         private class Group
         {
-            public int Buildings, Abandoned, Homes, Jobs, Ready, LowFirst, LowSecond;
+            public int Buildings, Abandoned, Homes, Jobs, Ready, LowFirst, LowSecond, AtMaxLevel;
             public long LandValue;
             // ready なのに上がらない理由(問題の印がある、同じ大きさの上のレベルの建物がない)
             public int ReadyBlockedByProblems, ReadyNoUpgradeModel;
@@ -91,6 +91,14 @@ namespace AIMayor
                 g.LandValue += local;
 
                 // レベルが上がらない理由。最上位でない建物で、2つの条件のうち低い方を数える
+                // 最上位の建物は、ゲームが進み具合を1にする(CheckBuildingLevel)。止まった建物に数えない(#107)
+                int maxLevel = info.m_class.m_service == ItemClass.Service.Residential ? 5 : 3;
+                if (bs[i].m_level + 1 >= maxLevel)
+                {
+                    g.AtMaxLevel++;
+                    continue;
+                }
+
                 int first = bs[i].m_levelUpProgress & 0xF;
                 int second = bs[i].m_levelUpProgress >> 4;
                 if (first == 15 && second == 15)
@@ -140,7 +148,8 @@ namespace AIMayor
                   .Append(",\"levels\":[").Append(string.Join(",", Array.ConvertAll(g.Levels, v => v.ToString(CultureInfo.InvariantCulture)))).Append(']')
                   .Append(",\"homes\":").Append(g.Homes).Append(",\"jobs\":").Append(g.Jobs)
                   .Append(",\"averageLandValue\":").Append(alive > 0 ? g.LandValue / alive : 0)
-                  .Append(",\"levelUp\":{\"ready\":").Append(g.Ready)
+                  .Append(",\"levelUp\":{\"atMaxLevel\":").Append(g.AtMaxLevel)
+                  .Append(",\"ready\":").Append(g.Ready)
                   .Append(",").Append(Json.Str("limitedBy_" + names[0])).Append(':').Append(g.LowFirst)
                   .Append(",").Append(Json.Str("limitedBy_" + names[1])).Append(':').Append(g.LowSecond)
                   .Append(",\"readyBlockedByProblems\":").Append(g.ReadyBlockedByProblems)
@@ -345,6 +354,13 @@ namespace AIMayor
                 sb.Append(",\"landValueForLevel\":[0,21,41]");
             }
 
+            if (service != ItemClass.Service.Residential)
+            {
+                // 働き手の学歴の内訳と、働き口の学歴の段ごとの数(#107)。
+                // 工業・オフィスのレベルは、働き手の学歴の平均で決まる(CheckBuildingLevel)
+                sb.Append(",\"workers\":").Append(WorkerEducationJson(id, ref b, info));
+            }
+
             var terms = ServiceTerms(b.m_position, service);
             if (terms != null)
             {
@@ -372,6 +388,50 @@ namespace AIMayor
             }
 
             return sb.Append("]}").ToString();
+        }
+
+        // 建物で働く市民を学歴ごとに数える。亡くなった人と引っ越しの途中の人は除く
+        private static string WorkerEducationJson(ushort id, ref Building b, BuildingInfo info)
+        {
+            var cm = CitizenManager.instance;
+            var edu = new int[4];
+            uint unit = b.m_citizenUnits;
+            int guard = 0;
+            while (unit != 0 && guard++ < 524288)
+            {
+                var u = cm.m_units.m_buffer[unit];
+                if ((u.m_flags & CitizenUnit.Flags.Work) != 0)
+                {
+                    for (int k = 0; k < 5; k++)
+                    {
+                        uint ci = u.GetCitizen(k);
+                        if (ci == 0)
+                        {
+                            continue;
+                        }
+
+                        var c = cm.m_citizens.m_buffer[ci];
+                        if (c.Dead || (c.m_flags & Citizen.Flags.MovingIn) != 0 || c.m_workBuilding != id)
+                        {
+                            continue;
+                        }
+
+                        edu[Mathf.Clamp((int)c.EducationLevel, 0, 3)]++;
+                    }
+                }
+
+                unit = u.m_nextUnit;
+            }
+
+            int total = edu[0] + edu[1] + edu[2] + edu[3];
+            int l0, l1, l2, l3;
+            ((PrivateBuildingAI)info.m_buildingAI).CalculateWorkplaceCount((ItemClass.Level)b.m_level, new Randomizer(id), b.Width, b.Length, out l0, out l1, out l2, out l3);
+            // ゲームの式: (小学校卒 + 高校卒×2 + 大学卒×3) × 12 / 働き手。15未満 L1、30未満 L2、それ以上 L3
+            int score = total > 0 ? ((edu[1] + edu[2] * 2 + edu[3] * 3) * 12 + (total >> 1)) / total : 0;
+            return "{\"total\":" + total
+                + ",\"byEducation\":{\"uneducated\":" + edu[0] + ",\"elementary\":" + edu[1] + ",\"highSchool\":" + edu[2] + ",\"university\":" + edu[3] + "}"
+                + ",\"jobsByEducation\":{\"uneducated\":" + l0 + ",\"elementary\":" + l1 + ",\"highSchool\":" + l2 + ",\"university\":" + l3 + "}"
+                + ",\"educationScore\":" + score + ",\"educationScoreForLevel\":[0,15,30]}";
         }
 
         // 2つの条件の名前(m_levelUpProgress の下4ビット、上4ビット)

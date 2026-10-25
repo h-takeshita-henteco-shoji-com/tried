@@ -33,7 +33,7 @@ namespace AIMayor
 
             // 車
             var vm = VehicleManager.instance;
-            int cars = 0, blocked = 0, congestion = 0;
+            int cars = 0, blocked = 0, congestion = 0, blockedInBuildings = 0;
             var cells = new Dictionary<long, int[]>(); // 200m のマスごとの [止まっている車, x合計, z合計]
             for (int i = 1; i < vm.m_vehicles.m_size; i++)
             {
@@ -62,6 +62,12 @@ namespace AIMayor
                 }
 
                 blocked++;
+                if (InBuildingGrounds(ref v))
+                {
+                    blockedInBuildings++;
+                    continue;
+                }
+
                 long key = ((long)Mathf.FloorToInt(p.x / Cell) << 32) ^ (uint)Mathf.FloorToInt(p.z / Cell);
                 int[] c;
                 if (!cells.TryGetValue(key, out c))
@@ -114,7 +120,7 @@ namespace AIMayor
 
             var sb = new StringBuilder("{\"ok\":true");
             sb.Append(",\"flow\":").Append(vm.m_lastTrafficFlow);
-            sb.Append(",\"cars\":").Append(cars).Append(",\"blocked\":").Append(blocked)
+            sb.Append(",\"cars\":").Append(cars).Append(",\"blocked\":").Append(blocked).Append(",\"blockedOnRoads\":").Append(blocked - blockedInBuildings).Append(",\"blockedInBuildings\":").Append(blockedInBuildings)
               .Append(",\"congestion\":").Append(congestion);
             sb.Append(",\"roadSegments\":").Append(roads)
               .Append(",\"averageDensity\":").Append(roads > 0 ? densitySum / roads : 0);
@@ -144,6 +150,24 @@ namespace AIMayor
             }
 
             return sb.Append("]}").ToString();
+        }
+
+        // 車が建物の敷地の中にいるか(#107)。貨物駅や港の中の道は、建物が持つ区間(Untouchable の印)。
+        // 11回目に、駅の中で荷物を待つトラックを道の詰まりと読み、出口の道を広げても効かなかった
+        public static bool InBuildingGrounds(ref Vehicle v)
+        {
+            if (v.m_path == 0)
+            {
+                return true;
+            }
+
+            PathUnit.Position pos;
+            if (!PathManager.instance.m_pathUnits.m_buffer[v.m_path].GetPosition(v.m_pathPositionIndex >> 1, out pos) || pos.m_segment == 0)
+            {
+                return false;
+            }
+
+            return (NetManager.instance.m_segments.m_buffer[pos.m_segment].m_flags & NetSegment.Flags.Untouchable) != 0;
         }
 
         // 地図の外へのつなぎ口の区間か。端の点に Outside の印があるか、中点が地図の端(±8640)から100m以内

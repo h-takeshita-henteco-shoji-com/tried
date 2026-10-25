@@ -64,11 +64,15 @@ namespace AIMayor
 
             float tolerance = F(req, "tolerance", 20f);
             bool pay = req.QueryString["pay"] != "false";
-            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse), 30000);
+            bool demolish = req.QueryString["demolish"] == "true";
+            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse, demolish), 30000);
         }
 
-        private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse)
+        private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse, bool demolish)
         {
+            var bm = BuildingManager.instance;
+            var demolished = new StringBuilder();
+            int demolishedCount = 0;
             var nm = NetManager.instance;
             var segs = nm.m_segments.m_buffer;
             var nodes = nm.m_nodes.m_buffer;
@@ -131,10 +135,74 @@ namespace AIMayor
                 int c, rate;
                 var errors = NetTool.CreateNode(info, start, middle, end, buffer, 1000, true, false, true, pay, false, reverse, 0,
                     out node, out newSeg, out c, out rate);
+                if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
+                {
+                    // ぶつかった建物を探す(#107)。太くした道路の幅で、区間の線に敷地が重なる建物
+                    var pts = new List<Vector3> { start.m_position, middle.m_position, end.m_position };
+                    var ids = NetApi.OverlapIds(info, pts, new bool[3], new bool[3]);
+                    var bsb = bm.m_buildings.m_buffer;
+                    var names = new StringBuilder();
+                    bool onlyZoned = true;
+                    foreach (var id in ids)
+                    {
+                        var bi = bsb[id].Info;
+                        bool zoned = bi != null && bi.m_buildingAI is PrivateBuildingAI;
+                        onlyZoned &= zoned;
+                        names.Append(names.Length == 0 ? "" : " ").Append(id).Append('(').Append(bi != null ? bi.name : "?").Append(')');
+                    }
+
+                    // demolish=true なら、区画の建物だけを壊してやり直す。サービスの建物は壊さない(病院などを黙って壊さないため)
+                    if (demolish && ids.Count > 0 && onlyZoned)
+                    {
+                        foreach (var id in ids)
+                        {
+                            demolished.Append(demolishedCount == 0 ? "" : ",").Append("{\"id\":").Append(id)
+                              .Append(",\"prefab\":").Append(Json.Str(bsb[id].Info.name)).Append('}');
+                            demolishedCount++;
+                            bm.ReleaseBuilding(id);
+                        }
+
+                        errors = NetTool.CreateNode(info, start, middle, end, buffer, 1000, true, false, true, pay, false, reverse, 0,
+                            out node, out newSeg, out c, out rate);
+                    }
+                    else if (ids.Count > 0)
+                    {
+                        Skip(skipped, seg, errors + " with buildings " + names + (demolish ? " (not demolished: a service building is in the way)" : " (pass demolish=true to demolish zoned buildings)"));
+                        continue;
+                    }
+                }
+
                 if (errors != ToolBase.ToolErrors.None)
                 {
                     Skip(skipped, seg, errors.ToString());
                     continue;
+                }
+
+                // 太くした道路の下になる区画の建物は、ゲームが黙って壊す(#107 で確かめた。Large Road にすると6棟が消えた)。
+                // 先に探し、demolish=false なら差し替えずに飛ばす。demolish=true なら差し替えて、壊れた建物を返す
+                {
+                    var pts2 = new List<Vector3> { start.m_position, middle.m_position, end.m_position };
+                    var willGo = NetApi.OverlapIds(info, pts2, new bool[3], new bool[3]);
+                    if (willGo.Count > 0 && !demolish)
+                    {
+                        var list = new StringBuilder();
+                        foreach (var id in willGo)
+                        {
+                            var bi = bm.m_buildings.m_buffer[id].Info;
+                            list.Append(list.Length == 0 ? "" : " ").Append(id).Append('(').Append(bi != null ? bi.name : "?").Append(')');
+                        }
+
+                        Skip(skipped, seg, "would demolish buildings " + list + " (pass demolish=true to widen anyway)");
+                        continue;
+                    }
+
+                    foreach (var id in willGo)
+                    {
+                        var bi = bm.m_buildings.m_buffer[id].Info;
+                        demolished.Append(demolishedCount == 0 ? "" : ",").Append("{\"id\":").Append(id)
+                          .Append(",\"prefab\":").Append(Json.Str(bi != null ? bi.name : null)).Append('}');
+                        demolishedCount++;
+                    }
                 }
 
                 // 本番の呼び出しは費用を0で返す(払うのは中で行う)。試しの呼び出しで出た額を使う(#82。戻り値の cost が0だった)
@@ -152,7 +220,7 @@ namespace AIMayor
             }
 
             return "{\"ok\":true,\"matched\":" + picked.Count + ",\"" + (reverse ? "reversed" : "upgraded") + "\":" + done
-                + ",\"skipped\":[" + skipped + "],\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false")
+                + ",\"skipped\":[" + skipped + "],\"demolishedBuildings\":[" + demolished + "],\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false")
                 + ",\"zonesKept\":true}";
         }
 

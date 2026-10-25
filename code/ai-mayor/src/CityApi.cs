@@ -87,6 +87,7 @@ namespace AIMayor
             routes["/zone/polygon"] = ZonePolygon;
             routes["/zone/rect"] = req => HttpBridge.OnSimulation(() => ZoneRect(req));
             routes["/zone/cells"] = req => HttpBridge.OnMain(() => ZoneCells(req));
+            routes["/zone/summary"] = req => HttpBridge.OnMain(() => ZoneSummary(req));
             routes["/building/prefabs"] = req => HttpBridge.OnMain(() => BuildingPrefabs(req));
             routes["/building/place"] = req => HttpBridge.OnSimulation(() => PlaceBuilding(req));
             routes["/buildings"] = req => HttpBridge.OnMain(() => BuildingsNear(req));
@@ -569,6 +570,170 @@ namespace AIMayor
 
             return "{\"ok\":true,\"type\":" + Json.Str(type) + ",\"changedCells\":" + changed
                 + ",\"skippedOccupied\":" + skippedOccupied + "}";
+        }
+
+        // /zone/summary?grid=1000  街全体の空いた区画マスを、種類ごと・場所ごとに数える(#107)。
+        // 12回目に、住宅のマス切れに気づくのが遅れた。zones_at を円ごとに呼ぶしかなかったため。
+        // 塊(ZoneBlock)は道に沿って最大8列、奥行き4マス(xx が奥行き、0 が道の側)。
+        // 列ごとに、道の側から続く同じ種類の空きの奥行きを見て、細切れを分ける。
+        //   shallow: 奥行き1マスしか続かない空き(1マスの奥行きの建物しか建たない)
+        //   narrow: 道の側の空きが、隣の列とつながらない1列だけの空き(幅1マスの建物しか建たない)
+        private static string ZoneSummary(HttpListenerRequest req)
+        {
+            float grid = Mathf.Max(250f, F(req, "grid", 1000f));
+            var total = new Dictionary<string, int[]>(); // [空き, shallow, narrow, 全部, behind]
+            var tiles = new Dictionary<long, Dictionary<string, int>>();
+            var blocks = ZoneManager.instance.m_blocks.m_buffer;
+            for (int i = 1; i < blocks.Length; i++)
+            {
+                if (blocks[i].m_flags == 0)
+                {
+                    continue;
+                }
+
+                int rows = blocks[i].RowCount;
+                // 列ごとに、道の側から続く空きの奥行きと、その種類
+                var depth = new int[rows];
+                var front = new ItemClass.Zone[rows];
+                for (int zz = 0; zz < rows; zz++)
+                {
+                    front[zz] = ItemClass.Zone.Unzoned;
+                    for (int xx = 0; xx < 4; xx++)
+                    {
+                        if (!EmptyZoned(ref blocks[i], xx, zz))
+                        {
+                            break;
+                        }
+
+                        var zt = blocks[i].GetZone(xx, zz);
+                        if (xx == 0)
+                        {
+                            front[zz] = zt;
+                        }
+                        else if (zt != front[zz])
+                        {
+                            break;
+                        }
+
+                        depth[zz] = xx + 1;
+                    }
+                }
+
+                for (int zz = 0; zz < rows; zz++)
+                {
+                    bool narrow = depth[zz] > 0
+                        && (zz == 0 || front[zz - 1] != front[zz] || depth[zz - 1] == 0)
+                        && (zz == rows - 1 || front[zz + 1] != front[zz] || depth[zz + 1] == 0);
+                    for (int xx = 0; xx < 4; xx++)
+                    {
+                        if ((blocks[i].m_valid & (1UL << (zz << 3 | xx))) == 0)
+                        {
+                            continue;
+                        }
+
+                        var zt = blocks[i].GetZone(xx, zz);
+                        if (zt == ItemClass.Zone.Unzoned || zt == ItemClass.Zone.Distant)
+                        {
+                            continue;
+                        }
+
+                        string k = zt.ToString();
+                        int[] t;
+                        if (!total.TryGetValue(k, out t))
+                        {
+                            t = new int[5];
+                            total[k] = t;
+                        }
+
+                        t[3]++;
+                        // 区画のある区切りは、空きが0でも返す。月どうしで同じ区切りを比べられるように(#107 の13回目)
+                        var cp = CellPosition(ref blocks[i], xx, zz);
+                        long tkey = ((long)Mathf.FloorToInt(cp.x / grid) << 32) ^ (uint)Mathf.FloorToInt(cp.z / grid);
+                        if (!tiles.ContainsKey(tkey))
+                        {
+                            tiles[tkey] = new Dictionary<string, int>();
+                        }
+
+                        if (!EmptyZoned(ref blocks[i], xx, zz))
+                        {
+                            continue;
+                        }
+
+                        t[0]++;
+                        bool inFront = xx < depth[zz];
+                        if (inFront && depth[zz] == 1)
+                        {
+                            t[1]++;
+                        }
+
+                        if (inFront && narrow)
+                        {
+                            t[2]++;
+                        }
+
+                        // 道の側から続いていない空き(建物の裏の列など)。道に面していないので、建物は建たない(#107 の16回目)
+                        if (!inFront)
+                        {
+                            t[4]++;
+                        }
+
+                        var p = CellPosition(ref blocks[i], xx, zz);
+                        long key = ((long)Mathf.FloorToInt(p.x / grid) << 32) ^ (uint)Mathf.FloorToInt(p.z / grid);
+                        Dictionary<string, int> tile;
+                        if (!tiles.TryGetValue(key, out tile))
+                        {
+                            tile = new Dictionary<string, int>();
+                            tiles[key] = tile;
+                        }
+
+                        int n;
+                        tile.TryGetValue(k, out n);
+                        tile[k] = n + 1;
+                    }
+                }
+            }
+
+            var sb = new StringBuilder("{\"ok\":true,\"grid\":").Append((int)grid).Append(",\"byType\":{");
+            bool first = true;
+            foreach (var kv in total)
+            {
+                sb.Append(first ? "" : ",").Append(Json.Str(kv.Key)).Append(":{\"total\":").Append(kv.Value[3])
+                  .Append(",\"empty\":").Append(kv.Value[0]).Append(",\"emptyShallow\":").Append(kv.Value[1])
+                  .Append(",\"emptyNarrow\":").Append(kv.Value[2]).Append(",\"emptyBehind\":").Append(kv.Value[4])
+                  .Append(",\"emptyFacingRoad\":").Append(kv.Value[0] - kv.Value[4]).Append('}');
+                first = false;
+            }
+
+            sb.Append("},\"tiles\":[");
+            first = true;
+            foreach (var kv in tiles)
+            {
+                int gx = (int)(kv.Key >> 32), gz = (int)(kv.Key & 0xFFFFFFFF);
+                sb.Append(first ? "" : ",").Append("{\"x\":").Append(Mathf.RoundToInt((gx + 0.5f) * grid))
+                  .Append(",\"z\":").Append(Mathf.RoundToInt((gz + 0.5f) * grid)).Append(",\"empty\":{");
+                bool f2 = true;
+                foreach (var e in kv.Value)
+                {
+                    sb.Append(f2 ? "" : ",").Append(Json.Str(e.Key)).Append(':').Append(e.Value);
+                    f2 = false;
+                }
+
+                sb.Append("}}");
+                first = false;
+            }
+
+            return sb.Append("]}").ToString();
+        }
+
+        private static bool EmptyZoned(ref ZoneBlock b, int xx, int zz)
+        {
+            if ((b.m_valid & (1UL << (zz << 3 | xx))) == 0 || b.IsOccupied1(xx, zz) || b.IsOccupied2(xx, zz))
+            {
+                return false;
+            }
+
+            var zt = b.GetZone(xx, zz);
+            return zt != ItemClass.Zone.Unzoned && zt != ItemClass.Zone.Distant;
         }
 
         // /zone/cells?x=..&z=..&radius=100  円の中の区画マスを、種類ごとに数える

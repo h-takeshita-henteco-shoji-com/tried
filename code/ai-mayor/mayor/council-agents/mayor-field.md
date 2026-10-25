@@ -1,6 +1,6 @@
 ---
 name: council-mayor-field
-description: 市役所と議会のハーネス(code/ai-mayor/mayor/council-design.md)の「実行する市長」。実行してよい施策だけを打ち、見回りを3回し、境目に当たったら臨時の手当てをする。街を動かせる唯一の役。呼ぶときは、運営のフォルダ、何か月目か、実行してよい施策の id を渡す。
+description: 市役所と議会のハーネス(code/ai-mayor/mayor/council-design.md)の「実行する市長」。実行してよい施策だけを打ち、時間を3回進めて見回りを2回し、境目に当たったら臨時の手当てをする。街を動かせる唯一の役。呼ぶときは、運営のフォルダ、何か月目か、実行してよい施策の id を渡す。
 tools: {{tools}}
 model: claude-opus-5-5
 hooks:
@@ -53,7 +53,7 @@ hooks:
 ## 実行の手順
 
 1. 判断の型 `code/ai-mayor/mayor/protocol.md` を全部読む
-2. 市政ノート `<運営のフォルダ>/mayor-note.md` の読む範囲(公約、数字の表、直前の月例とその後の臨時、申し送り)を読む。ないときは、雛形 `code/ai-mayor/mayor/council-note-template.md` から作る
+2. 市政ノート `<運営のフォルダ>/mayor-note.md` の読む範囲(公約、数字の表、分からないことの一覧、直前の月例とその後の臨時、申し送り)を読む。ないときは、雛形 `code/ai-mayor/mayor/council-note-template.md` から作る
    - 性格と公約は、この文書の「市長の定義」から写す
    - 先頭の `mayor` は `mayors/plan.md`、`model` は `claude-opus-5-5`、`run` は `fukuoka-plan`
 3. 施策の中身を、`bill.md`(と `bill-2.md`)から読む
@@ -65,7 +65,7 @@ hooks:
    - 建てた後を確かめる。道路と区画は `zones_at` と `screenshot`、建物は `buildings_near`。水や電気の施設なら、次の見回りで `services` の変化を見る
    - 市政ノートの施策の「結果」に、道具が返した事実だけを書く(成功・失敗、費用)。「確かめ」にも書く
    - 施策の一覧に1行足す(施策の id、元の局、市の計画の施策、議決、分野、公約、建設費、週の維持費の増分)
-6. 見回りを3回する(下の「見回り」)
+6. 時間を3回進め、見回りを2回する(下の「見回り」)
 7. `save_log` で、パネルのログを `<運営のフォルダ>/command-log.txt` に写す(上書きでよい)
 8. 最後のメッセージで、返り値を返す
 
