@@ -165,6 +165,7 @@ namespace AIMayor
             bool demolish = req.QueryString["demolish"] == "true";
             // test=true なら、引けるかを確かめて、引かずに返す(#105。局と市長が、建てる前に試す。ゲームの道具の、引く前の赤い表示に当たる)
             bool test = req.QueryString["test"] == "true";
+            var assumed = test ? Assumed.Parse(req) : null;
             // y を渡すと、地面の高さの代わりにその高さで点を置く。船の航路を水面に引くため(#100)
             float? fixedY = null;
             string ys = req.QueryString["y"];
@@ -173,18 +174,35 @@ namespace AIMayor
                 fixedY = float.Parse(ys, System.Globalization.CultureInfo.InvariantCulture);
             }
 
-            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, fixedY, demolish, test));
+            return HttpBridge.OnSimulation(() => BuildOnSimulation(prefab, points, pay, fixedY, demolish, test, assumed));
         }
 
         // fixedY を渡すと、地面の高さの代わりにその高さで点を置く(船の航路や飛行機の経路に使う)。
         // マップエディターの道具から呼ぶ。重なる建物は確かめない
         internal static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY)
         {
-            return BuildOnSimulation(prefab, points, pay, fixedY, true, false);
+            return BuildOnSimulation(prefab, points, pay, fixedY, true, false, null);
         }
 
         // demolish=false なら、建物に重なるときは建てずに断る(#82)
-        private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish, bool test)
+        // 試しで「壊したもの」とする区間。つなぐ先と交差点を探すときに除く(#105)。シミュレーションのスレッドで1件ずつ呼ぶ
+        [ThreadStatic]
+        private static HashSet<int> skipSegments;
+
+        private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish, bool test, Assumed assumed)
+        {
+            skipSegments = assumed != null && assumed.Any ? assumed.Segments : null;
+            try
+            {
+                return BuildCore(prefab, points, pay, fixedY, demolish, test, assumed);
+            }
+            finally
+            {
+                skipSegments = null;
+            }
+        }
+
+        private static string BuildCore(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish, bool test, Assumed assumed)
         {
             var info = PrefabCollection<NetInfo>.FindLoaded(prefab);
             if (info == null)
@@ -371,7 +389,7 @@ namespace AIMayor
                 skipOverlap[i] = useElevated[i] || (i > 0 && under[i - 1] && under[i]);
             }
 
-            string overlaps = Overlaps(info, points, onBridge, skipOverlap);
+            string overlaps = Overlaps(info, points, onBridge, skipOverlap, assumed);
             if (overlaps != "[]" && !demolish)
             {
                 return "{\"ok\":false,\"error\":\"the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway\""
@@ -407,12 +425,24 @@ namespace AIMayor
                     ushort tn, ts;
                     int tc, tr;
                     var errors = NetTool.CreateNode(info, a, mid, b, buffer, 1000, true, false, true, false, false, false, 0, out tn, out ts, out tc, out tr);
+                    string coll = null;
+                    if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
+                    {
+                        bool blocking;
+                        coll = UpgradeApi.Colliding(assumed, out blocking);
+                        // 試しで、断る相手がすべて「壊したもの」なら、ぶつからないとみなす(#105)
+                        if (assumed != null && assumed.Any && !blocking)
+                        {
+                            errors &= ~ToolBase.ToolErrors.ObjectCollision;
+                        }
+                    }
+
                     if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
                     {
                         return "{\"ok\":false,\"error\":\"the game refuses this line: it collides with something that cannot be removed (ObjectCollision)\""
                             + ",\"atSegment\":{\"from\":" + i + ",\"fromX\":" + Mathf.RoundToInt(a.m_position.x) + ",\"fromZ\":" + Mathf.RoundToInt(a.m_position.z)
                             + ",\"toX\":" + Mathf.RoundToInt(b.m_position.x) + ",\"toZ\":" + Mathf.RoundToInt(b.m_position.z) + "}"
-                            + ",\"reasons\":" + Json.Str(errors.ToString()) + ",\"colliding\":" + UpgradeApi.Colliding() + "}";
+                            + ",\"reasons\":" + Json.Str(errors.ToString()) + ",\"colliding\":" + coll + "}";
                     }
 
                     if (errors != ToolBase.ToolErrors.None)
@@ -597,9 +627,14 @@ namespace AIMayor
         // 衝突する線(道路、線路、歩道)の地面の区間だけを調べる。橋と高架は建物の上を通れるので調べない。
         // 区間を4mおきの点で調べ、建物の長方形を線の半幅だけ広げた中に入るかで判定する。
         // 区画の建物は道路の端(中心から半幅)に接して建つので、広げる幅は2m控え、沿って引いた道路を重なりと数えない
-        private static string Overlaps(NetInfo info, List<Vector3> points, bool[] onBridge, bool[] useElevated)
+        private static string Overlaps(NetInfo info, List<Vector3> points, bool[] onBridge, bool[] useElevated, Assumed assumed = null)
         {
             var hit = OverlapIds(info, points, onBridge, useElevated);
+            if (assumed != null)
+            {
+                hit.RemoveAll(id => assumed.RemovedBuilding(id));
+            }
+
             var bs = BuildingManager.instance.m_buildings.m_buffer;
             var sb = new StringBuilder("[");
             for (int i = 0; i < hit.Count; i++)
@@ -1022,7 +1057,8 @@ namespace AIMayor
             {
                 if ((segs[i].m_flags & NetSegment.Flags.Created) == 0 || segs[i].Info == null
                     || !SameKind(segs[i].Info, info)
-                    || (underground != null && segs[i].Info.m_netAI.IsUnderground() != underground.Value))
+                    || (underground != null && segs[i].Info.m_netAI.IsUnderground() != underground.Value)
+                    || (skipSegments != null && skipSegments.Contains(i)))
                 {
                     continue;
                 }
@@ -1193,7 +1229,8 @@ namespace AIMayor
                 for (int i = 1; i < segs.Length; i++)
                 {
                     if ((segs[i].m_flags & NetSegment.Flags.Created) == 0 || segs[i].Info == null
-                        || segs[i].Info.m_class.m_service != info.m_class.m_service)
+                        || segs[i].Info.m_class.m_service != info.m_class.m_service
+                        || (skipSegments != null && skipSegments.Contains(i)))
                     {
                         continue;
                     }

@@ -1,0 +1,325 @@
+{
+  "month": 3,
+  "seen": {
+    "gameDate": "2050-03-02",
+    "saveName": "fukuoka-plan-m03",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 250000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の空き地にBoulder15個と西の通りに駐車場の飾り1棟を置く試し",
+      "buildCost": 2500,
+      "upkeepPerWeek": 16,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南西の道路網(-1698,-1308)付近の2交差点に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755を一度止めて動かし直す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "28755 の敷地の中で path none の車(車24など)が、出口の車線をふさぐ元になっているか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=60) と cargo() を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された店・工場・ホテル125棟を片付ける(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "満杯の埋立地45892を空にして受け入れ先を増やす(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "死体の印66棟が、霊柩車の渋滞と偏りのどちらで続いているか",
+        "plan": "buildings_near(x=2224,z=60,radius=400,service=HealthCare)、vehicles_stuck(kind=hearse,building=36841,limit=10)、complaints() の Death を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,801を、高校の定員24,360は10代22,430を上回り、2-3の目標を満たしている。小学校・高校・大学の増設、EducationBoost解除、教育予算変更を検討したが、いずれも定員の目標に効かないか、費用だけが増えるため出さない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "消防の予算を150%から140%へ戻す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": -450,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,500、週の維持費+16で、上限250,000と枠5,000に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号は建設費0で、維持費の増え分も枠5,000に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "set_building_activeは費用0で、維持費の増え分も0。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "取り壊しは建設費0、維持費0で、型の上限と枠に当たらない。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "empty_buildingは費用0、維持費の増え分0で、上限に収まる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "予算-10は上限±20に収まり、維持費は約450減る。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 250000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m03-1",
+        "fromBureau": "economy",
+        "title": "放棄された区画の建物125棟を片付ける",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m03-2",
+        "fromBureau": "health",
+        "title": "満杯の埋立地45892を空にする試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m03-3",
+        "fromBureau": "port",
+        "title": "貨物駅28755を止めて動かし直す試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "roads",
+        "reason": "南西の2交差点の信号は実行の条件がそろうが、施策の枠3件を重点(8-1、6-4・7-1、4-4)の案に使ったため。blocked 109 が残るなら来月同じ確認で出し直してよい。"
+      },
+      {
+        "bureau": "urban",
+        "reason": "16点の試しは通るが重点の外で枠が埋まり、Boulder が Beautification に数えられるかが置くまで分からない。出し直すなら list_building_types の service の値を根拠に添えること。"
+      },
+      {
+        "bureau": "fire",
+        "reason": "m03-1 の片付けに火事の印の建物(2002、12882)が入り、同じ月に火事の印を測る試しを重ねると予算の効き目を分けられないため。片付け後も印が残るかを見て来月出し直してよい。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s03-1",
+        "fromBureau": "port",
+        "question": "28755 の敷地の中で道順(path)が none の車(車24など)が、出口の車線をふさぐ元になっているか"
+      },
+      {
+        "id": "s03-2",
+        "fromBureau": "health",
+        "question": "死体の印66棟が、霊柩車の渋滞と偏りのどちらで続いているか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m03-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは125棟・働き口0・家0・停電0・駅や水の施設0と数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べもあり、計画の目標を壊すものを含まない。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m03-2",
+    "m03-3",
+    "m03-1"
+  ],
+  "surveys": [
+    {
+      "id": "s03-1",
+      "fromBureau": "port",
+      "question": "28755 の敷地の中で道順(path)が none の車(車24など)が、出口の車線をふさぐ元になっているか"
+    },
+    {
+      "id": "s03-2",
+      "fromBureau": "health",
+      "question": "死体の印66棟が、霊柩車の渋滞と偏りのどちらで続いているか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m03-1",
+      "m03-2",
+      "m03-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-03-12",
+        "population": 178362,
+        "money": 2145754,
+        "weeklyBalance": 7971,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-03-22",
+        "population": 178387,
+        "money": 2156784,
+        "weeklyBalance": 7671,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s03-1",
+      "s03-2"
+    ],
+    "report": "3か月目(2050-03-02〜04-01)。3件とも議案の引数のまま打てた。予備候補は使っていない。\n- m03-1: 放棄された125棟を片付けた。失う働き口・家・停電は0。品物がない店は 227 → 119(直後)と減ったが、月末は149まで戻った。原料がない工場は 33 → 23 → 30。CommercialHigh の放棄は 0 になった。\n- m03-2: 埋立地45892 を空にし始めた。中身は月末でも94%で、20日で約6%しか減っていない。空になっていないため、受け入れに戻す操作(active=False)はまだ。次にやることに回した。満杯の埋立地は 7 → 9(157、25692、48698 が加わった)。ごみの印は 28 → 18。\n- m03-3: 貨物駅28755 を3/2に止め、見回り1(3/12)で測ってから動かし直した。止めた後に止まりは増えず、品物がない店も中止の線192より下だった。敷地の中で止まったトラックは 575 → 431 → 361 → 295(予想は250以下)。90日同じ位置 (3441,-1555) に残る WaitingSpace の車がある。\n- 見回り2回はどちらも境目に当たらず、臨時はなし。人口は 178,379 → 178,394(月末)。週の収支は月末 +8,951 の黒字。来ない市民は 0/0/0。ダイアログもなし。\n- 調査 s03-1・s03-2 は、見回り1・2と月末に呼んで記録した。死体の印は 58 → 56 → 52。\n- hooks に止められた手はなし。\n- 型からの外れ: 議案が見回りでの確かめと操作を決めていたため、見回り中に cargo・vehicles_stuck・buildings_near・set_building_active(28755 の再開)を呼んだ。\n- 記録: 市政ノート /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md、調査 council/m03-survey-port.md と m03-survey-health.md、command-log.txt、assets/m03-cleared.jpg"
+  }
+}

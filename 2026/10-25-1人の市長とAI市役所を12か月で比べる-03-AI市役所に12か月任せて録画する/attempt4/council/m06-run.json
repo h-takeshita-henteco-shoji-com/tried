@@ -1,0 +1,290 @@
+{
+  "month": 6,
+  "seen": {
+    "gameDate": "2050-05-31",
+    "saveName": "fukuoka-plan-m06",
+    "priorities": [
+      "4-4 資源循環",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 800000,
+    "upkeepCap": 3000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "西の住宅地だけに Recycling をかける試し(地区 WestRecycle)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東部(3162,-300)と(3145,-390)の信号なし交差点に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755を止めたまま、隣の貨物駅13893に荷を回す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の通り沿いの未指定の帯(2855〜3485, 962〜992)を事務所の区画にする試し(2回目)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "西の満杯の埋立地23032と29270を空にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校定員14,268は子ども10,739以上、高校定員24,360は10代22,020以上で目標を満たす。学校の新設や増設は効かない。EducationBoost解除は効果を測れないため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "消防の予算を150%から140%へ戻す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": -450,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費0、Recycling の税収減は最大約2,500で維持費の枠3,000に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号は建設費0で、維持費の増えは小さく枠に収まる見込み。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "set_building_active は費用0で、維持費は減る。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "区画の指定は建設費0、維持費0で枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "empty_building は建設費0、維持費の増え0。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "予算の変更幅は-10で上限内、週の維持費は約450減る。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 800000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m06-1",
+        "fromBureau": "urban",
+        "title": "西の住宅地だけを地区にして Recycling をかける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m06-2",
+        "fromBureau": "economy",
+        "title": "東の通りの未指定の帯を事務所の区画にする(試し・2回目)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m06-3",
+        "fromBureau": "port",
+        "title": "貨物駅28755 を止めたままにし、隣の13893 に荷を回す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "health",
+        "reason": "m06-1 と同じ西の地区で同じごみの印を測り試しの場所が重なるうえ、空にする手は30日で3〜6%しか進まず月内の効きの見込みが低い。円 (-2400,-1600) 半径750m の外の埋立地にするか、空にし終える日数の見積もりを添えて出し直してほしい。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "実行の条件はそろい基準 blocked 47 の不足も直ったが、枠3件を重点2つといちばん古い分からないことの試しに当てた。6-3 は流れ56%で目標に近い。同じ確認のまま来月出し直してよい。"
+      },
+      {
+        "bureau": "fire",
+        "reason": "予算を下げる手は火事の印を目標4へ近づけず、議決が要り、週約450の減りも測り直していない。印を減らす手(焼け跡の片付けなど)と組んで出し直してほしい。"
+      }
+    ],
+    "surveys": []
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m06-1",
+    "m06-2",
+    "m06-3"
+  ],
+  "surveys": [],
+  "done": {
+    "executed": [
+      "m06-1",
+      "m06-2",
+      "m06-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-06-10",
+        "population": 177564,
+        "money": 2220214,
+        "weeklyBalance": 5304,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-06-20",
+        "population": 177387,
+        "money": 2226052,
+        "weeklyBalance": 3958,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [],
+    "report": "3件とも議案の引数のまま打ちました。どの施策も費用は0です。中止の条件には当たりませんでした。見回りは2回とも境目に当たらず、臨時もダイアログもありませんでした。hooks に止められた手はありません。\n\n- m06-1: 地区 WestRecycle(125、4,550マス、人口17,439)を作り、Recycling をかけました。塗ったときに EducationBoost と BigBusiness も付いていました。議案にない政策なので外していません。\n  - 西の円のごみの印は 17 → 20 → 26 → 35 と増えました。予想(10以下)と逆の動きです。\n  - Residential の収入は 264,970 → 263,453 です。満杯の埋立地は 10 です。\n- m06-2: 区画を300マス変えました(壊した建物は0)。帯の空きは 48 → 8 に減りました。\n  - 帯の周りの OfficeGeneric は 193 → 217棟、働き口は 2,925 → 3,280 です。\n  - 需要の失業は 6,453 → 6,299 です。新しい事務所に水・下水の印はありません。\n- m06-3: 28755 を止めたままにしました。敷地の中で止まったトラックは 307 → 236 → 139 → 57 と減りました。\n  - ただし 13893 の vehiclesLeaving は0のままで、荷は回っていません。28755 を止めた効きと分けられません。\n  - 品物がない店は 215 → 222、原料がない工場は 32 → 20 です。\n\n月末(2050-06-30)の数字です。人口 177,308、所持金 2,232,305、週の収支 +4,437 で、来ない市民は 0/0/0 でした。\n\n型からの外れが1つあります。議案の確かめの道具を、見回りでも呼びました。議案が見回りでの比較を決めていたためです。読むだけの道具で、施策は打っていません。\n\n記録は次の2つのファイルにあります。\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- 画面のログ: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt"
+  }
+}

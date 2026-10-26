@@ -1235,6 +1235,16 @@ code/ai-mayor/tools/
 
 変えた部品: MOD(`UpgradeApi.cs`、`NetApi.cs`、`CityApi.cs`)、`mcp/server.py`、`tool-reference.md`、`council-month.js`(実行の返り値に `failedReasons`)、`council-agents/bureau.md`、`council-agents/mayor-desk.md`、`council-agents/mayor-field.md`、`tools/make_council_agents.py`(試しの道具)、`tools/make_council_ledger.py`(`executed.reason`)。基準の市長(#104)は、直す前の道具で12か月を終えている。比べるときに、この差を書く。
 
+### 12.3 #105 の4回目で見つけた穴と、直し(2026-10-26)
+
+4回目(6か月)で、試しの道具によって建設の案が通るようになった。一方、壊してから建てる工事は、かえって出せなくなった。人の判断で、直して最初からやり直す。記録は運営のフォルダの `attempt4/` に残す。
+
+- 穴: 試しの道具は、今の街の上で1回の操作しか試せない。道路下水道局は、くびれの4車線化を3つの形で試し、どれも今ある短い区間とぶつかって断られた。壊した後に引き直す形は、2つめの操作を今の街で試せない。12.2 で足した「試しの道具が通した引数だけを書く」決まりのため、確かめられない工事として出せなかった
+- 直し: 試しの道具に、壊す相手を渡す引数(`assume_removed_segments`、`assume_removed_buildings`)を足した。その相手とのぶつかりを除いて判定し、つなぐ先や交差点の探しからも除く。ゲームの判定そのものは変えない。局の決まりに、壊してから建てる案は、壊す相手を渡して試すと書いた。壊す操作は取り壊しの議案になる
+- どこを壊してどう引き直すかは教えない
+
+変えた部品: MOD(`UpgradeApi.cs`、`NetApi.cs`、`CityApi.cs`)、`mcp/server.py`、`tool-reference.md`、`council-agents/bureau.md`。
+
 ## 13. まだ決めていないこと
 
 2026-10-24 に人が決めたこと: 1か月目は1回だけ走らせる(たまたまの差は測らない)。基準の市長の走らせ直しと試運転の記録は、#100 のフォルダの `runs/` に置く。

@@ -1,0 +1,317 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1041143,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "空き街区に行き止まりの道と公園4つ(公園2・遊び場2)",
+      "buildCost": 5780,
+      "upkeepPerWeek": 80,
+      "reversible": true,
+      "planItems": [
+        "4-2",
+        "4-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "交差点(2236,-950)に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "止まった車が多い(-726,-736)と(2100,309)の詰まりの原因は、道の幅の絞りか、交差点か",
+        "plan": "traffic(x=-726,z=-736,radius=200,limit=6)と traffic(x=2100,z=309,radius=200,limit=6)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755で492台が荷を積み、道順がreadyのままWaitingSpaceで止まる。周りの道は詰まっていない(止まった車0)。原因が出口か積み降ろしの空き待ちか確定できない。新設貨物駅、未接続の貨物駅への線路、FreeTransportなどの政策は、効き目と場所が未確認で外した。調査(vehicles_stuck、cargo、traffic)を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地で、トラック492台はなぜ出られずWaitingSpaceのまま動かないのか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30)、cargo()、traffic(x=3449, z=-1555, radius=400)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755で輸入トラック492台がWaitingSpaceで止まる原因が未特定です。周辺道路は詰まっていません(止まった車0)。政策(IndustrySpaceなど)は品物の流れに効く確証がありません。調査を出しました。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で輸入トラック492台がWaitingSpaceのまま動かないのは、出口の道路の詰まりか、駅の容量のためか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、traffic(x=3449, z=-1555, radius=300, limit=10)、cargo(引数なし)を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南西の住宅地の近くに埋立地を1棟置く",
+      "buildCost": 4000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "墓地の容量は半分なのに、死体の印が52棟に出る理由は、霊柩車の不足か道の詰まりか",
+        "plan": "buildings_near(x=2240,z=186,radius=600,service=DeathCare,limit=20)、vehicles_stuck(kind=hearse,limit=30)、complaints を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども11,344以上、高校24,360は10代22,372以上で、2-3の目標を満たしている。学校の新設や予算変更、EducationBoostの解除を検討したが、定員の数字に効かないか、維持費の枠5,000に見合わない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "消防の予算を140%から150%に上げる(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 2280,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費5,780、週の維持費約80で、上限と枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の建設費は0で、維持費も小さい見込みのため枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地の建設費4,000、週の維持費160で、上限と枠に収まる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "予算+10は幅の範囲内で、週の増え分約2,280は枠5,000に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1041143
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "health",
+        "title": "南西の住宅地の近く (-480,-1685) に埋立地を1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "roads",
+        "title": "交差点 (2236,-950) に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-3",
+        "fromBureau": "fire",
+        "title": "消防の予算を140%から150%へ上げる",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "本文に公園の電気が未確認と書かれており、必須条件が残るため採らない。置く場所 (-150,-850) 付近に電気が届くかを map_layer の electricity_service などで確かめ、道路の維持費も list_net_types で確かめて出し直すこと。"
+      },
+      {
+        "bureau": "economy",
+        "reason": "調査は port の s01-1 と同じ建物・道具・時期で重なるため採らない。segment 17690 の混み具合は s01-1 の traffic の範囲に入るので、m01-survey-port.md を読むこと。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755 の敷地で、トラック492台はなぜ出られず WaitingSpace のまま動かないのか"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "health",
+        "question": "墓地の容量は半分なのに、死体の印が52棟に出る理由は、霊柩車の不足か道の詰まりか"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "roads",
+        "question": "止まった車が多い (-726,-736) と (2100,309) の詰まりの原因は、道の幅の絞りか、交差点か"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m01-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "週の支出が約2,280増え収支が約+7,525に狭まることを議案が書いており、黒字の線を保つ。予算は140%へ戻せ、1か月目なので外れた手の続きにも当たらない。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2",
+    "m01-3"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755 の敷地で、トラック492台はなぜ出られず WaitingSpace のまま動かないのか"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "health",
+      "question": "墓地の容量は半分なのに、死体の印が52棟に出る理由は、霊柩車の不足か道の詰まりか"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "roads",
+      "question": "止まった車が多い (-726,-736) と (2100,309) の詰まりの原因は、道の幅の絞りか、交差点か"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-1",
+      "m01-2",
+      "m01-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-01-11",
+        "population": 178806,
+        "money": 2087766,
+        "weeklyBalance": 6641,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-21",
+        "population": 178537,
+        "money": 2097950,
+        "weeklyBalance": 7556,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "1か月目(2050-01-01から01-31)の結果。3件とも議案どおりに打てた。\n- m01-1: 埋立地 id 175 を (-480,-1685) に置いた。向きは東、費用4,000。月末は3% full、収集車17/19。(-458,-1468) 周囲400mのごみの印は8から0、街全体は15から10になった。\n- m01-2: (2236,-950) に信号を付けた。(2309,-925) 周囲200mの止まった車は84、82、63、45と減った。congestion は58から57。\n- m01-3: 消防の予算を140%から150%にした。火事の印は4のまま、犯罪は3から1になった。\n\n見回り2回は、どちらも境目に当たらなかった。臨時はなく、ダイアログも出なかった。来ない市民は0/0/0。人口は178,872から178,537に少し減った(01-21の値)。週の収支は+6,641から+7,556で黒字を保った。\n\n調査3件は、見回り1・2と月末に呼び、council/m01-survey-{port,health,roads}.md に書いた。\n- s01-1: 貨物駅28755 の WaitingSpace の車は、30日同じ位置に止まり続けた。7days+ は476から561に増えた。\n- s01-2: (2240,186) 周囲600mに DeathCare の建物は0。霊柩車の約6割に Congestion の印があった。\n\nhooks に止められた手はない。型から外れた点が1つある。議案の確かめで、見回りのときも traffic を呼んだ(読むだけ)。記録は /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md と command-log.txt に残した。"
+  }
+}
