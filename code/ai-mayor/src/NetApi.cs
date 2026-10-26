@@ -398,8 +398,8 @@ namespace AIMayor
 
             // ゲームの線を引く道具と同じ判定で、区間ごとに引けるかを試す(#105)。前は判定を通さずに引いたので、
             // 取り除けない相手(別の道路の交差点の近く、サービスの建物、建物の一部の線など)に重なっても引けた。
-            // 人が引くと断られる「ぶつかる」(ObjectCollision)だけで断る。ほかの理由(短すぎ、坂が急すぎなど)は、
-            // この窓口の引き方(直線の区間、橋の高さの決め方)がゲームの道具と少し違うため、gameCheck に返すだけにする
+            // 人が引くと断られる「ぶつかる」(ObjectCollision)と「短すぎる」(TooShort)で断る(#105。5回目、短すぎる区間を引けた)。
+            // ほかの理由(坂が急すぎなど)は、この窓口の引き方(直線の区間、橋の高さの決め方)がゲームの道具と少し違うため、gameCheck に返すだけにする
             var gameCheck = new StringBuilder();
             if ((pay || test) && fixedY == null)
             {
@@ -437,12 +437,15 @@ namespace AIMayor
                         }
                     }
 
-                    if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
+                    if ((errors & (ToolBase.ToolErrors.ObjectCollision | ToolBase.ToolErrors.TooShort)) != 0)
                     {
-                        return "{\"ok\":false,\"error\":\"the game refuses this line: it collides with something that cannot be removed (ObjectCollision)\""
+                        string why = (errors & ToolBase.ToolErrors.ObjectCollision) != 0
+                            ? "it collides with something that cannot be removed (ObjectCollision)"
+                            : "a segment is too short (TooShort)";
+                        return "{\"ok\":false,\"error\":\"the game refuses this line: " + why + "\""
                             + ",\"atSegment\":{\"from\":" + i + ",\"fromX\":" + Mathf.RoundToInt(a.m_position.x) + ",\"fromZ\":" + Mathf.RoundToInt(a.m_position.z)
                             + ",\"toX\":" + Mathf.RoundToInt(b.m_position.x) + ",\"toZ\":" + Mathf.RoundToInt(b.m_position.z) + "}"
-                            + ",\"reasons\":" + Json.Str(errors.ToString()) + ",\"colliding\":" + coll + "}";
+                            + ",\"reasons\":" + Json.Str(errors.ToString()) + ",\"colliding\":" + (coll ?? "null") + "}";
                     }
 
                     if (errors != ToolBase.ToolErrors.None)
