@@ -1,0 +1,7 @@
+{
+  "month": 10,
+  "rulings": [
+    {"measureId": "m10-3", "verdict": "可決", "kind": "予算", "point": null, "reason": "響き(幸福度、6-3のcars・blocked、運賃収入)は議案に書かれ、戻せる。同じ形の前回の下げm08-3は当たりで、外れた手の継続でもない。"}
+  ],
+  "approvedKinds": ["予算"]
+}

@@ -1,0 +1,293 @@
+{
+  "month": 7,
+  "seen": {
+    "gameDate": "2050-06-30",
+    "saveName": "fukuoka-plan-m07",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-1 都市と自然が調和したコンパクトなまち",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 135000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(JapaneseGarden)を東の2か所に置く",
+      "buildCost": 5000,
+      "upkeepPerWeek": 80,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の4差路 (4080,-555) に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755の出口を Cargo Connection で延ばす案は、試しの道具が通るものの道路の点につながるかを返さず、解禁済みの線の一覧にもないため、必須の接続条件が未確認。バス路線の台数減は効きが小さく、政策(FreeTransport、HeavyTrafficBan)は止まった車に効かないか悪化させる。止まった483台の位置を測る調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で止まった483台は、駅内の接続道の行き止まりの端に並んでいるのか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30)、net_near(x=3441, z=-1555, radius=110)、cargo() を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755を一時止めて動かし直す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南西の住宅西端に道路と埋立地を足す(試し)",
+      "buildCost": 4400,
+      "upkeepPerWeek": 163,
+      "reversible": false,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "東の南の列 (3548〜3948,-526) の地面の汚染は、満杯の埋立地25590 の近くから出ているか。",
+        "plan": "map_layer(pollution, x=3748, z=-526, radius=400, n=9)、buildings_near(x=3900, z=-575, radius=300, brief=true)、complaints() を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,728を、高校24,360は10代21,817を上回り、目標を満たす。足りない学校がなく、大卒の失業は働き口の学歴の問題で定員の手は効かない。EducationBoost(有効、週7,940)の解除も根拠が弱く、見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事1(稼働中の事務所43144)と犯罪2の合計3で、目標4以下を満たす。有効な政策 SmokeDetectors は週58,045で維持費の枠5,000を超える。警察は446/960で余り、取り壊す対象もない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費5,000、維持費80で枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の設置で費用0、維持費の増え0の見込み。枠に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "駅を止める試しで費用0、維持費の増え0。枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "道路400と埋立地4,000の計4,400、維持費約163で枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 135000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m07-1",
+        "fromBureau": "economy",
+        "title": "貨物駅28755を一時止め、隣の13893に荷が回るかを見る(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1",
+          "8-1"
+        ]
+      },
+      {
+        "id": "m07-2",
+        "fromBureau": "health",
+        "title": "南西の住宅地の西端に道路1本と埋立地1棟を足す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m07-3",
+        "fromBureau": "urban",
+        "title": "東の高校の東に公園(JapaneseGarden)を2棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "roads",
+        "reason": "実行条件はそろっていたが、3件の上限の中で重点の2つの試しと公園を先にした。また28755を止める試しで東のトラックの流れが変わり、(4079,-548)の blocked の変化を信号の効き目と分けにくい。来月同じ確認のまま出し直せる(信号の費用0は道具で確かめて書くとよい)。"
+      },
+      {
+        "bureau": "port",
+        "reason": "調査は、m07-1 で同じ28755を止めるため、測る WaitingSpace と車の位置が試しで変わり、問いに答えられない。止まった車の位置は (3441,-1555) と既に分かっている。m07-1 の結果を見た後に出し直せる。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s07-1",
+        "fromBureau": "health",
+        "question": "東の南の列 (3548〜3948,-526) の地面の汚染は、満杯の埋立地25590 (3900,-575) の近くから出ているか。"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m07-1",
+    "m07-2",
+    "m07-3"
+  ],
+  "surveys": [
+    {
+      "id": "s07-1",
+      "fromBureau": "health",
+      "question": "東の南の列 (3548〜3948,-526) の地面の汚染は、満杯の埋立地25590 (3900,-575) の近くから出ているか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m07-1",
+      "m07-3"
+    ],
+    "failed": [
+      "m07-2"
+    ],
+    "failedReasons": [
+      {
+        "id": "m07-2",
+        "reason": "部分実行。道路 build_line(Basic Road, [[-2540,-2165],[-2580,-2165],[-2620,-2165]]) は成功(費用400、始点は node 14100 につながり、新しい区間 23540・34753)。その後の test_place_building(Landfill Site, x=-2652, z=-2165, facing=east) が ok=false、reasons ObjectCollision、colliding は今引いた道路の区間 34753(Basic Road、中点 (-2602,-2165)、blocks=true)、建物なし。中止の条件どおり埋立地は置かなかった。予備候補はない。道路を引く前の試しでは ok だったが、引いた道路が敷地にぶつかった"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-07-10",
+        "population": 178092,
+        "money": 2229810,
+        "weeklyBalance": 11349,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-07-20",
+        "population": 178018,
+        "money": 2242589,
+        "weeklyBalance": 8135,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s07-1"
+    ],
+    "report": "m07-1 は成功しました。貨物駅28755を止め(費用0)、中で止まった車は 483→372→276、原料の止まった車は 262→216→176 に減りました。隣の13893 には1台も回っていません。noResources は 38→39、noGoods は 116→117 で戻す線に届かず、28755 は止めたままです。m07-2 は部分実行です。道路2区間(費用400)は引けましたが、埋立地は引いた道路の区間34753とぶつかり(ObjectCollision)、中止の条件どおり置いていません。m07-3 は成功しました。公園2棟(9754・22947、費用5,000)で、公園などは 91→93 です。見回りは2回とも境目に当たらず、臨時はしていません。hooks に止められた手もありません。月末(07-30)は人口177,883、所持金2,252,129、週 +6,369、電気・水・下水が来ない 0/0/0 です。月末の complaints ではごみの印が20→38に増え、中心は南西 (-2421,-1997) です。汚染の印は 34→46 です。調査 s07-1 は council/m07-survey-health.md に書きました。buildings_near は total 151 のうち50件しか返さず、25590 は結果に入りませんでした。型から外れた点は1つです。市政ノートで7か月目の月例の記録が6か月目の「見たもの」の前に入っていたため、7か月目の実行の記録はノートの末尾(人が手を入れたことの前)に書きました。"
+  }
+}

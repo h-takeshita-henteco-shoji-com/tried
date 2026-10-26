@@ -1,0 +1,335 @@
+{
+  "month": 5,
+  "seen": {
+    "gameDate": "2050-05-01",
+    "saveName": "fukuoka-plan-m05",
+    "priorities": [
+      "4-3 脱炭素社会",
+      "8-1 物流・人流のゲートウェイ",
+      "3-4 日常生活の安全・安心"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 50000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(JapaneseGarden)を東の (2628,-460) に1棟置く",
+      "buildCost": 2500,
+      "upkeepPerWeek": 40,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の南北の道 x=3162(z=-372〜-210)の3区間を Small 4 Lane Road にする試し",
+      "buildCost": 550,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "Large Road の (-710,-737) で、交差点がないのに blocked 47 が続くのは何で詰まっているのか",
+        "plan": "traffic(x=-710,z=-737,radius=80)、buildings_near(x=-710,z=-737,radius=120,brief=true)、vehicles_stuck(kind=truck,limit=15)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ないバス15路線の台数の割合を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": -1000,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の出口の隙間(Cargo Connection の端 (3417,-1555) と Large Road x=3400)が、止まったトラック約485台の原因か",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=100)、net_near(x=3410, z=-1557, radius=30)、cargo() を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された店15棟を取り壊す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": true,
+        "question": "品物がない店の多い3か所で、品物が届かないのは貨物駅28755の滞留が原因か、近くの工場が足りないためか。",
+        "plan": "cargo()、buildings_near(x=2215,z=713,radius=300,problem=NoGoods,brief=true)、vehicles_stuck(kind=truck,building=28755,limit=10)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東のごみ焼却場2267を止める試し(汚染の印)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "汚染の印は、ごみ施設(焼却場と満杯の埋立地)の近くに集まっているか。",
+        "plan": "buildings_near(2070,866,r250,problem=Pollution)、buildings_near(3900,-575,r250,problem=Pollution)、complaints を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "buildCost": 0,
+      "bureau": "education",
+      "executionReady": false,
+      "hasProposal": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,580以上、高校24,360は10代22,345以上で目標を満たし、余裕も広がった。検討したEducationBoost解除(週7,940の節約)は定員への影響を道具で確かめられず、学校の新設や予算引き下げも効く相手がないため案なし。",
+      "planItems": [],
+      "needsVote": false,
+      "reversible": true,
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      },
+      "title": "",
+      "upkeepPerWeek": 0,
+      "voteKind": ""
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "燃えたまま残る工場12882を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,500、週の維持費40で、枠50,000と5,000に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費は約550、維持費の増え分はほぼ0で、枠に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0で、各路線の変更は20ポイント。維持費は減る側。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "取り壊しで建設費0、維持費の増え分0。pay=false の建設ではない。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "焼却場を止めるだけで建設費0。維持費は増えず、戻せる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "取り壊し1棟で建設費0、維持費の増え分0。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 50000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m05-1",
+        "fromBureau": "health",
+        "title": "東のごみ焼却場2267を止める(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m05-2",
+        "fromBureau": "fire",
+        "title": "燃えたまま残る工場12882を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m05-3",
+        "fromBureau": "roads",
+        "title": "東の南北の道(3162,-372〜-210)を Small 4 Lane Road に差し替える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "JapaneseGarden は needsRoad=true なのに入口の road が null で、道路に面さず働かないおそれがあり、必須条件が未確認のため。"
+      },
+      {
+        "bureau": "port",
+        "reason": "実行条件はそろっていたが、同じ6-3の m05-3 と効き目を分けられず、減る約70台は街の車の約1%と小さいため。"
+      },
+      {
+        "bureau": "economy",
+        "reason": "失うものは0だが戻せず、放棄の店が noGoods の数に入るかが本文で確かめられていないため、戻せる m05-3 を先にした(調査は s05-1 と重なるためまとめた)。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s05-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の出口(3417,-1555)から Large Road(x=3400)までの5〜17mの隙間が、止まったトラック約485台の原因か"
+      },
+      {
+        "id": "s05-2",
+        "fromBureau": "health",
+        "question": "汚染の印は、ごみ施設(焼却場と満杯の埋立地)の近くに集まっているか"
+      },
+      {
+        "id": "s05-3",
+        "fromBureau": "roads",
+        "question": "Large Road の (-710,-737) で、交差点がないのに blocked 47 が続くのは、何で詰まっているのか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m05-2",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(働き口0、家0、停電0、半径5で1棟だけ)が数字で書かれ、予算・政策・待つ手との比べもある。同じ型の m02-2 は当たりで、外れた手の続きでもない。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m05-1",
+    "m05-3",
+    "m05-2"
+  ],
+  "surveys": [
+    {
+      "id": "s05-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の出口(3417,-1555)から Large Road(x=3400)までの5〜17mの隙間が、止まったトラック約485台の原因か"
+    },
+    {
+      "id": "s05-2",
+      "fromBureau": "health",
+      "question": "汚染の印は、ごみ施設(焼却場と満杯の埋立地)の近くに集まっているか"
+    },
+    {
+      "id": "s05-3",
+      "fromBureau": "roads",
+      "question": "Large Road の (-710,-737) で、交差点がないのに blocked 47 が続くのは、何で詰まっているのか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m05-1",
+      "m05-3",
+      "m05-2"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-05-11",
+        "population": 178373,
+        "money": 2149594,
+        "weeklyBalance": 11478,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-05-21",
+        "population": 178221,
+        "money": 2164714,
+        "weeklyBalance": 10223,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s05-1",
+      "s05-2",
+      "s05-3"
+    ],
+    "report": "3件とも、議案どおりの引数で打てた。費用はどれも0。\n- m05-1: 焼却場2267を止めた(TurnedOff、電気の出力 14MW→0)。基準は、焼却場の250m以内の汚染の印8棟。\n- m05-3: x=3162 の3区間を Small 4 Lane Road にした。matched 3、upgraded 3、壊れた建物なし。実行前の blocked は59、congestion は55。\n- m05-2: 取り壊しの理由をノートに書いてから、工場12882 を1棟取り壊した。働き口0、家0、停電0。隣の建物は残った。\n\n見回りは2回とも境目に当たらなかった。週の収支は +7,673 から +11,478、+10,223 と黒字のまま。人口は 178,559 から 178,373、178,221 と、それぞれ −0.1% だった。電気・水・下水が来ない市民は 0/0/0。臨時はなく、ダイアログも出ていない。\n\n調査3件は、見回り1・見回り2・月末に見て、council/m05-survey-*.md に書いた。\n- s05-1: 28755 の中で止まったトラックは 489→506→514 と増えた。出口の端の node(5129・20745)と Large Road の node 27757 は、3回とも別の番号のまま。\n- s05-2: 月末の汚染の印は42(基準46)、ごみの印は15(基準9)。火事と犯罪の印は月末に返らなかった。\n- s05-3: (-710,-737) の blocked は 9→0→0 と減った。\n\nm05-1 を戻す条件は、ごみの印が30を超えたとき。月末は15で当たらず、2267 は止めたままにした。hooks に止められた手はない。型から外れた点もない。\n\nファイル:\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- 写真: assets/m05-road-x3162.jpg、assets/m05-bulldoze-12882.jpg\n- パネルのログ: command-log.txt"
+  }
+}

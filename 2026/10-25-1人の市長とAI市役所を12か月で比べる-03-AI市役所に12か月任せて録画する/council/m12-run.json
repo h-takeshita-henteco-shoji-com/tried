@@ -1,0 +1,290 @@
+{
+  "month": 12,
+  "seen": {
+    "gameDate": "2050-11-27",
+    "saveName": "fukuoka-plan-m12",
+    "priorities": [
+      "4-4 資源循環",
+      "4-3 脱炭素社会",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 300000,
+    "upkeepCap": 6000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "中央の満杯の埋立地25692を止める試し(汚染の塊と地価)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の3差路 (2110,330) と (2110,240) に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "バスの予算を130%から150%に上げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 2780,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された店・工場など72棟を取り壊す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "満杯の埋立地2棟(25692、48698)を空にする試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校定員14,268は子ども10,730以上、高校定員24,360は10代21,274以上で、2-3の目標を満たしている。EducationBoost解除は高校定員が10代を下回る恐れがあり、学校の新設は不要と判断した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事1・犯罪1の合計2で、目標の4以下を満たす。有効な政策 SmokeDetectors は週58,127で維持費の幅6,000を超える。予算変更や新設も、目標内のため根拠がない。火事1棟は原因が未確認で、取り壊しは戻せないため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え分0で枠に収まる(ただし health と同じ埋立地25692を逆に動かす)。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の設定のみで建設費0、維持費の増え分0の見込み。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス予算+20は上限内、週の費用は約2,780で幅6,000に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "取り壊しは建設費0、失う働き口と家も0で枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費0、収集車の増えは約3,200以内の前提で維持費の幅に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 300000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m12-1",
+        "fromBureau": "health",
+        "title": "満杯の埋立地48698を空にする試し(25692を外し1棟に絞った)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m12-2",
+        "fromBureau": "urban",
+        "title": "中央の満杯の埋立地25692を止める試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-1",
+          "4-3"
+        ]
+      },
+      {
+        "id": "m12-3",
+        "fromBureau": "economy",
+        "title": "放棄された建物72棟を取り壊す試し",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "roads",
+        "reason": "実行条件はそろっていたが、測る円(2108,313)半径200に m12-3 で壊す放棄の店4棟(3723、6054、15601、30217)があり、試しが混ざるため。出し直すなら取り壊しと重ならない月に出すか、取り壊し後の基準で測る形にする"
+      },
+      {
+        "bureau": "port",
+        "reason": "150%だった7か月目までも flow は53〜55%で動かず、3件の上限の中で目標に届く見込みのある m12-3 を先にした。週+2,780 と m12-1 の収集車の支出増が重なると黒字が薄くなる"
+      }
+    ],
+    "surveys": []
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m12-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは働き口0・家0・停電0・駅や水の施設0で、議会の preview_bulldoze でも一致した。m09-2 で1か月で戻った結果を受け、戻りを見込んだ予想と代わりの手との比べが書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m12-1",
+    "m12-2",
+    "m12-3"
+  ],
+  "surveys": [],
+  "done": {
+    "executed": [
+      "m12-1",
+      "m12-2",
+      "m12-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-12-07",
+        "population": 177018,
+        "money": 2404999,
+        "weeklyBalance": 10683,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-12-17",
+        "population": 177064,
+        "money": 2419554,
+        "weeklyBalance": 9843,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [],
+    "report": "12か月目の3件はすべて議案どおりに打てた。建設費はかかっていない。\n\nm12-1(満杯の埋立地48698を空にする試し)\n- 打つ前は貯蔵100%・収集車0/19だった\n- 空にし始めると、収集車は19/19で動き続けた。貯蔵は月末で94%までしか下がらなかった(25590 のときと同じ形)\n- 円の中のごみの印は 6→8→9→1 と動いた\n- 街全体のごみの印は 34→20 に減った。中心は東 (3629,-344) に移った\n\nm12-2(満杯の埋立地25692を止める試し)\n- 止めた直後もごみの印は34のままで、戻す条件には当たらなかった\n- 月末の数は、円の汚染の地図の平均が 65→64、地価の平均が 43→44 だった(予想は45以上)\n- 汚染の印は 3→6 に増えた。高密度住宅の地価の平均は58のまま\n\nm12-3(放棄された建物72棟の取り壊し)\n- 先に取り壊しの理由をノートに書いてから実行した。72棟を壊し、失った働き口と家は0\n- 品物がない店は 130→69(直後)→88(月末)。目標の120以下に入った\n- 原料がない工場は 39→31→45 で、出発点より増えた\n- 放棄された店は1か月で33棟に戻った\n\n見回りと月末\n- 見回りは2回とも境目に当たらず、臨時はしていない\n- 月末(2050-12-27)は人口176,793。月例の177,159より366人減った\n- 所持金は2,433,259、週の収支は+9,445で、電気・水・下水が来ない市民は0/0/0\n- hooks に止められた手はない。調査はなかった\n\n戻せる状態のまま終えたもの\n- 48698 は空にしている途中、25692 は止めたままで終えた\n- 戻すときは empty_building(48698, active=False) と set_building_active(25692, active=True) を使う\n\n手順で1点だけ外れがある。読み始めに save_log を一度、/tmp/m12-log-preview.txt へ誤って呼んだ。街は変わっていない。最後に正しく command-log.txt へ写し直した。\n\n市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\nログ: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt"
+  }
+}

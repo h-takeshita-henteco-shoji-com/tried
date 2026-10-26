@@ -1,0 +1,291 @@
+{
+  "month": 3,
+  "seen": {
+    "gameDate": "2050-03-02",
+    "saveName": "fukuoka-plan-m03",
+    "priorities": [
+      "4-4 資源循環",
+      "6-4、7-1 企業の立地、地場企業",
+      "1-2 健やかで心豊かに暮らせる社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(JapaneseGarden)を東の (2688, z) に5棟置く",
+      "buildCost": 12500,
+      "upkeepPerWeek": 200,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "(2236,-950)の3差路に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ないバス7路線の台数の割合を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の出口の道の端(3417,-1555)と(3417,-1560)は、Large Road(x=3400)と本当につながっていないのか。",
+        "plan": "net_near(x=3410,z=-1558,radius=30,service=Road)、vehicles_stuck(kind=truck,building=28755,limit=15)、junction_info(x=3400,z=-1555)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "事務所と工業の空きマスは道に面していない奥のマスで、新規の区画指定(zone_area)は試す道具がなく実行条件を確認できない。政策(IndustrySpace、BigBusiness、SmallBusiness、TaxLowerOffice)は、品物がない店178と原料がない工場33に効くと確かめられなかった。原料が届かない原因を切り分ける調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "原料がない工場33棟は、原料の車が貨物駅28755で空き待ちのため着かないのか、産地や需要の側が足りないのか。",
+        "plan": "cargo()、vehicles_stuck(kind=truck, building=3805, limit=10)、buildings_near(x=2784, z=-834, radius=250, problems_only=true, brief=true, limit=30)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南西に埋立地を2棟置く(試し)",
+      "buildCost": 8000,
+      "upkeepPerWeek": 320,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,810以上、高校24,360は10代22,472以上で目標を満たす。増設は不要。EducationBoost解除(週7,940減)は定員への影響が未確認のため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事1・犯罪1で合計2、目標4以下を満たす。警察は使用411/960で余裕あり。SmokeDetectors は週57,789で維持費の幅5,000を超える。消防署・警察署の追加や予算増は、効く対象を特定できない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "JapaneseGarden 5棟で建設費12,500・維持費200、枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の試しは建設費0・維持費0の見込みで、戻せる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス予算の20ポイント減は建設費0で、維持費は減る側、型の上限内。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "Landfill Site 2棟で建設費8,000・維持費320、枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m03-1",
+        "fromBureau": "health",
+        "title": "南西のごみの中心の東に埋立地を2棟置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m03-2",
+        "fromBureau": "roads",
+        "title": "(2236,-950) の3差路に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m03-3",
+        "fromBureau": "urban",
+        "title": "東の (2688, z) の列に公園(JapaneseGarden)を5棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "バス7路線の台数を下げる案は実行条件はそろっていたが、施策3件の枠で同じ6-3の信号の試しを先にした。測る数(街全体の流れ)が信号の試しと重なり、減る約53台も街の車の約0.7%と小さい。出し直すなら、7路線が詰まる場所を通るかと維持費の節約の見積もりを添えてほしい"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s03-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の出口の道(Cargo Connection)の端 (3417,-1555) と (3417,-1560) は、西の Large Road(x=3400)と本当につながっていないのか"
+      },
+      {
+        "id": "s03-2",
+        "fromBureau": "economy",
+        "question": "原料がない工場33棟は、原料の車が着かないのか(貨物駅28755の空き待ち)、原料の産地が足りないのか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m03-1",
+    "m03-2",
+    "m03-3"
+  ],
+  "surveys": [
+    {
+      "id": "s03-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の出口の道(Cargo Connection)の端 (3417,-1555) と (3417,-1560) は、西の Large Road(x=3400)と本当につながっていないのか"
+    },
+    {
+      "id": "s03-2",
+      "fromBureau": "economy",
+      "question": "原料がない工場33棟は、原料の車が着かないのか(貨物駅28755の空き待ち)、原料の産地が足りないのか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m03-1",
+      "m03-2",
+      "m03-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-03-12",
+        "population": 178363,
+        "money": 2101947,
+        "weeklyBalance": 5724,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-03-22",
+        "population": 178293,
+        "money": 2111256,
+        "weeklyBalance": 6246,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s03-1",
+      "s03-2"
+    ],
+    "report": "3件とも打てた。ゲーム内の日付は 2050-04-01。\n- m03-1: 南西に埋立地を2棟置いた(id 38236、41385)。費用8,000、置いた直後の貯蔵は0%。置く前の地価(半径250)は平均29\n- m03-2: node 5405 (2236,-950) に信号を付けた。費用0。付ける前の基準は blocked 21、congestion 47\n- m03-3: JapaneseGarden を5棟置いた(5985、8735、8662、38038、16876)。費用12,500。街全体の公園などは81から86になった。置き終えた所持金は2,093,328で、中止の線を上回った\n\n見回りは2回とも境目に当たらなかった(電気・水・下水が来ない市民は0/0/0、ダイアログなし)。臨時は行わず、hooks に止められた手もない。\n\n調査 s03-1 と s03-2 は、見回り1、見回り2、月末に見た。結果は council/m03-survey-port.md と council/m03-survey-economy.md に書いた。\n- 28755 の中で止まったトラック: 477、499、486\n- 原料がない工場: 33、37、35\n- junction_info(3400,-1555) は3回とも、40m以内に交差点がないと返した\n\n型から外れかけた点が1つある。議案の予想の欄には、m03-2 の円の traffic を見回り1・2でも見るとある。見回りで見る道具は型で決まっているため、見回りでは測らなかった。月末の信号を外すかの判断と合わせて、4か月目の月例に回した。ノートの「次にやること」に書いてある。\n\n市政ノートは /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md、ログは同じフォルダの command-log.txt。"
+  }
+}

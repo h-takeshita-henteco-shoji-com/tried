@@ -1,0 +1,229 @@
+2026-10-26T12:07:43+09:00	council-mayor-desk	set_time	ok	paused=True
+2026-10-26T12:07:46+09:00	council-mayor-desk	save_city	ok	name=fukuoka-plan-m01 overwrite=True
+2026-10-26T12:07:49+09:00	council-mayor-desk	city_info	ok	
+2026-10-26T12:07:49+09:00	council-mayor-desk	economy	ok	
+2026-10-26T12:07:49+09:00	council-mayor-desk	services	ok	
+2026-10-26T12:07:49+09:00	council-mayor-desk	citizens_summary	ok	
+2026-10-26T12:07:50+09:00	council-mayor-desk	complaints	ok	
+2026-10-26T12:07:50+09:00	council-mayor-desk	citizen_voices	ok	n=5
+2026-10-26T12:07:50+09:00	council-mayor-desk	events	ok	
+2026-10-26T12:07:55+09:00	council-mayor-desk	move_camera	ok	x=-362 z=-80 size=2500 pitch=60 yaw=0
+2026-10-26T12:07:59+09:00	council-mayor-desk	screenshot	ok	save_to=~/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m01-nogoods.jpg max_width=1280
+2026-10-26T12:08:02+09:00	council-mayor-desk	building_stats	ok	
+2026-10-26T12:08:02+09:00	council-mayor-desk	traffic	ok	limit=5
+2026-10-26T12:08:02+09:00	council-mayor-desk	demand_breakdown	ok	
+2026-10-26T12:08:02+09:00	council-mayor-desk	cargo	ok	
+2026-10-26T12:08:03+09:00	council-mayor-desk	buildings_near	ok	x=0 z=0 radius=10000 service=Beautification brief=True limit=1
+2026-10-26T12:08:55+09:00	council-finance	city_info	ok	
+2026-10-26T12:08:56+09:00	council-finance	economy	ok	
+2026-10-26T12:08:56+09:00	council-finance	economy_breakdown	ok	
+2026-10-26T12:08:56+09:00	council-finance	list_loans	ok	
+2026-10-26T12:09:14+09:00	council-port	cargo	ok	
+2026-10-26T12:09:14+09:00	council-education	services	ok	
+2026-10-26T12:09:14+09:00	council-roads	traffic	ok	
+2026-10-26T12:09:15+09:00	council-port	list_policies	ok	
+2026-10-26T12:09:15+09:00	council-education	citizens_summary	ok	
+2026-10-26T12:09:15+09:00	council-fire	complaints	ok	
+2026-10-26T12:09:15+09:00	council-roads	city_info	ok	
+2026-10-26T12:09:15+09:00	council-economy	list_policies	ok	
+2026-10-26T12:09:15+09:00	council-health	citizens_summary	ok	
+2026-10-26T12:09:15+09:00	council-port	list_transport_lines	ok	
+2026-10-26T12:09:15+09:00	council-education	list_policies	ok	
+2026-10-26T12:09:15+09:00	council-fire	events	ok	
+2026-10-26T12:09:15+09:00	council-roads	list_policies	ok	
+2026-10-26T12:09:15+09:00	council-economy	demand_breakdown	ok	
+2026-10-26T12:09:15+09:00	council-urban	list_policies	ok	
+2026-10-26T12:09:16+09:00	council-port	transport_reach	ok	
+2026-10-26T12:09:16+09:00	council-health	complaints	ok	
+2026-10-26T12:09:16+09:00	council-fire	list_policies	ok	
+2026-10-26T12:09:16+09:00	council-economy	cargo	ok	
+2026-10-26T12:09:16+09:00	council-urban	demand_breakdown	ok	
+2026-10-26T12:09:16+09:00	council-fire	services	ok	
+2026-10-26T12:09:16+09:00	council-health	list_policies	ok	
+2026-10-26T12:09:16+09:00	council-urban	building_stats	ok	radius=5000
+2026-10-26T12:09:16+09:00	council-health	services	ok	
+2026-10-26T12:09:19+09:00	council-economy	vehicles_stuck	ok	building=28755 limit=10
+2026-10-26T12:09:19+09:00	council-roads	net_near	ok	x=2309 z=-925 radius=250 service=Road limit=40
+2026-10-26T12:09:19+09:00	council-economy	net_near	ok	x=3449 z=-1555 radius=250 service=Road
+2026-10-26T12:09:19+09:00	council-health	buildings_near	ok	x=0 z=0 radius=6000 service=Garbage limit=60
+2026-10-26T12:09:20+09:00	council-roads	traffic	ok	x=2309 z=-925 radius=300
+2026-10-26T12:09:20+09:00	council-economy	trade	ok	
+2026-10-26T12:09:20+09:00	council-health	list_building_types	ok	service=Garbage
+2026-10-26T12:09:20+09:00	council-urban	list_building_types	ok	service=Beautification
+2026-10-26T12:09:20+09:00	council-port	vehicles_stuck	ok	building=28755 limit=15
+2026-10-26T12:09:20+09:00	council-economy	building_stats	ok	
+2026-10-26T12:09:20+09:00	council-urban	zone_summary	ok	grid=2000
+2026-10-26T12:09:20+09:00	council-port	zone_map	ok	x=3449 z=-1500 radius=400
+2026-10-26T12:09:20+09:00	council-urban	land_value	ok	
+2026-10-26T12:09:21+09:00	council-port	trade	ok	
+2026-10-26T12:09:22+09:00	council-fire	list_building_types	ok	service=FireDepartment
+2026-10-26T12:09:22+09:00	council-fire	list_building_types	ok	service=PoliceDepartment
+2026-10-26T12:09:23+09:00	council-fire	map_layer	ok	type=fire n=15 radius=4500 x=1500 z=0
+2026-10-26T12:09:24+09:00	council-fire	map_layer	ok	type=crime n=9 radius=400 x=2255 z=836
+2026-10-26T12:09:24+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2236, -950], [2220, -950], [2160, -950]] tolerance=10
+2026-10-26T12:09:24+09:00	council-roads	junction_info	ok	x=2236 z=-950
+2026-10-26T12:09:24+09:00	council-roads	list_net_types	ok	service=Road locked=False
+2026-10-26T12:09:24+09:00	council-health	zone_map	ok	x=-500 z=-1550 radius=500
+2026-10-26T12:09:25+09:00	council-health	buildings_near	ok	x=-500 z=-1500 radius=600 problem=Garbage brief=True
+2026-10-26T12:09:25+09:00	council-economy	zone_map	ok	x=3449 z=-1555 radius=200 size=900
+2026-10-26T12:09:26+09:00	council-urban	zone_map	ok	x=3000 z=-1000 radius=700
+2026-10-26T12:09:26+09:00	council-economy	traffic	ok	x=3449 z=-1555 radius=250
+2026-10-26T12:09:26+09:00	council-urban	land_value	ok	x=3000 z=-1000 radius=800
+2026-10-26T12:09:26+09:00	council-economy	buildings_near	ok	x=3449 z=-1555 radius=150 brief=True limit=30
+2026-10-26T12:09:26+09:00	council-port	net_near	ok	x=3449 z=-1500 radius=200 service=Road
+2026-10-26T12:09:27+09:00	council-fire	buildings_near	ok	x=2255 z=836 radius=900 service=PoliceDepartment brief=True
+2026-10-26T12:09:27+09:00	council-port	traffic	ok	x=3449 z=-1500 radius=300
+2026-10-26T12:09:27+09:00	council-fire	map_layer	ok	type=police n=9 radius=400 x=2255 z=836
+2026-10-26T12:09:27+09:00	council-port	buildings_near	ok	x=3490 z=-1540 radius=120 brief=True
+2026-10-26T12:09:28+09:00	council-fire	zone_map	ok	x=2255 z=836 radius=300
+2026-10-26T12:09:28+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2236, -950]] tolerance=5
+2026-10-26T12:09:29+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2220, -950], [2160, -950]] tolerance=5
+2026-10-26T12:09:29+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2234, -1240], [2234, -1160], [2234, -1110], [2234, -1066]] tolerance=5
+2026-10-26T12:09:30+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2236, -860], [2304, -860]] tolerance=5
+2026-10-26T12:09:30+09:00	council-urban	zone_map	ok	x=2400 z=-450 radius=300
+2026-10-26T12:09:31+09:00	council-urban	buildings_near	ok	x=2400 z=-450 radius=300 service=Beautification brief=True
+2026-10-26T12:09:33+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-540 z=-1905 facing=north
+2026-10-26T12:09:34+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-540 z=-1905 facing=south
+2026-10-26T12:09:34+09:00	council-fire	buildings_near	ok	x=2255 z=836 radius=5000 problem=Crime
+2026-10-26T12:09:34+09:00	council-health	net_near	ok	x=-540 z=-1880 radius=120 service=Road
+2026-10-26T12:09:35+09:00	council-port	buildings_near	ok	x=3449 z=-1555 radius=30
+2026-10-26T12:09:35+09:00	council-fire	buildings_near	ok	x=3300 z=-300 radius=5000 problem=Fire
+2026-10-26T12:09:35+09:00	council-port	vehicles_stuck	ok	building=13893 kind=train limit=5
+2026-10-26T12:09:35+09:00	council-fire	buildings_near	ok	x=3300 z=-300 radius=1500 service=FireDepartment brief=True
+2026-10-26T12:09:36+09:00	council-economy	zone_summary	ok	grid=2000
+2026-10-26T12:09:37+09:00	council-economy	buildings_near	ok	x=-1069 z=-770 radius=150 problem=NoGoods brief=True limit=8
+2026-10-26T12:09:37+09:00	council-roads	test_build_line	ng	the game refuses this line: a segment is too short (TooShort)
+2026-10-26T12:09:37+09:00	council-economy	list_building_types	ok	service=PublicTransport
+2026-10-26T12:09:37+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:09:37+09:00	council-roads	preview_bulldoze	ok	x=2228 z=-950 radius=5 what=net
+2026-10-26T12:09:38+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:09:38+09:00	council-port	net_near	ok	x=3430 z=-1580 radius=90
+2026-10-26T12:09:38+09:00	council-port	junction_info	ng	no road junction within 40m
+2026-10-26T12:09:38+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:09:39+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=2665 z=-250 facing=south
+2026-10-26T12:09:41+09:00	council-roads	traffic	ok	x=-726 z=-736 radius=200 limit=6
+2026-10-26T12:09:42+09:00	council-roads	net_near	ok	x=-726 z=-736 radius=120 service=Road limit=20
+2026-10-26T12:09:44+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-26T12:09:44+09:00	council-roads	citizens_without_service	ok	limit=3
+2026-10-26T12:09:45+09:00	council-port	net_reach	ok	x=3480 z=-1555 radius=150
+2026-10-26T12:09:45+09:00	council-port	net_near	ok	x=3417 z=-1557 radius=25
+2026-10-26T12:09:52+09:00	council-urban	buildings_near	ok	x=2665 z=-250 radius=45 brief=True
+2026-10-26T12:09:53+09:00	council-urban	zone_map	ok	x=2665 z=-250 radius=100 size=700
+2026-10-26T12:10:03+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:10:03+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:10:04+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:10:13+09:00	council-urban	zone_map	ok	x=-1000 z=-1000 radius=800 size=1000
+2026-10-26T12:10:19+09:00	council-urban	buildings_near	ok	x=-1250 z=-830 radius=230 brief=True limit=80
+2026-10-26T12:10:20+09:00	council-urban	zone_map	ok	x=-1250 z=-830 radius=250 size=1000
+2026-10-26T12:10:27+09:00	council-urban	buildings_near	ok	x=0 z=0 radius=6000 service=Beautification brief=True limit=200
+2026-10-26T12:10:47+09:00	council-urban	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-26T12:10:48+09:00	council-urban	net_near	ok	x=-1245 z=-800 radius=150 service=Road
+2026-10-26T12:10:53+09:00	council-urban	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-26T12:10:53+09:00	council-urban	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-26T12:11:02+09:00	council-urban	test_place_building	ok	prefab=Boulder 01 x=-1250 z=-830
+2026-10-26T12:11:02+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=-1250 z=-830 facing=south
+2026-10-26T12:11:30+09:00	council-urban	zone_map	ok	x=3000 z=1000 radius=800 size=1000
+2026-10-26T12:11:37+09:00	council-urban	net_near	ok	x=3530 z=800 radius=260 service=Road limit=40
+2026-10-26T12:11:45+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=3572 z=960 facing=west
+2026-10-26T12:11:45+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=3500 z=1050 facing=south
+2026-10-26T12:11:46+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:11:56+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:11:57+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-26T12:11:58+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=3572 z=1040 facing=west
+2026-10-26T12:12:01+09:00	council-urban	map_layer	ok	type=electricity_service x=3572 z=960 radius=60 n=3
+2026-10-26T12:12:09+09:00	council-urban	map_layer	ok	type=electricity_service x=3572 z=960 radius=40 n=9
+2026-10-26T12:12:21+09:00	council-urban	test_place_building	ok	prefab=Boulder 01 x=-1290 z=-800
+2026-10-26T12:12:21+09:00	council-urban	test_place_building	ok	prefab=Boulder 02 x=-1270 z=-800
+2026-10-26T12:12:22+09:00	council-urban	test_place_building	ok	prefab=Boulder 03 x=-1250 z=-800
+2026-10-26T12:12:22+09:00	council-urban	test_place_building	ok	prefab=Boulder 04 x=-1230 z=-800
+2026-10-26T12:12:23+09:00	council-urban	test_place_building	ok	prefab=Boulder 01 x=-1210 z=-800
+2026-10-26T12:12:23+09:00	council-urban	test_place_building	ok	prefab=Boulder 02 x=-1290 z=-820
+2026-10-26T12:12:24+09:00	council-urban	test_place_building	ok	prefab=Boulder 03 x=-1270 z=-820
+2026-10-26T12:12:24+09:00	council-urban	test_place_building	ok	prefab=Boulder 04 x=-1250 z=-820
+2026-10-26T12:12:25+09:00	council-urban	test_place_building	ok	prefab=Boulder 01 x=-1230 z=-820
+2026-10-26T12:12:25+09:00	council-urban	test_place_building	ok	prefab=Boulder 02 x=-1210 z=-820
+2026-10-26T12:12:26+09:00	council-urban	test_place_building	ok	prefab=Boulder 03 x=-1290 z=-840
+2026-10-26T12:12:26+09:00	council-urban	test_place_building	ok	prefab=Boulder 04 x=-1270 z=-840
+2026-10-26T12:12:27+09:00	council-urban	test_place_building	ok	prefab=Boulder 01 x=-1230 z=-840
+2026-10-26T12:12:28+09:00	council-urban	test_place_building	ok	prefab=Boulder 02 x=-1210 z=-840
+2026-10-26T12:12:28+09:00	council-urban	test_place_building	ok	prefab=Boulder 03 x=-1290 z=-860
+2026-10-26T12:12:28+09:00	council-urban	test_place_building	ok	prefab=Boulder 04 x=-1270 z=-860
+2026-10-26T12:12:29+09:00	council-urban	test_place_building	ok	prefab=Boulder 01 x=-1250 z=-860
+2026-10-26T12:12:29+09:00	council-urban	test_place_building	ok	prefab=Boulder 02 x=-1230 z=-860
+2026-10-26T12:12:30+09:00	council-urban	test_place_building	ok	prefab=Boulder 03 x=-1210 z=-860
+2026-10-26T12:13:07+09:00	council-finance	city_info	ok	
+2026-10-26T12:13:07+09:00	council-finance	economy	ok	
+2026-10-26T12:13:10+09:00	council-finance	list_policies	ok	
+2026-10-26T12:13:10+09:00	council-finance	list_building_types	ok	service=Garbage
+2026-10-26T12:14:15+09:00	council-mayor-desk	list_policies	ok	
+2026-10-26T12:14:15+09:00	council-mayor-desk	list_building_types	ok	service=Beautification
+2026-10-26T12:14:51+09:00	council-mayor-desk	cargo	ok	
+2026-10-26T12:14:52+09:00	council-mayor-desk	buildings_near	ok	x=-540 z=-1905 radius=250 brief=True
+2026-10-26T12:15:00+09:00	council-mayor-desk	map_layer	ok	type=pollution x=-480 z=-1870 radius=150 n=7
+2026-10-26T12:17:27+09:00	council-mayor-field	set_time	ok	paused=True
+2026-10-26T12:17:27+09:00	council-mayor-field	list_policies	ok	
+2026-10-26T12:17:31+09:00	council-mayor-field	explain	ok	action=工業の土地利用の政策IndustrySpaceを試す(m01-1、公約1、計画6-4・7-1) reason=品物がない店228で目標120の約2倍。地元の品物427台を増やす試し。週4,821、戻せる
+2026-10-26T12:17:32+09:00	council-mayor-field	set_policy	ok	name=IndustrySpace active=True
+2026-10-26T12:17:36+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=-540 z=-1905 facing=north
+2026-10-26T12:17:39+09:00	council-mayor-field	explain	ok	action=ごみの印が集まる街区の南に埋立地を置く(m01-2、計画4-4) reason=ごみの印15のうち8棟が(-500,-1500)周辺。満ちた埋立地7。8棟の半分以上が消えると予想
+2026-10-26T12:17:44+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=-540 z=-1905 facing=north pay=True
+2026-10-26T12:17:47+09:00	council-mayor-field	buildings_near	ok	x=-540 z=-1905 radius=100 service=Garbage
+2026-10-26T12:17:51+09:00	council-mayor-field	explain	ok	action=景観の岩20個で公園などの数を100にのせる(m01-3、計画4-2) reason=公園など81で目標100。岩は20か所とも試しでok、1個100・週0。置いた直後に101を予想
+2026-10-26T12:17:55+09:00	council-mayor-field	place_building	ok	prefab=Boulder 01 x=-1290 z=-800 pay=True
+2026-10-26T12:17:59+09:00	council-mayor-field	place_building	ok	prefab=Boulder 02 x=-1270 z=-800 pay=True
+2026-10-26T12:18:02+09:00	council-mayor-field	place_building	ok	prefab=Boulder 03 x=-1250 z=-800 pay=True
+2026-10-26T12:18:05+09:00	council-mayor-field	place_building	ok	prefab=Boulder 04 x=-1230 z=-800 pay=True
+2026-10-26T12:18:09+09:00	council-mayor-field	place_building	ok	prefab=Boulder 01 x=-1210 z=-800 pay=True
+2026-10-26T12:18:17+09:00	council-mayor-field	place_building	ok	prefab=Boulder 02 x=-1290 z=-820 pay=True
+2026-10-26T12:18:20+09:00	council-mayor-field	place_building	ok	prefab=Boulder 03 x=-1270 z=-820 pay=True
+2026-10-26T12:18:24+09:00	council-mayor-field	place_building	ok	prefab=Boulder 04 x=-1250 z=-820 pay=True
+2026-10-26T12:18:27+09:00	council-mayor-field	place_building	ok	prefab=Boulder 01 x=-1230 z=-820 pay=True
+2026-10-26T12:18:31+09:00	council-mayor-field	place_building	ok	prefab=Boulder 02 x=-1210 z=-820 pay=True
+2026-10-26T12:18:38+09:00	council-mayor-field	place_building	ok	prefab=Boulder 03 x=-1290 z=-840 pay=True
+2026-10-26T12:18:41+09:00	council-mayor-field	place_building	ok	prefab=Boulder 04 x=-1270 z=-840 pay=True
+2026-10-26T12:18:44+09:00	council-mayor-field	place_building	ok	prefab=Boulder 01 x=-1230 z=-840 pay=True
+2026-10-26T12:18:48+09:00	council-mayor-field	place_building	ok	prefab=Boulder 02 x=-1210 z=-840 pay=True
+2026-10-26T12:18:55+09:00	council-mayor-field	place_building	ok	prefab=Boulder 03 x=-1290 z=-860 pay=True
+2026-10-26T12:18:59+09:00	council-mayor-field	place_building	ok	prefab=Boulder 04 x=-1270 z=-860 pay=True
+2026-10-26T12:19:02+09:00	council-mayor-field	place_building	ok	prefab=Boulder 01 x=-1250 z=-860 pay=True
+2026-10-26T12:19:05+09:00	council-mayor-field	place_building	ok	prefab=Boulder 02 x=-1230 z=-860 pay=True
+2026-10-26T12:19:09+09:00	council-mayor-field	place_building	ok	prefab=Boulder 03 x=-1210 z=-860 pay=True
+2026-10-26T12:19:16+09:00	council-mayor-field	place_building	ok	prefab=Boulder 01 x=-1250 z=-830 pay=True
+2026-10-26T12:19:20+09:00	council-mayor-field	buildings_near	ok	x=0 z=0 radius=6000 service=Beautification brief=True limit=5
+2026-10-26T12:19:21+09:00	council-mayor-field	move_camera	ok	x=-1250 z=-830 size=300 pitch=60 yaw=0
+2026-10-26T12:19:26+09:00	council-mayor-field	screenshot	ok	save_to=~/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m01-boulders.jpg max_width=800
+2026-10-26T12:21:39+09:00	council-mayor-field	advance	ok	days=10
+2026-10-26T12:21:40+09:00	council-mayor-field	city_info	ok	
+2026-10-26T12:21:41+09:00	council-mayor-field	events	ok	
+2026-10-26T12:21:44+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=15
+2026-10-26T12:21:45+09:00	council-mayor-field	traffic	ok	x=3420 z=-1555 radius=150
+2026-10-26T12:21:45+09:00	council-mayor-field	cargo	ok	
+2026-10-26T12:21:48+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=300 limit=10
+2026-10-26T12:21:48+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=200 limit=10
+2026-10-26T12:21:48+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck limit=30
+2026-10-26T12:21:50+09:00	council-mayor-field	complaints	ok	
+2026-10-26T12:21:51+09:00	council-mayor-field	buildings_near	ok	x=3300 z=-300 radius=5000 problem=Fire
+2026-10-26T12:21:51+09:00	council-mayor-field	buildings_near	ok	x=2255 z=836 radius=5000 problem=Crime
+2026-10-26T12:24:08+09:00	council-mayor-field	advance	ok	days=10
+2026-10-26T12:24:10+09:00	council-mayor-field	city_info	ok	
+2026-10-26T12:24:10+09:00	council-mayor-field	events	ok	
+2026-10-26T12:24:13+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=15
+2026-10-26T12:24:13+09:00	council-mayor-field	traffic	ok	x=3420 z=-1555 radius=150
+2026-10-26T12:24:14+09:00	council-mayor-field	cargo	ok	
+2026-10-26T12:24:16+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=300 limit=10
+2026-10-26T12:24:17+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=200 limit=10
+2026-10-26T12:24:17+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck limit=30
+2026-10-26T12:24:20+09:00	council-mayor-field	complaints	ok	
+2026-10-26T12:24:20+09:00	council-mayor-field	buildings_near	ok	x=3300 z=-300 radius=5000 problem=Fire
+2026-10-26T12:24:20+09:00	council-mayor-field	buildings_near	ok	x=2255 z=836 radius=5000 problem=Crime
+2026-10-26T12:26:36+09:00	council-mayor-field	advance	ok	days=10
+2026-10-26T12:26:39+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=15
+2026-10-26T12:26:39+09:00	council-mayor-field	traffic	ok	x=3420 z=-1555 radius=150
+2026-10-26T12:26:40+09:00	council-mayor-field	cargo	ok	
+2026-10-26T12:26:42+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=300 limit=10
+2026-10-26T12:26:43+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=200 limit=10
+2026-10-26T12:26:43+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck limit=30
+2026-10-26T12:26:45+09:00	council-mayor-field	complaints	ok	
+2026-10-26T12:26:46+09:00	council-mayor-field	buildings_near	ok	x=3300 z=-300 radius=5000 problem=Fire
+2026-10-26T12:26:47+09:00	council-mayor-field	buildings_near	ok	x=2255 z=836 radius=5000 problem=Crime
+2026-10-26T12:27:34+09:00	council-mayor-field	save_log	ok	save_to=~/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt

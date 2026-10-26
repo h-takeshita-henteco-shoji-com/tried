@@ -1,0 +1,290 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-01",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 50000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(JapaneseGarden)を東の4か所に置く",
+      "buildCost": 10000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南北の道 x=450 の橋と一本道(z=-708〜-1260)を Small 4 Lane Road にする試し",
+      "buildCost": 2200,
+      "upkeepPerWeek": 50,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "出口(3417,-1555)と Large Road をつなぐ道路を test_build_line で5通り試したが、貨物駅28755の敷地と重なって全て断られた。通った1本は端が離れ、つながる保証がない。取り壊しや置き直しは輸入の入口を失う。原因の確証がないため、止まった車の列の先頭を測る調査を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の出口の端 (3417,-1555) の近くで、止まった車は列の先頭まで詰まっているのか、先頭が進んでいるのか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=40)、traffic(x=3417, z=-1557, radius=40)、net_near(x=3417, z=-1557, radius=25) を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755の出口に道を足す案は、test_build_line の3本とも駅の敷地と重なって断られた。取り壊しになり、条件を確認できない。高密度商業の空きを事務所に塗り替える案は場所が散らばり、座標を絞れなかった。SmallBusiness と税の案は担当の数字に効かない。代わりに、事務所が建たない理由の調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "働き口の需要が58でも事務所が建たないのは、空きマス1,642がすべて道の奥にあり、道に面した空きがないためか。",
+        "plan": "zone_summary(grid=1000)、demand_breakdown()、vehicles_stuck(kind=\"truck\", building=28755, limit=5) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の満杯の埋立地の南東に埋立地を2棟置く(試し)",
+      "buildCost": 8000,
+      "upkeepPerWeek": 320,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども10,691以上、高校24,360は10代22,429以上で2-3の目標を満たす。検討したEducationBoost解除(週7,940節約)は、定員への影響を確認できず、高校の余裕1,931を割るおそれがあるため見送った。学校の新設も効く相手がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事1・犯罪0で目標4以下を満たす。SmokeDetectorsは週57,871で枠超え、消防予算増・警察署増設は根拠が弱い。工場12882の火事が続く原因は調査で確かめる。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "工場12882(2184,-918)の火事が、消防車の不足と届き具合のどちらで残っているか",
+        "plan": "buildings_near(2184,-918,r300,service=FireDepartment)、buildings_near(2184,-918,r60,problems_only)、map_layer(fire,2184,-918,r300,n9)を見回り1・2・月末に見る"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "公園4棟の建設費10,000・維持費160で、枠50,000と5,000に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "差し替えは5,000/kmで約0.444km、高くても約2,220、維持費の差はほぼ0で枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地2棟の建設費8,000・維持費320で枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 50000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "health",
+        "title": "東の満杯の埋立地の南東に埋立地を2棟置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "roads",
+        "title": "x=450 の10区間を Small 4 Lane Road に差し替える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m04-3",
+        "fromBureau": "urban",
+        "title": "東の4か所に公園 JapaneseGarden を置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s04-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の出口の端 (3417,-1555) の近くで、止まった車は列の先頭まで詰まっているのか、先頭が進んでいるのか"
+      },
+      {
+        "id": "s04-2",
+        "fromBureau": "economy",
+        "question": "働き口の需要が58でも事務所が建たないのは、空きマス1,642がすべて道の奥にあり、道に面した空きがないためか"
+      },
+      {
+        "id": "s04-3",
+        "fromBureau": "fire",
+        "question": "工場12882(2184,-918)の火事と FatalProblem が、消防車の不足と届き具合のどちらで残っているか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m04-1",
+    "m04-2",
+    "m04-3"
+  ],
+  "surveys": [
+    {
+      "id": "s04-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の出口の端 (3417,-1555) の近くで、止まった車は列の先頭まで詰まっているのか、先頭が進んでいるのか"
+    },
+    {
+      "id": "s04-2",
+      "fromBureau": "economy",
+      "question": "働き口の需要が58でも事務所が建たないのは、空きマス1,642がすべて道の奥にあり、道に面した空きがないためか"
+    },
+    {
+      "id": "s04-3",
+      "fromBureau": "fire",
+      "question": "工場12882(2184,-918)の火事と FatalProblem が、消防車の不足と届き具合のどちらで残っているか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2",
+      "m04-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-11",
+        "population": 178630,
+        "money": 2113469,
+        "weeklyBalance": 6912,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-21",
+        "population": 178665,
+        "money": 2123535,
+        "weeklyBalance": 7048,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s04-1",
+      "s04-2",
+      "s04-3"
+    ],
+    "report": "4か月目(2050-04-01〜05-01)の施策は3件とも打てた。m04-1: 東に埋立地2棟(7364、40371)を置き、費用8,000、取り壊し0。m04-2: x=450 の10区間を Small 4 Lane Road(橋3区間は Elevated)に差し替え、費用0、壊れた建物なし(区間の番号は変わった)。m04-3: JapaneseGarden 4棟(42573、42190、8712、19689)を置き、費用10,000。公園などは 86→90。置き終えた所持金 2,104,258 で、出発点の線を割らない。見回りは2回とも境目に当たらず(週の収支 +6,912、+7,048、電気・水・下水 0/0/0、ダイアログなし)、臨時はなし。調査3件は見回り1・2と月末に見て、council/m04-survey-{port,economy,fire}.md に書いた。28755 の止まった車 597→572→588。net_near で、Cargo Connection の端 node 5129・20745 が Large Road の node 27757 と別の番号だと分かった。事務所の空き1,642は3回とも emptyBehind で、emptyFacingRoad は0。工場12882 の Fire, FatalProblem は3回とも残り、消防車は 0〜1/8、届き具合は124。hooks に止められた手はなし。型から外れた点はなし(economy の調査ファイルに見出しを誤って入れたが、すぐ消した)。command-log.txt を保存した。"
+  }
+}

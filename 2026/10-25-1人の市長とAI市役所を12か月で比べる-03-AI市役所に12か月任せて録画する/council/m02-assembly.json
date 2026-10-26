@@ -1,0 +1,7 @@
+{
+  "month": 2,
+  "rulings": [
+    {"measureId": "m02-2", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うもの(働き口0、家3で住民0、生徒0の小学校1棟、停電0)が数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べと教育の定員への響きも書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

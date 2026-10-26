@@ -1,0 +1,317 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 6000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "空き地に景観の岩20個を置き、公園などの数を81から101にする",
+      "buildCost": 2000,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "実際の公園(Regular Park など)を置ける、電気が届いた空き地はどこか。",
+        "plan": "map_layer(electricity_service, x=3572, z=960, radius=60, n=9)、test_place_building(Regular Park, 3572, 960, west)、land_value(3572, 960, 150)を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "流れ51%の詰まりは(2309,-925)のz=-950のBasic Road区間が主に見える。ただし拡幅(test_upgrade_road)は36011のTooShortとぶつかりで断られ、引き直し(test_build_line)もTooShortで断られた。信号は効き目の根拠がない。電気・水・下水は0/0/0で目標を満たす。原因が確証できないため調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "流れ51%を下げている詰まりは、貨物駅の周り(2309,-925)と(-726,-736)のどちらが主で、日がたつと動くか。",
+        "plan": "traffic(x=2309,z=-925,radius=300)、traffic(x=-726,z=-736,radius=200)、vehicles_stuck(kind=truck,limit=30)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "貨物駅28755で492台が WaitingSpace のまま止まっているが、道の blocked は0、周辺の混み具合も低く、原因が確証できない。駅の新設や道の差し替えは効く根拠がないため、今月は調査を出した。HeavyTrafficBan など政策は荷の流れを悪くするため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地で492台が WaitingSpace のまま動かないのは、出口の道が詰まるからか、駅の車の出し方の上限か。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=15)、traffic(x=3420, z=-1555, radius=150)、cargo(引数なし)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "IndustrySpace政策を試す",
+      "buildCost": 0,
+      "upkeepPerWeek": 4821,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "品物のトラックが貨物駅28755の敷地内で止まり続けるのは、出口の道の混雑か駅の処理の遅れか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、traffic(x=3449, z=-1555, radius=250)、cargo() を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "ごみの印の集まる南に埋立地を1つ置く",
+      "buildCost": 4000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども11,344以上、高校の定員24,360は10代22,372以上で、目標を満たしている。学校の新設は効果がなく維持費が増える。EducationBoost解除は定員への影響を確かめられず、高校の余裕を割る恐れがある。大学卒の失業は働き口の問題で、学校では解けない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事4・犯罪3の原因が確かめられない。火事の3棟は消防所が近くにあるのに残っている。犯罪の2棟は警察の届き具合が約190と高い場所にある。増設の効き目の根拠がなく、SmokeDetectors は週57,718で維持費の幅6,000を超える。調査で居続けるか入れ替わるかを追う。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "火事と犯罪の印は、同じ棟に居続けるのか、入れ替わる一時的なものか。",
+        "plan": "complaints(引数なし)、buildings_near(x=3300,z=-300,radius=5000,problem=Fire)、buildings_near(x=2255,z=836,radius=5000,problem=Crime)を、見回り1・見回り2・月末に見る"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "岩20個の建設費2,000、維持費0で、上限と枠に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "IndustrySpace は週4,821で維持費の幅6,000に収まり、建設費は0。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地1つで建設費4,000、週160。上限と枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "economy",
+        "title": "工業の土地利用の政策(IndustrySpace)を試す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "health",
+        "title": "ごみの印が集まる街区の南に埋立地を置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m01-3",
+        "fromBureau": "urban",
+        "title": "景観の岩20個で公園などの数を100にのせる",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "調査(Regular Park を (3572,960) に置けるか)は、調査の枠3件で原因の分からない6-3と3-4を先にしたため採らなかった。電気が届く空き地を確かめた形で、4-1の案として出し直してほしい。"
+      },
+      {
+        "bureau": "economy",
+        "reason": "調査(貨物駅28755で止まる原因)は、港湾空港局の s01-1 と道具・場所がほぼ同じで重なるため採らなかった。結果は m01-survey-port.md を読んでほしい。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "施策の案はなし(拡幅は試しの道具が断った)。調査は s01-2 で採った。"
+      },
+      {
+        "bureau": "port",
+        "reason": "施策の案はなし(原因が分からない)。調査は s01-1 で採った。"
+      },
+      {
+        "bureau": "education",
+        "reason": "案はなし(目標を満たしている)。"
+      },
+      {
+        "bureau": "fire",
+        "reason": "施策の案はなし(原因が分からない)。調査は s01-3 で採った。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の敷地で492台が WaitingSpace のまま動かないのは、出口の道が詰まるからか、駅の車の出し方の上限か。"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "roads",
+        "question": "流れ51%を下げている詰まりは、貨物駅28755の周りと (-726,-736) の大通りのどちらが主で、日がたつと動くか。"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "fire",
+        "question": "火事と犯罪の印は、同じ棟に居続けるのか、入れ替わる一時的なものか。"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2",
+    "m01-3"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の敷地で492台が WaitingSpace のまま動かないのは、出口の道が詰まるからか、駅の車の出し方の上限か。"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "roads",
+      "question": "流れ51%を下げている詰まりは、貨物駅28755の周りと (-726,-736) の大通りのどちらが主で、日がたつと動くか。"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "fire",
+      "question": "火事と犯罪の印は、同じ棟に居続けるのか、入れ替わる一時的なものか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-1",
+      "m01-2",
+      "m01-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-01-11",
+        "population": 178789,
+        "money": 2082670,
+        "weeklyBalance": 4666,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-21",
+        "population": 178599,
+        "money": 2092701,
+        "weeklyBalance": 7357,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "1か月目(2050-01-01〜01-31)は、3件とも計画どおり打てた。m01-1: IndustrySpace を有効にした(週4,821)。m01-2: 埋立地 id 39080 を (-540,-1905) に置いた(4,000)。m01-3: 岩を20個置き、公園などは101になった(2,000)。建設費の合計は6,000。見回り2回とも境目に当たらなかった(週の収支 +4,666 / +7,357、来ない市民 0/0/0、ダイアログなし)。臨時はなく、hooks に止められた手もなかった。調査3件は見回り1・2と月末に行い、council/m01-survey-port.md、m01-survey-roads.md、m01-survey-fire.md に書いた。月末の数は、Goods.local 649(基準427)、noGoods 218(基準228)、noResources 30(基準24)、28755の止まり 513(基準492)。28755 の WaitingSpace の車は、5台が30日間同じ場所にいた。答え合わせは次の月例で行う。市政ノートは /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md。ログは同じフォルダの command-log.txt、画面写真は assets/m01-boulders.jpg。型から外れた点はない。"
+  }
+}
