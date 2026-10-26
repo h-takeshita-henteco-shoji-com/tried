@@ -68,10 +68,11 @@ namespace AIMayor
             bool demolish = req.QueryString["demolish"] == "true";
             // test=true なら、差し替えられるかを確かめて、差し替えずに返す(#105。局と市長が、建てる前に試す)
             bool test = req.QueryString["test"] == "true";
-            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse, demolish, test), 30000);
+            var assumed = test ? Assumed.Parse(req) : null;
+            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse, demolish, test, assumed), 30000);
         }
 
-        private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse, bool demolish, bool test)
+        private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse, bool demolish, bool test, Assumed assumed)
         {
             var bm = BuildingManager.instance;
             var demolished = new StringBuilder();
@@ -139,7 +140,18 @@ namespace AIMayor
                 var errors = NetTool.CreateNode(info, start, middle, end, buffer, 1000, true, false, true, pay, false, reverse, 0,
                     out node, out newSeg, out c, out rate);
                 // ゲームが断ったとき、ぶつかった相手(道具の画面で赤く塗られるもの)を返す(#105)
-                string coll = (errors & ToolBase.ToolErrors.ObjectCollision) != 0 ? Colliding() : null;
+                string coll = null;
+                if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
+                {
+                    bool blocking;
+                    coll = Colliding(assumed, out blocking);
+                    // 試しで、断る相手がすべて「壊したもの」なら、ぶつからないとみなす(#105。壊してから建てる工事を試す)
+                    if (assumed != null && assumed.Any && !blocking)
+                    {
+                        errors &= ~ToolBase.ToolErrors.ObjectCollision;
+                    }
+                }
+
                 if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
                 {
                     // ぶつかった建物を探す(#107)。太くした道路の幅で、区間の線に敷地が重なる建物
@@ -331,15 +343,30 @@ namespace AIMayor
         // blocks=false の相手は、ゲームが作るときに取り除く
         internal static string Colliding()
         {
+            bool blocking;
+            return Colliding(null, out blocking);
+        }
+
+        // assumed: 試し(test=true)で「壊したものとして」扱う区間と建物。その相手は blocks にせず assumed=true を付ける。
+        // blocking: assumed を除いて、断る相手(blocks=true)が残るか
+        internal static string Colliding(Assumed assumed, out bool blocking)
+        {
             var props = ToolManager.instance.m_properties;
             var segMask = CollidingSegments != null ? CollidingSegments.GetValue(props) as ulong[] : null;
             var bldMask = CollidingBuildings != null ? CollidingBuildings.GetValue(props) as ulong[] : null;
-            return CollidingJson(segMask, bldMask);
+            return CollidingJson(segMask, bldMask, assumed, out blocking);
         }
 
         // ぶつかった区間と建物の印から、相手の一覧を JSON にする(建物を置く道具、線を引く道具でも使う)
         internal static string CollidingJson(ulong[] segMask, ulong[] bldMask)
         {
+            bool blocking;
+            return CollidingJson(segMask, bldMask, null, out blocking);
+        }
+
+        internal static string CollidingJson(ulong[] segMask, ulong[] bldMask, Assumed assumed, out bool blocking)
+        {
+            blocking = false;
             var segs = NetManager.instance.m_segments.m_buffer;
             var blds = BuildingManager.instance.m_buildings.m_buffer;
             var sb = new StringBuilder("{\"segments\":[");
@@ -352,13 +379,15 @@ namespace AIMayor
                     continue;
                 }
 
-                bool blocks = (ItemClass.GetPublicServiceIndex(info.m_class.m_service) != -1 && !info.m_autoRemove)
-                    || (segs[id].m_flags & NetSegment.Flags.Untouchable) != 0;
+                bool gone = assumed != null && assumed.Removed(id, segs[id]);
+                bool blocks = !gone && ((ItemClass.GetPublicServiceIndex(info.m_class.m_service) != -1 && !info.m_autoRemove)
+                    || (segs[id].m_flags & NetSegment.Flags.Untouchable) != 0);
+                blocking |= blocks;
                 var p = segs[id].m_middlePosition;
                 sb.Append(n++ == 0 ? "" : ",").Append("{\"segment\":").Append(id).Append(",\"prefab\":").Append(Json.Str(info.name))
                   .Append(",\"service\":").Append(Json.Str(info.m_class.m_service.ToString()))
                   .Append(",\"x\":").Append(Mathf.RoundToInt(p.x)).Append(",\"z\":").Append(Mathf.RoundToInt(p.z))
-                  .Append(",\"blocks\":").Append(blocks ? "true" : "false").Append('}');
+                  .Append(",\"blocks\":").Append(blocks ? "true" : "false").Append(gone ? ",\"assumedRemoved\":true" : "").Append('}');
             }
 
             sb.Append("],\"buildings\":[");
@@ -371,12 +400,14 @@ namespace AIMayor
                     continue;
                 }
 
-                bool blocks = (blds[id].m_flags & Building.Flags.Untouchable) != 0
-                    || (ImportantBuilding != null && (bool)ImportantBuilding.Invoke(null, new object[] { info, (ushort)id }));
+                bool gone = assumed != null && assumed.RemovedBuilding(id);
+                bool blocks = !gone && ((blds[id].m_flags & Building.Flags.Untouchable) != 0
+                    || (ImportantBuilding != null && (bool)ImportantBuilding.Invoke(null, new object[] { info, (ushort)id })));
+                blocking |= blocks;
                 var p = blds[id].m_position;
                 sb.Append(n++ == 0 ? "" : ",").Append("{\"id\":").Append(id).Append(",\"prefab\":").Append(Json.Str(info.name))
                   .Append(",\"x\":").Append(Mathf.RoundToInt(p.x)).Append(",\"z\":").Append(Mathf.RoundToInt(p.z))
-                  .Append(",\"blocks\":").Append(blocks ? "true" : "false").Append('}');
+                  .Append(",\"blocks\":").Append(blocks ? "true" : "false").Append(gone ? ",\"assumedRemoved\":true" : "").Append('}');
             }
 
             return sb.Append("]}").ToString();
@@ -430,6 +461,70 @@ namespace AIMayor
             float v;
             string s = req.QueryString[key];
             return s != null && float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out v) ? v : fallback;
+        }
+    }
+
+    // 試し(test=true)で「壊したものとして」扱う区間と建物(#105)。
+    // 壊してから建てる工事は、2つめの操作を今の街では試せない。壊す相手をここに入れると、その相手とのぶつかりを除いて判定する。
+    // 壊した区間の両端の点は残るものとし、建物に付いた線(建物の一部の区間)は、その建物を壊したものとして除く。
+    // ゲームの判定そのものは変えない。本番では、先に壊す操作(取り壊しの議決が要る)をしてから建てる
+    internal sealed class Assumed
+    {
+        public readonly HashSet<int> Segments = new HashSet<int>();
+        public readonly HashSet<int> Buildings = new HashSet<int>();
+
+        public bool Any
+        {
+            get { return Segments.Count > 0 || Buildings.Count > 0; }
+        }
+
+        public bool Removed(int segment, NetSegment s)
+        {
+            if (Segments.Contains(segment))
+            {
+                return true;
+            }
+
+            // 建物の一部の区間は、その建物を壊せば消える
+            if ((s.m_flags & NetSegment.Flags.Untouchable) != 0 && Buildings.Count > 0)
+            {
+                var nodes = NetManager.instance.m_nodes.m_buffer;
+                ushort b1 = NetNode.FindOwnerBuilding(s.m_startNode, 32f);
+                ushort b2 = NetNode.FindOwnerBuilding(s.m_endNode, 32f);
+                return Buildings.Contains(b1) || Buildings.Contains(b2);
+            }
+
+            return false;
+        }
+
+        public bool RemovedBuilding(int building)
+        {
+            return Buildings.Contains(building);
+        }
+
+        public static Assumed Parse(HttpListenerRequest req)
+        {
+            var a = new Assumed();
+            Fill(a.Segments, req.QueryString["assumeRemovedSegments"]);
+            Fill(a.Buildings, req.QueryString["assumeRemovedBuildings"]);
+            return a;
+        }
+
+        private static void Fill(HashSet<int> set, string csv)
+        {
+            if (string.IsNullOrEmpty(csv))
+            {
+                return;
+            }
+
+            foreach (var part in csv.Split(','))
+            {
+                int v;
+                if (int.TryParse(part.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out v) && v > 0)
+                {
+                    set.Add(v);
+                }
+            }
         }
     }
 }

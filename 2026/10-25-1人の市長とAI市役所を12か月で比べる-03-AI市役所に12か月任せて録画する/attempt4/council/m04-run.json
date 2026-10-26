@@ -1,0 +1,314 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-01",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1084519,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の空き地にBoulder17個と西の通りに駐車場の飾り1棟を置く試し",
+      "buildCost": 2700,
+      "upkeepPerWeek": 16,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "空き家と空いた働き口があるのに住宅の需要24のまま人口が増えないのは、大学卒の失業が空きの働き口の学歴と合わないためか",
+        "plan": "demand_breakdown()、citizens_summary()、building_stats() を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "交差点(1880,60)に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755を10日間止めて動かし直す試し(2回目)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "28755 の止まった車の先頭(3441,-1555)は、列車の荷が増え続けるせいで動かないのか。",
+        "plan": "vehicles_stuck(kind=\"train\", limit=20)、cargo()。見回り1、見回り2、月末"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "放棄125棟の片付けは30日で42棟が戻り、品物がない店も149に増えて効かなかった。放棄の建物は電気・水・下水が来ていて、印は品物と原料の不足。輸入の荷物の車が道の上と貨物駅28755で止まる影響が疑われるが確証がない。IndustrySpaceなどの政策も輸送の詰まりに効かない。原因を調査で絞る。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "品物がない店が放棄に至るのは、輸入の荷物の車が道の上で詰まって店に届かないためか。",
+        "plan": "cargo()、traffic(x=3440,z=-250,radius=300,limit=10)、vehicles_stuck(kind=truck,limit=30)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "ごみの hotspot の西(1655,-600)に埋立地を1棟置く",
+      "buildCost": 4000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268が子ども10,767、高校24,360が10代22,340を上回り目標を満たす。大学卒の失業は働き口の不足が原因で学校増設は効かない。EducationBoost解除(週7,940節約)は定員への影響が測れず、高校の余裕約8%を割る恐れがあるため見送り。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "消防の予算を150%から140%へ戻す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,700、週の維持費16で、枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の試しは建設費0、維持費も小さく枠5,000に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "貨物駅の停止と再開は建設費0、維持費の増え分0で戻せる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地1棟は建設費4,000、週の維持費160で枠に収まる。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "消防予算の150から140は変更幅-10で上限内、費用は減る。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1084519
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "health",
+        "title": "ごみの hotspot の西 (1655,-600) に埋立地を1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "port",
+        "title": "貨物駅28755 を10日止めて動かし直す(2回目の試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1",
+          "6-4、7-1"
+        ]
+      },
+      {
+        "id": "m04-3",
+        "fromBureau": "roads",
+        "title": "交差点 (1880,60) に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "18点の試しは通るが、枠3件を重点・試し・実績のある手に当てた。局も棟数だけで暮らしは変わらないと書くため、地価や幸福度の見込みか、本物の公園の敷地を添えて出し直してほしい"
+      },
+      {
+        "bureau": "fire",
+        "reason": "試しの場所が街全体で同じ月のほかの3件と重なるため、測る範囲を火事の印の周りに絞った形で出し直してほしい"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s04-1",
+        "fromBureau": "urban",
+        "question": "空き家と空いた働き口があるのに住宅の需要24のまま人口が増えないのは、大学卒の失業が空きの働き口の学歴と合わないためか"
+      },
+      {
+        "id": "s04-2",
+        "fromBureau": "port",
+        "question": "28755 の止まった車の先頭 (3441,-1555) は、列車の荷が増え続けるせいで動かないのか"
+      },
+      {
+        "id": "s04-3",
+        "fromBureau": "economy",
+        "question": "品物がない店が放棄に至るのは、輸入の荷物の車が道の上で詰まって店に届かないためか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m04-1",
+    "m04-2",
+    "m04-3"
+  ],
+  "surveys": [
+    {
+      "id": "s04-1",
+      "fromBureau": "urban",
+      "question": "空き家と空いた働き口があるのに住宅の需要24のまま人口が増えないのは、大学卒の失業が空きの働き口の学歴と合わないためか"
+    },
+    {
+      "id": "s04-2",
+      "fromBureau": "port",
+      "question": "28755 の止まった車の先頭 (3441,-1555) は、列車の荷が増え続けるせいで動かないのか"
+    },
+    {
+      "id": "s04-3",
+      "fromBureau": "economy",
+      "question": "品物がない店が放棄に至るのは、輸入の荷物の車が道の上で詰まって店に届かないためか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2",
+      "m04-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-11",
+        "population": 178227,
+        "money": 2176822,
+        "weeklyBalance": 8287,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-21",
+        "population": 178275,
+        "money": 2186766,
+        "weeklyBalance": 6632,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s04-1",
+      "s04-2",
+      "s04-3"
+    ],
+    "report": "4か月目は施策3件を議案どおりに打てた。予備候補は使っていない。\n- m04-1: 埋立地26899 を (1655,-600) に置いた。建設費4,000、入口は segment 11011。月末のごみの印は予想の12以下に反して 18 → 29 に増えた。26899 は収集車19/19が出ているが、たまりは0%。置き場の周りは汚染の印0・地価49で、基準と変わらない。\n- m04-2: 28755 を04-01に止め、見回り1で測った直後に動かし直した。敷地の中の止まりは 295 → 243 → 199 → 249(28755 は 294 → 215)。品物がない店は 149 → 180 に増えたが、止めている間は165で中止の線222の内だった。\n- m04-3: (1880,60) に信号を付けた。blocked は 135 → 180 → 168 → 76 で、見回り1では一時悪化した。外す時期は議案に決まっておらず、見回りでは施策を打たないため外していない。\n見回りは2回とも境目に当たらず、臨時なし、ダイアログなし。月末は人口178,189(月例比 -205)、週 +5,929、来ない市民 0/0/0。調査3件は見回りと月末に呼び、council/m04-survey-urban.md・port.md・economy.md に書いた。hooks に止められた手はない。型からの外れとして、議案の確かめの道具(読むだけ)を見回りでも呼んだ。ログは command-log.txt に写した。記録は mayor-note.md にある。"
+  }
+}

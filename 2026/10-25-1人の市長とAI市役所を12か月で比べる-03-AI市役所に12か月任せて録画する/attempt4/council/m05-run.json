@@ -1,0 +1,326 @@
+{
+  "month": 5,
+  "seen": {
+    "gameDate": "2050-05-01",
+    "saveName": "fukuoka-plan-m05",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 3000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の空き地にBoulder17個と西の通りに駐車場の飾り1棟を置く試し",
+      "buildCost": 2700,
+      "upkeepPerWeek": 16,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東部(3162,-300)と(3145,-390)の信号なし交差点に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "(2498,-946)周辺の列は、西の信号(2236,-950)の先で細くなる Basic Road 区間のせいで伸びているか",
+        "plan": "traffic(x=2498,z=-946,radius=300)と traffic(x=2236,z=-950,radius=100)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ない大きなバス路線8本の台数の割合を20ポイント下げる(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": -800,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地の中の止まった車は、再開後も249まで戻るか。どの荷が止まるか",
+        "plan": "cargo()、vehicles_stuck(kind=truck, building=28755, limit=60)、vehicles_stuck(kind=train, limit=20)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の斜めの通り沿いの空きマスを事務所の区画にする(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "ごみの hotspot の近く(-610,-1915)に埋立地を1棟置く",
+      "buildCost": 4000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "埋立地26899 の収集車19台は、なぜ出ているのに 0% のままか",
+        "plan": "vehicles_stuck(kind=garbage, building=26899, limit=20)、buildings_near(x=1655,z=-600,radius=100,service=Garbage)、traffic(x=1655,z=-600,radius=300) を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,825以上、高校24,360は10代22,205以上で、2-3の目標を満たす。失業の98%は大学卒で、学校を増やしても効かない。新設や予算変更は維持費が増えるだけ。EducationBoost(有効、週7,940)の解除も効果が実測できず見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "消防の予算を150%から140%へ戻す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": -450,
+      "reversible": true,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,700、維持費+16で枠に収まる"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号は建設費0で、維持費は小さく枠3,000に収まる"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0、予算-20は上限内で維持費は減る見込み"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "区画指定は建設費0、維持費の増え0で枠に収まる"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地の建設費4,000、維持費160で枠に収まる"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "予算-10は上限内で建設費0、維持費は減る見込み"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m05-1",
+        "fromBureau": "economy",
+        "title": "東の斜めの通り沿いの空きマスを事務所の区画にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m05-2",
+        "fromBureau": "health",
+        "title": "ごみの hotspot の南西 (-610,-1915) に埋立地を1棟置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m05-3",
+        "fromBureau": "urban",
+        "title": "東の空き地に Boulder 17個と駐車場の飾り1棟を置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "roads",
+        "reason": "実行の条件はそろうが、基準の blocked が14と小さく効きが測りにくいため。blocked の多い交差点を選ぶか、混み具合100の区間が減る根拠を添えてほしい"
+      },
+      {
+        "bureau": "port",
+        "reason": "公共交通を減らす向きで乗客が車へ移る恐れがあり、測る数が街全体の流れでほかの施策と分けられないため。路線の範囲の traffic で測る形と、車へ移らない根拠を添えてほしい"
+      },
+      {
+        "bureau": "fire",
+        "reason": "測る範囲の絞りは直り条件もそろうが、火事と犯罪の印は合計3で目標の内にあり、週約450の減りも今月は急がないため"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s05-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755 の敷地の中の止まった車は、4月の再開後も 249 まで戻るか。どの荷が止まるか"
+      },
+      {
+        "id": "s05-2",
+        "fromBureau": "health",
+        "question": "埋立地26899 の収集車19台は、なぜ出ているのに 0% のままか"
+      },
+      {
+        "id": "s05-3",
+        "fromBureau": "roads",
+        "question": "(2498,-946) 周辺の列は、西の信号(2236,-950)の先で細くなる区間(Basic Road、2280〜2160)のせいで伸びているか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m05-1",
+    "m05-2",
+    "m05-3"
+  ],
+  "surveys": [
+    {
+      "id": "s05-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755 の敷地の中の止まった車は、4月の再開後も 249 まで戻るか。どの荷が止まるか"
+    },
+    {
+      "id": "s05-2",
+      "fromBureau": "health",
+      "question": "埋立地26899 の収集車19台は、なぜ出ているのに 0% のままか"
+    },
+    {
+      "id": "s05-3",
+      "fromBureau": "roads",
+      "question": "(2498,-946) 周辺の列は、西の信号(2236,-950)の先で細くなる区間(Basic Road、2280〜2160)のせいで伸びているか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m05-1",
+      "m05-2",
+      "m05-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-05-11",
+        "population": 178087,
+        "money": 2196485,
+        "weeklyBalance": 5588,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-05-21",
+        "population": 178038,
+        "money": 2204170,
+        "weeklyBalance": 5728,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s05-1",
+      "s05-2",
+      "s05-3"
+    ],
+    "report": "今月の3件は、議案の引数のまま打てました。建設費は合計6,700です。\n\n- m05-1(事務所の区画): 64マスを事務所にしました。Office の空きは 66 → 10 に減りました。事務所は 3,981 → 3,985棟、働き口は 53,240 → 53,313 です\n- m05-2(埋立地): id 14083 を置きました。月末は2%で、収集車は 19 / 19 が出ています。周り300mの汚染の印が 1 → 6 に増えました\n- m05-3(飾り18棟): Beautification は 83 → 101 になり、目標の100に届きました\n\n見回り2回は、どちらも境目に当たりませんでした。臨時はなく、ダイアログも出ていません。調査3件は、見回り1・2と月末に決められた引数で呼び、council/m05-survey-port.md、m05-survey-health.md、m05-survey-roads.md に書きました。\n\n月末の様子は次のとおりです。\n\n- 人口: 177,783(月例の 178,189 から -406)\n- 週の収支: +5,427\n- 来ない市民: 0/0/0\n- 駅の敷地の中で止まった車: 249 → 307 に戻り、目標の250を超えました\n- 品物がない店: 215\n\nhooks に止められた手はありません。型から外れた点は1つです。議案が確かめの時期を決めていたため、見回り2と月末に読むだけの道具を呼びました。zones_at、building_stats、汚染の建物を数える buildings_near、land_value です。汚染の印の増えへの手当ては、議決が要る取り壊しにあたるため、次の月例に回しました。"
+  }
+}

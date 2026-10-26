@@ -1,0 +1,299 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1053771,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "西の通り沿いの空き地2か所に駐車場の飾り(Beautification)を置く試し",
+      "buildCost": 2000,
+      "upkeepPerWeek": 32,
+      "reversible": true,
+      "planItems": [
+        "4-2",
+        "4-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "交差点(2110,330)に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅の出口の東西路2区間を4車線にする試し",
+      "buildCost": 750,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "8-1",
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755 の敷地の中で549台が同じ位置 (3441,-1555) で動かないのは、出口の道の詰まりか、駅の中の車線の問題か",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30)、traffic(x=3449, z=-1555, radius=120)、cargo() を 見回り1・見回り2・月末"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、政策 IndustrySpace(週4,858)、西の工業区画の追加、道路の差し替えの3つ。品物がない店229棟は西(-1085,-799)に73棟集まる。原因が渋滞か遠さか確証がなく、区画の空きも未確認で、維持費の枠5,000もほぼ尽きる。そのため施策は出さず、原因を確かめる調査を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "西の商業地(-1085,-799)で品物がない店が73棟に集まるのは、道の渋滞で配送が届かないからか。",
+        "plan": "cargo(引数なし)、buildings_near(x=-1085,z=-799,radius=300,problem=NoGoods,brief=true,limit=50)、traffic(x=-1085,z=-799,radius=400)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討: 葬祭施設の追加、診療所・病院、Recycling 政策、汚染対策。死体の印56の近くに火葬場3棟があり、容量にも余裕がある。霊柩車が遠い家へ回され渋滞に捕まる可能性があり、原因を確かめていないため、施設を足しても効くと言えない。調査で原因を切り分けてから案を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "火葬場が近くにあるのに死体の印が出るのは、霊柩車が遠い家へ回され渋滞に捕まるためか",
+        "plan": "buildings_near(x=2224,z=60,radius=400,service=HealthCare)、vehicles_stuck(kind=hearse,building=31990,limit=10)、vehicles_stuck(kind=hearse,building=36841,limit=10)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校定員14,268は子ども11,035以上、高校24,360は10代22,353以上で目標を満たす。学校の新設や予算変更は維持費が増えるだけで、効く問題がない。EducationBoostも有効で週7,940。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "候補は SmokeDetectors(週57,759で枠5,000超)、Fire House 追加((3070,-50) は Expensive Plaza と衝突し他に敷地なし)、予算を下げる案(犯罪減の理由が未確認)。火事の印の建物が入れ替わり原因が確証できないため、調査を出す。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "火事の印の建物は、消防の届き具合が低い場所にあるのか、それとも建物ごとに入れ替わるだけなのか。",
+        "plan": "complaints、buildings_near(x=3212,z=-498,radius=600,problem=Fire)、map_layer(type=fire,x=3212,z=-498,radius=600,n=9)を見回り1・見回り2・月末に見る"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,000、週の維持費32で、要領の枠に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号は建設費0で、維持費も小さく枠に収まる見込み。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "差し替えは約750、維持費の増えはほぼ0で枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1053771
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "port",
+        "title": "貨物駅28755 の出口の東西路を Small 4 Lane Road に差し替える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1",
+          "6-3"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "roads",
+        "title": "交差点 (2110,330) に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "urban",
+        "title": "高密度住宅街の空き地2か所に駐車場の飾りを置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2",
+          "4-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "economy",
+        "reason": "調査の枠3件を分からないことの一覧の3項目(port・health・fire)に当てたため採らない。西の店の品物不足は s02-1 の cargo() の shortages で読めるので m02-survey-port.md を見ること。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755 の敷地の中で549台が同じ位置 (3441,-1555) で動かないのは、出口の道が詰まっているからか、駅の中の車線の作りの問題か"
+      },
+      {
+        "id": "s02-2",
+        "fromBureau": "health",
+        "question": "火葬場が近くにあるのに死体の印が出るのは、霊柩車が遠い家へ回されて渋滞に捕まるためか"
+      },
+      {
+        "id": "s02-3",
+        "fromBureau": "fire",
+        "question": "火事の印の建物は、消防の届き具合が低い場所にあるのか、それとも建物ごとに入れ替わるだけなのか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m02-1",
+    "m02-2",
+    "m02-3"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755 の敷地の中で549台が同じ位置 (3441,-1555) で動かないのは、出口の道が詰まっているからか、駅の中の車線の作りの問題か"
+    },
+    {
+      "id": "s02-2",
+      "fromBureau": "health",
+      "question": "火葬場が近くにあるのに死体の印が出るのは、霊柩車が遠い家へ回されて渋滞に捕まるためか"
+    },
+    {
+      "id": "s02-3",
+      "fromBureau": "fire",
+      "question": "火事の印の建物は、消防の届き具合が低い場所にあるのか、それとも建物ごとに入れ替わるだけなのか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-1",
+      "m02-2",
+      "m02-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-02-10",
+        "population": 178552,
+        "money": 2114801,
+        "weeklyBalance": 6505,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-20",
+        "population": 178418,
+        "money": 2124457,
+        "weeklyBalance": 6937,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1",
+      "s02-2",
+      "s02-3"
+    ],
+    "report": "3件とも議案の引数のまま実行した。予備候補は使っていない。\n- m02-1: 道路の差し替えは upgraded 2、cost 0。新しい区間は 11398・15487 になった。月末の密度は 100→27 と 80→54。西隣の 12917 は 61→95 に上がった。貨物駅28755 の敷地の中の止まったトラックは 568→575 で変わらない。\n- m02-2: (2110,330) に信号を付けた。traffic(2101,302,150) の blocked は 92→7(見回り2)→15(月末)。\n- m02-3: 駐車場の飾りを2棟置いた(id 26674、6762)。建設費は2,000。\n\n見回り2回(02-10、02-20)は、どちらも境目に当たらなかった。臨時なし、ダイアログなし、hooks の拒否なし。\n調査3件は見回り1・2と月末(03-02)に呼び、council/m02-survey-*.md に書いた。\n\n調査の complaints で、ごみの印が 10→28 に増えた。死体の印は 56→66。次の月例に回した。\n型からの外れ: 議案が期限に指定していたため、施策の確かめの traffic を見回り2と月末にも呼んだ。読むだけの道具で、施策は打っていない。\nノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md"
+  }
+}

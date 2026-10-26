@@ -11,7 +11,8 @@ OBS の WebSocket サーバー(ツール > WebSocket サーバー設定)を使�
   uv run --with obsws-python python code/ai-mayor/tools/obs_record.py resume
 
 start は、録画の置き場所を渡したフォルダにしてから始める。stop は、できたファイルのパスを返す。
-pause と resume は、月と月の間の待ち時間を録画に入れないために使う(ファイルは1本のまま)。
+pause と resume は、月と月の間の待ち時間を録画に入れないために足した。ただし今の設定(簡易モードで、録画を配信と同じ設定で書く)では
+OBS が一時停止を受け付けない(pause は ok を返すが止まらない)。月ごとに stop と start で別のファイルにする。
 設定(2026-10-25 に入れた): ゲームの窓だけ(macOS 画面キャプチャのウィンドウ)、横1920・毎秒30コマ、6000kbps、断片化 MP4。
 """
 import json

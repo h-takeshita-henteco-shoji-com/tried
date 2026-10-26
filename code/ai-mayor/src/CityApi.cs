@@ -1016,6 +1016,7 @@ namespace AIMayor
             bool pay = req.QueryString["pay"] != "false";
             // test=true なら、置けるかを確かめて、置かずに返す(#105。局と市長が、建てる前に試す。ゲームの道具の、置く前の赤い表示に当たる)
             bool test = req.QueryString["test"] == "true";
+            var assumed = test ? Assumed.Parse(req) : null;
             // 人が置く骨格(pay=false)は、解禁を問わない
             if (pay && IsLocked(info))
             {
@@ -1069,11 +1070,19 @@ namespace AIMayor
                 var bldBuf = new ulong[(BuildingManager.instance.m_buildings.m_buffer.Length + 63) >> 6];
                 var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
                     info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
+                bool blocking;
+                string coll = UpgradeApi.CollidingJson(segBuf, bldBuf, assumed, out blocking);
+                // 試しで、断る相手がすべて「壊したもの」なら、ぶつからないとみなす(#105。壊してから建てる工事を試す)
+                if (assumed != null && assumed.Any && !blocking)
+                {
+                    spaceErrors &= ~ToolBase.ToolErrors.ObjectCollision;
+                }
+
                 if ((posErrors | spaceErrors) != ToolBase.ToolErrors.None)
                 {
                     return "{\"ok\":false,\"error\":\"cannot place here\",\"reasons\":" + Json.Str((posErrors | spaceErrors).ToString())
                         + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
-                        + ",\"colliding\":" + UpgradeApi.CollidingJson(segBuf, bldBuf) + "}";
+                        + ",\"colliding\":" + coll + "}";
                 }
 
                 // 本番: ゲームの道具と同じく、取り除ける相手(区画の建物など)を取り除いてから置く
@@ -1081,7 +1090,7 @@ namespace AIMayor
                 foreach (int b in UpgradeApi.Bits(bldBuf))
                 {
                     var bi = BuildingManager.instance.m_buildings.m_buffer[b].Info;
-                    if (bi != null && !bi.IgnoreBuildingCollision())
+                    if (bi != null && !bi.IgnoreBuildingCollision() && !(assumed != null && assumed.RemovedBuilding(b)))
                     {
                         overlapped.Add((ushort)b);
                     }

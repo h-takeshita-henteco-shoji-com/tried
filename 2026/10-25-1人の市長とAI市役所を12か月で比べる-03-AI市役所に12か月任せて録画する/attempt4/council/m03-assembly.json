@@ -1,0 +1,7 @@
+{
+  "month": 3,
+  "rulings": [
+    {"measureId": "m03-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは125棟・働き口0・家0・停電0・駅や水の施設0と数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べもあり、計画の目標を壊すものを含まない。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}
