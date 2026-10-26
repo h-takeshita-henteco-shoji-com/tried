@@ -1,0 +1,86 @@
+[
+ {
+  "run": "base",
+  "file": "/Users/takeshita/ai-mayor-recordings/base/2026-10-25 17-59-06.mp4",
+  "real_start": "2026-10-25 17:59:06",
+  "duration": 3400.28
+ },
+ {
+  "run": "base",
+  "file": "/Users/takeshita/ai-mayor-recordings/base/2026-10-25 19-07-19.mp4",
+  "real_start": "2026-10-25 19:07:19",
+  "duration": 3535.23
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 13-32-37.mp4",
+  "real_start": "2026-10-26 13:32:37",
+  "duration": 821.57
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 13-55-44.mp4",
+  "real_start": "2026-10-26 13:55:44",
+  "duration": 1039.2
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 14-14-35.mp4",
+  "real_start": "2026-10-26 14:14:35",
+  "duration": 972.89
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 14-41-59.mp4",
+  "real_start": "2026-10-26 14:41:59",
+  "duration": 1043.9
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 14-59-59.mp4",
+  "real_start": "2026-10-26 14:59:59",
+  "duration": 1194.58
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 15-20-32.mp4",
+  "real_start": "2026-10-26 15:20:32",
+  "duration": 1290.03
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 15-43-21.mp4",
+  "real_start": "2026-10-26 15:43:21",
+  "duration": 1192.83
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 16-10-12.mp4",
+  "real_start": "2026-10-26 16:10:12",
+  "duration": 972.89
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 16-26-34.mp4",
+  "real_start": "2026-10-26 16:26:34",
+  "duration": 1225.27
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 16-47-06.mp4",
+  "real_start": "2026-10-26 16:47:06",
+  "duration": 1177.34
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 17-06-51.mp4",
+  "real_start": "2026-10-26 17:06:51",
+  "duration": 1098.75
+ },
+ {
+  "run": "council",
+  "file": "/Users/takeshita/ai-mayor-recordings/council/2026-10-26 17-25-18.mp4",
+  "real_start": "2026-10-26 17:25:18",
+  "duration": 1021.23
+ }
+]
