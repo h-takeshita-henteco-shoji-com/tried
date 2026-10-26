@@ -1,0 +1,7 @@
+{
+  "month": 12,
+  "rulings": [
+    {"measureId": "m12-3", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは働き口0・家0・停電0・駅や水の施設0で、議会の preview_bulldoze でも一致した。m09-2 で1か月で戻った結果を受け、戻りを見込んだ予想と代わりの手との比べが書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

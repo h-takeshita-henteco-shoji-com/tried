@@ -1,0 +1,7 @@
+{
+  "month": 11,
+  "rulings": [
+    {"measureId": "m11-2", "verdict": "可決", "kind": "予算", "point": null, "reason": "m10-3 の下げで blocked が増えた外れを受け、続けずに戻す案で理由がある。財政と交通への響きが書かれ、6-3 に沿い、戻せる。"}
+  ],
+  "approvedKinds": ["予算"]
+}

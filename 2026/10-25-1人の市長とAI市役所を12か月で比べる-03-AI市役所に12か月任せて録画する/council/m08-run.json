@@ -1,0 +1,296 @@
+{
+  "month": 8,
+  "seen": {
+    "gameDate": "2050-07-30",
+    "saveName": "fukuoka-plan-m08",
+    "priorities": [
+      "4-4 資源循環",
+      "4-3 脱炭素社会",
+      "6-4、7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 170000,
+    "upkeepCap": 3000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(JapaneseGarden)を東の (2688,45) に1棟置く",
+      "buildCost": 2500,
+      "upkeepPerWeek": 40,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の3差路 (2110,330) に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "バスの予算を150%から130%に下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": -2900,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "止めたままの貨物駅28755を取り壊し、動かない荷物トラックを消す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南西の住宅西端 (-2660,-2165) に埋立地を1棟置く(試し)",
+      "buildCost": 4000,
+      "upkeepPerWeek": 160,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校 14,268 は子ども 10,720 以上、高校 24,360 は10代 21,773 以上で、目標を満たしている。EducationBoost を外す案(週7,940の節約)と教育予算を下げる案は、定員が高校で約1割しか余らず、効果を読む道具で確認できないため見送った。学校の新設は効く問題がない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事2・犯罪0で目標(合計4以下)を満たす。火事の2棟は稼働中の住宅で取り壊す理由がなく、SmokeDetectors は週58,051で枠3,000を超える。警察の容量にも余裕がある。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,500・週の維持費40で、枠(170,000・3,000)に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の設定で建設費0・維持費の増え0の見込み、枠に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス予算の下げ幅20は上限内で、建設費0、維持費は減る側。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "取り壊しは建設費0・維持費の増え0で、枠に収まり pay=false の前提もない。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地の建設費4,000・週の維持費160で、枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 170000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m08-1",
+        "fromBureau": "health",
+        "title": "南西の住宅の西端に埋立地を1棟置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m08-2",
+        "fromBureau": "economy",
+        "title": "止めたままの貨物駅28755を取り壊す(試し)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m08-3",
+        "fromBureau": "port",
+        "title": "バスの予算を150%から130%に下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "urban",
+        "reason": "実行条件は確認済みだが、上限3件の中で重点の2つの試しと公約3を守るバスの予算を先にした。来月同じ確認で出し直せ、電気と水の届き具合も道具で確かめて書くとなおよい。"
+      },
+      {
+        "bureau": "roads",
+        "reason": "実行条件は確認済みだが、上限3件の中で後にし、m08-3 でバスの台数が街全体で変わるため円 (2108,313) の blocked の変化を信号の効き目と分けにくい。来月同じ確認で出し直せる。"
+      }
+    ],
+    "surveys": []
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m08-2",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは建物1棟で働き口・家・停電・道路が0と書かれ、議会の preview_bulldoze でも一致した。止めたまま・動かし直す手と比べ、m07-1 から手を替える理由もある。"
+      },
+      {
+        "measureId": "m08-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "交通の流れ、幸福度、運賃収入、混む路線への響きが書かれている。バス全体の予算は新しい試しで、150に戻せる。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m08-1",
+    "m08-2",
+    "m08-3"
+  ],
+  "surveys": [],
+  "done": {
+    "executed": [
+      "m08-1",
+      "m08-2",
+      "m08-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-08-09",
+        "population": 177915,
+        "money": 2258491,
+        "weeklyBalance": 7575,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-08-19",
+        "population": 177797,
+        "money": 2268922,
+        "weeklyBalance": 7244,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [],
+    "report": "8か月目(2050-07-30〜08-29)は、施策を3件とも議案の引数どおりに打てた。予備候補は使っていない。\n\n施策の結果\n- m08-1: 南西の (-2660,-2165) に埋立地 14223 を置いた。費用は4,000。置く前の試しは ok で、入口の道路 34753 までの距離は0、取り壊しは0だった。置いた直後は車 0/19、印なし。基準は、南西の円のごみの印14、街全体のごみの印38。\n- m08-2: 実行前に取り壊しの理由を市政ノートに書いた。そのうえで、止めていた貨物駅 28755 を取り壊した(建物1棟、道路0、費用0)。\n  - 28755 に関わる止まった車は 327 → 0 になり、月末まで0のままだった。\n  - 駅・港の中で止まったトラックは 237 → 15 → 3 → 28。\n  - 止まった品物のトラックは 490 → 259 → 185 → 238。\n  - 品物がない店は 120 → 151 に増えた。原料がない工場は 35 → 32 とほぼ変わらない。\n  - 隣の 13893 など、ほかの貨物駅には車が1台も来なかった。\n- m08-3: バスの予算を昼夜とも150%から130%に下げた。実行前の基準は次のとおり。\n  - バスの週の支出22,089、収入5,121\n  - 80路線の台数の合計1,920\n  - 交通の流れ53%、走っている車7,732\n\n見回り\n- 2回とも境目に当たらず、臨時はしなかった。\n- 人口は 177,883 → 177,915 → 177,797 → 177,850(月末)。\n- 週の収支は +6,369 → +7,575 → +7,244 → +8,986。\n- 幸福度は85のまま。電気・水・下水が来ない市民は 0/0/0 を保った。\n- ダイアログは出ていない。\n\nそのほか\n- hooks に止められた手はない。型から外れた点もない。\n- 品物がない店が151に増えた件は、次の月例で局に渡す。\n- この段では保存していない。\n\nファイル\n- 市政ノート: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md\n- コマンドログ: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/command-log.txt\n- 画面写真: /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/assets/m08-landfill-southwest.jpg"
+  }
+}

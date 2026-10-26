@@ -1,0 +1,318 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "4-4 資源循環",
+      "1-2 健やかで心豊かに暮らせる社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(Regular Playground)を2棟置く",
+      "buildCost": 2500,
+      "upkeepPerWeek": 48,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "z=-950の幹線で4車線が2車線に絞られる3区間(3334、36011、19196)を見つけた。だが upgrade_road の試しは9mの36011とのObjectCollisionで断られ、作り直しもTooShortで断られた。実行条件が確認できないため案なしとし、同地点を調査で追う。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "(2237,-936)付近の詰まりは、4車線が2車線に絞られる3区間で起きているか",
+        "plan": "traffic(x=2237,z=-936,radius=150,limit=8)、traffic(引数なし,limit=10)、junction_info(x=2236,z=-950)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "乗客の少ないバス4路線の台数の割合を20ポイント下げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の出口の道は道路につながっているか。先頭の車が(3441,-1555)で30日動かない理由を絞る。",
+        "plan": "net_near(3417,-1557,r40,Road)、junction_info(3417,-1555)、vehicles_stuck(truck,building=28755,limit=15)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、事務所の税を下げる手(税収が約16,000減り黒字 +8,240 を超える)、工業の区画を足す手(対象マスの条件を試しの道具で確認できない)、SmallBusiness(効く根拠が弱い)、IndustrySpace を外す手(m01-1 の試しの途中)。実行条件を満たす案がないため、事務所の空きマス1,642が建たない理由を調べる調査を出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "空きの事務所マス1,642が建たないのに、大卒の失業7,234が残るのはなぜか",
+        "plan": "demand_breakdown(引数なし)、new_buildings(since=92383)、zones_at(x=-1000, z=-1000, radius=700)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "ごみ焼却場を南西に1棟増やす(再提出)",
+      "buildCost": 30000,
+      "upkeepPerWeek": 1440,
+      "reversible": true,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校14,268は子ども11,062以上、高校24,360は10代22,413以上で、2-3の目標を満たしている。有効な手がない。学校の新設は維持費が増えるだけで、教育予算の引き下げとEducationBoostの解除は高校の余裕(約1,950)を割る恐れがある。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "燃え尽きて火事の印が消えない建物3棟を取り壊す",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "3-4"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費2,500、維持費48で枠内。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0、維持費は減る見込みで、変更幅20ポイントは枠内。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費30,000、維持費1,440で枠内。"
+      },
+      {
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "取り壊しで費用0、維持費の増えなし、pay=falseの建設ではない。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "health",
+        "title": "ごみ焼却場を南西(-360,-1925)に1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "fire",
+        "title": "燃え尽きた建物3棟(2002、5804、10363)を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "urban",
+        "title": "公園(Regular Playground)を東に2棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "バス4路線の台数を下げる案は実行条件はそろっていたが、減る約25台は街の車の約0.3%で、節約も週200前後と3件の中で効き目が最も小さいため落とした。出し直すなら、4路線が詰まる場所を通るかと節約の見積もりを添え、line 199 の乗客の食い違い(40と前期2)をどちらで判断したか書いてほしい"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の出口の道は本当に道路につながっているか。先頭の車が(3441,-1555)で30日動かない理由を絞る"
+      },
+      {
+        "id": "s02-2",
+        "fromBureau": "roads",
+        "question": "(2237,-936)付近の詰まりは、4車線が2車線に絞られる3区間(3334、36011、19196)で起きているか"
+      },
+      {
+        "id": "s02-3",
+        "fromBureau": "economy",
+        "question": "空きの事務所マス1,642が建たないのに大卒の失業7,234が残るのはなぜか(需要か、立地か、建築の上限か)"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-2",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(働き口0、家3で住民0、生徒0の小学校1棟、停電0)が数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べと教育の定員への響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m02-1",
+    "m02-3",
+    "m02-2"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の出口の道は本当に道路につながっているか。先頭の車が(3441,-1555)で30日動かない理由を絞る"
+    },
+    {
+      "id": "s02-2",
+      "fromBureau": "roads",
+      "question": "(2237,-936)付近の詰まりは、4車線が2車線に絞られる3区間(3334、36011、19196)で起きているか"
+    },
+    {
+      "id": "s02-3",
+      "fromBureau": "economy",
+      "question": "空きの事務所マス1,642が建たないのに大卒の失業7,234が残るのはなぜか(需要か、立地か、建築の上限か)"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-1",
+      "m02-2"
+    ],
+    "failed": [
+      "m02-3"
+    ],
+    "failedReasons": [
+      {
+        "id": "m02-3",
+        "reason": "見送った(道具には断られていない)。m02-1 で建設費30,000を払った後、city_info の所持金は 2,081,044 になった。これは議案の中止の条件(所持金が出発点 2,082,287 を下回れば見送る)に 1,243 届かず、当たった。予備候補はない。2棟とも place_building を呼んでいない。置く前の地価の基準は land_value(2672,-330,r100) の average 55"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-02-10",
+        "population": 178744,
+        "money": 2091835,
+        "weeklyBalance": 7465,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-20",
+        "population": 178636,
+        "money": 2103238,
+        "weeklyBalance": 8013,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1",
+      "s02-2",
+      "s02-3"
+    ],
+    "report": "2か月目(2050-01-31〜03-02)の結果です。施策は2件打てて、1件は議案の条件どおり見送りました。\n\n- m02-1(焼却場): ごみ焼却場 id 9282 を (-360,-1925) に南向きで置いた。費用は30,000。入口は区間17494につながり、取り壊しは0。水と下水は届いている。\n- m02-3(公園2棟): 置かなかった。m02-1 の支払いの後、所持金が 2,081,044 になった。議案の中止の線 2,082,287 を下回ったため見送った。予備候補はない。打つ順は呼び出しの順のままにした。\n- m02-2(取り壊し): 燃え尽きた3棟を取り壊した。2002 の店、5804 の小学校、10363 の住宅(住民0)。費用は0。壊す前に印・住民・対象の棟数を確かめ、理由をノートに書いた。取り壊しの直後、円の中の火事の印は 4→1 になった(残りは 21075)。\n\n見回りは2回とも境目に当たらなかった。\n- 週の収支は +7,465 と +8,013 で黒字。\n- 電気・水・下水が来ない市民は 0/0/0、ダイアログはなし。\n- 人口は 178,760 → 178,744 → 178,636 と少しずつ減っている。公約1(人口を毎月増やす)が今月も危ない。\n\n臨時は行わず、hooks に止められた手もない。\n\n調査の3件は、見回り1・見回り2・月末に呼び、council/m02-survey-port.md・-roads.md・-economy.md に書いた。\n- s02-1: 28755 の止まったトラックは 567→594。7日以上止まった車は 472 台で、60日動かない車がいる。\n- s02-2: 3区間のうち 19196 と 36011 は3回とも density 100。3334 は一度も出ていない。\n- s02-3: 1か月で事務所は1棟も建たなかった。demand_breakdown の戻り値に需要の項(residential・workplace)が入っていなかった。\n\n市政ノートは mayor-note.md を正とする。写真は assets/m02-combustion-plant.jpg と assets/m02-bulldoze-east.jpg。ログは command-log.txt に写した。"
+  }
+}

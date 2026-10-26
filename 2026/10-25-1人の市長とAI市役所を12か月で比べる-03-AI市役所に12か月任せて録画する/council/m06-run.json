@@ -1,0 +1,314 @@
+{
+  "month": 6,
+  "seen": {
+    "gameDate": "2050-05-31",
+    "saveName": "fukuoka-plan-m06",
+    "priorities": [
+      "6-4、7-1 企業の立地、地場企業",
+      "8-1 物流・人流のゲートウェイ",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 95000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "公園(JapaneseGarden)を東の (2688,-416) に1棟置く",
+      "buildCost": 2500,
+      "upkeepPerWeek": 40,
+      "reversible": true,
+      "planItems": [
+        "4-2"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "人口が減る月と増える月を分けるのは、空き家、大卒の失業、引っ越しの途中の人のどれか",
+        "plan": "demand_breakdown・citizens_summary・city_info(引数なし)を見回り1、見回り2、月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "南北の道 x=900 と x=700 の Basic Road 4区間を Small 4 Lane Road にする試し",
+      "buildCost": 1000,
+      "upkeepPerWeek": 8,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "貨物駅28755の出口と入口を Cargo Connection で Large Road まで延ばす試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "8-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "出口2本の延長の後、28755 の止まったトラックは減り始めたか、先頭の車は動いたか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=100)、cargo()、net_near(x=3410, z=-1557, radius=30) を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "放棄された店と工場など89棟を取り壊す(試し)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": false,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": true,
+      "voteKind": "取り壊し",
+      "survey": {
+        "exists": true,
+        "question": "原料がない工場の印は、貨物駅28755 の中で止まった原料の車の行き先と重なるか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=30) と cargo() を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "満杯の埋立地25590を空にする試し(汚染の印)",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "4-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は学校増設、大学増設、EducationBoost解除、教育予算の増減。小学校14,268は子ども10,597、高校24,360は10代22,124を上回り2-3の目標を満たす。失業の98%は大卒で大学席36,540は足りる。EducationBoost解除は定員への効きが未確認で高校の余り約10%を割るおそれがあるため見送った。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事と犯罪の印は0で目標(合わせて4以下)を満たす。警察は容量960に対し使用425で余裕がある。SmokeDetectors は週58,040で枠を超え、消防署・警察署の増設や予算変更も効かせる相手がないため、案なし。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "公園1棟は建設費2,500・維持費40で、枠(95,000/4,000)に収まる。"
+      },
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "道路の差し替えは建設費約1,000・維持費約8で、枠に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "Cargo Connection 2本は建設費0・維持費ほぼ0で、pay=true の前提のため枠に収まる。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "放棄建物の取り壊しは建設費0・維持費の増え0で、枠に収まる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地を空にする手は建設費0・維持費の増え0で、枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 95000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m06-1",
+        "fromBureau": "economy",
+        "title": "街全体の放棄建物89棟を取り壊す(試し)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m06-2",
+        "fromBureau": "roads",
+        "title": "x=900 と x=700 の突き当たりの道を Small 4 Lane Road に差し替える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m06-3",
+        "fromBureau": "urban",
+        "title": "東の (2688,-416) に公園(JapaneseGarden)を1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "port",
+        "reason": "Cargo Connection の新しい線が Large Road につながるかを局自身が「試しの道具で確かめられない」と書いており、道路との接続という必須条件が未確認のため(延長を採らないので、延長後を見る調査も採らなかった)。"
+      },
+      {
+        "bureau": "health",
+        "reason": "試しの円 (3900,-575) 半径250 の汚染の印4棟のうち 34720 が m06-1 の取り壊しの対象に入り、試しの場所が重なって埋立地の効き目と分けられないため。来月は 34720 を除いた3棟を基準に出し直せる。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s06-1",
+        "fromBureau": "urban",
+        "question": "人口が減る月と増える月を分けるのは、空き家(5,259)、大卒の失業(6,359)、引っ越しの途中の人のどれか"
+      },
+      {
+        "id": "s06-2",
+        "fromBureau": "economy",
+        "question": "原料がない工場の印は、貨物駅28755 の中で止まった原料の車(石炭・木材・石油)の行き先と重なるか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m06-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "議会の preview_bulldoze でも89棟、失う働き口0・家0、停電0、水の施設と駅なしで議案と一致した。放棄のまま待つ手と比べてあり、汚染の印が見かけで減る響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m06-2",
+    "m06-3",
+    "m06-1"
+  ],
+  "surveys": [
+    {
+      "id": "s06-1",
+      "fromBureau": "urban",
+      "question": "人口が減る月と増える月を分けるのは、空き家(5,259)、大卒の失業(6,359)、引っ越しの途中の人のどれか"
+    },
+    {
+      "id": "s06-2",
+      "fromBureau": "economy",
+      "question": "原料がない工場の印は、貨物駅28755 の中で止まった原料の車(石炭・木材・石油)の行き先と重なるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m06-2",
+      "m06-3",
+      "m06-1"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-06-10",
+        "population": 178106,
+        "money": 2189259,
+        "weeklyBalance": 9532,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-06-20",
+        "population": 177937,
+        "money": 2203677,
+        "weeklyBalance": 10199,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s06-1",
+      "s06-2"
+    ],
+    "report": "6か月目は、許された3件をすべて実行しました。3件とも、実行直前の確かめで中止の条件に当たりませんでした。\n\n- m06-2(道路の差し替え): x=900 の3区間と x=700 の1区間を Small 4 Lane Road に差し替えました。費用は0で、壊れた建物はありません。試しの基準の blocked は59と54です\n- m06-3(公園): JapaneseGarden(id 1869)を (2688,-416) に置きました。費用は2,500です。公園などは90から91に増えました\n- m06-1(取り壊し): 理由をノートに書いてから、放棄の建物89棟を1回で取り壊しました。費用は0です。区画の建物の放棄は0になり、送電柱4本だけが残っています\n\n調査の cargo で見た数は次のとおりです。\n- 品物がない店: 178 → 110(06-10) → 114(06-20) → 116(月末)\n- 原料がない工場: 43 → 31 → 32 → 38(見回り1より後に戻った)\n- 28755 の中で止まった車: 514 → 483\n\n見回りは2回とも境目に当たらず、臨時はしていません。\n\n月末(06-30)の数字は次のとおりです。\n- 人口 178,004(前の月例は178,138)\n- 週の収支 +10,203\n- 所持金 2,218,244\n- 幸福度 85\n- 電気・水・下水が来ない市民 0/0/0\n\nhooks に止められた手と、型から外れた点はありません。\n\n調査 s06-1・s06-2 の結果は council/m06-survey-urban.md と council/m06-survey-economy.md に書きました。記録は mayor-note.md と command-log.txt です。写真は assets/m06-road-x900-x700.jpg と assets/m06-bulldoze-abandoned.jpg です。"
+  }
+}

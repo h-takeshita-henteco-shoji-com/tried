@@ -1,0 +1,7 @@
+{
+  "month": 2,
+  "rulings": [
+    {"measureId": "m02-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うもの(建物128棟、働き口0、家0、停電0、小学校の定員約348)が数字で書かれ、議会の preview_bulldoze でも一致した。代わりの手との比べ、響き、中止の条件もある。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

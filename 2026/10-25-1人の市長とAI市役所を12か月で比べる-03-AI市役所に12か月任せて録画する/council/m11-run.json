@@ -1,0 +1,294 @@
+{
+  "month": 11,
+  "seen": {
+    "gameDate": "2050-10-28",
+    "saveName": "fukuoka-plan-m11",
+    "priorities": [
+      "4-4 資源循環",
+      "6-3 公共交通を主軸とした交通体系",
+      "4-1 都市と自然が調和したコンパクトなまち"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1183356,
+    "upkeepCap": 8000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "検討した候補は、東の公園の追加、南の高密度住宅地への公園、住宅税を下げる手、HighTechHousing、岩の飾り。東の列は10棟で埋まり、試した4か所は住宅の取り壊しや既存の公園との重なりで断られた。南の高密度住宅地の4か所は、高架道路・柱・坂にぶつかり、電気も届いていない。HighTechHousing は週20,260で維持費の上限8,000を超える。地価に直接効く政策はなかった。取り壊しゼロで実行できる場所が1つも確認できないため案なしにした。代わりに、地価の低い場所の原因を絞る調査を1件出した。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "高密度住宅の地価が低い場所は街のどこで、地価を下げているのは汚染・騒音・公園の少なさのどれか。",
+        "plan": "land_value(x=350,z=-1000,radius=400)、map_layer(type=noise,x=350,z=-1000,radius=400,n=9)、map_layer(type=pollution,x=350,z=-1000,radius=400,n=9)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の3差路 (2110,330) と (2110,240) に信号を付ける試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": true,
+        "question": "信号を付けた (2700,330) の近くで blocked が 61 のまま残るのは、一時的な混みか、信号の待ち行列か",
+        "plan": "traffic(x=2704, z=297, radius=120) と junction_info(x=2700, z=330) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "バスの予算を110%から130%に上げる試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 2857,
+      "reversible": true,
+      "planItems": [
+        "6-3"
+      ],
+      "needsVote": true,
+      "voteKind": "予算",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "東の空き商業マスを事務所区画に指定し直す試し",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [
+        "6-4",
+        "7-1"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "executionReady": true,
+      "noProposalReason": "",
+      "title": "街の中央の西に埋立地を2棟置く(試し)",
+      "buildCost": 8000,
+      "upkeepPerWeek": 320,
+      "reversible": false,
+      "planItems": [
+        "4-4"
+      ],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "小学校の定員14,268は子ども10,708を、高校24,360は10代21,402を上回り、2-3の目標を満たしている。学校の新設や政策の解除は、担当の数字を動かさない。大学は目標の外。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "executionReady": false,
+      "noProposalReason": "火事0・犯罪1で目標の合計4以下を満たす。SmokeDetectors は週58,071で維持費の幅8,000を超え、警察署新設や予算増は犯罪1棟に対し効き目を測れない。",
+      "title": "",
+      "buildCost": 0,
+      "upkeepPerWeek": 0,
+      "reversible": true,
+      "planItems": [],
+      "needsVote": false,
+      "voteKind": "",
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の設定のみで建設費0・維持費0、枠に収まる。"
+      },
+      {
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス予算+20は幅内で、維持費の増え分約2,857は枠8,000の内。"
+      },
+      {
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "区画の指定のみで費用0の見込み。実行後に所持金で確かめる。"
+      },
+      {
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費8,000、維持費約320で、上限と枠の内。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1183356
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m11-1",
+        "fromBureau": "health",
+        "title": "街の中央の西 (-290,500)・(-290,420) に埋立地を2棟置く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m11-2",
+        "fromBureau": "port",
+        "title": "バスの予算を110%から130%に戻す(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "bureau": "roads",
+        "reason": "実行条件はそろっていたが、同じ月の m11-2 で街全体のバスの台数が変わり、試しの円 (2108,313) の blocked(基準12)と混ざって効き目を分けられないため。"
+      },
+      {
+        "bureau": "economy",
+        "reason": "道に面して建てられる空きマスの数が本文で未確認で、zone_area が同じ円の空いた高密度住宅40マスも事務所に塗り替えるおそれが書かれておらず、信号の円とも重なるため。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s11-1",
+        "fromBureau": "urban",
+        "question": "高密度住宅の地価が低い場所は、街のどこで、地価を下げているのは汚染・騒音・公園の少なさのどれか"
+      },
+      {
+        "id": "s11-2",
+        "fromBureau": "roads",
+        "question": "信号を付けた (2700,330) の近くで blocked が 61 のまま残るのは、一時的な混みか、信号の待ち行列か"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m11-2",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "m10-3 の下げで blocked が増えた外れを受け、続けずに戻す案で理由がある。財政と交通への響きが書かれ、6-3 に沿い、戻せる。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m11-1",
+    "m11-2"
+  ],
+  "surveys": [
+    {
+      "id": "s11-1",
+      "fromBureau": "urban",
+      "question": "高密度住宅の地価が低い場所は、街のどこで、地価を下げているのは汚染・騒音・公園の少なさのどれか"
+    },
+    {
+      "id": "s11-2",
+      "fromBureau": "roads",
+      "question": "信号を付けた (2700,330) の近くで blocked が 61 のまま残るのは、一時的な混みか、信号の待ち行列か"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m11-1",
+      "m11-2"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-11-07",
+        "population": 177053,
+        "money": 2369127,
+        "weeklyBalance": 7417,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-11-17",
+        "population": 177137,
+        "money": 2379279,
+        "weeklyBalance": 7043,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s11-1",
+      "s11-2"
+    ],
+    "report": "m11-1: 埋立地を2棟置いた。(-290,500) が id 26574、(-290,420) が id 37042。どちらも試しで ok・取り壊し0を確かめてから置いた。建設費は8,000。中央の円 (-130,316) 半径400 のごみの印は 11→8→5→2 と減り、予想の5以下に入った。街全体のごみの印は 33→34 で、中心は南西 (-708,-1470) に移った。響きとして、隣の高密度住宅23棟の地価が 39→38 に下がった。Garbage の支出は 18,960→21,600 に増えた。m11-2: バスの予算を 110→130% に上げ、直後に130/130を確かめた。街全体の blocked は 997→700 で、予想の900以下に入った。flow は54%のままで、予想の55%には届かなかった。バスの支出は 16,356→18,042、台数は 1,421→1,580 だった。見回りは2回とも境目に当たらず、臨時はしなかった。月末は人口 177,159(前の月例より +99)、所持金 2,390,360、週の収支 +8,291、幸福度85、電気・水・下水が来ない市民は 0/0/0。調査 s11-1・s11-2 は見回り1・見回り2・月末の3回測り、council/m11-survey-urban.md と council/m11-survey-roads.md に書いた。死体の印は 40→48、汚染の印は 31→36 に増えた。hooks に止められた手はない。型から外れた点もない。ログは command-log.txt に写した。市政ノートは /Users/takeshita/orca/workspaces/tried/1-ai-12/2026/10-25-1人の市長とAI市役所を12か月で比べる-03-AI市役所に12か月任せて録画する/mayor-note.md。"
+  }
+}

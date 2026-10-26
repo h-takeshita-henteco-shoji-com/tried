@@ -1,0 +1,8 @@
+{
+  "month": 8,
+  "rulings": [
+    {"measureId": "m08-2", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは建物1棟で働き口・家・停電・道路が0と書かれ、議会の preview_bulldoze でも一致した。止めたまま・動かし直す手と比べ、m07-1 から手を替える理由もある。"},
+    {"measureId": "m08-3", "verdict": "可決", "kind": "予算", "point": null, "reason": "交通の流れ、幸福度、運賃収入、混む路線への響きが書かれている。バス全体の予算は新しい試しで、150に戻せる。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"]
+}
