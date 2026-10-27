@@ -506,9 +506,12 @@ namespace AIMayor
         // 差し替えたものとする区間と、その道路の種類(#125)。壊す→隣を差し替える→引き直す、の連続の試しに使う
         public readonly Dictionary<int, string> Upgrades = new Dictionary<int, string>();
 
+        // 地形を変えたものとする指定(書式は TerrainGameApi.ApplyVirtual)
+        public readonly List<string> Terrain = new List<string>();
+
         public bool HasVirtual
         {
-            get { return Segments.Count > 0 || Buildings.Count > 0 || Upgrades.Count > 0; }
+            get { return Segments.Count > 0 || Buildings.Count > 0 || Upgrades.Count > 0 || Terrain.Count > 0; }
         }
 
         // 壊したものとした区間を両端の点から外し、差し替えたものとした区間の種類を書き換える(#125)。
@@ -628,10 +631,30 @@ namespace AIMayor
             undo.Add(() => NetManager.instance.m_nodes.m_buffer[nd].m_flags = before);
         }
 
+        // 地形を変えたものとして高さを書き換える。高さを先に読む判定(道路の点の高さなど)の前に呼ぶ。戻す動作の並びを返す
+        public List<Action> ApplyTerrain()
+        {
+            var undo = new List<Action>();
+            foreach (var spec in Terrain)
+            {
+                TerrainGameApi.ApplyVirtual(spec, undo);
+            }
+
+            return undo;
+        }
+
+        // 地形と、壊した・差し替えた区間を、まとめて反映する。戻す動作の並びを返す
+        public List<Action> Begin()
+        {
+            var undo = ApplyTerrain();
+            undo.AddRange(Detach());
+            return undo;
+        }
+
         // 判定のあいだだけ、壊した・差し替えたものとして街を見せる。戻す動作は必ず行う
         public string Apply(Func<string> work)
         {
-            var undo = HasVirtual ? Detach() : null;
+            var undo = HasVirtual ? Begin() : null;
             try
             {
                 return work();
@@ -673,6 +696,18 @@ namespace AIMayor
             var a = new Assumed();
             Fill(a.Segments, req.QueryString["assumeRemovedSegments"]);
             Fill(a.Buildings, req.QueryString["assumeRemovedBuildings"]);
+            string terrain = req.QueryString["assumeTerrain"];
+            if (!string.IsNullOrEmpty(terrain))
+            {
+                foreach (var spec in terrain.Split('|'))
+                {
+                    if (spec.Trim().Length > 0)
+                    {
+                        a.Terrain.Add(spec.Trim());
+                    }
+                }
+            }
+
             // "区間の番号:道路の名前,..." (例 3334:Small 4 Lane Road)
             string up = req.QueryString["assumeUpgraded"];
             if (!string.IsNullOrEmpty(up))

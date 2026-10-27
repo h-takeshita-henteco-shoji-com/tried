@@ -637,7 +637,8 @@ def reverse_road(points: list[list[float]], tolerance: float = 20) -> dict:
 def test_upgrade_road(prefab: str, points: list[list[float]], tolerance: float = 20, demolish: bool = False,
                       assume_removed_segments: list[int] | None = None,
                       assume_removed_buildings: list[int] | None = None,
-                      assume_upgraded: list[list] | None = None) -> dict:
+                      assume_upgraded: list[list] | None = None,
+                    assume_terrain: list[dict] | None = None) -> dict:
     """upgrade_road を試すだけ。街は変えず、お金も払わない。ゲームの道具で、クリックする前に赤く出るかを見るのと同じ。
     引数と戻り値は upgrade_road と同じで、test=true、changed=false が付く。upgraded は差し替えられる区間の数。
     断られる区間は skipped に理由と colliding(ぶつかった相手。blocks=true が断る相手)を返す。
@@ -646,17 +647,20 @@ def test_upgrade_road(prefab: str, points: list[list[float]], tolerance: float =
     その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。ゲームの判定そのものは変わらない。
     本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。
     隣を差し替えてから建てる工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す(例 [[3334, "Small 4 Lane Road"]])。
-    その区間を、その道路になったものとして判定する。壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。"""
+    その区間を、その道路になったものとして判定する。壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。
+    地形を変えてから建てる工事は、assume_terrain に {"mode": "level|raise|lower", "value": 高さ(level)か量(raise/lower)(m), "polygon": [[x, z], ...]} の並びを渡す。
+    その地形になったものとして判定する(粗い高さだけ。細かい形は変えない)。建物・道路・線路の下は、level_terrain と同じく変えない。"""
     return call("/net/upgrade", timeout=60, body=";".join(f"{x},{z}" for x, z in points), prefab=prefab,
                 tolerance=tolerance, pay="true", demolish=str(demolish).lower(), test="true",
-                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded))
+                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded, assume_terrain))
 
 
 @tool()
 def test_build_line(prefab: str, points: list[list[float]], demolish: bool = False,
                     assume_removed_segments: list[int] | None = None,
                     assume_removed_buildings: list[int] | None = None,
-                    assume_upgraded: list[list] | None = None) -> dict:
+                    assume_upgraded: list[list] | None = None,
+                    assume_terrain: list[dict] | None = None) -> dict:
     """build_line を試すだけ。街は変えず、お金も払わない。ゲームの道具で、引く前に赤く出るかを見るのと同じ。
     points と demolish は build_line と同じ。引けるなら ok=true、test=true、built=false と、
     区間の数(segments)、交差点の数(crossings)、橋・地下の区間の数、費用(cost)、足りるか(enoughMoney)、
@@ -672,10 +676,12 @@ def test_build_line(prefab: str, points: list[list[float]], demolish: bool = Fal
     壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。
     断られた区間は、最初の1つで止めず、すべて refusals に並べる(atSegment、reasons、colliding は最初の1つ)。
     TooShort のときは、refusals の各行の nearSegments に、区間の両端の点につながる区間(prefab と halfWidth)が出る。
-    これらが角を削って、区間を短くする。壊したものとした区間は出ない。"""
+    これらが角を削って、区間を短くする。壊したものとした区間は出ない。
+    地形を変えてから建てる工事は、assume_terrain に {"mode": "level|raise|lower", "value": 高さ(level)か量(raise/lower)(m), "polygon": [[x, z], ...]} の並びを渡す。
+    その地形になったものとして判定する(粗い高さだけ。細かい形は変えない)。建物・道路・線路の下は、level_terrain と同じく変えない。"""
     if len(points) < 2:
         return {"ok": False, "error": "points は2点以上"}
-    extra = _assume(assume_removed_segments, assume_removed_buildings, assume_upgraded)
+    extra = _assume(assume_removed_segments, assume_removed_buildings, assume_upgraded, assume_terrain)
     return call("/net/build", timeout=60, body=";".join(",".join(str(v) for v in p) for p in points), prefab=prefab,
                 pay="true", demolish="true" if demolish else None, test="true", **extra)
 
@@ -684,7 +690,8 @@ def test_build_line(prefab: str, points: list[list[float]], demolish: bool = Fal
 def test_place_building(prefab: str, x: float, z: float, angle: float = 0, facing: str | None = None,
                         assume_removed_segments: list[int] | None = None,
                         assume_removed_buildings: list[int] | None = None,
-                        assume_upgraded: list[list] | None = None) -> dict:
+                        assume_upgraded: list[list] | None = None,
+                    assume_terrain: list[dict] | None = None) -> dict:
     """place_building を試すだけ。街は変えず、お金も払わない。ゲームの道具で、置く前に赤く出るかを見るのと同じ。
     引数は place_building と同じ。置けるなら ok=true、test=true、placed=false と、ゲームが直した位置(x, z)と向き(angleUsed)、
     費用(cost)、足りるか(enoughMoney)、入口(entrance。入口から16m以内の道路 road、なければ null)、
@@ -695,14 +702,20 @@ def test_place_building(prefab: str, x: float, z: float, angle: float = 0, facin
     その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。ゲームの判定そのものは変わらない。
     本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。
     隣を差し替えてから建てる工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す(例 [[3334, "Small 4 Lane Road"]])。
-    その区間を、その道路になったものとして判定する。壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。"""
+    その区間を、その道路になったものとして判定する。壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。
+    地形を変えてから建てる工事は、assume_terrain に {"mode": "level|raise|lower", "value": 高さ(level)か量(raise/lower)(m), "polygon": [[x, z], ...]} の並びを渡す。
+    その地形になったものとして判定する(粗い高さだけ。細かい形は変えない)。建物・道路・線路の下は、level_terrain と同じく変えない。"""
     return call("/building/place", prefab=prefab, x=x, z=z, angle=angle, pay="true", facing=facing, test="true",
-                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded))
+                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded, assume_terrain))
 
 
-def _assume(segments: list[int] | None, buildings: list[int] | None, upgraded: list[list] | None = None) -> dict:
+def _assume(segments: list[int] | None, buildings: list[int] | None, upgraded: list[list] | None = None,
+            terrain: list[dict] | None = None) -> dict:
     """試しの道具の「壊したものとして試す」引数を、MOD の窓口の形にする。"""
     out = {}
+    if terrain:
+        out["assumeTerrain"] = "|".join(
+            f"{t['mode']}:{t['value']}@" + ";".join(f"{x},{z}" for x, z in t["polygon"]) for t in terrain)
     if upgraded:
         out["assumeUpgraded"] = ",".join(f"{int(seg)}:{name}" for seg, name in upgraded)
     if segments:
@@ -888,23 +901,24 @@ def terrain_dirt() -> dict:
 
 
 @tool()
-def level_terrain(polygon: list[list[float]], height: float, pay: bool = True) -> dict:
+def level_terrain(polygon: list[list[float]], height: float, pay: bool = True, test: bool = False) -> dict:
     """多角形の中の地形を、その高さ(m)にならす。ゲームの景観の道具と同じく、元の地形との差が広がる分に土の値段を払い、
     縮めば払い戻す。盛るには土の蓄えが要り、削ると蓄えに入る。足りなければ何も変えずに断る。
-    建物・道路・線路の下と、持っていない区画は変えない(skipped*)。低い土地を盛って浸水を防ぐのに使う。"""
-    return call("/terrain/level", timeout=60, body=_poly(polygon), height=height, pay=str(pay).lower())
+    建物・道路・線路の下と、持っていない区画は変えない(skipped*)。低い土地を盛って浸水を防ぐのに使う。
+    test=True なら、変えずに、土と費用の見積もり(raisedM3、loweredM3、cost、enoughMoney、dirtBufferM3)だけ返す。"""
+    return call("/terrain/level", timeout=60, body=_poly(polygon), height=height, pay=str(pay).lower(), test="true" if test else None)
 
 
 @tool()
-def raise_terrain(polygon: list[list[float]], amount: float, pay: bool = True) -> dict:
+def raise_terrain(polygon: list[list[float]], amount: float, pay: bool = True, test: bool = False) -> dict:
     """多角形の中の地形を amount(m)上げる。費用と制限は level_terrain と同じ。"""
-    return call("/terrain/raise", timeout=60, body=_poly(polygon), amount=amount, pay=str(pay).lower())
+    return call("/terrain/raise", timeout=60, body=_poly(polygon), amount=amount, pay=str(pay).lower(), test="true" if test else None)
 
 
 @tool()
-def lower_terrain(polygon: list[list[float]], amount: float, pay: bool = True) -> dict:
+def lower_terrain(polygon: list[list[float]], amount: float, pay: bool = True, test: bool = False) -> dict:
     """多角形の中の地形を amount(m)下げる。費用と制限は level_terrain と同じ。"""
-    return call("/terrain/lower", timeout=60, body=_poly(polygon), amount=amount, pay=str(pay).lower())
+    return call("/terrain/lower", timeout=60, body=_poly(polygon), amount=amount, pay=str(pay).lower(), test="true" if test else None)
 
 
 @tool()
@@ -1131,16 +1145,19 @@ def relocate_building(id: int, x: float, z: float, angle: float = 0, facing: str
 def test_relocate_building(id: int, x: float, z: float, angle: float = 0, facing: str | None = None,
                            assume_removed_segments: list[int] | None = None,
                            assume_removed_buildings: list[int] | None = None,
-                           assume_upgraded: list[list] | None = None) -> dict:
+                           assume_upgraded: list[list] | None = None,
+                    assume_terrain: list[dict] | None = None) -> dict:
     """relocate_building を試すだけ。街は変えず、お金も払わない。ゲームの道具で、移す前に赤く出るかを見るのと同じ。
     引数は relocate_building と同じ。移せるなら ok=true、test=true、moved=false と、ゲームが直した位置(x, z)と向き(angleUsed)、
     費用(cost)、足りるか(enoughMoney)を返す。移せないなら、relocate_building と同じ形(ok=false、reasons、colliding)で返す。
     移せるのはサービスの建物だけ(区画の建物、子の建物、建物の一部の線は断る)。
     壊してから移す工事は、壊す相手を assume_removed_segments(区間の番号)、assume_removed_buildings(建物の id)に入れて試す。
     その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。
-    隣を差し替えてから移す工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す。"""
+    隣を差し替えてから移す工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す。
+    地形を変えてから建てる工事は、assume_terrain に {"mode": "level|raise|lower", "value": 高さ(level)か量(raise/lower)(m), "polygon": [[x, z], ...]} の並びを渡す。
+    その地形になったものとして判定する(粗い高さだけ。細かい形は変えない)。建物・道路・線路の下は、level_terrain と同じく変えない。"""
     return call("/building/relocate", id=id, x=x, z=z, angle=angle, facing=facing, pay="true", test="true",
-                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded))
+                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded, assume_terrain))
 
 
 @tool()
