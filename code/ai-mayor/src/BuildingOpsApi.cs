@@ -282,7 +282,7 @@ namespace AIMayor
             // 壊した・差し替えたものとする区間は、判定のあいだだけ街に反映する(#125)
             float minY, maxY, buildingY;
             ulong[] segBuf, bldBuf;
-            var undo = assumed != null && assumed.HasVirtual ? assumed.Detach() : null;
+            var undo = assumed != null && assumed.HasVirtual ? assumed.Begin() : null;
             try
             {
                 // 置ける場所か。ゲームの道具と同じく、建物の型が位置を直すことがある(岸に置く建物など)

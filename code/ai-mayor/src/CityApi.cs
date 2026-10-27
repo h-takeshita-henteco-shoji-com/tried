@@ -1054,7 +1054,7 @@ namespace AIMayor
             // 敷地が重なる区画の建物。ゲームは重なった区画の建物を取り壊す(#82。市長は何棟壊れたか分からなかった)
             var overlapped = OverlappingZoned(info, pos, angle);
             // 壊した・差し替えたものとする区間は、判定のあいだだけ街に反映する(#125)
-            var undo = assumed != null && assumed.HasVirtual ? assumed.Detach() : null;
+            var undo = assumed != null && assumed.HasVirtual ? assumed.Begin() : null;
             try
             {
                 if (pay || test)

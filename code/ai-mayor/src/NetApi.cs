@@ -192,6 +192,8 @@ namespace AIMayor
         private static string BuildOnSimulation(string prefab, List<Vector3> points, bool pay, float? fixedY, bool demolish, bool test, Assumed assumed)
         {
             skipSegments = assumed != null && assumed.Any ? assumed.Segments : null;
+            // 地形を変えたものとする指定は、点の高さを読む前に反映する(#125)
+            var terrain = assumed != null && assumed.Terrain.Count > 0 ? assumed.ApplyTerrain() : null;
             try
             {
                 return BuildCore(prefab, points, pay, fixedY, demolish, test, assumed);
@@ -199,6 +201,10 @@ namespace AIMayor
             finally
             {
                 skipSegments = null;
+                if (terrain != null)
+                {
+                    Assumed.Restore(terrain);
+                }
             }
         }
 

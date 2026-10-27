@@ -57,16 +57,92 @@ namespace AIMayor
             }
 
             bool pay = req.QueryString["pay"] != "false";
-            return HttpBridge.OnSimulation(() => ModifyOnSimulation(poly, mode, value, pay), 30000);
+            // test=true なら、変えずに、土と費用の見積もりだけ返す(#125)
+            bool test = req.QueryString["test"] == "true";
+            return HttpBridge.OnSimulation(() => ModifyOnSimulation(poly, mode, value, pay, test), 30000);
         }
 
-        private static string ModifyOnSimulation(List<Vector3> poly, string mode, float value, bool pay)
+        private static string ModifyOnSimulation(List<Vector3> poly, string mode, float value, bool pay, bool test)
         {
             if (!ToolsModifierControl.IsUnlocked(UnlockManager.Feature.Landscaping))
             {
                 return HttpBridge.Error("landscaping is not unlocked yet");
             }
 
+            var tm = TerrainManager.instance;
+            var raw = tm.RawHeights;
+            var area = GameAreaManager.instance;
+            long up, down, cost;
+            int skippedObjects, skippedArea;
+            var changes = Plan(poly, mode, value, out up, out down, out cost, out skippedObjects, out skippedArea);
+
+            if (changes.Count == 0)
+            {
+                return "{\"ok\":true,\"changedPoints\":0,\"skippedUnderObjects\":" + skippedObjects + ",\"skippedOutOfArea\":" + skippedArea + "}";
+            }
+
+            long dirt = tm.DirtBuffer;
+            long dirtAfter = dirt - up + down;
+            if (dirtAfter < 0)
+            {
+                return "{\"ok\":false,\"error\":\"not enough dirt. Lower some land first to get dirt\",\"dirtNeededM3\":"
+                    + Mathf.RoundToInt((up - down - dirt) / 64f * Cell * Cell) + "}";
+            }
+
+            if (dirtAfter > DirtMax)
+            {
+                return "{\"ok\":false,\"error\":\"too much dirt. Raise some land first to use dirt\",\"dirtExcessM3\":"
+                    + Mathf.RoundToInt((dirtAfter - DirtMax) / 64f * Cell * Cell) + "}";
+            }
+
+            var eco = EconomyManager.instance;
+            if (test)
+            {
+                return "{\"ok\":true,\"test\":true,\"changed\":false,\"mode\":" + Json.Str(mode) + ",\"changedPoints\":" + changes.Count
+                    + ",\"raisedM3\":" + Mathf.RoundToInt(up / 64f * Cell * Cell) + ",\"loweredM3\":" + Mathf.RoundToInt(down / 64f * Cell * Cell)
+                    + ",\"cost\":" + cost / 100 + ",\"enoughMoney\":" + (cost <= 0 || eco.LastCashAmount >= cost ? "true" : "false")
+                    + ",\"dirtBufferM3\":" + Mathf.RoundToInt(dirtAfter / 64f * Cell * Cell)
+                    + ",\"skippedUnderObjects\":" + skippedObjects + ",\"skippedOutOfArea\":" + skippedArea + "}";
+            }
+
+            if (pay && cost > 0 && eco.PeekResource(EconomyManager.Resource.Landscaping, (int)cost) != cost)
+            {
+                return "{\"ok\":false,\"error\":\"not enough money\",\"cost\":" + cost / 100 + ",\"money\":" + eco.LastCashAmount / 100 + "}";
+            }
+
+            int cx0 = Res, cz0 = Res, cx1 = 0, cz1 = 0;
+            foreach (var c in changes)
+            {
+                raw[c.Key] = c.Value;
+                int ci = c.Key / (Res + 1), cj = c.Key % (Res + 1);
+                cx0 = Math.Min(cx0, cj);
+                cx1 = Math.Max(cx1, cj);
+                cz0 = Math.Min(cz0, ci);
+                cz1 = Math.Max(cz1, ci);
+            }
+
+            tm.DirtBuffer = (int)dirtAfter;
+            if (pay && cost > 0)
+            {
+                eco.FetchResource(EconomyManager.Resource.Landscaping, (int)cost, ItemClass.Service.Beautification, ItemClass.SubService.None, ItemClass.Level.None);
+            }
+            else if (pay && cost < 0)
+            {
+                eco.AddResource(EconomyManager.Resource.RefundAmount, (int)-cost, ItemClass.Service.Beautification, ItemClass.SubService.None, ItemClass.Level.None);
+            }
+
+            TerrainModify.UpdateArea(cx0 - 2, cz0 - 2, cx1 + 2, cz1 + 2, true, false, false);
+            return "{\"ok\":true,\"mode\":" + Json.Str(mode) + ",\"changedPoints\":" + changes.Count
+                + ",\"raisedM3\":" + Mathf.RoundToInt(up / 64f * Cell * Cell) + ",\"loweredM3\":" + Mathf.RoundToInt(down / 64f * Cell * Cell)
+                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false")
+                + ",\"dirtBufferM3\":" + Mathf.RoundToInt(dirtAfter / 64f * Cell * Cell)
+                + ",\"skippedUnderObjects\":" + skippedObjects + ",\"skippedOutOfArea\":" + skippedArea + "}";
+        }
+
+        // 多角形の中で変える点と新しい高さを決め、土と費用を数える。街は変えない(#125 で、変える処理と試しで共有する)
+        internal static List<KeyValuePair<int, ushort>> Plan(List<Vector3> poly, string mode, float value,
+            out long up, out long down, out long cost, out int skippedObjects, out int skippedArea)
+        {
             var tm = TerrainManager.instance;
             var raw = tm.RawHeights;
             var backup = tm.BackupHeights;
@@ -79,10 +155,12 @@ namespace AIMayor
             int z0 = Mathf.Clamp(Mathf.FloorToInt(minZ / Cell + Res * 0.5f), 0, Res);
             int z1 = Mathf.Clamp(Mathf.CeilToInt(maxZ / Cell + Res * 0.5f), 0, Res);
 
-            // 先に変える点と新しい高さを決め、土と費用を数える。足りなければ何も変えずに断る
             var changes = new List<KeyValuePair<int, ushort>>();
-            long up = 0, down = 0, cost = 0;
-            int skippedObjects = 0, skippedArea = 0;
+            up = 0;
+            down = 0;
+            cost = 0;
+            skippedObjects = 0;
+            skippedArea = 0;
             for (int i = z0; i <= z1; i++)
             {
                 float z = (i - Res * 0.5f) * Cell;
@@ -132,58 +210,71 @@ namespace AIMayor
                 }
             }
 
+            return changes;
+        }
+
+        // 試しの判定のあいだだけ、地形を変えたものとして高さを書き換える(#125)。
+        // 書式は "モード:値@x1,z1;x2,z2;..."(モードは level / raise / lower)。細かい形(詳細高さ)は更新しない
+        // 戻す動作を返す。シミュレーションのスレッドで呼ぶ
+        internal static void ApplyVirtual(string spec, List<Action> undo)
+        {
+            int at = spec.IndexOf('@');
+            int colon = spec.IndexOf(':');
+            float value;
+            if (at < 0 || colon < 0 || colon > at
+                || !float.TryParse(spec.Substring(colon + 1, at - colon - 1), NumberStyles.Float, CultureInfo.InvariantCulture, out value))
+            {
+                return;
+            }
+
+            string mode = spec.Substring(0, colon).Trim();
+            if (mode != "level" && mode != "raise" && mode != "lower")
+            {
+                return;
+            }
+
+            var poly = new List<Vector3>();
+            foreach (var part in spec.Substring(at + 1).Split(';'))
+            {
+                var xz = part.Split(',');
+                float x, z;
+                if (xz.Length == 2 && float.TryParse(xz[0], NumberStyles.Float, CultureInfo.InvariantCulture, out x)
+                    && float.TryParse(xz[1], NumberStyles.Float, CultureInfo.InvariantCulture, out z))
+                {
+                    poly.Add(new Vector3(x, 0f, z));
+                }
+            }
+
+            if (poly.Count < 3)
+            {
+                return;
+            }
+
+            long up, down, cost;
+            int so, sa;
+            var changes = Plan(poly, mode, value, out up, out down, out cost, out so, out sa);
             if (changes.Count == 0)
             {
-                return "{\"ok\":true,\"changedPoints\":0,\"skippedUnderObjects\":" + skippedObjects + ",\"skippedOutOfArea\":" + skippedArea + "}";
+                return;
             }
 
-            long dirt = tm.DirtBuffer;
-            long dirtAfter = dirt - up + down;
-            if (dirtAfter < 0)
-            {
-                return "{\"ok\":false,\"error\":\"not enough dirt. Lower some land first to get dirt\",\"dirtNeededM3\":"
-                    + Mathf.RoundToInt((up - down - dirt) / 64f * Cell * Cell) + "}";
-            }
-
-            if (dirtAfter > DirtMax)
-            {
-                return "{\"ok\":false,\"error\":\"too much dirt. Raise some land first to use dirt\",\"dirtExcessM3\":"
-                    + Mathf.RoundToInt((dirtAfter - DirtMax) / 64f * Cell * Cell) + "}";
-            }
-
-            var eco = EconomyManager.instance;
-            if (pay && cost > 0 && eco.PeekResource(EconomyManager.Resource.Landscaping, (int)cost) != cost)
-            {
-                return "{\"ok\":false,\"error\":\"not enough money\",\"cost\":" + cost / 100 + ",\"money\":" + eco.LastCashAmount / 100 + "}";
-            }
-
-            int cx0 = Res, cz0 = Res, cx1 = 0, cz1 = 0;
+            // ゲームが高さを読む配列は RawHeights2(RawHeights の写し。本番の地形の道具は RawHeights を書き、UpdateArea で写しが後から更新される)。
+            // 試しでは、同じ値を両方に書き、戻すときも両方を戻す。UpdateArea は呼ばない(詳細高さは更新しない)
+            var raw = TerrainManager.instance.RawHeights;
+            var raw2 = TerrainManager.instance.RawHeights2;
             foreach (var c in changes)
             {
-                raw[c.Key] = c.Value;
-                int ci = c.Key / (Res + 1), cj = c.Key % (Res + 1);
-                cx0 = Math.Min(cx0, cj);
-                cx1 = Math.Max(cx1, cj);
-                cz0 = Math.Min(cz0, ci);
-                cz1 = Math.Max(cz1, ci);
+                int idx = c.Key;
+                ushort before = raw[idx];
+                ushort before2 = raw2[idx];
+                raw[idx] = c.Value;
+                raw2[idx] = c.Value;
+                undo.Add(() =>
+                {
+                    TerrainManager.instance.RawHeights[idx] = before;
+                    TerrainManager.instance.RawHeights2[idx] = before2;
+                });
             }
-
-            tm.DirtBuffer = (int)dirtAfter;
-            if (pay && cost > 0)
-            {
-                eco.FetchResource(EconomyManager.Resource.Landscaping, (int)cost, ItemClass.Service.Beautification, ItemClass.SubService.None, ItemClass.Level.None);
-            }
-            else if (pay && cost < 0)
-            {
-                eco.AddResource(EconomyManager.Resource.RefundAmount, (int)-cost, ItemClass.Service.Beautification, ItemClass.SubService.None, ItemClass.Level.None);
-            }
-
-            TerrainModify.UpdateArea(cx0 - 2, cz0 - 2, cx1 + 2, cz1 + 2, true, false, false);
-            return "{\"ok\":true,\"mode\":" + Json.Str(mode) + ",\"changedPoints\":" + changes.Count
-                + ",\"raisedM3\":" + Mathf.RoundToInt(up / 64f * Cell * Cell) + ",\"loweredM3\":" + Mathf.RoundToInt(down / 64f * Cell * Cell)
-                + ",\"cost\":" + cost / 100 + ",\"paid\":" + (pay ? "true" : "false")
-                + ",\"dirtBufferM3\":" + Mathf.RoundToInt(dirtAfter / 64f * Cell * Cell)
-                + ",\"skippedUnderObjects\":" + skippedObjects + ",\"skippedOutOfArea\":" + skippedArea + "}";
         }
 
         // 点のまわり(16m四方)に、建物か道路・線路があるか

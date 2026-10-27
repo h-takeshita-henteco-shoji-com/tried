@@ -223,17 +223,18 @@ bus / metro / train / ship / plane / taxi。
 
 多角形の中の木を取り除く。払い戻しはない。
 
-### `level_terrain(polygon: list[list[float]], height: float, pay: bool = True)`
+### `level_terrain(polygon: list[list[float]], height: float, pay: bool = True, test: bool = False)`
 
 多角形の中の地形を、その高さ(m)にならす。ゲームの景観の道具と同じく、元の地形との差が広がる分に土の値段を払い、
 縮めば払い戻す。盛るには土の蓄えが要り、削ると蓄えに入る。足りなければ何も変えずに断る。
 建物・道路・線路の下と、持っていない区画は変えない(skipped*)。低い土地を盛って浸水を防ぐのに使う。
+test=True なら、変えずに、土と費用の見積もり(raisedM3、loweredM3、cost、enoughMoney、dirtBufferM3)だけ返す。
 
-### `raise_terrain(polygon: list[list[float]], amount: float, pay: bool = True)`
+### `raise_terrain(polygon: list[list[float]], amount: float, pay: bool = True, test: bool = False)`
 
 多角形の中の地形を amount(m)上げる。費用と制限は level_terrain と同じ。
 
-### `lower_terrain(polygon: list[list[float]], amount: float, pay: bool = True)`
+### `lower_terrain(polygon: list[list[float]], amount: float, pay: bool = True, test: bool = False)`
 
 多角形の中の地形を amount(m)下げる。費用と制限は level_terrain と同じ。
 
