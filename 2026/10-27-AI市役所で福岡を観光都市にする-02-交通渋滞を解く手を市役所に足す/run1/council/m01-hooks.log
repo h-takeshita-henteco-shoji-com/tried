@@ -1,0 +1,68 @@
+2026-10-27T16:12:45+09:00	council-roads	traffic	ok	limit=15
+2026-10-27T16:12:46+09:00	council-roads	list_policies	ok	
+2026-10-27T16:12:46+09:00	council-roads	city_info	ok	
+2026-10-27T16:12:48+09:00	council-roads	junction_info	ok	x=2309 z=-925
+2026-10-27T16:12:49+09:00	council-roads	net_near	ok	x=2309 z=-925 radius=200 service=Road limit=40
+2026-10-27T16:12:49+09:00	council-roads	list_net_types	ok	service=Road locked=False
+2026-10-27T16:12:57+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2236, -950], [2220, -950], [2160, -950]] tolerance=8
+2026-10-27T16:12:57+09:00	council-roads	net_near	ok	x=-726 z=-736 radius=150 service=Road limit=30
+2026-10-27T16:12:58+09:00	council-roads	traffic	ok	x=2309 z=-925 radius=150 limit=8
+2026-10-27T16:13:05+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-27T16:13:06+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-27T16:13:06+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2236, -950]] tolerance=8 assume_removed_segments=[36011]
+2026-10-27T16:13:16+09:00	council-roads	test_build_line	ok	prefab=Small 4 Lane Road points=[[2236, -950], [2160, -950]] assume_removed_segments=[36011, 19196, 29545]
+2026-10-27T16:13:17+09:00	council-roads	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-27T16:13:18+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2236, -950]] tolerance=8 assume_removed_segments=[36011, 19196, 29545]
+2026-10-27T16:13:18+09:00	council-roads	preview_bulldoze	ok	x=2228 z=-950 radius=12 what=net
+2026-10-27T16:13:28+09:00	council-roads	test_build_line	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2220, -950]] assume_removed_segments=[3334, 36011, 10391]
+2026-10-27T16:13:29+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2220, -950], [2160, -950]] tolerance=8 assume_removed_segments=[3334, 36011, 10391]
+2026-10-27T16:13:29+09:00	council-roads	buildings_near	ok	x=2236 z=-925 radius=40 brief=True
+2026-10-27T16:13:30+09:00	council-roads	zone_map	ok	x=2250 z=-930 radius=150 size=700
+2026-10-27T16:13:41+09:00	council-roads	test_build_line	ng	the game refuses this line: a segment is too short (TooShort)
+2026-10-27T16:13:42+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2220, -950], [2160, -950]] tolerance=8 assume_removed_segments=[36011]
+2026-10-27T16:13:58+09:00	council-roads	buildings_near	ok	x=2236 z=-928 radius=30 limit=10
+2026-10-27T16:13:59+09:00	council-roads	zones_at	ok	x=2236 z=-928 radius=30
+2026-10-27T16:16:20+09:00	council-mayor-field	set_time	ok	paused=True
+2026-10-27T16:16:20+09:00	council-mayor-field	city_info	ok	
+2026-10-27T16:16:21+09:00	council-mayor-field	net_near	ok	x=2236 z=-940 radius=90 service=Road
+2026-10-27T16:16:25+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=150
+2026-10-27T16:16:26+09:00	council-mayor-field	explain	ok	action=くびれを壊して4車線につなぎ直す(6-3交通、m01-1) reason=(2309,-925)半径150で止まった車73台。1車線の約120mが原因。月末に40台以下を見込む
+2026-10-27T16:16:46+09:00	council-mayor-field	remove_line	ok	points=[[2280, -950], [2220, -950]] prefab=Basic Road tolerance=8
+2026-10-27T16:16:53+09:00	council-mayor-field	remove_line	ok	points=[[2236, -950], [2236, -905]] prefab=Basic Road tolerance=8
+2026-10-27T16:16:56+09:00	council-mayor-field	net_near	ok	x=2236 z=-940 radius=90 service=Road
+2026-10-27T16:17:03+09:00	council-mayor-field	build_line	ok	prefab=Small 4 Lane Road points=[[2280, -950], [2220, -950]] pay=True
+2026-10-27T16:17:10+09:00	council-mayor-field	upgrade_road	ok	prefab=Small 4 Lane Road points=[[2220, -950], [2160, -950]] tolerance=8 pay=True
+2026-10-27T16:17:13+09:00	council-mayor-field	junction_info	ok	x=2220 z=-950
+2026-10-27T16:17:14+09:00	council-mayor-field	buildings_near	ok	x=2236 z=-928 radius=30
+2026-10-27T16:17:14+09:00	council-mayor-field	zones_at	ok	x=2236 z=-928 radius=30
+2026-10-27T16:17:18+09:00	council-mayor-field	move_camera	ok	x=2240 z=-940 size=400 pitch=70 yaw=0
+2026-10-27T16:17:23+09:00	council-mayor-field	screenshot	ok	save_to=~/orca/workspaces/tried/issue-123/2026/10-27-AI市役所で福岡を観光都市にする-02-交通渋滞を解く手を市役所に足す/run1/assets/m01-kubire-after.jpg max_width=1000
+2026-10-27T16:19:05+09:00	council-mayor-field	advance	ok	days=10
+2026-10-27T16:19:06+09:00	council-mayor-field	city_info	ok	
+2026-10-27T16:19:07+09:00	council-mayor-field	events	ok	
+2026-10-27T16:19:08+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=150
+2026-10-27T16:19:08+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=150 limit=8
+2026-10-27T16:19:08+09:00	council-mayor-field	junction_info	ng	no road junction within 40m
+2026-10-27T16:20:53+09:00	council-mayor-field	city_info	ok	
+2026-10-27T16:20:53+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=150
+2026-10-27T16:21:01+09:00	council-mayor-field	set_time	ok	paused=False
+2026-10-27T16:31:05+09:00	council-mayor-field	advance	ok	days=10
+2026-10-27T16:31:14+09:00	council-mayor-field	city_info	ok	
+2026-10-27T16:31:14+09:00	council-mayor-field	events	ok	
+2026-10-27T16:31:15+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=150
+2026-10-27T16:31:15+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=150 limit=8
+2026-10-27T16:31:20+09:00	council-mayor-field	junction_info	ng	no road junction within 40m
+2026-10-27T16:31:20+09:00	council-mayor-field	net_near	ok	x=-726 z=-736 radius=150 service=Road limit=30
+2026-10-27T16:31:25+09:00	council-mayor-field	junction_info	ok	x=-870 z=-740
+2026-10-27T16:31:25+09:00	council-mayor-field	junction_info	ng	no road junction within 40m
+2026-10-27T16:33:13+09:00	council-mayor-field	advance	ok	days=10 turbo=16 max_seconds=1200
+2026-10-27T16:33:17+09:00	council-mayor-field	traffic	ok	x=2309 z=-925 radius=150
+2026-10-27T16:33:17+09:00	council-mayor-field	traffic	ok	
+2026-10-27T16:33:18+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=150 limit=8
+2026-10-27T16:33:18+09:00	council-mayor-field	buildings_near	ok	x=2236 z=-928 radius=30
+2026-10-27T16:33:18+09:00	council-mayor-field	junction_info	ng	no road junction within 40m
+2026-10-27T16:33:24+09:00	council-mayor-field	city_info	ok	
+2026-10-27T16:33:24+09:00	council-mayor-field	zones_at	ok	x=2236 z=-928 radius=30
+2026-10-27T16:33:25+09:00	council-mayor-field	junction_info	ok	x=-870 z=-740
+2026-10-27T16:34:13+09:00	council-mayor-field	save_log	ok	save_to=~/orca/workspaces/tried/issue-123/2026/10-27-AI市役所で福岡を観光都市にする-02-交通渋滞を解く手を市役所に足す/run1/command-log.txt
+2026-10-27T16:34:16+09:00	council-mayor-field	set_time	ok	paused=True
