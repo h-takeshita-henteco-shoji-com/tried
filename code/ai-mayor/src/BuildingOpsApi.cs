@@ -269,34 +269,71 @@ namespace AIMayor
 
             float angle = angleDeg * Mathf.Deg2Rad;
             bool pay = req.QueryString["pay"] != "false";
+            // test=true なら、移せるかを確かめて、移さずに返す(#125。局と市長が、移す前に試す)。壊したものとする相手も渡せる
+            bool test = req.QueryString["test"] == "true";
+            var assumed = test ? Assumed.Parse(req) : null;
             int cost = info.m_buildingAI.GetRelocationCost();
             var eco = EconomyManager.instance;
-            if (pay && eco.PeekResource(EconomyManager.Resource.Construction, cost) != cost)
+            if (pay && !test && eco.PeekResource(EconomyManager.Resource.Construction, cost) != cost)
             {
                 return "{\"ok\":false,\"error\":\"not enough money\",\"cost\":" + cost / 100 + ",\"money\":" + eco.LastCashAmount / 100 + "}";
             }
 
-            // 置ける場所か。ゲームの道具と同じく、建物の型が位置を直すことがある(岸に置く建物など)
+            // 壊した・差し替えたものとする区間は、判定のあいだだけ街に反映する(#125)
             float minY, maxY, buildingY;
-            Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
-            pos.y = buildingY;
-            var seg = default(ColossalFramework.Math.Segment3);
-            int productionRate, constructionCost;
-            var posErrors = info.m_buildingAI.CheckBuildPosition(id, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
-            var segBuf = new ulong[(NetManager.instance.m_segments.m_buffer.Length + 63) >> 6];
-            var bldBuf = new ulong[(bs.Length + 63) >> 6];
-            var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, id, pos, minY, buildingY + info.m_collisionHeight, angle,
-                info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
-            var errors = posErrors | spaceErrors;
-            if (errors != ToolBase.ToolErrors.None)
+            ulong[] segBuf, bldBuf;
+            var undo = assumed != null && assumed.HasVirtual ? assumed.Detach() : null;
+            try
             {
-                // ぶつかった相手を返す(#82)。ゲームの判定(CheckSpaceImpl)は、移す建物そのものと、その建物の道や管
-                // (IgnoreRelocateSegments)を除いている。それでも断られるなら、相手は別の道路や建物。
-                // 相手が空で断られるときのため、建物の型の判定(CheckBuildPosition)と場所の判定(CheckSpace)の理由を分けて返す(#107)。
-                // 区画に建つ建物とぶつかるときは、試しの判定(test=true)では断り、ゲームの道具は取り壊して置く
-                return "{\"ok\":false,\"error\":\"cannot relocate here\",\"reasons\":" + Json.Str(errors.ToString())
-                    + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
-                    + ",\"collidingBuildings\":" + Bits(bldBuf, 20) + ",\"collidingSegments\":" + Bits(segBuf, 20) + "}";
+                // 置ける場所か。ゲームの道具と同じく、建物の型が位置を直すことがある(岸に置く建物など)
+                Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
+                pos.y = buildingY;
+                var seg = default(ColossalFramework.Math.Segment3);
+                int productionRate, constructionCost;
+                var posErrors = info.m_buildingAI.CheckBuildPosition(id, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
+                segBuf = new ulong[(NetManager.instance.m_segments.m_buffer.Length + 63) >> 6];
+                bldBuf = new ulong[(bs.Length + 63) >> 6];
+                var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, id, pos, minY, buildingY + info.m_collisionHeight, angle,
+                    info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
+                string coll = null;
+                if (test)
+                {
+                    bool blocking;
+                    coll = UpgradeApi.CollidingJson(segBuf, bldBuf, assumed, out blocking);
+                    // 断る相手がすべて「壊したもの」なら、ぶつからないとみなす(place_building の試しと同じ)
+                    if (assumed.Any && !blocking)
+                    {
+                        spaceErrors &= ~ToolBase.ToolErrors.ObjectCollision;
+                    }
+                }
+
+                var errors = posErrors | spaceErrors;
+                if (errors != ToolBase.ToolErrors.None)
+                {
+                    // ぶつかった相手を返す(#82)。ゲームの判定(CheckSpaceImpl)は、移す建物そのものと、その建物の道や管
+                    // (IgnoreRelocateSegments)を除いている。それでも断られるなら、相手は別の道路や建物。
+                    // 相手が空で断られるときのため、建物の型の判定(CheckBuildPosition)と場所の判定(CheckSpace)の理由を分けて返す(#107)。
+                    // 区画に建つ建物とぶつかるときは、試しの判定(test=true)では断り、ゲームの道具は取り壊して置く
+                    return "{\"ok\":false,\"error\":\"cannot relocate here\",\"reasons\":" + Json.Str(errors.ToString())
+                        + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
+                        + ",\"collidingBuildings\":" + Bits(bldBuf, 20) + ",\"collidingSegments\":" + Bits(segBuf, 20)
+                        + (coll != null ? ",\"colliding\":" + coll : "") + "}";
+                }
+
+                if (test)
+                {
+                    return "{\"ok\":true,\"test\":true,\"moved\":false,\"id\":" + id + ",\"prefab\":" + Json.Str(info.name)
+                        + ",\"x\":" + Mathf.RoundToInt(pos.x) + ",\"z\":" + Mathf.RoundToInt(pos.z)
+                        + ",\"angleUsed\":" + Mathf.RoundToInt(angle * Mathf.Rad2Deg)
+                        + ",\"cost\":" + cost / 100 + ",\"enoughMoney\":" + (eco.LastCashAmount >= cost ? "true" : "false") + "}";
+                }
+            }
+            finally
+            {
+                if (undo != null)
+                {
+                    Assumed.Restore(undo);
+                }
             }
 
             // 本番: 区画に建つ建物とぶつかるなら、ゲームの道具と同じく取り壊す(test=false)

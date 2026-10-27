@@ -1128,6 +1128,22 @@ def relocate_building(id: int, x: float, z: float, angle: float = 0, facing: str
 
 
 @tool()
+def test_relocate_building(id: int, x: float, z: float, angle: float = 0, facing: str | None = None,
+                           assume_removed_segments: list[int] | None = None,
+                           assume_removed_buildings: list[int] | None = None,
+                           assume_upgraded: list[list] | None = None) -> dict:
+    """relocate_building を試すだけ。街は変えず、お金も払わない。ゲームの道具で、移す前に赤く出るかを見るのと同じ。
+    引数は relocate_building と同じ。移せるなら ok=true、test=true、moved=false と、ゲームが直した位置(x, z)と向き(angleUsed)、
+    費用(cost)、足りるか(enoughMoney)を返す。移せないなら、relocate_building と同じ形(ok=false、reasons、colliding)で返す。
+    移せるのはサービスの建物だけ(区画の建物、子の建物、建物の一部の線は断る)。
+    壊してから移す工事は、壊す相手を assume_removed_segments(区間の番号)、assume_removed_buildings(建物の id)に入れて試す。
+    その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。
+    隣を差し替えてから移す工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す。"""
+    return call("/building/relocate", id=id, x=x, z=z, angle=angle, facing=facing, pay="true", test="true",
+                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded))
+
+
+@tool()
 def zone_area(x: float, z: float, radius: float, type: str) -> dict:
     """中心 (x, z)、半径 radius(m)の円の中の、道路沿いの区画マスを指定する。区画マスは道路を引くと両側にできる。
     type: residential_low / residential_high / commercial_low / commercial_high / industrial / office / none(解除)。
