@@ -716,7 +716,7 @@ namespace AIMayor
         }
 
         // 働き口と家の数(建物の画面と同じ計算。CityApi.DetailJson と同じ)
-        private static void JobsHomes(ushort id, ref Building b, out int jobs, out int homes)
+        internal static void JobsHomes(ushort id, ref Building b, out int jobs, out int homes)
         {
             jobs = 0;
             homes = 0;

@@ -636,23 +636,27 @@ def reverse_road(points: list[list[float]], tolerance: float = 20) -> dict:
 @tool()
 def test_upgrade_road(prefab: str, points: list[list[float]], tolerance: float = 20, demolish: bool = False,
                       assume_removed_segments: list[int] | None = None,
-                      assume_removed_buildings: list[int] | None = None) -> dict:
+                      assume_removed_buildings: list[int] | None = None,
+                      assume_upgraded: list[list] | None = None) -> dict:
     """upgrade_road を試すだけ。街は変えず、お金も払わない。ゲームの道具で、クリックする前に赤く出るかを見るのと同じ。
     引数と戻り値は upgrade_road と同じで、test=true、changed=false が付く。upgraded は差し替えられる区間の数。
     断られる区間は skipped に理由と colliding(ぶつかった相手。blocks=true が断る相手)を返す。
     demolish=True なら、区画の建物が壊れる区間も差し替えられる数に入れ、壊れる建物を demolishedBuildings に返す(壊さない)。
     壊してから建てる工事は、壊す相手を assume_removed_segments(区間の番号)、assume_removed_buildings(建物の id)に入れて試す。
     その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。ゲームの判定そのものは変わらない。
-    本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。"""
+    本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。
+    隣を差し替えてから建てる工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す(例 [[3334, "Small 4 Lane Road"]])。
+    その区間を、その道路になったものとして判定する。壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。"""
     return call("/net/upgrade", timeout=60, body=";".join(f"{x},{z}" for x, z in points), prefab=prefab,
                 tolerance=tolerance, pay="true", demolish=str(demolish).lower(), test="true",
-                **_assume(assume_removed_segments, assume_removed_buildings))
+                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded))
 
 
 @tool()
 def test_build_line(prefab: str, points: list[list[float]], demolish: bool = False,
                     assume_removed_segments: list[int] | None = None,
-                    assume_removed_buildings: list[int] | None = None) -> dict:
+                    assume_removed_buildings: list[int] | None = None,
+                    assume_upgraded: list[list] | None = None) -> dict:
     """build_line を試すだけ。街は変えず、お金も払わない。ゲームの道具で、引く前に赤く出るかを見るのと同じ。
     points と demolish は build_line と同じ。引けるなら ok=true、test=true、built=false と、
     区間の数(segments)、交差点の数(crossings)、橋・地下の区間の数、費用(cost)、足りるか(enoughMoney)、
@@ -661,33 +665,46 @@ def test_build_line(prefab: str, points: list[list[float]], demolish: bool = Fal
     壊してから建てる工事は、壊す相手を assume_removed_segments(区間の番号)、assume_removed_buildings(建物の id)に入れて試す。
     その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。ゲームの判定そのものは変わらない。
     本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。
-    壊したものとした区間には、端をつながず、交差点も作らない(壊した後の街と同じ)。"""
+    壊したものとした区間には、端をつながず、交差点も作らない(壊した後の街と同じ)。
+    短すぎる(TooShort)の判定も、壊したものとした区間を点から外して行う。
+    隣を差し替えてから引く工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す(例 [[3334, "Small 4 Lane Road"]])。
+    その区間を、その道路になったものとして判定する。道路の幅が変わると、点の角の位置が変わる。
+    壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。
+    断られた区間は、最初の1つで止めず、すべて refusals に並べる(atSegment、reasons、colliding は最初の1つ)。
+    TooShort のときは、refusals の各行の nearSegments に、区間の両端の点につながる区間(prefab と halfWidth)が出る。
+    これらが角を削って、区間を短くする。壊したものとした区間は出ない。"""
     if len(points) < 2:
         return {"ok": False, "error": "points は2点以上"}
+    extra = _assume(assume_removed_segments, assume_removed_buildings, assume_upgraded)
     return call("/net/build", timeout=60, body=";".join(",".join(str(v) for v in p) for p in points), prefab=prefab,
-                pay="true", demolish="true" if demolish else None, test="true",
-                **_assume(assume_removed_segments, assume_removed_buildings))
+                pay="true", demolish="true" if demolish else None, test="true", **extra)
 
 
 @tool()
 def test_place_building(prefab: str, x: float, z: float, angle: float = 0, facing: str | None = None,
                         assume_removed_segments: list[int] | None = None,
-                        assume_removed_buildings: list[int] | None = None) -> dict:
+                        assume_removed_buildings: list[int] | None = None,
+                        assume_upgraded: list[list] | None = None) -> dict:
     """place_building を試すだけ。街は変えず、お金も払わない。ゲームの道具で、置く前に赤く出るかを見るのと同じ。
     引数は place_building と同じ。置けるなら ok=true、test=true、placed=false と、ゲームが直した位置(x, z)と向き(angleUsed)、
     費用(cost)、足りるか(enoughMoney)、入口(entrance。入口から16m以内の道路 road、なければ null)、
-    電気・水・下水が要るか(needs)、取り壊される区画の建物(wouldDemolish)を返す。
+    電気・水・下水が要るか(needs)、取り壊される区画の建物(wouldDemolish)、
+    取り壊しで失う働き口と家の合計と内訳(lostByDemolish。preview_bulldoze の lost と同じ数え方)を返す。
     置けないなら、place_building と同じ形(ok=false、reasons、colliding)で返す。
     壊してから建てる工事は、壊す相手を assume_removed_segments(区間の番号)、assume_removed_buildings(建物の id)に入れて試す。
     その相手とのぶつかりを除いて判定し、colliding では assumedRemoved=true と出る。ゲームの判定そのものは変わらない。
-    本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。"""
+    本番では、先に壊す操作(remove_line、bulldoze。取り壊しの議決が要る)をしてから建てる。
+    隣を差し替えてから建てる工事は、assume_upgraded に [区間の番号, 道路の名前] の並びを渡す(例 [[3334, "Small 4 Lane Road"]])。
+    その区間を、その道路になったものとして判定する。壊す建物の一部の区間(駅の線路など)も、壊したものとして扱う。"""
     return call("/building/place", prefab=prefab, x=x, z=z, angle=angle, pay="true", facing=facing, test="true",
-                **_assume(assume_removed_segments, assume_removed_buildings))
+                **_assume(assume_removed_segments, assume_removed_buildings, assume_upgraded))
 
 
-def _assume(segments: list[int] | None, buildings: list[int] | None) -> dict:
+def _assume(segments: list[int] | None, buildings: list[int] | None, upgraded: list[list] | None = None) -> dict:
     """試しの道具の「壊したものとして試す」引数を、MOD の窓口の形にする。"""
     out = {}
+    if upgraded:
+        out["assumeUpgraded"] = ",".join(f"{int(seg)}:{name}" for seg, name in upgraded)
     if segments:
         out["assumeRemovedSegments"] = ",".join(str(int(v)) for v in segments)
     if buildings:
