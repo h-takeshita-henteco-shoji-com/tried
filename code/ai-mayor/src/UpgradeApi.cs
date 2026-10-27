@@ -69,7 +69,7 @@ namespace AIMayor
             // test=true なら、差し替えられるかを確かめて、差し替えずに返す(#105。局と市長が、建てる前に試す)
             bool test = req.QueryString["test"] == "true";
             var assumed = test ? Assumed.Parse(req) : null;
-            return HttpBridge.OnSimulation(() => Run(line, target, tolerance, pay, reverse, demolish, test, assumed), 30000);
+            return HttpBridge.OnSimulation(() => assumed != null ? assumed.Apply(() => Run(line, target, tolerance, pay, reverse, demolish, test, assumed)) : Run(line, target, tolerance, pay, reverse, demolish, test, assumed), 30000);
         }
 
         private static string Run(List<Vector3> line, NetInfo target, float tolerance, bool pay, bool reverse, bool demolish, bool test, Assumed assumed)
@@ -86,7 +86,8 @@ namespace AIMayor
             for (int i = 1; i < segs.Length; i++)
             {
                 if ((segs[i].m_flags & NetSegment.Flags.Created) == 0 || (segs[i].m_flags & NetSegment.Flags.Deleted) != 0 || segs[i].Info == null
-                    || segs[i].Info.m_class.m_service != ItemClass.Service.Road)
+                    || segs[i].Info.m_class.m_service != ItemClass.Service.Road
+                    || (assumed != null && assumed.Removed(i, segs[i])))
                 {
                     continue;
                 }
@@ -502,11 +503,138 @@ namespace AIMayor
             return Buildings.Contains(building);
         }
 
+        // 差し替えたものとする区間と、その道路の種類(#125)。壊す→隣を差し替える→引き直す、の連続の試しに使う
+        public readonly Dictionary<int, string> Upgrades = new Dictionary<int, string>();
+
+        public bool HasVirtual
+        {
+            get { return Segments.Count > 0 || Buildings.Count > 0 || Upgrades.Count > 0; }
+        }
+
+        // 壊したものとした区間を両端の点から外し、差し替えたものとした区間の種類を書き換える(#125)。
+        // ゲームの TooShort の判定は、点につながる区間の幅で角の位置を決めるため、壊した扱いを渡すだけでは届かない。
+        // 戻す動作の並びを返すので、判定のあとに必ず Restore する。シミュレーションのスレッドで呼ぶ(判定の間に街が進まない)
+        public List<Action> Detach()
+        {
+            var undo = new List<Action>();
+            var nm = NetManager.instance;
+            var segs = nm.m_segments.m_buffer;
+            var nodes = nm.m_nodes.m_buffer;
+            // 壊す建物の一部の区間(駅の線路など)も、壊したものとして外す
+            var gone = new HashSet<int>(Segments);
+            if (Buildings.Count > 0)
+            {
+                for (int i = 1; i < segs.Length; i++)
+                {
+                    if ((segs[i].m_flags & NetSegment.Flags.Created) != 0 && Removed(i, segs[i]))
+                    {
+                        gone.Add(i);
+                    }
+                }
+            }
+
+            foreach (var id in gone)
+            {
+                if (id <= 0 || id >= segs.Length || (segs[id].m_flags & NetSegment.Flags.Created) == 0)
+                {
+                    continue;
+                }
+
+                foreach (var node in new[] { segs[id].m_startNode, segs[id].m_endNode })
+                {
+                    for (int slot = 0; slot < 8; slot++)
+                    {
+                        if (nodes[node].GetSegment(slot) == id)
+                        {
+                            int s = slot;
+                            ushort nd = node;
+                            ushort sg = (ushort)id;
+                            SetSlot(ref nodes[nd], s, 0);
+                            undo.Add(() => SetSlot(ref NetManager.instance.m_nodes.m_buffer[nd], s, sg));
+                        }
+                    }
+                }
+            }
+
+            foreach (var kv in Upgrades)
+            {
+                int id = kv.Key;
+                var target = PrefabCollection<NetInfo>.FindLoaded(kv.Value);
+                if (target == null || id <= 0 || id >= segs.Length || (segs[id].m_flags & NetSegment.Flags.Created) == 0
+                    || gone.Contains(id))
+                {
+                    continue;
+                }
+
+                ushort before = segs[id].m_infoIndex;
+                segs[id].m_infoIndex = (ushort)target.m_prefabDataIndex;
+                ushort sg = (ushort)id;
+                undo.Add(() => NetManager.instance.m_segments.m_buffer[sg].m_infoIndex = before);
+            }
+
+            return undo;
+        }
+
+        // 判定のあいだだけ、壊した・差し替えたものとして街を見せる。戻す動作は必ず行う
+        public string Apply(Func<string> work)
+        {
+            var undo = HasVirtual ? Detach() : null;
+            try
+            {
+                return work();
+            }
+            finally
+            {
+                if (undo != null)
+                {
+                    Restore(undo);
+                }
+            }
+        }
+
+        public static void Restore(List<Action> undo)
+        {
+            for (int i = undo.Count - 1; i >= 0; i--)
+            {
+                undo[i]();
+            }
+        }
+
+        private static void SetSlot(ref NetNode node, int slot, ushort segment)
+        {
+            switch (slot)
+            {
+                case 0: node.m_segment0 = segment; break;
+                case 1: node.m_segment1 = segment; break;
+                case 2: node.m_segment2 = segment; break;
+                case 3: node.m_segment3 = segment; break;
+                case 4: node.m_segment4 = segment; break;
+                case 5: node.m_segment5 = segment; break;
+                case 6: node.m_segment6 = segment; break;
+                default: node.m_segment7 = segment; break;
+            }
+        }
+
         public static Assumed Parse(HttpListenerRequest req)
         {
             var a = new Assumed();
             Fill(a.Segments, req.QueryString["assumeRemovedSegments"]);
             Fill(a.Buildings, req.QueryString["assumeRemovedBuildings"]);
+            // "区間の番号:道路の名前,..." (例 3334:Small 4 Lane Road)
+            string up = req.QueryString["assumeUpgraded"];
+            if (!string.IsNullOrEmpty(up))
+            {
+                foreach (var part in up.Split(','))
+                {
+                    int colon = part.IndexOf(':');
+                    int id;
+                    if (colon > 0 && int.TryParse(part.Substring(0, colon).Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out id) && id > 0)
+                    {
+                        a.Upgrades[id] = part.Substring(colon + 1).Trim();
+                    }
+                }
+            }
+
             return a;
         }
 

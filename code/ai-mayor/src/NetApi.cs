@@ -401,6 +401,9 @@ namespace AIMayor
             // 人が引くと断られる「ぶつかる」(ObjectCollision)と「短すぎる」(TooShort)で断る(#105。5回目、短すぎる区間を引けた)。
             // ほかの理由(坂が急すぎなど)は、この窓口の引き方(直線の区間、橋の高さの決め方)がゲームの道具と少し違うため、gameCheck に返すだけにする
             var gameCheck = new StringBuilder();
+            // 断られた区間は、最初の1つで止めず、すべて集める。後ろの区間の断りも一度に見えるように(#125)
+            var refusals = new StringBuilder();
+            string firstWhy = null, firstAt = null, firstReasons = null, firstColl = null;
             if ((pay || test) && fixedY == null)
             {
                 var buffer = new FastList<NetTool.NodePosition>();
@@ -424,7 +427,26 @@ namespace AIMayor
                     mid.m_elevation = Mathf.Lerp(a.m_elevation, b.m_elevation, 0.5f);
                     ushort tn, ts;
                     int tc, tr;
-                    var errors = NetTool.CreateNode(info, a, mid, b, buffer, 1000, true, false, true, false, false, false, 0, out tn, out ts, out tc, out tr);
+                    // 壊したものとした区間は点から外し、差し替えたものとした区間は種類を書き換えて判定する。TooShort は点につながる区間の幅で決まるため(#125)
+                    var detached = assumed != null && assumed.HasVirtual ? assumed.Detach() : null;
+                    ToolBase.ToolErrors errors;
+                    string cutters = "[]";
+                    try
+                    {
+                        errors = NetTool.CreateNode(info, a, mid, b, buffer, 1000, true, false, true, false, false, false, 0, out tn, out ts, out tc, out tr);
+                        if ((errors & ToolBase.ToolErrors.TooShort) != 0)
+                        {
+                            cutters = Cutters(a.m_node, b.m_node);
+                        }
+                    }
+                    finally
+                    {
+                        if (detached != null)
+                        {
+                            Assumed.Restore(detached);
+                        }
+                    }
+
                     string coll = null;
                     if ((errors & ToolBase.ToolErrors.ObjectCollision) != 0)
                     {
@@ -442,10 +464,20 @@ namespace AIMayor
                         string why = (errors & ToolBase.ToolErrors.ObjectCollision) != 0
                             ? "it collides with something that cannot be removed (ObjectCollision)"
                             : "a segment is too short (TooShort)";
-                        return "{\"ok\":false,\"error\":\"the game refuses this line: " + why + "\""
-                            + ",\"atSegment\":{\"from\":" + i + ",\"fromX\":" + Mathf.RoundToInt(a.m_position.x) + ",\"fromZ\":" + Mathf.RoundToInt(a.m_position.z)
-                            + ",\"toX\":" + Mathf.RoundToInt(b.m_position.x) + ",\"toZ\":" + Mathf.RoundToInt(b.m_position.z) + "}"
-                            + ",\"reasons\":" + Json.Str(errors.ToString()) + ",\"colliding\":" + (coll ?? "null") + "}";
+                        string at = "{\"from\":" + i + ",\"fromX\":" + Mathf.RoundToInt(a.m_position.x) + ",\"fromZ\":" + Mathf.RoundToInt(a.m_position.z)
+                            + ",\"toX\":" + Mathf.RoundToInt(b.m_position.x) + ",\"toZ\":" + Mathf.RoundToInt(b.m_position.z) + "}";
+                        if (firstWhy == null)
+                        {
+                            firstWhy = why;
+                            firstAt = at;
+                            firstReasons = errors.ToString();
+                            firstColl = coll;
+                        }
+
+                        refusals.Append(refusals.Length == 0 ? "" : ",").Append("{\"atSegment\":").Append(at)
+                            .Append(",\"reasons\":").Append(Json.Str(errors.ToString())).Append(",\"colliding\":").Append(coll ?? "null")
+                            .Append(",\"nearSegments\":").Append(cutters).Append('}');
+                        continue;
                     }
 
                     if (errors != ToolBase.ToolErrors.None)
@@ -454,6 +486,13 @@ namespace AIMayor
                             .Append(",\"reasons\":").Append(Json.Str(errors.ToString())).Append('}');
                     }
                 }
+            }
+
+            if (firstWhy != null)
+            {
+                return "{\"ok\":false,\"error\":\"the game refuses this line: " + firstWhy + "\""
+                    + ",\"atSegment\":" + firstAt + ",\"reasons\":" + Json.Str(firstReasons) + ",\"colliding\":" + (firstColl ?? "null")
+                    + ",\"refusals\":[" + refusals + "]}";
             }
 
             // 先に建設費の合計を計算し、足りるときだけ建てる(途中で止まって中途半端にならないように)
@@ -600,6 +639,37 @@ namespace AIMayor
         }
 
         // 試しに引くときの点(ゲームの道具が点や区間を指したときと同じ)。端と交差点は、既存の点か区間につなぐ
+        // TooShort のとき、区間の両端の点につながる区間。角を削って区間を短くする相手(#125)。
+        // 壊したものとした区間は、外してあるので出ない
+        private static string Cutters(ushort startNode, ushort endNode)
+        {
+            var nodes = NetManager.instance.m_nodes.m_buffer;
+            var segs = NetManager.instance.m_segments.m_buffer;
+            var sb = new StringBuilder("[");
+            foreach (var node in new[] { startNode, endNode })
+            {
+                if (node == 0)
+                {
+                    continue;
+                }
+
+                for (int i = 0; i < 8; i++)
+                {
+                    ushort seg = nodes[node].GetSegment(i);
+                    if (seg == 0 || segs[seg].Info == null)
+                    {
+                        continue;
+                    }
+
+                    sb.Append(sb.Length > 1 ? "," : "").Append("{\"node\":").Append(node).Append(",\"segment\":").Append(seg)
+                        .Append(",\"prefab\":").Append(Json.Str(segs[seg].Info.name))
+                        .Append(",\"halfWidth\":").Append(segs[seg].Info.m_halfWidth.ToString("0.#", CultureInfo.InvariantCulture)).Append('}');
+                }
+            }
+
+            return sb.Append(']').ToString();
+        }
+
         private static NetTool.ControlPoint TestPoint(Vector3 p, float y, float ground, NetInfo info, bool under, bool connect)
         {
             var cp = default(NetTool.ControlPoint);

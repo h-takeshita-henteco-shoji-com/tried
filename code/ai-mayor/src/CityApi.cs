@@ -1053,63 +1053,76 @@ namespace AIMayor
             ushort id = 0;
             // 敷地が重なる区画の建物。ゲームは重なった区画の建物を取り壊す(#82。市長は何棟壊れたか分からなかった)
             var overlapped = OverlappingZoned(info, pos, angle);
-            if (pay || test)
+            // 壊した・差し替えたものとする区間は、判定のあいだだけ街に反映する(#125)
+            var undo = assumed != null && assumed.HasVirtual ? assumed.Detach() : null;
+            try
             {
-                // ゲームの建物の道具と同じ判定で、置ける場所かを調べる(#105)。前は判定を通さずに置いたので、
-                // 道路やサービスの建物に重なる場所など、人には置けない場所にも置けた。
-                // 建物の型が位置と向きを直すことがある(岸に置く建物など)。試しの判定(test=true)は、
-                // 取り除けない相手(道路、サービスの建物など)にぶつかるときだけ断る。区画の建物は本番で取り壊す
-                float minY, maxY, buildingY;
-                Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
-                pos.y = buildingY;
-                var seg = default(ColossalFramework.Math.Segment3);
-                int productionRate, constructionCost;
-                var posErrors = info.m_buildingAI.CheckBuildPosition(0, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
-                Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
-                var segBuf = new ulong[(NetManager.instance.m_segments.m_buffer.Length + 63) >> 6];
-                var bldBuf = new ulong[(BuildingManager.instance.m_buildings.m_buffer.Length + 63) >> 6];
-                var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
-                    info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
-                bool blocking;
-                string coll = UpgradeApi.CollidingJson(segBuf, bldBuf, assumed, out blocking);
-                // 試しで、断る相手がすべて「壊したもの」なら、ぶつからないとみなす(#105。壊してから建てる工事を試す)
-                if (assumed != null && assumed.Any && !blocking)
+                if (pay || test)
                 {
-                    spaceErrors &= ~ToolBase.ToolErrors.ObjectCollision;
-                }
-
-                if ((posErrors | spaceErrors) != ToolBase.ToolErrors.None)
-                {
-                    return "{\"ok\":false,\"error\":\"cannot place here\",\"reasons\":" + Json.Str((posErrors | spaceErrors).ToString())
-                        + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
-                        + ",\"colliding\":" + coll + "}";
-                }
-
-                // 本番: ゲームの道具と同じく、取り除ける相手(区画の建物など)を取り除いてから置く
-                overlapped = new List<ushort>();
-                foreach (int b in UpgradeApi.Bits(bldBuf))
-                {
-                    var bi = BuildingManager.instance.m_buildings.m_buffer[b].Info;
-                    if (bi != null && !bi.IgnoreBuildingCollision() && !(assumed != null && assumed.RemovedBuilding(b)))
+                    // ゲームの建物の道具と同じ判定で、置ける場所かを調べる(#105)。前は判定を通さずに置いたので、
+                    // 道路やサービスの建物に重なる場所など、人には置けない場所にも置けた。
+                    // 建物の型が位置と向きを直すことがある(岸に置く建物など)。試しの判定(test=true)は、
+                    // 取り除けない相手(道路、サービスの建物など)にぶつかるときだけ断る。区画の建物は本番で取り壊す
+                    float minY, maxY, buildingY;
+                    Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
+                    pos.y = buildingY;
+                    var seg = default(ColossalFramework.Math.Segment3);
+                    int productionRate, constructionCost;
+                    var posErrors = info.m_buildingAI.CheckBuildPosition(0, ref pos, ref angle, 0f, 0f, ref seg, out productionRate, out constructionCost);
+                    Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out minY, out maxY, out buildingY);
+                    var segBuf = new ulong[(NetManager.instance.m_segments.m_buffer.Length + 63) >> 6];
+                    var bldBuf = new ulong[(BuildingManager.instance.m_buildings.m_buffer.Length + 63) >> 6];
+                    var spaceErrors = BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
+                        info.m_cellWidth, info.m_cellLength, true, segBuf, bldBuf);
+                    bool blocking;
+                    string coll = UpgradeApi.CollidingJson(segBuf, bldBuf, assumed, out blocking);
+                    // 試しで、断る相手がすべて「壊したもの」なら、ぶつからないとみなす(#105。壊してから建てる工事を試す)
+                    if (assumed != null && assumed.Any && !blocking)
                     {
-                        overlapped.Add((ushort)b);
+                        spaceErrors &= ~ToolBase.ToolErrors.ObjectCollision;
                     }
+
+                    if ((posErrors | spaceErrors) != ToolBase.ToolErrors.None)
+                    {
+                        return "{\"ok\":false,\"error\":\"cannot place here\",\"reasons\":" + Json.Str((posErrors | spaceErrors).ToString())
+                            + ",\"positionReasons\":" + Json.Str(posErrors.ToString()) + ",\"spaceReasons\":" + Json.Str(spaceErrors.ToString())
+                            + ",\"colliding\":" + coll + "}";
+                    }
+
+                    // 本番: ゲームの道具と同じく、取り除ける相手(区画の建物など)を取り除いてから置く
+                    overlapped = new List<ushort>();
+                    foreach (int b in UpgradeApi.Bits(bldBuf))
+                    {
+                        var bi = BuildingManager.instance.m_buildings.m_buffer[b].Info;
+                        if (bi != null && !bi.IgnoreBuildingCollision() && !(assumed != null && assumed.RemovedBuilding(b)))
+                        {
+                            overlapped.Add((ushort)b);
+                        }
+                    }
+
+                    angleDeg = angle * Mathf.Rad2Deg;
+                    if (test)
+                    {
+                        return "{\"ok\":true,\"test\":true,\"placed\":false,\"prefab\":" + Json.Str(name) + ",\"x\":" + Mathf.RoundToInt(pos.x)
+                            + ",\"z\":" + Mathf.RoundToInt(pos.z) + ",\"angleUsed\":" + N(angleDeg) + ",\"cost\":" + cost / 100
+                            + ",\"enoughMoney\":" + (eco.LastCashAmount >= cost ? "true" : "false") + ",\"needsRoad\":" + NeedsRoadJson(info)
+                            + ",\"needs\":" + NeedsJson(info) + ",\"entrance\":" + Entrance(pos, angle, info.m_cellLength)
+                            + ",\"wouldDemolish\":" + DemolishedJson(overlapped) + ",\"lostByDemolish\":" + LostJson(overlapped) + "}";
+                    }
+
+                    Array.Clear(segBuf, 0, segBuf.Length);
+                    Array.Clear(bldBuf, 0, bldBuf.Length);
+                    BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
+                        info.m_cellWidth, info.m_cellLength, false, segBuf, bldBuf);
                 }
 
-                angleDeg = angle * Mathf.Rad2Deg;
-                if (test)
+            }
+            finally
+            {
+                if (undo != null)
                 {
-                    return "{\"ok\":true,\"test\":true,\"placed\":false,\"prefab\":" + Json.Str(name) + ",\"x\":" + Mathf.RoundToInt(pos.x)
-                        + ",\"z\":" + Mathf.RoundToInt(pos.z) + ",\"angleUsed\":" + N(angleDeg) + ",\"cost\":" + cost / 100
-                        + ",\"enoughMoney\":" + (eco.LastCashAmount >= cost ? "true" : "false") + ",\"needsRoad\":" + NeedsRoadJson(info)
-                        + ",\"needs\":" + NeedsJson(info) + ",\"entrance\":" + Entrance(pos, angle, info.m_cellLength)
-                        + ",\"wouldDemolish\":" + DemolishedJson(overlapped) + "}";
+                    Assumed.Restore(undo);
                 }
-
-                Array.Clear(segBuf, 0, segBuf.Length);
-                Array.Clear(bldBuf, 0, bldBuf.Length);
-                BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, minY, buildingY + info.m_collisionHeight, angle,
-                    info.m_cellWidth, info.m_cellLength, false, segBuf, bldBuf);
             }
 
             if (!BuildingManager.instance.CreateBuilding(out id, ref rnd, info, pos, angle, info.m_cellLength, sim.m_currentBuildIndex))
@@ -1189,6 +1202,35 @@ namespace AIMayor
         }
 
         // 重なった区画の建物。count は数、ids は最大20、removedNow は置いた直後にもう消えていた数(残りはゲームが後で取り壊す)
+        // 壊れる区画の建物が失う働き口と家の合計と、建物ごとの内訳(最大20件)。preview_bulldoze の lost と同じ数え方(#125)
+        private static string LostJson(List<ushort> ids)
+        {
+            var bs = BuildingManager.instance.m_buildings.m_buffer;
+            int jobs = 0, homes = 0, shown = 0;
+            var list = new StringBuilder();
+            foreach (var id in ids)
+            {
+                var info = bs[id].Info;
+                if (info == null || (bs[id].m_flags & Building.Flags.Created) == 0)
+                {
+                    continue;
+                }
+
+                int j, h;
+                PlanningApi.JobsHomes(id, ref bs[id], out j, out h);
+                jobs += j;
+                homes += h;
+                if (shown < 20)
+                {
+                    list.Append(shown == 0 ? "" : ",").Append("{\"id\":").Append(id).Append(",\"prefab\":").Append(Json.Str(info.name))
+                        .Append(",\"jobs\":").Append(j).Append(",\"homes\":").Append(h).Append('}');
+                    shown++;
+                }
+            }
+
+            return "{\"jobs\":" + jobs + ",\"homes\":" + homes + ",\"buildings\":[" + list + "]}";
+        }
+
         private static string DemolishedJson(List<ushort> ids)
         {
             var bs = BuildingManager.instance.m_buildings.m_buffer;
