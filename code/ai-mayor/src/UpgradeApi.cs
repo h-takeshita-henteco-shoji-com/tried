@@ -533,6 +533,7 @@ namespace AIMayor
                 }
             }
 
+            var touched = new HashSet<ushort>();
             foreach (var id in gone)
             {
                 if (id <= 0 || id >= segs.Length || (segs[id].m_flags & NetSegment.Flags.Created) == 0)
@@ -546,6 +547,7 @@ namespace AIMayor
                     {
                         if (nodes[node].GetSegment(slot) == id)
                         {
+                            touched.Add(node);
                             int s = slot;
                             ushort nd = node;
                             ushort sg = (ushort)id;
@@ -554,6 +556,13 @@ namespace AIMayor
                         }
                     }
                 }
+            }
+
+            // 区間を外した点の印(End、Middle、Bend、Junction)を、残った区間の数と向きに合わせる。
+            // ゲームは壊した後に点を更新して印を決める。印が古いままだと、角の計算が壊した後の街と食い違う(#125)
+            foreach (var node in touched)
+            {
+                SetNodeFlags(node, undo);
             }
 
             foreach (var kv in Upgrades)
@@ -573,6 +582,50 @@ namespace AIMayor
             }
 
             return undo;
+        }
+
+        private static void SetNodeFlags(ushort node, List<Action> undo)
+        {
+            var nm = NetManager.instance;
+            var nodes = nm.m_nodes.m_buffer;
+            var segs = nm.m_segments.m_buffer;
+            var dirs = new List<Vector3>();
+            for (int i = 0; i < 8; i++)
+            {
+                ushort seg = nodes[node].GetSegment(i);
+                if (seg == 0)
+                {
+                    continue;
+                }
+
+                var d = segs[seg].m_startNode == node ? segs[seg].m_startDirection : segs[seg].m_endDirection;
+                dirs.Add(d);
+            }
+
+            if (dirs.Count == 0)
+            {
+                return;
+            }
+
+            const NetNode.Flags shape = NetNode.Flags.End | NetNode.Flags.Middle | NetNode.Flags.Bend | NetNode.Flags.Junction;
+            NetNode.Flags want;
+            if (dirs.Count == 1)
+            {
+                want = NetNode.Flags.End;
+            }
+            else if (dirs.Count == 2)
+            {
+                want = dirs[0].x * dirs[1].x + dirs[0].z * dirs[1].z < -0.999f ? NetNode.Flags.Middle : NetNode.Flags.Bend;
+            }
+            else
+            {
+                want = NetNode.Flags.Junction;
+            }
+
+            var before = nodes[node].m_flags;
+            nodes[node].m_flags = (before & ~shape) | want;
+            ushort nd = node;
+            undo.Add(() => NetManager.instance.m_nodes.m_buffer[nd].m_flags = before);
         }
 
         // 判定のあいだだけ、壊した・差し替えたものとして街を見せる。戻す動作は必ず行う
