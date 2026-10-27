@@ -1,0 +1,7 @@
+{
+  "month": 1,
+  "rulings": [
+    {"measureId": "m01-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "議会は呼ばず、人(竹下さん)が可決として記録した。単独の試しのため。失うものは建物0、働き口0、家0、停電0(局の preview_bulldoze)。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}
