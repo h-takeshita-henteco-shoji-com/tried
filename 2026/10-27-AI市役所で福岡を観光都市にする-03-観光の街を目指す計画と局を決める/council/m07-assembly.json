@@ -1,0 +1,10 @@
+{
+  "month": 7,
+  "rulings": [
+    {"measureId": "m07-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,000、維持費+8で守る線に収まる。"},
+    {"measureId": "m07-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で守る線に影響しない。"},
+    {"measureId": "m07-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で守る線に影響しない。"},
+    {"measureId": "m07-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費が約7,940減り、政策の変更は月1件の上限内。"}
+  ],
+  "approvedKinds": []
+}

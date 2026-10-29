@@ -1,0 +1,214 @@
+﻿# AI Mayor log  city=fukuoka-v3  started=2026-10-27 17:29:55
+# 実時間	ゲーム内の日付	種類	内容
+2026-10-27 17:30:11	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:30:21	2050-01-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-27 17:30:21	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:30:24	2050-01-01	OK	save_city name=fukuoka-plan-m01 overwrite=true  -> 2.5s
+2026-10-27 17:30:27	2050-01-01	OK	economy  -> 0.0s
+2026-10-27 17:30:27	2050-01-01	OK	services  -> 0.0s
+2026-10-27 17:30:27	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-27 17:30:27	2050-01-01	OK	complaints  -> 0.0s
+2026-10-27 17:30:27	2050-01-01	OK	citizen_voices n=5  -> 0.0s
+2026-10-27 17:30:27	2050-01-01	OK	events  -> 0.0s
+2026-10-27 17:30:27	2050-01-01	OK	screenshot view=top max_width=1000 save_to=m01-town.jpg  -> 1.2s
+2026-10-27 17:30:31	2050-01-01	OK	traffic x=null z=null radius=6000.0 limit=3  -> 0.0s
+2026-10-27 17:30:31	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:30:32	2050-01-01	OK	building_stats x=null z=null radius=6000.0  -> 0.1s
+2026-10-27 17:30:33	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-27 17:30:33	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=8000.0 limit=1 problems_only=false problem=null service=Monument abandoned=false brief=true  -> 0.0s
+2026-10-27 17:30:34	2050-01-01	OK	map_layer type=attractiveness x=null z=null radius=500 n=9  -> 0.0s
+2026-10-27 17:30:34	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-27 17:30:34	2050-01-01	OK	cargo  -> 0.0s
+2026-10-27 17:31:08	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:31:09	2050-01-01	OK	economy  -> 0.0s
+2026-10-27 17:31:09	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:31:09	2050-01-01	OK	list_loans  -> 0.0s
+2026-10-27 17:31:55	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:31:55	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-27 17:31:55	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:31:55	2050-01-01	OK	cargo  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	complaints  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	cargo  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	events  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	building_stats x=null z=null radius=500  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	trade  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	list_transport_lines type=null number=null name=null  -> 0.0s
+2026-10-27 17:31:56	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:31:58	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:31:58	2050-01-01	OK	map_layer type=attractiveness x=null z=null radius=500 n=9  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	demand_breakdown  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	land_value x=null z=null radius=500  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=10000.0 limit=50 problems_only=false problem=null service=Monument abandoned=false brief=true  -> 0.1s
+2026-10-27 17:31:59	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:31:59	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:32:00	2050-01-01	OK	services  -> 0.0s
+2026-10-27 17:32:00	2050-01-01	OK	buildings_near x=3272.9 z=-311.3 radius=500.0 limit=50 problems_only=false problem=null service=FireDepartment abandoned=false brief=false  -> 0.0s
+2026-10-27 17:32:01	2050-01-01	OK	buildings_near x=2255.7 z=836.0 radius=500.0 limit=50 problems_only=false problem=null service=PoliceDepartment abandoned=false brief=false  -> 0.0s
+2026-10-27 17:32:05	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-27 17:32:06	2050-01-01	OK	complaints  -> 0.0s
+2026-10-27 17:32:06	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:32:07	2050-01-01	OK	traffic x=null z=null radius=500 limit=10  -> 0.0s
+2026-10-27 17:32:07	2050-01-01	OK	citizens_without_service type=electricity limit=20  -> 0.0s
+2026-10-27 17:32:07	2050-01-01	OK	citizens_without_service type=water limit=20  -> 0.0s
+2026-10-27 17:32:07	2050-01-01	OK	citizens_without_service type=sewage limit=20  -> 0.0s
+2026-10-27 17:32:08	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:32:08	2050-01-01	OK	services  -> 0.0s
+2026-10-27 17:32:08	2050-01-01	OK	citizens_summary  -> 0.0s
+2026-10-27 17:32:08	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:32:11	2050-01-01	OK	list_building_types service=FireDepartment locked=false  -> 0.0s
+2026-10-27 17:32:11	2050-01-01	OK	list_building_types service=PoliceDepartment locked=false  -> 0.0s
+2026-10-27 17:32:11	2050-01-01	OK	economy  -> 0.0s
+2026-10-27 17:32:12	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=5000.0 limit=100 problems_only=false problem=null service=Beautification abandoned=false brief=false  -> 0.1s
+2026-10-27 17:32:12	2050-01-01	OK	building_stats x=0.0 z=0.0 radius=5000.0  -> 0.0s
+2026-10-27 17:32:13	2050-01-01	OK	services  -> 0.0s
+2026-10-27 17:32:14	2050-01-01	OK	list_building_types service=PublicTransport locked=false  -> 0.0s
+2026-10-27 17:32:14	2050-01-01	OK	list_building_types service=null locked=false  -> 0.0s
+2026-10-27 17:32:16	2050-01-01	OK	list_building_types service=Monument locked=false  -> 0.0s
+2026-10-27 17:32:16	2050-01-01	OK	list_net_types service=Road locked=true  -> 0.0s
+2026-10-27 17:32:18	2050-01-01	OK	transport_reach  -> 0.0s
+2026-10-27 17:32:18	2050-01-01	OK	buildings_near x=3449.0 z=-1555.0 radius=400.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-27 17:32:21	2050-01-01	OK	zone_map x=0.0 z=0.0 radius=3500.0 size=900 save_to=null  -> 0.3s
+2026-10-27 17:32:21	2050-01-01	OK	list_building_types service=Beautification locked=false  -> 0.0s
+2026-10-27 17:32:22	2050-01-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-27 17:32:23	2050-01-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-27 17:32:23	2050-01-01	OK	list_building_types service=HealthCare locked=false  -> 0.0s
+2026-10-27 17:32:24	2050-01-01	OK	list_building_types service=Deathcare locked=false  -> 0.0s
+2026-10-27 17:32:24	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:32:26	2050-01-01	OK	net_near x=2309.0 z=-925.0 radius=300.0 service=null limit=30  -> 0.0s
+2026-10-27 17:32:27	2050-01-01	OK	junction_info x=2309.0 z=-925.0  -> 0.0s
+2026-10-27 17:32:27	2050-01-01	OK	buildings_near x=2309.0 z=-925.0 radius=300.0 limit=30 problems_only=false problem=null service=null abandoned=false brief=false  -> 0.0s
+2026-10-27 17:32:27	2050-01-01	OK	net_near x=2309.0 z=-925.0 radius=300.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:32:28	2050-01-01	OK	traffic x=2309.0 z=-925.0 radius=300.0 limit=10  -> 0.0s
+2026-10-27 17:32:29	2050-01-01	OK	zone_summary grid=1000  -> 0.1s
+2026-10-27 17:32:30	2050-01-01	OK	buildings_near x=3881.8 z=-296.2 radius=400.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-27 17:32:30	2050-01-01	OK	buildings_near x=-458.7 z=-1468.3 radius=400.0 limit=50 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-27 17:32:31	2050-01-01	OK	zone_map x=3272.9 z=-311.3 radius=300.0 size=900 save_to=null  -> 0.0s
+2026-10-27 17:32:31	2050-01-01	OK	zone_map x=-1350.0 z=-796.0 radius=500.0 size=600 save_to=null  -> 0.0s
+2026-10-27 17:32:32	2050-01-01	OK	zone_map x=2255.7 z=836.0 radius=300.0 size=900 save_to=null  -> 0.0s
+2026-10-27 17:32:32	2050-01-01	OK	zone_map x=1765.0 z=622.0 radius=500.0 size=600 save_to=null  -> 0.0s
+2026-10-27 17:32:32	2050-01-01	OK	net_near x=3272.9 z=-311.3 radius=400.0 service=null limit=50  -> 0.0s
+2026-10-27 17:32:32	2050-01-01	OK	net_near x=-1350.0 z=-796.0 radius=300.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:32:32	2050-01-01	OK	net_near x=2255.7 z=836.0 radius=400.0 service=null limit=50  -> 0.0s
+2026-10-27 17:32:33	2050-01-01	OK	net_near x=1765.0 z=622.0 radius=300.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:32:33	2050-01-01	OK	zone_summary grid=500.0  -> 0.1s
+2026-10-27 17:32:35	2050-01-01	OK	test_upgrade_road prefab=Medium Road points=[[2194.0, -950.0], [2228.0, -950.0], [2280.0, -950.0]] tolerance=30.0 demolish=false assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume...  -> 0.1s cost=0
+2026-10-27 17:32:35	2050-01-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-27 17:32:40	2050-01-01	OK	test_place_building prefab=Fire House x=3300.0 z=-200.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:32:41	2050-01-01	OK	test_place_building prefab=Police Station x=2200.0 z=900.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:32:43	2050-01-01	OK	test_upgrade_road prefab=Small 4 Lane Road points=[[2160.0, -950.0], [2400.0, -950.0]] tolerance=20 demolish=false assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=0
+2026-10-27 17:32:43	2050-01-01	OK	list_net_types service=Road locked=false  -> 0.0s
+2026-10-27 17:32:43	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:32:44	2050-01-01	NG	test_place_building prefab=Theater of Wonders x=-1200.0 z=-600.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:44	2050-01-01	OK	test_place_building prefab=Combustion Plant x=4500.0 z=-1500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=30000
+2026-10-27 17:32:44	2050-01-01	NG	test_place_building prefab=ExpoCenter x=-1000.0 z=-900.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:45	2050-01-01	OK	test_place_building prefab=Combustion Plant x=-3500.0 z=-2500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=30000
+2026-10-27 17:32:45	2050-01-01	OK	test_place_building prefab=Library x=1850.0 z=450.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=90000
+2026-10-27 17:32:45	2050-01-01	OK	test_place_building prefab=Medical Clinic x=-500.0 z=-1500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=10000
+2026-10-27 17:32:45	2050-01-01	NG	test_place_building prefab=Fire House x=3160.0 z=-280.0 angle=0 facing=east assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:45	2050-01-01	OK	test_place_building prefab=High Interest Tower x=1600.0 z=750.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=125000
+2026-10-27 17:32:46	2050-01-01	OK	test_place_building prefab=Police Station x=2320.0 z=700.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:32:46	2050-01-01	NG	test_place_building prefab=Regular Park x=0.0 z=-400.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.1s)
+2026-10-27 17:32:46	2050-01-01	NG	test_place_building prefab=Regular Park x=500.0 z=0.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:46	2050-01-01	NG	test_place_building prefab=Regular Park x=1500.0 z=500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:47	2050-01-01	NG	test_place_building prefab=Regular Park x=2000.0 z=1000.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:47	2050-01-01	OK	test_place_building prefab=Regular Park x=-500.0 z=-500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=1000
+2026-10-27 17:32:50	2050-01-01	NG	test_place_building prefab=Fire House x=3400.0 z=-400.0 angle=0 facing=west assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:50	2050-01-01	OK	test_place_building prefab=Police Station x=2450.0 z=900.0 angle=0 facing=west assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:32:51	2050-01-01	OK	net_near x=4500.0 z=-1500.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:32:52	2050-01-01	OK	net_near x=-3500.0 z=-2500.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:32:52	2050-01-01	OK	net_near x=-500.0 z=-1500.0 radius=200.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:32:53	2050-01-01	NG	test_place_building prefab=Grand Mall x=-1500.0 z=-1200.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:54	2050-01-01	NG	test_place_building prefab=Observatory x=-900.0 z=-700.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:54	2050-01-01	OK	test_place_building prefab=Modern Art Museum x=1900.0 z=450.0 angle=0 facing=east assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=130000
+2026-10-27 17:32:55	2050-01-01	OK	test_place_building prefab=Theater of Wonders x=1600.0 z=850.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=175000
+2026-10-27 17:32:57	2050-01-01	OK	list_building_types service=Monument locked=false  -> 0.0s
+2026-10-27 17:32:57	2050-01-01	OK	map_layer type=attractiveness x=null z=null radius=500 n=9  -> 0.0s
+2026-10-27 17:32:58	2050-01-01	OK	test_place_building prefab=Medical Clinic x=-600.0 z=-1400.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=10000
+2026-10-27 17:32:59	2050-01-01	NG	test_place_building prefab=Crematory x=3000.0 z=-500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:32:59	2050-01-01	NG	test_place_building prefab=Crematory x=-3000.0 z=1500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:00	2050-01-01	OK	test_place_building prefab=Fire House x=3500.0 z=-500.0 angle=0 facing=north assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:33:00	2050-01-01	OK	test_place_building prefab=Police Station x=2100.0 z=800.0 angle=0 facing=east assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:33:01	2050-01-01	NG	test_place_building prefab=Fire House x=3100.0 z=-100.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:01	2050-01-01	OK	test_place_building prefab=Police Station x=2550.0 z=950.0 angle=0 facing=north assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=12000
+2026-10-27 17:33:06	2050-01-01	OK	buildings_near x=0.0 z=0.0 radius=5000.0 limit=50 problems_only=false problem=null service=Garbage abandoned=false brief=true  -> 0.0s
+2026-10-27 17:33:06	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:33:07	2050-01-01	OK	test_place_building prefab=ExpoCenter x=-800.0 z=-600.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=100000
+2026-10-27 17:33:07	2050-01-01	OK	zone_map x=0.0 z=0.0 radius=1500.0 size=600 save_to=null  -> 0.1s
+2026-10-27 17:33:07	2050-01-01	NG	test_place_building prefab=Winter Market 01 x=-1300.0 z=-450.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.1s)
+2026-10-27 17:33:09	2050-01-01	NG	test_place_building prefab=Fire House x=3680.0 z=-318.0 angle=0 facing=north assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:09	2050-01-01	NG	test_place_building prefab=Police Station x=2521.0 z=650.0 angle=0 facing=north assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:14	2050-01-01	NG	test_place_building prefab=Transport Tower x=2000.0 z=600.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:14	2050-01-01	NG	test_place_building prefab=Fountain of LifeDeath x=-750.0 z=-450.0 angle=0 facing=south assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:18	2050-01-01	NG	test_place_building prefab=Regular Park x=150.0 z=-350.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:18	2050-01-01	NG	test_place_building prefab=Regular Park x=300.0 z=-300.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:19	2050-01-01	NG	test_place_building prefab=Regular Park x=-300.0 z=-700.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:19	2050-01-01	NG	test_place_building prefab=Landfill Site x=-3500.0 z=1500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:19	2050-01-01	OK	vehicles_stuck kind=truck building=null limit=20  -> 0.1s
+2026-10-27 17:33:19	2050-01-01	OK	cargo  -> 0.0s
+2026-10-27 17:33:19	2050-01-01	OK	test_place_building prefab=Regular Park x=2000.0 z=-800.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=1000
+2026-10-27 17:33:19	2050-01-01	OK	test_place_building prefab=Landfill Site x=4500.0 z=-1500.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=4000
+2026-10-27 17:33:20	2050-01-01	NG	test_place_building prefab=Regular Park x=-1200.0 z=-1200.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:20	2050-01-01	OK	test_place_building prefab=Landfill Site x=5000.0 z=2000.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=4000
+2026-10-27 17:33:25	2050-01-01	OK	net_near x=-800.0 z=-600.0 radius=300.0 service=Road limit=50  -> 0.0s
+2026-10-27 17:33:25	2050-01-01	OK	list_net_types service=PublicTransport locked=true  -> 0.0s
+2026-10-27 17:33:34	2050-01-01	OK	buildings_near x=-1000.0 z=0.0 radius=500.0 limit=20 problems_only=false problem=null service=null abandoned=false brief=true  -> 0.0s
+2026-10-27 17:33:35	2050-01-01	OK	net_near x=3449.0 z=-1555.0 radius=400.0 service=Road limit=20  -> 0.0s
+2026-10-27 17:33:49	2050-01-01	OK	test_place_building prefab=Crematory x=-2000.0 z=-1800.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=25000
+2026-10-27 17:33:50	2050-01-01	OK	test_place_building prefab=Crematory x=2500.0 z=-1200.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> 0.0s cost=25000
+2026-10-27 17:33:50	2050-01-01	NG	test_place_building prefab=Hospital x=-2500.0 z=1000.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:51	2050-01-01	NG	test_place_building prefab=Official Park x=-1200.0 z=400.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:33:52	2050-01-01	NG	test_place_building prefab=SeaWorld x=1000.0 z=1000.0 angle=0 facing=null assume_removed_segments=null assume_removed_buildings=null assume_upgraded=null assume_terrain=null  -> cannot place here (0.0s)
+2026-10-27 17:34:02	2050-01-01	OK	list_transport_lines type=bus number=null name=null  -> 0.0s
+2026-10-27 17:34:02	2050-01-01	OK	transport_depots type=bus  -> 0.0s
+2026-10-27 17:36:01	2050-01-01	OK	economy  -> 0.0s
+2026-10-27 17:36:01	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:36:02	2050-01-01	OK	list_building_types service=Monument locked=false  -> 0.0s
+2026-10-27 17:36:02	2050-01-01	OK	list_transport_lines type=null number=null name=null  -> 0.0s
+2026-10-27 17:36:39	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:36:39	2050-01-01	OK	list_building_types service=Garbage locked=false  -> 0.0s
+2026-10-27 17:36:39	2050-01-01	OK	list_building_types service=Deathcare locked=false  -> 0.0s
+2026-10-27 17:38:48	2050-01-01	OK	list_policies  -> 0.0s
+2026-10-27 17:38:48	2050-01-01	OK	junction_info x=2309.0 z=-950.0  -> 0.0s
+2026-10-27 17:38:49	2050-01-01	NG	junction_info x=-726.0 z=-736.0  -> no road junction within 40m (0.0s)
+2026-10-27 17:38:49	2050-01-01	OK	junction_info x=2100.0 z=309.0  -> 0.0s
+2026-10-27 17:39:10	2050-01-01	OK	list_transport_lines type=bus number=35 name=null  -> 0.0s
+2026-10-27 17:39:11	2050-01-01	OK	list_transport_lines type=bus number=55 name=null  -> 0.0s
+2026-10-27 17:39:11	2050-01-01	OK	list_transport_lines type=bus number=29 name=null  -> 0.0s
+2026-10-27 17:39:11	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:40:41	2050-01-01	OK	set_time paused=true speed=null  -> 0.0s
+2026-10-27 17:40:41	2050-01-01	OK	traffic x=2110.0 z=330.0 radius=200.0 limit=10  -> 0.0s
+2026-10-27 17:40:41	2050-01-01	OK	city_info  -> 0.0s
+2026-10-27 17:40:42	2050-01-01	OK	junction_info x=2100.0 z=309.0  -> 0.0s
+2026-10-27 17:40:42	2050-01-01	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:40:42	2050-01-01	OK	map_layer type=attractiveness x=null z=null radius=500 n=9  -> 0.0s
+2026-10-27 17:40:46	2050-01-01	DO	RecreationalUse政策を有効にする(公約4・観光)
+2026-10-27 17:40:46	2050-01-01	WHY	費用0で観光客1,646・魅力度6を動かせる手。週黒字+9,965を減らさない
+2026-10-27 17:40:50	2050-01-01	OK	set_policy name=RecreationalUse active=true  -> 0.0s
+2026-10-27 17:40:51	2050-01-01	DO	交差点(2100,309)に信号を付ける(交通の試し)
+2026-10-27 17:40:51	2050-01-01	WHY	周り半径200mで止まった車138台。信号で減るか試す。費用0で戻せる
+2026-10-27 17:40:51	2050-01-01	OK	set_traffic_lights x=2100.0 z=309.0 active=true  -> 3.6s
+2026-10-27 17:40:57	2050-01-01	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 96.7s
+2026-10-27 17:42:37	2050-01-11	OK	city_info  -> 0.0s
+2026-10-27 17:42:38	2050-01-11	OK	events  -> 0.0s
+2026-10-27 17:42:38	2050-01-11	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:42:38	2050-01-11	OK	buildings_near x=0.0 z=0.0 radius=5000.0 limit=50 problems_only=false problem=null service=Monument abandoned=false brief=true  -> 0.0s
+2026-10-27 17:42:41	2050-01-11	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 93.2s
+2026-10-27 17:44:19	2050-01-21	OK	city_info  -> 0.0s
+2026-10-27 17:44:19	2050-01-21	OK	events  -> 0.0s
+2026-10-27 17:44:20	2050-01-21	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:44:20	2050-01-21	OK	buildings_near x=0.0 z=0.0 radius=5000.0 limit=50 problems_only=false problem=null service=Monument abandoned=false brief=true  -> 0.0s
+2026-10-27 17:44:22	2050-01-21	OK	advance days=10 speed=3 max_seconds=600 turbo=null  -> 87.9s
+2026-10-27 17:45:53	2050-01-31	OK	city_info  -> 0.0s
+2026-10-27 17:45:54	2050-01-31	OK	events  -> 0.0s
+2026-10-27 17:45:54	2050-01-31	OK	traffic x=2110.0 z=330.0 radius=200.0 limit=3  -> 0.0s
+2026-10-27 17:45:54	2050-01-31	OK	traffic x=null z=null radius=500 limit=3  -> 0.0s
+2026-10-27 17:45:55	2050-01-31	OK	zone_summary grid=500.0  -> 0.1s
+2026-10-27 17:45:56	2050-01-31	OK	buildings_near x=250.0 z=-250.0 radius=500.0 limit=50 problems_only=false problem=null service=Beautification abandoned=false brief=true  -> 0.0s
+2026-10-27 17:45:56	2050-01-31	OK	buildings_near x=0.0 z=0.0 radius=5000.0 limit=50 problems_only=false problem=null service=Monument abandoned=false brief=true  -> 0.0s
+2026-10-27 17:45:56	2050-01-31	OK	map_layer type=attractiveness x=null z=null radius=500 n=9  -> 0.0s
+2026-10-27 17:46:02	2050-01-31	OK	economy_breakdown  -> 0.0s
+2026-10-27 17:46:02	2050-01-31	OK	building_stats x=null z=null radius=500  -> 0.0s

@@ -1,0 +1,329 @@
+{
+  "month": 7,
+  "seen": {
+    "gameDate": "2050-07-01",
+    "saveName": "fukuoka-plan-m07",
+    "priorities": [
+      "5-1、5-2 観光",
+      "4-4 資源循環",
+      "6-4、7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 150000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "北東の道路沿いに遊び場 Regular Playground を1棟",
+          "executionReady": true,
+          "buildCost": 1250,
+          "upkeepPerWeek": 24,
+          "reversible": true,
+          "planItems": [
+            "4-2",
+            "4-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "遊び場(Regular Playground)を道路沿いの住宅地に置いた周りで、住宅(高密度)の地価を押し上げるか。",
+        "plan": "map_layer landvalue(1752,1082) r150 n5、attractiveness 同じ引数、buildings_near(1752,1082) r30 brief を見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点(3162,-300)に信号を付ける(試し)",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東西の幹線の南北の枝 x=2110(z 240〜330)の止まりは、両端の無信号の3差路が原因か。",
+        "plan": "traffic(x=2096, z=278, radius=40)の blocked と busiest、junction_info(x=2110, z=330)、junction_info(x=2110, z=240) を見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "地下鉄1号線の西へ延伸と駅の新設(取り壊しを含む)",
+          "executionReady": false,
+          "buildCost": 32100,
+          "upkeepPerWeek": 267,
+          "reversible": false,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物列車2本が経路なし(path none)で止まっている原因は、線路の接続か。",
+        "plan": "transport_reach と vehicles_stuck(kind=train, building=28755, limit=12) を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "観光に効く案は今月出しません。名所 Official Park(m06-1)の判定が8月まで残り、名所を足すと効きが混ざります。品物を届ける元の貨物駅28755の詰まりは港の担当で、経済観光文化局には倉庫や貨物の建物がありません。商業の需要は2で、店を増やしても建ちません。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "名所 Official Park の周りの店(品物がない店)が、観光客の使うお金(Tourism)を止めているか。",
+        "plan": "buildings_near(x=1935,z=912,radius=300,problem=NoGoods,brief=true,limit=50)、economy_breakdown、city_info を見回り1・見回り2・月末に呼ぶ。NoGoods 17棟が減りTourismが上がれば港へ出し直し、動かなければ名所の試しを次の月に出す。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "西の埋立地を1か所増やす(-1775,-1975)",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "西側の埋立地の置き場が、ごみの印の hotspot の移動と関係するか。",
+        "plan": "complaints(引数なし)、buildings_near x -2293 z -1584 radius 300 problem Garbage brief、services(garbage.full)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の目標は今の時点で満たしている。小学校の定員 14,268 は子ども 9,772 以上、高校の定員 24,360 は10代 21,874 以上で、どちらも余りがある。学校や大学を足す手は維持費を増やすだけで担当の数字を変えない。EducationBoost の解除は定員に効かず、財政の判断のため案にしない。有効な手がないため案なしとした。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "消防の予算を140%から150%に上げる(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 2336,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "消防署 49026 と 18411 の消防車(0 / 8)は、火事の印(38574、5804、2002 の近く)に向けて出ているか。",
+        "plan": "buildings_near(3290,-604,r15,brief=false) の stats、complaints の Fire、buildings_near(3217,-790,r150,problems_only=true) を、見回り1・見回り2・月末に見る。"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費1,250、週の維持費24。建設費の合計と維持費の増え分の枠に収まる。"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費4,000、週の維持費160。建設費の合計と維持費の増え分の枠に収まる。"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費0。消防の予算を140から150へ(+10、上限±20の内)。週の支出は約+2,336で、維持費の枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 150000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m07-1",
+        "fromBureau": "health-1",
+        "title": "西に埋立地 Landfill Site を1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m07-2",
+        "fromBureau": "urban-1",
+        "title": "北東に遊び場 Regular Playground を1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2",
+          "4-1"
+        ]
+      },
+      {
+        "id": "m07-3",
+        "fromBureau": "fire-1",
+        "title": "消防の予算を150%に上げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "roads-1",
+        "reason": "信号の建設費と維持費が道具で確かめられず、実行条件が未確認のため。"
+      },
+      {
+        "proposal": "port-1",
+        "reason": "駅入口と地下線路の接続、接続工事の費用が未確認で、取り壊しも伴うため。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s07-1",
+        "fromBureau": "economy",
+        "question": "名所 Official Park の周りの品物がない店が、観光客の使うお金(Tourism)を止めているか。"
+      },
+      {
+        "id": "s07-2",
+        "fromBureau": "health",
+        "question": "西側の埋立地の置き場が、ごみの印の hotspot の移動と関係するか。"
+      },
+      {
+        "id": "s07-3",
+        "fromBureau": "roads",
+        "question": "x=2110(z 240〜330)の南北の枝の止まりは、両端の無信号の3差路が原因か。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m07-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "週の維持費と収支の減りが書かれ、戻し方と中止条件がある。過去に外れた手の続けでもなく、3-4 に沿う。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m07-1",
+    "m07-2",
+    "m07-3"
+  ],
+  "surveys": [
+    {
+      "id": "s07-1",
+      "fromBureau": "economy",
+      "question": "名所 Official Park の周りの品物がない店が、観光客の使うお金(Tourism)を止めているか。"
+    },
+    {
+      "id": "s07-2",
+      "fromBureau": "health",
+      "question": "西側の埋立地の置き場が、ごみの印の hotspot の移動と関係するか。"
+    },
+    {
+      "id": "s07-3",
+      "fromBureau": "roads",
+      "question": "x=2110(z 240〜330)の南北の枝の止まりは、両端の無信号の3差路が原因か。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m07-1",
+      "m07-2",
+      "m07-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-07-11",
+        "population": 179597,
+        "money": 2188218,
+        "weeklyBalance": 6131,
+        "happiness": 87,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-07-21",
+        "population": 179285,
+        "money": 2199421,
+        "weeklyBalance": 7520,
+        "happiness": 87,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s07-1",
+      "s07-2",
+      "s07-3"
+    ],
+    "report": "3施策とも実行した。m07-1は埋立地6816を(-1775,-1975)に置いた(費用4,000)。m07-2は遊び場41098を(1752,1082)に置いた(費用1,250)。m07-3は消防予算を140から150に上げた。置く前のtestはどちらもokで、予備候補は使っていない。月末は人口178,992(前の月例179,838より減、3か月連続)、観光客1,561/150(減)、週の収支+6,735(黒字)、0/0/0で、見回り2回とも境目に当たらず臨時はなし。結果は次のとおり。埋立地6816は2% full・収集車18/19で動いたが、ごみの印は231から262、満杯の埋立地は9から10に増えた。遊び場41098は月末まで RoadNotConnected が付いたまま。消防署49026は消防車0/8から1/8になり、火事の印は4から5。調査s07-1は見回り1のみ、s07-2は見回り1と月末、s07-3は見回り1・2・月末で記録した。手順の乱れが1点ある。見回り2のs07-3の記録を月末にまとめて書いた。hooksに止められた手はない。ノートは mayor-note.md、ログは command-log.txt に残した。"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "month": 17,
+  "rulings": [
+    {"measureId": "m17-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費2,500、週40で守る線に収まる。"},
+    {"measureId": "m17-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0。維持費は小さく余裕の範囲。"},
+    {"measureId": "m17-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費480、週12で小さい。"},
+    {"measureId": "m17-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "政策変更は月1件の内。維持費は増えず運賃収入が戻る。"},
+    {"measureId": "m17-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "週1,440の増えでも収支は+5,576以上で守る線の上。"},
+    {"measureId": "m17-6", "verdict": "可決", "kind": "財政", "point": null, "reason": "週160の減りで守る線に響かない。"},
+    {"measureId": "m17-7", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費12,000、週560。所持金は守る線を大きく上回る。"}
+  ],
+  "approvedKinds": [],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

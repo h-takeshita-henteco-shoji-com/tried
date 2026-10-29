@@ -1,0 +1,453 @@
+{
+  "month": 19,
+  "seen": {
+    "gameDate": "2051-07-05",
+    "saveName": "fukuoka-plan-m19",
+    "priorities": [
+      "5-1、5-2 観光(旅客の入口、島と空き地の名所)",
+      "8-1、6-4 貨物センターの止まりと品物がない店",
+      "4-4 資源循環(道のない埋立地3棟、満杯の3565)"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄店 16316 の跡に公園 JapaneseGarden を置く(住宅 17097 を取り壊す)",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "止まりの多い z=-490 の幹線7区間を4車線にする(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "交差点 (2700,330) の北脚で止まる車(blocked 72、(2710,309) 付近)は、信号の待ちが続くか、北側の出口の詰まりか。",
+        "plan": "traffic(x=2710, z=309, radius=60) と junction_info(x=2700, z=330) を、見回り1・見回り2・月末に見る。3回とも blocked 50以上で北脚が busiest なら信号の見直しを次の案に。30以下が続けば案なし。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "島Bに旅客の駅を置く(整地は市長に求める)",
+          "executionReady": false,
+          "buildCost": 51840,
+          "upkeepPerWeek": 991,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "13893 に列車が来ない理由は何か。28755 の敷地内の空き待ちは減るか",
+        "plan": "vehicles_stuck(kind=train, limit=20) と vehicles_stuck(kind=truck, building=28755, limit=5) を、見回り1、見回り2、月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "空き地3に天文台を置く試し",
+          "executionReady": true,
+          "buildCost": 86420,
+          "upkeepPerWeek": 1616,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "空き地3の魅力度は高いのに、名所 11580 の訪問が週2なのはなぜか。空き地3に名所を足して訪問は増えるか。",
+        "plan": "buildings_near(service=Monument、x=745、z=1500、radius=300、brief=false)、map_layer(attractiveness、x=745、z=1500、radius=200、n=5)、water_trace(x=745、z=1500)を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "道のない埋立地2つを、道の入口つきで建て直す",
+          "executionReady": true,
+          "buildCost": 8000,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "焼却場 2267 の周りの汚染の印は、2267 から出ているか。住宅に当たる汚染が 2267 のそばにだけ溜まるかを確かめる",
+        "plan": "map_layer(pollution、x 3604、z -30、radius 300、n 9)と buildings_near(problem Pollution、x 3604、z -30、radius 200、brief true)を、見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "小学校 25802 を1校止め、維持費を減らす(試し、再提出)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "焼け跡の事務所 948(3724.5,-226)を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "医療の予算 130→110 は、墓地の使用が 63%(15,077 / 24,000)で「半分以下」の条件を満たさず、保留のまま。税と政策は、人口が10か月連続で減る原因が分からないため据え置く。政策の Recycling は週約13,000の税収減で守る線を割り、SmallBusiness と RecreationalUse は観光への効きが切り分けられなかった手の繰り返しになるため出さない。案の代わりに、人口の減りを見る調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "人口が減り続ける原因は、高齢の住民の死亡が多いか、転出が多いか。住民数、高齢の数、転入の途中の人数が30日の間にどう動くか。",
+        "plan": "見る道具: citizens_summary(引数なし。residents、age.senior、movingIn)、demand_breakdown(引数なし。emptyHomes、homeless)、city_info(引数なし。population)。見回り1・見回り2・月末に見る。"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m19-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店の跡に公園 JapaneseGarden を置く",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m19-2",
+        "fromBureau": "roads-1",
+        "title": "幹線 z=-490 の7区間を4車線にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m19-3",
+        "fromBureau": "health-1",
+        "title": "道のない埋立地 10676 を建て直す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m19-4",
+        "fromBureau": "fire-1",
+        "title": "焼け跡の事務所 948 を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m19-5",
+        "fromBureau": "education-1",
+        "title": "小学校 25802 を1校止める(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "2-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "port-1",
+        "reason": "整地費と駅のつなぎ口が未確認で、必須条件が残る。",
+        "kind": "不可",
+        "condition": ""
+      },
+      {
+        "proposal": "economy-1",
+        "reason": "水・下水の終点が置いた後の ports 頼みで、下水の根拠も食い違い、訪問が週2のまま維持費が週約1,616と大きい。",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s19-1",
+        "fromBureau": "finance",
+        "question": "人口が減り続ける原因は、高齢の住民の死亡が多いか、転出が多いか。"
+      },
+      {
+        "id": "s19-2",
+        "fromBureau": "port",
+        "question": "13893 に列車が来ない理由は何か。28755 の敷地内の空き待ちは減るか。"
+      },
+      {
+        "id": "s19-3",
+        "fromBureau": "economy",
+        "question": "空き地3の魅力度は高いのに、名所 11580 の訪問が週2なのはなぜか。空き地3に名所を足して、訪問は増えるか。"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "島Bに旅客の駅を置く(整地は市長に求める)",
+          "executionReady": false,
+          "buildCost": 51840,
+          "upkeepPerWeek": 991,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "空き地3に天文台を置く試し",
+          "executionReady": true,
+          "buildCost": 86420,
+          "upkeepPerWeek": 1616,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m19-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うのは家2、働き口0で preview_bulldoze と一致。計画4-2に沿う。"
+      },
+      {
+        "measureId": "m19-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増え0で守る線に響かない。"
+      },
+      {
+        "measureId": "m19-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "建物1、道路0、働き口0、家0。代わりの手の比べも書かれている。"
+      },
+      {
+        "measureId": "m19-4",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは働き口0、家0。放置との比べも書かれ、費用0。"
+      },
+      {
+        "measureId": "m19-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費を減らす施策で守る線を破らない。戻す条件あり。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m19-1",
+    "m19-2",
+    "m19-3",
+    "m19-4",
+    "m19-5"
+  ],
+  "surveys": [
+    {
+      "id": "s19-1",
+      "fromBureau": "finance",
+      "question": "人口が減り続ける原因は、高齢の住民の死亡が多いか、転出が多いか。"
+    },
+    {
+      "id": "s19-2",
+      "fromBureau": "port",
+      "question": "13893 に列車が来ない理由は何か。28755 の敷地内の空き待ちは減るか。"
+    },
+    {
+      "id": "s19-3",
+      "fromBureau": "economy",
+      "question": "空き地3の魅力度は高いのに、名所 11580 の訪問が週2なのはなぜか。空き地3に名所を足して、訪問は増えるか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m19-1",
+      "m19-2",
+      "m19-3",
+      "m19-4",
+      "m19-5"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-07-15",
+        "population": 174837,
+        "money": 2560305,
+        "weeklyBalance": 7375,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-07-25",
+        "population": 174594,
+        "money": 2570431,
+        "weeklyBalance": 6806,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s19-1",
+      "s19-2",
+      "s19-3"
+    ],
+    "report": "m19 の5施策は、すべて advance の前に打ち、失敗はなかった。\n- m19-1: JapaneseGarden(id 46916)を置いた。Beautification は 93 から 94 になった。\n- m19-2: 幹線 z=-490 の7区間を 4 車線にした。blocked は 47 から 0 になり、月末まで 0 だった。ただし density 100 の区間が2〜3区間残る。\n- m19-3: 埋立地 10676 を建て直した(新 id 28071)。入口は道に距離1で、2% full だった。RoadNotConnected は 4 から 3 になった。\n- m19-4: 焼け跡 948 を取り壊した。その印は消えたが、Fire の印は別の建物 23175 に出ている。\n- m19-5: 小学校 25802 を止めた。覆いの最小は 3 のままで 0 は出ず、戻していない。Education の週の支出は 47,640 から 47,400 になった。\n見回りは2回とも境目に当たらず、臨時もなかった(8/4 の月末も境目なし)。月末は人口 174,330(前月例より 448 減)、所持金 2,581,541、週の収支 +7,697、観光客 1,852、Tourism 週87 だった。\n調査 s19-1〜s19-3 の結果は council/m19-survey-finance.md、m19-survey-port.md、m19-survey-economy.md に書いた(結果の解釈は書いていない)。\nhooks に止められた手と、型に従えなかった点はない。"
+  }
+}

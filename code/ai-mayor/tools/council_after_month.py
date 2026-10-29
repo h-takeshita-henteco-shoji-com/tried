@@ -21,7 +21,7 @@ import sys
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 
 # Workflow の段の名前から、ファイル名に使う段の英字
-STAGE = {"見る": "see", "要領": "guide", "案": "proposal", "査定": "assess", "まとめ": "bill",
+STAGE = {"見る": "see", "案": "proposal", "まとめ": "bill", "差し戻し": "recheck", "再まとめ": "rebill",
          "議会": "assembly", "直す": "fix", "議会2": "assembly2", "実行": "field"}
 
 

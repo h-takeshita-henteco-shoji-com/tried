@@ -1,0 +1,8 @@
+{
+  "month": 8,
+  "rulings": [
+    {"measureId": "m08-2", "verdict": "可決", "kind": "予算", "point": null, "reason": "前月の同型 m05-4 は「まだ分からない」。測る場所を絞り直した理由が書かれ、バス収入への響きも示され、戻せる。"},
+    {"measureId": "m08-3", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldoze で2棟とも家0・働き口0を確認。失うものが数字で書かれ、代わりの手との比べもある。"}
+  ],
+  "approvedKinds": ["予算", "取り壊し"]
+}

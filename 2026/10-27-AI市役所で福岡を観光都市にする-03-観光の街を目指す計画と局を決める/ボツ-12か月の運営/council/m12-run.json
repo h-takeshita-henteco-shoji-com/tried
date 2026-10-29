@@ -1,0 +1,454 @@
+{
+  "month": 12,
+  "seen": {
+    "gameDate": "2050-11-28",
+    "saveName": "fukuoka-plan-m12",
+    "priorities": [
+      "5-1、5-2 観光",
+      "3-4 日常生活の安全・安心",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 250000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "取り壊しの跡に遊び場を2か所置く(4-2 を +2)",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 48,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "南北の幹線と東西の2区間を4車線に差し替える",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "政策 HeavyTrafficBan を街全体にかける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-3",
+          "title": "交差点(-1070,-650)の南の流入に譲れの標識を付ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "バス28番(line 136)の予算を 140 から 120 に下げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        },
+        {
+          "id": "port-2",
+          "title": "乗客0のバス11番(line 200)の予算を 100 から 80 に下げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター28755の敷地で止まる空き待ちのトラックは、何を待っているか。",
+        "plan": "見回り1・見回り2・月末に vehicles_stuck(kind=truck, building=28755, limit=10)、cargo、buildings_near(x=3449, z=-1555, radius=60, brief=true) を見る。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "今月は案なし。観光の人数(1,584)と Tourism(53)は目標から遠いが、名所・公園・広場・RecreationalUse・取り壊しのいずれも人数を動かしていない。品物がない店(257)と働き口は、貨物駅 28755 の敷地で止まるトラック 458 台が原因だが、道路拡幅では効かず、実行できる手の設置・接続条件が未確認。事務所の空き(1,633)は道路に面しておらず、通す道と壊す建物を確かめていない。貨物駅 13893 は道路隣接だがトラックが 0 台のため、接続の原因を調べる調査を出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅 13893(3529,-1555)は、道路に面しているのにトラックが来ないのか。来ない理由は接続の向きか、ほかの要因か。",
+        "plan": "vehicles_stuck(kind=truck, building=13893, limit=3)、net_near(x=3529, z=-1555, radius=40, service=Road)、cargo(引数なし)を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "西の集積地に焼却場を1棟足す",
+          "executionReady": false,
+          "buildCost": 30000,
+          "upkeepPerWeek": 1440,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の目標(2-3 自ら学び続ける子どもの育成)は満たしている。小学校の定員 14,268 は子ども 9,812 を上回り、高校の定員 24,360 は10代 19,733 を上回る。12か月目の終わりまで崩れる見込みもない。学校の新設は維持費を増やすだけで効果がなく、大学・図書館は定員を持たず目標に効かない。EducationBoost の解除は定員を変えず、目標の数字で効きを測れない。検討した候補はファイルの捨てたものに記録した。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "燃えたまま放棄された3棟を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "fire-2",
+          "title": "火事の多い地区に消防署を1棟足す(試し)",
+          "executionReady": true,
+          "buildCost": 12160,
+          "upkeepPerWeek": 560,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費 2,500(遊び場 1,250 × 2)、維持費の増え 48/週。上限 250,000 と黒字の幅 4,000 に収まる。"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "Basic Road と Small 4 Lane Road は同じ 5,000/km・40/km/週で、差し替えの建設費も維持費の増えも 0。"
+      },
+      {
+        "proposalId": "roads-2",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "HeavyTrafficBan は無効で costPerWeek 0。政策の変更は月1件で、この案だけが政策を変える。"
+      },
+      {
+        "proposalId": "roads-3",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "譲れの標識の建設費・維持費は道具の一覧になく、前例では cost 0。費用の増えは 0 と見る。"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス28番の予算を 140 から 120 に下げるだけで、費用は増えない。変更幅 -20 は枠 ±20 に収まる。"
+      },
+      {
+        "proposalId": "port-2",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス11番の予算を 100 から 80 に下げるだけで、費用は増えない。変更幅 -20 は枠 ±20 に収まる。"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "取り壊しで建設費は増えず、維持費は減る方向。取り壊しの費用は道具の一覧になく 0 として扱った(この調書では未確認)。"
+      },
+      {
+        "proposalId": "fire-2",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "Fire House 建設費 12,000 と支線の道路 160 で計 12,160。維持費の増えは 560 と道路の約 1。上限と黒字の幅に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 250000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m12-1",
+        "fromBureau": "urban-1",
+        "title": "取り壊しの跡に遊び場2か所",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m12-2",
+        "fromBureau": "roads-1",
+        "title": "東の基本道路8区間を4車線化",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m12-3",
+        "fromBureau": "roads-3",
+        "title": "交差点(-1070,-650)南に譲れの標識(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m12-4",
+        "fromBureau": "port-2",
+        "title": "バス11番の予算を80に下げる",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m12-5",
+        "fromBureau": "fire-1",
+        "title": "燃えた放棄3棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m12-6",
+        "fromBureau": "fire-2",
+        "title": "火事の多い地区に消防署(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "roads-2",
+        "reason": "トラックの内訳と品物がない店への響きが未確認で、最終月に戻す時間もない。"
+      },
+      {
+        "proposal": "port-1",
+        "reason": "試しの基準(line 136 の止まり台数)が未取得で、路線が m12-3 の試しの場所と重なるか確かめられていない。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s12-1",
+        "fromBureau": "port",
+        "question": "貨物センター28755の敷地で止まる、空き待ちのトラックは何を待っているか。"
+      },
+      {
+        "id": "s12-2",
+        "fromBureau": "economy",
+        "question": "貨物駅13893は道路に面しているのにトラックが来ないのか。理由は接続の向きか、ほかの要因か。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m12-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失う働き口10と家0が数字で書かれ、代わりの手も試されている。6-4への響きも書かれている。"
+      },
+      {
+        "measureId": "m12-4",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "乗客0の路線で失うものがなく、戻せる。"
+      },
+      {
+        "measureId": "m12-5",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldozeで3棟とも働き口0・家0を確かめた。学校定員への響きと代わりの手も書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m12-2",
+    "m12-3",
+    "m12-6",
+    "m12-1",
+    "m12-4",
+    "m12-5"
+  ],
+  "surveys": [
+    {
+      "id": "s12-1",
+      "fromBureau": "port",
+      "question": "貨物センター28755の敷地で止まる、空き待ちのトラックは何を待っているか。"
+    },
+    {
+      "id": "s12-2",
+      "fromBureau": "economy",
+      "question": "貨物駅13893は道路に面しているのにトラックが来ないのか。理由は接続の向きか、ほかの要因か。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m12-1",
+      "m12-2",
+      "m12-3",
+      "m12-4",
+      "m12-5"
+    ],
+    "failed": [
+      "m12-6"
+    ],
+    "failedReasons": [
+      {
+        "id": "m12-6",
+        "reason": "部分実行。支線 Basic Road (2600,-688)-(2580,-660) は成功(費用160)。続く place_building Fire House (2600,-705) facing north が ObjectCollision で断られた。reasons は ObjectCollision、colliding は今引いた Basic Road 19861 (2592,-676)(blocks true)。事前の test_place_building は支線を引く前の状態で ok だった。予備候補なし。道路だけ残した。署の効きは測れていない。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-12-08",
+        "population": 175624,
+        "money": 2363648,
+        "weeklyBalance": 4566,
+        "happiness": 86,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-12-18",
+        "population": 175240,
+        "money": 2369475,
+        "weeklyBalance": 3891,
+        "happiness": 86,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s12-1",
+      "s12-2"
+    ],
+    "report": "12か月目(最終月)に議案6件のうち5件を実行し、m12-6 は部分実行で失敗した。取り壊し9棟は advance の前に済ませた。見回り2回とも境目に当たらず、臨時なし。月末は 2050-12-28 で、人口175,086(前月175,613より減、8か月続けて減)、所持金2,375,062、週の収支+3,932(黒字)、観光客1,683/151、Tourism 59(前月末の1,584/53より増)、0/0/0。結果: m12-1 は遊び場2棟を置き Beautification 91→93。m12-2 は (2590,610) r150 の blocked 80→5 だが、街全体の流れは56→53で目標60に届かない。m12-3 は (-1084,-680) r150 の blocked 58→11(12061 の標識が残り、切り分けは未了)。m12-4 は line 200 の台数36→29で乗客は0のまま。m12-5 は complaints の Fire が7→0。m12-6 は支線が署の敷地を通り、署を置けなかった。調査 s12-1(貨物センター28755で約500台が WaitingSpace のまま)と s12-2(13893 にトラックなし、面する道路は2区間のみ)は、基準・見回り1・2・月末をファイルに記録した。hooks に止められた手はない。台帳は市政ノートに追記済み。公約の結果と申し送りの欄は未記入。\""
+  }
+}

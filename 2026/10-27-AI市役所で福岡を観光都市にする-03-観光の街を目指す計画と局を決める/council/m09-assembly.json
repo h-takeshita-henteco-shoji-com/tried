@@ -1,0 +1,11 @@
+{
+  "month": 9,
+  "rulings": [
+    {"measureId": "m09-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,520、週12で守る線に響かない。"},
+    {"measureId": "m09-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0、維持費の増え0で守る線に響かない。"},
+    {"measureId": "m09-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0、維持費の増え0で守る線に響かない。"},
+    {"measureId": "m09-4", "verdict": "可決", "kind": "税", "point": null, "reason": "幅-1で上限内。税収約-8,150を書き、見込み週+6,720で守る線を保つ。戻せる試し。"}
+  ],
+  "approvedKinds": ["税"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

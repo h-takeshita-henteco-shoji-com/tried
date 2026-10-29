@@ -1,0 +1,395 @@
+{
+  "month": 12,
+  "seen": {
+    "gameDate": "2050-12-07",
+    "saveName": "fukuoka-plan-m12",
+    "priorities": [
+      "5-1・5-2 観光",
+      "5-1・5-2(入口) 旅客の駅・港・空港",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "電気の届く空き(440,1150)に公園を1か所置き、入口の道をつなぐ",
+          "executionReady": true,
+          "buildCost": 1160,
+          "upkeepPerWeek": 9.4,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "名所 40850 の道を東と南から引く",
+          "executionReady": false,
+          "buildCost": 1040,
+          "upkeepPerWeek": 10,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2 観光"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "区間 10647 を Large Road に太くする",
+          "executionReady": true,
+          "buildCost": 200,
+          "upkeepPerWeek": 2,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "旅客の入口は試した4か所(空港2、駅2)がすべて test_place_building で断られ、下水の網が届く候補を確認できなかった。8-1は道路の混みが正常で、止まりは敷地の中の空き待ち(626台)。出口の増設を試した test_build_line は 28755 と 13893 の敷地に重なり断られ、別の経路は未確認。最終月のため、確認済みの手がない案は出さない。詳細は council/m12-port.md。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所 40850 の西側の入口へ南回りの道をつなぐ",
+          "executionReady": false,
+          "buildCost": 1320,
+          "upkeepPerWeek": 12,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "満杯の埋立地3つを空にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4",
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "焼却場 2267 を止め、汚染を減らす(試し。見回りで条件を満たすときだけ)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1440,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の数字は目標を満たしている。小学校の定員 14,268 に対し子ども 9,189(余裕 5,079)、高校の定員 24,360 に対し10代 20,609(余裕 3,751)。長期計画の発動条件(余裕 1,000 を切る)に届かない。候補の高校1校と小学校1校は、発動条件に届かず、最終月に建てても効果が出ない。EducationBoost は学校の定員を変えないため担当の数字に効かない。長期計画は前提と食い違わないので直さない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "担当の3-4は2050-12-07に火事1・犯罪1の合計2で目標(4以下)を満たしている。計画の前提だった犯罪率15(3604,-473付近)は平均0・最大7に下がり、犯罪の手の根拠がない。放棄された建物に火事の印はなく、焼け跡の取り壊しの対象もない。煙探知機の政策は週57,953の費用で守る線を割るため捨てた。消防署の新設・警察の移設も根拠がない。最終月のため調査も出さない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "財政の手段(税・予算・政策・融資)で、観光の数字(5-1・5-2)に効くと確かめられたものがない。守る線は保たれている(所持金 2,358,955 ≥ 1,874,000、週の収支 +13,509 ≥ +3,000)。12か月目の予定は守る線と枠の確認と記録のみで、新しい事業はない。検討したのは EducationBoost(判定が任期内に出ない)、Recycling(住宅税収の減りが守る線を割る)、RecreationalUse と SmallBusiness(効きが確認できない)、高コストの政策群、道路予算、税の変更、融資。詳しくは council/m12-finance.md の「捨てたもの」。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m12-1",
+        "fromBureau": "urban-1",
+        "title": "公園を(440,1150)に1か所と道",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m12-2",
+        "fromBureau": "roads-2",
+        "title": "10647をLarge Roadに太くする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m12-3",
+        "fromBureau": "health-1",
+        "title": "満杯の埋立地3つを空にする",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4",
+          "4-3"
+        ]
+      },
+      {
+        "id": "m12-4",
+        "fromBureau": "health-2",
+        "title": "焼却場2267を止める(試し、条件つき)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3",
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "economy-1",
+        "reason": "名所40850の入口の向きが未確認で、実行可否が未確認のため採れない。",
+        "kind": "条件付き",
+        "condition": "40850の入口の向きを道具で確かめ、test_build_lineがokのまま道が入口に届く経路を実行計画に書く。"
+      },
+      {
+        "proposal": "roads-1",
+        "reason": "入口の向きが未確認で、実行可否が未確認のため採れない。economy-1と同じ名所なのでどちらか一方だけ採る。",
+        "kind": "条件付き",
+        "condition": "40850の入口の向きを道具で確かめ、東か南の道が入口に届くと分かる経路を実行計画に書く。"
+      }
+    ],
+    "surveys": []
+  },
+  "rechecks": [
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所 40850 の西側の入口へ南回りの道をつなぐ",
+          "executionReady": false,
+          "buildCost": 1320,
+          "upkeepPerWeek": 12,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "名所 40850 の道を東と南から引く",
+          "executionReady": false,
+          "buildCost": 1040,
+          "upkeepPerWeek": 10,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2 観光"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m12-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費1,160、維持費の増え9.4で守る線に響かない。"
+      },
+      {
+        "measureId": "m12-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費200、維持費の増え約2で小さい。"
+      },
+      {
+        "measureId": "m12-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0、維持費の増え0。"
+      },
+      {
+        "measureId": "m12-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で週の維持費が1,440減る。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m12-1",
+    "m12-2",
+    "m12-3",
+    "m12-4"
+  ],
+  "surveys": [],
+  "done": {
+    "executed": [
+      "m12-1",
+      "m12-2",
+      "m12-3"
+    ],
+    "failed": [
+      "m12-4"
+    ],
+    "failedReasons": [
+      {
+        "id": "m12-4",
+        "reason": "条件を満たさず見送り。見回り1(12/17)は garbage.full 0 だが Garbage 14 で、条件の 9 以下に届かなかった。見回り2(12/27)は Garbage を測らず、止めていない。"
+      },
+      {
+        "id": "m12-1",
+        "reason": "部分実行の注記。公園は置いた。道は議案の始点(440,1182)が公園の外形に重なり test が断ったため、始点を (440,1190) に8m動かして引いた。終点は既存 node につながったが、始点と公園の入口の間に約8mの隙間が残る。公園は problems None で電気 true。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-12-17",
+        "population": 179535,
+        "money": 2375617,
+        "weeklyBalance": 12136,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-12-27",
+        "population": 179305,
+        "money": 2393026,
+        "weeklyBalance": 12209,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [],
+    "report": "最終月の結果です。m12-1（公園）、m12-2（Large Road）、m12-3（埋立地3つ）を打ちました。m12-4（焼却場の停止）は条件を満たさず見送りました。\n- m12-1: 公園 26494 を置きました。Beautification は 86 から 87 になりました。道は始点を8m動かして引いたので、公園の入口との間に約8mの隙間が残ります。\n- m12-2: 区間 10647 を太くしました。blocked は 89 から 32 に減りました。西の区間 109 は細いままです。\n- m12-3: 埋立地3つを空にしました。満杯は 0 になりました。\n- m12-4: Garbage が 14 のままで、条件の 9 以下に届きませんでした。\n- 境目: 見回り2回とも当たりませんでした。臨時はありません。\n- 月末（2051-01-06）: 人口 179,020、所持金 2,411,252、週の収支 +12,404、観光客 1,765、汚染 29、ごみ 12。\n- 公約への影響: 人口は 3 か月以上減り続け、公約1は未達です。\n- 手順: 取り壊し・税・予算・融資は使っていません。調査は出ていません。市政ノートと command-log.txt を更新済みです。"
+  }
+}

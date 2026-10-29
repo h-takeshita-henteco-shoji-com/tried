@@ -1,0 +1,419 @@
+{
+  "month": 23,
+  "seen": {
+    "gameDate": "2051-11-02",
+    "saveName": "fukuoka-plan-m23",
+    "priorities": [
+      "5-1・5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄店 10258 の跡(1856,-46)に公園 JapaneseGarden を1つ置く",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "urban-2",
+          "title": "空き2か所に木を植える(試し、4-1)",
+          "executionReady": true,
+          "buildCost": 50,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "4-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "止まりの2番目 (2082,-840) の Basic 3組を Small 4 Lane にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "止まりの1番目 (3092,-477) の上流、交差点 (3130,-490) に信号を付ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "路線28の予算を 200% に戻す(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 250,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "28755 の隣の貨物センター 13893(車 0、職員 43)へ車が分かれるか。28755 の空き待ち(庫内 629)は見回りごとに減るか",
+        "plan": "cargo、vehicles_stuck(kind=truck, building=28755, limit=3)、buildings_near(x=3529, z=-1555, radius=60, limit=5) を 見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "峰の近くに公園を1棟置く(試し、(1862,360))",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "担当の汚染の印(20、目標15以下)とごみの印(14、目標0)に効く、実行できる手が今月は見つかりませんでした。埋立地23459の入口の道は、道具で通らないと確かめました。(2290,-1275)の別候補は、道と貨物センターにぶつかりました。Recycling政策は、住宅税の減りが約13,000/週で守る線を割るため使えません。汚染の出どころは未確認なので、調査を1件出します。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "汚染の強い一帯(x 3500〜3650、z -50〜-550)の値は、混んだ幹線 z=-250 の車の混みと一緒に動くか",
+        "plan": "map_layer(pollution, x 3500, z -250, radius 200, n 5)と traffic(x 3500, z -250, radius 200)と complaints を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "小学校の定員が子どもの1.44倍(13,224 対 9,169)で、止める条件は満たす。候補の 34817 は、止めると周りの住宅の覆いが 4〜16 の場所で0に落ちる見込みがあり、0が出ない根拠を出せない。15841 は周りの覆いが 33〜141 で広く頼られており、止めると影響が大きい。高校は余裕 6,175 で置く条件に届かない。節約は週 -160 と小さいため、0 の出る危険を取らず、案なしにした。計画の変更はなし。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "23月の確かめで、長期計画の分岐「出動が足りない」が外れた。48237(2834,1118)は燃え続けるが(abandoned=false、Fire と FatalProblem)、近くの消防署3棟(26833、16576、44290)の出動は 0/8 で、届き(168〜297)と消防予算(140%)も足りている。消防署の追加は効く根拠がなく見送る。焼け跡の取り壊しは条件外。犯罪の印4棟は場所が散らばり、警察の届きは約54〜198ある。SmokeDetectors(街全体)は週58,107で守る線を割る。有効に見込める施策が確かめられないため、原因を調べる調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "48237(2834,1118)の火事は燃え続けるのに、近くの消防署(26833 ほか)の車が出ていないのはなぜか。出動が見えるか。",
+        "plan": "見る道具: buildings_near(x=2643,z=1437,radius=5,service=FireDepartment)、buildings_near(x=2834,z=1118,radius=30)、complaints。見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "今月は案なし。長期計画の第23月の予定は区127の基準の調査(調査のみ)。守る線は余裕あり(週の収支 +7,746、所持金 2,672,278)。税・政策・医療予算を動かす根拠は今月の数字では足りない。政策 RecreationalUse と SmallBusiness は観光への効きが切り分けられず、区127の減税は基準の調査が先。墓地が65%のため医療110も保留。検討と根拠は council/m23-finance.md の「捨てたもの」に書いた。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "区127(Hakata、中心 (299,49))の人口と住宅(高)の占有は、税の試しを測る基準として何か。",
+        "plan": "見回り1・見回り2・月末に list_districts(人口)、building_stats(x=299, z=49, radius=300)、zones_at(x=299, z=49, radius=300)。人口2,735が動かず空きが5%未満なら24月に区127の住宅税減税(TaxLowerResHigh)を候補にする。"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m23-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店 10258 の跡に公園 JapaneseGarden",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m23-2",
+        "fromBureau": "roads-1",
+        "title": "交差点 (2110,-840) の3本を Small 4 Lane にする",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m23-3",
+        "fromBureau": "roads-2",
+        "title": "交差点 (3130,-490) に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m23-4",
+        "fromBureau": "port-1",
+        "title": "路線28の予算を 180%→200% にする(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m23-5",
+        "fromBureau": "economy-1",
+        "title": "峰の近くに公園 JapaneseGarden を1棟(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2",
+          "4-2"
+        ]
+      },
+      {
+        "id": "m23-6",
+        "fromBureau": "urban-2",
+        "title": "空き2か所に木を植える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-1"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s23-1",
+        "fromBureau": "port",
+        "question": "28755 の隣の貨物センター 13893(車 0、職員 43)が車を受けないのはなぜか。28755 の空き待ち(庫内 629)は見回りごとに減るか"
+      },
+      {
+        "id": "s23-2",
+        "fromBureau": "health",
+        "question": "汚染の強い一帯(x 3500〜3650、z -50〜-550)の値は、混んだ幹線 z=-250 の車の混みと一緒に動くか"
+      },
+      {
+        "id": "s23-3",
+        "fromBureau": "fire",
+        "question": "48237 の火事は燃え続けているのに、近くの消防署の車が出ていないのはなぜか。出動が見えるか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-2",
+          "title": "空き2か所に木を植える(試し、4-1)",
+          "executionReady": true,
+          "buildCost": 50,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "4-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m23-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldozeで働き口0・家0・施設なしを確認。"
+      },
+      {
+        "measureId": "m23-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で守る線に響かない。"
+      },
+      {
+        "measureId": "m23-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で守る線に響かない。"
+      },
+      {
+        "measureId": "m23-4",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "+20は上限内。響きも書かれ、維持費+250は守る線の内。"
+      },
+      {
+        "measureId": "m23-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費2,500、維持費+40で守る線の内。"
+      },
+      {
+        "measureId": "m23-6",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費約50で小さく、守る線を破らない。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m23-1",
+    "m23-2",
+    "m23-3",
+    "m23-4",
+    "m23-5",
+    "m23-6"
+  ],
+  "surveys": [
+    {
+      "id": "s23-1",
+      "fromBureau": "port",
+      "question": "28755 の隣の貨物センター 13893(車 0、職員 43)が車を受けないのはなぜか。28755 の空き待ち(庫内 629)は見回りごとに減るか"
+    },
+    {
+      "id": "s23-2",
+      "fromBureau": "health",
+      "question": "汚染の強い一帯(x 3500〜3650、z -50〜-550)の値は、混んだ幹線 z=-250 の車の混みと一緒に動くか"
+    },
+    {
+      "id": "s23-3",
+      "fromBureau": "fire",
+      "question": "48237 の火事は燃え続けているのに、近くの消防署の車が出ていないのはなぜか。出動が見えるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m23-1",
+      "m23-2",
+      "m23-3",
+      "m23-4",
+      "m23-5",
+      "m23-6"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-11-12",
+        "population": 172662,
+        "money": 2677720,
+        "weeklyBalance": 6999,
+        "happiness": 87,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-11-22",
+        "population": 172401,
+        "money": 2688287,
+        "weeklyBalance": 7496,
+        "happiness": 87,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s23-1",
+      "s23-2",
+      "s23-3"
+    ],
+    "report": "6件の施策をすべて打てた(建設費の合計は5,030)。m23-1は公園10019、m23-5は公園29231、m23-6は木3本(2本と1本)を置き、予備候補は使っていない。m23-2は3区間をSmall 4 Laneにした(費用0)。m23-3は(3130,-490)に信号を付け、m23-4は路線28の予算を200%にした(台数188)。月末の確かめでは、m23-2の(2082,-840 r200)のblockedが35から81に増えた。止まりは(2058,-871)30や(1955,-874)17に移っており、予想の20以下は外れの形になっている。m23-3は(3092,-477 r200)のblockedが56から57で、ほぼ変わらない。路線28のpassengersLastPeriodは73から101。公園29231のVisitors last weekは11、Tourists last weekは3で、予想の10〜15の範囲内。m23-6は騒音の平均が33から30、住宅(高)地価は67のまま変わらず、木の効きとは言えない。見回りは2回とも境目に当たらず、臨時はなし。月末の人口は172,273で、15か月連続の減少。週の収支は月末で+6,823、所持金は2,697,883。調査s23-1からs23-3は、council/m23-survey-port.md、-health.md、-fire.mdに3回分を書いた。28755の止まりは、見回り1が618、見回り2が611、月末が613でほぼ変わらず、13893は車0のままだった。48237のFireは3回とも残り、Fire Houseの出動は0/8のままだった。hooksに止められた手はない。市政ノートは/Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.mdに書き、ログはcommand-log.txtに写した。型に従えなかった点として、Beautificationの街全体の数は月末に数えなかった。"
+  }
+}

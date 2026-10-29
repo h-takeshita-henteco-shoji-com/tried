@@ -1,0 +1,15 @@
+{
+  "month": 1,
+  "rulings": [
+    {"measureId": "m01-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "壊すのは店3棟(働き口19、家0)で preview_bulldoze と一致。代わりの手も書かれ、財政の線の内。"},
+    {"measureId": "m01-2", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "壊すのはホテルと店で働き口23、家0。案と一致し、代わりの手と比べてある。"},
+    {"measureId": "m01-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費0で守る線の内。"},
+    {"measureId": "m01-4", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うのは埋立地と中のごみ。働き口0、家0、停電0。建設費24,000は線の内。"},
+    {"measureId": "m01-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費約2,800、維持費0で線の内。"},
+    {"measureId": "m01-6", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費12,000、維持費480で線の内。"},
+    {"measureId": "m01-7", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用は未確認だが小さく、余裕約4,300。外す条件が書かれている。"},
+    {"measureId": "m01-8", "verdict": "可決", "kind": "予算", "point": null, "reason": "roads は100から120で上限内。維持費1,705を足しても週の収支は約+7,332で線の上。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"],
+  "planCheck": {"verdict": "可", "reason": "今月の実行分は守る線の内で、12か月の建設費も上限に収まる。維持費は調整13で収まる月だけ置く。"}
+}

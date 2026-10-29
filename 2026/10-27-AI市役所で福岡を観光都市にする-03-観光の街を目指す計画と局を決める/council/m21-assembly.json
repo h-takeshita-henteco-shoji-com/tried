@@ -1,0 +1,11 @@
+{
+  "month": 21,
+  "rulings": [
+    {"measureId": "m21-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "壊すのは働き口0・家0の放棄店1棟。preview_bulldozeで確認済み。"},
+    {"measureId": "m21-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で守る線に響かない。"},
+    {"measureId": "m21-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増え0で守る線に響かない。"},
+    {"measureId": "m21-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費+1,440でも週の収支は約+7,400で、守る線と下降規則の上。"},
+    {"measureId": "m21-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費240、維持費約2で守る線に響かない。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

@@ -1,0 +1,388 @@
+{
+  "month": 18,
+  "seen": {
+    "gameDate": "2051-06-05",
+    "saveName": "fukuoka-plan-m18",
+    "priorities": [
+      "5-1、5-2 観光(旅客の入口、島と空き地の名所)",
+      "8-1、6-4 貨物センターの止まりと品物がない店",
+      "4-4 資源循環(満杯の埋立地4つ)"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "道に面した空き(1795,250)に公園 JapaneseGarden を1つ置く",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "止まりの多い幹線 z=10 を4車線にする(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "候補は2つで、どちらも必須の実行条件が未確認。(1) 島Bの旅客駅(Train Station (-4700,1600) 南向き): 入口の道が約33%の斜面で、整地が要る。局の道具に整地の試しがなく、既存の道と送電線に寄せた別の候補は置く試しで重なった。(2) 貨物センターの2つ目(西の (3340,-1555) 東向き): 置く試しは ok だが、電気・水・下水が届かず、入口の位置が未確認。8-1 の止まり(28755 の588台)の原因が道の混みか敷地内の待ちか分からないため、調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター 28755 の空き待ち(WaitingSpace)の車は、出口の道の混みで止まっているか、敷地の中の積み卸しの遅さで止まっているか。",
+        "plan": "traffic(x=3449, z=-1555, radius=150)と vehicles_stuck(kind=\"truck\", building=28755, limit=5)を、見回り1・見回り2・月末に見る。道の混みなら道路下水道局に出口の対策を求め、敷地内の待ちなら2つ目の貨物センターを接続確認のうえ検討する。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所の置ける空きがない(道沿いの空きは商業高密度36マスだけ)。Official Park と Fountain は建設済みで置けない。解禁済みで未建設の名所は週320の枠(調整8)を超える(最安 Transport Tower 週960)。40850 の道は道路下水道局、旅客の入口は港湾空港局の担当で、求めることを計画に書いた。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "満杯の埋立地4つを取り壊し、近くに建て直す",
+          "executionReady": true,
+          "buildCost": 16920,
+          "upkeepPerWeek": 7,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "小学校 25802 を1校止める(3校目、試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "43936 を止めた後、(-1370,-1350) の窓の覆いの最小が 0 に落ちないか。",
+        "plan": "map_layer(type=education_elementary, x=-1370, z=-1350, radius=400, n=9) を見回り1・見回り2・月末に見る。0が出たら 25802 を先に戻す。"
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "焼け跡の建物 1573 を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "医療の予算を 130 から 110 に下げる",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": -10192,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m18-1",
+        "fromBureau": "urban-1",
+        "title": "空き(1795,250)に公園 JapaneseGarden",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m18-2",
+        "fromBureau": "roads-1",
+        "title": "幹線 z=10 の3区間を4車線にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m18-3",
+        "fromBureau": "health-1",
+        "title": "満杯の埋立地4つを取り壊して建て直す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m18-4",
+        "fromBureau": "fire-1",
+        "title": "焼け跡の建物 1573 を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "finance-1",
+        "reason": "医療予算の下げは墓地・火葬場と霊柩車にも響くが、deathcare の容量と使用、Death 42 との関係が未確認。",
+        "kind": "条件付き",
+        "condition": "services の deathcare の capacity と used、vehicles_stuck(hearse)で、予算110%でも used が capacity の半分以下で Death 42 が増えない根拠を示す。"
+      },
+      {
+        "proposal": "education-1",
+        "reason": "43936 の窓の最小が3で、重なる 25802 を同月に止めると調査 s18-2 の測りを濁す。節約は週160で急ぎもない。",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s18-1",
+        "fromBureau": "port",
+        "question": "貨物センター 28755 の空き待ちの車は、出口の道の混みで止まっているか、敷地の中の積み卸しの遅さで止まっているか"
+      },
+      {
+        "id": "s18-2",
+        "fromBureau": "education",
+        "question": "43936 を止めた後、(-1370,-1350) の窓の覆いの最小が 0 に落ちないか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "医療の予算を 130 から 110 に下げる",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": -10192,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m18-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費2,500、週40で守る線に余裕がある。"
+      },
+      {
+        "measureId": "m18-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0、維持費0で戻せる試し。"
+      },
+      {
+        "measureId": "m18-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは働き口0・家0。代わりの手と比べてあり、4-4に沿う。"
+      },
+      {
+        "measureId": "m18-4",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものは0と数字で書かれ、残す手と比べてある。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m18-1",
+    "m18-2",
+    "m18-3",
+    "m18-4"
+  ],
+  "surveys": [
+    {
+      "id": "s18-1",
+      "fromBureau": "port",
+      "question": "貨物センター 28755 の空き待ちの車は、出口の道の混みで止まっているか、敷地の中の積み卸しの遅さで止まっているか"
+    },
+    {
+      "id": "s18-2",
+      "fromBureau": "education",
+      "question": "43936 を止めた後、(-1370,-1350) の窓の覆いの最小が 0 に落ちないか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m18-1",
+      "m18-2",
+      "m18-4"
+    ],
+    "failed": [
+      "m18-3"
+    ],
+    "failedReasons": [
+      {
+        "id": "m18-3",
+        "reason": "部分実行。取り壊し4棟と埋立地の置き直し4棟(8031、23459、10676、33216)は成功。支線3本(29981側 [[2712,-1570],[2760,-1565]]、48698側 [[-2793,-300],[-2720,-305]]、29266側 [[3499,682],[3440,670]])は test_build_line が overlaps で断った(敷地 80x64 の新しい埋立地 23459、10676、33216 と重なる)。端点を15m以内で2回動かしても同じで見送った。この3棟は入口に道がなく RoadNotConnected。8031 は道あり。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2051-06-15",
+        "population": 175191,
+        "money": 2528819,
+        "weeklyBalance": 10767,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-06-25",
+        "population": 175100,
+        "money": 2544341,
+        "weeklyBalance": 10493,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s18-1",
+      "s18-2"
+    ],
+    "report": "4件中3件を実行し、m18-3 は一部だけ実行しました。公園 18474(Beautification 92→93)、幹線 z=10 の4車線化(blocked 67→37、測りは揺れる)、焼け跡 1573 の取り壊しは議案どおりです。m18-3 は埋立地4棟を壊して建て直し、満杯は4→1(3565 のみ)に減りました。ただし支線3本は建て直した埋立地の敷地と重なって引けず、3棟(23459、10676、33216)は入口に道がなく RoadNotConnected です。月末は 2051-07-05。人口 174,778、所持金 2,555,946、週の収支 +7,740、観光客1,795。臨時の境目には当たりませんでした。調査 s18-1 と s18-2 は council の m18-survey-port.md と m18-survey-education.md に書きました。市政ノートとログ(command-log.txt)も保存済みです。"
+  }
+}

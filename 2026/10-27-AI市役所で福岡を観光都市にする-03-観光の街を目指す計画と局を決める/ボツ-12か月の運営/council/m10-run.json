@@ -1,0 +1,311 @@
+{
+  "month": 10,
+  "seen": {
+    "gameDate": "2050-09-29",
+    "saveName": "fukuoka-plan-m10",
+    "priorities": [
+      "5-1、5-2 観光",
+      "4-4 資源循環",
+      "6-4、7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 200000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "空き地に遊び場 Regular Playground を2棟",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 48,
+          "reversible": true,
+          "planItems": [
+            "4-2",
+            "4-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "人口減の中で、住宅の空き(emptyHomes)は見回りごとに減るか、増えるか、変わらないか。",
+        "plan": "見回り1・見回り2・月末に demand_breakdown(emptyHomes、homes、unemployed、emptyJobs)、city_info(population)、building_stats(住宅(高密度)の averageLandValue)を引数なしで見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "西の交差点(-1070,-650)の西の枝に譲れの標識を付ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東の z=-490 の4車線で止まる車は、下流の Basic Road 2871(14m)の空きを待っているか。",
+        "plan": "traffic(x=3120, z=-480, radius=60)と traffic(x=2500, z=-946, radius=120)を、見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "バス28番(line 136)の予算を160から140へ下げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地内で空き待ちのトラックは、出口の接続(x=3417〜3400、z=-1555)の混み具合に応じて減るか増えるか同じか。",
+        "plan": "vehicles_stuck(truck, building=28755, limit=4)、traffic(x=3417, z=-1555, radius=40)、net_near(x=3400, z=-1555, radius=40)を見回り1・見回り2・月末に呼ぶ。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "実行条件を確認できた対象がなく、案なし。観光の人数を動かす手(名所・公園・広場)は繰り返しても効かず、旅客駅や空港は道や費用の上限に収まらない。品物がない店(261)の原因は、貨物駅28755の敷地内の待ち(463台)と見られるが、解く手が道具で確認できていない。調査で、0台のままの貨物駅13893と40031を確かめる。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "外の接続につながる貨物駅13893と40031が0台のままか。28755だけに輸入が集まっているか。",
+        "plan": "vehicles_stuck(truck、building=13893、limit=3)、vehicles_stuck(truck、building=40031、limit=3)、cargo を見回り1と月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "東の工業地帯に焼却場を1棟足す(取り壊し2棟を含む)",
+          "executionReady": false,
+          "buildCost": 30000,
+          "upkeepPerWeek": 1440,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "焼却場を足すまでの間、焼却場の前で止まる収集車は時間とともに増えるか減るか。",
+        "plan": "vehicles_stuck(kind=garbage, building=2267, limit=10)、complaints、vehicles_stuck(kind=garbage, limit=10)を、見回り1・見回り2・月末に呼ぶ。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "教育の担当の2つの目標は満たしている。小学校の定員 14,268 が子ども 9,658 を、高校の定員 24,360 が10代 20,776 を上回る。学校を増やす理由がなく、大学を足すと大学卒の失業 5,039 を悪くするおそれがある。定員を減らす手は高校の余りが小さく、目標を破る見込みがある。市の重点の観光、資源循環、企業の立地に効く教育の手段もない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "担当の数字は目標を満たしている。火事の印 3、犯罪の印 0 で、合わせて 3 となり、3-4 の目標「合わせて4以下」に届く。出発点(火事 4、犯罪 3)からも悪化していない。取り壊しを伴う消防署の増設は、戻せない家の喪失を今月は正当化できないため出さない。消防の予算は上限 150 に届いており、政策 SmokeDetectors は週 57,810 で費用が大きすぎる。前月の調査ファイルはない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費 2,500(Regular Playground 1,250 × 2)、維持費の増え分 48/週で、要領の上限(建設 200,000、維持 4,000)に収まる。"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費 0、維持費の増え分 0。junction_info で交差点が信号なし、canSetYield true を確かめた。"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設を伴わず、路線の予算 160 から 140 への 20 ポイントの減りで、予算の±20の幅に収まる。維持費は下がる方向。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 200000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m10-1",
+        "fromBureau": "urban-1",
+        "title": "空き地に遊び場を2棟",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2",
+          "4-1"
+        ]
+      },
+      {
+        "id": "m10-2",
+        "fromBureau": "roads-1",
+        "title": "西の交差点の西の枝に譲れの標識(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m10-3",
+        "fromBureau": "port-1",
+        "title": "バス28番の予算を160から140へ(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "health-1",
+        "reason": "実行可否が未確認で、水・下水の管のつなぎ口が置いた後にしか分からず、下水の管の種類も一覧にないため採れない。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s10-1",
+        "fromBureau": "urban",
+        "question": "人口減の中で、住宅の空き(emptyHomes)は見回りごとに減るか、増えるか、変わらないか。"
+      },
+      {
+        "id": "s10-2",
+        "fromBureau": "economy",
+        "question": "貨物駅13893と40031は0台のままだが、トラックを受け持てるか。28755だけに輸入が集まっているか。"
+      },
+      {
+        "id": "s10-3",
+        "fromBureau": "health",
+        "question": "焼却場を足すまでの間、焼却場の前で止まる収集車は、時間が経つと増えるか減るか。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m10-3",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "戻せる予算の変更で、響きと前例(m05)が書かれている。4つの点に当たらない。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m10-1",
+    "m10-2",
+    "m10-3"
+  ],
+  "surveys": [
+    {
+      "id": "s10-1",
+      "fromBureau": "urban",
+      "question": "人口減の中で、住宅の空き(emptyHomes)は見回りごとに減るか、増えるか、変わらないか。"
+    },
+    {
+      "id": "s10-2",
+      "fromBureau": "economy",
+      "question": "貨物駅13893と40031は0台のままだが、トラックを受け持てるか。28755だけに輸入が集まっているか。"
+    },
+    {
+      "id": "s10-3",
+      "fromBureau": "health",
+      "question": "焼却場を足すまでの間、焼却場の前で止まる収集車は、時間が経つと増えるか減るか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m10-1",
+      "m10-2",
+      "m10-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-10-09",
+        "population": 177909,
+        "money": 2305619,
+        "weeklyBalance": 10161,
+        "happiness": 86,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-10-19",
+        "population": 177434,
+        "money": 2319555,
+        "weeklyBalance": 9473,
+        "happiness": 86,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s10-1",
+      "s10-2",
+      "s10-3"
+    ],
+    "report": "議案の3件(m10-1 遊び場2棟、m10-2 譲れの標識、m10-3 バス28番の予算 160→140)を、記載の引数どおりに実行した。どれも断られず、予備候補は使っていない。費用は遊び場の 2,500 のみ。Beautification は 89→91。m10-2 は (-1070,-650) r80 の blocked が 17→12→18→16 と動き、まだ分からない。中止条件(blocked 増かつ density 100)には当たらなかった。m10-3 は vehicles が 152→133 になった。(2288,-930) r300 の blocked は 136→22→4→83 と波が大きく、まだ分からない。見回り2回とも境目なしで臨時は行っていない。月末は人口 176,967(6か月続けて減)、週の収支 +9,588、観光客 1,645/149、Tourism 56、電気・水・下水は 0/0/0。調査 s10-1 から s10-3 は council/m10-survey-urban.md、economy.md、health.md に書いた。貨物駅 13893 と 40031 はトラック 0 台のままで、28755 に集まる。ごみの印は 377→505 に増えた。市政ノートと command-log.txt は更新済み。\""
+  }
+}

@@ -58,7 +58,7 @@ def build(run_dir, month):
     run = read_json(month_file(run_dir, month, "run.json")) or {}
     hooks = read_hooks_log(run_dir, month)
     md = {s: read_text(month_file(run_dir, month, f"{s}.md"))
-          for s in ["policy", "guide", "finance", "bill", "bill-2", "assembly", "assembly-2"] + BUREAUS}
+          for s in ["policy", "bill", "bill-2", "assembly", "assembly-2"] + BUREAUS}
     out = [f"# {int(month)}か月目の議事録", "",
            "make_council_minutes.py が、各役のファイルと Workflow の返り値をつないで作った。新しい判断は書いていない。",
            "長い欄は元のファイルへのリンクにした。", ""]
@@ -78,17 +78,16 @@ def build(run_dir, month):
         out += quote_or_link(md["policy"], t, f"m{m}-policy.md")
     out.append("")
 
-    # 2. 財政局: 今月の枠
-    g = run.get("guide") or {}
-    out += [f"## 2. 財政局: 今月の枠{span_of(hooks, {'council-finance'})}", "",
-            f"- 元のファイル: {file_link(run_dir, month, 'guide.md')}"]
-    if g:
-        out.append(f"- 建設費の上限 {g.get('buildCap')}、週の維持費の増えの上限 {g.get('upkeepCap')}、"
-                   f"税の幅 ±{g.get('taxRange')}、予算の幅 ±{g.get('budgetRange')}")
+    # 2. 長期計画(#124): 各局の計画と、市長がまとめた計画
+    out += ["## 2. 長期計画", "",
+            "- 市長がまとめた計画: " + ("[plan-city.md](plan-city.md)" if (run_dir / "council" / "plan-city.md").exists() else "(なし)")]
+    for b in BUREAUS:
+        if (run_dir / "council" / f"plan-{b}.md").exists():
+            out.append(f"- {BUREAU_NAMES[b]}の計画: [plan-{b}.md](plan-{b}.md)")
     out.append("")
 
     # 3. 7つの局: 案と、見たもの・判断の根拠・捨てたもの
-    out += ["## 3. 7つの局の案", ""]
+    out += ["## 3. 8つの局の案", ""]
     props = {p.get("bureau"): p for p in run.get("proposals") or [] if p}
     for b in BUREAUS:
         p = props.get(b) or {}
@@ -96,11 +95,12 @@ def build(run_dir, month):
         out += [f"### {name}({b}){span_of(hooks, {f'council-{b}'})}", "",
                 f"- 元のファイル: {file_link(run_dir, month, f'{b}.md')}"]
         if p.get("hasProposal"):
-            out += [f"- 案: {p.get('title')}",
-                    f"- 建設費 {p.get('buildCost')}、週の維持費 +{p.get('upkeepPerWeek')}、"
-                    f"{'戻せる' if p.get('reversible') else '戻せない'}",
-                    "- 市の計画: " + ("、".join(p.get("planItems") or []) or "(なし)"),
-                    f"- 議決: {'要る(' + p.get('voteKind', '') + ')' if p.get('needsVote') else '要らない'}"]
+            for q in p.get("proposals") or []:
+                out += [f"- 案 {q.get('id')}: {q.get('title')}",
+                        f"  - 建設費 {q.get('buildCost')}、週の維持費 +{q.get('upkeepPerWeek')}、"
+                        f"{'戻せる' if q.get('reversible') else '戻せない'}",
+                        "  - 市の計画: " + ("、".join(q.get("planItems") or []) or "(なし)"),
+                        f"  - 議決: {'要る(' + q.get('voteKind', '') + ')' if q.get('needsVote') else '要らない'}"]
         elif p:
             out.append("- 案: なし")
         else:
@@ -110,21 +110,15 @@ def build(run_dir, month):
             out += quote_or_link(md[b], t, f"m{m}-{b}.md")
         out.append("")
 
-    # 4. 財政局: 査定
-    a = run.get("assessed")
-    out += ["## 4. 財政局: 査定", ""]
-    if a:
-        out.append(f"- 元のファイル: {file_link(run_dir, month, 'finance.md')}")
-        for x in a.get("assessments") or []:
-            out.append(f"- {BUREAU_NAMES.get(x.get('bureau'), x.get('bureau'))}: {x.get('verdict')}。{x.get('reason')}")
-        tp = a.get("taxProposal") or {}
-        out.append(f"- 税の案: {tp.get('summary') if tp.get('exists') else 'なし'}")
-        out.append(f"- 市長が選ぶときの上限: {a.get('totalCap')}")
-        out.append("")
-        for t in THREE:
-            out += quote_or_link(md["finance"], t, f"m{m}-finance.md")
+    # 4. 差し戻し(#124): 条件付きで採らなかった案を、局が1回だけ調べ直した
+    out += ["## 4. 差し戻しと再調査", ""]
+    rc = [x for x in (run.get("rechecks") or []) if x]
+    if rc:
+        for x in rc:
+            ids = "、".join(f"{q.get('id')}(実行可 {q.get('executionReady')})" for q in x.get("proposals") or [])
+            out.append(f"- {BUREAU_NAMES.get(x.get('bureau'), x.get('bureau'))}: {ids or '(案なし)'}")
     else:
-        out.append("- 査定はなかった(7つとも案なし、または止まった)")
+        out.append("- 差し戻しはなかった")
     out.append("")
 
     # 5. 市長: 採った施策と採らなかった案
@@ -137,7 +131,7 @@ def build(run_dir, month):
             vote = f"議決が要る({x.get('voteKind')})" if x.get("needsVote") else "議決は要らない"
             out.append(f"- 採った {x.get('id')}: {x.get('title')}(元 {BUREAU_NAMES.get(x.get('fromBureau'), x.get('fromBureau'))}、{vote})")
         for x in bill.get("rejected") or []:
-            out.append(f"- 採らなかった {BUREAU_NAMES.get(x.get('bureau'), x.get('bureau'))}: {x.get('reason')}")
+            out.append(f"- 採らなかった {x.get('proposal') or BUREAU_NAMES.get(x.get('bureau'), x.get('bureau'))}: {x.get('reason')}")
         out.append("")
         last = "bill-2" if md["bill-2"] else "bill"
         for t in THREE:

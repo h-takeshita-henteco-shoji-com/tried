@@ -1,0 +1,404 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-02",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "5-1、5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 200000,
+    "upkeepCap": 5000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "北東の空き地に公園を3棟(Regular Park)",
+          "executionReady": true,
+          "buildCost": 3000,
+          "upkeepPerWeek": 24,
+          "reversible": true,
+          "planItems": [
+            "4-2",
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "北東に公園3棟を置いた周りの魅力度は、置く前の平均(2)から上がるか。",
+        "plan": "map_layer(attractiveness、x 2795、z 1140、radius 150、n 5)と city_info を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "北からの基本道路(x=2668, z=330〜483)を4車線に差し替える(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "交差点 9244(2700,330)と 30603(2110,330)の止まりは、信号のない交差点で続くか。",
+        "plan": "traffic(x 2700, z 330, radius 60)、traffic(x 2110, z 330, radius 60)、junction_info(x 2700, z 330)を見回り1・見回り2・月末に呼ぶ。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "乗客の少ないバス路線2本(136、139)の台数を予算200%から180%に下げる(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地内で517台が待つのは、敷地の中の連絡路(Cargo Connection)の容量が原因か。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=5)、traffic(x=3417, z=-1558, radius=40)、cargo を見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "北の道路沿いに名所 StatueOfWealth を1棟置く(試し)",
+          "executionReady": false,
+          "buildCost": 25440,
+          "upkeepPerWeek": 411,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "観光客の人数は、見回りごとにどれだけ動くか。",
+        "plan": "city_info(引数なし)の tourists と economy_breakdown(引数なし)の Tourism を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "満杯の埋立地25590を空け、工場群のごみを近くで受ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "社会のリサイクル(Recycling)をかけ、住宅低の税率を1上げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "税"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "汚染の印は、焼却場10351(2070,866)の周りの住宅に集まっているか。見回りごとに減るか増えるか。",
+        "plan": "buildings_near(x 2086, z 760, radius 250, problem Pollution, brief) と map_layer(pollution, x 2086, z 800, radius 200, n 5) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "教育の目標(2-3)は満たしている。小学校の定員 14,268 に対し子ども 10,662(余り 3,606)、高校の定員 24,360 に対し10代 22,341(余り 2,019)。10代と子どもは横ばいか減少で、12か月で定員不足になる見込みはない。学校の新設は維持費の増えに見合う効果がない。大学は担当の目標に数字がない。EducationBoost の解除は財政の範囲で、担当の目標の数字は動かない。原因が分からない問題もないため、調査も出さない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "火事の印の近く(3330,-735)に Fire House を1棟置く(住宅3棟を取り壊す)",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 560,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "fire-2",
+          "title": "犯罪の印の近く(3770,-140)に Police Station を1棟置く",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 480,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費3,000、週の維持費の増え24で、要領の枠(建設費200,000、維持費5,000)に収まる。"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え0。Basic RoadとSmall 4 Lane Roadは単価が同じ。"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "バス路線2本の台数の割合を-20の変更のみで、予算の±20の枠に収まる。建設費0、維持費は減る。"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "empty_buildingで費用0、維持費の増え0。費用の上限に当たらない。"
+      },
+      {
+        "proposalId": "health-2",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "Recycling は週の費用0。住宅(低)税+1は±2の枠内。最悪見込みでも週の収支は+8,533(現在+10,033、税の増減-13,500+12,000)で黒字を保つ。"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "Fire House建設費12,000、維持費560で枠に収まる。取り壊しは議決の範囲で財政の枠外。"
+      },
+      {
+        "proposalId": "fire-2",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "Police Station建設費12,000、維持費480で枠に収まる。取り壊しなし。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 200000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "urban-1",
+        "title": "北東の空き地に公園を3棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2",
+          "4-2"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "roads-1",
+        "title": "北からの基本道路を4車線に差し替える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m04-3",
+        "fromBureau": "health-1",
+        "title": "満杯の埋立地25590を空ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m04-4",
+        "fromBureau": "fire-2",
+        "title": "犯罪の印の近くにPolice Stationを1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "economy-1",
+        "reason": "電気の網が発電所につながるかが未確認で、置いてから確かめる形になるため、必須条件の確認が足りない。"
+      },
+      {
+        "proposal": "port-1",
+        "reason": "測る数が街全体の流れで m04-2 の測る数と重なり、効きを分けられない。沿線に絞って出し直してほしい。"
+      },
+      {
+        "proposal": "health-2",
+        "reason": "Recycling が街全体のごみを変え、m04-3 の工場群のごみの印と重なる。m04-3 の判定後に出し直してほしい。"
+      },
+      {
+        "proposal": "fire-1",
+        "reason": "戻せない取り壊し(家11)に対し、署に消防車が出ない原因が分からず効く根拠がない。調査と取り壊しのない候補を添えて出し直してほしい。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s04-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の敷地内で517台が待つのは、敷地の中の連絡路の容量が原因か。"
+      },
+      {
+        "id": "s04-2",
+        "fromBureau": "economy",
+        "question": "観光客の人数は、見回りごとにどれだけ動くか。"
+      },
+      {
+        "id": "s04-3",
+        "fromBureau": "health",
+        "question": "汚染の印は、焼却場10351の周りの住宅に集まっているか。見回りごとに減るか増えるか。"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m04-1",
+    "m04-2",
+    "m04-3",
+    "m04-4"
+  ],
+  "surveys": [
+    {
+      "id": "s04-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の敷地内で517台が待つのは、敷地の中の連絡路の容量が原因か。"
+    },
+    {
+      "id": "s04-2",
+      "fromBureau": "economy",
+      "question": "観光客の人数は、見回りごとにどれだけ動くか。"
+    },
+    {
+      "id": "s04-3",
+      "fromBureau": "health",
+      "question": "汚染の印は、焼却場10351の周りの住宅に集まっているか。見回りごとに減るか増えるか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2",
+      "m04-3",
+      "m04-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-12",
+        "population": 180971,
+        "money": 2139131,
+        "weeklyBalance": 5851,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-22",
+        "population": 181006,
+        "money": 2150302,
+        "weeklyBalance": 7833,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s04-1",
+      "s04-2",
+      "s04-3"
+    ],
+    "report": "4件とも実行した(建設費15,000、週の維持費+504)。見回りは2回とも境目に当たらず、臨時もない。月末(2050-05-02)は人口180,993、所持金2,161,625、週の収支+8,218、幸福度87、電気・水・下水は0/0/0。m04-3は見回り1で中止条件(a)に当たり、25590を戻した。工場群r300のごみの印は8→11、街全体は28→37。その後も44→57に増えた。m04-1は公園3棟で周りの魅力度が2→30になったが、観光客は1,625→1,533に減り、Tourismは86→48に下がった。公園44507にはRoadNotConnectedが付いたままである。m04-2の(2719,326)r60のblockedは27→26で横ばい。m04-4の犯罪の印は3→1。(3695,-90)付近の印は消えた。調査3件は council/m04-survey-*.md に記録した。月末の画面写真はassets/m04-end-town.jpg。hooksに止められた手はなく、型に従えなかった点もない。"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "month": 12,
+  "rulings": [
+    {"measureId": "m12-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失う働き口10と家0が数字で書かれ、代わりの手も試されている。6-4への響きも書かれている。"},
+    {"measureId": "m12-4", "verdict": "可決", "kind": "予算", "point": null, "reason": "乗客0の路線で失うものがなく、戻せる。"},
+    {"measureId": "m12-5", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldozeで3棟とも働き口0・家0を確かめた。学校定員への響きと代わりの手も書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"]
+}

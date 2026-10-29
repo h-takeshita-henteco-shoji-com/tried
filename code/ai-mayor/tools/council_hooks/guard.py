@@ -23,7 +23,7 @@ STATE = Path(os.environ.get("COUNCIL_STATE", "~/.cache/ai-mayor/council-current.
 BASE = os.environ.get("AIMAYOR_URL", "http://127.0.0.1:8781")
 MCP_PREFIX = "mcp__cities-skylines__"
 
-BUREAUS = ["urban", "roads", "port", "economy", "health", "education", "fire"]
+BUREAUS = ["urban", "roads", "port", "economy", "health", "education", "fire", "finance"]
 VOTE_TOOLS = {
     "set_tax": "税",
     "set_budget": "予算", "set_transport_line_budget": "予算",
@@ -91,7 +91,7 @@ def role(agent):
     a = (agent or "").replace("council-", "", 1) if (agent or "").startswith("council-") else None
     if a in BUREAUS:
         return "bureau"
-    return a if a in ("finance", "assembly", "mayor-desk", "mayor-field") else None
+    return a if a in ("assembly", "mayor-desk", "mayor-field") else None
 
 
 def allowed_writes(state, agent):
@@ -99,8 +99,9 @@ def allowed_writes(state, agent):
     r, name = role(agent), (agent or "").replace("council-", "", 1)
     if r == "bureau":
         names = [f"{name}.md"]
-    elif r == "finance":
-        names = ["guide.md", "finance.md"]
+        # 長期計画(#124)は月をまたぐので、m<月>- を付けない
+        plan = (Path(state["runDir"]) / "council" / f"plan-{name}.md").resolve()
+        return {council_file(state, n).resolve() for n in names} | {plan}
     elif r == "assembly":
         names = ["assembly.md", "assembly-2.md", "assembly.json"]
     else:

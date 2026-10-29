@@ -1,0 +1,320 @@
+{
+  "month": 24,
+  "seen": {
+    "gameDate": "2051-12-02",
+    "saveName": "fukuoka-plan-m24",
+    "priorities": [
+      "5-1・5-2 観光",
+      "6-3 公共交通を主軸とした交通体系",
+      "4-3 脱炭素社会(汚染の印)"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄建物 30881 の跡に公園 JapaneseGarden を置き、4-2 を100にする",
+          "executionReady": true,
+          "buildCost": 2620,
+          "upkeepPerWeek": 41,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "止まりの2番目 (2082,-840) の4車線を Basic に戻す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "(1882,-903) の止まりは、上流(2110 側)の溢れか、1車線の Basic 区間(26706、9422 など)の自前の詰まりか",
+        "plan": "traffic(x=1882, z=-903, radius=120)と traffic(x=2110, z=-840, radius=80)を、見回り1・見回り2・月末に読む"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "観光の入口は、空き地1 (1477,-2950) の道(8,040、橋2)と水(3,260)は試しで通ったが、電気の経路が川と既存の線に当たって未確認のため案なし。港の候補は岸が高すぎて置けない。8-1 は調査 s23-1 で13893に車が来ず28755の待ちが減らないため、計画の止める条件を満たし手を止める。目標の扱いは市長に求める。6-3 は路線28の乗客101で目標92を超えているため、今月は手を足さない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "24月は案なし。観光客 2,011、訪問 179、Tourism 週 89 を動かす手で、場所と実行条件が確認できたものがない。旅客の入口は24月末まで0で、港湾空港局の案もなかった。未建設の名所は最安でも週 960 で、道沿いの空きは市全体で17マスしかない。取り壊しを前提にした候補も道と建物に重なった。峰の2棟目の公園は候補2か所が道と重なり置けない。詳細は council/m24-economy.md。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "火葬場の増設は、東側で道に面した空きが見つからず、置ける候補はいずれも住宅の取り壊しか、公園や住宅との重なりが要る。汚染の止める試し(10351)はごみの処理を止めるため、ごみの目標0と衝突する。移設の置き場所は未確認。ごみの埋立地も、置ける空きを見つけられなかった。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "汚染の帯(印43)は、火力発電所10351(2070,866)の近くで強いか、時間とともにどう動くか",
+        "plan": "map_layer(pollution, x=2070, z=866, r=150, n=5)、complaints、buildings_near(problem=Pollution, x=2070, z=866, r=150) を見回り1・見回り2・月末に呼ぶ。近くで強いなら25月に10351の移設案、離れて散るなら事業1を閉じる"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "小学校 24888 を1校止める(4校目、試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "火事と犯罪の印の合計6(目標4以下)を下げる手が、実行条件まで確かめられなかった。火事: 48237 の出動が 0/8 のままで、道(traffic blocked 0、net_reach 到達可)と届き(fire 約200)は問題がない。消防署の追加は出動不足の前提が外れたため見送る。48237 が焼け跡の絞り込みに入ったのは今月が初めてなので、取り壊しは25月に2か月目を見て決める。犯罪: 埋立地 23459 付近の警察の届きは0〜25と低いが、警察署の候補9か所が発電所と送電線に塞がれ、置けなかった。別荘地は未試験。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "26833 の消防車は、48237 以外の火事にも出るか(出動が一度もないのか、48237 だけ出ないのか)",
+        "plan": "buildings_near(x=2643,z=1437,r=5,FireDepartment の inUse)、buildings_near(x=2834,z=1118,r=30 の problems)、complaints(Fire)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "政策 HeavyTrafficBan を試す(汚染の印、4-3)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m24-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店30881の跡にJapaneseGarden",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m24-2",
+        "fromBureau": "roads-1",
+        "title": "(2082,-840)の4車線をBasicに戻す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m24-3",
+        "fromBureau": "education-1",
+        "title": "小学校24888を止める(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "2-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "finance-1",
+        "reason": "23月の調査で汚染は道の混みと無関係と分かっており、物流の目標(6-4、8-1)を悪くし、m24-2の測りとも重なる",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s24-1",
+        "fromBureau": "roads",
+        "question": "(1882,-903)の止まりは上流(2110,-840)の溢れか、1車線Basic区間の自前の詰まりか"
+      },
+      {
+        "id": "s24-2",
+        "fromBureau": "health",
+        "question": "汚染の帯(印43)は火力発電所10351の近くで強いか、時間とともにどう動くか"
+      },
+      {
+        "id": "s24-3",
+        "fromBureau": "fire",
+        "question": "消防署26833の消防車は48237以外の火事にも出るか"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m24-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うのは放棄店1棟で働き口0・家0。preview_bulldozeで確認。代わりの手より損失が小さい。"
+      },
+      {
+        "measureId": "m24-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増え0。守る線に影響しない。"
+      },
+      {
+        "measureId": "m24-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費が約-160で減る。守る線は守れる。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m24-1",
+    "m24-2",
+    "m24-3"
+  ],
+  "surveys": [
+    {
+      "id": "s24-1",
+      "fromBureau": "roads",
+      "question": "(1882,-903)の止まりは上流(2110,-840)の溢れか、1車線Basic区間の自前の詰まりか"
+    },
+    {
+      "id": "s24-2",
+      "fromBureau": "health",
+      "question": "汚染の帯(印43)は火力発電所10351の近くで強いか、時間とともにどう動くか"
+    },
+    {
+      "id": "s24-3",
+      "fromBureau": "fire",
+      "question": "消防署26833の消防車は48237以外の火事にも出るか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m24-2",
+      "m24-3"
+    ],
+    "failed": [
+      "m24-1"
+    ],
+    "failedReasons": [
+      {
+        "id": "m24-1",
+        "reason": "部分実行。30881 の取り壊しと JapaneseGarden 13006 の設置は成功した(費用2,500、電気・水・下水が届く、Beautification は100)。道路 (2128,407)→(2152,407) は、test_build_line が3回とも公園 13006 との重なりで断った(始点 (2128,407)、(2145,406)、(2135,395))。道路は引いていない。入口の16m以内には Small 4 Lane の区間 6523 が既にある。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2051-12-12",
+        "population": 172098,
+        "money": 2704477,
+        "weeklyBalance": 5809,
+        "happiness": 86,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-12-22",
+        "population": 171969,
+        "money": 2711802,
+        "weeklyBalance": 5160,
+        "happiness": 86,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s24-1",
+      "s24-2",
+      "s24-3"
+    ],
+    "report": "m24-2 は成功。(2082,-840) の4車線を Basic に戻し、費用は0。m24-3 は成功。小学校24888を停止し、月末の定員は12,876。覆いが0になった点はなかった。m24-1 は公園だけ設置し、接続の道路は重なりで引けず部分実行。Beautification は100で、目標に届いた。2052-01-01 の月末は人口171,949、所持金2,717,838、週の収支+4,298。収支は黒字だが、+4,900を下回った。観光客は2,048、Tourism は週93。(2082,-840)r200の blocked は戻す前81、月末85で、止まりが (2134,-908) に移った。臨時はなし、境目なし、ダイアログなし。調査 s24-1〜3 は council/m24-survey-*.md に3回分を記録した。市政ノートとコマンドログは更新済み。"
+  }
+}

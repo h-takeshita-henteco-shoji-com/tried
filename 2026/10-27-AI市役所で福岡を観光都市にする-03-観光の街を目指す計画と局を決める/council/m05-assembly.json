@@ -1,0 +1,12 @@
+{
+  "month": 5,
+  "rulings": [
+    {"measureId": "m05-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 44,780、維持費 約+400で守る線の内側。重点に当たる。"},
+    {"measureId": "m05-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 1,140、維持費 +11で影響は小さい。"},
+    {"measureId": "m05-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 0で守る線に影響しない。"},
+    {"measureId": "m05-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費が週311減る。政策変更は月1件の上限内。"},
+    {"measureId": "m05-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 25,080、維持費 +402で守る線の内側。重点に当たる。"}
+  ],
+  "approvedKinds": [],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

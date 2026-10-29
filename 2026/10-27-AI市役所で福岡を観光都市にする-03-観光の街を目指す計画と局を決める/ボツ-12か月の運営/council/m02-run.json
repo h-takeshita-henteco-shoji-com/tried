@@ -1,0 +1,377 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "5-1、5-2 観光",
+      "4-4 資源循環",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 300000,
+    "upkeepCap": 3000,
+    "taxRange": 2,
+    "budgetRange": 10
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "東の住宅街に公園を1か所置く(住宅6棟を取り壊す)",
+          "executionReady": true,
+          "buildCost": 1000,
+          "upkeepPerWeek": 8,
+          "reversible": false,
+          "planItems": [
+            "4-2",
+            "4-1"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "渋滞する基本道路を4車線に差し替える(西と東の2か所)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地で空き待ちのトラック(509台)は、周りの道の混みで減らないのか、敷地の出口で詰まっているのか",
+        "plan": "見る道具: vehicles_stuck(kind=truck, building=28755, limit=3)、traffic(x=3449, z=-1555, radius=150)。見回り1、見回り2、月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "乗客の少ないバス路線3本の台数を半分にする(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1160,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地で待つトラックは、出口の道の混みで止まっているのか、駅の出口の数で止まっているのか。隣の貨物駅13893が車を出さないのはなぜか。",
+        "plan": "vehicles_stuck(truck, building=28755, limit=3)、vehicles_stuck(truck, building=13893, limit=3)、traffic(x=3400, z=-1555, radius=60, limit=5) を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "観光の名所を置く候補地を確認できなかった。試した候補地はどれも建物・道路・歩道と重なり、置けなかった(4地区以上で試行)。貨物駅の増設も、置く場所と外への道が未確認。どちらも実行条件を満たさないため案なし。店229軒の品物不足が観光収入の低さの原因と見えるため、貨物駅28755の空き待ちトラック(509台)を調査する。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地で空き待ち(WaitingSpace)のまま止まるトラックは減るか。つながった別の貨物駅(13893)に行き先が向くか。",
+        "plan": "見回り1・見回り2・月末に vehicles_stuck(kind=truck, building=28755, limit=5)、cargo、vehicles_stuck(kind=truck, building=13893, limit=3) を見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "西の埋立地を新設して、西のごみの印の家の収集を近くで済ませる",
+          "executionReady": true,
+          "buildCost": 4720,
+          "upkeepPerWeek": 166,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "health-2",
+          "title": "社会の禁煙(SmokingBan)をかけて、健康の平均を上げる(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "西の4-4の印の家(-531,-1280付近)に、ごみ収集車が届かない原因は、道の詰まりか、処理場までの距離か。",
+        "plan": "vehicles_stuck(kind=garbage, building=33797, limit=10)、traffic(x=-531, z=-1280, radius=500)、buildings_near(x=-531, z=-1280, radius=600, problem=Garbage, brief=true, limit=30) を、見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の施策 2-3 の目標は今も満たしている。小学校の定員 14,268 は子ども 11,084 を上回り、高校の定員 24,360 は10代 22,370 を上回る。動かすべき数字がなく、定員を増やす・予算を変える案は、目標に効く根拠がない。政策の EducationBoost の解除も、定員を測れず効果が確かめられないため見送った。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "犯罪の印の港に警察署を置く",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 480,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "火事の印4は同じ建物や場所で繰り返し起きているか。繰り返すなら火の元が建物の種類にあるかを確かめる",
+        "plan": "見回り1・見回り2・月末に complaints、buildings_near(x=3256,z=-789,radius=300,problem=Fire,brief=true)、map_layer(type=fire,x=3250,z=-790,radius=300,n=7) を呼ぶ"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費1,000、週の維持費の増え8。枠に収まる。住宅6棟の取り壊しは議決の対象で、費用の査定には含めない。"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え0(Basic RoadとSmall 4 Lane Roadは同じ5,000/km・40/週/km)。"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0。維持費は減る方向。路線ごとの台数の割合で、サービス全体の予算は動かさないため予算の±10の枠は使わない。"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費4,720(埋立地4,000+道路720)、週の維持費の増え約166。枠に収まる。住宅1棟の取り壊しは議決の対象。"
+      },
+      {
+        "proposalId": "health-2",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "SmokingBanの週の費用0、建設費0。政策の変更は今月この1件だけで、月例の上限1件に収まる。"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費12,000(Police Station)、週の維持費の増え480。枠に収まる。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 300000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "health-1",
+        "title": "西に埋立地を新設(住宅1棟を取り壊す)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "roads-1",
+        "title": "西と東の基本道路を4車線に差し替え",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "fire-1",
+        "title": "港に警察署を置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m02-4",
+        "fromBureau": "health-2",
+        "title": "SmokingBan をかける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "1-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "urban-1",
+        "reason": "住宅6棟・家17を戻せない形で壊すのに、効果は公園1棟分で小さく、人口が増えていない月には採らない。"
+      },
+      {
+        "proposal": "port-1",
+        "reason": "測る数の街全体の流れが採った m02-2 の4車線化と重なり、効きを分けられない。測る数を絞るか別の月に出し直す。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の敷地で待つトラックは、出口の道の混みで止まっているのか、駅の出口の数で止まっているのか。隣の貨物駅13893が車を出さないのはなぜか。"
+      },
+      {
+        "id": "s02-2",
+        "fromBureau": "health",
+        "question": "西の4-4の印の家に、ごみ収集車が届かない原因は、道の詰まりか、処理場までの距離か。"
+      },
+      {
+        "id": "s02-3",
+        "fromBureau": "fire",
+        "question": "火事の印4は同じ建物や場所で繰り返し起きているか。繰り返すなら、火の元が消防の覆いでなく建物の種類にあるか。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(住宅1棟、家15、働き口0)が書かれ、preview_bulldoze とも一致。代わりの手との比較と人口への響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m02-2",
+    "m02-3",
+    "m02-4",
+    "m02-1"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の敷地で待つトラックは、出口の道の混みで止まっているのか、駅の出口の数で止まっているのか。隣の貨物駅13893が車を出さないのはなぜか。"
+    },
+    {
+      "id": "s02-2",
+      "fromBureau": "health",
+      "question": "西の4-4の印の家に、ごみ収集車が届かない原因は、道の詰まりか、処理場までの距離か。"
+    },
+    {
+      "id": "s02-3",
+      "fromBureau": "fire",
+      "question": "火事の印4は同じ建物や場所で繰り返し起きているか。繰り返すなら、火の元が消防の覆いでなく建物の種類にあるか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-2",
+      "m02-3",
+      "m02-4"
+    ],
+    "failed": [
+      "m02-1"
+    ],
+    "failedReasons": [
+      {
+        "id": "m02-1",
+        "reason": "未実行。事前の test_place_building は ok、preview_bulldoze は 8116 のみ(家15)でした。しかし bulldoze の前に、電気の確認のため advance(1) を呼んでしまいました。hooks が「advance の後(臨時)は、議決が要る手(取り壊し)を打たない」として bulldoze を止めました。取り壊しなしでは道路が引けないので、埋立地も道路も置いていません(建設費0)。実行する市長の手順の誤りです。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-02-11",
+        "population": 178947,
+        "money": 2075901,
+        "weeklyBalance": 6690,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-21",
+        "population": 179277,
+        "money": 2086517,
+        "weeklyBalance": 7802,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1",
+      "s02-2",
+      "s02-3"
+    ],
+    "report": "m02-2、m02-3、m02-4 は議案どおり実行し、m02-1 は手順の誤りで未実行です。m02-2 の4車線化は費用0で、西は効きました。(2162,-721) の blocked は 71→11、(2138,-838) は 36→12 です。東 (3160,-250) は 95→98 で変わらず、(3153,-281)、(3282,-278) の詰まりが残ります。m02-3 の警察署 id 25678 は 12,000 で置き、電気は advance 後に true になりました。犯罪の印は消え、火事3で合計3です。m02-4 は SmokingBan をかけ、費用0です。健康は3か月目の月例で比べます。見回り2回と月末は境目に当たらず、臨時はありません。月末は人口179,748、所持金2,100,591、週の収支+9,694、観光客1,722/146です。調査3件は council/m02-survey-*.md に3回分を記録しました。貨物駅28755は584台中500台が敷地内で止まり、出口の道は blocked 0 です。火事の印は同じ2棟(2002、5804)で3回続きました。command-log.txt は写し済みです。\""
+  }
+}

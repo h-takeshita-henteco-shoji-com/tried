@@ -1,0 +1,10 @@
+{
+  "month": 14,
+  "rulings": [
+    {"measureId": "m14-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "対象は放棄の店 39889 だけで、働き口0、家0。代わりの手との比較も書かれ、週 40 の増えは守る線に収まる。"},
+    {"measureId": "m14-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増えは前回の同型で0。守る線に響かない。"},
+    {"measureId": "m14-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 4,240、週 約 162。3施策の合計でも週の収支は約 +3,720、所持金は約 2,412,500 で線を守れる。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

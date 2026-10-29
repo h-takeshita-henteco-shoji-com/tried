@@ -9,7 +9,6 @@
 
 | 局 | 名前 |
 |---|---|
-| 財政局 | `finance` |
 | 住宅都市みどり局 | `urban` |
 | 道路下水道局 | `roads` |
 | 港湾空港局 | `port` |
@@ -17,15 +16,15 @@
 | 保健環境局 | `health` |
 | 教育委員会 | `education` |
 | 消防局 | `fire` |
+| 財政局 | `finance` |
 
-案を出す局は `finance` を除く7つ。並びは上の表のとおり。
+案を出す局は、財政局を含む8つ(#124)。並びは上の表のとおり。
 
 ### サブエージェントの定義(`.claude/agents/`)
 
 | 定義の名前(agentType) | 元 |
 |---|---|
-| `council-urban` ほか7つ(`council-<局>`) | 雛形 `council-agents/bureau.md` + `bureaus/<局>.md` + `city-plan.md` |
-| `council-finance` | 雛形 `council-agents/finance.md` + `bureaus/finance.md` + `city-plan.md` |
+| `council-urban` ほか8つ(`council-<局>`。財政局 `council-finance` を含む) | 雛形 `council-agents/bureau.md` + `bureaus/<局>.md` + `city-plan.md` |
 | `council-assembly` | 雛形 `council-agents/assembly.md` + `city-plan.md` |
 | `council-mayor-desk` | 雛形 `council-agents/mayor-desk.md` + `mayors/plan.md` + `city-plan.md` |
 | `council-mayor-field` | 雛形 `council-agents/mayor-field.md` + `mayors/plan.md` + `city-plan.md` |
@@ -39,12 +38,15 @@
   mayor-note.md
   command-log.txt
   assets/
-  transcripts/m<月2桁>-<役>.md          役: mayor-desk、mayor-field、finance、assembly、<局>
+  transcripts/m<月2桁>-<役>.md          役: mayor-desk、mayor-field、assembly、<局>(財政局を含む)
   council/
     m01-policy.md        見てまとめる市長(編成方針)
-    m01-guide.md         財政局(予算編成要領)
-    m01-<局>.md          7つの局の案
-    m01-finance.md       財政局(査定調書)
+    m01-<局>.md          8つの局の案(財政局 m01-finance.md を含む)
+    plan-<局>.md         8つの局の長期計画(1か月目に書き、変えるときだけ直す)
+    plan-city.md         見てまとめる市長がまとめた長期計画
+    plan-review.md       1か月目の計画のレビュー(市長)。回ごとに節を足す
+    ledger-recent.jsonl  台帳の直近3か月の行(make_council_ledger.py が作る。局と市長が読む)
+    ledger-older.md      それ以前の案の1行ずつの要約(同上)
     m01-bill.md          見てまとめる市長(まとめと議案)。直したら m01-bill-2.md
     m01-assembly.md      議会の判断。2回目は m01-assembly-2.md
     m01-assembly.json    議会の判断(hooks が読む)。2回目があれば上書きする
@@ -124,15 +126,19 @@
   "month": 3,
   "rulings": [
     {"measureId": "m03-1", "verdict": "可決", "kind": "税", "point": null, "reason": "..."},
-    {"measureId": "m03-2", "verdict": "否決", "kind": "取り壊し", "point": 1, "reason": "..."}
+    {"measureId": "m03-2", "verdict": "否決", "kind": "取り壊し", "point": 1, "reason": "..."},
+    {"measureId": "m03-3", "verdict": "否決", "kind": "財政", "point": 5, "reason": "..."}
   ],
-  "approvedKinds": ["税"]
+  "approvedKinds": ["税"],
+  "planCheck": {"verdict": "可", "reason": "..."}
 }
 ```
 
-- `kind`: 税 / 予算 / 融資 / 取り壊し
-- `point`: 否決の点の番号(1〜4。`council-design.md` の3.4)。可決は null
-- `approvedKinds`: 可決した議案の種類(重ならない)。hooks はこれだけを見る
+- すべての施策に1つずつ判断を書く(#124)
+- `kind`: 税 / 予算 / 融資 / 取り壊し / 財政。議決が要らない施策は「財政」
+- `point`: 否決の点の番号(1〜5。`council-design.md` の3.4)。可決は null
+- `approvedKinds`: 可決した議案の種類(税 / 予算 / 融資 / 取り壊し。重ならない)。「財政」は入れない。hooks はこれだけを見る
+- `planCheck`: 1か月目だけ。長期計画の財政面の判定(可 / 要直し)
 
 ## 6. hooks の記録
 
@@ -153,38 +159,41 @@
 
 ```js
 SEEN = { gameDate: string, saveName: string, priorities: string[], stop: boolean, stopReason: string }
-GUIDE = { buildCap: number, upkeepCap: number, taxRange: number, budgetRange: number }
-PROPOSAL = { bureau: string, hasProposal: boolean, executionReady: boolean, noProposalReason: string,
-             title: string, buildCost: number, upkeepPerWeek: number,
-             reversible: boolean, planItems: string[], needsVote: boolean, voteKind: string,
+PROPOSAL = { bureau: string, hasProposal: boolean, noProposalReason: string,
+             proposals: [{ id: string, title: string, executionReady: boolean, buildCost: number, upkeepPerWeek: number,
+                           reversible: boolean, planItems: string[], needsVote: boolean, voteKind: string }],  // 最大5件
              survey: { exists: boolean, question: string, plan: string } }
-ASSESSMENT = { assessments: [{ bureau: string, verdict: "可"|"減額"|"不可", reason: string }],
-               taxProposal: { exists: boolean, summary: string }, totalCap: number }
 BILL = { measures: [{ id: string, fromBureau: string, title: string, needsVote: boolean, voteKind: string, planItems: string[] }],
-         rejected: [{ bureau: string, reason: string }],
+         rejected: [{ proposal: string, reason: string, kind: "不可"|"条件付き", condition: string }],
          surveys: [{ id: string, fromBureau: string, question: string }] }
-RULING = { rulings: [{ measureId: string, verdict: "可決"|"否決", kind: string, point: number|null, reason: string }] }
+RULING = { rulings: [{ measureId: string, verdict: "可決"|"否決", kind: string, point: number|null, reason: string }],
+           planCheck: { verdict: "可"|"要直し", reason: string } }
+PLAN_REVIEW = { reviews: [{ bureau: string, verdict: "可"|"要是正", corrections: string[] }],
+                adjustments: [{ bureaus: string[], decision: string }] }   // 1か月目。最大3回(差し戻し2回)。局をまたぐ調整は市長が決める
+PLAN_ADJ = { done: boolean, summary: string }   // 1か月目に、議会が計画を「要直し」としたときの、市長の調整
 DONE = { executed: string[], failed: string[], failedReasons: [{ id: string, reason: string }], patrols: [{ gameDate: string, population: number, money: number,
          weeklyBalance: number, happiness: number, alert: boolean }], emergency: boolean, stop: boolean,
          stopReason: string, surveysDone: string[], report: string }
 ```
 
 - 施策の id は `m<月2桁>-<番号>`(例: `m03-1`)。市長がまとめる段で付ける
-- 調査の id は `s<月2桁>-<番号>`(例: `s03-1`)。施策の3件とは別に3件まで。査定と議決はいらない。Workflow は、施策の案がなくても調査があれば、まとめる段を呼ぶ
+- 調査の id は `s<月2桁>-<番号>`(例: `s03-1`)。施策とは別に3件まで。議決はいらない。Workflow は、施策の案がなくても調査があれば、まとめる段を呼ぶ
 - `voteKind` は議決が要らないとき空文字
-- 案がない局は `hasProposal: false`、`executionReady: false`、`title: ""`、数は0。`noProposalReason` に検討した候補と当月の根拠を書く
+- 市長が採らない案は、`kind` を「不可」か「条件付き」にする。条件付きは、出した局が同じ月に1回だけ調べ直す(`再調査`)。`condition` は、道具で確かめられる条件を1文で。1つの局に3件まで。調べ直した案は、市長が `再まとめ` で採るかを決める(`bill` は上書きされ、返り値は最初の施策と新しい施策のすべて)。Workflow の返り値に `rechecks`(局ごとの再調査)、`planCheck`、`planRevised` が足される。`guide` と `assessed` はなくなった
+- 局の案は最大5件。案の id は `<局>-<番号>`(例: `economy-2`)。市長の施策の `fromBureau` は元にした案の id(カンマ区切りで複数)。`rejected.proposal` は案の id
+- 案がない局は `hasProposal: false`、`proposals: []`。`noProposalReason` に検討した候補と当月の根拠を書く
 - 提案がある場合の `noProposalReason` は空文字
-- `executionReady` は必須の実行条件を確認した場合だけ true。Workflowは true の局の案だけを採択対象にする
+- `executionReady` は案ごと。必須の実行条件を確認した場合だけ true。Workflowは true の案だけを採択対象にする
 - 財政局の税の追加案は、`taxProposal.exists` が true の場合だけ採択できる
 - 対象外の局の案が議案に含まれた場合は `stoppedAt` を返し、実行に進まない
 - 返り値はファイルの要約。食い違ったらファイルを正とする
 
 ## 8. 台帳の1行
 
-`council/ledger.jsonl`。案1件ごとに1行。月の終わりに `make_council_ledger.py <運営のフォルダ> <月>` が足す。翌月の実行で、前の月の行の `review` を埋める。
+`council/ledger.jsonl`。案1件ごとに1行(案がない局は「案なし」の1行)。月の終わりに `make_council_ledger.py <運営のフォルダ> <月>` が足す。翌月の実行で、前の月の行の `review` を埋める。
 
 ```json
-{"month": 3, "id": "m03-urban", "bureau": "urban", "title": "...", "hasProposal": true,
+{"month": 3, "id": "m03-urban-1", "proposalId": "urban-1", "bureau": "urban", "title": "...", "hasProposal": true,
  "planItems": ["4-2"], "priority": true,
  "assessment": {"verdict": "可", "reason": "..."},
  "adopted": {"measureId": "m03-1", "reason": null},
@@ -194,7 +203,7 @@ DONE = { executed: string[], failed: string[], failedReasons: [{ id: string, rea
  "seenCheck": {"claimed": ["city_info", "services"], "unlogged": []}}
 ```
 
-- `id` は局の案の id(`m<月>-<局>`)。市長の施策の id(`measureId`)とは別
+- `id` は局の案の id(`m<月>-<局>-<番号>`)。`proposalId` は案の番号つきの id(`<局>-<番号>`)。市長の施策の id(`measureId`)とは別
 - `adopted.measureId` は、採らなかったら null。`adopted.reason` は採らなかった理由
 - `executed.reason`: 打てなかった(`ok` が false)とき、実行する市長が返した理由(`failedReasons`)。翌月の局が読む
 - `review`: 翌月に `{"result": "当たり"|"外れ"|"半分", "reason": "..."}`
@@ -230,7 +239,7 @@ DONE = { executed: string[], failed: string[], failedReasons: [{ id: string, rea
 |---|---|---|---|
 | PreToolUse | `pre` | 5種類すべて(matcher は `mcp__cities-skylines__.*` と `Write`) | 定義(`agent_type`)と道具ごとに、`council-design.md` の6.5の決まりを当てる。止めるときは `permissionDecision: deny` と理由を返す |
 | PostToolUse | `post` | 5種類すべて(matcher は `mcp__cities-skylines__.*`) | hooks の記録に1行足す。道具が `advance` なら状態のファイルの `advanced` を true にする |
-| Stop | `stop` | 7つの局 | 自分の案のファイルに案の7点と、9の3つの見出しがなければ、終わらせずに書き直させる(exit code 2) |
+| Stop | `stop` | 8つの局 | 自分の案のファイルに案の7点と、9の3つの見出しがなければ、終わらせずに書き直させる(exit code 2) |
 
 `pre` で当てる決まり(`council-design.md` の6.5):
 

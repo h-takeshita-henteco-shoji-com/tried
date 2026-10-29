@@ -1,0 +1,12 @@
+{
+  "month": 11,
+  "rulings": [
+    {"measureId": "m11-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費21,040、維持費+340で守る線に収まる。"},
+    {"measureId": "m11-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,000、維持費+8で守る線に影響しない。"},
+    {"measureId": "m11-3", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldozeで失う働き口0、家0、電気影響0を確認。代わりの手も書かれている。"},
+    {"measureId": "m11-4", "verdict": "可決", "kind": "税", "point": null, "reason": "変更幅+1で上限内。2%の試しの結果を踏まえた理由があり、収支は上向く。"},
+    {"measureId": "m11-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0で戻せる。守る線に影響しない。"},
+    {"measureId": "m11-6", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費4,000、維持費+160で守る線に収まる。2267停止で維持費は減る。"}
+  ],
+  "approvedKinds": ["取り壊し", "税"]
+}

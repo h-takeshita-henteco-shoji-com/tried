@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 # 案を出す局。並びは council-interfaces.md の1のとおり
-BUREAUS = ["urban", "roads", "port", "economy", "health", "education", "fire"]
+BUREAUS = ["urban", "roads", "port", "economy", "health", "education", "fire", "finance"]
 BUREAU_NAMES = {
     "finance": "財政局", "urban": "住宅都市みどり局", "roads": "道路下水道局", "port": "港湾空港局",
     "economy": "経済観光文化局", "health": "保健環境局", "education": "教育委員会", "fire": "消防局",

@@ -1,0 +1,11 @@
+{
+  "month": 20,
+  "rulings": [
+    {"measureId": "m20-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldozeで3棟、働き口30、家0と一致。代わりの手の検討も書かれている。"},
+    {"measureId": "m20-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増え0で守る線に響かない。"},
+    {"measureId": "m20-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費400、維持費の増え約2で守る線に響かない。"},
+    {"measureId": "m20-4", "verdict": "可決", "kind": "予算", "point": null, "reason": "変更幅20で上限内。維持費が減る方向で、試しの仮説と測る数がある。"}
+  ],
+  "approvedKinds": ["予算", "取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

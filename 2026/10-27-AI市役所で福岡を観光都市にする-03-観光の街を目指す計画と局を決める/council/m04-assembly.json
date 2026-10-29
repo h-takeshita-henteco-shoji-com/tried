@@ -1,0 +1,14 @@
+{
+  "month": 4,
+  "rulings": [
+    {"measureId": "m04-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で守る線に影響しない。"},
+    {"measureId": "m04-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0。維持費は小さく守る線に収まる。"},
+    {"measureId": "m04-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増えは約0。"},
+    {"measureId": "m04-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費11,520、維持費約55で守る線に収まる。"},
+    {"measureId": "m04-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費12,000、維持費560で守る線に収まる。"},
+    {"measureId": "m04-6", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "放棄商店1棟のみ、働き口0、家0を確認。代わりの手の比べあり。"},
+    {"measureId": "m04-7", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "埋立地2棟のみ、働き口0、家0を確認。失うごみと代わりの手が書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

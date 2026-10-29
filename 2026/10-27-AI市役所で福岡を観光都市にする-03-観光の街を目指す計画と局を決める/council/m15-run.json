@@ -1,0 +1,393 @@
+{
+  "month": 15,
+  "seen": {
+    "gameDate": "2051-03-07",
+    "saveName": "fukuoka-plan-m15",
+    "priorities": [
+      "5-1・5-2 観光(入口、名所、島と空き地)",
+      "8-1・6-4 物流・人流のゲートウェイと企業の立地",
+      "4-2 花や緑による潤い"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄された店の跡(1856,183)に JapaneseGarden を置き、公園を1つ増やす",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点 (-1640,-1010) に信号を置く",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東の出口 (3297,-248) の止まりは、見回りごとに増えるか。増えるなら、どの交差点の周りか",
+        "plan": "traffic(x=3297, z=-248, radius=150) を見回り1・見回り2・月末に測る(基準 blocked 8、flow 55)"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "島Bの旅客の駅(-4700,1600、南向き)は候補まで絞れたが、整地(72m)と入口の道の傾き(66mの仮定)が未確認で、実行条件が揃わない。水管(6,240)と電線(260)は仮定なしで通る。8-1は3940と4740に出入りする車が0で、振り分けの道の根拠がない。調査で28755の空き待ちを追う。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター28755の敷地の中で空き待ちの車は、数日で減るか増えるか。",
+        "plan": "見回り1・見回り2・月末に vehicles_stuck(kind=truck, building=28755, limit=30) と cargo を呼ぶ。空き待ちが減らず7日以上の停止が増えれば、敷地の入口の道を試す。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所の型は3つとも建設済みで、未建設の型の候補地が島Bのみ。島Bは道に面して置けるが、水と下水の管網が700m以上離れ、接続の経路と費用が未確認のため実行対象にできない。本土の候補と事務所の道は建物と重なり通らなかった。調べた候補と根拠は council/m15-economy.md の案なし・捨てたもの。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "満杯の埋立地 12880 を空にして、受け入れを戻す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "死体の印 42 は、霊柩車の渋滞が主か、火葬場までの遠さが主か。",
+        "plan": "vehicles_stuck(kind=hearse, limit=10) と buildings_near(x=3385, z=-218, radius=150, problem=Death, brief=true) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "小学校 15301 を1校止め、維持費を減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "貨物港 32211 の横に警察署を置く(再提出)",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 480,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "医療の予算を 150 から 130 に下げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -10200,
+          "reversible": true,
+          "planItems": [
+            "財政の守る線(週の収支 +3,000)"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "医療の予算を 130 にした後、医療の支出・週の収支・健康が見積もどおりに動くか",
+        "plan": "economy_breakdown(HealthCare の支出)、city_info(週の収支)、citizens_summary(健康の平均)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m15-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店跡に JapaneseGarden",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m15-2",
+        "fromBureau": "roads-1",
+        "title": "交差点 (-1640,-1010) に信号",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m15-3",
+        "fromBureau": "health-1",
+        "title": "満杯の埋立地 12880 を空にする",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m15-4",
+        "fromBureau": "education-1",
+        "title": "小学校 15301 を止める",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "2-3"
+        ]
+      },
+      {
+        "id": "m15-5",
+        "fromBureau": "fire-1",
+        "title": "貨物港横に警察署",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m15-6",
+        "fromBureau": "finance-1",
+        "title": "医療の予算を130に",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "財政の守る線",
+          "1-2"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s15-1",
+        "fromBureau": "port",
+        "question": "貨物センター28755の敷地の中で空き待ちの車は、今後の数日で減るか、増えるか"
+      },
+      {
+        "id": "s15-2",
+        "fromBureau": "health",
+        "question": "死体の印42は、霊柩車の渋滞が主か、火葬場までの遠さが主か"
+      },
+      {
+        "id": "s15-3",
+        "fromBureau": "roads",
+        "question": "東の出口 (3297,-248) の止まりは、見回りごとに増えるか。増えるなら、どの交差点の周りか"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m15-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "壊す2棟は働き口0・家0の放棄店で、失うものが0。他7か所と比べて選んでいる。"
+      },
+      {
+        "measureId": "m15-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0で戻せる。守る線に響かない。"
+      },
+      {
+        "measureId": "m15-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0・維持費0。守る線に響かない。"
+      },
+      {
+        "measureId": "m15-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費を減らす施策。定員は子ども以上を保つ。"
+      },
+      {
+        "measureId": "m15-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費12,000、維持費+480。見込みの収支は+3,700台以上で守る線の上。"
+      },
+      {
+        "measureId": "m15-6",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "変更20点で上限内。容量に余裕があり健康は目標の上。戻せる。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m15-1",
+    "m15-2",
+    "m15-3",
+    "m15-4",
+    "m15-5",
+    "m15-6"
+  ],
+  "surveys": [
+    {
+      "id": "s15-1",
+      "fromBureau": "port",
+      "question": "貨物センター28755の敷地の中で空き待ちの車は、今後の数日で減るか、増えるか"
+    },
+    {
+      "id": "s15-2",
+      "fromBureau": "health",
+      "question": "死体の印42は、霊柩車の渋滞が主か、火葬場までの遠さが主か"
+    },
+    {
+      "id": "s15-3",
+      "fromBureau": "roads",
+      "question": "東の出口 (3297,-248) の止まりは、見回りごとに増えるか。増えるなら、どの交差点の周りか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m15-1",
+      "m15-2",
+      "m15-3",
+      "m15-4",
+      "m15-5",
+      "m15-6"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-03-17",
+        "population": 177145,
+        "money": 2437243,
+        "weeklyBalance": 12784,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-03-27",
+        "population": 176872,
+        "money": 2455370,
+        "weeklyBalance": 12913,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s15-1",
+      "s15-2",
+      "s15-3"
+    ],
+    "report": "6件すべて議案どおりに実行した。取り壊し(m15-1)と予算(m15-6)は advance の前に打ち、hooks に止められた手はない。m15-1 は放棄店2棟(働き口0・家0)を壊し、JapaneseGarden(id 3801)を置いた。Beautification は月末に 90 棟になった。m15-2 は (-1640,-1010) に信号を付けた。blocked は基準26から月末9に下がったが、判定は16月末。m15-3 は埋立地12880を空け始め、月末は95%でまだ途中。戻す操作は次月以降。m15-4 は小学校15301を止め、定員は 13,920 になった。m15-5 は警察署(id 34351)を置いた。m15-6 は医療の予算を 130 にし、HealthCare の支出は 76,440 から 66,248 に減った。月末の週の収支は +12,150(月初 +4,256)。人口は 176,528 で、7か月連続の減少。観光客は 1,937、Tourism は週59。見回りでは境目に当たらず、臨時は行っていない。調査3件は council/m15-survey-*.md に3回分を記録した。観光の入口と名所は、案がなく今月も進まなかった。市政ノート: /Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md"
+  }
+}

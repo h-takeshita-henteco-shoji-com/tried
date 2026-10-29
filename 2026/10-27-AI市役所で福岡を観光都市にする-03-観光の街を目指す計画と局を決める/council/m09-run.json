@@ -1,0 +1,322 @@
+{
+  "month": 9,
+  "seen": {
+    "gameDate": "2050-08-29",
+    "saveName": "fukuoka-plan-m09",
+    "priorities": [
+      "5-1・5-2 観光(名所と attractiveness、Tourism の収入)",
+      "5-1・5-2(入口) 旅客の駅・港・空港",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "電気の届く空き(690,1190)に公園を1か所置き、道をつなぐ",
+          "executionReady": true,
+          "buildCost": 1520,
+          "upkeepPerWeek": 12,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "西の z=-560 幹線を4車線にする(下流の詰まりを抜く)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "東南の x=1560 南北幹線を4車線にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東の (2114,284) の blocked 40 は、信号の手前の待ちか、区間の途中の詰まりか",
+        "plan": "traffic で x=2114 z=284 r=60 と x=2110 z=240 r=60 を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "島Bの Harbor は岸の8点と地形を均した仮定でも HeightTooHigh で落ちた。埋立地Dの Harbor も水面が港の条件に合わず落ちた。空き地1と空き地3の Train Station は置き場は試しで ok だが、入口の道・水・下水・電気が近くになく、必須の接続が未確認。確認できた実行条件がそろわないため案なし。長期計画は、島Bの港の事業を閉じ、空き地3の駅を道路下水道局の水・下水・電気の試しの後に置く事業に替えた。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所の3棟目を置ける場所が確認できなかった。東の中心の南 (1580,-530) は置けるが、電気が届かず、送電線の経路も断られた。北東 (2760,-690) と (2800,-700) は住宅の取り壊しが要る。(2760,-745) は電気と道がない。街中の空きは道と建物にふさがれている。8月末の期限も過ぎたため、名所の新設は止める(計画のやめる条件)。品物の不足は貨物駅 28755 の止まりが原因で、港湾空港局と道路下水道局の担当のため、求めることとして計画に書いた。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "汚染(4-3、37、目標15以下)の手は、効く工場の列が未確認で、止める道具(set_building_active)が区画の工場に効くかも道具で確かめられない。実行条件が揃わないため案なし。工場の列は z=-274 の稼働4棟と z=-506〜-596 の稼働約15棟が候補。ごみ(10)は10月末の判定まで見るだけ。健康(89)は目標を保つ。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "汚染の印の中心(3700,-100)の汚染は、z=-274 の工場列と z=-506〜-596 の工場群のどちらが主な原因か。",
+        "plan": "見回り1・見回り2・月末に、map_layer(type=pollution, x=3700, z=-300, radius=350, n=8)、complaints、buildings_near(x=3760, z=-520, radius=160, service=Industrial, brief=true) を呼ぶ。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "案なし。教育委員会の担当の数字は市の計画の目標(2-3)を満たしている。小学校の余裕は4,256、高校の余裕は2,759で、長期計画の置く基準(余裕1,000を切る)より上。10代は減っている。`services`、`citizens_summary`、`city_info`、`list_policies` で確認した。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "担当の数字は目標に届いている。火事の印は0(complaints に Fire なし、buildings_near problem=Fire は0棟)、犯罪の印は1(貨物港 32211 の1棟)で、合計1が目標の4以下。事業2は8月末の火事0で閉じた。犯罪の1棟には事業1の移す決まりが当たらず、SmokeDetectors は週57,769で守る線に合わない。調査も今は要らない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "事務所税を 3% から 2% に下げ、大卒の働き口を増やすか見る",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-1",
+            "6-4、7-1"
+          ],
+          "needsVote": true,
+          "voteKind": "税"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m09-1",
+        "fromBureau": "urban-1",
+        "title": "公園を(690,1190)に1か所と道",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m09-2",
+        "fromBureau": "roads-1",
+        "title": "西のz=-560幹線3区間を4車線化",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m09-3",
+        "fromBureau": "roads-2",
+        "title": "東南x=1560幹線を4車線化",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m09-4",
+        "fromBureau": "finance-1",
+        "title": "事務所税を3%から2%に下げる(試し)",
+        "needsVote": true,
+        "voteKind": "税",
+        "planItems": [
+          "6-1",
+          "6-4"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s09-1",
+        "fromBureau": "roads",
+        "question": "東の(2114,284)のblocked 40は、信号の手前の待ちか、区間の途中の詰まりか。"
+      },
+      {
+        "id": "s09-2",
+        "fromBureau": "health",
+        "question": "汚染の印の中心(3700,-100)の汚染は、z=-274の工場列とz=-506〜-596の工場群のどちらが主な原因か。"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m09-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費1,520、週12で守る線に響かない。"
+      },
+      {
+        "measureId": "m09-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0、維持費の増え0で守る線に響かない。"
+      },
+      {
+        "measureId": "m09-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0、維持費の増え0で守る線に響かない。"
+      },
+      {
+        "measureId": "m09-4",
+        "verdict": "可決",
+        "kind": "税",
+        "point": null,
+        "reason": "幅-1で上限内。税収約-8,150を書き、見込み週+6,720で守る線を保つ。戻せる試し。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m09-1",
+    "m09-2",
+    "m09-3",
+    "m09-4"
+  ],
+  "surveys": [
+    {
+      "id": "s09-1",
+      "fromBureau": "roads",
+      "question": "東の(2114,284)のblocked 40は、信号の手前の待ちか、区間の途中の詰まりか。"
+    },
+    {
+      "id": "s09-2",
+      "fromBureau": "health",
+      "question": "汚染の印の中心(3700,-100)の汚染は、z=-274の工場列とz=-506〜-596の工場群のどちらが主な原因か。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m09-2",
+      "m09-3",
+      "m09-4"
+    ],
+    "failed": [
+      "m09-1"
+    ],
+    "failedReasons": [
+      {
+        "id": "m09-1",
+        "reason": "部分実行。公園 Regular Park(id 23298)は (690,1190) に置けた(費用1,000、Beautification 84→85)。道は未実行。議案の経路は公園の外形(72x64 m)に重なり断られた。端点を (736,1190)、(728,1190)、(727,1190) 直線に動かして試したが、公園 23298、隣の公園 473(752,1290)、風力 19235(760,1185、56m角)のいずれかに重なった。公園と風力の隙間は約10m。公園は RoadNotConnected。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-09-08",
+        "population": 180298,
+        "money": 2230009,
+        "weeklyBalance": 6671,
+        "happiness": 89,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-09-18",
+        "population": 180169,
+        "money": 2243119,
+        "weeklyBalance": 9563,
+        "happiness": 89,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s09-1",
+      "s09-2"
+    ],
+    "report": "m09-2、m09-3、m09-4 は打てた。m09-1 は公園だけ置け、道は断られたので引かなかった。m09-2 と m09-3 は test と実行が議案どおり通り、費用0、skipped なし。事務所税は 3% から 2% にした。週の収支は +14,880 から +10,112(9/28)に下がったが、守る線 +3,000 の上。月末の計測では、西の blocked は 76 から 154 に増えた(合計の blockedSpots は 66 から 102)。東南は 62 から 50(blockedSpots 33 から 46)。観光客は 1,790 から 1,663(9/28)、Tourism 週 52。人口は 180,168 から 180,164(9/28)、10/8 は 180,117。見回りは境目に当たらず、臨時は行っていない。調査 s09-1、s09-2 は見回り1、見回り2、月末に記録した。手順のずれは、advance を4回呼んだこと。月末の計測は3回目の後に済ませ、4回目で 2050-10-08 になった。市政ノートは /Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md、command-log.txt も同じフォルダに写した。"
+  }
+}

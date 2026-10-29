@@ -1,0 +1,427 @@
+{
+  "month": 4,
+  "seen": {
+    "gameDate": "2050-04-01",
+    "saveName": "fukuoka-plan-m04",
+    "priorities": [
+      "5-1、5-2 観光",
+      "6-4、7-1 企業の立地、地場企業",
+      "6-3 公共交通を主軸とした交通体系、8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "noProposalReason": "4か月目は案なし。公園の事業は空き地3に道が引かれるまで置けず、第4月の局の操作はない(道路下水道局が第4月に道を試す)。空き地3の半径600m以内に住宅が0棟のため、公園は4-1の地価を動かさないと判明し、長期計画の4-1の狙いを外した。放棄店跡や空いた土地への公園は、働き口の損失か道路との衝突で使えなかった。4-1の地価を動かす手は、低い地区をまだ確かめていないため出さず、調査を1件出した。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "住宅(高密度)の地価の平均が58から62に届かないのは、どの地区の低い地価が引いているか。",
+        "plan": "見る道具と引数: building_stats(x=2300, z=900, radius=800)、map_layer(type=landvalue, x=0, z=0, radius=2000, n=9)、map_layer(type=pollution, x=2300, z=900, radius=800, n=9)。いつ見るか: 見回り1と月末。担当の問題: 4-1 都市と自然が調和したコンパクトなまち。"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "z=-1010 の幹線3区間を4車線にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "東の交差点2か所に信号を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-3",
+          "title": "空き地3(712,1644)に道と送電線を引く",
+          "executionReady": true,
+          "buildCost": 11520,
+          "upkeepPerWeek": 55,
+          "reversible": true,
+          "planItems": [
+            "3-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "旅客の港の岸を4地区・11地点で test_place_building(Harbor)に試したが、すべて HeightTooHigh、ObjectCollision、CannotConnect で断られ、通った候補は0。計画の閉じる条件を満たし、港の事業は閉じた。貨物線の近くの旅客駅候補(3地点)は線路と道が密で ObjectCollision。貨物センター増設は場所と接続が未確認で、道の差し替えは道が原因でないと確かめたため見送り。執行できる案がないため案なし。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "28755 の敷地の中で待つトラックは、近くの13893(出入り0台、外とつながる)へ行き先を変えられる車か。13893 の道はどこに通じるか",
+        "plan": "vehicles_stuck(kind=truck、building=28755、limit=10)と net_near(x=3529、z=-1555、radius=80、service=Road)を、見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "政策 RecreationalUse を外す(第4月の判定)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "品物がない店(noGoods)235軒は、品物のトラックが届かないためか、届いても足りないためか。",
+        "plan": "見る道具: cargo(引数なし)、traffic(x=-1132, z=-1065, radius=400)、vehicles_stuck(kind=truck, building=null, limit=10)。いつ見るか: 見回り1・見回り2・月末。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "第1候補に診療所を1棟置く(放棄された商店を取り壊す)",
+          "executionReady": true,
+          "buildCost": 10000,
+          "upkeepPerWeek": 400,
+          "reversible": false,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "health-2",
+          "title": "満杯の埋立地2つを取り壊し、ずらした位置に建て直す",
+          "executionReady": true,
+          "buildCost": 8000,
+          "upkeepPerWeek": 320,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "小学校の定員の余裕は3,398(14,268 − 子ども 10,870)、高校の余裕は2,134(24,360 − 10代 22,226)で、どちらも置く基準の1,000を上回る。第4月の予定「1,000を切るまで置かない」に沿って案なし。両方の数字は前月から改善しており、計画の前提の変更もない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "工場周りの火事に Fire House を1つ足す(2262,-1190)",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 560,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "(3255,-805) 付近の3棟(2002、5804、13425)は、消防車が空いているのに燃え続けるか。燃え続けるなら消防車が現場に着いていないか。",
+        "plan": "見回り1・見回り2・月末に、buildings_near(x=3255,z=-805,radius=60,problem=Fire,brief)、buildings_near(x=3290,z=-604,radius=30,service=FireDepartment)の engines in use、complaints の火事の印を見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "4か月目の計画の予定は、道路 120 の判定(区域 flow 53、基準 51 より上で、120 を続ける)と、大卒の需要の調査。新しい税・予算・融資の案はない。商業の税 9→8 は道路 120 のため条件外。事務所の税 3→2 は調査の結果を5か月目に見て決める。SmallBusiness は4月末の読みを待つ。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "大卒の失業と空き働き口は、事務所の税(3→2)を判断するほど動くか",
+        "plan": "見回り1・見回り2・月末に demand_breakdown、economy_breakdown、city_info を呼ぶ。月末の大卒の失業が6,500以下で空き働き口が3,000超なら5か月目に事務所の税を案にする。6,800超で動かなければ案にしない"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m04-1",
+        "fromBureau": "economy-1",
+        "title": "政策 RecreationalUse を外す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      },
+      {
+        "id": "m04-2",
+        "fromBureau": "roads-2",
+        "title": "東の交差点2か所に信号",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m04-3",
+        "fromBureau": "roads-1",
+        "title": "z=-1010 の幹線3区間を4車線に",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m04-4",
+        "fromBureau": "roads-3",
+        "title": "空き地3に道と送電線",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-3",
+          "5-1",
+          "5-2",
+          "4-2"
+        ]
+      },
+      {
+        "id": "m04-5",
+        "fromBureau": "fire-1",
+        "title": "Fire House を工場周りに足す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m04-6",
+        "fromBureau": "health-1",
+        "title": "診療所を放棄商店の跡に置く",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "1-2"
+        ]
+      },
+      {
+        "id": "m04-7",
+        "fromBureau": "health-2",
+        "title": "満杯の埋立地2つを建て直す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s04-1",
+        "fromBureau": "port",
+        "question": "28755 の敷地で待つトラックは、13893 へ行き先を変えられる車か。13893 の道はどこに通じるか"
+      },
+      {
+        "id": "s04-2",
+        "fromBureau": "economy",
+        "question": "品物がない店235軒は、トラックが届かないためか、届いても量が足りないためか"
+      },
+      {
+        "id": "s04-3",
+        "fromBureau": "finance",
+        "question": "大卒の失業と空き働き口は、事務所の税(3→2)を判断するほど動くか"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m04-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で守る線に影響しない。"
+      },
+      {
+        "measureId": "m04-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0。維持費は小さく守る線に収まる。"
+      },
+      {
+        "measureId": "m04-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増えは約0。"
+      },
+      {
+        "measureId": "m04-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費11,520、維持費約55で守る線に収まる。"
+      },
+      {
+        "measureId": "m04-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費12,000、維持費560で守る線に収まる。"
+      },
+      {
+        "measureId": "m04-6",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "放棄商店1棟のみ、働き口0、家0を確認。代わりの手の比べあり。"
+      },
+      {
+        "measureId": "m04-7",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "埋立地2棟のみ、働き口0、家0を確認。失うごみと代わりの手が書かれている。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m04-1",
+    "m04-2",
+    "m04-3",
+    "m04-4",
+    "m04-5",
+    "m04-6",
+    "m04-7"
+  ],
+  "surveys": [
+    {
+      "id": "s04-1",
+      "fromBureau": "port",
+      "question": "28755 の敷地で待つトラックは、13893 へ行き先を変えられる車か。13893 の道はどこに通じるか"
+    },
+    {
+      "id": "s04-2",
+      "fromBureau": "economy",
+      "question": "品物がない店235軒は、トラックが届かないためか、届いても量が足りないためか"
+    },
+    {
+      "id": "s04-3",
+      "fromBureau": "finance",
+      "question": "大卒の失業と空き働き口は、事務所の税(3→2)を判断するほど動くか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m04-1",
+      "m04-2",
+      "m04-3",
+      "m04-4",
+      "m04-5",
+      "m04-6",
+      "m04-7"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-04-11",
+        "population": 178222,
+        "money": 2081499,
+        "weeklyBalance": 9123,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-04-21",
+        "population": 178395,
+        "money": 2095889,
+        "weeklyBalance": 10109,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s04-1",
+      "s04-2",
+      "s04-3"
+    ],
+    "report": "7件すべて実行した。建設費は計41,520、所持金は2,110,220から月末2,111,160。月末(2050-05-01)の週の収支は+10,614で、守る線の+3,000を上回った。見回りは境目に当たらず、臨時もなし。hooks に止められた手もなかった。取り壊しは preview で働き口0・家0を確認してから行った(放棄商店46949、満杯の埋立地25692と157)。診療所18600、埋立地40097と2224、Fire House 25877はいずれも置けた。m04-4 は、道が既存の道につながり、送電線も既存の送電線につながった。送電線の始点は未接続のまま、`height_at` は未確認。月末の計測は、信号の東で blocked 254→92、観光客1,811、Tourism週24、満杯の埋立地0、ごみの印14。工場12882の火事は残っている。調査 s04-1〜s04-3 は council/m04-survey-*.md に書いた。市政ノート: 2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md"
+  }
+}

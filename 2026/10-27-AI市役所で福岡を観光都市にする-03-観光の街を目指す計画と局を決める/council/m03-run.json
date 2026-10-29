@@ -1,0 +1,228 @@
+{
+  "month": 3,
+  "seen": {
+    "gameDate": "2050-03-02",
+    "saveName": "fukuoka-plan-m03",
+    "priorities": [
+      "5-1、5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "4-3 脱炭素社会、4-4 資源循環"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "noProposalReason": "取り壊しなしで置ける公園の場所を、今月は確かめられなかった。計画どおり公園は第3月に置かず、空き地3の道と送電線を第4〜5月に待つ。東の街区と名所Aの周りで試した候補は、既存の建物、水塔、道路と重なったか、取り壊しで働き口を失うため出さなかった。原因が分からない地価(58、目標62)については調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "住宅(高密度)の地価 58 が動かない原因は、汚染・騒音・公園の不足のどれか。",
+        "plan": "map_layer で landvalue、pollution、noise を x 2290、z 972、radius 800、n 9 で見る。見回り1と月末に呼ぶ。担当は 4-1 都市と自然が調和したコンパクトなまち。"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": false,
+      "noProposalReason": "今月の予定の事業3(旅客の駅への道・水道管・送電線)は、港湾空港局の駅の場所と経路がまだ届いていないため、実行条件が未確認。ゲームにも旅客の駅はない。島Bは道まで済みで、橋と風力は第5月の予定。島の電気は風力で出す(調整5)ので、本土からの電線は試さない(2経路とも断られた)。交通の流れの信号候補 (-687,-736) は交差点のない区間の途中で、信号は効かない。次の交通の確認は第4月。貨物センター28755の止まったトラックは施設の中の空き待ちで、道が原因かは未確認のため調査にした。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "止まった車が多い z=-740 の幹線の中間(-687,-736 付近)は、交通の流れ50%を続けて下げているか。それとも一時的か。",
+        "plan": "見る道具 traffic(x=-687, z=-736, radius=150, limit=5)を見回り1・見回り2・月末に見る。3回とも blocked が40以上なら第4月に並行道路の試しを案にし、20未満ならこの区間は手を入れない。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "旅客の入口(5-1、5-2)の候補は、駅3か所と港5か所を試したが、どれも設置条件を満たさなかった。駅は勾配(線路側60〜66m、道側108m以上)かぶつかりで落ち、港はぶつかり、地面の高さ、道の接続で落ちた。貨物センター28755の止まり(504台)は道の渋滞ではなく、原因が未確認。島Bは橋と電気の試しが未確認。確認できた案がないため案なし。調査を1件出す(28755の止まりの動きを見回りごとに見る)。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター28755の敷地の中で止まる約500台(WaitingSpace)は、敷地の出口の容量で増えているか、道の上の流れで増えているか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、cargo、traffic(x=3440, z=-1552, radius=200)を、見回り1・見回り2・月末に呼ぶ。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "政策 RecreationalUse を有効にする(観光の魅力の試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2 観光"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "品物がない店230は、貨物センター28755の止まったトラックが減ると、いっしょに減るか。",
+        "plan": "cargo(引数なし。noGoods の店数と stoppedInBuildings の504を見る)と economy_breakdown(Tourism)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "今月は担当の数字(汚染35、ごみ22、死体60、健康78)に効く手を、実行条件を確かめたうえで出せなかった。埋立地はごみの中心の密な住宅で ObjectCollision(2か所)。焼却場2267の移設先は風力発電とぶつかった(2か所)。政策 Recycling は住宅の税収-5%(約13,200/週)で守る線を破る。HeavyTrafficBan は貨物を止める。2267が処理0/週・満杯のままの原因が分からないため、調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "運転に戻した焼却場2267は、処理を始め、満杯の400,000を減らすか。ごみの印(22)も減るか。",
+        "plan": "buildings_near(x=3604, z=-30, radius=60, service=Garbage, brief=false, limit=3)、complaints、services を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "教育の定員は2つとも目標を満たし、置く条件(余裕が1,000を切る)に達していない。小学校の余裕は3,305、高校は2,010で、両方とも少しずつ減っている。失業の大半は大卒で、働き口不足が原因のため教育の手では効かない。長期計画の第3月の予定どおり、高校の候補地を試しの道具で東・中央・西の3地区に試した(10か所)。取り壊しなしで道路に面して置けた場所はなく、東の(2600, 450)は取り壊しなしだが入口の道路がない。置かないので案なし。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "火事の印5は、燃えている建物の場所と原因がまだ分からない。(3255,-805) 付近は消防の覆いが231と高く、近くの消防署の消防車は1/8しか使われていない。計画の候補の Fire House (2262,-1190) は、この場所から約1,065m離れていて届かない。SmokeDetectors は週の費用が約57,759増え、守る線を破るため採らない。警察は犯罪の印が0で不要。原因を調べるため、調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "火事の印は (3255,-805) 付近で同じ建物が繰り返し燃えるか、消防車が空いているのに燃え続けるか",
+        "plan": "見回り1・見回り2・月末に、buildings_near(x=3255,z=-805,r=400,problem=Fire,brief)、buildings_near(x=3290,z=-604,r=30,service=FireDepartment)の消防車の使用数、traffic(x=3125,z=-471,r=150)を見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "3か月目の長期計画の予定は、SmallBusiness の判定と税の据え置きだけ。判定で Tourism は 42→66 に動いたので続ける。商業の税は道路 120 と同じ月に出せない。事務所の税は計画で5月以降と決めており、大卒の失業(7,082)に効く根拠が今月の数字では足りない。RecreationalUse は SmallBusiness の判定と測りが重なるため見送り。Recycling は住宅の税を約5%減らし守る線を割る。維持費の大きい政策は守る線の余裕を超える。案の件数は、計画に沿って0にした。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "大卒の失業と事務所の働き口の空きは、税を動かさなくても変わるか",
+        "plan": "demand_breakdown を、見回り1・見回り2・月末に呼び、byEducation の university の unemployed と jobs・emptyJobs を見る。大卒の失業が減れば税は動かさない。動かず増えない根拠が出れば、5月に事務所の税(3→2)の案を検討する"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m03-1",
+        "fromBureau": "economy-1",
+        "title": "政策 RecreationalUse を有効にする(観光の魅力の試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s03-1",
+        "fromBureau": "port",
+        "question": "貨物センター28755の敷地の中で止まる約500台は、敷地の出口の容量で増えているか、道の上の流れで増えているか。"
+      },
+      {
+        "id": "s03-2",
+        "fromBureau": "health",
+        "question": "運転に戻した焼却場2267は、処理を始め、満杯の400,000を減らすか。ごみの印(22)も減るか。"
+      },
+      {
+        "id": "s03-3",
+        "fromBureau": "economy",
+        "question": "品物がない店230は、貨物センター28755の止まったトラックが減ると、いっしょに減るか。"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m03-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、週の維持費の増え0で守る線に響かない。政策の変更は月1件の上限内。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m03-1"
+  ],
+  "surveys": [
+    {
+      "id": "s03-1",
+      "fromBureau": "port",
+      "question": "貨物センター28755の敷地の中で止まる約500台は、敷地の出口の容量で増えているか、道の上の流れで増えているか。"
+    },
+    {
+      "id": "s03-2",
+      "fromBureau": "health",
+      "question": "運転に戻した焼却場2267は、処理を始め、満杯の400,000を減らすか。ごみの印(22)も減るか。"
+    },
+    {
+      "id": "s03-3",
+      "fromBureau": "economy",
+      "question": "品物がない店230は、貨物センター28755の止まったトラックが減ると、いっしょに減るか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m03-1"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-03-12",
+        "population": 178450,
+        "money": 2086309,
+        "weeklyBalance": 8581,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-03-22",
+        "population": 178525,
+        "money": 2097125,
+        "weeklyBalance": 7396,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s03-1",
+      "s03-2",
+      "s03-3"
+    ],
+    "report": "m03-1(RecreationalUse 有効化、費用0)を実行しました。実行前に active=false、costPerWeek=0 を確認し、実行後も policyExpenses は 11,012 で変わりません。月末(2050-04-01)は人口178,486、所持金2,110,220、週の収支+9,303、観光客1,742(訪問139)、Tourism 週58、attractiveness 平均2です。attractiveness は4回とも2で動かず、効いた形跡はまだありません。SmallBusiness と重なるため判定は保留で、4月に決めます。見回りは2回とも境目に当たらず、臨時は行っていません。調査3件はまとめて council/m03-survey-port.md、m03-survey-health.md、m03-survey-economy.md に書きました。主な事実は3つです。貨物センター28755の敷地内で止まったトラックは500台前後で、同じ車が70〜90日動いていません。周辺の道は blocked 0 で、渋滞は見えません。焼却場2267の貯蔵は333,750から251,468へ減り、処理は動いています。品物がない店は226から235へ増え、止まったトラックの数とは連動して減っていません。set_time ツールがこの環境になく、一時停止の確認はできませんでした。ただし advance は進めた後に自分で止まり、city_info は paused=true を返しました。command-log.txt は保存済みです。"
+  }
+}

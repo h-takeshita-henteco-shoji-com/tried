@@ -1,0 +1,822 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "5-1、5-2 観光",
+      "6-3 公共交通を主軸とした交通体系",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "道路に面した空きを探したが、公園(Regular Park など)を置ける場所を1つも確認できなかった。候補は、置けない(埋立地、海、道路や現に使われている店との重なり)、家を113失う、道路がない、のどれか。放棄された店の跡は、取り壊しを含めても道路の接続と敷地が未確認。必須の実行条件を満たす対象が0のため、案なし。調査で、公園の周りの attractiveness の動きを見る。",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "空き地3に公園1棟と幹線・送電線を引く",
+          "executionReady": true,
+          "buildCost": 9780,
+          "upkeepPerWeek": 79,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "公園(Beautification)の周りで attractiveness が上がっているかを、今の基準から見る",
+        "plan": "map_layer(type=attractiveness, x=2582, z=1222, radius=150, n=9) と buildings_near(service=Beautification, x=2575, z=1224, radius=400, brief=true) を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "止まりの多い交差点 (2110, 330) に信号を1基付ける",
+          "executionReady": true,
+          "buildCost": 208287,
+          "upkeepPerWeek": 468,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "2280付近(4車線が1車線に狭まる区間)の止まった車は、時間がたつと減るか増えるか。狭まりが止まりの原因か。",
+        "plan": "traffic(x=2300, z=-930, radius=120, limit=5) を 見回り1・見回り2・月末に呼ぶ。3回とも blocked が50台以上なら、区間3334と19196の4車線化を次の案にする。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "公共交通の運賃を0にして、交通の流れを試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅 28755 の敷地で枠待ちのトラック(WaitingSpace)は見回りのたびに減るか。隣の貨物駅 13893 は使われるか",
+        "plan": "vehicles_stuck(kind=\"truck\", building=28755, limit=5) と vehicles_stuck(kind=\"truck\", building=13893, limit=5) を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所(Monument)を置く場所を、5地区で確認できなかった。道路に面した12m四方の空きが、事務所・住宅・店と道路で埋まっていて、test_place_building が15回以上断った。放棄された店を取り壊す想定でも置けなかった。島と空き地は道路がなく未確認。政策に観光へ効く見込みのものはなかった。必須の実行条件が確認できないので案なし。観光客が増えない原因も未確認なので、調査を1件出す。旅客の入口は港湾空港局の担当で、長期計画の「求めること」に書いた。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "観光客(今いる数)と Tourism の週の収入は、名所も入口もない今の状態で、どう動くか。",
+        "plan": "city_info と economy_breakdown を、見回り1と月末に見る。観光客が増えれば名所の候補地探しを進め、動かなければ港湾空港局への入口の求めを先に進める。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "南西に埋立地を1か所増やす",
+          "executionReady": true,
+          "buildCost": 4280,
+          "upkeepPerWeek": 163,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "焼却場の近くの空き地に木を植え、汚染が下がるかを試す",
+          "executionReady": true,
+          "buildCost": 500,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "死体の印の周りで、霊柩車の渋滞が見回りごとに続くか。続けば道路の局に渡す",
+        "plan": "vehicles_stuck(kind=hearse, limit=10) と traffic(x=2200, z=200, radius=400, limit=5) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "高校1棟を北東の住宅地に足す",
+          "executionReady": true,
+          "buildCost": 24000,
+          "upkeepPerWeek": 560,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "犯罪の多い地区に警察署を置く(放棄されたホテルを壊す)",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 480,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "火事の印の建物の近くで、消防署の消防車が出ているか。道が詰まって消防車が現場に届かないか",
+        "plan": "buildings_near(x=2253, z=-880, radius=300, service=FireDepartment, brief=false) と traffic(x=2250, z=-900, radius=300, limit=5) を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "道路の予算を120%にして、交通の流れを試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 1700,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "要是正",
+          "corrections": [
+            "空き地3など道路のない空きへの道路の経路を、test_build_line で試した結果を書く",
+            "取り壊しを使う置き場所は assume_removed_buildings 付きの test_place_building で確かめ、議決の月を計画に置く",
+            "公園20棟の費用に、道路を引く費用を test_build_line の cost で足す"
+          ]
+        },
+        {
+          "bureau": "roads",
+          "verdict": "要是正",
+          "corrections": [
+            "消防局・保健環境局・港湾空港局が求める道路の手を、受ける事業として月ごとの予定に入れる",
+            "信号の建設費と週の維持費を確かめる手を決める",
+            "6〜8月に、事業1・2が効いたときの止まった車の減りを同じ範囲の数で書き、流れ60%への積み上げを示す"
+          ]
+        },
+        {
+          "bureau": "port",
+          "verdict": "要是正",
+          "corrections": [
+            "旅客の駅(Train Station)を test_place_building と transport_reach で試す手を1〜2月に入れる",
+            "空港の入口の道路の経路を test_build_line で1〜2月に前倒しして試す",
+            "FreeTransport の運賃減を他局の維持費の増えと合わせて守る線に照らし、月末に効きがなければ必ず外すと明記する"
+          ]
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "島と空き地への道路や橋を test_build_line で試す手を入れ、道路を引く局への求めを明記する",
+            "6-1、6-4、7-1の目標を担う事業を足すか、外す理由を書く",
+            "名所4棟の建設費と週の維持費の合計を12か月の見込みで書く"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "要是正",
+          "corrections": [
+            "健康の平均78→80を担う事業か調査を、体調の悪い市民2,391の原因を確かめる形で入れる",
+            "汚染の木の試しが効かないときの次の手を、3月以降の予定に具体的に書く"
+          ]
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "全局の建設費と維持費の増えを足した週の収支の月別の表を作り、1月の案で約+1,880になり守る線を破ることを示す",
+            "信号・運賃0・道路予算が同じ交通の流れを測るため、時期か範囲をずらす切り分けを計画に入れる",
+            "旅客の入口と名所の建設費が所持金の余裕208,287に収まるかを、時期ごとに書く"
+          ]
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "要是正",
+          "corrections": [
+            "信号の建設費と週の維持費の上限を、1月の実行の前に見積もる手を決める(財政局の1月の余力は583)",
+            "港湾空港局が試した駅と空港の入口の道路の座標を事業3に写し、誰が引くかと、島Bの橋と水道管(42,500)を受けるかを決める",
+            "交通の流れ51%から60%への積み上げが届かないので、残りの差を埋める手を数で書くか、届かない見込みと理由を書く"
+          ]
+        },
+        {
+          "bureau": "port",
+          "verdict": "要是正",
+          "corrections": [
+            "駅を4月に置く予定が財政局の4〜5月の凍結と食い違うので、月を合わせるか理由を書く",
+            "駅の水・下水を water_trace(1250,-2012)で、電気を net_near(Electricity)で、1月のうちに確かめて書く",
+            "駅の効きを測る基準値(tourists、visits)と判定の期限を具体的に書く"
+          ]
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "島Bの橋と水道管の受け皿が道路下水道局の計画にないので調整し、空き地3の幹線沿いに名所を置く手を test_place_building で試して並べる",
+            "下水が届くかを water_trace の outlets で確かめる手を2月に前倒しして書き、排水口が要る場合の費用を足す",
+            "名所の月(3月のSeaWorld、建設費合計156,000)を財政局の表と合わせ、駅と合わせた月ごとの所持金を書く"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "要是正",
+          "corrections": [
+            "焼却場の移し先の空き地1が港湾空港局の空港候補と重なるので、空き地5だけにするか、使い方を分ける",
+            "健康の平均78から80を担う手が調査の結果待ちなので、差が出なかったときの次の手を2月の予定に書く"
+          ]
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "月ごとの表に、公園、島B、駅、信号、4車線化など他局の計画の項目を足す",
+            "4〜5月の凍結を他局が受けていないので、各局と月を合わせるか、凍結を信号・運賃・予算の3つに絞る",
+            "所持金の欄に警察・埋立地・信号・島Bの建設費を入れ、月ごとの最小値が1,874,000以上か書き、収まらない月は後ろへ置き直す"
+          ]
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "要是正",
+          "corrections": [
+            "信号の建設費と週の維持費の上限を、実行前に list_net_types や既存の信号の維持費で見積もり、財政局が判定できる形で書く",
+            "島Bの橋と水道管の月を、economy・finance と合意した1つの月に揃え、費用を 47,420 に揃える",
+            "港の駅の入口の道路を roads が引くと一本化し、port に伝える求めを事業3に書く"
+          ]
+        },
+        {
+          "bureau": "port",
+          "verdict": "要是正",
+          "corrections": [
+            "駅の入口の道路の担当を roads に渡し、発電所にぶつかる元の経路をやめて roads の経路(4,800)を使うと書き直す",
+            "電気の経路を net_near と test_build_line で試し、通る経路か代わりの手を2月の予定に具体的に書き、運賃0を外す日を finance の表と揃える"
+          ]
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "島Bの橋と水道管の月を roads・finance と揃え、名所の置く月を橋の後に合わせる",
+            "島Bの費用を roads の値 47,420 を使って 160,920 に直し、finance の表と揃える",
+            "所持金の表を finance の表(他局の項目を含む)と合わせ、6月に名所2棟と駅を置くときの最小値を書く"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "表の1月に urban の公園・幹線・送電線(約8,800、週約100)と roads の信号1基を入れ、各局の最新の計画の項目に入れ直す",
+            "島Bを橋・水道管が先、名所が後の月に分け、3局で合意した月と各月の所持金(1,874,000 以上)を書く",
+            "港(80,000)を8月に置く予定が port の計画にないので、表から外すか port への求めとして書き、外した場合の最小値も書く"
+          ]
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "要是正",
+          "corrections": [
+            "信号の週の維持費の上限を、financeの468に揃える(roadsは583)。",
+            "島Bの橋・水道管と4車線化の月を、financeと揃えて1つに決め、費用47,420と取り壊し議決の月を書く。",
+            "交通の流れ60%の積み上げを、trafficのbusiestから範囲A・B以外の3区間の台数で書く。届かないなら理由を書く。"
+          ]
+        },
+        {
+          "bureau": "port",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "島Bの橋・水道管と名所の月を、roads・financeと1つに揃え、月ごとの予定と所持金の表を直す。",
+            "所持金の表をfinanceの値で書き、6月に名所2棟と駅を置くときの所持金が1,874,000以上かを示す。名所の週の維持費(960と1,280)も揃える。",
+            "品物がない店・原料がない工場の目標について、受け皿を他局への求めに書くか、見るだけに改める。"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "島Bの橋・水道管と名所の月を、economyとroadsと揃えた表に直し、各月の所持金が1,874,000以上かを書く。",
+            "6月の行に名所2棟(40,000)を入れ、4車線化の月をroadsと揃える。4〜5月の凍結の範囲を計画の変更に書く。",
+            "信号の上限をroadsと揃え、超えたときに外す手を同じ文で書く。"
+          ]
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "要是正",
+          "corrections": [
+            "島Bの橋と水道管を7月から5月に直し、名所は6月2棟・8月2棟と事業3と月ごとの予定に書く",
+            "4車線化は9月のまま、finance が5月としている点は finance に直させると求めに書き、費用を test_upgrade_road の cost で確かめる",
+            "信号は1月・上限468に finance を合わせると事業1の求めに書く"
+          ]
+        },
+        {
+          "bureau": "port",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "名所を6月2棟・8月2棟に直し、月ごとの予定の7月の行も揃える",
+            "所持金の表を finance の最新の月ごとの値(1月 2,046,391 など)に置き換え、最小値が1,874,000以上かを書く",
+            "橋と水道管の月は roads の月に合わせると求めに書き、6月の名所の前提(橋が先)を月ごとの予定に1文で書く"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "信号を1月・上限468に直し、2月以降の週の収支と所持金を組み直す",
+            "4車線化を5月から9月に動かし、5月の行と試しの注意書きを直す",
+            "3月の公園19棟を urban の月(4〜6月に月3〜5棟)に合わせて分ける"
+          ]
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "port",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "所持金の表を finance の最新の値(1月 2,034,519、3月 2,079,259、5月 2,073,255、6月 2,008,383、8月 1,984,099)に置き換える",
+            "6月以降の週の収支 +8,175 を finance の表(6月 +6,282、8月 +5,582)に揃える"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "表に2月の公園2〜3棟、6月の駅まわりの送電線・水道管・線路(2,620)、7月の港の駅の道路(4,800)、焼却場の移し(約6,000)を足し、各月の所持金が 1,874,000 以上かを書き直す",
+            "9月の4車線化の建設費 10,000 を、roads の test_upgrade_road の値 0 と揃えるか、多めに見る理由を書く",
+            "公園の月ごとの棟数を urban の4〜6月3〜5棟、7月以降の置き方と揃える"
+          ]
+        }
+      ]
+    }
+  ],
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "urban-1",
+        "title": "空き地3に公園1棟と幹線・送電線",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "roads-1",
+        "title": "交差点(2110,330)に信号1基",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-3",
+        "fromBureau": "port-1",
+        "title": "運賃0(FreeTransport)で流れを試す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-4",
+        "fromBureau": "health-1",
+        "title": "南西に埋立地を1か所増やす",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m01-5",
+        "fromBureau": "health-2",
+        "title": "焼却場の北に木を植える試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m01-6",
+        "fromBureau": "fire-1",
+        "title": "放棄ホテルを壊して警察署を置く",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "education-1",
+        "reason": "実行条件は確認済みだが、10代は定員を超えておらず、維持費560を足すと1月の週の収支の余裕が約36しか残らない。",
+        "kind": "条件付き",
+        "condition": "citizens_summary の10代が定員24,360の95%(23,142)を超えたことを示す、または運賃0を外した後に週の収支の余力が560以上あることを財政局の表で示す"
+      },
+      {
+        "proposal": "finance-1",
+        "reason": "局が1月に取り下げ(案なし)。週の余力がなく、道路の予算120%は5月に出し直す計画。",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "port",
+        "question": "貨物駅28755の枠待ちのトラックは見回りのたびに減るか。隣の貨物駅13893は使われるか"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "economy",
+        "question": "観光客と Tourism の週の収入は、名所も入口もない今の状態でどう動くか"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "roads",
+        "question": "2280付近の狭まりの止まった車は時間がたつと減るか増えるか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "高校1棟を北東の住宅地に足す",
+          "executionReady": true,
+          "buildCost": 24000,
+          "upkeepPerWeek": 560,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m01-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 9,780、維持費 +79 で守る線に収まる。"
+      },
+      {
+        "measureId": "m01-2",
+        "verdict": "否決",
+        "kind": "財政",
+        "point": 5,
+        "reason": "信号の建設費の上限 208,287 を入れると所持金の見込みが 1,847,440 となり、守る線 1,874,000 を下回る。実額の見積もりを示して出し直す。"
+      },
+      {
+        "measureId": "m01-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 0。可決分で週の収支 約 +4,064 と守る線を保つ。戻せる。"
+      },
+      {
+        "measureId": "m01-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 4,280、維持費 +163 で守る線に収まる。"
+      },
+      {
+        "measureId": "m01-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 約500、維持費 0 で守る線に収まる。"
+      },
+      {
+        "measureId": "m01-6",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "壊すのは放棄された1棟で失う働き口・家は 0。代わりの手と比べてあり、費用 12,000・維持費 480 は守る線に収まる。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "要直し",
+      "reason": "事業の一覧の信号の建設費が上限 208,287 で、これで数えると1月の所持金が守る線を下回る。財政局の表の 10,000 と食い違うので、1つの数字にそろえる。"
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "要直し",
+    "reason": "事業の一覧の信号の建設費が上限 208,287 で、これで数えると1月の所持金が守る線を下回る。財政局の表の 10,000 と食い違うので、1つの数字にそろえる。"
+  },
+  "planRevised": {
+    "done": true,
+    "summary": "信号の建設費を 10,000 にそろえ、1月は打たず2月に実績つきで出し直すよう plan-city.md の事業一覧、費用の合計、調整に書いた。"
+  },
+  "allowed": [
+    "m01-1",
+    "m01-3",
+    "m01-4",
+    "m01-5",
+    "m01-6"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "port",
+      "question": "貨物駅28755の枠待ちのトラックは見回りのたびに減るか。隣の貨物駅13893は使われるか"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "economy",
+      "question": "観光客と Tourism の週の収入は、名所も入口もない今の状態でどう動くか"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "roads",
+      "question": "2280付近の狭まりの止まった車は時間がたつと減るか増えるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-1",
+      "m01-3",
+      "m01-5"
+    ],
+    "failed": [
+      "m01-4",
+      "m01-6"
+    ],
+    "failedReasons": [
+      {
+        "id": "m01-4",
+        "reason": "部分実行。埋立地 7542 は (-620,-1770) に置けた(4,000)。道路 [[-620,-1802],[-620,-1860]] は埋立地 7542 との overlaps(幅80・長さ64)で断られた。始点を (-620,-1807) にしても同じ。計画の中止条件に従い道路は引かず、取り壊しもしていない。埋立地は入口に道路がなく働かない。道路の始点は建物が建った後の状態で試し直す必要がある"
+      },
+      {
+        "id": "m01-6",
+        "reason": "未実行。preview_bulldoze は 44162 の1棟、働き口0・家0で一致した。しかし実行する市長が m01-1 の送電線確認のため advance(1) を呼んだ後に bulldoze を打ち、hook が「advance の後(臨時)は、議決が要る手(取り壊し)を打たない」と止めた。警察署も置いていない。順序の誤りは実行側"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-01-12",
+        "population": 178710,
+        "money": 2074930,
+        "weeklyBalance": 3808,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-22",
+        "population": 178696,
+        "money": 2082872,
+        "weeklyBalance": 5613,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "m01-1(公園、幹線、送電線)、m01-3(運賃0)、m01-5(木20本)は実行できた。m01-1 は送電線の始点が公園本体に当たり、(664,1622) に動かした。公園の電気は来ている。m01-4 は埋立地だけ置け、道路が overlaps で断られたので、中止条件に従い道路は引かなかった。m01-6 は、送電線の確認で advance(1) を先に呼んだため、hook が取り壊しを止めた。実行側の順序の誤りで、警察署は未実行のまま。見回りは2回とも境目に当たらず、臨時はなし。月末(2050-02-01)は人口178,670、所持金2,089,547、週の収支+4,562、観光客1,658、Tourism週41、街全体でなく範囲限定の traffic flow 52。貨物駅28755の中の台数は632、605、589で、7日以上止まった車は470台台のまま。13893は0台。市政ノートと3つの調査ファイルは更新済み。"
+  }
+}

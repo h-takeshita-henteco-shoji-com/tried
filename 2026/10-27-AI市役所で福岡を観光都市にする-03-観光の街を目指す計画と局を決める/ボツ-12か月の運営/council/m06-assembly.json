@@ -1,0 +1,7 @@
+{
+  "month": 6,
+  "rulings": [
+    {"measureId": "m06-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "壊すのは放棄の1棟で、失う働き口0・家0を preview_bulldoze で確認。代わりの手との比べも書かれ、観光の計画に沿う。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

@@ -21,16 +21,34 @@ slug: economy
 - 品物がない店: `cargo` の品物がない店
 - 原料がない工場: `cargo` の原料がない工場
 - 建物のレベル: `building_stats`
+- 観光客の数と訪問の平均: `city_info` の tourists
+- 観光客が落とすお金: `economy_breakdown` の Tourism
+- 魅力度: `map_layer` の attractiveness
+- 名所の棟数: `buildings_near` の service=Monument
+
+## 観光の入口
+
+観光客の入口(旅客の駅・港・空港)は、港湾空港局の担当です。経済観光文化局は、長期計画の「求めること」に、入口を港湾空港局に求める事業を書きます。入口がないと、名所や公園を増やしても、観光客は増えにくいためです(#124 の12か月の見立て)。
+
+## 観光の名所を置くときの手がかり
+
+- 名所(Monument)は、魅力度が高い地区だけに置きません。観光客が寄る店のある地区や、道路に面した空きが多い地区も試します
+- 試す名所は、`list_building_types`(service=Monument)の解禁済みから、大きさと費用の違うものを複数選びます。1種類で全候補地を試しません
+- 観光客が落とすお金(Tourism)を増やすには、名所のほかに、観光客が使う商業の建物の近くに置く手もあります
 
 ## 先に見る道具
 
-`demand_breakdown`、`cargo`、`building_stats`
+`demand_breakdown`、`cargo`、`building_stats`、`city_info`、`economy_breakdown`、`map_layer`
 
 ## 担当する市の計画
 
 | 施策 | 測り方(道具) | 出発点 | 12か月後の目標 |
 |---|---|---|---|
-| 5-1、5-2 観光 | `city_info` の今いる観光客 | 1,646 | 2,000以上 |
+| 5-1、5-2 観光 | `city_info` の今いる観光客 | 1,646 | 3,000以上 |
+| 5-1、5-2(続き) | `city_info` の訪問の平均 | 139 | 250以上 |
+| 5-1、5-2(続き) | `economy_breakdown` の Tourism の週の収入 | 45 | 1,000以上 |
+| 5-1、5-2(続き) | `map_layer` の attractiveness の平均 | 6 | 12以上 |
+| 5-1、5-2(続き) | `buildings_near` の名所(Monument)の棟数 | 6 | 10以上 |
 | 6-1 都心部の機能強化 | `building_stats` の事務所のレベル3の棟数 | 3,227 | 3,500以上 |
 | 6-4、7-1 企業の立地、地場企業 | `demand_breakdown` の働き口 | 86,175 | 90,000以上 |
 | 6-4、7-1(続き) | `cargo` の品物がない店と原料がない工場 | 228 / 24 | 120以下 / 15以下 |
