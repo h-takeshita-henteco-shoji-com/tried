@@ -393,7 +393,73 @@ def plans():
     fig.savefig(OUT / "chart-plans.png", dpi=110, facecolor=BG)
 
 
+def island():
+    """島Bの水をめぐる経緯。"""
+    ev = [
+        ("1か月目", "市長", "島Bの名所は StatueOfWealth(水と下水が要らない)。8か月目に置く計画", "plan"),
+        ("5か月目", "道路下水道局", "「StatueOfWealth は水を要らない」。橋・風力・送電線だけ引き、水道管は引かない", "plan"),
+        ("5か月目", "市長", "同じ月、空き地3に StatueOfWealth を置く案を採る。1種類1棟なので、島Bの水の要らない名所がなくなる", "bad"),
+        ("6か月目", "港湾空港局", "島Bの港は、島の道と水道管が試し待ちなので、案にしない", "wait"),
+        ("14か月目", "港湾空港局", "「島Bは水が届かない」。水源・水管・電線の試しを15か月目の予定に入れる", "plan"),
+        ("15か月目", "港湾空港局", "水管(本土から35区間)と電線は、試しで通る。整地が未確認", "plan"),
+        ("17か月目", "市長", "駅・整地・道・水管・電線の案(51,840)を、条件付きで外す。調べ直し1回では条件がそろわない", "bad"),
+        ("24か月目", "港湾空港局", "候補を空き地1に替える。島Bは道の坂", "bad"),
+    ]
+    colors = {"plan": (60, 120, 200), "wait": (150, 150, 150), "bad": (210, 70, 60)}
+    W, RH = 1700, 108
+    H = 140 + RH * len(ev) + 30
+    img = Image.new("RGB", (W, H), (250, 250, 248))
+    d = ImageDraw.Draw(img)
+    d.text((W // 2, 30), "島Bに水が来なかった経緯", font=f(40, True), fill=(30, 30, 30), anchor="mt")
+    d.text((W // 2, 84), "青=計画と試し、赤=前提が崩れた・止まった所", font=f(24), fill=(95, 95, 95), anchor="mt")
+    y = 140
+    d.line((230, y + 20, 230, y + RH * len(ev) - 40), fill=(190, 190, 190), width=6)
+    for when, who, what, kind in ev:
+        col = colors[kind]
+        cy = y + (RH - 16) // 2
+        d.text((190, cy), when, font=f(26, True), fill=(30, 30, 30), anchor="rm")
+        d.ellipse((216, cy - 14, 244, cy + 14), fill=col)
+        d.rounded_rectangle((270, y, W - 40, y + RH - 16), 12, fill=(240, 239, 236), outline=col, width=3)
+        d.text((295, cy), who, font=f(24, True), fill=col, anchor="lm")
+        wrap(d, 480, cy, what, 44, f(24), (30, 30, 30))
+        y += RH
+    img.save(OUT / "diagram-island.png")
+
+
+def rootcause():
+    """ハーネスに乗った手と、乗らなかった手。"""
+    W, H = 1700, 1060
+    img = Image.new("RGB", (W, H), (250, 250, 248))
+    d = ImageDraw.Draw(img)
+    d.text((W // 2, 30), "ハーネスに乗った手、乗らなかった手", font=f(40, True), fill=(30, 30, 30), anchor="mt")
+    cols = [(40, 820, "乗った手(ほぼ毎月、実行できた)", (33, 170, 120),
+             "1つの局 × 1か月 × 1回の工事。試しの道具で、その場で確かめられる",
+             ["公園を1つ置く(住宅都市みどり局)", "交差点に信号を付ける(道路下水道局)", "道を4車線に広げる(道路下水道局)",
+              "埋立地を建て直す(保健環境局)"]),
+            (880, 1660, "乗らなかった手(2年間、できなかった)", (210, 70, 60),
+             "いくつもの局 × いくつもの月 × いくつもの工程。前の工程が済まないと、次を試せない",
+             ["島Bを開く:橋・風力・水管・整地・名所(3局、1〜24か月目)", "旅客の駅:駅・整地・道・水管・電線の5工程",
+              "名所に電気を引く:置いた建物の外形に、線が当たる", "名所を増やす:お金の枠と、置く場所の両方が要る"])]
+    for x0, x1, head, col, sub, items in cols:
+        d.rounded_rectangle((x0, 110, x1, 690), 16, fill=(240, 239, 236), outline=col, width=4)
+        d.text(((x0 + x1) // 2, 150), head, font=f(30, True), fill=col, anchor="mm")
+        wrap(d, x0 + 30, 230, sub, 30, f(23), (95, 95, 95))
+        for i, it in enumerate(items):
+            wrap(d, x0 + 50, 340 + i * 88, "・" + it, 30, f(25), (30, 30, 30))
+    d.text((W // 2, 740), "乗らなかった手に要って、ハーネスになかったもの", font=f(30, True), fill=(30, 30, 30), anchor="mm")
+    lacks = ["月と局をまたぐ「事業」の単位", "前の工程が済んだものとして試す道具", "計画の前提が崩れたら知らせる段",
+             "方針の優先順位でお金を取っておく決まり"]
+    for i, t in enumerate(lacks):
+        x = 40 + (i % 2) * 830
+        yy = 790 + (i // 2) * 120
+        d.rounded_rectangle((x, yy, x + 790, yy + 96), 14, fill=(255, 255, 255), outline=(120, 90, 160), width=3)
+        d.text((x + 395, yy + 48), t, font=f(27, True), fill=(30, 30, 30), anchor="mm")
+    img.save(OUT / "diagram-rootcause.png")
+
+
 if __name__ == "__main__":
+    island()
+    rootcause()
     plans()
     monthly()
     print(measures())
