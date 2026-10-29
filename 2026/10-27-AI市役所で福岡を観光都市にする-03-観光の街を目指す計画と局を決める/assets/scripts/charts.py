@@ -344,7 +344,57 @@ def goals():
     fig.savefig(OUT / "chart-goals.png", dpi=110, facecolor=BG)
 
 
+def plans():
+    """観光に関わる長期計画の事業と、実際の結果。"""
+    # (名前, 予定の月の範囲, 実際の月, 結果, できたか)
+    rows = [
+        ("1年目の計画(1か月目に作成)", None, None, "", None),
+        ("名所A・B", (1, 1), [1], "1か月目に2棟", True),
+        ("名所の2・3棟目", (2, 6), [5, 11], "5か月目と11か月目", True),
+        ("旅客の駅", (1, 3), [], "置けず", False),
+        ("島Bに橋と風力", (2, 5), [5], "5か月目に引けた", True),
+        ("島Bの名所", (8, 8), [], "水がなく置けず", False),
+        ("空き地3の道と電線", (4, 5), [5], "名所に電気が来ず", False),
+        ("2年目の計画(13か月目に作り直し)", None, None, "", None),
+        ("名所(本土)への道", (13, 15), [13], "13か月目に引けた", True),
+        ("教育の補助(EducationBoost)", (13, 16), [13], "13か月目に入れた", True),
+        ("名所に電線(17か月目に足す)", (17, 17), [17], "17か月目に電気が来た", True),
+        ("名所の試し(1・2棟目)", (15, 21), [22], "22か月目に事業を閉じた", False),
+        ("旅客の駅", (14, 18), [24], "24か月目に事業を閉じた", False),
+    ]
+    fig, ax = plt.subplots(figsize=(13, 7.2), facecolor=BG)
+    ax.set_facecolor(BG)
+    from matplotlib.patches import Patch
+    from matplotlib.lines import Line2D
+    for i, (name, span, done, note, ok) in enumerate(rows):
+        if span is None:
+            ax.text(0.4, i, name, fontsize=14, va="center", fontweight="bold", color="#333333")
+            continue
+        ax.barh(i, span[1] - span[0] + 1, left=span[0] - 0.5, color="#cfd8e8", height=0.55)
+        for m in done:
+            ax.plot(m, i, marker="o" if ok else "X", ms=13, color=GREEN if ok else "#d2463c")
+        if not done:
+            ax.plot(span[1] + 0.9, i, marker="X", ms=13, color="#d2463c")
+        ax.text(25.3, i, note, fontsize=12, va="center", color=GREEN if ok else "#d2463c")
+    ax.set_yticks([i for i, r in enumerate(rows) if r[1] is not None])
+    ax.set_yticklabels([r[0] for r in rows if r[1] is not None], fontsize=12)
+    ax.invert_yaxis()
+    ax.set_xlim(0.3, 31)
+    ax.set_xticks(range(1, 25))
+    ax.axvline(12.5, color="#888888", lw=1.5, ls="--")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_xlabel("か月目", fontsize=12)
+    ax.legend(handles=[Patch(color="#cfd8e8", label="計画の予定"),
+                       Line2D([], [], marker="o", color=GREEN, ls="", ms=11, label="できた"),
+                       Line2D([], [], marker="X", color="#d2463c", ls="", ms=11, label="できなかった・閉じた")],
+              ncol=3, loc="upper center", bbox_to_anchor=(0.45, -0.09), frameon=False, fontsize=12)
+    ax.set_title("観光に関わる長期計画の事業と、実際", fontsize=16, loc="left", pad=30)
+    fig.tight_layout()
+    fig.savefig(OUT / "chart-plans.png", dpi=110, facecolor=BG)
+
+
 if __name__ == "__main__":
+    plans()
     monthly()
     print(measures())
     harness()
