@@ -112,37 +112,244 @@ def f(size, bold=False):
     return ImageFont.truetype(FONT_B if bold else FONT_R, size)
 
 
+KIND = {"新": ((33, 170, 120), "新しく足した"), "変": ((234, 106, 50), "変えた"),
+        "同": ((150, 150, 150), "そのまま"), "廃": ((120, 90, 160), "やめた")}
+
+
+def badge(d, x, y, kind):
+    col, label = KIND[kind]
+    d.rounded_rectangle((x, y, x + 150, y + 40), 20, fill=col)
+    d.text((x + 75, y + 20), label, font=f(21, True), fill="white", anchor="mm")
+
+
+def legend(d, y, kinds, W):
+    x = W // 2 - len(kinds) * 95
+    for k in kinds:
+        badge(d, x, y, k)
+        x += 190
+
+
 def harness():
-    """新しいハーネスの1か月。前回から変えた所に橙の印を付ける。"""
-    W, H = 1500, 1080
+    """1か月の段ごとに、前回と今回を並べる。"""
+    rows = [
+        ("見る", "市長が街を見て、重点を決める", "同じ。地図に空き地と島の座標を書いて渡す", "新"),
+        ("長期計画", "なし。毎月その場で案を考える", "各局が12か月の計画を作り、市長がレビュー。差し戻しは2回まで", "新"),
+        ("案", "7局が1件ずつ。案の代わりに調査も出せる", "8局が5件まで。財政局も税・予算・政策の案を出す", "変"),
+        ("査定", "財政局が、案ごとに可・減額・不可を付ける", "なくした。お金のチェックは議会へ", "廃"),
+        ("まとめ", "市長が3件まで選ぶ", "件数の上限なし。局をまたぐ調整は市長が決める", "変"),
+        ("差し戻し", "なし。外した案は翌月に出し直す", "条件付きで外した案を、局が1回だけ調べ直す", "新"),
+        ("議会", "取り壊しなどの議案だけを確かめる", "議案に加えて、全部の施策をお金の目で確かめる", "変"),
+        ("実行", "実行する市長だけが街を動かす", "同じ。10日ずつ3回進め、途中で2回見回る", "同"),
+    ]
+    W, RH = 1700, 118
+    H = 230 + RH * len(rows) + 30
     img = Image.new("RGB", (W, H), (250, 250, 248))
     d = ImageDraw.Draw(img)
-    d.text((W // 2, 36), "新しいAI市役所の1か月", font=f(40, True), fill=(30, 30, 30), anchor="mt")
-    d.text((W // 2, 92), "橙の枠が、前回から変えた所", font=f(24), fill=(95, 95, 95), anchor="mt")
-    steps = [
-        ("見る", "市長が街を見て、今月の重点を決める", "地図と、空き地や島の座標を渡す", True),
-        ("長期計画", "各局が12か月の計画を作り、市長がレビュー", "1か月目と13か月目だけ。差し戻しは2回まで", True),
-        ("案", "8つの局が、計画に沿って案を出す", "1局5件まで(前回は1件)。財政局も案を出す局に", True),
-        ("まとめ", "市長が案を選ぶ。局をまたぐ調整も市長が決める", "採る件数に上限なし(前回は3件)", True),
-        ("差し戻し", "条件付きで外した案を、局が1回だけ調べ直す", "市長がまとめ直す", True),
-        ("議会", "取り壊しなどの議案と、全部の施策のお金を確かめる", "週の収支 +3,000、所持金 187万4千を守る", True),
-        ("実行", "実行する市長だけが街を動かす。10日ずつ3回進める", "途中で2回見回る", False),
-    ]
-    y = 140
-    for i, (name, desc, note, changed) in enumerate(steps):
-        box = (120, y, W - 120, y + 112)
-        d.rounded_rectangle(box, 14, fill=(240, 239, 236), outline=(234, 106, 50) if changed else (200, 200, 200),
-                            width=5 if changed else 2)
-        d.text((170, y + 56), name, font=f(32, True), fill=(30, 30, 30), anchor="lm")
-        d.text((420, y + 38), desc, font=f(26), fill=(30, 30, 30), anchor="lm")
-        d.text((420, y + 80), note, font=f(22), fill=(95, 95, 95), anchor="lm")
-        if i < len(steps) - 1:
-            d.polygon([(W // 2 - 14, y + 116), (W // 2 + 14, y + 116), (W // 2, y + 134)], fill=(160, 160, 160))
-        y += 134
+    d.text((W // 2, 30), "AI市役所の1か月、前回と今回", font=f(40, True), fill=(30, 30, 30), anchor="mt")
+    legend(d, 92, ["新", "変", "廃", "同"], W)
+    cols = [(40, 230), (250, 720), (740, 1460), (1490, 1660)]
+    d.text((cols[1][0] + 10, 175), "前回", font=f(26, True), fill=(95, 95, 95), anchor="lm")
+    d.text((cols[2][0] + 10, 175), "今回", font=f(26, True), fill=(30, 30, 30), anchor="lm")
+    y = 205
+    for name, before, after, kind in rows:
+        col = KIND[kind][0]
+        d.rounded_rectangle((cols[0][0], y, cols[3][1], y + RH - 14), 12, fill=(240, 239, 236))
+        d.rectangle((cols[0][0], y, cols[0][0] + 10, y + RH - 14), fill=col)
+        cy = y + (RH - 14) // 2
+        d.text((cols[0][0] + 30, cy), name, font=f(30, True), fill=(30, 30, 30), anchor="lm")
+        wrap(d, cols[1][0] + 10, cy, before, 17, f(23), (95, 95, 95))
+        wrap(d, cols[2][0] + 10, cy, after, 26, f(23, kind != "同"), (30, 30, 30))
+        badge(d, cols[3][0], cy - 20, kind)
+        y += RH
     img.save(OUT / "diagram-harness.png")
+
+
+def wrap(d, x, cy, text, n, font, fill):
+    lines = [text[i:i + n] for i in range(0, len(text), n)]
+    lines = []
+    cur = ""
+    for part in text.replace("。", "。|").replace("、", "、|").split("|"):
+        if len(cur) + len(part) > n and cur:
+            lines.append(cur)
+            cur = part
+        else:
+            cur += part
+    if cur:
+        lines.append(cur)
+    lh = 32
+    top = cy - lh * len(lines) / 2 + lh / 2
+    for i, line in enumerate(lines):
+        d.text((x, top + i * lh), line, font=font, fill=fill, anchor="lm")
+
+
+def lessons():
+    """前回の反省と、今回の直し方の対応。"""
+    rows = [
+        ("財政局がふるいにならず、税の案も出なかった", "財政局を案を出す局にし、お金のチェックは議会へ"),
+        ("街全体を見る役がいない", "各局に長期計画を持たせ、市長がレビューして調整する"),
+        ("渋滞に、小さな工事しか打てない", "道具を直し、壊してから建てる工事を試せるように(このテーマの1・2回目)"),
+        ("市長は月3件、局は月1件しか出せない", "局は5件まで、市長は上限なし。外した案は1回だけ調べ直す"),
+        ("幸福度も目標にしていた(ボツの12か月)", "幸福度は施策の結果として、目標から外す"),
+    ]
+    W, RH = 1700, 120
+    H = 150 + RH * len(rows) + 20
+    img = Image.new("RGB", (W, H), (250, 250, 248))
+    d = ImageDraw.Draw(img)
+    d.text((W // 2, 30), "前回の反省と、今回の直し方", font=f(40, True), fill=(30, 30, 30), anchor="mt")
+    y = 120
+    for before, after in rows:
+        d.rounded_rectangle((40, y, 760, y + RH - 20), 12, fill=(240, 239, 236), outline=(210, 70, 60), width=3)
+        wrap(d, 70, y + (RH - 20) // 2, before, 24, f(25), (30, 30, 30))
+        d.polygon([(785, y + 30), (785, y + 70), (835, y + 50)], fill=(160, 160, 160))
+        d.rounded_rectangle((860, y, 1660, y + RH - 20), 12, fill=(240, 239, 236), outline=(33, 170, 120), width=3)
+        wrap(d, 890, y + (RH - 20) // 2, after, 27, f(25, True), (30, 30, 30))
+        y += RH
+    img.save(OUT / "diagram-lessons.png")
+
+
+def tourism_map():
+    """観光の場所を、地形の図に書き込む。"""
+    src = Image.open(RUN.parents[1] / "code/ai-mayor/mayor/city-map.png").convert("RGB")
+
+    def px(x, z):
+        return 432 + 0.0416 * x, 430 - 0.0416 * z
+
+    x0, y0 = px(-6200, 3800)
+    x1, y1 = px(6400, -4300)
+    S = 1.9
+    img = src.crop((int(x0), int(y0), int(x1), int(y1))).resize((int((x1 - x0) * S), int((y1 - y0) * S)))
+    img = img.convert("RGBA")
+    over = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(over)
+
+    def at(x, z):
+        a, b = px(x, z)
+        return (a - x0) * S, (b - y0) * S
+
+    marks = [
+        (-4862, 1731, "島B", "道・橋・風力(2・5か月目)\n水がなく、名所を置けない", (210, 70, 60), (-90, 80)),
+        (700, 1565, "名所(空き地3)", "5か月目に置いた\n電気が来たのは17か月目", (234, 106, 50), (-420, -230)),
+        (2290, 972, "名所A・B", "1か月目に2棟", (33, 170, 120), (60, -200)),
+        (1580, -530, "名所(本土)", "11か月目に置き\n13か月目に道", (33, 170, 120), (200, 60)),
+        (1862, 360, "峰の公園", "23か月目", (33, 170, 120), (240, -60)),
+        (1477, -2950, "駅の候補(空き地1)", "24か月目に試す\n電気の線が通らない", (210, 70, 60), (80, 40)),
+        (4545, 2382, "駅の候補(空き地5)", "一般道がない", (210, 70, 60), (-380, -170)),
+    ]
+    for x, z, name, note, col, (dx, dy) in marks:
+        cx, cy = at(x, z)
+        d.ellipse((cx - 16, cy - 16, cx + 16, cy + 16), outline=col + (255,), width=6)
+        lines = [name] + note.split("\n")
+        w = max(d.textlength(l, font=f(26)) for l in lines) + 30
+        h = 40 + 34 * (len(lines) - 1) + 10
+        tx = min(max(cx + dx, 8), img.width - w - 8)
+        ty = min(max(cy + dy, 8), img.height - h - 8)
+        d.line((cx, cy, tx + w / 2, ty + h / 2), fill=col + (255,), width=3)
+        d.rounded_rectangle((tx, ty, tx + w, ty + h), 10, fill=(255, 255, 255, 235), outline=col + (255,), width=3)
+        d.text((tx + 15, ty + 10), name, font=f(26, True), fill=(30, 30, 30))
+        for i, l in enumerate(note.split("\n")):
+            d.text((tx + 15, ty + 46 + 34 * i), l, font=f(23), fill=(70, 70, 70))
+    img = Image.alpha_composite(img, over).convert("RGB")
+    head = Image.new("RGB", (img.width, 90), (250, 250, 248))
+    hd = ImageDraw.Draw(head)
+    hd.text((img.width // 2, 20), "観光の場所と、24か月の結果(赤い点は道路)", font=f(36, True), fill=(30, 30, 30), anchor="mt")
+    out = Image.new("RGB", (img.width, img.height + 90), (250, 250, 248))
+    out.paste(head, (0, 0))
+    out.paste(img, (0, 90))
+    out.save(OUT / "map-tourism.jpg", quality=90)
+
+
+BUREAU_JA = [("economy", "経済観光文化局"), ("port", "港湾空港局"), ("urban", "住宅都市みどり局"), ("roads", "道路下水道局"),
+             ("health", "保健環境局"), ("education", "教育委員会"), ("fire", "消防局"), ("finance", "財政局")]
+
+
+def bureaus():
+    """局ごと・月ごとに、案が採られたか、外れたか、案なしか。"""
+    import numpy as np
+    from matplotlib.colors import ListedColormap
+    grid = np.zeros((len(BUREAU_JA), 24))
+    for m in range(1, 25):
+        r = json.loads((RUN / "council" / f"m{m:02d}-run.json").read_text())
+        took = {x["fromBureau"].split("-")[0] for x in r["bill"]["measures"]}
+        for p in r["proposals"]:
+            i = [b for b, _ in BUREAU_JA].index(p["bureau"])
+            grid[i, m - 1] = 2 if p["bureau"] in took else (1 if p["hasProposal"] else 0)
+    cmap = ListedColormap(["#e6e5e1", "#f2b48f", ORANGE])
+    fig, ax = plt.subplots(figsize=(13, 5.4), facecolor=BG)
+    ax.imshow(grid, cmap=cmap, vmin=0, vmax=2, aspect="auto")
+    ax.set_yticks(range(len(BUREAU_JA)))
+    ax.set_yticklabels([j for _, j in BUREAU_JA], fontsize=13)
+    ax.set_xticks(range(24))
+    ax.set_xticklabels([str(i) for i in range(1, 25)], fontsize=11)
+    ax.set_xlabel("か月目", fontsize=12)
+    ax.set_xticks([x - 0.5 for x in range(25)], minor=True)
+    ax.set_yticks([y - 0.5 for y in range(len(BUREAU_JA) + 1)], minor=True)
+    ax.grid(which="minor", color="white", lw=2)
+    ax.tick_params(which="minor", length=0)
+    ax.axvline(11.5, color="#555555", lw=3)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    from matplotlib.patches import Patch
+    ax.legend(handles=[Patch(color=ORANGE, label="案が採られた"), Patch(color="#f2b48f", label="案を出したが外れた"),
+                       Patch(color="#e6e5e1", label="案なし")], ncol=3, loc="upper center",
+              bbox_to_anchor=(0.5, -0.14), frameon=False, fontsize=12)
+    ax.set_title("局ごとの案(太い線から右が2年目)", fontsize=16, loc="left")
+    fig.tight_layout()
+    fig.savefig(OUT / "chart-bureaus.png", dpi=110, facecolor=BG)
+
+
+def budget():
+    """13か月目に、市長が週の収支の余裕をどう分けたか(plan-review.md の調整8)。"""
+    parts = [("教育の補助(EducationBoost)", 7940, "#d2a032"), ("駅", 960, BLUE), ("公園", 136, GREEN),
+             ("道", 12, GRAY), ("残り(名所はこの中で1棟)", 356, ORANGE)]
+    fig, ax = plt.subplots(figsize=(12, 3.4), facecolor=BG)
+    ax.set_facecolor(BG)
+    left = 0
+    for name, v, col in parts:
+        ax.barh(0, v, left=left, color=col, edgecolor="white", height=0.6)
+        if v > 900:
+            ax.text(left + v / 2, 0, f"{name}\n週{v:,}", ha="center", va="center", color="white", fontsize=13)
+        left += v
+    ax.annotate("残り 約356\n名所は週320以下の1棟まで", xy=(9404 - 178, 0.3), xytext=(7300, 0.75), fontsize=12,
+                arrowprops=dict(arrowstyle="->", color=GRAY))
+    ax.set_xlim(0, 9600)
+    ax.set_ylim(-1, 1.1)
+    ax.set_yticks([])
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.set_title("13か月目、週の収支の余裕 約9,400 の分け方", fontsize=16, loc="left")
+    fig.tight_layout()
+    fig.savefig(OUT / "chart-budget.png", dpi=110, facecolor=BG)
+
+
+def goals():
+    """観光の目標に、どこまで届いたか。"""
+    rows = [("名所", 6, 10, 10, "棟"), ("観光客", 1646, 2048, 3000, "人"), ("訪問の数", None, 179, 250, ""),
+            ("観光の週の収入", None, 93, 1000, ""), ("旅客の入口", 0, 0, 1, "つ")]
+    fig, ax = plt.subplots(figsize=(12, 4.4), facecolor=BG)
+    ax.set_facecolor(BG)
+    for i, (name, start, end, goal, unit) in enumerate(rows):
+        ratio = min(end / goal, 1.0)
+        ax.barh(i, 1.0, color="#e6e5e1", height=0.6)
+        ax.barh(i, ratio, color=GREEN if ratio >= 1 else ORANGE, height=0.6)
+        head = f"{start:,} → " if start is not None else ""
+        ax.text(1.02, i, f"{head}{end:,}{unit}(目標 {goal:,}{unit})", va="center", fontsize=13)
+    ax.set_yticks(range(len(rows)))
+    ax.set_yticklabels([r[0] for r in rows], fontsize=13)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 1.6)
+    ax.set_xticks([0, 0.5, 1.0])
+    ax.set_xticklabels(["0%", "50%", "目標"])
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.set_title("2年後、観光の目標にどこまで届いたか(棒は目標に対する割合)", fontsize=16, loc="left")
+    fig.tight_layout()
+    fig.savefig(OUT / "chart-goals.png", dpi=110, facecolor=BG)
 
 
 if __name__ == "__main__":
     monthly()
     print(measures())
     harness()
+    lessons()
+    tourism_map()
+    bureaus()
+    budget()
+    goals()
