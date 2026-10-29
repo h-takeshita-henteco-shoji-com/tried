@@ -6,8 +6,8 @@ parent: 122
 ai: Claude Code (Sonnet 5.5)、subagent 11(局8・議会・市長2)。局と財政局は Haiku 5.5、市長と議会は Sonnet 5.5
 minutes: 60
 result: 観光を市長の方針にしたAI市役所に、改善したハーネスで24か月任せた。観光客は 1,646 から 2,048 に増えたが、旅客の入口(駅・港・空港)は24か月で1つも置けず、目標(3,000)には届かなかった。人口は 178,872 から 171,949 に減った
-status: 未公開
-url:
+status: 公開済
+url: https://note.com/tried_hs/n/n0d865878faea
 qiita_url:
 ---
 
