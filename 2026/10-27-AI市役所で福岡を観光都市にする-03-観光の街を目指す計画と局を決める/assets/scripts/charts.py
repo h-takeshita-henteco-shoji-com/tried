@@ -457,7 +457,38 @@ def rootcause():
     img.save(OUT / "diagram-rootcause.png")
 
 
+def loops():
+    """AI市役所の4つのループ。"""
+    rows = [
+        ("道具のループ", "局の中・数分", "試す → 断られる → 場所や形を変えて試す",
+         "失敗が少ない(2年目の部分失敗は57件中2件)", "前の工程が済んだものとして試せない"),
+        ("月のループ", "1か月", "見る → 案 → まとめ → 差し戻し → 議会 → 実行 → 見回り → 答え合わせ",
+         "予想と結果の答え合わせが回った(信号、公園、車線)", "「案なし」のまま回り続ける。進まないことに気づく仕組みがない"),
+        ("計画のループ", "12か月", "計画 → レビュー(差し戻し2回まで) → 毎月の計画の変更 → 作り直し",
+         "やめる条件で、事業を閉じられた", "前提が崩れても、関わる局に知らせない"),
+        ("人のループ", "2年+", "走らせる → 記録を読む → ハーネスを直す → 走らせ直す",
+         "ボツの12か月から4つの直し。9か月目の停止を直して再開", "毎月、人が起動。道具の不具合も人が直す"),
+    ]
+    W, RH = 1700, 210
+    H = 130 + RH * len(rows) + 20
+    img = Image.new("RGB", (W, H), (250, 250, 248))
+    d = ImageDraw.Draw(img)
+    d.text((W // 2, 30), "AI市役所の4つのループ(内側から外側へ)", font=f(40, True), fill=(30, 30, 30), anchor="mt")
+    y = 110
+    shades = [(60, 120, 200), (33, 170, 120), (234, 106, 50), (120, 90, 160)]
+    for (name, period, flow, good, lack), col in zip(rows, shades):
+        d.rounded_rectangle((40, y, W - 40, y + RH - 20), 14, fill=(240, 239, 236), outline=col, width=4)
+        d.text((70, y + 40), name, font=f(32, True), fill=col, anchor="lm")
+        d.text((70, y + 90), period, font=f(24), fill=(95, 95, 95), anchor="lm")
+        wrap(d, 380, y + 40, flow, 50, f(24, True), (30, 30, 30))
+        d.text((380, y + 100), "○ " + good, font=f(23), fill=(33, 140, 100), anchor="lm")
+        d.text((380, y + 145), "× " + lack, font=f(23), fill=(200, 60, 50), anchor="lm")
+        y += RH
+    img.save(OUT / "diagram-loops.png")
+
+
 if __name__ == "__main__":
+    loops()
     island()
     rootcause()
     plans()
