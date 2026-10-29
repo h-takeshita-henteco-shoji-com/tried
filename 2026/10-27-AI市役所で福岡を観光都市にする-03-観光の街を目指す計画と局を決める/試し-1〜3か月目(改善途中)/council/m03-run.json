@@ -1,0 +1,436 @@
+{
+  "month": 3,
+  "seen": {
+    "gameDate": "2050-03-04",
+    "saveName": "fukuoka-plan-m03",
+    "priorities": [
+      "5-1、5-2 観光(入口と名所を含む)",
+      "6-3 公共交通を主軸とした交通体系",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "空き地3に公園を置き、道路と送電線で結ぶ(公園1件目)",
+          "executionReady": true,
+          "buildCost": 17780,
+          "upkeepPerWeek": 94,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "止まりの多い2か所の Basic Road を Small 4 Lane に上げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "(2110,240)と(2110,330)の三叉路に信号を試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "旅客の駅を (3300,-1640) に置く(観光の入口)",
+          "executionReady": true,
+          "buildCost": 48440,
+          "upkeepPerWeek": 1010,
+          "reversible": false,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所を増やす案は、実行できる置き場を1か所も確かめられなかった。試しの置き場9件が、道路・建物・電気の線にぶつかって断られた。取り壊しを伴う置き場も住宅や店にぶつかる。公園(Official Park)は訪問客が1で、ほかの名所(SeaWorld 43、Fountain 21、ScienceCenter 27 など)より低い。品物がない店207の対策は貨物駅28755の詰まりが原因で、局の道具にない(港湾空港局に求める)。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "名所の訪問客は種類で違い続けるか。公園(Official Park)だけが0〜1のままか",
+        "plan": "buildings_near(x=0, z=0, radius=8000, service=\"Monument\", limit=15) と city_info を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "焼却場2267の周りに木を植える(試し)",
+          "executionReady": true,
+          "buildCost": 1420,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "満杯の埋立地45892を空けて、ごみ車を近くに戻す(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "2050-03-04 時点で、高校の比は 91.7%(10代 22,347 / 定員 24,360)、小学校の比は 76.6%(子ども 10,933 / 定員 14,268)。判定の線は、どちらも約 100% を超える(10代の増え −28 / 月、子どもの増え −172 / 月)。線を超えないので、増設の条件を満たさない。計画の「線を超えたら1棟」の手は、今月は使わない。候補地の控えを3地区で試したが、3件とも断られた(道路・建物の重なり、水の上)。控えは0件。計画の前提は変わらないので、計画は直さない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "3月末の火事の印は0、犯罪の印は1(Cargo Harbor 32211)で、合わせて1。目標の4以下に入っており、担当の問題が残っていない。検討した警察署の新設は、長期計画のやめる条件(合わせた印が4以下)に当たる。SmokeDetectors は週の費用57,764で週の収支を大きく超え、守る線を割るため使えない。消防署の予算は、火事の印が0で効き目を測れない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "BigBusiness を外す試し",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -3936,
+          "reversible": true,
+          "planItems": [
+            "守る線(財政運営プラン)"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m03-1",
+        "fromBureau": "urban-1",
+        "title": "空き地3に公園を置き、道路と送電線で結ぶ",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m03-2",
+        "fromBureau": "roads-1",
+        "title": "止まりの多い2か所を Small 4 Lane に上げる",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m03-3",
+        "fromBureau": "roads-2",
+        "title": "三叉路2か所に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m03-4",
+        "fromBureau": "health-1",
+        "title": "焼却場の周りに木を植える(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m03-5",
+        "fromBureau": "health-2",
+        "title": "満杯の埋立地45892を空ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m03-6",
+        "fromBureau": "finance-1",
+        "title": "BigBusiness を外す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "財政の守る線"
+        ]
+      },
+      {
+        "id": "m03-7",
+        "fromBureau": "port-1",
+        "title": "旅客の駅を (3300,-1640) に置き、線路・道路・電気・水道管をつなぐ",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s03-1",
+        "fromBureau": "economy",
+        "question": "名所の訪問客は、種類で違い続けるか。公園(Official Park)だけが 0〜1 のままか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "旅客の駅を (3300,-1640) に置く(観光の入口)",
+          "executionReady": true,
+          "buildCost": 48440,
+          "upkeepPerWeek": 1010,
+          "reversible": false,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m03-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 17,780、維持費 +94 で守る線に収まる。"
+      },
+      {
+        "measureId": "m03-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用 0、維持費 0 で守る線に響かない。"
+      },
+      {
+        "measureId": "m03-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用は未確認だが小さく、週の収支の余裕に収まる。中止条件あり。"
+      },
+      {
+        "measureId": "m03-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 最大 1,420、維持費 0 で守る線に収まる。"
+      },
+      {
+        "measureId": "m03-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用 0 で守る線に響かない。"
+      },
+      {
+        "measureId": "m03-6",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費を週 3,936 減らす施策で、下降の規則の対象外。"
+      },
+      {
+        "measureId": "m03-7",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 48,440、維持費 +1,010。打ったあとの所持金は約 2,057,900 で守る線の内。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m03-1",
+    "m03-2",
+    "m03-3",
+    "m03-4",
+    "m03-5",
+    "m03-6",
+    "m03-7"
+  ],
+  "surveys": [
+    {
+      "id": "s03-1",
+      "fromBureau": "economy",
+      "question": "名所の訪問客は、種類で違い続けるか。公園(Official Park)だけが 0〜1 のままか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m03-1",
+      "m03-2",
+      "m03-3",
+      "m03-5",
+      "m03-6",
+      "m03-7"
+    ],
+    "failed": [
+      "m03-4"
+    ],
+    "failedReasons": [
+      {
+        "id": "m03-4",
+        "reason": "見送り。実行前の確認で 2267 は buildings_near で Combustion Plant(発電所)だった。議案は焼却場でなくなっていたら見送る条件。木は植えていない。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-03-15",
+        "population": 180049,
+        "money": 2045769,
+        "weeklyBalance": -9933,
+        "happiness": 88,
+        "alert": true
+      },
+      {
+        "gameDate": "2050-03-25",
+        "population": 180283,
+        "money": 2067296,
+        "weeklyBalance": 16200,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": true,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s03-1"
+    ],
+    "report": "実行は6件(m03-1,2,3,5,6,7)、m03-4 は見送り。部分実行が2件。m03-1: 公園 37454 と道路(15,260)と送電線本線は成功。公園への引き込み線は ObjectCollision で2回断られ引かず。ただし公園は electricity true。m03-7: 駅 1393(45,000)と送電線(終点を[3300,-1610]に離して通った)と水道管は成功し、電気・水・下水 true、transport_reach は外とつながる。線路と道路は、駅の外形(幅128・奥行48)と overlaps で断られ、15m の上限内の再試験も断られたので引かず。駅は RoadNotConnected、乗客0で、入口の数に数えるかは4月の局が判断。m03-2 は3回通った(31370は計画どおり飛ばされた)。m03-3 の信号2か所は設置済み。月末の(2200,380) r200 の blocked は15(基準45)。臨時1回: 3/15の見回り1で週の収支が-9,933に悪化。Commercial が45,267から18,586で m03-6 の中止条件に当たり、BigBusiness を戻した。3/25は+16,200、月末+14,402に回復。外したためか週の途中の集計かは分けられない。m03-5 は月末に Garbage 31→32 で中止条件に当たり、埋立地45892を戻した(100%→94%まで空いた)。月末: 人口180,524(+818)、所持金2,088,287、観光客1,570(3月初め1,625から減)、Tourism 119(73から増)。電気・水・下水が来ない市民は0/0/0を保った。調査 s03-1 は3回記録(council/m03-survey-economy.md)。名所の Tourists last week は Fountain 17〜21、Winter Market 15〜17、SeaWorld 15、公園 2〜3。型に従えなかった点: hooks に止められた手はなし。Beautification の街全体の棟数は月末に数え直せていない。\""
+  }
+}

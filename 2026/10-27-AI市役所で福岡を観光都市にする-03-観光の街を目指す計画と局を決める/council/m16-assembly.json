@@ -1,0 +1,11 @@
+{
+  "month": 16,
+  "rulings": [
+    {"measureId": "m16-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費2,500、維持費+40で守る線に響かない。"},
+    {"measureId": "m16-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0。収支の余裕で維持費の増えを吸収できる。"},
+    {"measureId": "m16-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費が約1,440減る。ごみの印の上限と戻す手が書かれている。"},
+    {"measureId": "m16-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "運賃収入が約4,796減っても見込みは約+8,750で線+3,000の上。"}
+  ],
+  "approvedKinds": [],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

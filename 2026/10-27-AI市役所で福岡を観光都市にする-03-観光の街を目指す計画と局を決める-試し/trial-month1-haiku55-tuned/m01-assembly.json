@@ -1,0 +1,9 @@
+{
+  "month": 1,
+  "rulings": [
+    {"measureId": "m01-4", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うもの(8路線・233台・乗客0〜16人)と代わりの手が書かれ、乗客数は list_transport_lines と一致した。"},
+    {"measureId": "m01-5", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失う働き口15・家0が preview_bulldoze と一致し、失業と混雑の響きも書かれている。"},
+    {"measureId": "m01-9", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "5804は働き口0・家0で、放棄済みの説明と実行前の再確認の手順がある。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

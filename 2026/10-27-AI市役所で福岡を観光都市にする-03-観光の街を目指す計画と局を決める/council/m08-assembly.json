@@ -1,0 +1,12 @@
+{
+  "month": 8,
+  "rulings": [
+    {"measureId": "m08-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,320、維持費10.4で守る線に収まる。"},
+    {"measureId": "m08-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0、維持費0で戻せる。"},
+    {"measureId": "m08-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0、維持費の増え0。戻す条件も書いてある。"},
+    {"measureId": "m08-4", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは家12、働き口0と数字があり、代わりの手と比べてある。財政の線にも収まる。"},
+    {"measureId": "m08-5", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは働き口0、家0。代わりの手と比べてあり、財政の線に収まる。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

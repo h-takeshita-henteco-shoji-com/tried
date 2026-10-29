@@ -1,0 +1,604 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "5-1、5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 300000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 10
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "公園の政策を試しで有効にする(RecreationalUse)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点(2110,330)に信号を付ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "西へ抜ける幹線の2区間を太くする(取り壊しを伴う・試し)",
+          "executionReady": true,
+          "buildCost": 720,
+          "upkeepPerWeek": 12,
+          "reversible": false,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "幹線(-726,-740)の止まった車は、西の交差点(-920,-740)の先頭まで並んでいるか、それとも-726付近で始まっているか",
+        "plan": "traffic(x=-800,z=-740,radius=120)と traffic(x=-920,z=-740,radius=60)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "止まっている西の貨物駅40031を動かし、駅・港の待ちを分ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 1440,
+          "reversible": true,
+          "planItems": [
+            "8-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "port-2",
+          "title": "乗客がほぼいないバス路線8本を消し、バスの台数と維持費を減らす(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -2700,
+          "reversible": false,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "西の貨物駅40031や、動いている貨物駅13893・3940・4740に、貨物列車が向かわないのは何によるか。",
+        "plan": "見る道具は vehicles_stuck(kind=\"train\", limit=12) と cargo。見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "観光の政策 Recreational Use をかける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "economy-2",
+          "title": "名所 Official Park を北東の商業地(2104,446)に建てる",
+          "executionReady": true,
+          "buildCost": 45000,
+          "upkeepPerWeek": 128,
+          "reversible": false,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅 40031(-1780, -1605)が品物を運ぶ車を一台も出していないのは、列車が来ないからか、道順がないからか。",
+        "plan": "見る道具 cargo、vehicles_stuck(kind=truck、building=40031、limit=3)、buildings_near(x=-1069、z=-770、radius=150、problem=NoGoods、brief=true、limit=20)を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "ごみの現場の近くに埋立地を1つ足す",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "西南の住宅地の近くに診療所を1つ足す",
+          "executionReady": true,
+          "buildCost": 10000,
+          "upkeepPerWeek": 400,
+          "reversible": true,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-3",
+          "title": "公共の政策 SmokingBan をかける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-4",
+          "title": "工場と住宅の間に木を植える(試し)",
+          "executionReady": true,
+          "buildCost": 570,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "霊柩車の詰まりは、交通の詰まりと一緒に減るか。死体の印(Death 52)は、その動きに連れるか。",
+        "plan": "見る道具: vehicles_stuck(kind=hearse, limit=5)、complaints()、traffic(x=2150, z=300, radius=400, limit=5)。見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "東部の道路沿いに高校を1棟足す",
+          "executionReady": true,
+          "buildCost": 24000,
+          "upkeepPerWeek": 560,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "10代の数と高校の定員の差が、月にどれだけ縮むか。",
+        "plan": "見る道具は services と citizens_summary(引数なし)。月末に見て、差が月に200以上縮むなら高校の2棟目を次の月に出す。"
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "放棄された火事の建物3棟を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "fire-2",
+          "title": "犯罪の印の近くの放棄された建物7棟を取り壊す(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4",
+            "4-1"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え0。政策の変更1件で月例の上限に収まる。ただし health-3 と合わせると政策2件になるため、市長は1件だけ選ぶ。"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号の費用が道具に出ず未確認。0として合計に入れ、実行時に所持金の差で確かめる。"
+      },
+      {
+        "proposalId": "roads-2",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費720(test_upgrade_road)、維持費の増え約+12/週(Large 120/km と Small 40/km の差)。枠内。取り壊しは議決が要る。"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え+1,440/週(Cargo Center)。維持費の枠4,000の内。"
+      },
+      {
+        "proposalId": "port-2",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "建設費0。維持費は減る方向(局の見積もり約-2,700/週)で、増えの上限には当たらない。"
+      },
+      {
+        "proposalId": "economy-1",
+        "bureau": "economy",
+        "verdict": "減額",
+        "reason": "urban-1 と同じ政策 RecreationalUse の変更で、二重に出している。取り下げて urban-1 の1件に統合する。"
+      },
+      {
+        "proposalId": "economy-2",
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "建設費45,000(Official Park)、維持費の増え+128/週。枠内。取り壊し3棟は議決が要る。"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費4,000、維持費の増え+160/週(Landfill Site)。枠内。"
+      },
+      {
+        "proposalId": "health-2",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費10,000、維持費の増え+400/週(Medical Clinic)。枠内。"
+      },
+      {
+        "proposalId": "health-3",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え0。単独では政策1件で上限内。urban-1 と合わせると政策2件になるため、市長の選択上限で扱う。"
+      },
+      {
+        "proposalId": "health-4",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費は局の見積もり約570(木1本10 × 約57本)。維持費は道具に出ず0と見込む。枠内。"
+      },
+      {
+        "proposalId": "education-1",
+        "bureau": "education",
+        "verdict": "可",
+        "reason": "建設費24,000、維持費の増え+560/週(High School)。枠内。"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え0(放棄建物で働き口と家を持たない)。取り壊しは議決が要る。"
+      },
+      {
+        "proposalId": "fire-2",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増え0(放棄建物7棟で働き口と家を持たない)。取り壊しは議決が要る。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 300000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "urban-1,economy-1",
+        "title": "公園の政策 RecreationalUse を試す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "roads-1",
+        "title": "交差点(2110,330)に信号を付ける",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-3",
+        "fromBureau": "port-1",
+        "title": "西の貨物駅40031を動かす",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1"
+        ]
+      },
+      {
+        "id": "m01-4",
+        "fromBureau": "port-2",
+        "title": "乗客のいないバス8路線を消す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-5",
+        "fromBureau": "economy-2",
+        "title": "名所Official Parkを(2104,446)に建てる",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      },
+      {
+        "id": "m01-6",
+        "fromBureau": "health-1",
+        "title": "西南に埋立地を1つ足す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m01-7",
+        "fromBureau": "health-2",
+        "title": "西南に診療所を1つ足す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "1-2"
+        ]
+      },
+      {
+        "id": "m01-8",
+        "fromBureau": "health-4",
+        "title": "工場と住宅の間に木を植える",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m01-9",
+        "fromBureau": "fire-1",
+        "title": "放棄された火事の建物3棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "roads-2",
+        "reason": "家129軒を失って戻せず、原因も未確認のため、調査s01-1の結果を見てから出し直す。"
+      },
+      {
+        "proposal": "health-3",
+        "reason": "政策の変更は月1件までで、観光の重点のurban-1を優先した。観光への副作用も未確認。"
+      },
+      {
+        "proposal": "education-1",
+        "reason": "高校の定員は10代を1,988上回り目標を満たしており、緊急性が低い。月末の差を見て来月出し直す。"
+      },
+      {
+        "proposal": "fire-2",
+        "reason": "放棄ホテルがm01-1の測定範囲に近く魅力度の測定に混ざる。場所か月を分けて出し直す。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "roads",
+        "question": "幹線(-726,-740)の止まった車は、西の交差点(-920,-740)まで並んでいるか、-726付近で始まっているか。"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "port",
+        "question": "西の貨物駅40031や動いている貨物駅に、貨物列車が向かわないのは何によるか。"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "health",
+        "question": "霊柩車の詰まりは交通の詰まりと一緒に減るか。死亡の印は連れて動くか。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m01-4",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(8路線・233台・乗客0〜16人)と代わりの手が書かれ、乗客数は list_transport_lines と一致した。"
+      },
+      {
+        "measureId": "m01-5",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失う働き口15・家0が preview_bulldoze と一致し、失業と混雑の響きも書かれている。"
+      },
+      {
+        "measureId": "m01-9",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "5804は働き口0・家0で、放棄済みの説明と実行前の再確認の手順がある。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2",
+    "m01-3",
+    "m01-4",
+    "m01-5",
+    "m01-6",
+    "m01-7",
+    "m01-8",
+    "m01-9"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "roads",
+      "question": "幹線(-726,-740)の止まった車は、西の交差点(-920,-740)まで並んでいるか、-726付近で始まっているか。"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "port",
+      "question": "西の貨物駅40031や動いている貨物駅に、貨物列車が向かわないのは何によるか。"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "health",
+      "question": "霊柩車の詰まりは交通の詰まりと一緒に減るか。死亡の印は連れて動くか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-1",
+      "m01-2",
+      "m01-3",
+      "m01-4",
+      "m01-5",
+      "m01-6",
+      "m01-7",
+      "m01-8",
+      "m01-9"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-01-31",
+        "population": 178803,
+        "money": 2084129,
+        "weeklyBalance": 9060,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "【人が再構成】実行する市長が月末の測定中に利用上限で止まり、返り値を返せなかった。施策9件は mayor-note.md の結果欄の記述から、すべて実行済みとした(m01-5 は Official Park を入口の道なしで使えず、予備の Friendly Neighborhood で建てた)。調査3件の月末の節は書かれている。見回り1・2の人口などは返り値にないため、月末の値だけを入れた。月末(2050-01-31)は人口 178,803、所持金 2,084,129、観光客 1,721、visits 146。"
+  }
+}

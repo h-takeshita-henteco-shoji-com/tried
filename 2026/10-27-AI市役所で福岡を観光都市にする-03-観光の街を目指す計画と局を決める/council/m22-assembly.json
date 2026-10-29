@@ -1,0 +1,11 @@
+{
+  "month": 22,
+  "rulings": [
+    {"measureId": "m22-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "壊すのは放棄店1棟で、失う働き口・家は0。維持費 +40 は小さい。"},
+    {"measureId": "m22-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増え0。守る線を破らない。"},
+    {"measureId": "m22-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で戻せる。守る線を破らない。"},
+    {"measureId": "m22-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費を週1,440減らす施策で、守る線の対象外。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

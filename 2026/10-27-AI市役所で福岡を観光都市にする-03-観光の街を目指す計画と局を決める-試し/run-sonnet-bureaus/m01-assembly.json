@@ -1,0 +1,7 @@
+{
+  "month": 1,
+  "rulings": [
+    {"measureId": "m01-3", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldozeで壊す131棟の失う働き口と家は0、電気が止まる建物も0と確かめた。代わりの手との比べと響きも書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

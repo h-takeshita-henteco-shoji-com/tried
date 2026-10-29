@@ -1,0 +1,7 @@
+{
+  "month": 7,
+  "rulings": [
+    {"measureId": "m07-3", "verdict": "可決", "kind": "予算", "point": null, "reason": "週の維持費と収支の減りが書かれ、戻し方と中止条件がある。過去に外れた手の続けでもなく、3-4 に沿う。"}
+  ],
+  "approvedKinds": ["予算"]
+}

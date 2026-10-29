@@ -1,0 +1,445 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "5-1、5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "オフィス街に公園を1件(取り壊し3棟、働き口55)",
+          "executionReady": true,
+          "buildCost": 1000,
+          "upkeepPerWeek": 8,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "北西の公園への水・下水・電気の接続を、位置(-340,880)で試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "3-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "島Bまでの橋を test_build_line で試す(引かない)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "事業2の(2252,296)と(2153,465)の止まり車は、見回りごとに続くか、どの交差点で起きているか",
+        "plan": "traffic(x=2200, z=380, radius=200) を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "2月の予定は旅客の駅の候補の試しと13893の確認で、どちらも済んだ。候補 (3300,-1640) は配置と線の延長(1,200)と入口の道路(560)が道具で通ったが、駅の線路の接続先は道具で確かめられず、置いてから確かめる案は採らないため、案なし。8-1 は (b) として3月に止める。案1(バス半減)は流れ 51→55%、5路線の乗客合計 107→132 で、続ける。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所(公園)を (-340,880) に1棟置く(接続つき)",
+          "executionReady": true,
+          "buildCost": 46320,
+          "upkeepPerWeek": 146,
+          "reversible": false,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "満杯の埋立地3か所を止める(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "健康の政策 SmokingBan を有効にする(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "死体の印とごみの印の原因が、道の渋滞(霊柩車、ごみ車が止まる)かを確かめる",
+        "plan": "vehicles_stuck(kind=garbage, limit=30)、vehicles_stuck(kind=hearse, limit=30)、traffic(x=2157, z=400, radius=400) を、見回り1(10日目)、見回り2(20日目)、月末(30日目)に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の数字は目標を満たしている。小学校は子ども 11,105 に対し定員 14,268(比 77.8%、1か月で −239)。高校は10代 22,375 に対し定員 24,360(比 91.8%、1か月で +3)。判定の線は高校 99.96%、小学校は100%超で、どちらも超えない。やめる条件を満たすため見送る。候補地の試しは計画どおり3月に0円で行う。失業の大半は大学卒で、学校の定員は原因ではない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "火事の印が残る3棟を取り壊す(2002、12882、5804)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "取り壊さずに置いた FatalProblem の火事の印は、時間がたつと自然に消えるか",
+        "plan": "buildings_near(x=0,z=0,radius=8000,problem=Fire,brief=true)と buildings_near(x=3290,z=-604,radius=400,service=FireDepartment)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "長期計画の2か月目の予定は「守る線の確認。測るだけ」。週の収支 +9,877、所持金 2,117,372 はどちらも守る線の内。BigBusiness の外しは計画どおり3月に試す。バス減りは1月に実施済みで計画の基準が違っていたため、基準を実測に直し、維持費の増えの累計を6,877以内にする計画の変更を記録した。振れの原因を見る調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "週の収支が見回りごとに 7,259〜9,965 で振れる原因は、どの支出か収入か",
+        "plan": "city_info と economy_breakdown を、見回り1・見回り2・月末に見る。振れが一時的な支出なら月末の平均で見込みを置く。政策費なら3月の試しに入れる。収入なら税の検討に回す"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "roads-1",
+        "title": "公園の接続の試し(北西)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-3",
+          "5-1、5-2"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "roads-2",
+        "title": "島Bまでの橋の試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1、5-2"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "health-1",
+        "title": "満杯の埋立地3か所を止める(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m02-4",
+        "fromBureau": "health-2",
+        "title": "SmokingBan を有効にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "1-2"
+        ]
+      },
+      {
+        "id": "m02-5",
+        "fromBureau": "fire-1",
+        "title": "火事の印が残る3棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m02-6",
+        "fromBureau": "economy-1",
+        "title": "名所(公園)を (-340,880) に1棟置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1、5-2",
+          "3-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "urban-1",
+        "reason": "働き口 55 を壊して戻せず、4-2 は +1 で目標 100 に届かない。",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "roads",
+        "question": "(2252,296) と (2153,465) の止まり車は、見回りごとに続くか、どの交差点で起きているか"
+      },
+      {
+        "id": "s02-2",
+        "fromBureau": "health",
+        "question": "死体の印とごみの印の原因が、道の渋滞(霊柩車、ごみ車が止まる)か"
+      },
+      {
+        "id": "s02-3",
+        "fromBureau": "finance",
+        "question": "週の収支が見回りごとに 7,259〜9,965 で振れる原因は、どの支出か収入か"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所(公園)を (-340,880) に1棟置く(接続つき)",
+          "executionReady": true,
+          "buildCost": 46320,
+          "upkeepPerWeek": 146,
+          "reversible": false,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "街を変えず費用 0。"
+      },
+      {
+        "measureId": "m02-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "試しのみで費用 0。"
+      },
+      {
+        "measureId": "m02-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用 0、戻せる。"
+      },
+      {
+        "measureId": "m02-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "週の費用 0、政策の変更は月1件の内。"
+      },
+      {
+        "measureId": "m02-5",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うものと代わりの手が書かれ、preview で働き口 0、家 0、停電 0 を確認。"
+      },
+      {
+        "measureId": "m02-6",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 46,320、維持費 146 で守る線の内。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m02-1",
+    "m02-2",
+    "m02-3",
+    "m02-4",
+    "m02-5",
+    "m02-6"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "roads",
+      "question": "(2252,296) と (2153,465) の止まり車は、見回りごとに続くか、どの交差点で起きているか"
+    },
+    {
+      "id": "s02-2",
+      "fromBureau": "health",
+      "question": "死体の印とごみの印の原因が、道の渋滞(霊柩車、ごみ車が止まる)か"
+    },
+    {
+      "id": "s02-3",
+      "fromBureau": "finance",
+      "question": "週の収支が見回りごとに 7,259〜9,965 で振れる原因は、どの支出か収入か"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-2",
+      "m02-3",
+      "m02-4",
+      "m02-5",
+      "m02-6"
+    ],
+    "failed": [
+      "m02-1"
+    ],
+    "failedReasons": [
+      {
+        "id": "m02-1",
+        "reason": "m02-6 の公園(39353)を先に置いたため、議案の test が通らなかった。Water Pipe [[-250,635],[-250,760],[-340,800]] は既存の水道管 9572・20728・15593 と ObjectCollision(blocks=true)。Power Line [[-470,1100],[-340,880]] は公園 39353 と ObjectCollision(blocks=true)。街は変えていない。公園の接続自体は m02-6 で通った。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-02-12",
+        "population": 178916,
+        "money": 2090084,
+        "weeklyBalance": 11494,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-22",
+        "population": 179312,
+        "money": 2107519,
+        "weeklyBalance": 12009,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1",
+      "s02-2",
+      "s02-3"
+    ],
+    "report": "2月は m02-2〜6 を実行し、m02-1 は見送った(部分実行ではなく、試しの test が公園を置いた後で通らなくなったため)。m02-5: 火事の印の3棟(店2002、工場12882、小学校5804)を取り壊した。働き口・家は失わず、火事1・犯罪1で合計2になった。m02-6: 公園 39353 を(-340,880)に置いた(45,000)。送電線は公園に衝突して断られたので、終点を外形から離した [[-470,1100],[-365,922]] と [[-365,922],[-358,910]] で引いた(接続費 1,260)。1日進めて電気・水・下水とも true になり、名所は6から7棟。attractiveness r200 の平均は2から7。ただし公園の Tourists last week は0で、月末の今いる観光客は 1,625(月例時 1,732)。m02-3: 埋立地3か所を止めたが、月末にごみの印が24から31に増え、議案の条件どおり3か所とも戻した。汚染の印は38から35。m02-4: SmokingBan を有効にした。幸福度は85から88。外す条件には当たっていない。m02-2: 橋は test で 38,380、segments 30(議案と同じ)。引いていない。見回りは2回とも境目なし。月末は人口 179,706(月例時 178,797 から +909)、週の収支 +13,313、所持金 2,125,599、電気・水・下水が来ない市民は 0。Tourism は 46 から 73。公約4の観光客は今いる数が 1,732 から 1,625 に減った。調査 s02-1〜3 は council/m02-survey-*.md に3回分を書いた。臨時はなし。hooks に止められた手もなし。ノートと command-log.txt は運営のフォルダに保存した。"
+  }
+}

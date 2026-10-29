@@ -1,0 +1,13 @@
+{
+  "month": 15,
+  "rulings": [
+    {"measureId": "m15-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "壊す2棟は働き口0・家0の放棄店で、失うものが0。他7か所と比べて選んでいる。"},
+    {"measureId": "m15-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0で戻せる。守る線に響かない。"},
+    {"measureId": "m15-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0・維持費0。守る線に響かない。"},
+    {"measureId": "m15-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費を減らす施策。定員は子ども以上を保つ。"},
+    {"measureId": "m15-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費12,000、維持費+480。見込みの収支は+3,700台以上で守る線の上。"},
+    {"measureId": "m15-6", "verdict": "可決", "kind": "予算", "point": null, "reason": "変更20点で上限内。容量に余裕があり健康は目標の上。戻せる。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

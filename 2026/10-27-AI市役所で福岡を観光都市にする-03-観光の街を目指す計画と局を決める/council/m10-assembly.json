@@ -1,0 +1,9 @@
+{
+  "month": 10,
+  "rulings": [
+    {"measureId": "m10-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,000、週の維持費+8で守る線に収まる。"},
+    {"measureId": "m10-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "週の維持費-1,440で収支は良くなる。守る線に収まる。"}
+  ],
+  "approvedKinds": [],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

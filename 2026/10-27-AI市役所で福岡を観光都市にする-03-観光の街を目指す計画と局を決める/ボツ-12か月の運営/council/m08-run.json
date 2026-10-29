@@ -1,0 +1,415 @@
+{
+  "month": 8,
+  "seen": {
+    "gameDate": "2050-07-31",
+    "saveName": "fukuoka-plan-m08",
+    "priorities": [
+      "5-1、5-2 観光",
+      "6-3 公共交通を主軸とした交通体系",
+      "6-4、7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 200000,
+    "upkeepCap": 3000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "noProposalReason": "4-2(公園などの数、88で目標100)と 4-1(住宅(高密度)の地価、59で目標62)に効く置き場が、実行条件を満たす形で見つからなかった。道路に面して置けた1地点(2570,-530)は住宅4棟の取り壊し(家89を失う)を伴い、人口が減っている中で採らない。放棄された店を壊す候補、道路のない外周、未接続の公園(41098)の接続候補は、建物や道路と重なるか接続の形が未確認のため採らない。政策は、HighTechHousing(週20,220)が維持費の幅を超え、HeavyTrafficBan は貨物を止めて品物がない店を悪くするおそれがあり、Recycling は税収を減らすため、いずれも採らない。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "1752,1082 の Regular Playground(41098)の RoadNotConnected は、どの道に面すると解けるか。",
+        "plan": "見る道具は buildings_near(x=1752, z=1082, radius=30)、net_near(x=1752, z=1082, radius=60, service=\"Road\")。見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "東の詰まり2か所の基本道路を4車線に差し替え、南北の1区間を幅広に",
+          "executionReady": true,
+          "buildCost": 120,
+          "upkeepPerWeek": 4,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "渋滞の大型トラックを締め出す政策 HeavyTrafficBan を試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東の幹線の詰まりは、交差点 (2700,330) が制約か、幹線の途中が制約か。",
+        "plan": "junction_info x2700 z330 と traffic x2700 z330 radius80 を、見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "渋滞の大きい路線バス5本の台数を減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        },
+        {
+          "id": "port-2",
+          "title": "乗客がほぼない路線バス3本を廃止する",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地内で空き待ちの479台は見回りのたびに減るか。近くの貨物駅13893に、トラックが向かっていないのはなぜか。",
+        "plan": "vehicles_stuck(truck, building=28755, limit=5)、buildings_near(x=3529, z=-1555, radius=60, brief=false, limit=3)、cargo を見回り1・見回り2・月末に呼ぶ。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "小さな商店の政策を試す(SmallBusiness)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 307,
+          "reversible": true,
+          "planItems": [
+            "6-4",
+            "7-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "観光客は、外との道路・船・飛行機のどの接続を通って街に入っているか。",
+        "plan": "見回り1と月末に trade(引数なし)と city_info(引数なし)で、接続ごとの台数と tourists の now / visits を見る。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "埋立地を(-1700,-1700)に新設し、事務所2棟を取り壊す",
+          "executionReady": true,
+          "buildCost": 4320,
+          "upkeepPerWeek": 162.4,
+          "reversible": false,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "埋立地6816の効きが、ごみの印(街全体)と収集車の渋滞を減らしたか。",
+        "plan": "complaints(Garbage の印の数)、services(garbage の full と used)、vehicles_stuck kind garbage limit 5 を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の定員は目標を満たしている。小学校の定員 14,268 は子ども 9,517 を、高校の定員 24,360 は10代 21,640 を上回る。学校を足す手は数字の改善がなく、維持費だけ増えるため採らない。大学卒の失業 5,659 は原因が未確定なので、案ではなく調査にした。捨てた候補は、高校・小学校・大学の新設、EducationBoost の解除、図書館。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "大学卒の失業は、空きの働き口が残るなかで減るか、増えるか。",
+        "plan": "demand_breakdown と services(引数なし)を見回り1と月末に呼び、byEducation の university の unemployed と emptyJobs、大学の定員を比べる。担当の問題は 2-3 自ら学び続ける子どもの育成。"
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "放棄された焼け跡2棟(38574, 2002)を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "fire-2",
+          "title": "跡地(3217,-795)に Fire House を置く(試し)",
+          "executionReady": false,
+          "buildCost": 12000,
+          "upkeepPerWeek": 560,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "火事の印の建物(38574、5804)に、消防署 49026 は消防車を出しているか",
+        "plan": "buildings_near(3217,-790,r40,problem=Fire,brief=true)、buildings_near(3243,-789,r600,service=FireDepartment)、traffic(3290,-650,r200) を見回り1・見回り2・月末に見る"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費は120(Medium Road の差し替えのみ)で上限内。維持費の増えは約4/週で上限3,000内。"
+      },
+      {
+        "proposalId": "roads-2",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "建設費0、維持費0(HeavyTrafficBan は costPerWeek 0)。ただし政策の変更は月1件のため、economy-1 と同月の両採用は不可。"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "予算の変更のみで、対象5路線を各-20ポイント(±20内)。建設費0、維持費は下がる方向。"
+      },
+      {
+        "proposalId": "port-2",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "路線の廃止のみで建設費0、維持費の増えは0。乗客0〜3の3路線と一致。取り壊し扱いのため議決が要る。"
+      },
+      {
+        "proposalId": "economy-1",
+        "bureau": "economy",
+        "verdict": "減額",
+        "reason": "SmallBusiness は週307で単独では上限内だが、政策の変更は月1件の型の上限があり roads-2 と合わせると超えるため、roads-2 と択一にする。"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費4,320(埋立地4,000+道路320)、維持費の増え約162/週で上限内。取り壊し2棟は議決が要り、取り壊しの費用は道具で見えない。"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費0、維持費の増えも0。取り壊す2棟は家0・働き口0で、取り壊しは議決が要る。"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 200000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m08-1",
+        "fromBureau": "roads-1",
+        "title": "東の詰まり2か所を4車線に差し替え",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m08-2",
+        "fromBureau": "port-1",
+        "title": "バス5路線の予算を20ポイント下げる(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m08-3",
+        "fromBureau": "fire-1",
+        "title": "焼け跡の放棄建物2棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m08-4",
+        "fromBureau": "economy-1",
+        "title": "小さな商店の政策 SmallBusiness を試す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "roads-2",
+        "reason": "政策の変更は月1件で economy-1 と択一。街全体の flow を測り m08-1・m08-2 の測る場所と重なり、品物がない店も悪くするおそれがある。"
+      },
+      {
+        "proposal": "port-2",
+        "reason": "m08-2 と同じ (2288,-930) 周辺の測る数が重なり、3路線がその場所を通るか未確認で、廃止は戻せない。"
+      },
+      {
+        "proposal": "health-1",
+        "reason": "道路を先に引いてから建物を置く順序が m06-4 の失敗と同じで、入口の道路が敷地に重なるかを試しておらず、取り壊しは戻せない。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s08-1",
+        "fromBureau": "economy",
+        "question": "観光客は、外との道路・船・飛行機のどの接続を通って街に入っているか。"
+      },
+      {
+        "id": "s08-2",
+        "fromBureau": "education",
+        "question": "大学卒の失業は、空きの働き口が残るなかで減るか、増えるか。"
+      },
+      {
+        "id": "s08-3",
+        "fromBureau": "roads",
+        "question": "東の幹線の詰まりは、交差点 (2700,330) が制約か、幹線の途中が制約か。"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m08-2",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "前月の同型 m05-4 は「まだ分からない」。測る場所を絞り直した理由が書かれ、バス収入への響きも示され、戻せる。"
+      },
+      {
+        "measureId": "m08-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldoze で2棟とも家0・働き口0を確認。失うものが数字で書かれ、代わりの手との比べもある。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m08-1",
+    "m08-4",
+    "m08-2",
+    "m08-3"
+  ],
+  "surveys": [
+    {
+      "id": "s08-1",
+      "fromBureau": "economy",
+      "question": "観光客は、外との道路・船・飛行機のどの接続を通って街に入っているか。"
+    },
+    {
+      "id": "s08-2",
+      "fromBureau": "education",
+      "question": "大学卒の失業は、空きの働き口が残るなかで減るか、増えるか。"
+    },
+    {
+      "id": "s08-3",
+      "fromBureau": "roads",
+      "question": "東の幹線の詰まりは、交差点 (2700,330) が制約か、幹線の途中が制約か。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m08-1",
+      "m08-2",
+      "m08-3",
+      "m08-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-08-10",
+        "population": 178783,
+        "money": 2226753,
+        "weeklyBalance": 12834,
+        "happiness": 87,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-08-20",
+        "population": 178594,
+        "money": 2244002,
+        "weeklyBalance": 11776,
+        "happiness": 87,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s08-1",
+      "s08-2",
+      "s08-3"
+    ],
+    "report": "議案4件をすべて実行した。取り壊しは advance の前に済ませたので、hooks には止められなかった。\n- m08-1(東の3区間の差し替え): 費用120。(3110,-400) r200 の blocked は100から73になった。(3159,-289) は消えた。(3095,-475) は41から47に増え、中止条件に当たった。戻す手は次の月の案に回す。\n- m08-2(バス5路線の予算を下げる): (2288,-930) r300 の blocked が155から47になった。街全体の流れは50から52。1回の比べで、他の要因とは切り分けていない。\n- m08-3(焼け跡2棟の取り壊し): 火事の印が5から2になり、目標の4以下に届いた。\n- m08-4(SmallBusiness): 品物がない店は241から234、働き口は86,737から86,907。まだ分からない(1回目)。\n見回りは2回とも境目に当たらなかった。臨時は打っていない。月末の人口は178,474で、4か月続けて減った(前月178,992)。観光客は1,603、Tourism は57。週の収支は +10,058 で黒字。調査 s08-1、s08-2、s08-3 は council/m08-survey-*.md に記録した。市政ノートとコマンドログも更新した。"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "month": 1,
+  "rulings": [
+    {"measureId": "m01-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldoze で失うものは家1と働き口0の店1棟。案の数字と一致し、代わりの手との比較もある。"},
+    {"measureId": "m01-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0、維持費0で戻せる。守る線に響かない。"},
+    {"measureId": "m01-3", "verdict": "可決", "kind": "予算", "point": null, "reason": "路線の予算の変更で、サービスの予算(バス150)は動かない。維持費は減り、戻せる。観光客への響きも書かれている。"},
+    {"measureId": "m01-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で戻せる。政策の変更は月1件の内。"}
+  ],
+  "approvedKinds": ["取り壊し", "予算"],
+  "planCheck": {"verdict": "可", "reason": "12か月の上限でも週の収支は最低約 +5,400、所持金は約 2,000,000 で守る線の内。バス予算の減りの月は2月に直す。"}
+}

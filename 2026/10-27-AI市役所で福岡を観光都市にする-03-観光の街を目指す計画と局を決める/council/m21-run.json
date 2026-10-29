@@ -1,0 +1,431 @@
+{
+  "month": 21,
+  "seen": {
+    "gameDate": "2051-09-03",
+    "saveName": "fukuoka-plan-m21",
+    "priorities": [
+      "5-1・5-2 観光(入口、島・空き地の名所)",
+      "8-1 物流・人流のゲートウェイ(6-4 と合わせる)",
+      "4-2 花や緑による潤い"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄店24928の跡に公園を1つ置く(4-2)",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "住宅(高密度)の地価59を押さえている原因は、汚染・騒音・葬祭のどれか。(2500,-400) r300 で確かめる。",
+        "plan": "map_layer で type=pollution、noise、deathcare を x=2500, z=-400, radius=300, n=5 で、見回り1・見回り2・月末に測る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点 (2668,330) に信号を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "止まりの多い x=-1640 の南北道 3区間を Small 4 Lane にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "止まりの上位 (4094,-245) は、z=-250 の4車線の途中で起きるか、高速道路の入口(4216,-240 付近)の詰まりが後ろに伸びたものか。",
+        "plan": "traffic(x=4094,z=-245,radius=100) と traffic(x=4216,z=-240,radius=60) を、見回り1・見回り2・月末に測る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "8-1: 休止中の貨物センター 40031 を動かし、28755 の止まりを減らす(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 1440,
+          "reversible": true,
+          "planItems": [
+            "8-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "40031 を動かすと、28755 の空き待ちと西の品物不足は減るか",
+        "plan": "cargo、vehicles_stuck(truck, building 28755, limit 3)、buildings_near(x -1053, z -829, radius 200, problem NoGoods, brief true) を見回り1と月末に"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所の置き場所を確定できなかった。中心と南西は空きがなく、島Bと空き地3は水・下水の管がない。東の住宅地(1950,470 など)は置けても道路に面せず、道を引くには住宅と事務所の取り壊しが要る。旅客の入口は港湾空港局の担当。守る線には余裕があり、費用は理由ではない。22月に、取り壊しなしで置ける場所を探し直す。計画の変更として、名所の最安の未建設型(Transport Tower 60,000 / 960)と費用の数字を直した。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "道のない埋立地 33216 に北から道をつなぐ",
+          "executionReady": true,
+          "buildCost": 240,
+          "upkeepPerWeek": 2,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "汚染の印の出どころは2267だけか。東の255の一帯(x 3850〜4250、z -550〜-250)は2267と別に続くか。",
+        "plan": "map_layer(type=pollution, x=4050, z=-300, radius=350, n=9)、buildings_near(x=4150, z=-250, radius=300, problem=Pollution, brief=true)、complaints。見回り1・見回り2・月末。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "小学校 15022 を1校止める(4校目、試し)",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "21月は担当の3-4が目標内(火事1、犯罪2、合計3。目標は4以下)。焼け跡が出ておらず、長期計画の事業1(焼け跡が2か月続いたときだけ取り壊す)に当たらない。火事と犯罪の合計が5未満なので、届きの確認にも当たらない。燃えている火事48237(2834,1118)は前月と場所が別々で、事業2の同じ場所の条件にも当たらない。政策 SmokeDetectors は週58,138の費用で、週の収支+8,868を守る線(+3,000)の下に落とすため採らない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "守る線の上にあり、財政の手で直す問題がない。人口の減りは転入と転出の切り分けが半分で、税や政策を動かす根拠が足りない。税の減税は余裕(約5,800/週)を超えるうえ効きが未測のため採らない。医療の予算110は墓地の使用が64%で条件未達。代わりに調査 s21-1(住宅税と地価で転入の止まりを見る)を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "転入が少ないまま空き家が5,900を超えるのは、住宅税と地価の差が止めているためか。",
+        "plan": "見る道具: demand_breakdown、citizens_summary(movingIn)、land_value(街の平均、基準53)。見回り1・見回り2・月末に見る。"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m21-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店跡に公園 JapaneseGarden",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m21-2",
+        "fromBureau": "roads-1",
+        "title": "交差点 (2668,330) に信号(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m21-3",
+        "fromBureau": "roads-2",
+        "title": "x=-1640 の南北道を Small 4 Lane に",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m21-4",
+        "fromBureau": "port-1",
+        "title": "休止中の貨物センター 40031 を再開(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1",
+          "6-4"
+        ]
+      },
+      {
+        "id": "m21-5",
+        "fromBureau": "health-1",
+        "title": "埋立地 33216 に北から道をつなぐ",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "education-1",
+        "reason": "再調査でも、小学校 15022 を止めると覆いの東の縁が 0 に落ちる見込みで、止めても 0 が出ない根拠を出せなかった。",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s21-1",
+        "fromBureau": "finance",
+        "question": "転入が少ないまま空き家が 5,900 を超えるのは、住宅税と地価の差が止めているためか。"
+      },
+      {
+        "id": "s21-2",
+        "fromBureau": "health",
+        "question": "汚染の印の出どころは 2267 だけか。東の 255 の一帯は 2267 と別に続くか。"
+      },
+      {
+        "id": "s21-3",
+        "fromBureau": "urban",
+        "question": "住宅(高密度)の地価 59 を押さえている原因は、汚染・騒音・葬祭のどれか。"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "道のない埋立地 33216 に北から道をつなぐ",
+          "executionReady": true,
+          "buildCost": 240,
+          "upkeepPerWeek": 2,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "education-1",
+          "title": "小学校 15022 を1校止める(4校目、試し)",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "2-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m21-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "壊すのは働き口0・家0の放棄店1棟。preview_bulldozeで確認済み。"
+      },
+      {
+        "measureId": "m21-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で守る線に響かない。"
+      },
+      {
+        "measureId": "m21-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増え0で守る線に響かない。"
+      },
+      {
+        "measureId": "m21-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費+1,440でも週の収支は約+7,400で、守る線と下降規則の上。"
+      },
+      {
+        "measureId": "m21-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費240、維持費約2で守る線に響かない。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m21-1",
+    "m21-2",
+    "m21-3",
+    "m21-4",
+    "m21-5"
+  ],
+  "surveys": [
+    {
+      "id": "s21-1",
+      "fromBureau": "finance",
+      "question": "転入が少ないまま空き家が 5,900 を超えるのは、住宅税と地価の差が止めているためか。"
+    },
+    {
+      "id": "s21-2",
+      "fromBureau": "health",
+      "question": "汚染の印の出どころは 2267 だけか。東の 255 の一帯は 2267 と別に続くか。"
+    },
+    {
+      "id": "s21-3",
+      "fromBureau": "urban",
+      "question": "住宅(高密度)の地価 59 を押さえている原因は、汚染・騒音・葬祭のどれか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m21-1",
+      "m21-2",
+      "m21-3",
+      "m21-4",
+      "m21-5"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-09-13",
+        "population": 173978,
+        "money": 2624775,
+        "weeklyBalance": 7909,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-09-23",
+        "population": 173755,
+        "money": 2635070,
+        "weeklyBalance": 7188,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s21-1",
+      "s21-2",
+      "s21-3"
+    ],
+    "report": "5施策すべて成功。月末は2051-10-03。人口173,537(12か月連続の減少が続く)、所持金2,643,814、週の収支+5,957、幸福度87。来ない市民は0/0/0。観光客は2,020人(訪問171)で、前月例の1,837から増えた。Tourism は週105。\n- m21-1: JapaneseGarden(id 12168)を設置。Beautification は96棟で、予想どおり。\n- m21-2: 信号を付けた。blocked は53から、見回りで13、46、月末0に変わった。\n- m21-3: 3区間を Small 4 Lane に差し替えた。blocked は74から、28、17、37に変わった。止まりは (-1632,-1106) 18 に移った。\n- m21-4: 貨物センター40031を再開した。しかし40031には車が0台のまま。28755の止まったトラックは605から632に増えた。WaitingSpace は716のまま。中止条件は両方そろわないので止めていない。週の収支が+5,000に近づいており、22月に再確認が要る。\n- m21-5: 道を引いた。33216 の RoadNotConnected は消え、残りは2。\n- 臨時なし。議決が要る道具で止められた手もなし。\n- 市政ノートは /Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md に記録した。\n- 調査3件は council/m21-survey-finance.md、m21-survey-health.md、m21-survey-urban.md に書いた。見立ては書いていない。command-log.txt も保存した。"
+  }
+}

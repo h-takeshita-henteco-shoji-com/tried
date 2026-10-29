@@ -1,0 +1,627 @@
+2026-10-29T12:44:48+09:00	council-mayor-desk	set_time	ok	paused=True
+2026-10-29T12:44:54+09:00	council-mayor-desk	save_city	ok	name=fukuoka-plan-m01 overwrite=True
+2026-10-29T12:44:54+09:00	council-mayor-desk	city_info	ok	
+2026-10-29T12:44:55+09:00	council-mayor-desk	economy	ok	
+2026-10-29T12:44:55+09:00	council-mayor-desk	services	ok	
+2026-10-29T12:44:55+09:00	council-mayor-desk	citizens_summary	ok	
+2026-10-29T12:44:55+09:00	council-mayor-desk	complaints	ok	
+2026-10-29T12:44:55+09:00	council-mayor-desk	citizen_voices	ok	n=5
+2026-10-29T12:44:55+09:00	council-mayor-desk	events	ok	
+2026-10-29T12:44:57+09:00	council-mayor-desk	screenshot	ok	save_to=~/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/assets/m01-town.jpg view=top max_width=1000
+2026-10-29T12:45:02+09:00	council-mayor-desk	traffic	ok	limit=3 radius=9000
+2026-10-29T12:45:02+09:00	council-mayor-desk	economy_breakdown	ok	
+2026-10-29T12:45:02+09:00	council-mayor-desk	demand_breakdown	ok	
+2026-10-29T12:45:02+09:00	council-mayor-desk	cargo	ok	
+2026-10-29T12:45:03+09:00	council-mayor-desk	map_layer	ok	type=attractiveness n=9
+2026-10-29T12:45:03+09:00	council-mayor-desk	buildings_near	ok	x=500 z=0 radius=9000 service=Monument brief=True limit=20
+2026-10-29T12:45:03+09:00	council-mayor-desk	buildings_near	ok	x=500 z=0 radius=9000 service=PublicTransport brief=True limit=60
+2026-10-29T12:45:03+09:00	council-mayor-desk	building_stats	ok	radius=9000
+2026-10-29T12:45:05+09:00	council-mayor-desk	buildings_near	ok	x=500 z=0 radius=9000 service=Beautification brief=True limit=1
+2026-10-29T12:45:06+09:00	council-mayor-desk	zone_summary	ok	grid=2000
+2026-10-29T12:45:46+09:00	council-fire	city_info	ok	
+2026-10-29T12:45:46+09:00	council-fire	complaints	ok	
+2026-10-29T12:45:46+09:00	council-fire	list_policies	ok	
+2026-10-29T12:45:47+09:00	council-port	city_info	ok	
+2026-10-29T12:45:47+09:00	council-port	cargo	ok	
+2026-10-29T12:45:47+09:00	council-port	list_transport_lines	ok	
+2026-10-29T12:45:47+09:00	council-port	trade	ok	
+2026-10-29T12:45:47+09:00	council-finance	list_policies	ok	
+2026-10-29T12:45:48+09:00	council-finance	city_info	ok	
+2026-10-29T12:45:48+09:00	council-finance	economy	ok	
+2026-10-29T12:45:48+09:00	council-finance	economy_breakdown	ok	
+2026-10-29T12:45:48+09:00	council-finance	list_loans	ok	
+2026-10-29T12:45:48+09:00	council-economy	city_info	ok	
+2026-10-29T12:45:48+09:00	council-economy	list_policies	ok	
+2026-10-29T12:45:48+09:00	council-health	services	ok	
+2026-10-29T12:45:49+09:00	council-health	complaints	ok	
+2026-10-29T12:45:49+09:00	council-health	citizens_summary	ok	
+2026-10-29T12:45:49+09:00	council-education	services	ok	
+2026-10-29T12:45:49+09:00	council-health	list_policies	ok	
+2026-10-29T12:45:49+09:00	council-education	citizens_summary	ok	
+2026-10-29T12:45:49+09:00	council-education	list_policies	ok	
+2026-10-29T12:45:49+09:00	council-education	list_building_types	ok	service=Education
+2026-10-29T12:45:50+09:00	council-roads	list_policies	ok	
+2026-10-29T12:45:50+09:00	council-roads	city_info	ok	
+2026-10-29T12:45:50+09:00	council-roads	traffic	ok	limit=10
+2026-10-29T12:45:52+09:00	council-urban	city_info	ok	
+2026-10-29T12:45:52+09:00	council-urban	list_policies	ok	
+2026-10-29T12:45:52+09:00	council-urban	demand_breakdown	ok	
+2026-10-29T12:45:52+09:00	council-urban	list_building_types	ok	service=PublicTransport
+2026-10-29T12:45:52+09:00	council-urban	list_building_types	ok	service=Monument
+2026-10-29T12:45:52+09:00	council-fire	services	ok	
+2026-10-29T12:45:53+09:00	council-fire	list_building_types	ok	service=FireDepartment
+2026-10-29T12:45:53+09:00	council-fire	list_building_types	ok	service=PoliceDepartment
+2026-10-29T12:45:53+09:00	council-fire	buildings_near	ok	x=3272 z=-311 radius=600 service=FireDepartment brief=True limit=20
+2026-10-29T12:45:53+09:00	council-fire	buildings_near	ok	x=2255 z=836 radius=600 service=PoliceDepartment brief=True limit=20
+2026-10-29T12:45:53+09:00	council-fire	events	ok	
+2026-10-29T12:45:54+09:00	council-port	list_policies	ok	
+2026-10-29T12:45:54+09:00	council-port	list_building_types	ok	service=PublicTransport
+2026-10-29T12:45:54+09:00	council-port	list_net_types	ok	service=PublicTransport locked=False
+2026-10-29T12:45:54+09:00	council-port	buildings_near	ok	x=3449 z=-1555 radius=400 brief=True limit=20
+2026-10-29T12:45:56+09:00	council-roads	zone_map	ok	x=500 z=-300 radius=2200 size=800 save_to=~/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/council/m01-roads-zonemap.jpg
+2026-10-29T12:45:57+09:00	council-roads	junction_info	ok	x=2309 z=-925
+2026-10-29T12:45:57+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-29T12:45:57+09:00	council-roads	net_reach	ok	radius=5000 limit=5
+2026-10-29T12:45:57+09:00	council-economy	list_building_types	ok	service=Monument
+2026-10-29T12:45:57+09:00	council-health	list_building_types	ok	service=Garbage
+2026-10-29T12:45:57+09:00	council-economy	buildings_near	ok	x=2575 z=1224 radius=300 service=Monument brief=True limit=20
+2026-10-29T12:45:57+09:00	council-health	list_building_types	ok	service=DeathCare
+2026-10-29T12:45:57+09:00	council-economy	map_layer	ok	type=attractiveness n=9
+2026-10-29T12:45:57+09:00	council-health	list_building_types	ok	service=HealthCare
+2026-10-29T12:45:57+09:00	council-health	buildings_near	ok	x=2240 z=186 radius=400 service=DeathCare brief=True
+2026-10-29T12:45:59+09:00	council-fire	map_layer	ok	type=fire x=3272 z=-311 radius=400 n=5
+2026-10-29T12:45:59+09:00	council-fire	map_layer	ok	type=crime x=2255 z=836 radius=400 n=5
+2026-10-29T12:45:59+09:00	council-fire	map_layer	ok	type=police x=2255 z=836 radius=400 n=5
+2026-10-29T12:45:59+09:00	council-fire	citizens_summary	ok	
+2026-10-29T12:46:00+09:00	council-health	buildings_near	ok	x=0 z=0 radius=6000 service=HealthCare brief=True limit=50
+2026-10-29T12:46:01+09:00	council-health	buildings_near	ok	x=0 z=0 radius=6000 service=Garbage brief=True limit=50
+2026-10-29T12:46:02+09:00	council-roads	traffic	ok	x=2300 z=-930 radius=300 limit=6
+2026-10-29T12:46:02+09:00	council-roads	traffic	ok	x=-726 z=-736 radius=300 limit=6
+2026-10-29T12:46:02+09:00	council-roads	net_near	ok	x=2300 z=-930 radius=120 service=Road limit=20
+2026-10-29T12:46:03+09:00	council-roads	net_near	ok	x=-726 z=-736 radius=120 service=Road limit=20
+2026-10-29T12:46:04+09:00	council-urban	zone_map	ok	x=0 z=0 radius=1800 size=700
+2026-10-29T12:46:04+09:00	council-urban	list_net_types	ok	locked=False
+2026-10-29T12:46:04+09:00	council-urban	buildings_near	ok	x=2575 z=1224 radius=400 limit=30 brief=True
+2026-10-29T12:46:04+09:00	council-port	net_near	ok	x=3449 z=-1555 radius=700 service=PublicTransport limit=30
+2026-10-29T12:46:04+09:00	council-port	transport_reach	ok	
+2026-10-29T12:46:05+09:00	council-port	map_layer	ok	type=attractiveness n=5
+2026-10-29T12:46:06+09:00	council-fire	buildings_near	ok	x=2255 z=900 radius=350 problem=Crime brief=True limit=15
+2026-10-29T12:46:06+09:00	council-economy	buildings_near	ok	x=0 z=0 radius=9000 service=Monument brief=True limit=20
+2026-10-29T12:46:06+09:00	council-fire	zone_map	ok	x=2150 z=950 radius=350 size=700
+2026-10-29T12:46:06+09:00	council-economy	zone_map	ok	x=2000 z=800 radius=1000 size=700 save_to=~/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/council/m01-zonemap-east.jpg
+2026-10-29T12:46:10+09:00	council-health	buildings_near	ok	x=2240 z=186 radius=250 problem=Death brief=True limit=60
+2026-10-29T12:46:10+09:00	council-health	buildings_near	ok	x=3880 z=-296 radius=300 problem=Pollution brief=True limit=40
+2026-10-29T12:46:10+09:00	council-health	vehicles_stuck	ok	kind=hearse limit=10
+2026-10-29T12:46:15+09:00	council-fire	net_near	ok	x=1900 z=930 radius=90 service=Road limit=20
+2026-10-29T12:46:15+09:00	council-fire	test_place_building	ok	prefab=Police Station x=1880 z=930 facing=east
+2026-10-29T12:46:15+09:00	council-economy	zone_summary	ok	grid=1000
+2026-10-29T12:46:15+09:00	council-economy	building_stats	ok	x=2575 z=1224 radius=400
+2026-10-29T12:46:15+09:00	council-port	zone_map	ok	x=3750 z=-1500 radius=300 size=600 save_to=~/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/council/m01-port-zonemap-east.jpg
+2026-10-29T12:46:16+09:00	council-health	buildings_near	ok	x=2240 z=186 radius=1000 problem=Death brief=True limit=60
+2026-10-29T12:46:16+09:00	council-health	map_layer	ok	type=pollution x=3880 z=-296 radius=500 n=9
+2026-10-29T12:46:16+09:00	council-urban	zone_map	ok	x=2600 z=1000 radius=800 size=640
+2026-10-29T12:46:16+09:00	council-urban	buildings_near	ok	x=0 z=0 radius=6000 limit=30 brief=True service=Monument
+2026-10-29T12:46:16+09:00	council-urban	map_layer	ok	type=attractiveness x=2575 z=1224 radius=700 n=9
+2026-10-29T12:46:16+09:00	council-roads	list_net_types	ok	service=Road locked=False
+2026-10-29T12:46:17+09:00	council-roads	list_building_types	ok	service=Electricity
+2026-10-29T12:46:17+09:00	council-roads	list_building_types	ok	service=Water
+2026-10-29T12:46:18+09:00	council-economy	zone_map	ok	x=2400 z=400 radius=350 size=600
+2026-10-29T12:46:19+09:00	council-education	city_info	ok	
+2026-10-29T12:46:19+09:00	council-education	net_near	ok	x=2800 z=0 radius=300 limit=15 service=Road
+2026-10-29T12:46:20+09:00	council-finance	demand_breakdown	ok	
+2026-10-29T12:46:20+09:00	council-finance	services	ok	
+2026-10-29T12:46:21+09:00	council-finance	traffic	ok	limit=5
+2026-10-29T12:46:22+09:00	council-health	buildings_near	ok	x=2384 z=756 radius=60 service=HealthCare limit=5
+2026-10-29T12:46:22+09:00	council-health	buildings_near	ok	x=2240 z=186 radius=200 service=HealthCare limit=10
+2026-10-29T12:46:23+09:00	council-education	test_place_building	ok	prefab=High School x=2760 z=90 facing=south
+2026-10-29T12:46:26+09:00	council-health	traffic	ok	x=2230 z=190 radius=400 limit=8
+2026-10-29T12:46:26+09:00	council-health	vehicles_stuck	ok	kind=hearse building=36841 limit=6
+2026-10-29T12:46:27+09:00	council-urban	net_near	ok	x=2850 z=680 radius=150 limit=20
+2026-10-29T12:46:27+09:00	council-urban	water_trace	ok	x=2850 z=680
+2026-10-29T12:46:27+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:46:28+09:00	council-urban	zones_at	ok	x=2850 z=680 radius=120
+2026-10-29T12:46:28+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:46:28+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:46:29+09:00	council-fire	water_trace	ok	x=1880 z=930
+2026-10-29T12:46:29+09:00	council-fire	net_near	ok	x=2230 z=800 radius=100 service=Road limit=20
+2026-10-29T12:46:29+09:00	council-fire	buildings_near	ok	x=2230 z=800 radius=100 brief=True limit=30
+2026-10-29T12:46:31+09:00	council-economy	buildings_near	ok	x=1500 z=300 radius=3500 abandoned=True brief=True limit=15
+2026-10-29T12:46:32+09:00	council-economy	zone_map	ok	x=-1100 z=-500 radius=450 size=540
+2026-10-29T12:46:33+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:46:33+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:46:33+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:46:34+09:00	council-port	vehicles_stuck	ok	kind=truck building=28755 limit=6
+2026-10-29T12:46:34+09:00	council-port	traffic	ok	x=3449 z=-1555 radius=400 limit=5
+2026-10-29T12:46:34+09:00	council-port	buildings_near	ok	x=3449 z=-1555 radius=120 brief=True limit=10 service=PublicTransport
+2026-10-29T12:46:36+09:00	council-fire	test_place_building	ng	cannot place here
+2026-10-29T12:46:36+09:00	council-fire	test_place_building	ng	cannot place here
+2026-10-29T12:46:37+09:00	council-economy	preview_bulldoze	ok	x=2128 z=471 radius=30 what=building
+2026-10-29T12:46:38+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:46:38+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:46:38+09:00	council-urban	zone_summary	ok	grid=1000
+2026-10-29T12:46:41+09:00	council-health	map_layer	ok	type=health n=9 radius=4000 x=0 z=0
+2026-10-29T12:46:41+09:00	council-health	economy_breakdown	ok	
+2026-10-29T12:46:41+09:00	council-health	list_trees	ok	
+2026-10-29T12:46:42+09:00	council-port	net_near	ok	x=3460 z=-1400 radius=170 service=Road limit=30
+2026-10-29T12:46:43+09:00	council-port	list_net_types	ok	service=Road locked=False
+2026-10-29T12:46:44+09:00	council-urban	zone_map	ok	x=3000 z=300 radius=700 size=700
+2026-10-29T12:46:46+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2160, -950], [2280, -950]]
+2026-10-29T12:46:46+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2236, -950], [2236, -860], [2440, -860]]
+2026-10-29T12:46:46+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2220, -1050], [2220, -950]]
+2026-10-29T12:46:46+09:00	council-roads	junction_info	ok	x=2236 z=-950
+2026-10-29T12:46:46+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-29T12:46:46+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-29T12:46:48+09:00	council-economy	cargo	ok	
+2026-10-29T12:46:48+09:00	council-economy	economy_breakdown	ok	
+2026-10-29T12:46:50+09:00	council-urban	zone_map	ok	x=4000 z=0 radius=500 size=500
+2026-10-29T12:46:51+09:00	council-port	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[3495, -1490], [3495, -1415], [3495, -1340], [3480, -1340], [3480, -1290]] tolerance=20
+2026-10-29T12:46:54+09:00	council-health	buildings_near	ok	x=-650 z=-490 radius=30 service=Garbage limit=3
+2026-10-29T12:46:54+09:00	council-health	buildings_near	ok	x=-1860 z=-1880 radius=30 service=Garbage limit=3
+2026-10-29T12:46:54+09:00	council-fire	buildings_near	ok	x=2200 z=850 radius=300 abandoned=True brief=True limit=10
+2026-10-29T12:46:54+09:00	council-health	buildings_near	ok	x=2525 z=522 radius=30 service=Garbage limit=3
+2026-10-29T12:46:54+09:00	council-fire	zone_map	ok	x=2200 z=860 radius=150 size=500
+2026-10-29T12:46:58+09:00	council-economy	zone_map	ok	x=2600 z=250 radius=250 size=500
+2026-10-29T12:46:59+09:00	council-fire	test_place_building	ng	cannot place here
+2026-10-29T12:47:00+09:00	council-urban	zone_map	ok	x=3600 z=1900 radius=900 size=600
+2026-10-29T12:47:04+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:04+09:00	council-port	test_place_building	ng	cannot place here
+2026-10-29T12:47:04+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:04+09:00	council-port	test_place_building	ng	cannot place here
+2026-10-29T12:47:04+09:00	council-roads	height_at	ok	x=-4100 z=1731
+2026-10-29T12:47:04+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:04+09:00	council-port	test_place_building	ok	prefab=Train Station x=3290 z=-1790 facing=north
+2026-10-29T12:47:04+09:00	council-roads	height_at	ok	x=-3600 z=1300
+2026-10-29T12:47:04+09:00	council-roads	height_at	ok	x=-4300 z=1000
+2026-10-29T12:47:05+09:00	council-roads	height_at	ok	x=-3000 z=400
+2026-10-29T12:47:05+09:00	council-roads	height_at	ok	x=-4000 z=800
+2026-10-29T12:47:05+09:00	council-urban	zone_map	ok	x=2800 z=700 radius=200 size=500
+2026-10-29T12:47:08+09:00	council-port	net_near	ok	x=3290 z=-1770 radius=150 service=Road limit=15
+2026-10-29T12:47:08+09:00	council-port	water_trace	ok	x=3290 z=-1790
+2026-10-29T12:47:08+09:00	council-port	zone_map	ok	x=3290 z=-1790 radius=150 size=400
+2026-10-29T12:47:09+09:00	council-roads	test_build_line	ok	prefab=Basic Road points=[[-2720, 215], [-4500, 1700]]
+2026-10-29T12:47:11+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:11+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:11+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:11+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:11+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:11+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:14+09:00	council-roads	list_building_types	ok	service=Monument locked=True
+2026-10-29T12:47:14+09:00	council-roads	test_place_building	ng	prefab not found: Basic Road Bridge (see /building/prefabs)
+2026-10-29T12:47:15+09:00	council-roads	map_layer	ok	type=attractiveness x=-4800 z=2000 radius=600 n=5
+2026-10-29T12:47:15+09:00	council-urban	buildings_near	ok	x=0 z=0 radius=6000 abandoned=True brief=True limit=30
+2026-10-29T12:47:17+09:00	council-port	test_place_building	ok	prefab=Train Station x=3640 z=-1640 facing=west
+2026-10-29T12:47:17+09:00	council-port	test_place_building	ng	cannot place here
+2026-10-29T12:47:19+09:00	council-roads	test_place_building	ng	cannot place here
+2026-10-29T12:47:19+09:00	council-roads	height_at	ok	x=-4500 z=1700
+2026-10-29T12:47:19+09:00	council-roads	height_at	ok	x=-4800 z=2050
+2026-10-29T12:47:21+09:00	council-port	water_trace	ok	x=3640 z=-1640
+2026-10-29T12:47:21+09:00	council-port	net_near	ok	x=3620 z=-1640 radius=90 limit=15
+2026-10-29T12:47:22+09:00	council-health	zone_map	ok	x=-600 z=-1400 radius=400 size=500
+2026-10-29T12:47:22+09:00	council-health	zone_map	ok	x=3700 z=-150 radius=300 size=500
+2026-10-29T12:47:23+09:00	council-roads	buildings_near	ok	x=-4800 z=2000 radius=500 brief=True limit=10
+2026-10-29T12:47:23+09:00	council-roads	zone_map	ok	x=-4800 z=2000 radius=700 size=500
+2026-10-29T12:47:23+09:00	council-urban	buildings_near	ok	x=2575 z=1240 radius=90 brief=True limit=40
+2026-10-29T12:47:24+09:00	council-urban	buildings_near	ok	x=2295 z=1010 radius=90 brief=True limit=40
+2026-10-29T12:47:24+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:24+09:00	council-economy	buildings_near	ok	x=2286 z=986 radius=60 brief=True limit=20
+2026-10-29T12:47:28+09:00	council-port	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T12:47:28+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:28+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:29+09:00	council-roads	test_place_building	ng	cannot place here
+2026-10-29T12:47:29+09:00	council-roads	test_place_building	ng	cannot place here
+2026-10-29T12:47:30+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:30+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:31+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:47:31+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-860 z=-1330 facing=east
+2026-10-29T12:47:31+09:00	council-health	zone_summary	ok	grid=500
+2026-10-29T12:47:33+09:00	council-roads	test_place_building	ok	prefab=Official Park x=-4700 z=1950 facing=east
+2026-10-29T12:47:33+09:00	council-roads	test_place_building	ok	prefab=Friendly Neighborhood x=-4700 z=1950 facing=east
+2026-10-29T12:47:36+09:00	council-economy	test_place_building	ok	prefab=Official Park x=2286 z=972 facing=north assume_removed_buildings=[5266, 49151, 42679]
+2026-10-29T12:47:37+09:00	council-economy	preview_bulldoze	ok	x=2286 z=972 radius=30 what=building
+2026-10-29T12:47:38+09:00	council-urban	zone_map	ok	x=2500 z=500 radius=400 size=480
+2026-10-29T12:47:42+09:00	council-fire	city_info	ok	
+2026-10-29T12:47:42+09:00	council-economy	test_place_building	ok	prefab=Official Park x=2118 z=482 facing=east assume_removed_buildings=[5985, 41519, 44794]
+2026-10-29T12:47:43+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:44+09:00	council-fire	city_info	ok	
+2026-10-29T12:47:45+09:00	council-roads	list_net_types	ok	service=Electricity
+2026-10-29T12:47:45+09:00	council-roads	list_net_types	ok	service=Water
+2026-10-29T12:47:45+09:00	council-roads	test_build_line	ok	prefab=Basic Road points=[[-4500, 1700], [-4676, 1950]]
+2026-10-29T12:47:45+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:45+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:45+09:00	council-fire	city_info	ok	
+2026-10-29T12:47:48+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:47:49+09:00	council-roads	test_build_line	ok	prefab=Water Pipe points=[[-2720, 215], [-4500, 1700]]
+2026-10-29T12:47:49+09:00	council-economy	test_place_building	ng	cannot place here
+2026-10-29T12:47:49+09:00	council-economy	buildings_near	ok	x=3388 z=-742 radius=60 brief=True limit=15
+2026-10-29T12:47:51+09:00	council-urban	list_building_types	ok	service=Beautification
+2026-10-29T12:47:51+09:00	council-urban	buildings_near	ok	x=2286 z=1010 radius=60 brief=True abandoned=True
+2026-10-29T12:47:54+09:00	council-roads	net_near	ok	x=-2720 z=215 radius=300 service=Electricity limit=10
+2026-10-29T12:47:54+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:47:56+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:47:56+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:56+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:47:58+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:47:58+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:47:58+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:48:02+09:00	council-economy	water_trace	ok	x=2286 z=972
+2026-10-29T12:48:02+09:00	council-economy	water_trace	ok	x=2118 z=482
+2026-10-29T12:48:03+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1860 z=-1650 facing=east assume_removed_buildings=[23032]
+2026-10-29T12:48:03+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1780 z=-1880 facing=east assume_removed_buildings=[29270]
+2026-10-29T12:48:03+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:03+09:00	council-urban	net_near	ok	x=2286 z=960 radius=70 limit=15
+2026-10-29T12:48:05+09:00	council-finance	city_info	ok	
+2026-10-29T12:48:07+09:00	council-finance	city_info	ok	
+2026-10-29T12:48:08+09:00	council-economy	map_layer	ok	type=attractiveness x=2286 z=972 radius=150 n=3
+2026-10-29T12:48:08+09:00	council-economy	map_layer	ok	type=attractiveness x=2118 z=482 radius=150 n=3
+2026-10-29T12:48:08+09:00	council-roads	test_upgrade_road	ok	prefab=Medium Road points=[[2340, -950], [2460, -950]]
+2026-10-29T12:48:09+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2236, -950], [2236, -860], [2440, -860]]
+2026-10-29T12:48:10+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1780 z=-1880 facing=west assume_removed_buildings=[29270]
+2026-10-29T12:48:11+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-650 z=-490 facing=east assume_removed_buildings=[16914]
+2026-10-29T12:48:11+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:48:11+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1885 z=-565 facing=east assume_removed_buildings=[25826]
+2026-10-29T12:48:11+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:48:11+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=3900 z=-575 facing=east assume_removed_buildings=[25590]
+2026-10-29T12:48:14+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1150, -1100], [-950, -1100]]
+2026-10-29T12:48:14+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1850, -1010], [-1750, -1010]]
+2026-10-29T12:48:14+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:14+09:00	council-roads	traffic	ok	x=-1100 z=-1100 radius=300 limit=4
+2026-10-29T12:48:14+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:17+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-650 z=-490 facing=west assume_removed_buildings=[16914]
+2026-10-29T12:48:17+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-2060 z=-872 facing=north assume_removed_buildings=[19182]
+2026-10-29T12:48:17+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:48:17+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=3900 z=-575 facing=west assume_removed_buildings=[25590]
+2026-10-29T12:48:19+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2286 z=976 facing=south assume_removed_buildings=[5266]
+2026-10-29T12:48:19+09:00	council-urban	test_place_building	ok	prefab=Regular Plaza x=2302 z=1042 facing=south assume_removed_buildings=[12373]
+2026-10-29T12:48:23+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:48:23+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:48:23+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2286 z=980 facing=north assume_removed_buildings=[5266]
+2026-10-29T12:48:23+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:48:23+09:00	council-urban	test_place_building	ok	prefab=Regular Plaza x=2302 z=1040 facing=north assume_removed_buildings=[12373, 47695]
+2026-10-29T12:48:23+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-650 z=-490 facing=north assume_removed_buildings=[16914]
+2026-10-29T12:48:24+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:48:28+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2296 z=980 facing=north assume_removed_buildings=[5266]
+2026-10-29T12:48:28+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2286 z=980 facing=north assume_removed_buildings=[5266, 49151]
+2026-10-29T12:48:36+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1080, -1100], [-1030, -1100]]
+2026-10-29T12:48:36+09:00	council-roads	junction_info	ok	x=-1100 z=-1100
+2026-10-29T12:48:40+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:40+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:40+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:40+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:48:47+09:00	council-health	zones_at	ok	x=3700 z=-450 radius=200
+2026-10-29T12:48:47+09:00	council-health	buildings_near	ok	x=3700 z=-450 radius=200 brief=True limit=15
+2026-10-29T12:48:51+09:00	council-urban	test_place_building	ok	prefab=Friendly Neighborhood x=2290 z=972 facing=north assume_removed_buildings=[5266, 49151, 42679]
+2026-10-29T12:48:51+09:00	council-urban	test_place_building	ok	prefab=Friendly Neighborhood x=2290 z=972 facing=north assume_removed_buildings=[5266]
+2026-10-29T12:48:55+09:00	council-health	zone_map	ok	x=3650 z=-200 radius=250 size=500
+2026-10-29T12:48:55+09:00	council-urban	test_place_building	ok	prefab=Friendly Neighborhood x=2290 z=972 facing=north assume_removed_buildings=[5266, 42679, 45479, 49151]
+2026-10-29T12:48:56+09:00	council-urban	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T12:49:03+09:00	council-urban	preview_bulldoze	ok	x=2300 z=975 radius=45 what=building
+2026-10-29T12:49:12+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:49:12+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:49:12+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:49:13+09:00	council-health	preview_bulldoze	ok	x=-1860 z=-1650 radius=10 what=building
+2026-10-29T12:49:13+09:00	council-health	preview_bulldoze	ok	x=-1780 z=-1880 radius=10 what=building
+2026-10-29T12:49:13+09:00	council-health	preview_bulldoze	ok	x=-650 z=-490 radius=10 what=building
+2026-10-29T12:49:13+09:00	council-health	preview_bulldoze	ok	x=-2060 z=-872 radius=10 what=building
+2026-10-29T12:49:13+09:00	council-health	preview_bulldoze	ok	x=-1885 z=-565 radius=10 what=building
+2026-10-29T12:49:14+09:00	council-health	preview_bulldoze	ok	x=3900 z=-575 radius=10 what=building
+2026-10-29T12:49:15+09:00	council-urban	water_trace	ok	x=2290 z=972
+2026-10-29T12:49:27+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=712 z=1644 facing=south
+2026-10-29T12:49:32+09:00	council-urban	net_near	ok	x=700 z=1200 radius=500 limit=12 service=Road
+2026-10-29T12:49:40+09:00	council-health	height_at	ok	x=3630 z=-115
+2026-10-29T12:49:40+09:00	council-health	map_layer	ok	type=pollution x=3630 z=-115 radius=100 n=5
+2026-10-29T12:49:44+09:00	council-urban	map_layer	ok	type=attractiveness x=2290 z=972 radius=200 n=5
+2026-10-29T12:49:44+09:00	council-urban	land_value	ok	x=2290 z=972 radius=150
+2026-10-29T12:49:44+09:00	council-urban	building_stats	ok	x=2290 z=972 radius=200
+2026-10-29T12:50:34+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1860 z=-1650 facing=east assume_removed_buildings=[23032]
+2026-10-29T12:50:36+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1860 z=-1650 facing=east assume_removed_buildings=[23032]
+2026-10-29T12:50:38+09:00	council-health	test_place_building	ok	prefab=Landfill Site x=-1860 z=-1650 facing=east assume_removed_buildings=[23032]
+2026-10-29T12:50:42+09:00	council-health	Write	deny	この役が書いてよいのは m01-health.md, plan-health.md だけ。書こうとした先: ~/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/council/m01-health.md.tmp
+2026-10-29T12:50:47+09:00	council-urban	list_net_types	ok	service=Road locked=False
+2026-10-29T12:54:43+09:00	council-port	list_building_types	ok	service=PublicTransport
+2026-10-29T12:54:44+09:00	council-port	city_info	ok	
+2026-10-29T12:54:44+09:00	council-port	buildings_near	ok	x=3640 z=-1640 radius=300 service=PublicTransport brief=True limit=20
+2026-10-29T12:54:46+09:00	council-health	citizens_summary	ok	
+2026-10-29T12:54:46+09:00	council-health	list_building_types	ok	service=HealthCare
+2026-10-29T12:54:46+09:00	council-health	buildings_near	ok	x=2240 z=186 radius=200 service=HealthCare brief=True limit=10
+2026-10-29T12:54:46+09:00	council-health	map_layer	ok	type=health n=9
+2026-10-29T12:54:46+09:00	council-roads	test_build_line	ok	prefab=Basic Road points=[[-4500, 1700], [-4650, 1800], [-4750, 1900], [-4676, 1950]]
+2026-10-29T12:54:46+09:00	council-roads	height_at	ok	x=-4650 z=1800
+2026-10-29T12:54:46+09:00	council-roads	height_at	ok	x=-4750 z=1900
+2026-10-29T12:54:48+09:00	council-urban	list_building_types	ok	service=Beautification
+2026-10-29T12:54:48+09:00	council-urban	city_info	ok	
+2026-10-29T12:54:48+09:00	council-urban	buildings_near	ok	x=2290 z=972 radius=400 abandoned=True brief=True limit=20
+2026-10-29T12:54:49+09:00	council-health	complaints	ok	
+2026-10-29T12:54:49+09:00	council-health	services	ok	
+2026-10-29T12:54:49+09:00	council-health	list_policies	ok	
+2026-10-29T12:54:50+09:00	council-roads	height_at	ok	x=-4500 z=1800
+2026-10-29T12:54:50+09:00	council-roads	height_at	ok	x=-4600 z=1750
+2026-10-29T12:54:50+09:00	council-roads	height_at	ok	x=-4700 z=1700
+2026-10-29T12:54:50+09:00	council-roads	height_at	ok	x=-4650 z=1600
+2026-10-29T12:54:50+09:00	council-port	net_near	ok	x=3460 z=-1450 radius=300 service=Water limit=30
+2026-10-29T12:54:50+09:00	council-roads	height_at	ok	x=-4800 z=1600
+2026-10-29T12:54:50+09:00	council-port	net_near	ok	x=3460 z=-1450 radius=300 service=Road limit=40
+2026-10-29T12:54:50+09:00	council-roads	height_at	ok	x=-4950 z=1700
+2026-10-29T12:54:51+09:00	council-port	zone_map	ok	x=3400 z=-1500 radius=500 size=700
+2026-10-29T12:54:51+09:00	council-economy	list_building_types	ok	service=Monument
+2026-10-29T12:54:51+09:00	council-economy	test_place_building	ok	prefab=Official Park x=2118 z=482 facing=east assume_removed_buildings=[5985, 41519, 44794]
+2026-10-29T12:54:51+09:00	council-economy	preview_bulldoze	ok	x=2128 z=471 radius=30 what=building
+2026-10-29T12:54:51+09:00	council-economy	test_place_building	ok	prefab=StatueOfWealth x=-4862 z=1731
+2026-10-29T12:54:55+09:00	council-roads	height_at	ok	x=-4550 z=1600
+2026-10-29T12:54:55+09:00	council-roads	height_at	ok	x=-4500 z=1500
+2026-10-29T12:54:55+09:00	council-roads	height_at	ok	x=-4700 z=1500
+2026-10-29T12:54:55+09:00	council-roads	height_at	ok	x=-4600 z=1400
+2026-10-29T12:54:55+09:00	council-roads	height_at	ok	x=-4800 z=1400
+2026-10-29T12:54:55+09:00	council-roads	height_at	ok	x=-4900 z=1500
+2026-10-29T12:55:00+09:00	council-roads	test_build_line	ok	prefab=Basic Road points=[[-4500, 1700], [-4550, 1600], [-4600, 1500], [-4600, 1400]]
+2026-10-29T12:55:00+09:00	council-roads	test_place_building	ok	prefab=Wind Turbine x=-4560 z=1450
+2026-10-29T12:55:00+09:00	council-roads	test_place_building	ok	prefab=StatueOfWealth x=-4640 z=1520
+2026-10-29T12:55:02+09:00	council-port	test_place_building	ok	prefab=Train Station x=3350 z=-1500 facing=east
+2026-10-29T12:55:02+09:00	council-port	test_place_building	ok	prefab=Train Station x=3350 z=-1560 facing=east
+2026-10-29T12:55:02+09:00	council-port	test_place_building	ok	prefab=Train Station x=3300 z=-1300 facing=south
+2026-10-29T12:55:06+09:00	council-port	water_trace	ok	x=3350 z=-1500
+2026-10-29T12:55:06+09:00	council-port	net_near	ok	x=3350 z=-1550 radius=250 service=PublicTransport limit=30
+2026-10-29T12:55:07+09:00	council-port	net_near	ok	x=3350 z=-1500 radius=200 service=Electricity limit=20
+2026-10-29T12:55:07+09:00	council-health	zone_map	ok	x=2600 z=-1200 radius=700 size=500
+2026-10-29T12:55:07+09:00	council-health	map_layer	ok	type=health x=2600 z=-1200 radius=700 n=7
+2026-10-29T12:55:12+09:00	council-health	zone_map	ok	x=-1900 z=900 radius=800 size=500
+2026-10-29T12:55:12+09:00	council-health	map_layer	ok	type=health x=-1900 z=900 radius=800 n=7
+2026-10-29T12:55:12+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2296 z=980 angle=0 facing=north assume_removed_buildings=[42679]
+2026-10-29T12:55:13+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=712 z=1700 angle=0 facing=north
+2026-10-29T12:55:13+09:00	council-port	list_net_types	ok	service=Water
+2026-10-29T12:55:13+09:00	council-urban	test_place_building	ok	prefab=Regular Park x=712 z=1644 angle=0 facing=north
+2026-10-29T12:55:13+09:00	council-port	list_net_types	ok	service=Electricity
+2026-10-29T12:55:13+09:00	council-port	net_near	ok	x=3450 z=-1500 radius=200 service=Electricity limit=20
+2026-10-29T12:55:17+09:00	council-health	map_layer	ok	type=health x=-600 z=-1300 radius=500 n=5
+2026-10-29T12:55:17+09:00	council-health	zone_map	ok	x=-600 z=-1300 radius=500 size=400
+2026-10-29T12:55:18+09:00	council-roads	traffic	ok	limit=10
+2026-10-29T12:55:18+09:00	council-roads	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1850, -1010], [-1750, -1010]]
+2026-10-29T12:55:21+09:00	council-finance	city_info	ok	
+2026-10-29T12:55:21+09:00	council-finance	economy	ok	
+2026-10-29T12:55:21+09:00	council-finance	list_policies	ok	
+2026-10-29T12:55:21+09:00	council-finance	economy_breakdown	ok	
+2026-10-29T12:55:22+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:55:22+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:55:22+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:55:25+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:55:26+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1000 z=-1250 angle=0
+2026-10-29T12:55:26+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:55:27+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:55:27+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T12:55:31+09:00	council-port	test_place_building	ok	prefab=Train Station x=3720 z=-1440 facing=west
+2026-10-29T12:55:31+09:00	council-port	test_place_building	ok	prefab=Train Station x=2900 z=-1300 facing=south
+2026-10-29T12:55:31+09:00	council-port	test_build_line	ok	prefab=Water Pipe points=[[3350, -1500], [3455, -1555]]
+2026-10-29T12:55:31+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:55:31+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T12:55:32+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-720 z=-1660 angle=0
+2026-10-29T12:55:35+09:00	council-health	net_near	ok	x=-720 z=-1650 radius=120 service=Road limit=15
+2026-10-29T12:55:35+09:00	council-port	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:55:35+09:00	council-port	net_near	ok	x=3350 z=-1500 radius=120 service=Sewage limit=20
+2026-10-29T12:55:43+09:00	council-health	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T12:55:43+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=2900 z=-700 angle=0
+2026-10-29T12:55:43+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1400 z=620 angle=0
+2026-10-29T12:55:47+09:00	council-port	test_place_building	ng	cannot place here
+2026-10-29T12:55:47+09:00	council-port	zone_map	ok	x=3450 z=-1420 radius=200 size=500
+2026-10-29T12:55:49+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-760 z=-1520 angle=0
+2026-10-29T12:55:49+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-640 z=-1500 angle=0
+2026-10-29T12:55:52+09:00	council-health	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T12:55:54+09:00	council-port	net_near	ok	x=3250 z=-1550 radius=300 service=Electricity limit=20
+2026-10-29T12:55:55+09:00	council-port	net_near	ok	x=3300 z=-1300 radius=150 service=Electricity limit=20
+2026-10-29T12:55:56+09:00	council-health	net_near	ok	x=2900 z=-690 radius=150 service=Road limit=10
+2026-10-29T12:55:58+09:00	council-port	test_build_line	ok	prefab=Power Line points=[[3350, -1500], [3311, -1293]]
+2026-10-29T12:56:00+09:00	council-health	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T12:56:14+09:00	council-port	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:56:14+09:00	council-port	net_near	ok	x=3290 z=-1790 radius=150 limit=20
+2026-10-29T12:56:51+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3350, -1835]]
+2026-10-29T12:56:54+09:00	council-port	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T12:57:59+09:00	council-port	test_place_building	ok	prefab=Train Station x=3300 z=-1300 facing=south
+2026-10-29T12:58:02+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3350, -1835]]
+2026-10-29T12:59:56+09:00	council-urban	buildings_near	ok	x=2290 z=972 radius=200 abandoned=True brief=True limit=20
+2026-10-29T12:59:56+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2296 z=980 angle=0 facing=north assume_removed_buildings=[42679, 5266, 45479, 49151]
+2026-10-29T12:59:59+09:00	council-health	list_building_types	ok	service=Electricity
+2026-10-29T12:59:59+09:00	council-health	buildings_near	ok	x=3604 z=-30 radius=150 brief=True limit=20
+2026-10-29T12:59:59+09:00	council-health	list_policies	ok	
+2026-10-29T12:59:59+09:00	council-health	map_layer	ok	type=wind x=3300 z=-400 radius=600 n=7
+2026-10-29T13:00:02+09:00	council-economy	demand_breakdown	ok	
+2026-10-29T13:00:02+09:00	council-economy	building_stats	ok	
+2026-10-29T13:00:02+09:00	council-economy	city_info	ok	
+2026-10-29T13:00:02+09:00	council-economy	economy	ok	
+2026-10-29T13:00:04+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T13:00:04+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T13:00:11+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2352 z=958 angle=0 facing=north
+2026-10-29T13:00:11+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2232 z=962 angle=0 facing=north
+2026-10-29T13:00:13+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T13:00:13+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T13:00:13+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T13:00:14+09:00	council-health	net_near	ok	x=-1000 z=-1300 radius=300 service=Road limit=15
+2026-10-29T13:00:18+09:00	council-economy	building_stats	ok	x=2118 z=482 radius=400
+2026-10-29T13:00:18+09:00	council-economy	land_value	ok	x=2118 z=482 radius=300
+2026-10-29T13:00:18+09:00	council-economy	list_policies	ok	
+2026-10-29T13:00:20+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2228 z=972 angle=0 facing=north assume_removed_buildings=[23391, 49151]
+2026-10-29T13:00:20+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2138 z=970 angle=0 facing=north assume_removed_buildings=[27586]
+2026-10-29T13:00:22+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T13:00:22+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1040 z=-1600 facing=north
+2026-10-29T13:00:23+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1200 z=-1330 facing=south
+2026-10-29T13:00:23+09:00	council-health	test_place_building	ng	cannot place here
+2026-10-29T13:00:26+09:00	council-urban	test_place_building	ok	prefab=Regular Playground x=2314 z=1046 angle=0 facing=north assume_removed_buildings=[47695, 12373]
+2026-10-29T13:00:28+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1040 z=-1515 facing=south
+2026-10-29T13:00:28+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1000 z=-1585 facing=north
+2026-10-29T13:00:32+09:00	council-urban	zone_map	ok	x=2290 z=990 radius=250 size=500
+2026-10-29T13:00:35+09:00	council-health	water_trace	ok	x=-1000 z=-1585
+2026-10-29T13:00:44+09:00	council-urban	test_place_building	ng	cannot place here
+2026-10-29T13:00:59+09:00	council-economy	test_place_building	ok	prefab=StatueOfWealth x=-4640 z=1520 facing=north
+2026-10-29T13:00:59+09:00	council-economy	buildings_near	ok	x=2118 z=482 radius=60 brief=True limit=20
+2026-10-29T13:01:16+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-1000 z=-1585 facing=north
+2026-10-29T13:01:18+09:00	council-health	test_place_building	ok	prefab=Medical Clinic x=-640 z=-1500
+2026-10-29T13:06:42+09:00	council-roads	traffic	ok	x=2100 z=309 radius=200 limit=8
+2026-10-29T13:06:42+09:00	council-roads	traffic	ok	limit=12
+2026-10-29T13:06:46+09:00	council-port	test_place_building	ok	prefab=Train Station x=3350 z=-1500 facing=east
+2026-10-29T13:06:46+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3350, -1835]]
+2026-10-29T13:06:46+09:00	council-port	net_near	ok	x=3350 z=-1500 radius=150 service=Sewage
+2026-10-29T13:06:46+09:00	council-port	list_policies	ok	
+2026-10-29T13:06:46+09:00	council-roads	junction_info	ok	x=2110 z=303
+2026-10-29T13:06:47+09:00	council-finance	list_policies	ok	
+2026-10-29T13:06:47+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-29T13:06:47+09:00	council-finance	city_info	ok	
+2026-10-29T13:06:47+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-29T13:06:47+09:00	council-finance	economy	ok	
+2026-10-29T13:06:47+09:00	council-roads	junction_info	ng	no road junction within 40m
+2026-10-29T13:06:47+09:00	council-roads	junction_info	ok	x=2080 z=157
+2026-10-29T13:06:51+09:00	council-port	net_near	ok	x=3350 z=-1650 radius=260 service=PublicTransport
+2026-10-29T13:06:52+09:00	council-port	net_near	ok	x=3350 z=-1500 radius=400 service=Sewage
+2026-10-29T13:06:52+09:00	council-port	list_net_types	ok	service=Sewage locked=False
+2026-10-29T13:06:52+09:00	council-port	height_at	ok	x=3350 z=-1520
+2026-10-29T13:06:52+09:00	council-port	height_at	ok	x=3350 z=-1835
+2026-10-29T13:06:52+09:00	council-roads	city_info	ok	
+2026-10-29T13:06:52+09:00	council-roads	traffic	ok	x=2100 z=320 radius=80 limit=3
+2026-10-29T13:06:57+09:00	council-port	list_net_types	ok	service=Water locked=False
+2026-10-29T13:06:57+09:00	council-port	water_trace	ok	x=3350 z=-1500
+2026-10-29T13:06:57+09:00	council-port	map_layer	ok	type=sewage_service x=3300 z=-1500 radius=600 n=5
+2026-10-29T13:06:57+09:00	council-roads	traffic	ok	x=2110 z=240 radius=150 limit=3
+2026-10-29T13:06:58+09:00	council-finance	map_layer	ok	type=attractiveness x=2118 z=482 radius=150 n=3
+2026-10-29T13:06:58+09:00	council-finance	map_layer	ok	type=attractiveness x=0 z=0 radius=2000 n=9
+2026-10-29T13:06:58+09:00	council-finance	traffic	ok	x=-2000 z=500 radius=300 limit=5
+2026-10-29T13:06:58+09:00	council-finance	traffic	ok	x=-500 z=-300 radius=300 limit=5
+2026-10-29T13:07:03+09:00	council-port	list_net_types	ok	service=Water locked=True
+2026-10-29T13:07:03+09:00	council-port	net_near	ok	x=3350 z=-1250 radius=120 service=Water limit=15
+2026-10-29T13:07:08+09:00	council-finance	map_layer	ok	type=attractiveness x=0 z=-1500 radius=300 n=7
+2026-10-29T13:07:09+09:00	council-finance	buildings_near	ok	x=0 z=-1500 radius=300 brief=True limit=20
+2026-10-29T13:07:12+09:00	council-finance	building_stats	ok	x=0 z=-1500 radius=300
+2026-10-29T13:07:21+09:00	council-port	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T13:07:21+09:00	council-port	test_build_line	ng	the line overlaps buildings. They would be demolished. Pass demolish=true to build anyway
+2026-10-29T13:07:21+09:00	council-port	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T13:07:21+09:00	council-port	net_near	ok	x=3455 z=-1555 radius=60 service=Water limit=10
+2026-10-29T13:07:21+09:00	council-port	height_at	ok	x=3400 z=-1600
+2026-10-29T13:07:22+09:00	council-port	height_at	ok	x=3440 z=-1650
+2026-10-29T13:07:29+09:00	council-port	net_near	ok	x=3380 z=-1630 radius=120 service=Road limit=30
+2026-10-29T13:07:29+09:00	council-port	height_at	ok	x=3330 z=-1600
+2026-10-29T13:07:29+09:00	council-port	height_at	ok	x=3330 z=-1680
+2026-10-29T13:07:29+09:00	council-port	height_at	ok	x=3420 z=-1700
+2026-10-29T13:07:36+09:00	council-roads	test_build_line	ng	the game refuses this line: it collides with something that cannot be removed (ObjectCollision)
+2026-10-29T13:07:45+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3300, -1600], [3300, -1720], [3362, -1835]]
+2026-10-29T13:07:45+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3290, -1560], [3280, -1700], [3340, -1800], [3362, -1835]]
+2026-10-29T13:07:45+09:00	council-port	height_at	ok	x=3300 z=-1600
+2026-10-29T13:07:45+09:00	council-port	height_at	ok	x=3300 z=-1720
+2026-10-29T13:08:02+09:00	council-port	map_layer	ok	type=electricity_service x=3300 z=-1660 radius=260 n=3
+2026-10-29T13:08:02+09:00	council-port	height_at	ok	x=3230 z=-1620
+2026-10-29T13:08:02+09:00	council-port	height_at	ok	x=3240 z=-1740
+2026-10-29T13:08:02+09:00	council-port	height_at	ok	x=3290 z=-1790
+2026-10-29T13:08:02+09:00	council-port	height_at	ok	x=3280 z=-1540
+2026-10-29T13:08:12+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3260, -1530], [3180, -1600], [3170, -1720], [3200, -1800], [3209, -1834]]
+2026-10-29T13:08:12+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3250, -1500], [3150, -1560], [3150, -1700], [3180, -1810], [3209, -1834]]
+2026-10-29T13:08:16+09:00	council-port	height_at	ok	x=3180 z=-1660
+2026-10-29T13:08:16+09:00	council-port	height_at	ok	x=3190 z=-1770
+2026-10-29T13:08:17+09:00	council-port	height_at	ok	x=3170 z=-1600
+2026-10-29T13:08:17+09:00	council-port	height_at	ok	x=3170 z=-1720
+2026-10-29T13:08:23+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3260, -1530], [3180, -1600], [3150, -1700], [3180, -1780], [3209, -1834]]
+2026-10-29T13:08:24+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3260, -1530], [3200, -1580], [3170, -1660], [3190, -1750], [3209, -1834]]
+2026-10-29T13:08:29+09:00	council-port	height_at	ok	x=3220 z=-1540
+2026-10-29T13:08:29+09:00	council-port	height_at	ok	x=3180 z=-1560
+2026-10-29T13:08:29+09:00	council-port	height_at	ok	x=3140 z=-1640
+2026-10-29T13:08:29+09:00	council-port	height_at	ok	x=3130 z=-1760
+2026-10-29T13:08:48+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3350, -1560, -9], [3350, -1820, -9], [3362, -1835]]
+2026-10-29T13:08:48+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3350, -1600, -9], [3350, -1760, -9], [3362, -1835]]
+2026-10-29T13:10:14+09:00	council-port	test_build_line	ok	prefab=Train Track points=[[3350, -1520], [3350, -1835]] assume_removed_buildings=[]
+2026-10-29T13:11:14+09:00	council-assembly	economy	ok	
+2026-10-29T13:11:14+09:00	council-assembly	city_info	ok	
+2026-10-29T13:11:20+09:00	council-assembly	preview_bulldoze	ok	x=2128 z=471 radius=30 what=building
+2026-10-29T13:11:21+09:00	council-assembly	preview_bulldoze	ok	x=2300 z=975 radius=45 what=building
+2026-10-29T13:11:21+09:00	council-assembly	preview_bulldoze	ok	x=-1860 z=-1650 radius=10 what=building
+2026-10-29T13:11:53+09:00	council-mayor-field	set_time	ok	paused=True
+2026-10-29T13:11:53+09:00	council-mayor-field	city_info	ok	
+2026-10-29T13:11:56+09:00	council-mayor-field	explain	ok	action=名所 Official Park を B に置く(公約4) reason=名所6棟で目標10に不足。Bは置けると確認済み。周りのattractiveness14の上昇を試す
+2026-10-29T13:11:56+09:00	council-mayor-field	preview_bulldoze	ok	x=2128 z=471 radius=30 what=building
+2026-10-29T13:12:03+09:00	council-mayor-field	bulldoze	ok	x=2128 z=471 radius=30 what=building
+2026-10-29T13:12:11+09:00	council-mayor-field	place_building	ok	prefab=Official Park x=2118 z=482 facing=east pay=True
+2026-10-29T13:12:11+09:00	council-mayor-field	explain	ok	action=名所 Friendly Neighborhood を A に置く(公約4) reason=放棄店の跡で失う働き口23。Aの周りattractiveness平均9の上昇を試す
+2026-10-29T13:12:11+09:00	council-mayor-field	preview_bulldoze	ok	x=2300 z=975 radius=45 what=building
+2026-10-29T13:12:17+09:00	council-mayor-field	bulldoze	ok	x=2300 z=975 radius=45 what=building
+2026-10-29T13:12:19+09:00	council-mayor-field	test_place_building	ok	prefab=Friendly Neighborhood x=2290 z=972 angle=0 facing=north
+2026-10-29T13:12:25+09:00	council-mayor-field	place_building	ok	prefab=Friendly Neighborhood x=2290 z=972 angle=0 facing=north pay=True
+2026-10-29T13:12:25+09:00	council-mayor-field	explain	ok	action=満杯の埋立地6つを建て直す(市計画4-4) reason=ごみの印15の原因は満杯の埋立地7つ。組ごとに試して建て直す。建設費24,000
+2026-10-29T13:12:32+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=-1860 z=-1650 facing=east assume_removed_buildings=[23032]
+2026-10-29T13:12:32+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=-1780 z=-1880 facing=west assume_removed_buildings=[29270]
+2026-10-29T13:12:32+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=-650 z=-490 facing=north assume_removed_buildings=[16914]
+2026-10-29T13:12:32+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=-2060 z=-872 facing=north assume_removed_buildings=[19182]
+2026-10-29T13:12:33+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=-1885 z=-565 facing=east assume_removed_buildings=[25826]
+2026-10-29T13:12:33+09:00	council-mayor-field	test_place_building	ok	prefab=Landfill Site x=3900 z=-575 facing=west assume_removed_buildings=[25590]
+2026-10-29T13:12:42+09:00	council-mayor-field	bulldoze	ok	x=-1860 z=-1650 radius=10 what=building
+2026-10-29T13:12:46+09:00	council-mayor-field	bulldoze	ok	x=-1780 z=-1880 radius=10 what=building
+2026-10-29T13:12:50+09:00	council-mayor-field	bulldoze	ok	x=-650 z=-490 radius=10 what=building
+2026-10-29T13:12:53+09:00	council-mayor-field	bulldoze	ok	x=-2060 z=-872 radius=10 what=building
+2026-10-29T13:12:57+09:00	council-mayor-field	bulldoze	ok	x=-1885 z=-565 radius=10 what=building
+2026-10-29T13:13:00+09:00	council-mayor-field	bulldoze	ok	x=3900 z=-575 radius=10 what=building
+2026-10-29T13:13:09+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=-1860 z=-1650 facing=east pay=True
+2026-10-29T13:13:13+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=-1780 z=-1880 facing=west pay=True
+2026-10-29T13:13:17+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=-650 z=-490 facing=north pay=True
+2026-10-29T13:13:20+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=-2060 z=-872 facing=north pay=True
+2026-10-29T13:13:24+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=-1885 z=-565 facing=east pay=True
+2026-10-29T13:13:27+09:00	council-mayor-field	place_building	ok	prefab=Landfill Site x=3900 z=-575 facing=west pay=True
+2026-10-29T13:13:30+09:00	council-mayor-field	empty_building	ok	id=45892 active=True
+2026-10-29T13:13:30+09:00	council-mayor-field	economy	ok	
+2026-10-29T13:13:33+09:00	council-mayor-field	explain	ok	action=道路の予算を100から120に上げる(試し、6-3) reason=道路予算が流れに効くか未確認。維持費増は約1,705で守る線+3,000に余裕あり
+2026-10-29T13:13:33+09:00	council-mayor-field	set_budget	ok	target=roads percent=120
+2026-10-29T13:13:37+09:00	council-mayor-field	explain	ok	action=東と南西の2区間を4車線に広げる(6-3) reason=交通の流れ51%で目標60%に不足。止まった車が東104台、南西55台。費用0で戻せる
+2026-10-29T13:13:37+09:00	council-mayor-field	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[2236, -950], [2236, -860], [2440, -860]]
+2026-10-29T13:13:37+09:00	council-mayor-field	test_upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1150, -1100], [-950, -1100]]
+2026-10-29T13:13:45+09:00	council-mayor-field	upgrade_road	ok	prefab=Small 4 Lane Road points=[[2236, -950], [2236, -860], [2440, -860]] pay=True demolish=False
+2026-10-29T13:13:48+09:00	council-mayor-field	upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1150, -1100], [-950, -1100]] pay=True demolish=False
+2026-10-29T13:13:56+09:00	council-mayor-field	upgrade_road	ok	prefab=Small 4 Lane Road points=[[-1150, -1100], [-950, -1100]] pay=True demolish=False
+2026-10-29T13:13:56+09:00	council-mayor-field	explain	ok	action=工場と住宅の境に木を植える(試し、4-3) reason=汚染の印32で目標15以下。区域の汚染平均159。費用約2,800で戻せる
+2026-10-29T13:13:56+09:00	council-mayor-field	height_at	ok	x=3530 z=-215
+2026-10-29T13:13:56+09:00	council-mayor-field	height_at	ok	x=3730 z=-215
+2026-10-29T13:13:57+09:00	council-mayor-field	height_at	ok	x=3730 z=-15
+2026-10-29T13:13:57+09:00	council-mayor-field	height_at	ok	x=3530 z=-15
+2026-10-29T13:14:05+09:00	council-mayor-field	plant_trees	ok	polygon=[[3530, -215], [3730, -215], [3730, -15], [3530, -15]] prefab=Green Tree 01 spacing=12 pay=True
+2026-10-29T13:14:05+09:00	council-mayor-field	explain	ok	action=警察署を(1880,930)に置く(3-4) reason=犯罪の印3、多い地区の近くに署がない。建設費12,000、週480、戻せる
+2026-10-29T13:14:05+09:00	council-mayor-field	test_place_building	ok	prefab=Police Station x=1880 z=930 facing=east
+2026-10-29T13:14:13+09:00	council-mayor-field	place_building	ok	prefab=Police Station x=1880 z=930 facing=east pay=True
+2026-10-29T13:14:13+09:00	council-mayor-field	explain	ok	action=北の幹線の交差点2か所に信号を付ける(試し、6-3) reason=付近のblockedは91台。信号で3叉路を整理できるか試す。戻せる
+2026-10-29T13:14:13+09:00	council-mayor-field	junction_info	ok	x=2110 z=330
+2026-10-29T13:14:13+09:00	council-mayor-field	junction_info	ok	x=2110 z=150
+2026-10-29T13:14:16+09:00	council-mayor-field	city_info	ok	
+2026-10-29T13:14:22+09:00	council-mayor-field	set_traffic_lights	ok	x=2110 z=330 active=True
+2026-10-29T13:14:26+09:00	council-mayor-field	set_traffic_lights	ok	x=2110 z=150 active=True
+2026-10-29T13:14:29+09:00	council-mayor-field	city_info	ok	
+2026-10-29T13:14:29+09:00	council-mayor-field	zones_at	ok	x=2200 z=700 radius=600
+2026-10-29T13:14:29+09:00	council-mayor-field	buildings_near	ok	x=2200 z=730 radius=350 service=Monument brief=True
+2026-10-29T13:16:21+09:00	council-mayor-field	advance	ok	days=10
+2026-10-29T13:16:28+09:00	council-mayor-field	city_info	ok	
+2026-10-29T13:16:28+09:00	council-mayor-field	events	ok	
+2026-10-29T13:16:28+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=6
+2026-10-29T13:16:29+09:00	council-mayor-field	traffic	ok	x=3449 z=-1555 radius=300
+2026-10-29T13:16:29+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=150
+2026-10-29T13:16:29+09:00	council-mayor-field	traffic	ok	x=-920 z=-740 radius=200
+2026-10-29T13:16:29+09:00	council-mayor-field	net_reach	ok	x=-726 z=-736 radius=300
+2026-10-29T13:16:29+09:00	council-mayor-field	cargo	ok	
+2026-10-29T13:16:30+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck limit=10
+2026-10-29T13:18:17+09:00	council-mayor-field	advance	ok	days=10
+2026-10-29T13:18:23+09:00	council-mayor-field	city_info	ok	
+2026-10-29T13:18:23+09:00	council-mayor-field	events	ok	
+2026-10-29T13:18:23+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=150
+2026-10-29T13:18:24+09:00	council-mayor-field	traffic	ok	x=-920 z=-740 radius=200
+2026-10-29T13:18:24+09:00	council-mayor-field	net_reach	ok	x=-726 z=-736 radius=300
+2026-10-29T13:18:24+09:00	council-mayor-field	cargo	ok	
+2026-10-29T13:18:24+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck limit=10
+2026-10-29T13:18:24+09:00	council-mayor-field	buildings_near	ok	x=2272 z=-1115 radius=20 service=Garbage
+2026-10-29T13:20:07+09:00	council-mayor-field	advance	ok	days=10
+2026-10-29T13:20:14+09:00	council-mayor-field	city_info	ok	
+2026-10-29T13:20:14+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck building=28755 limit=6
+2026-10-29T13:20:14+09:00	council-mayor-field	traffic	ok	x=3449 z=-1555 radius=300
+2026-10-29T13:20:14+09:00	council-mayor-field	traffic	ok	x=-726 z=-736 radius=150
+2026-10-29T13:20:14+09:00	council-mayor-field	traffic	ok	x=-920 z=-740 radius=200
+2026-10-29T13:20:15+09:00	council-mayor-field	net_reach	ok	x=-726 z=-736 radius=300
+2026-10-29T13:20:15+09:00	council-mayor-field	cargo	ok	
+2026-10-29T13:20:15+09:00	council-mayor-field	vehicles_stuck	ok	kind=truck limit=10
+2026-10-29T13:20:15+09:00	council-mayor-field	buildings_near	ok	x=2272 z=-1115 radius=20 service=Garbage
+2026-10-29T13:20:15+09:00	council-mayor-field	events	ok	
+2026-10-29T13:20:22+09:00	council-mayor-field	map_layer	ok	type=attractiveness x=2118 z=482 radius=150 n=3
+2026-10-29T13:20:22+09:00	council-mayor-field	map_layer	ok	type=attractiveness x=2290 z=972 radius=200
+2026-10-29T13:20:22+09:00	council-mayor-field	map_layer	ok	type=pollution x=3630 z=-115 radius=100 n=5
+2026-10-29T13:20:22+09:00	council-mayor-field	traffic	ok	x=2110 z=240 radius=150
+2026-10-29T13:20:22+09:00	council-mayor-field	traffic	ok	x=2300 z=-930 radius=300
+2026-10-29T13:20:23+09:00	council-mayor-field	traffic	ok	x=-1100 z=-1100 radius=300
+2026-10-29T13:20:23+09:00	council-mayor-field	traffic	ok	x=-500 z=-300 radius=300
+2026-10-29T13:20:23+09:00	council-mayor-field	services	ok	
+2026-10-29T13:20:23+09:00	council-mayor-field	complaints	ok	
+2026-10-29T13:20:23+09:00	council-mayor-field	economy_breakdown	ok	
+2026-10-29T13:20:50+09:00	council-mayor-field	save_log	ok	save_to=~/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/command-log.txt

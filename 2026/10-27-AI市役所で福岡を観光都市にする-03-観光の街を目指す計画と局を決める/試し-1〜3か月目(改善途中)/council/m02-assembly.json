@@ -1,0 +1,12 @@
+{
+  "month": 2,
+  "rulings": [
+    {"measureId": "m02-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "街を変えず費用 0。"},
+    {"measureId": "m02-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "試しのみで費用 0。"},
+    {"measureId": "m02-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用 0、戻せる。"},
+    {"measureId": "m02-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "週の費用 0、政策の変更は月1件の内。"},
+    {"measureId": "m02-5", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものと代わりの手が書かれ、preview で働き口 0、家 0、停電 0 を確認。"},
+    {"measureId": "m02-6", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 46,320、維持費 146 で守る線の内。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

@@ -1,0 +1,11 @@
+{
+  "month": 19,
+  "rulings": [
+    {"measureId": "m19-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うのは家2、働き口0で preview_bulldoze と一致。計画4-2に沿う。"},
+    {"measureId": "m19-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増え0で守る線に響かない。"},
+    {"measureId": "m19-3", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "建物1、道路0、働き口0、家0。代わりの手の比べも書かれている。"},
+    {"measureId": "m19-4", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うものは働き口0、家0。放置との比べも書かれ、費用0。"},
+    {"measureId": "m19-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費を減らす施策で守る線を破らない。戻す条件あり。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

@@ -1,0 +1,359 @@
+{
+  "month": 14,
+  "seen": {
+    "gameDate": "2051-02-05",
+    "saveName": "fukuoka-plan-m14",
+    "priorities": [
+      "5-1・5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "6-4・7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄された店の跡に JapaneseGarden を置き、公園を1つ増やす(西の道沿い)",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "名所 40850 の入口へ南回りの道をつなぐ",
+          "executionReady": false,
+          "buildCost": 520,
+          "upkeepPerWeek": 4.2,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2 観光"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "交差点 (-1640,-1100) に信号を置く",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "信号 (-1640,-1100) を置いたあと、止まりの集まり (-1684,-1060) の blocked は下がるか",
+        "plan": "traffic(x -1684, z -1060, radius 150)を見回り1・見回り2・月末に見る。月末で基準 62 より下がれば次の交差点 (-1640,-1010) を案にし、上がれば信号を外す"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "第14月は計画どおり候補を確かめる月。駅は、維持費 960 を足すと週の収支が約 +2,960 になり守る線 +3,000 を割るため、第17月の案に回した。北の列は Train Station の試し2回が ObjectCollision で閉じた。空き地5は電気・水・下水が0で、最寄りの道は900m超、道の試しも事務所に重なって断られた。島Bは水が0で、水源の試しは第15月の予定。8-1 は710台の止まりを確かめ、振り分けの試しは第15月の予定どおり。今月の案にできる実行条件が確かめられていないため、案なしにした。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "14月は長期計画の予定(40850 の測り、noGoods の基準、事務所の空きの候補探し)を行った月。3つとも確認済みで、今月に実行できる案はない。名所 40850 の道は roads の担当で、南回りは調整2により roads の案。事務所の道は15月に試し、16月に道路下水道局へ渡す(調整10)。名所の候補地は15月に試す。週の収支 +3,922 は見込みより約500低く、守る線の余裕は 922。計画の変更(14月)に書いた。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "ごみの印の集まりの近くに埋立地を1つ足す(1800,-570)",
+          "executionReady": true,
+          "buildCost": 4240,
+          "upkeepPerWeek": 162,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "新しい埋立地と道を置いたあと、ごみの印が9以下に下がり、満杯が0のままか。2267の停止の条件を満たすか",
+        "plan": "complaints、vehicles_stuck(kind garbage、limit 5)、services を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "2-3 の担当の数字は今月も目標内。小学校の定員 14,268 は子ども 8,924 を上回り、高校の定員 24,360 は10代 19,797 を上回る。高校の余裕は 4,563 で、2,000 以上のため置かない。小学校の余剰(定員が子どもの1.60倍)は、長期計画では14月が観察のみ、15月の確認で止める案を出す予定のため、今月は前倒ししない。前提(子どもと10代が減る)は崩れていないので、計画は変えない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "貨物港 32211 の横に警察署を置く",
+          "executionReady": true,
+          "buildCost": 12000,
+          "upkeepPerWeek": 480,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "週の収支は +3,922 で守る線 +3,000 の上にあり、余裕は 922 しかない。長期計画の第14月は見回りと月末で測る月。税・予算の見直しは、引き金(+4,000 を切った)に当たったが、計画どおり第18月に決める。新しい維持費は余裕に入らない。候補(医療予算の引き下げ、BigBusiness の解除、税、SmallBusiness、融資)は、効きが未確認か、今月の数字で根拠がないため出さなかった。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "EducationBoost の判定(第16月末)と守る線の数えに要る、週の収支と大卒の失業は、見回りごとにどう動くか",
+        "plan": "city_info、citizens_summary、economy_breakdown を、見回り1・見回り2・月末に呼ぶ(引数なし)"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m14-1",
+        "fromBureau": "urban-1",
+        "title": "放棄された店の跡に JapaneseGarden を置く",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m14-2",
+        "fromBureau": "roads-2",
+        "title": "交差点 (-1640,-1100) に信号",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m14-3",
+        "fromBureau": "health-1",
+        "title": "ごみの印の近くに埋立地と道",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "fire-1",
+        "reason": "3-4 は目標を満たしており、週480で守る線の余裕が240になる。",
+        "kind": "不可",
+        "condition": ""
+      },
+      {
+        "proposal": "roads-1",
+        "reason": "名所 40850 の入口の位置と向きが未確認で、支線の費用も不明。",
+        "kind": "条件付き",
+        "condition": "40850 の入口の位置と向きを確かめ、支線を含む全経路の test_build_line が ok で overlaps なし、費用つきで返ること。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s14-1",
+        "fromBureau": "roads",
+        "question": "信号 (-1640,-1100) を置いたあと、止まりの集まり (-1684,-1060) の blocked は 62 より下がるか"
+      },
+      {
+        "id": "s14-2",
+        "fromBureau": "health",
+        "question": "新しい埋立地と道を置いたあと、ごみの印が 9 以下に下がり、満杯が 0 のままか"
+      },
+      {
+        "id": "s14-3",
+        "fromBureau": "finance",
+        "question": "EducationBoost の判定に要る、週の収支と大卒の失業は、見回りごとにどう動くか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "roads",
+      "hasProposal": false,
+      "noProposalReason": "再調査で roads-1 の条件を確かめた。条件の「名所 40850 の入口の位置と向き」は、test_place_building を3つの向きで試しても返らず、道具では確かめられなかった。入口が決まらないと支線の経路が決まらないため、条件を満たせず、roads-1 は採らない。案は出さない。",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "名所 40850 の入口へ南回りの道をつなぐ",
+          "executionReady": false,
+          "buildCost": 520,
+          "upkeepPerWeek": 4.2,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2 観光"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m14-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "対象は放棄の店 39889 だけで、働き口0、家0。代わりの手との比較も書かれ、週 40 の増えは守る線に収まる。"
+      },
+      {
+        "measureId": "m14-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増えは前回の同型で0。守る線に響かない。"
+      },
+      {
+        "measureId": "m14-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 4,240、週 約 162。3施策の合計でも週の収支は約 +3,720、所持金は約 2,412,500 で線を守れる。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m14-1",
+    "m14-2",
+    "m14-3"
+  ],
+  "surveys": [
+    {
+      "id": "s14-1",
+      "fromBureau": "roads",
+      "question": "信号 (-1640,-1100) を置いたあと、止まりの集まり (-1684,-1060) の blocked は 62 より下がるか"
+    },
+    {
+      "id": "s14-2",
+      "fromBureau": "health",
+      "question": "新しい埋立地と道を置いたあと、ごみの印が 9 以下に下がり、満杯が 0 のままか"
+    },
+    {
+      "id": "s14-3",
+      "fromBureau": "finance",
+      "question": "EducationBoost の判定に要る、週の収支と大卒の失業は、見回りごとにどう動くか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m14-1",
+      "m14-2",
+      "m14-3"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-02-15",
+        "population": 177735,
+        "money": 2419768,
+        "weeklyBalance": 5359,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-02-25",
+        "population": 177522,
+        "money": 2426637,
+        "weeklyBalance": 4368,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s14-1",
+      "s14-2",
+      "s14-3"
+    ],
+    "report": "m14-1から3は3件とも実行できた。予備候補は使っていない。\n- m14-1: 放棄店39889を壊し、JapaneseGarden(id 39519)を置いた。費用は2,500。Beautification は88から89に増えた。\n- m14-2: 交差点(-1640,-1100)に信号を付けた。費用は0。blocked は62から、見回り1で1、見回り2で8、月末で33になった。揺れが大きい。\n- m14-3: 埋立地44370を置いた(費用4,000)。議案の道は埋立地に重なって断られた。端を12m東の(1844,-570)に動かし、test が通ってから引いた(費用200、端(1880,-570)は節点31276につながった)。西端は入口まで12m空いている。ごみの印は14から8に減った。\n月末は2051-03-07で、人口177,176(6か月連続で減少)、所持金2,433,116、週の収支は+4,256。守る線+3,000の上だが、+4,900は下回っている。観光客は1,851、Tourism は週37。見回り2回と月末に境目はなく、臨時もなかった。hooks に止められた手もなかった。\n調査の結果は council/m14-survey-roads.md、m14-survey-health.md、m14-survey-finance.md に書いた。市政ノートとcommand-log.txtも更新した。"
+  }
+}

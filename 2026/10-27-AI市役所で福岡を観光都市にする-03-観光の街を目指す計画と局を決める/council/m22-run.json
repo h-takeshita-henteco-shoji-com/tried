@@ -1,0 +1,415 @@
+{
+  "month": 22,
+  "seen": {
+    "gameDate": "2051-10-03",
+    "saveName": "fukuoka-plan-m22",
+    "priorities": [
+      "5-1・5-2 観光(旅客の入口、島・空き地の名所)",
+      "8-1 物流・人流のゲートウェイ",
+      "6-3 公共交通を主軸とした交通体系"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄店 6208 の跡(56,22)に公園 JapaneseGarden を1つ置く",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        },
+        {
+          "id": "urban-2",
+          "title": "x=2200 の幹線沿いに木を植える(試し、4-1)",
+          "executionReady": false,
+          "buildCost": 400,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "x=-1640 の残り Basic 6区間を Small 4 Lane にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "交差点 (2236,-950) に信号を付ける(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "x=-920 の4車線区間(z -857)の止まりは、上流の容量が原因か、下流の Basic 4744・32601 の詰まりが原因か。",
+        "plan": "見る道具 traffic(x=-920, z=-980, radius=80)と traffic(x=-920, z=-857, radius=60)を、見回り1、見回り2、月末に見る。基準は下流 blocked 7、上流 r150 の 58。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "車が来ない貨物センター 40031 を止める",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1440,
+          "reversible": true,
+          "planItems": [
+            "8-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "port-2",
+          "title": "路線28の予算を 200% に戻す",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": 220,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "28755 で空き待ちのトラック(約630台)は、どれくらい遠い店へ向かっているか。近い店への輸送を増やす手が要るか",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=8) と cargo() を、見回り1と月末に見る。行き先の距離の大半が3,000m超なら近い店の受け口を案にする。3,000m未満なら積み込みの混みが原因として 8-1 の目標を市長と決める"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所の候補地が確かめられず、案なし。未建設の名所の最安は Transport Tower(建設費60,000、週960)で、週320の上限(調整8)を超える。試した5地点((324,222)、(564,-146)、(96,264)、(2500,-546)、(3513,-96))は道路か住宅・働き口と重なり、取り壊しなしでは置けなかった。22月末の条件を満たしたので名所の事業を閉じ、上限の見直しを市長に求める。旅客の入口は港湾空港局の担当。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "魅力度の高い点(1818,332 付近で最大295)は、どの建物の周りに出ていて、見回りごとに動くか。",
+        "plan": "見回り1・見回り2・月末に、buildings_near(x=1818, z=332, radius=80, brief=true) と map_layer(type=\"attractiveness\", x=1818, z=332, radius=150, n=5) を呼ぶ。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "施策の案なし。汚染の印32の多くは、2267 の周りではなく、2200〜2500・z 430〜530 の255の帯の周りにある(2267 から約1km)。2267 の移しは、帯に効かないため見送る。帯の出どころは、ごみ収集車の渋滞か、ほかかを道具で確かめられていない。満杯の埋立地3565の空けは、近くの埋立地が84%で運搬が長くなり、東の新しい埋立地は4候補がすべて置けなかった。Recycling(街全体)は週約-13,000で守る線を割る。そのため、帯の調査を1件出し、結果を見て23月に手を決める。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "2200〜2500・z 430〜530 の汚染 255 の帯は、ごみ収集車の止まりと重なって動くか。",
+        "plan": "map_layer(pollution, x=2350, z=480, radius=250, n=9)、vehicles_stuck(garbage, building=45436, limit=10)、traffic(x=2350, z=480, radius=200, limit=5) を、見回り1・見回り2・月末に呼ぶ。帯が動かず収集車の止まりが減らないなら、23月に道路下水道局へ z=560 の幹線を太くすることを求める案を出す。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "小学校と高校の定員は、子どもと10代を上回り、目標を満たしている。小学校の4校目の停止は、候補 28785 と 15022 が南の共同住宅の覆いを0にするため外した。候補 34817 は、止めて確かめないと覆いの0の有無が分からず、置いてから確かめる案は採択の対象にしない。高校は余裕 6,209 で置く線 1,000 を超えている。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "火事4棟と犯罪3棟の施策の候補は、確かめた条件が満たせないか、効きを測れないため案にしなかった。火事の48237は21月と22月で同じ場所で燃え続けるが、焼け跡ではなく(abandoned=false)、道と消防の届き(168〜297)は足りる。原因が分からないため、火元の調査を1件出した。SmokeDetectors は街全体で週58,040かかり、守る線を割る。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "2834,1118 の事務所 48237 は、道と消防の届きがあるのに、焼け跡になるか、消えるか、燃え続けるか。",
+        "plan": "buildings_near(x=2834, z=1118, radius=20, brief=false)、complaints(Fire の数と場所)、events。見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "財政の数字は守る線の上にある(週の収支 +5,957、所持金 2,643,814)。医療 110 は墓地の使用が 65% で保留の条件を満たさない。住宅税の1地区の減税は、区127(人口 2,693)では1か月で効果を測れず、区126 は全市に近いため出さない。観光に効くとされる政策は3回の試しで切り分けられなかった。人口の減りの原因は、まだ分からない。そのため案は出さず、区127 の人口と住宅の占有を基準として見る調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "中心部の区127(Hakata)の人口と住宅の占有は、1か月でどう動くか。税の1地区の試しを出すときの基準になるか。",
+        "plan": "見回り1と月末に、list_districts、building_stats(x=299, z=49, radius=400)、demand_breakdown を呼ぶ。月末まで動かなければ、区127 で TaxLowerResLow の試しを第23月の案にする"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m22-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店6208の跡に公園JapaneseGarden",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m22-2",
+        "fromBureau": "roads-1",
+        "title": "x=-1640の残りBasic6区間をSmall 4 Laneに",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m22-3",
+        "fromBureau": "roads-2",
+        "title": "3叉路(2236,-950)に信号(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m22-4",
+        "fromBureau": "port-1",
+        "title": "貨物センター40031を止める",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "8-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "urban-2",
+        "reason": "木を植える空きが道具で確かめられておらず、実行計画が未確認。",
+        "kind": "条件付き",
+        "condition": "net_nearとbuildings_nearで、道路・建物と重ならない植栽の多角形の座標を確かめ、40本以上の空きを示す"
+      },
+      {
+        "proposal": "port-2",
+        "reason": "路線28の乗客は92→29→110→53と揺れ、1期間の値では戻す根拠にならない。維持費の増え約2,400の見積もりも粗い。",
+        "kind": "条件付き",
+        "condition": "list_transport_lines(number=28)でpassengersLastPeriodが2期間続けて92未満であることと、economy_breakdownとバス全路線の台数から1台当たりの維持費を出し直すことを示す"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s22-1",
+        "fromBureau": "economy",
+        "question": "魅力度の高い点(1818,332付近で295)は、どの建物の周りに出ていて、見回りごとに動くか。"
+      },
+      {
+        "id": "s22-2",
+        "fromBureau": "port",
+        "question": "28755で空き待ちのトラック(約630台)は、どれくらい遠い店へ向かっているか。"
+      },
+      {
+        "id": "s22-3",
+        "fromBureau": "roads",
+        "question": "x=-920の4車線区間(z -857)の止まりは、上流の容量が原因か、下流のBasic区間の詰まりが原因か。"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-2",
+          "title": "x=2200 の幹線沿いに木を植える(試し、4-1)",
+          "executionReady": false,
+          "buildCost": 400,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-2",
+          "title": "路線28の予算を 200% に戻す",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": 220,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m22-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "壊すのは放棄店1棟で、失う働き口・家は0。維持費 +40 は小さい。"
+      },
+      {
+        "measureId": "m22-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増え0。守る線を破らない。"
+      },
+      {
+        "measureId": "m22-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で戻せる。守る線を破らない。"
+      },
+      {
+        "measureId": "m22-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費を週1,440減らす施策で、守る線の対象外。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m22-1",
+    "m22-2",
+    "m22-3",
+    "m22-4"
+  ],
+  "surveys": [
+    {
+      "id": "s22-1",
+      "fromBureau": "economy",
+      "question": "魅力度の高い点(1818,332付近で295)は、どの建物の周りに出ていて、見回りごとに動くか。"
+    },
+    {
+      "id": "s22-2",
+      "fromBureau": "port",
+      "question": "28755で空き待ちのトラック(約630台)は、どれくらい遠い店へ向かっているか。"
+    },
+    {
+      "id": "s22-3",
+      "fromBureau": "roads",
+      "question": "x=-920の4車線区間(z -857)の止まりは、上流の容量が原因か、下流のBasic区間の詰まりが原因か。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m22-1",
+      "m22-2",
+      "m22-3",
+      "m22-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-10-13",
+        "population": 173326,
+        "money": 2651614,
+        "weeklyBalance": 7074,
+        "happiness": 87,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-10-23",
+        "population": 173011,
+        "money": 2661649,
+        "weeklyBalance": 6904,
+        "happiness": 87,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s22-1",
+      "s22-2",
+      "s22-3"
+    ],
+    "report": "4施策をすべて打てた。m22-1は放棄店6208を壊し、公園48363(JapaneseGarden)を(56,22)に置いた。もう1棟の放棄店24321は、置いたときに壊れた。失った働き口と家は0で、費用は2,500。m22-2はSmall 4 Lane Roadへの差し替えが4区間と2区間で通った(費用0)。m22-3は(2236,-950)の信号を付けた。m22-4は貨物センター40031を、車0を確かめて止めた。月末(2051-11-02)の数字は次のとおり。人口172,759(14か月連続で減少)、所持金2,672,278、週の収支+7,746(守る線+3,000の上)、観光客2,020(訪問179)。電気・水・下水が来ない市民は0。月末の実測では、m22-2のblockedが(-1640,-880 r100)で22→15、(-1640,-1000 r200)で41→30。m22-3の(2302,-946 r150)は75→0だった。調査3件は3回分を、council/m22-survey-economy.md、m22-survey-port.md、m22-survey-roads.mdに書いた。結果の主な点は3つ。魅力度295の点は公園3棟の周りで、3回とも動かなかった。28755の止まりは遠い店にも近い店にも向かい、行き先の遠さだけが原因ではなかった。x=-920の止まりは、月末にだけblocked 15が出た。境目には当たらず、臨時は行っていない。hooksに止められた手はない。ログは command-log.txt に写した。"
+  }
+}

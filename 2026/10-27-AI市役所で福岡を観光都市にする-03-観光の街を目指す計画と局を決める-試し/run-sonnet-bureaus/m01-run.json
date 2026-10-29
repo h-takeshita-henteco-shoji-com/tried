@@ -1,0 +1,491 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "5-1、5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "6-4、7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 500000,
+    "upkeepCap": 4000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "空き店舗の跡に日本庭園を4か所置く(働き口を失わない場所だけ)",
+          "executionReady": true,
+          "buildCost": 10000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "urban-2",
+          "title": "少しだけ働き口を失う場所に日本庭園を3か所置く",
+          "executionReady": true,
+          "buildCost": 7500,
+          "upkeepPerWeek": 120,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "公園などの数を 81 から 100 に増やすのに、働き口を失わずに置ける、放棄された店の跡地は何か所あるか",
+        "plan": "buildings_near(x=0,z=0,radius=7000,abandoned=True,brief=True,limit=150) と buildings_near(service=Beautification,radius=7000,limit=1) を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "東西路(z=-950)の2つのT字路で、側道に譲れの標識を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東西路(z=-950)の本線は、どこで止まる車が多いのか、また貨物駅 28755 周辺の詰まりと同じ根か",
+        "plan": "traffic(x=2309,z=-925,radius=300)、traffic(x=3449,z=-1555,radius=300)、vehicles_stuck(kind=truck,limit=30)を見回り1・見回り2・月末に測る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "乗客の少ないバス路線の台数を減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755で492台が止まるのは、出口の道路の詰まりか、駅の中で動けない状態か。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、traffic(x=3449, z=-1555, radius=150)、cargo() を見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所を3棟足す(東部 x=2200 の通り沿い)",
+          "executionReady": true,
+          "buildCost": 90000,
+          "upkeepPerWeek": 848,
+          "reversible": false,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "economy-2",
+          "title": "放棄された建物131棟を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "6-4",
+            "7-1"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "観光客が1,646人いるのにTourismの週の収入が45しかないのは、店に寄る数が少ないためか、品物がないためか。",
+        "plan": "economy_breakdown、city_info、cargo(引数なし)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "西のごみの集中地に埋立地を1か所足す",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "満杯で動かない埋立地 25590 を止める",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -160,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "ごみの印の建物は、収集車が足りないのか、受け入れ先が満杯なのか",
+        "plan": "complaints、buildings_near(x=-500,z=-1500,radius=500,problem=Garbage)、vehicles_stuck(kind=garbage,limit=30)を見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "小学校の定員 14,268 は子ども 11,344 以上、高校の定員 24,360 は10代 22,372 以上で、目標を満たしている。新設は不要。EducationBoost(有効、週 7,940)の解除は、定員への影響を道具で確かめられないため案にしなかった。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "貨物港のそばに警察署を1棟置く",
+          "executionReady": true,
+          "buildCost": 12080,
+          "upkeepPerWeek": 500,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "fire-2",
+          "title": "消防の予算を 140 から 150 に上げる",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 2280,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費 10,000、週の維持費増 160。いずれも枠に収まる"
+      },
+      {
+        "proposalId": "urban-2",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "建設費 7,500、週の維持費増 120。いずれも枠に収まる"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "費用なし。標識の設置は無料"
+      },
+      {
+        "proposalId": "port-1",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "費用なし。予算変更幅 -20 は ±20 の枠に収まる"
+      },
+      {
+        "proposalId": "economy-1",
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "建設費 90,000、週の維持費増 848。いずれも枠に収まる"
+      },
+      {
+        "proposalId": "economy-2",
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "費用なし。失う働き口・家 0"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "建設費 4,000、週の維持費増 160。いずれも枠に収まる"
+      },
+      {
+        "proposalId": "health-2",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "費用なし。週の維持費減 160"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費 12,080、週の維持費増 約500。いずれも枠に収まる"
+      },
+      {
+        "proposalId": "fire-2",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "建設費 0、週の維持費増 約2,280。枠 4,000 に収まる"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 500000
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "urban-1",
+        "title": "日本庭園を3か所置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "economy-1",
+        "title": "名所を3棟足す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      },
+      {
+        "id": "m01-3",
+        "fromBureau": "economy-2",
+        "title": "放棄された建物を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "6-4",
+          "7-1"
+        ]
+      },
+      {
+        "id": "m01-4",
+        "fromBureau": "roads-1",
+        "title": "東西路に譲れの標識",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m01-5",
+        "fromBureau": "health-1",
+        "title": "西に埋立地を1か所足す",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m01-6",
+        "fromBureau": "health-2",
+        "title": "満杯の埋立地を止める",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m01-7",
+        "fromBureau": "fire-1",
+        "title": "貨物港のそばに警察署",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "urban-2",
+        "reason": "働き口20を失い戻せず、庭園3か所のwater_traceが未確認のため。"
+      },
+      {
+        "proposal": "port-1",
+        "reason": "街全体の流れで測るため、m01-4の試しの場所(2309,-925)と重なる。来月、東西路を外した形で出し直す。"
+      },
+      {
+        "proposal": "fire-2",
+        "reason": "消防の届き具合は十分で、維持費約2,280に見合う根拠がなく、1か月の火事は偶然で効き目を測れない。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "economy",
+        "question": "観光客が1,646人いるのにTourismの週の収入が45しかないのは、店に寄る数が少ないためか、品物がないためか"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "port",
+        "question": "貨物駅28755の敷地で492台が止まっているのは、出口の道路の詰まりか、駅の中で動けない状態か"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "health",
+        "question": "ごみの印の建物は、収集車が足りないのか、受け入れ先が満杯なのか"
+      }
+    ]
+  },
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m01-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldozeで壊す131棟の失う働き口と家は0、電気が止まる建物も0と確かめた。代わりの手との比べと響きも書かれている。"
+      }
+    ]
+  },
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2",
+    "m01-4",
+    "m01-5",
+    "m01-6",
+    "m01-7",
+    "m01-3"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "economy",
+      "question": "観光客が1,646人いるのにTourismの週の収入が45しかないのは、店に寄る数が少ないためか、品物がないためか"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "port",
+      "question": "貨物駅28755の敷地で492台が止まっているのは、出口の道路の詰まりか、駅の中で動けない状態か"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "health",
+      "question": "ごみの印の建物は、収集車が足りないのか、受け入れ先が満杯なのか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-1",
+      "m01-2",
+      "m01-3",
+      "m01-4",
+      "m01-5",
+      "m01-6",
+      "m01-7"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-01-11",
+        "population": 178779,
+        "money": 1977641,
+        "weeklyBalance": 8266,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-21",
+        "population": 178643,
+        "money": 1989778,
+        "weeklyBalance": 8493,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "議案の7施策をすべて実行した。m01-7 は、置いた後の送電線が警察署に断られた(ObjectCollision)。そこで計画の予備候補 (-430,1048) へ relocate_building で移した(追加費用 2,400)。月末に電気が通り、警察車が出動していた。m01-3 は実行直前の preview で 124 棟、失う働き口と家は 0 だった。m01-2 は壊れた家が約 90 戸で、予備候補は使わなかった。月末は、人口 178,724(月初より 148 減)、所持金 2,000,973、週の収支 +8,081。観光客は 1,646 から 1,772 に増えたが、Tourism の週の収入は 37〜46 で動かなかった。公園などは 84、名所は 9。(2309,-925) の blocked は 102 から 71 に減った。汚染の印は 32 から 49 に増え、m01-6 の影響かは未確認。臨時の境目には当たらず、ダイアログもなかった。ノートの「次にやること」に、人口減と汚染増の確認を書いた。調査 s01-1〜3 は、見回り1、見回り2、月末の3回分を書いた。保存は行っていない(月例の保存は見る段で済み)。"
+  }
+}

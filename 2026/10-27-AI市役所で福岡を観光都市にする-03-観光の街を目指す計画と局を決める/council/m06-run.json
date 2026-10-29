@@ -1,0 +1,419 @@
+{
+  "month": 6,
+  "seen": {
+    "gameDate": "2050-05-31",
+    "saveName": "fukuoka-plan-m06",
+    "priorities": [
+      "5-1、5-2 観光(島Bの名所、公園・名所の電気、旅客の入口)",
+      "8-1 物流・人流のゲートウェイ",
+      "6-1、6-4 都心部の機能強化と企業の立地"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "電気の届く(585,1365)に公園を1か所置き、道を引く",
+          "executionReady": true,
+          "buildCost": 1240,
+          "upkeepPerWeek": 9.8,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "新しい公園(585,1365)に、置いた後も電気が届くか",
+        "plan": "buildings_near(x585,z1365,radius40) と map_layer electricity_service(x585,z1365,radius30,n3) を見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "東の幹線(x 3085〜3185)の4車線化",
+          "executionReady": true,
+          "buildCost": 1500,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "島の入口の交差点(2152,483)の4車線化",
+          "executionReady": true,
+          "buildCost": 285,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "今月は案なし。観光の入口(旅客の駅)は、貨物センター13893周りの候補が道か旅客線にぶつかり、(3640,-1640)は工場2棟の取り壊しでも線が通らない。(3612,-1690)、(3625,-1700)、(3600,-1805)、(2450,-1268) は置けなかった。8-1(事業3)は、13893 に行き先の付くトラックが0のままで、分けられる先がない。Airport は週4,800で守る線を割る。事業2と3は閉じ、島Bの岸の旅客の港を7月に試す計画に替えた。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "東の街で3棟目の名所の候補を4か所試したが、置ける場所が見つからなかった。(1690,1050) は電気と水が来ず、(1735,1050) と (1936,994) は道路・事務所・警察署とぶつかった。名所 11580 の電気も直せていない。実行可能な案が1件もないため案なし。電気と水の届きを見る調査を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "東の街の南北(x 1720 付近、z 1050 付近)の電気と水が、12×13マスの名所の敷地まで届くか。届くなら、7月に名所を置き直せるか",
+        "plan": "map_layer の electricity_service と water_service(x=1720, z=1050, radius=120, n=5)と buildings_near の Monument(x=668, z=1565, r=40)を、見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "政策 SmokingBan を有効にして健康を試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "満杯の埋立地48698を空にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "学校の定員は、小学校の余裕 3,801(子ども 10,467、定員 14,268)、高校の余裕 2,331(10代 22,029、定員 24,360)で、どちらも目標を満たしている。子どもと10代は減っており、置く条件(余裕1,000未満)に入らない。高校の事業は、やめる条件(余裕2,000以上)を満たしたので休止した。教育に関わる政策は EducationBoost のみで、有効のまま。調査が必要な原因不明の問題もない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "焼け跡6棟の取り壊し",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "道路の予算を 120 から 100 に戻す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1483,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        },
+        {
+          "id": "finance-2",
+          "title": "政策 EducationBoost を外す(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -7940,
+          "reversible": true,
+          "planItems": [
+            "6-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m06-1",
+        "fromBureau": "urban-1",
+        "title": "空き地3の風力そばに公園1か所と道45m",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m06-2",
+        "fromBureau": "roads-1",
+        "title": "東の幹線6区間を4車線化(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m06-3",
+        "fromBureau": "roads-2",
+        "title": "島B入口の交差点北側を4車線化(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m06-4",
+        "fromBureau": "health-1",
+        "title": "政策 SmokingBan を有効にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "1-2"
+        ]
+      },
+      {
+        "id": "m06-5",
+        "fromBureau": "health-2",
+        "title": "満杯の埋立地48698を空にする",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m06-6",
+        "fromBureau": "fire-1",
+        "title": "焼け跡6棟の取り壊し(試し)",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "finance-1",
+        "reason": "道路の予算は市全体にかかり、m06-2とm06-3のblockedの測りと重なる(調整15)",
+        "kind": "不可",
+        "condition": ""
+      },
+      {
+        "proposal": "finance-2",
+        "reason": "政策の変更は月1件で、今月はSmokingBanに使う。事務所レベル3への効きも未測定",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s06-1",
+        "fromBureau": "urban",
+        "question": "電気の届く場所に置いた公園に、置いた後も電気が来るか"
+      },
+      {
+        "id": "s06-2",
+        "fromBureau": "economy",
+        "question": "東の街の電気・水が名所の敷地まで届くか"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m06-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 1,240、維持費 約 9.8。守る線に収まる。"
+      },
+      {
+        "measureId": "m06-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 約 1,500、維持費の増え 0。守る線に収まる。"
+      },
+      {
+        "measureId": "m06-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費 約 285、維持費の増え 0。守る線に収まる。"
+      },
+      {
+        "measureId": "m06-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用 0。政策の変更は月1件の範囲。"
+      },
+      {
+        "measureId": "m06-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用 0、維持費の増え 0。"
+      },
+      {
+        "measureId": "m06-6",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うもの(働き口 0、家 0、小学校定員 348、公園 1)と代わりの手が書かれ、preview_bulldoze で確認できた。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m06-1",
+    "m06-2",
+    "m06-3",
+    "m06-4",
+    "m06-5",
+    "m06-6"
+  ],
+  "surveys": [
+    {
+      "id": "s06-1",
+      "fromBureau": "urban",
+      "question": "電気の届く場所に置いた公園に、置いた後も電気が来るか"
+    },
+    {
+      "id": "s06-2",
+      "fromBureau": "economy",
+      "question": "東の街の電気・水が名所の敷地まで届くか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m06-1",
+      "m06-2",
+      "m06-3",
+      "m06-4",
+      "m06-5",
+      "m06-6"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-06-10",
+        "population": 178408,
+        "money": 2072859,
+        "weeklyBalance": 6556,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-06-20",
+        "population": 178904,
+        "money": 2086538,
+        "weeklyBalance": 10310,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s06-1",
+      "s06-2"
+    ],
+    "report": "6件とも実行した。m06-1は公園の敷地が議案の道の始点と重なったため、始点を8m動かして通した。公園は電気が来ている。m06-6は6棟とも働き口0・家0を確認して取り壊し、火事の印は6から3に減った(別の場所の事務所2棟)。埋立地48698は満杯が0になり、元に戻した。月末(6/30)は人口179,174、所持金2,101,000、週の収支+10,489、観光客1,665、Tourism週53。東の幹線(3150,-250)のblockedは50から76に増えた(流れが移った可能性)。島Bの入口(2156,483)は62から58。名所11580は電気が来ないまま。境目に当たらず、臨時はなし。hooksに止められた手はなし。市政ノートと調査2本(council/m06-survey-urban.md、m06-survey-economy.md)、command-log.txtを書いた。"
+  }
+}

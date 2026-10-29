@@ -1,0 +1,674 @@
+{
+  "month": 1,
+  "seen": {
+    "gameDate": "2050-01-01",
+    "saveName": "fukuoka-plan-m01",
+    "priorities": [
+      "5-1、5-2 観光",
+      "6-3 公共交通を主軸とした交通体系",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "guide": {
+    "buildCap": 1041143,
+    "upkeepCap": 7000,
+    "taxRange": 2,
+    "budgetRange": 20
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "花や緑による潤いの政策化",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "urban-2",
+          "title": "ごみ削減による環境改善",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "公園を追加で配置すると、高密度住宅の地価がどの程度上昇するか、また現在置ける場所はどこか",
+        "plan": "zone_summary(grid=500)で空き地の分布を確認。buildings_near(x=250, z=-250, radius=500, service=\"Beautification\", limit=50)で既存の公園の配置を確認。test_place_building(prefab=\"Regular Park\", x=?, z=?)で複数の候補地で試す。月末に確認"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "最も混雑している交差点に信号を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "次に混雑している交差点に信号を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-3",
+          "title": "3番目に混雑している交差点に信号を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-4",
+          "title": "利用者が多いバス路線の台数を増加",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 4000,
+          "reversible": true,
+          "planItems": [
+            "6-3",
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-5",
+          "title": "Cargo Center周辺の道路容量を改善",
+          "executionReady": false,
+          "buildCost": 100000,
+          "upkeepPerWeek": 600,
+          "reversible": false,
+          "planItems": [
+            "8-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "交差点の信号追加により、全市的な交通流（flow）がどの程度改善されるか、複数交差点への信号追加による累積効果を測る。",
+        "plan": "`traffic`（全体）で flow（%）と blocked（台数）を月末に測定。流れが52%以上に改善されれば効果あり。さらに信号追加箇所を増やすか、道路改善に進むか判断する。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "地下鉄ネットワーク拡張で交通流を改善する",
+          "executionReady": false,
+          "buildCost": 50000,
+          "upkeepPerWeek": 400,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "port-2",
+          "title": "FreeTransport政策で公共交通利用を促進する",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "port-3",
+          "title": "停止中の貨物施設を再起動し荷物の滞留を軽減する",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": 2880,
+          "reversible": true,
+          "planItems": [
+            "8-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "port-4",
+          "title": "観光地区へのバスネットワークを構築する",
+          "executionReady": false,
+          "buildCost": 60000,
+          "upkeepPerWeek": 1500,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2",
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "port-5",
+          "title": "バス予算を150%に増加させ既存路線を強化する",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 1000,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "観光客の訪問(139)は多いのに、Tourism の週の収入が 45 しかない理由は何か",
+        "plan": "`economy_breakdown` で Tourism weeklyIncome、`city_info` で tourists、`buildings_near` で Monument を月末に確認"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "観光地3棟建設で観光魅力度と観光客を増やす",
+          "executionReady": true,
+          "buildCost": 408025,
+          "upkeepPerWeek": 5056,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "economy-2",
+          "title": "観光地周辺のホテル建設で観光客の訪問を促進",
+          "executionReady": false,
+          "buildCost": 160000,
+          "upkeepPerWeek": 2000,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "economy-3",
+          "title": "貨物センター周辺の搬出経路追加で物流渋滞を減らす",
+          "executionReady": false,
+          "buildCost": 10000,
+          "upkeepPerWeek": 120,
+          "reversible": true,
+          "planItems": [
+            "8-1",
+            "6-4",
+            "7-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "economy-4",
+          "title": "政策 RecreationalUse を有効化して観光客を刺激",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "economy-5",
+          "title": "事務所周辺に公園を建設してレベルアップを促進",
+          "executionReady": false,
+          "buildCost": 80000,
+          "upkeepPerWeek": 400,
+          "reversible": true,
+          "planItems": [
+            "6-1",
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "Tourism の週の収入が観光客訪問数に比べて低すぎる理由を確かめる",
+        "plan": "`city_info` で観光客（now）と訪問（visits）、`economy_breakdown` で Tourism 週の収入、`buildings_near service=Monument` で観光地周辺施設を、見回り1・見回り2・月末に測定"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "Recycling政策で廃棄物削減",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "埋立地を追加（東部）",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-3",
+          "title": "埋立地を追加（北部）",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-4",
+          "title": "火葬場を追加",
+          "executionReady": true,
+          "buildCost": 25000,
+          "upkeepPerWeek": 720,
+          "reversible": true,
+          "planItems": [
+            "1-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "小学校の定員(14,268)が子ども(11,344)を上回り、高校の定員(24,360)が10代(22,372)を上回っており、市の計画の目標がすでに達成されている。当月の課題がないため、改善の見込みのある有効な手段がない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "消防予算の増加",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 3420,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        },
+        {
+          "id": "fire-2",
+          "title": "警察予算の増加",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 3480,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "消防と警察の予算増が、火事と犯罪の印の数をどこまで減らせるか。",
+        "plan": "complaints で火事と犯罪の印の数を見る、events で新たに起きた火事と犯罪を確認。見回り1、見回り2、月末に測定。"
+      }
+    }
+  ],
+  "assessed": {
+    "assessments": [
+      {
+        "proposalId": "urban-1",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "RecreationalUse政策は建設費0・週の維持費0で型の上限を満たす"
+      },
+      {
+        "proposalId": "urban-2",
+        "bureau": "urban",
+        "verdict": "可",
+        "reason": "Recycling政策は建設費0・週の維持費0で型の上限を満たす"
+      },
+      {
+        "proposalId": "roads-1",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号設置は建設費0・週の維持費0で型の上限を満たす"
+      },
+      {
+        "proposalId": "roads-2",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号設置は建設費0・週の維持費0で型の上限を満たす"
+      },
+      {
+        "proposalId": "roads-3",
+        "bureau": "roads",
+        "verdict": "可",
+        "reason": "信号設置は建設費0・週の維持費0で型の上限を満たす"
+      },
+      {
+        "proposalId": "roads-4",
+        "bureau": "roads",
+        "verdict": "減額",
+        "reason": "バス台数増加の週の維持費が見積もり3,000～5,000で確定値がない。予算内での台数制限を推奨"
+      },
+      {
+        "proposalId": "port-2",
+        "bureau": "port",
+        "verdict": "可",
+        "reason": "FreeTransport政策は建設費0・週の維持費0。税収減5,179で週の収支+4,786となり黒字を保つ"
+      },
+      {
+        "proposalId": "port-5",
+        "bureau": "port",
+        "verdict": "不可",
+        "reason": "バス予算は既に150%に設定されているため、この案の実行は効果がない"
+      },
+      {
+        "proposalId": "economy-1",
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "観光地3棟の建設費408,025・週の維持費5,056で型の上限を満たす"
+      },
+      {
+        "proposalId": "economy-4",
+        "bureau": "economy",
+        "verdict": "可",
+        "reason": "RecreationalUse政策は建設費0・週の維持費0で型の上限を満たす（urban-1と同じだが費用判定では可）"
+      },
+      {
+        "proposalId": "health-1",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "Recycling政策は建設費0・週の維持費0で型の上限を満たす（urban-2と同じだが費用判定では可）"
+      },
+      {
+        "proposalId": "health-2",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地建設費4,000・週の維持費160で型の上限を満たす"
+      },
+      {
+        "proposalId": "health-3",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "埋立地建設費4,000・週の維持費160で型の上限を満たす"
+      },
+      {
+        "proposalId": "health-4",
+        "bureau": "health",
+        "verdict": "可",
+        "reason": "火葬場建設費25,000・週の維持費720で型の上限を満たす"
+      },
+      {
+        "proposalId": "fire-1",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "消防予算140%→155%の変更。週の維持費増え分3,420で型の上限を満たし、黒字を保つ"
+      },
+      {
+        "proposalId": "fire-2",
+        "bureau": "fire",
+        "verdict": "可",
+        "reason": "警察予算150%→165%の変更。週の維持費増え分3,480で型の上限を満たし、黒字を保つ"
+      }
+    ],
+    "taxProposal": {
+      "exists": false,
+      "summary": ""
+    },
+    "totalCap": 1041143
+  },
+  "bill": {
+    "measures": [
+      {
+        "id": "m01-1",
+        "fromBureau": "urban-1,economy-4",
+        "title": "RecreationalUse 政策を有効にする(観光の試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2",
+          "4-2"
+        ]
+      },
+      {
+        "id": "m01-2",
+        "fromBureau": "roads-3",
+        "title": "交差点(2100, 309)に信号を付ける(交通の試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "urban-2",
+        "reason": "Recycling は住宅の税収 -5% で約 -13,256/週、黒字 +9,965 を超えて赤字になる"
+      },
+      {
+        "proposal": "roads-1",
+        "reason": "(2309, -950) 近くの節点 32208 は2本だけの切り替え点で交差点ではない。本当の交差点を junction_info で確かめて出し直す"
+      },
+      {
+        "proposal": "roads-2",
+        "reason": "junction_info が (-726, -736) の 40m 以内に交差点なしと返した。節点を確かめて出し直す"
+      },
+      {
+        "proposal": "roads-4",
+        "reason": "案の割合 107/125/114 は今の budget 200/300/200 より低く、台数が減る。維持費の根拠も要る"
+      },
+      {
+        "proposal": "port-2",
+        "reason": "運賃収入 5,179 が消え黒字が半減。乗客が少なく流れへの効きも小さい見立て"
+      },
+      {
+        "proposal": "port-5",
+        "reason": "バス予算は既に150%で上限。査定も不可"
+      },
+      {
+        "proposal": "economy-1",
+        "reason": "入口の道が null で、つなぐ道の端点が曖昧、test_build_line の結果がない。座標を決めて確かめて出し直す(来月の最優先)"
+      },
+      {
+        "proposal": "health-1",
+        "reason": "urban-2 と同じ Recycling で、税収減により赤字になる"
+      },
+      {
+        "proposal": "health-2",
+        "reason": "入口と引く道の端が32mずれ、test_build_line の結果がない"
+      },
+      {
+        "proposal": "health-3",
+        "reason": "つなぐ道が実行時に確認とあり、未確認"
+      },
+      {
+        "proposal": "health-4",
+        "reason": "つなぐ道が実行時に確認とあり未確認。火葬の容量にも余裕がある"
+      },
+      {
+        "proposal": "fire-1",
+        "reason": "155% は set_budget の上限150を超える。消防車は24台中1台しか使われておらず効きも見えない"
+      },
+      {
+        "proposal": "fire-2",
+        "reason": "165% は上限150を超え、今が150で上げられない"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s01-1",
+        "fromBureau": "economy",
+        "question": "訪問 139 に比べて Tourism の週の収入が 45 しかない理由は何か"
+      },
+      {
+        "id": "s01-2",
+        "fromBureau": "roads",
+        "question": "信号を付けた後、街全体の流れと止まった車が基準からどれだけ動くか"
+      },
+      {
+        "id": "s01-3",
+        "fromBureau": "urban",
+        "question": "壊さずに公園を置ける場所がいくつ見つかるか"
+      }
+    ]
+  },
+  "ruling": null,
+  "ruling2": null,
+  "allowed": [
+    "m01-1",
+    "m01-2"
+  ],
+  "surveys": [
+    {
+      "id": "s01-1",
+      "fromBureau": "economy",
+      "question": "訪問 139 に比べて Tourism の週の収入が 45 しかない理由は何か"
+    },
+    {
+      "id": "s01-2",
+      "fromBureau": "roads",
+      "question": "信号を付けた後、街全体の流れと止まった車が基準からどれだけ動くか"
+    },
+    {
+      "id": "s01-3",
+      "fromBureau": "urban",
+      "question": "壊さずに公園を置ける場所がいくつ見つかるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m01-1",
+      "m01-2"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-01-11",
+        "population": 178916,
+        "money": 2092444,
+        "weeklyBalance": 7212,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-01-21",
+        "population": 178894,
+        "money": 2104469,
+        "weeklyBalance": 8606,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s01-1",
+      "s01-2",
+      "s01-3"
+    ],
+    "report": "m01-1(RecreationalUse 政策)と m01-2(節点 30603 の信号)を打てた。費用はどちらも 0。見回りは 2 回とも境目に当たらず、臨時はなかった。月末は 2050-01-31 で、人口は 179,073、所持金は 2,114,553、週の収支は +7,218。観光客は 1,646 から 1,584 に減り、Tourism は 45 から 54 に増えた。魅力度の平均 6 と高密度住宅の地価 58 は動かなかった。信号周りの blocked は 138 から 92、flow は 51 から 52 になった。ただし信号の前の街全体の値は測っていない。調査 s01-1 から s01-3 は council/m01-survey-*.md に書いた。s01-3 の test_place_building は、議案に候補座標がなく呼べなかった。週の収支は、基準の +9,965 より少し低い。hooks に止められた手はなく、型に従えなかった点もない。"
+  }
+}

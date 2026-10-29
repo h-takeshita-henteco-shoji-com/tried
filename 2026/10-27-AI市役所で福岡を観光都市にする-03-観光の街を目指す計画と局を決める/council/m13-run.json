@@ -1,0 +1,677 @@
+{
+  "month": 13,
+  "seen": {
+    "gameDate": "2051-01-06",
+    "saveName": "fukuoka-plan-m13",
+    "priorities": [
+      "5-1・5-2 観光(名所の道、旅客の入口、attractiveness)",
+      "8-1 物流・人流のゲートウェイ",
+      "6-4・7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "放棄された店の跡に JapaneseGarden を置き、公園を1つ増やす",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "公園(JapaneseGarden)の近くの高密度住宅の地価は、置いた後に上がるか",
+        "plan": "land_value(x 2168, z 194, radius 150)を見回り1と月末に呼び、平均 65 から動くかを見る。基準は ResidentialHigh の地価 60(building_stats radius 5000)"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点 (1536,-114) に信号を試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "名所 40850 の東側から道を1本試す",
+          "executionReady": true,
+          "buildCost": 320,
+          "upkeepPerWeek": 2.5,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "交通の流れの止まり33台(3297,-248)と30台(2257,307)は、居座りか、流れの戻りか。",
+        "plan": "traffic(x3297,z-248,r150)、traffic(x2257,z307,r150)を見回り1・見回り2・月末に測る。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "旅客の入口の候補は、電気・水・下水の経路が未確認か通らず、実行可の案を作れなかった。貨物センター28755の止まり(8-1)は、振り分けの手段を道具で確かめていないため施策にしない。詳細は council/m13-port.md の案なしと捨てたもの。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所 40850 に南回りの道をつなぐ",
+          "executionReady": true,
+          "buildCost": 1320,
+          "upkeepPerWeek": 10,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター28755の外へ出るトラックの止まりは、品物がない店240の原因になっているか。",
+        "plan": "vehicles_stuck(kind truck、building 28755、limit 5)と cargo を、見回り1・見回り2・月末に見る。止まりの台数と品物がない店の数が同じ方向に動けば、出口の改善を港湾空港局に求める。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "満杯の埋立地3つの空けを止め、長い運搬を減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "health-2",
+          "title": "焼却場 2267 を止め、汚染の印を減らす(試し。条件を満たしたときだけ)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1440,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "ごみの印(12)は、収集車の混みと止まりで増えているか。混みが減れば、ごみの印も減るか。",
+        "plan": "vehicles_stuck(kind=garbage)、complaints、traffic(x=3250,z=-250,r=250)を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "小学校の定員 14,268 は子ども 9,008 の158%、高校の定員 24,360 は10代 20,256 の120%で、2つの目標を満たしている。高校の休止の条件(余裕1,000を切る)も、余裕4,104で満たさない。教育予算を下げると高校の定員が10代を下回るため、捨てた。大卒の失業は働き口の不足が原因で、学校の定員では減らない。よって担当に効く手はなく、案なしにした。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "焼け跡の建物2棟の取り壊し(30596、6720)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "火事の印が同じ場所に続けて出るか。公園 19278 の火事の印が続くか、新しい場所に出るか",
+        "plan": "buildings_near(x=2000, z=-200, radius=2500, problem=Fire, brief=true)と complaints(Fire の件数)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "政策 EducationBoost を有効にし、大卒の失業への効きを試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 7940,
+          "reversible": true,
+          "planItems": [
+            "6-4",
+            "7-1"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "大卒の失業は、若者(young)と大人(adult)のどちらで多く、EducationBoost を有効にしたあとに内訳がどう動くか",
+        "plan": "citizens_summary と demand_breakdown を、見回り1・見回り2・月末に呼ぶ(引数なし)"
+      }
+    }
+  ],
+  "planReviews": [
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "要是正",
+          "corrections": [
+            "事業1のやめる条件(働き口か家を失う建物は壊さない)と、m13 の urban-1 が稼働中の店 6565(働き口4)を壊すことが矛盾する。許す範囲を数字で書き、案と合わせる。",
+            "取り壊しを伴う公園の数と、議決の回数の見込みを書く。"
+          ]
+        },
+        {
+          "bureau": "roads",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "port",
+          "verdict": "要是正",
+          "corrections": [
+            "事業1の段階に13月の試しの結果(東の貨物地区、空き地3は閉じた)を反映し、第14月までに道具で確かめる手(空き地5、島B、東の貨物地区の北の列で sewage が1の位置)を書く。",
+            "費用の見込みに、試しが通った入口の道 400 と水管 100 を足す。",
+            "事業2の費用「未定」を、振り分けの手段を確かめる道具と月に置き換える。"
+          ]
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "市の計画の 6-1(事務所レベル3 を 3,500以上。今 3,279)を目標に足す。",
+            "働き口 90,000、Tourism 1,000、attractiveness 12 を動かす事業を、道具で確かめた手で月と費用つきで書く(品物がない店の事業は調査に畳んでよい)。",
+            "12か月の建設費と週の維持費の増えの合計を書く。"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "税・予算を見直す引き金 +6,000 は、EducationBoost 後の見込み +4,464 ですぐ満たされる。引き金を直す。",
+            "守る線の下降規則(+4,900 を切る)と、Boost 後の +4,464 の関係を書く。",
+            "第4月の判定の条件に、他局の維持費の増え(駅 960、公園 約400、道 約12)を入れた見込みを足す。"
+          ]
+        }
+      ],
+      "adjustments": [
+        {
+          "bureaus": [
+            "port",
+            "health",
+            "fire",
+            "finance",
+            "roads"
+          ],
+          "decision": "局の計画の月は通し番号で書き、2年目の1月を第13月、12月を第24月とする。port・health・fire・finance の1〜12月は13〜24月に読み替え、roads の「12月末」は第24月末とする。"
+        },
+        {
+          "bureaus": [
+            "roads",
+            "economy"
+          ],
+          "decision": "名所 40850 の道は道路下水道局が引く。第13月は roads-2(東側、320)だけで、economy-1(南回り、1,320)は採らず、第14月に RoadNotConnected が残るときだけ道路下水道局が南回りを案にする。経済観光文化局は第13月末と第14月末に 40850 の Visitors と観光客を測って渡す。"
+        },
+        {
+          "bureaus": [
+            "finance",
+            "port",
+            "urban",
+            "health",
+            "roads"
+          ],
+          "decision": "週の維持費の余裕 9,404 を、Boost 7,940、駅 960、公園 約400、道 約12 に割り振る。駅の議案は Boost の判定(第16月末)後とし、Boost を残すときは health の 2267 停止(約 -1,440)が済んでいることを条件にする。"
+        },
+        {
+          "bureaus": [
+            "port",
+            "roads",
+            "economy"
+          ],
+          "decision": "旅客の入口は、駅・入口の道・水管・電線を港湾空港局が1つの案にまとめる。道路下水道局は第14月に、(3250,-1420) の北側を回る電線の経路を test_build_line で試して結果を渡す。"
+        },
+        {
+          "bureaus": [
+            "economy",
+            "port"
+          ],
+          "decision": "貨物センター 28755 の止まりは敷地の中の空き待ちが 609/611 なので、道の出口改善は求めず、港湾空港局の遊休センター 3940・4740 への振り分けの試しに一本化する。経済観光文化局は前後の noGoods を測って渡す。"
+        },
+        {
+          "bureaus": [
+            "economy",
+            "port"
+          ],
+          "decision": "入口を諦める切り替えの期限を港湾空港局に合わせて第16月末とし、置けなければ経済観光文化局は入口なしで名所と商業を伸ばす事業に計画を直す。"
+        },
+        {
+          "bureaus": [
+            "health",
+            "roads"
+          ],
+          "decision": "保健環境局が求めた東の出口 (3180〜3290,-164〜-254) の混みの確認は、道路下水道局の調査(traffic x 3297, z -248, r 150)で足りるとし、第13月の結果を保健環境局に渡す。"
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "要是正",
+          "corrections": [
+            "調整4の、第14月に (3250,-1420) の北を回る電線の経路を test_build_line で試して港湾空港局に渡す手を、月ごとの予定の14月に足す。",
+            "経済観光文化局が求めた事務所の空きに面する道の案への応え(第16月に区間を受け、第18月に案を出す。受けない条件も)を、求めることの欄に書く。",
+            "事業3の「12月末」を第24月末に直し、12か月の建設費と週の維持費の増えの合計を足す。"
+          ]
+        },
+        {
+          "bureau": "port",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "economy",
+          "verdict": "要是正",
+          "corrections": [
+            "「経済の分は割り振りの中に収まる」は誤り。調整8に合わせ、2267 停止まで名所は1棟(週320以下)、済んだら2棟までに直し、置く月も書く。",
+            "28755 の振り分け前後の noGoods を cargo で測る月(基準は第14月末、後は第18月末)を月ごとの予定に入れる。"
+          ]
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "要是正",
+          "corrections": [
+            "第16月の判定の他局の増え約1,372を実額に直す(公園は約136、名所640〜720を足す)。",
+            "下降規則の連続の数えに、health の 2267 停止(約 -1,440)が入る月を書き、上がれば数えが止まることを示す。",
+            "引き金 +4,000 を、駅と名所が入った後の見込みが割ることを書き、そのときの手順を1つ決める。"
+          ]
+        }
+      ],
+      "adjustments": [
+        {
+          "bureaus": [
+            "finance",
+            "economy",
+            "urban",
+            "port"
+          ],
+          "decision": "週の維持費の枠を組み替える。公園は実額約136(枠400から264が浮く)、駅960、Boost7,940、道約12で9,048、残り約356。health の 2267 停止(約-1,440)が済むまで名所は1棟(週320以下)、済んだら2棟まで。名所の1棟目は Boost の判定を待たず第16月に置いてよい。下降規則で止まったときの再開順は駅、名所、公園とする。"
+        },
+        {
+          "bureaus": [
+            "economy",
+            "port"
+          ],
+          "decision": "貨物センター 28755 の noGoods は、経済観光文化局が基準を第14月末、振り分けの試しの後を第18月末に cargo で測り、港湾空港局と財政局に渡す。"
+        },
+        {
+          "bureaus": [
+            "economy",
+            "roads"
+          ],
+          "decision": "事務所の空きに面する道は、経済観光文化局が第16月に区間を渡し、道路下水道局が第18月に案を出す。費用は道路下水道局が持ち、道が通らなければ経済観光文化局は6-1と働き口の事業を閉じる。"
+        }
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "bureau": "urban",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "roads",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "port",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "economy",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "health",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "education",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "fire",
+          "verdict": "可",
+          "corrections": []
+        },
+        {
+          "bureau": "finance",
+          "verdict": "可",
+          "corrections": []
+        }
+      ],
+      "adjustments": []
+    }
+  ],
+  "bill": {
+    "measures": [
+      {
+        "id": "m13-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店の跡に JapaneseGarden を置く",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m13-2",
+        "fromBureau": "roads-1",
+        "title": "交差点 (1536,-114) に信号(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m13-3",
+        "fromBureau": "roads-2",
+        "title": "名所 40850 の東に入口の道(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1、5-2"
+        ]
+      },
+      {
+        "id": "m13-4",
+        "fromBureau": "health-1",
+        "title": "埋立地3つの空けを止める",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-4"
+        ]
+      },
+      {
+        "id": "m13-5",
+        "fromBureau": "fire-1",
+        "title": "焼け跡の Villa 2棟を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m13-6",
+        "fromBureau": "finance-1",
+        "title": "EducationBoost を有効にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-4、7-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "economy-1",
+        "reason": "南回りの道は調整2で道路下水道局の roads-2 に任せたため、今月は経済観光文化局の案にしない。",
+        "kind": "不可",
+        "condition": ""
+      },
+      {
+        "proposal": "health-2",
+        "reason": "実行条件(Garbage 9以下、garbage.full 0、東の埋立地50%未満)は第14月の見回りで決まり、今月は満たせない。14月に出し直す。",
+        "kind": "不可",
+        "condition": ""
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s13-1",
+        "fromBureau": "economy",
+        "question": "40850(名所)の訪問と観光客は、道路が通ったあとで増えるか。"
+      },
+      {
+        "id": "s13-2",
+        "fromBureau": "roads",
+        "question": "交通の流れの止まり 33台(3297,-248)と 30台(2257,307)は、居座りか、流れの戻りか。"
+      },
+      {
+        "id": "s13-3",
+        "fromBureau": "finance",
+        "question": "大卒の失業は若者と大人のどちらで多く、EducationBoost を有効にしたあとに内訳がどう動くか。"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m13-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldoze で失う働き口4・家0を確認。代わりの手との比べもあり、4-2に沿う。"
+      },
+      {
+        "measureId": "m13-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、戻せる試し。守る線に影響しない。"
+      },
+      {
+        "measureId": "m13-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費320、維持費約2.5。守る線に収まる。"
+      },
+      {
+        "measureId": "m13-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で戻せる。"
+      },
+      {
+        "measureId": "m13-5",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "失うのは居住0の焼け跡の家2。代わりの手との比べがあり、前年の同じ手は効いた。"
+      },
+      {
+        "measureId": "m13-6",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費+7,940でも週の収支は約+4,421で+3,000の線の上。政策変更は月1件。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": "12か月の建設費は所持金の余裕に収まり、週の収支も+4,100以上で+3,000の線の上に残る。余裕は小さいため、下降規則に当たれば駅や名所の順番を調整する。"
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": "12か月の建設費は所持金の余裕に収まり、週の収支も+4,100以上で+3,000の線の上に残る。余裕は小さいため、下降規則に当たれば駅や名所の順番を調整する。"
+  },
+  "planRevised": null,
+  "allowed": [
+    "m13-1",
+    "m13-2",
+    "m13-3",
+    "m13-4",
+    "m13-5",
+    "m13-6"
+  ],
+  "surveys": [
+    {
+      "id": "s13-1",
+      "fromBureau": "economy",
+      "question": "40850(名所)の訪問と観光客は、道路が通ったあとで増えるか。"
+    },
+    {
+      "id": "s13-2",
+      "fromBureau": "roads",
+      "question": "交通の流れの止まり 33台(3297,-248)と 30台(2257,307)は、居座りか、流れの戻りか。"
+    },
+    {
+      "id": "s13-3",
+      "fromBureau": "finance",
+      "question": "大卒の失業は若者と大人のどちらで多く、EducationBoost を有効にしたあとに内訳がどう動くか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m13-1",
+      "m13-2",
+      "m13-3",
+      "m13-4",
+      "m13-5",
+      "m13-6"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-01-16",
+        "population": 178730,
+        "money": 2411172,
+        "weeklyBalance": 2216,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-01-26",
+        "population": 178688,
+        "money": 2414364,
+        "weeklyBalance": 2041,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s13-1",
+      "s13-2",
+      "s13-3"
+    ],
+    "report": "議案の6件をすべて打ちました。実行前の条件はすべて議案どおりで、予備候補は使っていません。月末は 2051-02-05 で、人口 178,202、所持金 2,419,253、週の収支 +3,922、観光客 1,847、Tourism 週49 です。\n- m13-1: 店2棟を壊し、JapaneseGarden(id 12077)を置きました。Beautification は 87 から 88 になりました。\n- m13-2: 信号を付け、(1536,-114) r150 の blocked が 51 から 30 に減りました。\n- m13-3: 道は引けました(費用 320)。終点は名所の約60m手前で、40850 は月末も RoadNotConnected のままです。\n- m13-4: 埋立地3つの空けを止めました。満杯は 0 のままですが、ごみの印は 12 から 14 に増えました。\n- m13-5: Villa 2棟を壊し、火事の印は 3 から 0 になりました。犯罪は 3 です。\n- m13-6: EducationBoost を有効にしました。大卒の失業は citizens_summary で 8,524 から 7,279 に減りました。判定は16月です。\n- 週の収支は、見回り1が +2,216、見回り2が +2,041 で、守る線 +3,000 を下回りました。月末は +3,922 に戻りました。赤字ではないので、境目には当たっていません。\n- 臨時は行わず、議決が要る道具も追加では使っていません。\n- 調査 s13-1〜s13-3 は council/m13-survey-economy.md、m13-survey-roads.md、m13-survey-finance.md に書きました。\n- 市政ノートと command-log.txt は更新済みです。\n- 長期計画を毎月作り直すかという質問は、市長の役目の外なので答えていません。親に任せます。"
+  }
+}

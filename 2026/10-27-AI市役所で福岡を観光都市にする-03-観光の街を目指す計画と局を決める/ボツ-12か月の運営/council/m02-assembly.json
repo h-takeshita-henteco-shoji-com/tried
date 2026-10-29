@@ -1,0 +1,7 @@
+{
+  "month": 2,
+  "rulings": [
+    {"measureId": "m02-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うもの(住宅1棟、家15、働き口0)が書かれ、preview_bulldoze とも一致。代わりの手との比較と人口への響きも書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

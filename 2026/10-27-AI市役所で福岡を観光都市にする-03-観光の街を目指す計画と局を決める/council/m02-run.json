@@ -1,0 +1,374 @@
+{
+  "month": 2,
+  "seen": {
+    "gameDate": "2050-01-31",
+    "saveName": "fukuoka-plan-m02",
+    "priorities": [
+      "5-1・5-2 観光",
+      "6-3 公共交通を主軸とした交通体系",
+      "4-3 脱炭素社会"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": false,
+      "noProposalReason": "今月(第2月)の予定は名所Aの効き目の測り直しと空き地3の並べ方の決定。A は平均15(基準9)で上がり、続ける。公園は道に面した空きがなく、空き地3は半径700m以内に道路がない(net_near)ため、道路の第4〜5月まで置けない。A の南の候補(2290,872)は家64を失う取り壊しになるため出せない。地価を動かす手は未確認。政策 RecreationalUse は調整15で後の月に回す。案を埋めるための案は出さず、地価の動きを見る調査を1件出した。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "名所Aの周りで、地価とattractivenessが月をまたいで上がり続けるか(4-1の地価を動かす手があるか)",
+        "plan": "land_value(x=2290,z=972,radius=300)、map_layer(attractiveness,x=2290,z=972,radius=200,n=9)、building_stats(x=2290,z=972,radius=300)のResidentialHighの地価を、見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-3",
+          "title": "島Bに道と名所の入口への支線を引き、電線を試す",
+          "executionReady": true,
+          "buildCost": 1920,
+          "upkeepPerWeek": 15,
+          "reversible": false,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-4",
+          "title": "幹線の交差点(-1820,-1010)と(-1820,-1100)に信号を付ける",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "旅客の駅を (3290,-1790) に置き、道と電気・水をつなぐ",
+          "executionReady": false,
+          "buildCost": 48280,
+          "upkeepPerWeek": 1010,
+          "reversible": false,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター13893(3529,-1555)に貨物トラックが実際に来て、28755の待ちを減らすか",
+        "plan": "vehicles_stuck(kind=truck, building=13893, limit=3)、buildings_near(x=3529, z=-1555, radius=30, limit=2)、cargo を見回り1と月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "2棟目の名所の候補地が、道具の試しでどこも置けなかった。店の跡3か所は名所の6×6が道路に当たり、空き地は道路が要る。B周り(n=9)の attractiveness 平均は8で、計画の見送り条件(14)に届かない。効きは調査で測り直すため、案は出さず調査を1件出す。政策は調整15により名所の結果が出た後に回す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "名所2棟(B、A)の効きが、観光客、訪問、Tourism の収入、B周りの attractiveness に出るか",
+        "plan": "city_info(tourists)、economy_breakdown(Tourism)、map_layer(attractiveness x=2118 z=482 r=150 n=9)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "焼却場2267を止めて、住宅近くの汚染を減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1440,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "焼却場2267を止めたあと、東の埋立地の容量が詰まらず、ごみの印が増えないか。",
+        "plan": "buildings_near(x=3300,z=200,radius=900,service=Garbage)とservices(garbage.full)を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "今月の予定は、高校と小学校の余裕を見て増え方を記録すること。小学校の定員は14,268で子ども11,100に対し余裕3,168、高校の定員は24,360で10代22,353に対し余裕2,007。両方とも目標を満たし、事業の発動条件(余裕1,000を切る)にも当たらない。教育の定員に効く政策は、有効済みのEducationBoost以外に見当たらない。案を出すと維持費だけが増えるため、案なしにした。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "火事の印7(4か所に散る)を減らす手の効きを、数字で決められない。東の集まりは消防署の届き具合が88以上ある。工場の区域の届き具合が低い所は、置ける場所が工場の取り壊しになる(雇用42〜48を失う)。試しの Fire House(2262,-1190)は道路・電気・水・下水を確認済みだが、効きは小さいと見込む。SmokeDetectors の市全体版は週57,754で守る線を破る。1月の調査が出ていないため、火事の場所が繰り返すかを2月に調べ、3月に判断する。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "火事の印は同じ場所で繰り返すか。繰り返す場所の届き具合は低いか",
+        "plan": "buildings_near(x=0, z=0, radius=5000, problem=\"Fire\", brief=true, limit=20) と map_layer(type=\"fire\", x=2050, z=-1000, radius=300, n=5)。見回り1、見回り2、月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "政策 SmallBusiness を有効にする(観光の収入を試す)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 311,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2 観光"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m02-1",
+        "fromBureau": "roads-3",
+        "title": "島Bに道と名所入口への支線を引く(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1、5-2"
+        ]
+      },
+      {
+        "id": "m02-2",
+        "fromBureau": "roads-4",
+        "title": "幹線の交差点2か所に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m02-3",
+        "fromBureau": "health-1",
+        "title": "焼却場2267を止める(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      },
+      {
+        "id": "m02-4",
+        "fromBureau": "finance-1",
+        "title": "政策 SmallBusiness を有効にする(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1、5-2"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "port-1",
+        "reason": "旅客線の端の座標が置いた後でしか分からず、Basic Road に SlopeTooSteep が残る。駅は戻せず、未確認のまま置けない。",
+        "kind": "条件付き",
+        "condition": "list_building_types の Train Station の ports から旅客線の端を計算し、その端から (3286,-1835) への Train Track の test_build_line が ok で、勾配を避けた Basic Road の点列も警告なしで ok になること"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s02-1",
+        "fromBureau": "health",
+        "question": "焼却場2267を止めたあと、東の埋立地の容量が詰まらず、ごみの印が増えないか"
+      },
+      {
+        "id": "s02-2",
+        "fromBureau": "economy",
+        "question": "名所2棟(B、A)の効きが、観光客、訪問、Tourism の収入、B の周りの attractiveness に出るか"
+      },
+      {
+        "id": "s02-3",
+        "fromBureau": "port",
+        "question": "貨物センター13893に貨物トラックが実際に来て荷を受けるか。来ないなら28755の待ちは道か駅の配置に原因があるか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "旅客の駅を (3290,-1790) に置き、道と電気・水をつなぐ",
+          "executionReady": false,
+          "buildCost": 48280,
+          "upkeepPerWeek": 1010,
+          "reversible": false,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m02-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費1,920、週の維持費+15で守る線に収まる。"
+      },
+      {
+        "measureId": "m02-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0。信号の維持費は小さく、守る線を破らない。"
+      },
+      {
+        "measureId": "m02-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "週の維持費が1,440減る。戻せる手。"
+      },
+      {
+        "measureId": "m02-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "週の維持費+311で、収支は+3,000を上回る。政策の変更は月1件。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m02-1",
+    "m02-2",
+    "m02-3",
+    "m02-4"
+  ],
+  "surveys": [
+    {
+      "id": "s02-1",
+      "fromBureau": "health",
+      "question": "焼却場2267を止めたあと、東の埋立地の容量が詰まらず、ごみの印が増えないか"
+    },
+    {
+      "id": "s02-2",
+      "fromBureau": "economy",
+      "question": "名所2棟(B、A)の効きが、観光客、訪問、Tourism の収入、B の周りの attractiveness に出るか"
+    },
+    {
+      "id": "s02-3",
+      "fromBureau": "port",
+      "question": "貨物センター13893に貨物トラックが実際に来て荷を受けるか。来ないなら28755の待ちは道か駅の配置に原因があるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m02-1",
+      "m02-2",
+      "m02-3",
+      "m02-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-02-10",
+        "population": 178767,
+        "money": 2034533,
+        "weeklyBalance": 14587,
+        "happiness": 85,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-02-20",
+        "population": 178788,
+        "money": 2055318,
+        "weeklyBalance": 14395,
+        "happiness": 85,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s02-1",
+      "s02-2",
+      "s02-3"
+    ],
+    "report": "4件とも打てた。m02-1は島Bの本線(1,600)と支線(320)が通り、支線は本線につながった。電線は議案どおり引いていない(test は ObjectCollision で断られた)。m02-2は2か所に信号を付け、月末の blocked は159から41になった。m02-3は焼却場2267を止めた。汚染の印は45から35、pollution の平均は93から67に下がったが、ごみの印は11から22に増えた。議案の中止条件(Garbage が15超)に当たり、3/2の月末に active=true へ戻した。m02-4はSmallBusinessを有効にした。Tourism は42から66になった(判定は4月)。月末(3/2)は人口178,639、所持金2,074,074、週の収支+12,912、観光客1,772。人口は1月から続けて減っている(公約1が未達)。見回りは2回とも境目に当たらず、臨時もなし。hooks に止められた手はない。ノートの月例の記録の「見たもの」「判断の根拠」「捨てたもの」の3節は書いていない。次の運営への申し送りは「次にやること」にある。市政ノートは /Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md。"
+  }
+}

@@ -19,7 +19,7 @@ BUREAUS = MAYOR / "bureaus"
 AGENTS = ROOT / ".claude/agents"
 
 # 案を出す7つの局。並びは council-interfaces.md の1のとおり
-BUREAU_SLUGS = ["urban", "roads", "port", "economy", "health", "education", "fire"]
+BUREAU_SLUGS = ["urban", "roads", "port", "economy", "health", "education", "fire", "finance"]
 
 # モデルは定義ごとに固定する(council-design.md の6.4)。inherit だと親の会話のモデルで変わる
 OPUS = "claude-opus-5-5"
@@ -81,6 +81,7 @@ def render(template, values):
 def definitions():
     """作る定義の一覧。(ファイル名, 中身)を返す。"""
     _, plan = load(MAYOR / "city-plan.md")
+    _, cmap = load(MAYOR / "city-map.md")
     mayor_name, mayor = load(MAYOR / "mayors/plan.md")
 
     read_tools = tools_line(["Read", "Write"], READ_ONLY)
@@ -90,20 +91,15 @@ def definitions():
     for slug in BUREAU_SLUGS:
         name, bureau = load(BUREAUS / f"{slug}.md")
         out.append((f"council-{slug}.md", render("bureau.md", {
-            "slug": slug, "name": name, "tools": read_tools, "bureau": bureau, "plan": plan,
+            "slug": slug, "name": name, "tools": read_tools, "bureau": bureau, "plan": plan, "map": cmap,
         })))
-
-    name, bureau = load(BUREAUS / "finance.md")
-    out.append(("council-finance.md", render("finance.md", {
-        "name": name, "tools": read_tools, "bureau": bureau, "plan": plan,
-    })))
 
     out.append(("council-assembly.md", render("assembly.md", {
         "tools": read_tools, "plan": plan,
     })))
 
     out.append(("council-mayor-desk.md", render("mayor-desk.md", {
-        "name": mayor_name, "tools": desk_tools, "mayor": mayor, "plan": plan,
+        "name": mayor_name, "tools": desk_tools, "mayor": mayor, "plan": plan, "map": cmap,
     })))
 
     out.append(("council-mayor-field.md", render("mayor-field.md", {

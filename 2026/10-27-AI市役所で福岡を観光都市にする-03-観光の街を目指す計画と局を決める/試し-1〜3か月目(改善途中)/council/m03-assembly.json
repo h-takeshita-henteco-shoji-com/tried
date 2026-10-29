@@ -1,0 +1,14 @@
+{
+  "month": 3,
+  "rulings": [
+    {"measureId": "m03-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 17,780、維持費 +94 で守る線に収まる。"},
+    {"measureId": "m03-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用 0、維持費 0 で守る線に響かない。"},
+    {"measureId": "m03-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用は未確認だが小さく、週の収支の余裕に収まる。中止条件あり。"},
+    {"measureId": "m03-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 最大 1,420、維持費 0 で守る線に収まる。"},
+    {"measureId": "m03-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用 0 で守る線に響かない。"},
+    {"measureId": "m03-6", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費を週 3,936 減らす施策で、下降の規則の対象外。"},
+    {"measureId": "m03-7", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 48,440、維持費 +1,010。打ったあとの所持金は約 2,057,900 で守る線の内。"}
+  ],
+  "approvedKinds": [],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

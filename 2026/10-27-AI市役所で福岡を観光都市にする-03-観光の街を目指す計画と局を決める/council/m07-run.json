@@ -1,0 +1,374 @@
+{
+  "month": 7,
+  "seen": {
+    "gameDate": "2050-06-30",
+    "saveName": "fukuoka-plan-m07",
+    "priorities": [
+      "5-1・5-2 観光",
+      "8-1 物流・人流のゲートウェイ",
+      "6-4・7-1 企業の立地、地場企業"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "風力の網の空きに公園を1か所置く(588,1232)",
+          "executionReady": true,
+          "buildCost": 1000,
+          "upkeepPerWeek": 8,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "公園を(588,1232)に置くと周り100mの地価(landvalue)は上がるか",
+        "plan": "map_layer landvalue x588 z1232 r100 n5 を見回り1と月末に見る(基準 平均2)"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "東の出口側 z=-318 の Basic Road 3区間を4車線にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "北東 z=560 の Basic Road 2区間を4車線にする",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "島Bの岸の Harbor は、11点の試しがすべて落ちた(HeightTooHigh、ObjectCollision、CannotConnect、SlopeTooSteep)。貨物センター周りの旅客の駅(2600,-1400 西向き)は、試しは ok(建設費 45,000、週 960)だが、入口の道が工場 20317、12401 にぶつかり、旅客線の接続も未確認のため、実行可否は未確認。28755 の空き待ち550台は原因が未確認で、道の差し替えの案は出せない。Airport は週 4,800 で守る線を割るので除外。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター28755の敷地の中で空き待ち(WaitingSpace)のまま止まるトラックは、時間がたっても減らないか。減らないなら、どの道や建物がふさいでいるか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=8)、cargo、traffic(x=3440, z=-1555, radius=150)を、見回り1、見回り2、月末に見る"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "電気の来ない名所 11580(空き地3)を取り壊す",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": -400,
+          "reversible": false,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "3基目の焼却場の候補地を3か所試したが、道が通る候補がなかった。道を通すには住宅2棟や貨物センターを壊す必要があり、取り壊しの議決を要する案は確かめる対象を8月に出し直す。健康は89で目標達成、ごみの印は8、汚染の印は23。SmokingBan と埋立地の空けは有効のまま保つ。Recycling は週の収支が守る線を割るので出さない。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "汚染の印は、10351の周りに残るか。2267の周りも残るか。9月に止める焼却場を決めるため。",
+        "plan": "buildings_near(problem=Pollution、x=2100、z=800、radius=1500、brief=true、limit=30)、map_layer(pollution、x=3600、z=-50、radius=400、n=5)、complaints を、見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "2-3 の学校の定員は目標を満たし、長期計画の基準(余裕1,000)を超えている。小学校の余裕は3,949、高校の余裕は2,433。計画の今月の予定どおり、置かない。大学の定員は若者を上回り、大卒の失業は働き口の不足が原因で、教育の手では直らない。政策 EducationBoost の解除は2-3 に効かないと見込むが、確かめていない。案の数は0。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "2050-06-30 時点で3-4 の火事と犯罪の合計は4で、目標(4以下)に届いている。残る火事の印3は焼け跡ではなく、稼働中の事務所2棟(957、27740、hotspot (2926,1470))。消防の届きは平均118あり、近くの消防車も出ている。原因が火元の側かは未確認のため、案ではなく調査を1件出す。煙探知機(街全体で週57,636)は守る線を超えるため不採用。消防署を足す案は届きと消防車が足りているため不採用。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "事務所2棟(957、27740)の火事の印が、7月の見回りと月末も続くか。続けば8月に火元の側の手を案にする",
+        "plan": "buildings_near(x=0, z=0, radius=8000, problem=\"Fire\", brief=true, limit=20)、buildings_near(x=2643, z=1437, radius=60, service=\"FireDepartment\", limit=3)。見回り1・見回り2・月末に見る"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "政策 EducationBoost を外す(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -7940,
+          "reversible": true,
+          "planItems": [
+            "6-1",
+            "6-4・7-1",
+            "5-1・5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m07-1",
+        "fromBureau": "urban-1",
+        "title": "風力の網の空きに公園を1か所(588,1232)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m07-2",
+        "fromBureau": "roads-1",
+        "title": "東の出口 z=-318 の3区間を4車線に",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m07-3",
+        "fromBureau": "roads-2",
+        "title": "北東 z=560 の2区間を4車線に",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m07-4",
+        "fromBureau": "finance-1",
+        "title": "政策 EducationBoost を外す(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-1"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "economy-1",
+        "reason": "名所が9から8に下がり、取り壊し後に島Bへ置けるかが未確認(取り壊しを仮定した試しも AlreadyExists)で、戻せない。",
+        "kind": "条件付き",
+        "condition": "島Bの(-4640,1520)で、11580を壊さずに置ける別の種類の名所を test_place_building で試して ok を示し、壊す案を残すなら、壊さずに11580へ届く支線の端を test_build_line で試した結果と維持費の差(週400)の比べを書くこと。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s07-1",
+        "fromBureau": "port",
+        "question": "貨物センター28755の敷地の中で空き待ちのまま止まるトラックは、時間がたっても減らないか。減らないなら何がふさいでいるか"
+      },
+      {
+        "id": "s07-2",
+        "fromBureau": "health",
+        "question": "汚染の印は焼却場10351の周りに残るか。2267の周りも残るか"
+      },
+      {
+        "id": "s07-3",
+        "fromBureau": "urban",
+        "question": "公園を(588,1232)に置くと、周り100mの地価は上がるか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "電気の来ない名所 11580(空き地3)を取り壊す",
+          "executionReady": false,
+          "buildCost": 0,
+          "upkeepPerWeek": -400,
+          "reversible": false,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m07-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費1,000、維持費+8で守る線に収まる。"
+      },
+      {
+        "measureId": "m07-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で守る線に影響しない。"
+      },
+      {
+        "measureId": "m07-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "費用0で守る線に影響しない。"
+      },
+      {
+        "measureId": "m07-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費が約7,940減り、政策の変更は月1件の上限内。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m07-1",
+    "m07-2",
+    "m07-3",
+    "m07-4"
+  ],
+  "surveys": [
+    {
+      "id": "s07-1",
+      "fromBureau": "port",
+      "question": "貨物センター28755の敷地の中で空き待ちのまま止まるトラックは、時間がたっても減らないか。減らないなら何がふさいでいるか"
+    },
+    {
+      "id": "s07-2",
+      "fromBureau": "health",
+      "question": "汚染の印は焼却場10351の周りに残るか。2267の周りも残るか"
+    },
+    {
+      "id": "s07-3",
+      "fromBureau": "urban",
+      "question": "公園を(588,1232)に置くと、周り100mの地価は上がるか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m07-1",
+      "m07-2",
+      "m07-3",
+      "m07-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-07-10",
+        "population": 179508,
+        "money": 2127433,
+        "weeklyBalance": 19012,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-07-20",
+        "population": 179856,
+        "money": 2151284,
+        "weeklyBalance": 16406,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s07-1",
+      "s07-2",
+      "s07-3"
+    ],
+    "report": "議案の4件は全部打てた。m07-1 は Regular Park 32260 を(588,1232)に置き、電気・水・下水が来た(費用1,000)。m07-2 は z=-318 の3区間、m07-3 は z=560 の2区間を4車線にした(どちらも費用0)。m07-4 は EducationBoost を外した。月末(7/30)は人口180,138、所持金2,174,932、週の収支+16,355、観光客1,744(Tourism 週32)。見回りは境目に当たらず、臨時なし。hooks に止められた手もなし。月末の計測は、m07-2 の blocked が60→17に減り、m07-3 は41→47に増えた。m07-4 は Education 支出が48,120→38,592に下がったが、大卒の失業は5,508→5,954に増えた。事務所レベル3は3,260→3,262で、判定は8月。貨物センター28755の止まった車は645台で、周辺の道路の blocked は0。調査 s07-1〜s07-3 は council/m07-survey-port.md、m07-survey-health.md、m07-survey-urban.md に記録した。月末の s07-1 では cargo を呼んでいない(見回り2の値が最新)。市政ノートは mayor-note.md に追記済み。"
+  }
+}

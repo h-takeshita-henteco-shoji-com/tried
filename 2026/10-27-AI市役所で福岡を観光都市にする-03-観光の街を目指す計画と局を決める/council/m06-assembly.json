@@ -1,0 +1,13 @@
+{
+  "month": 6,
+  "rulings": [
+    {"measureId": "m06-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 1,240、維持費 約 9.8。守る線に収まる。"},
+    {"measureId": "m06-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 約 1,500、維持費の増え 0。守る線に収まる。"},
+    {"measureId": "m06-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費 約 285、維持費の増え 0。守る線に収まる。"},
+    {"measureId": "m06-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用 0。政策の変更は月1件の範囲。"},
+    {"measureId": "m06-5", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用 0、維持費の増え 0。"},
+    {"measureId": "m06-6", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うもの(働き口 0、家 0、小学校定員 348、公園 1)と代わりの手が書かれ、preview_bulldoze で確認できた。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

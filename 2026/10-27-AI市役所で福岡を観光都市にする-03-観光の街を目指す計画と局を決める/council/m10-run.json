@@ -1,0 +1,349 @@
+{
+  "month": 10,
+  "seen": {
+    "gameDate": "2050-10-08",
+    "saveName": "fukuoka-plan-m10",
+    "priorities": [
+      "5-1・5-2 観光(名所と attractiveness、Tourism の収入)",
+      "5-1・5-2(入口) 旅客の駅・港・空港",
+      "6-1 都心部の機能強化"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "電気の届く道沿いに公園を1か所足す(762,1368)",
+          "executionReady": true,
+          "buildCost": 1000,
+          "upkeepPerWeek": 8,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "旅客の駅(空き地3)への道・水道管・送電線",
+          "executionReady": false,
+          "buildCost": 2220,
+          "upkeepPerWeek": 30,
+          "reversible": true,
+          "planItems": [
+            "6-3",
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "本土の名所(1580,-530)に送電線を通す",
+          "executionReady": false,
+          "buildCost": 280,
+          "upkeepPerWeek": 6,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "東の (1868,95) 付近の blocked 37 は、(1880,110) の交差点の待ちか、幹線の途中の詰まりか。",
+        "plan": "traffic(x=1868,z=95,radius=100,limit=5)と junction_info(x=1880,z=110)を、見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "旅客の入口(空き地3の旅客の駅 (700,1700))は、必須の実行条件が確認できなかった。水道管は試しが通った(1,260)が、電気の直線は風力19235と公園473にぶつかって断られ、下水の網は半径1,500m内になく、外への線路も未確認。港の岸の候補4点は HeightTooHigh か既存のドックとぶつかった。空港は週4,800の維持費が守る線の余裕をほぼ使うため出さない。28755の止まり(540台)は原因が未確認のため、案ではなく調査で確かめる。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物駅28755の敷地の中で待つ540台は、積み出し口の数で頭打ちになっているか、道の混みか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=10)、traffic(x=3440, z=-1550, radius=150)、cargo を見回り1・見回り2・月末に呼ぶ。敷地内の待ちが溜まり道が空いていれば、11月に貨物駅を増やす試しを出す。道の blocked が増えていれば、道の差し替えを道路下水道局に求める。"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所 Servicing Services を (1580, -530) に置き、道と電気と水をつなぐ",
+          "executionReady": false,
+          "buildCost": 21200,
+          "upkeepPerWeek": 348,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "名所 Servicing Services を (1580,-530) に置いたあと、attractiveness の平均が置く前の基準より増えるか。",
+        "plan": "月末に map_layer(attractiveness, x 1580, z -530, radius 300, n 5) と buildings_near(service Monument, x 1580, z -530, radius 300) を見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "焼却場 10351 を止めて、北東の汚染の印を減らす(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1440,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "死体の印(Death、34棟、中心 (2213,-139))は、霊柩車が届かないためか、墓地・火葬場が遠いためか。",
+        "plan": "buildings_near(x=2213,z=-139,r=300,problem=Death,brief)、vehicles_stuck(kind=hearse,limit=10)、services(deathcare)を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "学校の定員は2つの目標を満たしている。小学校の余裕は4,659、高校の余裕は3,057で、計画の「余裕が1,000を切ったら置く」に当たらない。EducationBoost の有効化は週7,940の増えで守る線+3,000を割るため採らない。大卒の失業は学校の定員では解けない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "10月は火事2、犯罪4で合計6。目標4以下を外れたが、犯罪の印が3以上なのは10月の1か月だけで、事業1の条件(3か月続けて3以上)は未達。移す手の前提「警察の効きが届いていない」は外れた(犯罪の山の近くの効きは138〜179)。火事2は1棟ずつ別の場所で、同じ場所の続きもない。政策 SmokeDetectors は週57,882で採れない。原因が分からないため案は出さず、調査で犯罪の山(3704,-73 付近)が続くかを見る。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "犯罪の印4の山(3704,-73 付近と 4004,-373 付近)は2か月続くか。警察の効きが届いているのに出る原因は何か。",
+        "plan": "complaints(引数なし)、map_layer type=crime x=3704 z=-73 radius=300 n=3、buildings_near x=3704 z=-73 radius=400 problem=Crime brief=true を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "10か月目は、9月の事務所税(3%から2%)の試しの途中で、判定は11月。試しの数字(事務所の建設と大卒の失業)を別の手で動かすと切り分けられないため、EducationBoost の再投入は見送った。EducationBoost(週 7,940)は守る線の余裕(約 5,997)と調整19の10月の上限(週 3,700)を超える。予算の減りで枠を作る案は、健康と治安への効きが未確認で、残り2か月では判定できない。観光の数字は財政の手では動かない。計画は10月を観察と定めており、前提(週の収支 +8,997、守る線の上)も崩れていないので、計画は直さない。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "事務所税2%で、事務所の建設が増えたか、大卒の失業が下がったか。",
+        "plan": "new_buildings(since=95581)、demand_breakdown(university の unemployed)、city_info(週の収支)を、見回り1・見回り2・月末に見る。事務所の建設が増え大卒の失業が下がれば11月に2%を続け、建設0で失業が上がれば3%へ戻す案を出す。"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m10-1",
+        "fromBureau": "urban-1",
+        "title": "公園を(762,1368)に1か所置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m10-2",
+        "fromBureau": "health-1",
+        "title": "焼却場10351を止める試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "roads-1",
+        "reason": "駅の場所が決まらず下水の網もないため、線だけ引いても無駄になる。",
+        "kind": "不可",
+        "condition": ""
+      },
+      {
+        "proposal": "roads-2",
+        "reason": "economy-1と同じ(1580,-530)で、電気待ちの建物がある根拠が道具で確かめられていない。",
+        "kind": "不可",
+        "condition": ""
+      },
+      {
+        "proposal": "economy-1",
+        "reason": "電気と水のつなぎ口の位置と、入口の道路が既存道路につながる形が未確認。",
+        "kind": "条件付き",
+        "condition": "list_building_typesのportsから電気・水のつなぎ口を計算し、その点を終点にしたPower LineとWater Pipeのtest_build_lineがokになり、入口の道路が既存道路のnodeにつながるとnet_nearで確かめられること。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s10-1",
+        "fromBureau": "finance",
+        "question": "事務所税2%で、事務所の建設が増えたか、大卒の失業が下がったか。"
+      },
+      {
+        "id": "s10-2",
+        "fromBureau": "health",
+        "question": "死体の印34棟は、霊柩車が届かないためか、墓地・火葬場が遠いためか。"
+      },
+      {
+        "id": "s10-3",
+        "fromBureau": "fire",
+        "question": "犯罪の印4の山は2か月続くか。警察の効きが届いているのに出る原因は何か。"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "名所 Servicing Services を (1580, -530) に置き、道と電気と水をつなぐ",
+          "executionReady": false,
+          "buildCost": 21200,
+          "upkeepPerWeek": 348,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m10-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費1,000、週の維持費+8で守る線に収まる。"
+      },
+      {
+        "measureId": "m10-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "週の維持費-1,440で収支は良くなる。守る線に収まる。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m10-1",
+    "m10-2"
+  ],
+  "surveys": [
+    {
+      "id": "s10-1",
+      "fromBureau": "finance",
+      "question": "事務所税2%で、事務所の建設が増えたか、大卒の失業が下がったか。"
+    },
+    {
+      "id": "s10-2",
+      "fromBureau": "health",
+      "question": "死体の印34棟は、霊柩車が届かないためか、墓地・火葬場が遠いためか。"
+    },
+    {
+      "id": "s10-3",
+      "fromBureau": "fire",
+      "question": "犯罪の印4の山は2か月続くか。警察の効きが届いているのに出る原因は何か。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m10-1",
+      "m10-2"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2050-10-18",
+        "population": 180059,
+        "money": 2284474,
+        "weeklyBalance": 10705,
+        "happiness": 89,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-10-28",
+        "population": 179947,
+        "money": 2298936,
+        "weeklyBalance": 10145,
+        "happiness": 89,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s10-1",
+      "s10-2",
+      "s10-3"
+    ],
+    "report": "m10-1 と m10-2 を打ち、境目に当たらず臨時もなかった。hooks に止められた手はなく、取り壊しもしていない。\n- m10-1: 公園 19278 を (762,1368) に置いた。費用 1,000、入口の道 15421 に距離10、電気あり。Beautification は 85 から 86 棟になった。\n- m10-2: 焼却場 10351 を停止した。月末(11/7)の Pollution は 27 から 30 に増えた。ただし、集まりは (3665,-85) に移っていて、10351 の周りではない。map_layer の平均は 78 から 72 に下がった。\n- Garbage は 7 から 9、13、8 と動いたが、15 を超えなかったので戻していない。\n- 月末の数字は、人口 179,848、所持金 2,313,772、週の収支 +10,680、観光客 1,763、Tourism 週 27。人口は 10/8 の 180,117 から減り、Tourism は 10/8 の 42 から減った。\n- 調査 s10-1〜3 は council の m10-survey-finance.md、m10-survey-health.md、m10-survey-fire.md に書いた。\n- 手順のずれ: 月末(11/7)の計測は 3 回目の advance の後で行った。調査の引数は見回り時点のもので、月末は一部(hearse、crime のマップ)を呼んでいない。\n- ログは command-log.txt に写した。市政ノートは追記済み。"
+  }
+}

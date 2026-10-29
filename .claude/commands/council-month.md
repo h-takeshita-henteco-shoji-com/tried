@@ -29,7 +29,7 @@ description: 市役所と議会のハーネスで、街を1か月運営する(�
    ```bash
    python3 code/ai-mayor/tools/extract_transcript.py <id> "<運営のフォルダ>/transcripts/mMM-<役>.md" --raw-dir ~/ai-mayor-transcripts/council
    ```
-   id は Workflow の記録から読む。役は mayor-desk、mayor-field、finance、assembly、7つの局
+   id は Workflow の記録から読む。役は mayor-desk、mayor-field、assembly、8つの局(財政局 finance を含む)。差し戻しがあった月は、再調査した局を `<局>-recheck` の名前で足す
 9. 台帳と議事録を作る
    ```bash
    python3 code/ai-mayor/tools/make_council_ledger.py "<運営のフォルダ>" <月>
@@ -39,7 +39,7 @@ description: 市役所と議会のハーネスで、街を1か月運営する(�
 11. 人に報告する。順番は次のとおり
     - 運営した期間(ゲーム内の日付)と、止まった理由
     - 編成方針の重点
-    - 局の案の数、査定(可 / 減額 / 不可)、採った施策と議決
+    - 局の案の数、採った施策、差し戻し(再調査した案)、議会の判断(議案の点1〜4と、財政の点5。1か月目は長期計画の判定)
     - 実行の結果と見回り
     - hooks の拒否と、型から外れたこと
     - 議事録のパス

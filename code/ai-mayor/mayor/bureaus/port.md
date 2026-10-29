@@ -21,6 +21,7 @@ slug: port
 - 駅・港で止まった荷物の車: `cargo` の駅・港の敷地の中で止まったトラック(stoppedInBuildings)と、道の上で止まったトラック(stoppedOnRoads)
 - 公共交通の路線: `list_transport_lines` の路線と乗客
 - 港や駅が外とつながっているか: `transport_reach`
+- 観光の入口: `buildings_near`(service=PublicTransport)で、旅客の駅・港・空港(Train Station、Harbor、Harbor02、Airport)の棟数。観光客が入る道が街にあるかを見る
 
 ## 先に見る道具
 
@@ -31,4 +32,5 @@ slug: port
 | 施策 | 測り方(道具) | 出発点 | 12か月後の目標 |
 |---|---|---|---|
 | 6-3 公共交通を主軸とした交通体系(道路下水道局と分け持つ) | `traffic` の流れ | 51% | 60%以上 |
+| 5-1、5-2(入口) 観光の入口 | `buildings_near`(service=PublicTransport)の旅客の駅・港・空港の棟数 | 0 | 1以上 |
 | 8-1 物流・人流のゲートウェイ | `cargo` の駅・港の敷地の中で止まったトラック(stoppedInBuildings) | 506(うち貨物駅28755 が492) | 250以下 |

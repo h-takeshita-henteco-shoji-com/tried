@@ -10,7 +10,7 @@
 
 変換の決まり(前回までの公開記事の形に合わせた):
     - 1行目の `# ` はタイトルとして本文から外す
-    - `## ` は h2
+    - `## ` は h2、`### ` は h3(note の小見出し)
     - 空行で区切った塊を1つの段落にし、塊の中の改行は <br> にする
     - `> ` は引用
     - `**太字**` は strong、`*斜体*` は記号を外して地の文にする
@@ -73,6 +73,8 @@ def convert(markdown):
         if b[0].startswith("```"):
             code = "\n".join(b[1:-1] if b[-1].startswith("```") else b[1:])
             out.append(f"<pre><code>{html.escape(code, quote=False)}</code></pre>")
+        elif b[0].startswith("### "):
+            out.append(f"<h3>{inline(b[0][4:])}</h3>")
         elif b[0].startswith("## "):
             out.append(f"<h2>{inline(b[0][3:])}</h2>")
         elif b[0].startswith("!["):

@@ -1,0 +1,10 @@
+{
+  "month": 24,
+  "rulings": [
+    {"measureId": "m24-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うのは放棄店1棟で働き口0・家0。preview_bulldozeで確認。代わりの手より損失が小さい。"},
+    {"measureId": "m24-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、維持費の増え0。守る線に影響しない。"},
+    {"measureId": "m24-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費が約-160で減る。守る線は守れる。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": ""}
+}

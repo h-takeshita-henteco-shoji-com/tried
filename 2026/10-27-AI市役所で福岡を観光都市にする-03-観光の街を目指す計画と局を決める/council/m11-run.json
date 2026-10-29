@@ -1,0 +1,436 @@
+{
+  "month": 11,
+  "seen": {
+    "gameDate": "2050-11-07",
+    "saveName": "fukuoka-plan-m11",
+    "priorities": [
+      "5-1・5-2 観光(名所・attractiveness・Tourism)",
+      "5-1・5-2(入口) 旅客の駅・港・空港",
+      "8-1 物流・人流のゲートウェイ"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "電気の届く道沿いに公園を1か所足す(658,1400)",
+          "executionReady": true,
+          "buildCost": 1000,
+          "upkeepPerWeek": 8,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点 (2280,-950) に信号を試す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "(-1678,-1323) 周りの止まった車(r150で63台)は、どの区間の待ちで、数が動くか",
+        "plan": "traffic(x=-1678, z=-1323, radius=150) を 見回り1・見回り2・月末に測る"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "旅客の入口(5-1、5-2)は、解禁済みの旅客の駅・港・空港がすべて下水を要るが、確かめた候補(空き地3 (700,1700)、貨物港32211 の近く、貨物センター48243 の周り)のどれも、実行条件を満たさなかった。下水の網は空き地3の半径1,500m内、港の候補の半径400m内になく、下水管も解禁済みの一覧にない。48243 の周りは水・下水・電気があるが、外への線路が2,933mで、事務所の密集地を通り、試しで断られた。8-1 の貨物センター28755 の止まり(580台、すべて敷地の中の空き待ち)は、原因が分からないため案にせず、調査を出した。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター28755 の敷地の中の空き待ち(580台)は、出口の道の込みで減らないのか、敷地の出口の接続の込みで続くのか。",
+        "plan": "vehicles_stuck(kind=truck, building=28755, limit=8)と traffic(x=3440, z=-1555, radius=150)を、見回り1・見回り2・月末に見る。空き待ちが減るか、道の blockedSpots が近くにあるかで次の手を決める"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "観光の名所 Servicing Services を東の空き地に置き、道・電気・水をつなぐ",
+          "executionReady": true,
+          "buildCost": 21040,
+          "upkeepPerWeek": 340,
+          "reversible": true,
+          "planItems": [
+            "5-1、5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "名所(1580,-530)の周りの attractiveness と観光客は、置く前より上がるか",
+        "plan": "map_layer(attractiveness, x=1580, z=-530, radius=300, n=5)、buildings_near(service=Monument, x=1580, z=-530, radius=60, brief=true)、city_info を、見回り1と月末に見る"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "焼却場 2267 の運び先に埋立地を空き地へ置き、2267 を止める",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-3",
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "死体の印(34棟)は、霊柩車が7日以上止まる場所と重なるか。",
+        "plan": "vehicles_stuck(kind=hearse, limit=10) と complaints(Death の hotspot)を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "2-3 の担当の数字は今月も目標を満たしている。小学校の定員 14,268 が子ども 9,363 を、高校の定員 24,360 が10代 20,993 を上回る。余裕は小学校 4,905、高校 3,367 で、長期計画の置く条件(余裕 1,000 を切る)に当たらない。第11月の予定は「余裕の推移を見る」で、計画は直さない。学校の新設は、余裕がある今は週の維持費だけ増える。EducationBoost(週 7,940)は学校の定員を増やさず、かけると週の収支が約 +2,740 となり守る線 +3,000 を割るため出さない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "焼け跡の事務所 37356(3508.3,-274.7)を取り壊す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": false,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "(3604,-373) 付近の犯罪率が、警察の効きが届いているのに高いのは、地価の低さが原因か。",
+        "plan": "map_layer(crime、x=3604、z=-373、radius=300、n=3)、land_value(x=3604、z=-373、radius=300)、buildings_near(x=3604、z=-373、radius=300、problem=Crime、brief=true) を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "事務所税を 2% から 3% に戻す",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-1"
+          ],
+          "needsVote": true,
+          "voteKind": "税"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m11-1",
+        "fromBureau": "economy-1",
+        "title": "名所 Servicing Services を (1580,-530) に置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "5-1",
+          "5-2"
+        ]
+      },
+      {
+        "id": "m11-2",
+        "fromBureau": "urban-1",
+        "title": "公園 Regular Park を (658,1400) に置く",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m11-3",
+        "fromBureau": "fire-1",
+        "title": "焼け跡の事務所 37356 を取り壊す",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "3-4"
+        ]
+      },
+      {
+        "id": "m11-4",
+        "fromBureau": "finance-1",
+        "title": "事務所税を 3% に戻す",
+        "needsVote": true,
+        "voteKind": "税",
+        "planItems": [
+          "財政"
+        ]
+      },
+      {
+        "id": "m11-5",
+        "fromBureau": "roads-1",
+        "title": "交差点 (2280,-950) に信号を付ける(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m11-6",
+        "fromBureau": "health-1",
+        "title": "埋立地を (3250,-362) に置き、条件付きで焼却場 2267 を止める",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3",
+          "4-4"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s11-1",
+        "fromBureau": "port",
+        "question": "貨物センター28755 の敷地の中の空き待ちは、出口の道の込みか、敷地の中の出口の込みか。"
+      },
+      {
+        "id": "s11-2",
+        "fromBureau": "economy",
+        "question": "名所 (1580,-530) を置いた後、周りの attractiveness と観光客は上がったか。"
+      },
+      {
+        "id": "s11-3",
+        "fromBureau": "roads",
+        "question": "(-1678,-1323) 周りの止まった車は、どの区間の待ちで、数が動くか。"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "焼却場 2267 の運び先に埋立地を空き地へ置き、2267 を止める",
+          "executionReady": true,
+          "buildCost": 4000,
+          "upkeepPerWeek": 160,
+          "reversible": true,
+          "planItems": [
+            "4-3",
+            "4-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "死体の印(34棟)は、霊柩車が7日以上止まる場所と重なるか。",
+        "plan": "vehicles_stuck(kind=hearse、limit=10)と complaints(引数なし)を、見回り1と月末に見る"
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m11-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費21,040、維持費+340で守る線に収まる。"
+      },
+      {
+        "measureId": "m11-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費1,000、維持費+8で守る線に影響しない。"
+      },
+      {
+        "measureId": "m11-3",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldozeで失う働き口0、家0、電気影響0を確認。代わりの手も書かれている。"
+      },
+      {
+        "measureId": "m11-4",
+        "verdict": "可決",
+        "kind": "税",
+        "point": null,
+        "reason": "変更幅+1で上限内。2%の試しの結果を踏まえた理由があり、収支は上向く。"
+      },
+      {
+        "measureId": "m11-5",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0で戻せる。守る線に影響しない。"
+      },
+      {
+        "measureId": "m11-6",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費4,000、維持費+160で守る線に収まる。2267停止で維持費は減る。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m11-1",
+    "m11-2",
+    "m11-3",
+    "m11-4",
+    "m11-5",
+    "m11-6"
+  ],
+  "surveys": [
+    {
+      "id": "s11-1",
+      "fromBureau": "port",
+      "question": "貨物センター28755 の敷地の中の空き待ちは、出口の道の込みか、敷地の中の出口の込みか。"
+    },
+    {
+      "id": "s11-2",
+      "fromBureau": "economy",
+      "question": "名所 (1580,-530) を置いた後、周りの attractiveness と観光客は上がったか。"
+    },
+    {
+      "id": "s11-3",
+      "fromBureau": "roads",
+      "question": "(-1678,-1323) 周りの止まった車は、どの区間の待ちで、数が動くか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m11-3",
+      "m11-4",
+      "m11-5"
+    ],
+    "failed": [
+      "m11-1",
+      "m11-2",
+      "m11-6"
+    ],
+    "failedReasons": [
+      {
+        "id": "m11-1",
+        "reason": "部分実行。名所 Servicing Services (id 40850) は置けた(費用20,000)。送電線は終点を (1640,-526) に短くして引き、水道管も引いた。grid は electricity/water/sewage が true。入口の道は引けなかった。議案の道は建物の外形(96x104)に重なると test_build_line が断った(overlaps 40850)。端点を動かした3つの経路も、40850 または店 17073、3389 に重なって断られた。problems は RoadNotConnected のまま。名所は10棟になった。"
+      },
+      {
+        "id": "m11-2",
+        "reason": "見送り。実行前の map_layer(electricity_service, x=658, z=1400, radius=10) の average が0(中央の点も0)で、議案の中止条件に当たった。test_place_building は ok のまま。"
+      },
+      {
+        "id": "m11-6",
+        "reason": "部分実行。埋立地 39575 は置けた(費用4,000、入口の道 segment 2880)。焼却場 2267 は止めなかった。見回り1で complaints の Garbage は6だったが、services の garbage.full が2(24569、48698)で、議案の条件(0)に合わなかった。"
+      }
+    ],
+    "patrols": [
+      {
+        "gameDate": "2050-11-17",
+        "population": 179825,
+        "money": 2315777,
+        "weeklyBalance": 18525,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2050-11-27",
+        "population": 179798,
+        "money": 2338772,
+        "weeklyBalance": 15802,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s11-1",
+      "s11-2",
+      "s11-3"
+    ],
+    "report": "議決が要る m11-3(焼け跡の事務所 37356 の取り壊し)と m11-4(事務所税 2%→3%)を、advance の前に打った。m11-5 の信号は付けた。m11-1 は名所を置けたが、入口の道は建物の外形に重なって引けなかった(RoadNotConnected)。電気と水は届いた。m11-2 の公園は電気の中止条件に当たり見送った。m11-6 は埋立地を置いたが、garbage.full が2で、2267 は止めなかった。月末は 2050-12-07。人口 179,547(11/7 の 179,848 から減少)、所持金 2,358,955、週の収支 +13,509。観光客 1,725、Tourism 週42、名所10棟。信号の blocked は見回りでは2と0で、月末は82(基準72)だった。月末は見回りではないので外していない。境目に当たらず、臨時は行っていない。hooks に止められた手はなかった。市政ノート: /Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md"
+  }
+}

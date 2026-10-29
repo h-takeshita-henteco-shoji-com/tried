@@ -1,0 +1,325 @@
+{
+  "month": 20,
+  "seen": {
+    "gameDate": "2051-08-04",
+    "saveName": "fukuoka-plan-m20",
+    "priorities": [
+      "5-1、5-2 観光(旅客の入口、島・空き地の名所)",
+      "8-1、6-4 貨物センターの止まったトラックと品物がない店",
+      "4-4 資源循環(道のない埋立地、満杯の埋立地)"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "道に面した放棄店の跡(2176,443)に公園 JapaneseGarden を1つ置く",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": false,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": true,
+          "voteKind": "取り壊し"
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "公園の周りの住宅(高密度)の地価が66→67で止まるのは、汚染と騒音のどちらが押さえているからか。",
+        "plan": "map_layer(type=pollution, x=2168, z=194, radius=300, n=9)、map_layer(type=noise, x=2168, z=194, radius=300, n=9)、land_value(x=2168, z=194, radius=200)を、見回り1と月末に見る。"
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "支線 x=2668 と z=560 の東端を Small 4 Lane にする(止まりの上位、2655,502 付近)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        },
+        {
+          "id": "roads-2",
+          "title": "幹線 z=100 の交差点 (1300,100) の両側を Large Road にする(止まりの上位、1302,120 付近)",
+          "executionReady": true,
+          "buildCost": 400,
+          "upkeepPerWeek": 2,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "交差点 (2700,330) の北脚(2660,318 付近、止まり 17 台)の止まりは、信号の待ちか、支線 x=2668 からの流入か。",
+        "plan": "traffic(x=2700, z=330, radius=100, limit=4) と junction_info(x=2700, z=330) を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "port-1",
+          "title": "路線28の予算を下げて、バスの台数を減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": true,
+          "voteKind": "予算"
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": false,
+      "noProposalReason": "名所の候補を4か所試したが、置ける場所を確かめられなかった。中心(0,-1500)と南西(-1133,-800)は空きがなく、Transport Tower の試しが ObjectCollision で断られた。島B(-4850,1800)は置く位置だけ ok で、水・下水の管と入口の道がない。空き地3(745,1500)は道と重なる。観光の入口は港湾空港局の担当。取り壊しの案は、失う住宅と働き口を見積もる前なので出さない。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "名所の訪問は、外とのつなぎ口から来る道の車の流れに近いところほど多いか。",
+        "plan": "見る道具は buildings_near(x 0、z 0、service Monument、radius 9000、brief false、limit 10)、trade、city_info。見回り1・見回り2・月末に見て、訪問の多い名所の位置がつなぎ口の道に並ぶかを確かめる。"
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": false,
+      "noProposalReason": "第20月の計画は、ごみの印と埋立地の受け入れを見る月で、案は入っていない。満杯の空けは12880と45892が進行中で、3つ目を足すと効きが測れない。汚染22の出どころは未確定で、2267の移し替えは22月の計画どおり。Recycling(街全体)は住宅税約-13,000/週(計算値)で守る線+3,000を割るため採らない。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "稼働中の焼却場2267の周りで、地面の汚染(中心の最大値と平均)と汚染の印の住宅は、この1か月でどう動くか",
+        "plan": "map_layer(type=pollution, x=3600, z=-60, radius=300, n=7)、buildings_near(x=3600, z=-60, radius=300, problem=Pollution, brief=true)、complaints。見回り1・見回り2・月末に測る"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "担当の数字は目標を満たしている(小学校の定員 13,224 >= 子ども 9,017、高校の定員 24,360 >= 10代 17,997)。19月に止めた小学校 25802 の窓は、20月末に最小3で0なしと判定し、止めたまま続ける。4校目を止める手は、候補ごとの覆いの最小(3)への効きを先に確かめる必要があり、今月は見送る(21月に候補を確かめて試しで出す)。高校は余裕6,363で置く条件に届かない。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": false,
+      "noProposalReason": "3-4 の合計は火事1・犯罪1で2となり、目標の4以下を満たしています。長期計画の20月の予定は案なしで、焼け跡の放棄建物はなく(23175 は焼け跡ではなく火事の印のある住宅)、火事の場所は前月と別で同じ場所の連続もなく、届きは平均144で足りています。焼け跡の取り壊しは18・19月に合計を下げなかったため、長期計画の事業1を見直し、焼け跡が2か月続くまで取り壊しを案にしないことにしました。",
+      "proposals": [],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": false,
+      "noProposalReason": "守る線の余裕が4,697と小さく、住宅税の減税は出せない。人口の減りは転入と転出の切り分けが未確定で、税と政策を動かす根拠が足りない。警察の予算の下げは、犯罪の濃い所が東にあり見送り。医療の予算の下げは墓地が63%で条件を満たさない。原因を絞る調査 s20-1 を1件出す。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "人口の減りは、転入が少ないことと転出が多いことのどちらが主か。",
+        "plan": "city_info(population)、citizens_summary(movingIn、age)、demand_breakdown(emptyHomes)を、見回り1・見回り2・月末に見る。movingIn が10以上を保って減るなら転出が主で、住民の困りごとを次に調べる。10未満なら転入の不足が主で、都市と経済の局に空き家の理由を求める。"
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m20-1",
+        "fromBureau": "urban-1",
+        "title": "放棄店の跡(2176,443)に公園 JapaneseGarden",
+        "needsVote": true,
+        "voteKind": "取り壊し",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m20-2",
+        "fromBureau": "roads-1",
+        "title": "支線 x=2668 と z=560 東端を Small 4 Lane に",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m20-3",
+        "fromBureau": "roads-2",
+        "title": "交差点(1300,100)両側を Large Road に(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m20-4",
+        "fromBureau": "port-1",
+        "title": "路線28の予算を200%から180%に(試し)",
+        "needsVote": true,
+        "voteKind": "予算",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [],
+    "surveys": [
+      {
+        "id": "s20-1",
+        "fromBureau": "economy",
+        "question": "名所の訪問は、外とのつなぎ口から来る道の車の流れに近いところほど多いか。"
+      },
+      {
+        "id": "s20-2",
+        "fromBureau": "finance",
+        "question": "人口の減りは、転入が少ないことと転出が多いことのどちらが主か。"
+      },
+      {
+        "id": "s20-3",
+        "fromBureau": "health",
+        "question": "稼働中の焼却場2267の周りで、地面の汚染と汚染の印の住宅は、この1か月でどう動くか。"
+      }
+    ]
+  },
+  "rechecks": null,
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m20-1",
+        "verdict": "可決",
+        "kind": "取り壊し",
+        "point": null,
+        "reason": "preview_bulldozeで3棟、働き口30、家0と一致。代わりの手の検討も書かれている。"
+      },
+      {
+        "measureId": "m20-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0、維持費の増え0で守る線に響かない。"
+      },
+      {
+        "measureId": "m20-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費400、維持費の増え約2で守る線に響かない。"
+      },
+      {
+        "measureId": "m20-4",
+        "verdict": "可決",
+        "kind": "予算",
+        "point": null,
+        "reason": "変更幅20で上限内。維持費が減る方向で、試しの仮説と測る数がある。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m20-1",
+    "m20-2",
+    "m20-3",
+    "m20-4"
+  ],
+  "surveys": [
+    {
+      "id": "s20-1",
+      "fromBureau": "economy",
+      "question": "名所の訪問は、外とのつなぎ口から来る道の車の流れに近いところほど多いか。"
+    },
+    {
+      "id": "s20-2",
+      "fromBureau": "finance",
+      "question": "人口の減りは、転入が少ないことと転出が多いことのどちらが主か。"
+    },
+    {
+      "id": "s20-3",
+      "fromBureau": "health",
+      "question": "稼働中の焼却場2267の周りで、地面の汚染と汚染の印の住宅は、この1か月でどう動くか。"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m20-1",
+      "m20-2",
+      "m20-3",
+      "m20-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-08-14",
+        "population": 174242,
+        "money": 2592021,
+        "weeklyBalance": 9620,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-08-24",
+        "population": 174078,
+        "money": 2603668,
+        "weeklyBalance": 8503,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": false,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s20-1",
+      "s20-2",
+      "s20-3"
+    ],
+    "report": "4件の施策を、議案のとおりすべて打ちました。m20-1 は preview で3棟(29473、34163、42442)を確認して壊し、JapaneseGarden(id 13376、2,500)を置きました。入口は segment 6523 です。月末の Beautification は95で、予想どおりです。m20-2 は x=2668 の3区間と z=560 東端の1区間を Small 4 Lane にしました(費用0)。blocked は53から26に減りましたが、見回り2では65に揺れました。止まりは北の交差(2678,338)に移っています。m20-3 は区間 17667 と 33219 を Large Road にしました(400)。blocked は71から8に減りました。区間 1236 は density 100 のままです。m20-4 は路線28(line 136)を予算180%にし、台数は186から171になりました。乗客は92、29、110と揺れ、街全体の流れは53から55になりました。月末の人口は174,078(月初174,330)で、減少が続いています。所持金は2,616,061、週の収支は+8,868、幸福度は88です。見回りは2回とも境目に当たらず、臨時は行っていません。議決が要る道具は advance の前に済ませました。調査は s20-1(economy)、s20-2(finance)、s20-3(health)を3回ずつ council/m20-survey-*.md に書きました。市政ノートと command-log.txt も更新済みです。旅客の入口は0のままで、今月も案はありませんでした。月末の保存は頼まれていないので、していません。"
+  }
+}

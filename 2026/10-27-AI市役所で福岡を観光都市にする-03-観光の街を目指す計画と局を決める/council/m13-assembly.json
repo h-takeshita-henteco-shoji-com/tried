@@ -1,0 +1,13 @@
+{
+  "month": 13,
+  "rulings": [
+    {"measureId": "m13-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "preview_bulldoze で失う働き口4・家0を確認。代わりの手との比べもあり、4-2に沿う。"},
+    {"measureId": "m13-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0、戻せる試し。守る線に影響しない。"},
+    {"measureId": "m13-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費320、維持費約2.5。守る線に収まる。"},
+    {"measureId": "m13-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で戻せる。"},
+    {"measureId": "m13-5", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失うのは居住0の焼け跡の家2。代わりの手との比べがあり、前年の同じ手は効いた。"},
+    {"measureId": "m13-6", "verdict": "可決", "kind": "財政", "point": null, "reason": "維持費+7,940でも週の収支は約+4,421で+3,000の線の上。政策変更は月1件。"}
+  ],
+  "approvedKinds": ["取り壊し"],
+  "planCheck": {"verdict": "可", "reason": "12か月の建設費は所持金の余裕に収まり、週の収支も+4,100以上で+3,000の線の上に残る。余裕は小さいため、下降規則に当たれば駅や名所の順番を調整する。"}
+}

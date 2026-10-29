@@ -1,0 +1,7 @@
+{
+  "month": 5,
+  "rulings": [
+    {"measureId": "m05-4", "verdict": "可決", "kind": "予算", "point": null, "reason": "各路線 ±20 の範囲で戻せ、乗客減の響きも書かれ、6-3 に沿う。前月の見送り理由も解消している。"}
+  ],
+  "approvedKinds": ["予算"]
+}

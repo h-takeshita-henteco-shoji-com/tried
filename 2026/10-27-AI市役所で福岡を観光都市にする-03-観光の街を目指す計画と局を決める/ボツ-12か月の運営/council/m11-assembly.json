@@ -1,0 +1,8 @@
+{
+  "month": 11,
+  "rulings": [
+    {"measureId": "m11-1", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "放棄の店2棟は働き口0・家0・電気が切れる建物0を preview_bulldoze で確認した。"},
+    {"measureId": "m11-2", "verdict": "可決", "kind": "取り壊し", "point": null, "reason": "失う家51を自分でも確認し、代わりの手との比べ、人口への響き、前の外れの理由が書かれている。"}
+  ],
+  "approvedKinds": ["取り壊し"]
+}

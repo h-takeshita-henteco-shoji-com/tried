@@ -1,0 +1,10 @@
+{
+  "month": 2,
+  "rulings": [
+    {"measureId": "m02-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,920、週の維持費+15で守る線に収まる。"},
+    {"measureId": "m02-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費0。信号の維持費は小さく、守る線を破らない。"},
+    {"measureId": "m02-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "週の維持費が1,440減る。戻せる手。"},
+    {"measureId": "m02-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "週の維持費+311で、収支は+3,000を上回る。政策の変更は月1件。"}
+  ],
+  "approvedKinds": []
+}

@@ -20,11 +20,11 @@ from council_common import (BUREAUS, VOTE_TOOLS, mm, month_file, parse_time, rea
                             read_json)
 
 # その月に置いてよい council/ のファイル(interfaces の2)
-EXPECTED = ["policy.md", "guide.md", "finance.md", "bill.md", "bill-2.md", "assembly.md", "assembly-2.md",
+EXPECTED = ["policy.md", "bill.md", "bill-2.md", "assembly.md", "assembly-2.md",
             "assembly.json", "hooks.log", "run.json", "minutes.md"] + [f"{b}.md" for b in BUREAUS] \
     + [f"survey-{b}.md" for b in BUREAUS]  # 局の調査の結果(#105 の作り直し)
 # 運営のフォルダで、変わってよい場所
-FREE = [r"mayor-note\.md", r"command-log(-m\d\d-m\d\d)?\.txt", r"log\.md", r"article\.md", r"attempt\d+/.*", r"assets/.*", r"transcripts/.*", r"council/ledger\.jsonl",
+FREE = [r"mayor-note\.md", r"command-log(-m\d\d-m\d\d)?\.txt", r"log\.md", r"article\.md", r"attempt\d+/.*", r"assets/.*", r"transcripts/.*", r"council/ledger\.jsonl", r"council/plan-[a-z]+\.md", r"council/plan-year\d+/.*", r"council/ledger-recent\.jsonl", r"council/ledger-older\.md",
         r"council/m\d\d-(" + "|".join(re.escape(e) for e in EXPECTED) + r")"]
 
 

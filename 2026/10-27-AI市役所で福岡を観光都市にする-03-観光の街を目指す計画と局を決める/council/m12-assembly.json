@@ -1,0 +1,10 @@
+{
+  "month": 12,
+  "rulings": [
+    {"measureId": "m12-1", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費1,160、維持費の増え9.4で守る線に響かない。"},
+    {"measureId": "m12-2", "verdict": "可決", "kind": "財政", "point": null, "reason": "建設費200、維持費の増え約2で小さい。"},
+    {"measureId": "m12-3", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0、維持費の増え0。"},
+    {"measureId": "m12-4", "verdict": "可決", "kind": "財政", "point": null, "reason": "費用0で週の維持費が1,440減る。"}
+  ],
+  "approvedKinds": []
+}

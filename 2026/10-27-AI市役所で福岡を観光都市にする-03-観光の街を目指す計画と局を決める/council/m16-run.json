@@ -1,0 +1,421 @@
+{
+  "month": 16,
+  "seen": {
+    "gameDate": "2051-04-06",
+    "saveName": "fukuoka-plan-m16",
+    "priorities": [
+      "5-1・5-2 観光(入口、名所、島・空き地)",
+      "8-1・6-4 貨物センターの止まりと品物がない店",
+      "4-2 花や緑による潤い(公園)"
+    ],
+    "stop": false,
+    "stopReason": ""
+  },
+  "proposals": [
+    {
+      "bureau": "urban",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "urban-1",
+          "title": "道に面した空き地(1820,355)に公園 JapaneseGarden を1つ置く",
+          "executionReady": true,
+          "buildCost": 2500,
+          "upkeepPerWeek": 40,
+          "reversible": true,
+          "planItems": [
+            "4-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "roads",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "roads-1",
+          "title": "交差点 (1692,100) に信号を置き、東の止まりを減らす",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "port",
+      "hasProposal": false,
+      "noProposalReason": "第16月は長期計画の「整地の試しと判定」の月で、駅の案は Boost 判定の後の第17月に出す(調整3)。試しで、駅本体は傾きで断られず、入口の道は仮定の整地(71.5m)で通ることを確かめた。実際の整地の費用は未確認で、第17月の前に実行する市長が確かめる。8-1 は 28755 の空き待ちが 632→685 と減らず、周辺の道は blocked 0、入口はすでに2本あるため道を足す根拠がない。道を足す案は出さず、近くの貨物駅 13893(車0)の調査に切り替えた。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "貨物センター13893(28755の隣。車0、職員50、電気・水・下水は届く)は、列車が着かず車を出せないのか。出せるなら、28755 の貨物を分けられるか",
+        "plan": "vehicles_stuck(kind=train、building=13893、limit=5)、cargo(stations の 13893)、buildings_near(x=3529、z=-1555、radius=30)を見回り1と月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "空き地3に Transport Tower を置く(試し、再調査)",
+          "executionReady": false,
+          "buildCost": 62040,
+          "upkeepPerWeek": 978,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "health",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "health-1",
+          "title": "焼却場 2267 を止め、汚染の印を減らす(試し)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": -1440,
+          "reversible": true,
+          "planItems": [
+            "4-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "火葬場 39843 の処理が1週間で0のままなのは、霊柩車が東の幹線の混みで止まるためか、ほかの原因か。",
+        "plan": "vehicles_stuck(kind=hearse, building=39843, limit=10)、traffic(x=3200, z=-260, radius=150)、buildings_near(x=3598, z=-90, radius=40)の stats を、見回り1・見回り2・月末に見る。"
+      }
+    },
+    {
+      "bureau": "education",
+      "hasProposal": false,
+      "noProposalReason": "2-3 の目標は満たしている。小学校の定員 13,920 は子ども 8,782 の1.59倍、高校の余裕は 5,297 で、どちらも基準を上回る。15301 を止めた後も覆いの最小は 17 で0ではない。2校目(43936)の候補は、止めた後の覆いの0を道具で確かめられず、覆いの寄与も切り分けられないため、17月に1か月の調査を見てから決める。",
+      "proposals": [],
+      "survey": {
+        "exists": true,
+        "question": "15301 を止めた後、その周りの小学校の覆いに0が出ないか。子どもに対する定員の比が1.3倍を保つか。",
+        "plan": "map_layer(education_elementary、x -1350、z -1150、r 500、n 5)、services、citizens_summary を見回り1と月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "火事の集まる住宅地に消防署を置く(Fire House、送電線1本)",
+          "executionReady": false,
+          "buildCost": 12040,
+          "upkeepPerWeek": 561,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": true,
+        "question": "火事の印は (1197,-1018) 周辺で続くか。消防の届きは、この点で上がるか。",
+        "plan": "buildings_near(x 1197, z -1018, r150, problem Fire, brief) と map_layer(fire, x 1197, z -900, r300, n 5) を、見回り1・見回り2・月末に呼ぶ"
+      }
+    },
+    {
+      "bureau": "finance",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "finance-1",
+          "title": "公共交通の運賃を無料にする試し(FreeTransport)",
+          "executionReady": true,
+          "buildCost": 0,
+          "upkeepPerWeek": 0,
+          "reversible": true,
+          "planItems": [
+            "6-3"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "planReviews": [],
+  "bill": {
+    "measures": [
+      {
+        "id": "m16-1",
+        "fromBureau": "urban-1",
+        "title": "空き地(1820,355)に公園 JapaneseGarden",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-2"
+        ]
+      },
+      {
+        "id": "m16-2",
+        "fromBureau": "roads-1",
+        "title": "交差点(1692,100)に信号",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      },
+      {
+        "id": "m16-3",
+        "fromBureau": "health-1",
+        "title": "焼却場2267を止める(試し)",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "4-3",
+          "4-4"
+        ]
+      },
+      {
+        "id": "m16-4",
+        "fromBureau": "finance-1",
+        "title": "政策 FreeTransport の試し",
+        "needsVote": false,
+        "voteKind": "",
+        "planItems": [
+          "6-3"
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "proposal": "economy-1",
+        "reason": "建物の port と下水が未確認で、週の維持費約978が調整8の枠を超える。",
+        "kind": "条件付き",
+        "condition": "list_building_types で Transport Tower の needs を確かめ、要る接続だけを test_build_line で敷地に届く形で示し、維持費が枠に収まる(または超える理由を財政の数字で示す)。"
+      },
+      {
+        "proposal": "fire-1",
+        "reason": "電気が建てて確かめるまで未確認のため、必須条件が残る。",
+        "kind": "条件付き",
+        "condition": "送電線の端が Fire House の敷地に入ることを test_build_line で示す、または電気が既に来る位置で test_place_building が ok かつ map_layer electricity_service が 1 の予備を示す。"
+      }
+    ],
+    "surveys": [
+      {
+        "id": "s16-1",
+        "fromBureau": "port",
+        "question": "貨物センター13893は列車の着きがなく車を出せないのか。28755の貨物を分けられるか"
+      },
+      {
+        "id": "s16-2",
+        "fromBureau": "health",
+        "question": "火葬場39843の処理が0のままなのは、霊柩車が東の幹線の混みで止まるためか"
+      },
+      {
+        "id": "s16-3",
+        "fromBureau": "education",
+        "question": "小学校15301を止めた後、周りの覆いに0が出ないか。定員の比が1.3倍を保つか"
+      }
+    ]
+  },
+  "rechecks": [
+    {
+      "bureau": "economy",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "economy-1",
+          "title": "空き地3に Transport Tower を置く(試し、再調査)",
+          "executionReady": false,
+          "buildCost": 62040,
+          "upkeepPerWeek": 978,
+          "reversible": true,
+          "planItems": [
+            "5-1",
+            "5-2"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    },
+    {
+      "bureau": "fire",
+      "hasProposal": true,
+      "noProposalReason": "",
+      "proposals": [
+        {
+          "id": "fire-1",
+          "title": "火事の集まる住宅地に消防署を置く(Fire House、送電線1本)",
+          "executionReady": false,
+          "buildCost": 12040,
+          "upkeepPerWeek": 561,
+          "reversible": true,
+          "planItems": [
+            "3-4"
+          ],
+          "needsVote": false,
+          "voteKind": ""
+        }
+      ],
+      "survey": {
+        "exists": false,
+        "question": "",
+        "plan": ""
+      }
+    }
+  ],
+  "ruling": {
+    "rulings": [
+      {
+        "measureId": "m16-1",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費2,500、維持費+40で守る線に響かない。"
+      },
+      {
+        "measureId": "m16-2",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "建設費0。収支の余裕で維持費の増えを吸収できる。"
+      },
+      {
+        "measureId": "m16-3",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "維持費が約1,440減る。ごみの印の上限と戻す手が書かれている。"
+      },
+      {
+        "measureId": "m16-4",
+        "verdict": "可決",
+        "kind": "財政",
+        "point": null,
+        "reason": "運賃収入が約4,796減っても見込みは約+8,750で線+3,000の上。"
+      }
+    ],
+    "planCheck": {
+      "verdict": "可",
+      "reason": ""
+    }
+  },
+  "ruling2": null,
+  "planCheck": {
+    "verdict": "可",
+    "reason": ""
+  },
+  "planRevised": null,
+  "allowed": [
+    "m16-1",
+    "m16-2",
+    "m16-3",
+    "m16-4"
+  ],
+  "surveys": [
+    {
+      "id": "s16-1",
+      "fromBureau": "port",
+      "question": "貨物センター13893は列車の着きがなく車を出せないのか。28755の貨物を分けられるか"
+    },
+    {
+      "id": "s16-2",
+      "fromBureau": "health",
+      "question": "火葬場39843の処理が0のままなのは、霊柩車が東の幹線の混みで止まるためか"
+    },
+    {
+      "id": "s16-3",
+      "fromBureau": "education",
+      "question": "小学校15301を止めた後、周りの覆いに0が出ないか。定員の比が1.3倍を保つか"
+    }
+  ],
+  "done": {
+    "executed": [
+      "m16-1",
+      "m16-2",
+      "m16-3",
+      "m16-4"
+    ],
+    "failed": [],
+    "failedReasons": [],
+    "patrols": [
+      {
+        "gameDate": "2051-04-16",
+        "population": 176242,
+        "money": 2483188,
+        "weeklyBalance": 8218,
+        "happiness": 88,
+        "alert": false
+      },
+      {
+        "gameDate": "2051-04-26",
+        "population": 176042,
+        "money": 2491964,
+        "weeklyBalance": 5951,
+        "happiness": 88,
+        "alert": false
+      }
+    ],
+    "emergency": true,
+    "stop": false,
+    "stopReason": "",
+    "surveysDone": [
+      "s16-1",
+      "s16-2",
+      "s16-3"
+    ],
+    "report": "4つの施策をすべて打ちました。どれも議決は要らず、実行前の確認は議案どおりで、予備候補は使っていません。\nm16-1: 公園 46572 を (1820,355) に置きました(2,500)。電気と水は true で、月末の Beautification は 91棟です。\nm16-2: 交差点 (1692,100) に信号を付けました。r100 の blocked は 64 から 11、6、17 と動きました(測るたびに揺れます)。\nm16-3: 焼却場 2267 を止めましたが、見回り1で garbage.full が 0 から 2 になり、中止条件(3)に当たりました。臨時の1件として 2267 を再開しました。\n- 汚染の印は停止中に 21 から 18 に減りましたが、月末は 21 に戻りました。\n- Garbage の印は上限 15 の内で、月末は 22 でした。\n- 満杯の埋立地は月末も 3 つ(24569、29981、48698)でした。\nm16-4: FreeTransport を有効にしました。バスの運賃収入は 4,796 から 0 になりました。\n- バスの乗客数は約 5,040 から約 4,850 でした(目で足した概算)。\n- 街全体の流れは 53% から 52% でした。\n- 週の収支は +12,150 から +7,468 で、守る線の +3,000 の上です。\n- 判定は17月の月例に回します。\n調査 s16-1〜s16-3 は council/m16-survey-*.md に書きました。\n- 13893 は列車の着きがなく、車を出していません。\n- 火葬場 39843 は処理が週 0 のままで、霊柩車の止まりは最長 60 日でした。\n- 小学校の覆いは 0 にならず、定員と子どもの比は 1.58 です。\n見回りは2回とも境目に当たらず、dialog もありませんでした。\n月末は人口 175,864、所持金 2,502,262、観光客 1,875、Tourism 週 57 です。\n議決が要る道具は使っていません。時間を進める前にすべて打ちました。ノートは /Users/takeshita/orca/workspaces/tried/issue-124/2026/10-27-AI市役所で福岡を観光都市にする-03-観光の街を目指す計画と局を決める/mayor-note.md、ログは同じフォルダの command-log.txt です。"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "month": 10,
+  "rulings": [
+    {"measureId": "m10-3", "verdict": "可決", "kind": "予算", "point": null, "reason": "戻せる予算の変更で、響きと前例(m05)が書かれている。4つの点に当たらない。"}
+  ],
+  "approvedKinds": ["予算"]
+}
