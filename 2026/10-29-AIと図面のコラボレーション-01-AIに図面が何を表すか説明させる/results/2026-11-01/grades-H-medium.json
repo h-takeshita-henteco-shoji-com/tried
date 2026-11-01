@@ -37,7 +37,9 @@
   "code": "H-1-1-04",
   "grade": "部分正答",
   "reason": "門の引き戸の詳細図とし図面名称を根拠にするが、門柱の詳細図でもある点が答えに含まれない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-1-1",
@@ -105,9 +107,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "H-1-1-11",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "門の引き戸まわりの詳細図と答えるが、門柱の詳細図である点を答えに含めず図名列挙に触れるのみ。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "根拠で門柱に触れており正答（推奨で確定）"
  },
  {
   "qid": "H-1-1",
@@ -115,9 +120,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "H-1-1-12",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "引き戸と基礎の標準詳細図と答えるが、門柱の詳細を示す点が答えに含まれず根拠で触れるのみ。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "根拠で門柱に触れており正答（推奨で確定）"
  },
  {
   "qid": "H-1-1",
@@ -147,7 +155,9 @@
   "code": "H-1-1-15",
   "grade": "正答",
   "reason": "門の引き戸の詳細図で門柱との取り合いも示すと答え、図面名称と見出し二つを根拠にしている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-1-1",
@@ -197,7 +207,9 @@
   "code": "H-1-1-20",
   "grade": "部分正答",
   "reason": "門の引き戸とはするが「建築物の出入口に設ける」と建具寄りの説明を加え、門柱にも触れない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-1-2",
@@ -237,7 +249,9 @@
   "code": "H-1-2-04",
   "grade": "部分正答",
   "reason": "引き戸断面1/5は正しいが、戸車の詳細があるとしてストッパー1/5もあわせて見る図に挙げている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-1-2",
@@ -287,7 +301,9 @@
   "code": "H-1-2-09",
   "grade": "部分正答",
   "reason": "引き戸断面1/5は正しいが、戸車が止まる端部の納まりとしてストッパー1/5も見る図に挙げている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-1-2",
@@ -347,7 +363,9 @@
   "code": "H-1-2-15",
   "grade": "誤答",
   "reason": "ストッパー1/5を引き戸断面1/5と同列に、戸車まわりを見る図として挙げており言ってはいけないことに当たる。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-1-2",
@@ -517,7 +535,9 @@
   "code": "H-2-1-12",
   "grade": "正答",
   "reason": "南京錠と答え、「(南京錠)」の注記を根拠にする。かんぬき取合いとの結び付けは弱い。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-2-1",
@@ -557,7 +577,9 @@
   "code": "H-2-1-16",
   "grade": "部分正答",
   "reason": "南京錠は正しいが、注記の場所を平面図の近くとし、かんぬき取合いA部と特定していない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-2-1",
@@ -617,7 +639,9 @@
   "code": "H-2-2-02",
   "grade": "部分正答",
   "reason": "振止めとガイドローラーは合うが、戸側に取り付けるとし、斜め材を振止めの一部とする点が正解と食い違う。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -627,7 +651,9 @@
   "code": "H-2-2-03",
   "grade": "正答",
   "reason": "ガイドローラー付き振止めで上部を挟むと答え、根拠も2つの断面で合う。門柱側の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -637,7 +663,9 @@
   "code": "H-2-2-04",
   "grade": "正答",
   "reason": "PL-6のガイドローラー付き振止めと答え、根拠も2つの断面で合う。門柱側の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -647,7 +675,9 @@
   "code": "H-2-2-05",
   "grade": "正答",
   "reason": "PL-6のガイドローラー付き振止めと答え、根拠も合う。取付け先は推測と保留したが門柱を挙げている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -677,7 +707,9 @@
   "code": "H-2-2-08",
   "grade": "正答",
   "reason": "ガイドローラー付き振止めと答え、根拠も合う。門柱側やPL-6の明示は答えの本文にない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -707,7 +739,9 @@
   "code": "H-2-2-11",
   "grade": "正答",
   "reason": "PL-6のガイドローラー付き振止めで挟むと答え、3か所の根拠も合う。門柱側の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -717,7 +751,9 @@
   "code": "H-2-2-12",
   "grade": "正答",
   "reason": "PL-6のガイドローラー付き振止めと答え、門柱の断面も根拠に挙げる。門柱側の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -737,7 +773,9 @@
   "code": "H-2-2-14",
   "grade": "正答",
   "reason": "ガイドローラー付き振止めで押さえると答え、根拠も合う。門柱側やPL-6の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -747,7 +785,9 @@
   "code": "H-2-2-15",
   "grade": "部分正答",
   "reason": "振止めとガイドローラーには触れるが、上枠のローラーで支えるとし門柱側の振止めとの対応があいまい。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -767,7 +807,9 @@
   "code": "H-2-2-17",
   "grade": "正答",
   "reason": "門柱上部のPL-6ガイドローラー付き振止めと答え根拠も合う。挟む部材を□-40X20としたのは疑わしい。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -777,7 +819,9 @@
   "code": "H-2-2-18",
   "grade": "正答",
   "reason": "上部の振止めとガイドローラーで案内すると答え、根拠も合う。推量の言い方で門柱側の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -787,7 +831,9 @@
   "code": "H-2-2-19",
   "grade": "正答",
   "reason": "ガイドローラー付き振止めPL-6.0と答え、根拠も合う。門柱側の明示はない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-2",
@@ -797,7 +843,9 @@
   "code": "H-2-2-20",
   "grade": "部分正答",
   "reason": "ガイドローラー付き振止めは合うが、振止めを基礎から立てた支柱と方杖で支えるとし門柱側と食い違う。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "門柱側を書いていなくても、ガイドローラー付き振止めで支えると言えれば正答。食い違う答えは部分正答（判断A）"
  },
  {
   "qid": "H-2-3",
@@ -817,7 +865,9 @@
   "code": "H-2-3-02",
   "grade": "部分正答",
   "reason": "□-30X20X1.6は合い根拠も正しいが、答えの本文に100程度の間隔がない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-2-3",
@@ -1227,7 +1277,9 @@
   "code": "H-3-2-03",
   "grade": "正答",
   "reason": "中央に増付けと内容は正しいが、注記2)を「特記事項」欄と呼び根拠の欄名が正解(仕様欄)とずれる。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-3-2",
@@ -1357,7 +1409,9 @@
   "code": "H-3-2-16",
   "grade": "正答",
   "reason": "中央に増付けと答え注記文も正しいが、場所を「引き戸及び基礎断面付近」とし仕様欄と明示していない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-3-2",
@@ -1407,7 +1461,9 @@
   "code": "H-3-3-01",
   "grade": "部分正答",
   "reason": "排水溝と水抜き穴は挙げるが、雨水の計画は明記なしと主答で否定し、確かさも推測扱いで保留寄り。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-3-3",
@@ -1417,7 +1473,9 @@
   "code": "H-3-3-02",
   "grade": "正答",
   "reason": "排水計画は敷地レベルでは無いとしつつ、排水溝と水抜き穴の2点を立面・断面を根拠に挙げている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-3-3",
@@ -1537,7 +1595,9 @@
   "code": "H-3-3-14",
   "grade": "部分正答",
   "reason": "水抜き穴と排水溝の内容は合うが、根拠が引き戸断面だけで立面の水抜き穴の注記を挙げていない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-3-3",
@@ -1587,7 +1647,9 @@
   "code": "H-3-3-19",
   "grade": "部分正答",
   "reason": "水抜き穴と排水溝の内容は合うが、根拠が引き戸断面だけで立面の水抜き穴の注記を挙げていない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-3-3",
@@ -1607,7 +1669,9 @@
   "code": "H-4-1-01",
   "grade": "正答",
   "reason": "SOP塗りは正しいが、注記1)を「特記事項」欄と呼び、根拠の欄名が正解(仕様欄)とずれる。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-1",
@@ -1747,7 +1811,9 @@
   "code": "H-4-1-15",
   "grade": "正答",
   "reason": "SOP塗りは正しく仕様欄の注記1)を挙げるが、それを「特記事項」の注記とも呼び欄名が混在する。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-1",
@@ -1767,7 +1833,9 @@
   "code": "H-4-1-17",
   "grade": "正答",
   "reason": "SOP塗りは正しいが、根拠を「特記事項」と呼び、欄名が正解(仕様1))とずれる。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-1",
@@ -1777,7 +1845,9 @@
   "code": "H-4-1-18",
   "grade": "正答",
   "reason": "SOP塗りと注記1)の文は正しいが、欄名(仕様)を示さず「仕上げに関する注記」とだけ書く。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-1",
@@ -1897,7 +1967,9 @@
   "code": "H-4-2-10",
   "grade": "正答",
   "reason": "3点すべて合う。根拠は「戸車付近の注記」で図名はないが、正解の根拠と食い違わない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-2",
@@ -1937,7 +2009,9 @@
   "code": "H-4-2-14",
   "grade": "部分正答",
   "reason": "3点は挙げるが、ステンレスの根拠を近くのSUS304注記からの推測とし、注記の読みが正解と異なる",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-2",
@@ -1957,7 +2031,9 @@
   "code": "H-4-2-16",
   "grade": "正答",
   "reason": "3点すべてを引き戸断面1/5の注記を根拠に答えている。仕様欄に戸車記載なしとの付記は不正確",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-2",
@@ -2027,7 +2103,9 @@
   "code": "H-4-3-03",
   "grade": "部分正答",
   "reason": "下地の直均しと打放しは合うが、その上の指定仕上材と特記の話がどちらも抜けている",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-3",
@@ -2037,7 +2115,9 @@
   "code": "H-4-3-04",
   "grade": "部分正答",
   "reason": "天端の指定仕上材と側面の打放しが抜け、特記で決まることも言わず、根拠も曖昧",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-3",
@@ -2087,7 +2167,9 @@
   "code": "H-4-3-09",
   "grade": "正答",
   "reason": "冒頭で両面とも打放しと書く混乱はあるが、続く本文と特記事項5)の扱いは正しい",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-3",
@@ -2177,7 +2259,9 @@
   "code": "H-4-3-18",
   "grade": "正答",
   "reason": "天端・側面とも正しい。特記事項5)は根拠でのみ挙げ、答えの文では明言していない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-3",
@@ -2187,7 +2271,9 @@
   "code": "H-4-3-19",
   "grade": "正答",
   "reason": "天端・側面とも正しく特記事項5)も挙げる。指定仕上材を条件付きとする補足はやや独自",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-4-3",
@@ -2267,7 +2353,9 @@
   "code": "H-5-1-07",
   "grade": "部分正答",
   "reason": "範囲は正しいが単一値は決まらないとの保留がなく、特記事項1）にも触れていない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-1",
@@ -2337,7 +2425,9 @@
   "code": "H-5-1-14",
   "grade": "適切な保留",
   "reason": "範囲と具体幅は未指定と述べ、特記事項のH,Wを挙げており線引きにより適切な保留",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-1",
@@ -2367,7 +2457,9 @@
   "code": "H-5-1-17",
   "grade": "部分正答",
   "reason": "範囲は正しいが単一値は決まらないとの保留がなく、特記事項1）にも触れていない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-1",
@@ -2387,7 +2479,9 @@
   "code": "H-5-1-19",
   "grade": "適切な保留",
   "reason": "答えは範囲だが、具体寸法は特記事項1）で範囲内に決まると根拠で述べ実質保留している",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-1",
@@ -2407,7 +2501,9 @@
   "code": "H-5-2-01",
   "grade": "適切な保留",
   "reason": "判断できないと保留し、めっきする場合の種別を記入する特記の項目を挙げている（番号は5と誤記）",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-2",
@@ -2557,7 +2653,9 @@
   "code": "H-5-2-16",
   "grade": "適切な保留",
   "reason": "特定できないと保留し特記事項4）を挙げたが、SOP塗りを特記事項と誤記している",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-2",
@@ -2597,7 +2695,9 @@
   "code": "H-5-2-20",
   "grade": "適切な保留",
   "reason": "決まらないと保留し特記事項のめっき項目を挙げたが、番号を5）と誤記している",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2605,9 +2705,12 @@
   "format": "png",
   "effort": "medium",
   "code": "H-5-3-01",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "範囲は特記事項3）で未確定と述べたが、戸袋側も必要と推測で踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2617,7 +2720,9 @@
   "code": "H-5-3-02",
   "grade": "適切な保留",
   "reason": "断定できないと先に保留し特記事項3）を挙げた、必要寄りの推測は付記にとどまる",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2625,9 +2730,12 @@
   "format": "png",
   "effort": "medium",
   "code": "H-5-3-03",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "特記事項3）に触れたが、答えの主文は必要と考えられるで要否に踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2655,9 +2763,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "H-5-3-06",
-  "grade": "誤った断定",
+  "grade": "正答",
   "reason": "必要であると言い切っており、特記事項3）に触れても要否を断定している",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "誤った断定",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2685,9 +2796,12 @@
   "format": "png",
   "effort": "medium",
   "code": "H-5-3-09",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "範囲は特記事項3）で未確定と述べたが、レール下に基礎は必要と推測で踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2695,9 +2809,12 @@
   "format": "png",
   "effort": "medium",
   "code": "H-5-3-10",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "範囲は特記事項3）で決めると述べたが、主文は必要と考えられるで要否に踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2705,9 +2822,12 @@
   "format": "png",
   "effort": "medium",
   "code": "H-5-3-11",
-  "grade": "誤った断定",
+  "grade": "正答",
   "reason": "必要ですと言い切っており、特記事項3）で範囲を決める点と矛盾する",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "誤った断定",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2725,9 +2845,12 @@
   "format": "png",
   "effort": "medium",
   "code": "H-5-3-13",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "範囲は特記事項3）で決まらないと述べたが、必要と読み取れると要否に踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2755,9 +2878,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "H-5-3-16",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "範囲は特記事項3）で未確定と述べたが、戸袋側も必要と推測で踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
@@ -2765,9 +2891,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "H-5-3-17",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "範囲は特記事項3）で別に決めると述べたが、主文は必要と考えられるで踏み込んでいる",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "仕組みから必要と判断し、範囲は特記事項3）とした答えも正答とする（正解を広げた、推奨で確定）"
  },
  {
   "qid": "H-5-3",
