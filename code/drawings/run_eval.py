@@ -98,7 +98,7 @@ def build_command(model, effort, fmt, prompt):
 
 # 道具の使い方の記録から、通信やライブラリの導入の疑いを探す
 SUSPECT = re.compile(r"search_web|read_url_content|open_browser_url|"
-                     r"pip3? install|uv (pip|add)|curl |wget |https?://(?!www\.mlit)", re.I)
+                     r"pip3? install|uv (pip|add)|curl |wget |https?://(?!www\.mlit|www\.w3\.org)", re.I)
 
 
 def without_init(out):
