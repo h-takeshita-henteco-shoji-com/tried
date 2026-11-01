@@ -1,0 +1,33 @@
+{
+  "qid": "L-2-1",
+  "question": "会議室の入口に、ガラスのない両開きの扉を付けたい。どの形状番号を選べばよいか",
+  "drawing": "L",
+  "drawing_file": "001126048-p09",
+  "format": "png",
+  "model": "gpt-6-luna",
+  "effort": "low",
+  "cli": "codex",
+  "cli_version": "codex-cli 0.165.0",
+  "command": [
+    "codex",
+    "exec",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "-s",
+    "workspace-write",
+    "-m",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=low",
+    "--image",
+    "drawing.png",
+    "-"
+  ],
+  "prompt": "作業フォルダにある図面ファイル（drawing.png）を読み、次の問いに日本語で答えてください。\n\n問い: 会議室の入口に、ガラスのない両開きの扉を付けたい。どの形状番号を選べばよいか\n\n次の形で答えてください。\n- 答え:\n- 根拠: 図面のどこを見たか（図の名前、注記、表など）\n- 確かさ: 図面に書かれている／図面から推測した／図面からは分からない\n\n作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。\nライブラリを新しく入れないでください。",
+  "started": "2026-11-01T11:27:04+09:00",
+  "seconds": 5.6,
+  "exit": 0,
+  "stdout": "- 答え: **D-3**\n- 根拠: 図面「建具：形状寸法」の右上にある「アルミニウム製建具・樹脂製建具」の形状一覧で、D-3は「引き分け」の両開き形状として描かれています。ガラスの有無は図面から読み取れません。\n- 確かさ: **D-3が引き分け形状であることは図面に書かれています。ガラスがない仕様かどうかは図面からは分かりません。**\n",
+  "stderr": "Reading prompt from stdin...\nOpenAI Codex v0.165.0\n--------\nworkdir: /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-59zdzk4k\nmodel: gpt-6-luna\nprovider: openai\napproval: never\nsandbox: workspace-write [workdir, /tmp, $TMPDIR]\nreasoning effort: low\nreasoning summaries: none\nsession id: 01a194ee-8e85-7052-a5c3-17c4e390a6d9\n--------\nuser\n作業フォルダにある図面ファイル（drawing.png）を読み、次の問いに日本語で答えてください。\n\n問い: 会議室の入口に、ガラスのない両開きの扉を付けたい。どの形状番号を選べばよいか\n\n次の形で答えてください。\n- 答え:\n- 根拠: 図面のどこを見たか（図の名前、注記、表など）\n- 確かさ: 図面に書かれている／図面から推測した／図面からは分からない\n\n作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。\nライブラリを新しく入れないでください。\ncodex\n- 答え: **D-3**\n- 根拠: 図面「建具：形状寸法」の右上にある「アルミニウム製建具・樹脂製建具」の形状一覧で、D-3は「引き分け」の両開き形状として描かれています。ガラスの有無は図面から読み取れません。\n- 確かさ: **D-3が引き分け形状であることは図面に書かれています。ガラスがない仕様かどうかは図面からは分かりません。**\ntokens used\n8,770\n",
+  "files_created": []
+}

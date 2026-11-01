@@ -1,0 +1,122 @@
+[
+ {
+  "code": "L-3-3-01",
+  "grade": "部分正答",
+  "reason": "特記（形式・開口率・W3・H3）は合うが、扉の形状を答えの中で選んでいない。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-02",
+  "grade": "正答",
+  "reason": "A-4〜6またはB-4〜6・B-8と、形式・開口率・W3・H3の特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-03",
+  "grade": "正答",
+  "reason": "形状の候補、形式・開口率・W3・H3、根拠の3か所がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-04",
+  "grade": "正答",
+  "reason": "形状の候補と、形式・開口率・W3・H3の特記がそろい、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-05",
+  "grade": "正答",
+  "reason": "形状の図のがらり部分、形式表、特記5）を根拠に、必須の要素がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-06",
+  "grade": "正答",
+  "reason": "形状の候補と特記の項目がそろい、根拠も形状図・形式表・特記5）で合う。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-07",
+  "grade": "正答",
+  "reason": "形状の候補と、形式・開口率・W3・H3の特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-08",
+  "grade": "正答",
+  "reason": "A-4〜6を主にB-4〜6・B-8も挙げ、形式・開口率・W3・H3の特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-09",
+  "grade": "正答",
+  "reason": "形状候補と形式・開口率・寸法W・Hの特記はそろうが、形状の図を見ていない。",
+  "borderline": true
+ },
+ {
+  "code": "L-3-3-10",
+  "grade": "部分正答",
+  "reason": "特記はそろうが、形状をA-5かA-6に絞り、A-5を片開きと誤って読んだ。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-11",
+  "grade": "正答",
+  "reason": "形状の候補と、形式・開口率・W3・H3の特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-12",
+  "grade": "正答",
+  "reason": "形状の候補と、形式・開口率・W3・H3の特記がそろい、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-13",
+  "grade": "正答",
+  "reason": "形状の図のがらり、形式表、特記5）を根拠に、必須の要素がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-14",
+  "grade": "正答",
+  "reason": "形状の候補、形式と開口率、W3・H3の特記がそろい、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-15",
+  "grade": "正答",
+  "reason": "7形状とB-7にがらりがない点、形式・開口率・がらりのW・Hの特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-16",
+  "grade": "正答",
+  "reason": "形状の候補と、形式・開口率・W3・H3の特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-17",
+  "grade": "正答",
+  "reason": "形状の候補と、形式・開口率・W3・H3の特記がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-18",
+  "grade": "正答",
+  "reason": "形状の図の網掛け、形式表、特記5）を根拠に、必須の要素がそろう。",
+  "borderline": false
+ },
+ {
+  "code": "L-3-3-19",
+  "grade": "部分正答",
+  "reason": "特記はおおむね合うが、A-4〜6等を「がらりの形式」の形状と取り違えている。",
+  "borderline": true
+ },
+ {
+  "code": "L-3-3-20",
+  "grade": "正答",
+  "reason": "7形状と、形式・開口率・W・Hの特記がそろう。形状は特記5）から判断した。",
+  "borderline": true
+ }
+]

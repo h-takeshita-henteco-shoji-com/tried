@@ -1,0 +1,122 @@
+[
+ {
+  "code": "L-2-2-01",
+  "grade": "正答",
+  "reason": "C-16を選び、名称「片上げ下げ」と上部のFIXを根拠に挙げ、C-15と区別している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-02",
+  "grade": "正答",
+  "reason": "C-16を選び、名称と上の窓のFIXを根拠とし、C-15を上下とも動く形として除外している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-03",
+  "grade": "正答",
+  "reason": "C-16を選び、名称・上段FIX・下段の矢印という正解の根拠をすべて挙げている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-04",
+  "grade": "正答",
+  "reason": "C-16を選び、名称・上半分FIX・下半分の矢印を根拠とし、C-15との違いも正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-05",
+  "grade": "正答",
+  "reason": "C-16を選び、上段FIX・下段の矢印・名称を根拠とし、C-15を正しく除外している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-06",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓のFIX・下窓の矢印・名称「片上げ下げ」を根拠に挙げている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-07",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIXと下窓の矢印、名称を根拠とし、C-15との違いも正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-08",
+  "grade": "正答",
+  "reason": "C-16を選び、名称と姿図上段のFIXを根拠とし、C-15を上下可動として除外している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-09",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIX・下窓の矢印・名称を根拠とし、C-15との比較も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-10",
+  "grade": "誤答",
+  "reason": "正解のC-16ではなくC-14を選んでおり、形状番号が誤っている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-11",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIX・下窓の矢印・名称「片上げ下げ」を根拠に挙げている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-12",
+  "grade": "正答",
+  "reason": "C-16を選び、名称「片上げ下げ」と上側のFIXを根拠に挙げている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-13",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIXと下窓の矢印を根拠とし、C-15との違いも正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-14",
+  "grade": "誤答",
+  "reason": "名称とFIXの記述は合うが、形状番号をC-16ではなくD-4と答えている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-15",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIX・下窓の矢印・名称を根拠に挙げている。矢印の向きの表現は軽微な差。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-16",
+  "grade": "正答",
+  "reason": "C-16を選び名称を根拠とするが、FIXや矢印に触れず根拠は最小限で食い違いはない。",
+  "borderline": true
+ },
+ {
+  "code": "L-2-2-17",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIXと下窓のみの矢印を根拠に、C-15と正しく区別している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-18",
+  "grade": "正答",
+  "reason": "C-16を選び、上欄FIX・下欄の矢印・名称を根拠とし、C-15との比較も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-19",
+  "grade": "正答",
+  "reason": "C-16を選び、上部FIX・下部の矢印・名称を根拠に挙げている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-2-20",
+  "grade": "正答",
+  "reason": "C-16を選び、上窓FIX・下窓の矢印・名称を根拠に挙げている。",
+  "borderline": false
+ }
+]

@@ -9,3 +9,7 @@
 2026/10-23-*-20-*/assets/voice/
 # Python が自動で作るファイル
 __pycache__/
+# LibreCAD が自動で保存する作業用のファイル(#132)
+\#*.dxf
+# へんロボの声。code/henrobo/voice_lines.py で作り直せる(#132)
+2026/10-29-*-01-*/assets/voice/

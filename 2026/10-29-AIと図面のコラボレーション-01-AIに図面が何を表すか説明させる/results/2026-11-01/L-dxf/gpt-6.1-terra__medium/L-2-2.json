@@ -1,0 +1,33 @@
+{
+  "qid": "L-2-2",
+  "question": "上の窓は動かさず、下の窓だけを上げ下げしたい。どの形状番号か",
+  "drawing": "L",
+  "drawing_file": "001126048-p09",
+  "format": "dxf",
+  "model": "gpt-6.1-terra",
+  "effort": "medium",
+  "cli": "codex",
+  "cli_version": "codex-cli 0.165.0",
+  "command": [
+    "codex",
+    "exec",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "-s",
+    "workspace-write",
+    "-m",
+    "gpt-6.1-terra",
+    "-c",
+    "model_reasoning_effort=medium",
+    "-"
+  ],
+  "prompt": "作業フォルダにある図面ファイル（drawing.dxf）を読み、次の問いに日本語で答えてください。\n\n問い: 上の窓は動かさず、下の窓だけを上げ下げしたい。どの形状番号か\n\n次の形で答えてください。\n- 答え:\n- 根拠: 図面のどこを見たか（図の名前、注記、表など）\n- 確かさ: 図面に書かれている／図面から推測した／図面からは分からない\n\n作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。\nライブラリを新しく入れないでください。",
+  "started": "2026-11-01T12:59:27+09:00",
+  "seconds": 14.3,
+  "exit": 0,
+  "stdout": "- 答え: D-4\n- 根拠: 「建具：形状寸法」の「形状及び形状番号」で、D-4は「片上げ下げ」と記され、上側に「FIX」の表示があります。\n- 確かさ: 図面に書かれている\n",
+  "stderr": "OpenAI Codex v0.165.0\n--------\nworkdir: /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-0t0igz_p\nmodel: gpt-6.1-terra\nprovider: openai\napproval: never\nsandbox: workspace-write [workdir, /tmp, $TMPDIR]\nreasoning effort: medium\nreasoning summaries: none\nsession id: 01a19543-244c-7f92-95d4-a8546354643c\n--------\nuser\n作業フォルダにある図面ファイル（drawing.dxf）を読み、次の問いに日本語で答えてください。\n\n問い: 上の窓は動かさず、下の窓だけを上げ下げしたい。どの形状番号か\n\n次の形で答えてください。\n- 答え:\n- 根拠: 図面のどこを見たか（図の名前、注記、表など）\n- 確かさ: 図面に書かれている／図面から推測した／図面からは分からない\n\n作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。\nライブラリを新しく入れないでください。\ncodex\n図面内の形状番号と窓の動きを示す表記を確認します。\nexec\n/bin/zsh -lc 'ls -l drawing.dxf && head -n 80 drawing.dxf' in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-0t0igz_p\n succeeded in 0ms:\n-rw-r--r--@ 1 takeshita  staff  1962304 Nov  1 12:59 drawing.dxf\n  0\nSECTION\n  2\nHEADER\n  9\n$ACADVER\n  1\nAC1032\n  9\n$ACADMAINTVER\n 90\n4\n  9\n$DWGCODEPAGE\n  3\nANSI_1252\n  9\n$LASTSAVEDBY\n  1\nezdxf\n  9\n$REQUIREDVERSIONS\n160\n0\n  9\n$INSBASE\n 10\n0.0\n 20\n0.0\n 30\n0.0\n  9\n$EXTMIN\n 10\n1e+20\n 20\n1e+20\n 30\n1e+20\n  9\n$EXTMAX\n 10\n-1e+20\n 20\n-1e+20\n 30\n-1e+20\n  9\n$LIMMIN\n 10\n0.0\n 20\n0.0\n  9\n$LIMMAX\n 10\n420.0\n 20\n297.0\n  9\n$ORTHOMODE\n 70\n0\n  9\n$REGENMODE\n 70\n1\n  9\n$FILLMODE\n 70\n1\n  9\n$QTEXTMODE\n 70\n0\n  9\n$MIRRTEXT\n 70\n1\n\nexec\n/bin/zsh -lc \"python3 - <<'PY'\np='drawing.dxf'\nwith open(p,encoding='utf-8',errors='replace') as f: a=f.read().splitlines()\nfor i in range(0,len(a)-1,2):\n if a[i].strip() in ('1','3'):\n  s=a[i+1].strip()\n  if any('\\\\u3040' <= c <= '\\\\u9fff' for c in s): print(s)\nPY\" in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-0t0igz_p\n succeeded in 0ms:\n場合\n(450又は700)\nA1～A6，B1～B8の寸法は，標準型建具の場合を示す。ただし（　）を除く。\n抑える事。但し，身障者の\nのり幅900以上とする。\n利用する部分は枠の有効内\n標準寸法の変更は最小限に\nmmとする。但し，ドアクロ\n・\n鋼\n製\n鋼\n製\n量\n軽\n・\n製\n木\nス\nラ\nガ\n入\nフ\nシ\nッ\nラ\nュ\n戸\n・\n鋼\n製\n軽\n量\n製\n・\n製\n鋼\n木\nラ\nッ\nュ\n戸\nシ\nフ\n内\n片上げ下げ\n上げ下げ\n外\nたてすべり出し\n形状及び形状番号\nア\nル\nミ\nニ\nウ\nム\n製\n建\n具\n丁番の\n(450又は700)\n片開き\nすべり出し\nたて軸回転\n横軸回転\n内倒し\n外倒し\nア\nル\nミ\nニ\nウ\nム\n製\n建\n具\n突き出し\nらんまの形式\n種別\nFIX（固定）\n引違い\n内倒し\n外倒し\n突き出し\n形\n式\n内\n外\n種別\nⅠ型\nⅡ型\nⅢ型\n姿図\n形\n式\n約25%\n開口率\n約30%\n約35%\nW=1,500以上は方立を\n開閉\n方法\n枠　の\n有効内のり\n幅　W\n枠　の\n有効内のり\n高さH\n備　　考\n片開き\n扉の標準寸法\n親子開き\n両開き\n枠の内のり高さHは床面か\nで段差がある場合は一般床\n（廊下など）からの高さと\nする。\n扉の見込み寸法は木製\n及び鋼製建具の場合40mm,\n鋼製軽量建具の場合35～40\n親子開きの子扉の幅は300\n片開き\n点検用扉等で,WxHの小さ\nなものは見込み30mm程\n度とする。\nふ\nす\nま\nがらりの形式\n設ける。\nらの高さを示し，扉の前後\n形状寸法\nC-1～-6，C-17～-19のらんま形式を示す。\n扉がらり及び窓がらりの形式を示す。\n開き戸の標準を示す。\n引違い，片引き，両引きなどの場合はこれに準ずる。\nＡ-４～-６，Ｂ-４～-６,－８のがらりの形式及び開口率，W　H\nＣ-１～-６を連窓とする場合のＷ（総巾）\nらんまの形式\nＣ-１～-６，Ｃ-１７～-１９で，らんまを設ける場合のＨ　，\n形状，Ｗ，Ｗ　，Ｈ，Ｈ\n木製，鋼製及びアルミニウム製の種別\n建具　：　形状寸法\n建築工事標準詳細図　令和４年版\n縮　　尺\n図面名称\n特記事項\n仕様\nーザを設ける必要がある\n場合は350mm以上とする。\nC形状の＊印は樹脂製建具対応形状を示す。\n製\n建\n具\n樹\n脂\n・\n製\n建\n具\n樹\n脂\n・\n建築工事標準詳細図　（令和４年改定）\n国土交通省大臣官房官庁営繕部整備課\n\nexec\n/bin/zsh -lc \"python3 - <<'PY'\na=open('drawing.dxf',encoding='utf-8',errors='replace').read().splitlines(); pairs=list(zip(a[::2],a[1::2])); ent=[]; cur=[]\nfor k,v in pairs:\n if k.strip()=='0':\n  if cur: ent.append(cur)\n  cur=[(k.strip(),v.strip())]\n else: cur.append((k.strip(),v.strip()))\nent.append(cur)\nfor e in ent:\n d={};\n for k,v in e: d.setdefault(k,[]).append(v)\n if d.get('0',[''])[0] in ('TEXT','MTEXT'):\n  s=''.join(d.get('1',[])+d.get('3',[]));\n  if '上げ下げ' in s: print(s, d)\nPY\" in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-0t0igz_p\n succeeded in 0ms:\n片上げ下げ {'0': ['TEXT'], '5': ['1891'], '330': ['17'], '100': ['AcDbEntity', 'AcDbText', 'AcDbText'], '8': ['0'], '10': ['290.99933505588103'], '20': ['226.27165374755856'], '30': ['0.0'], '40': ['2.5989111328125'], '1': ['片上げ下げ'], '7': ['kst32b'], '72': ['5'], '11': ['307.24252963595916'], '21': ['226.27165374755856'], '31': ['0.0']}\n上げ下げ {'0': ['TEXT'], '5': ['1892'], '330': ['17'], '100': ['AcDbEntity', 'AcDbText', 'AcDbText'], '8': ['0'], '10': ['269.2611701117621'], '20': ['226.27165374755856'], '30': ['0.0'], '40': ['2.5989111328125'], '1': ['上げ下げ'], '7': ['kst32b'], '72': ['5'], '11': ['282.2557257758246'], '21': ['226.27165374755856'], '31': ['0.0']}\n\nexec\n/bin/zsh -lc \"python3 - <<'PY'\na=open('drawing.dxf',encoding='utf-8',errors='replace').read().splitlines(); ent=[]; cur=[]\nfor k,v in zip(a[::2],a[1::2]):\n k=k.strip();v=v.strip()\n if k=='0':\n  if cur:ent.append(cur)\n  cur=[(k,v)]\n else:cur.append((k,v))\nfor e in ent:\n d={}\n for k,v in e:d.setdefault(k,[]).append(v)\n if d.get('0',[''])[0] in ('TEXT','MTEXT'):\n  try:x=float(d['10'][0]);y=float(d['20'][0])\n  except:continue\n  if 250<x<325 and 190<y<260:print(round(x,1),round(y,1),''.join(d.get('1',[])+d.get('3',[])))\nPY\" in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-0t0igz_p\n succeeded in 0ms:\n298.7 231.5 W\n275.3 231.5 W\n253.6 235.0 W\n292.6 240.9 H\n269.2 240.9 H\n297.4 242.5 FIX\n291.0 226.3 片上げ下げ\n269.3 226.3 上げ下げ\n251.9 211.9 D-2\n273.7 211.9 D-3\n297.6 211.9 D-4\n323.6 211.9 D-5\n319.7 239.1 1\n319.8 236.9 H\n319.7 248.8 2\n319.8 246.7 H\n\ncodex\n- 答え: D-4\n- 根拠: 「建具：形状寸法」の「形状及び形状番号」で、D-4は「片上げ下げ」と記され、上側に「FIX」の表示があります。\n- 確かさ: 図面に書かれている\ntokens used\n8,189\n",
+  "files_created": [],
+  "answer": "- 答え: D-4\n- 根拠: 「建具：形状寸法」の「形状及び形状番号」で、D-4は「片上げ下げ」と記され、上側に「FIX」の表示があります。\n- 確かさ: 図面に書かれている",
+  "suspect_web_or_install": []
+}
