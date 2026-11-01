@@ -1,0 +1,10 @@
+{
+  "text": "こんにちは、へんロボです。今日は、AIに建築の図面を読ませて、三社十のモデルで比べた結果をお話しします。単純な図面ほど、意外な所でつまずきました。",
+  "seeds": [1, 2],
+  "jobs": [
+    {"name": "A_ja_calm", "instruct": "落ち着いた30代後半の日本人男性の会社員。中くらいの低さの声で、はっきりした発音。ゆっくりめの話し速度で、一語一語を明瞭に区切る。丁寧なビジネスの説明口調。息もれやかすれは少なく、こもらない澄んだ声。"},
+    {"name": "B_en_calm", "instruct": "A calm Japanese businessman in his late thirties. Mid-low pitch, clear and crisp articulation, steady and slightly slow pace. Polite, professional presentation tone like explaining to a client. Clean voice with no breathiness or rasp, not muffled."},
+    {"name": "C_ja_announcer", "instruct": "落ち着いた40歳前後の男性。ニュースのアナウンサーのように滑舌がよく、明るすぎない穏やかな声。抑揚は控えめだが単調ではない。語尾までしっかり発音する。"},
+    {"name": "D_en_presenter", "instruct": "A composed adult Japanese male office worker giving a clear product briefing. Warm mid-range voice, precise enunciation of every syllable, moderate tempo, natural gentle intonation, confident but not loud, close-mic studio quality."}
+  ]
+}
