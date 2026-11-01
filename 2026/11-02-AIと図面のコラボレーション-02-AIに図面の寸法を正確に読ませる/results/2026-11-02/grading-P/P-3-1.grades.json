@@ -1,0 +1,122 @@
+[
+  {
+    "code": "P-3-1-01",
+    "grade": "正答",
+    "reason": "画像の比率から約800mmを求め、図形から求めた値と正しく答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-02",
+    "grade": "正答",
+    "reason": "壁の開口・扉の線・円弧の半径から800mmを求め、寸法がないことも示している。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-03",
+    "grade": "正答",
+    "reason": "開口と扉記号の座標から800mmを求め、寸法線がないことも確かめている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-04",
+    "grade": "部分正答",
+    "reason": "開口幅は約800mmと正しいが、扉の線と円弧を900mmと誤って読み、ない不整合を指摘している。",
+    "borderline": true
+  },
+  {
+    "code": "P-3-1-05",
+    "grade": "正答",
+    "reason": "開口を画像で測り約800mmとし、図形から求めた値と答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-06",
+    "grade": "正答",
+    "reason": "Y1〜Y2の5,400を基準に開口を測り約800mmと答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-07",
+    "grade": "正答",
+    "reason": "開口の座標2,000〜2,800と円弧の半径から800mmを求めている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-08",
+    "grade": "正答",
+    "reason": "寸法がないことを示し、5,400を基準に測って約800mmと答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-09",
+    "grade": "正答",
+    "reason": "画像で測って約805mmを得て800mmと推定し、図形からの値と答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-10",
+    "grade": "正答",
+    "reason": "扉の線・円弧・開口の座標から800mmを求め、寸法の記載がないことも示している。",
+    "borderline": true
+  },
+  {
+    "code": "P-3-1-11",
+    "grade": "正答",
+    "reason": "複数の基準でピクセル比を取り約800mmを求めている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-12",
+    "grade": "誤答",
+    "reason": "出入口と同じ900mmと答えており、正解の800mmと違う。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-13",
+    "grade": "正答",
+    "reason": "開口を画像で測り約805mm、丸めて約800mmと答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-14",
+    "grade": "正答",
+    "reason": "開口端の座標の差と円弧の半径から800mmを求めている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-15",
+    "grade": "正答",
+    "reason": "壁の開口・扉の線・円弧から800mmを求め、寸法がないことも示している。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-16",
+    "grade": "正答",
+    "reason": "3,600と900を基準にピクセル比で800mmを求めている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-17",
+    "grade": "正答",
+    "reason": "壁の開口と扉の線・円弧から800mmを求め、寸法がないことを示している。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-18",
+    "grade": "正答",
+    "reason": "扉の線の両端と円弧の半径から800mmを求めている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-19",
+    "grade": "正答",
+    "reason": "開口・扉の線・円弧の3つが800mmで一致することを根拠に答えている。",
+    "borderline": false
+  },
+  {
+    "code": "P-3-1-20",
+    "grade": "正答",
+    "reason": "扉の線の長さと円弧の半径から800mmを求めている。",
+    "borderline": false
+  }
+]

@@ -1,0 +1,1446 @@
+[
+ {
+  "qid": "P-1-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-1-1-01",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-1-1-02",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-1-1-03",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-1-1-04",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-1-1-05",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-1-1-06",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-1-1-07",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-1-1-08",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-1-1-09",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-1-1-10",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-1-1-11",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-1-1-12",
+  "grade": "部分正答",
+  "reason": "値の3,600mmは合うが、寸法に書かれた値ではなく通り芯の座標から計算した値と答えており、出どころが正解と違う。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-1-1-13",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-1-1-14",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-1-1-15",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-1-1-16",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-1-1-17",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-1-1-18",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-1-1-19",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-1-1-20",
+  "grade": "正答",
+  "reason": "X1–X2の寸法線の「3,600」を寸法に書かれた値として答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-1-2-01",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-1-2-02",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-1-2-03",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-1-2-04",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-1-2-05",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-1-2-06",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-1-2-07",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-1-2-08",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-1-2-09",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-1-2-10",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-1-2-11",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-1-2-12",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-1-2-13",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-1-2-14",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-1-2-15",
+  "grade": "正答",
+  "reason": "寸法に書かれた900を開口幅として答えており、扉板の幅は書かれていないという補足は答えを損なわない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-1-2-16",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-1-2-17",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-1-2-18",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-1-2-19",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-1-2-20",
+  "grade": "正答",
+  "reason": "出入口の寸法線の「900」を寸法に書かれた値として答え、600と取り違えていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-2-1-01",
+  "grade": "正答",
+  "reason": "3.475mを芯々3,600と壁厚150・100から計算し、間仕切り厚が寸法にない点も示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-2-1-02",
+  "grade": "誤答",
+  "reason": "根拠では3,475mmを導いているが、答えとして3.55mを示しており答えの値が誤っている。",
+  "borderline": true
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-2-1-03",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-2-1-04",
+  "grade": "正答",
+  "reason": "3.475mを計算で求め、間仕切り厚が図の測り読みであることを確認事項として示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-2-1-05",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-2-1-06",
+  "grade": "誤答",
+  "reason": "間仕切りも150mmとして3.45mと答え、仮定であることを明示していないため部分正答の条件を満たさない。",
+  "borderline": true
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-2-1-07",
+  "grade": "不要な保留",
+  "reason": "図形から3.475mを求められるのに「図面からは分からない」とし、正しい値を参考値に留めている。",
+  "borderline": true
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-2-1-08",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-2-1-09",
+  "grade": "正答",
+  "reason": "壁の座標から3.475mを正しく計算しており、確かさの書き方の違いは判定に影響しない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-2-1-10",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-2-1-11",
+  "grade": "部分正答",
+  "reason": "画素の比から約3.48mと概算しており、考え方は正しいが±1mmの誤差に収まらない。",
+  "borderline": true
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-2-1-12",
+  "grade": "部分正答",
+  "reason": "画素の比から約3.48mと概算しており、考え方は正しいが±1mmの誤差に収まらない。",
+  "borderline": true
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-2-1-13",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-2-1-14",
+  "grade": "正答",
+  "reason": "3.475mを寸法と図形の測定から計算し、値の出どころの説明も実態に合っている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-2-1-15",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-2-1-16",
+  "grade": "部分正答",
+  "reason": "間仕切りを150mmとみなして3.45mと答え、寸法記入がない点の仮定を明示している。",
+  "borderline": true
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-2-1-17",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-2-1-18",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-2-1-19",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-2-1-20",
+  "grade": "正答",
+  "reason": "3,600−75−50=3,475mmを、計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-2-2-01",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-2-2-02",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-2-2-03",
+  "grade": "誤答",
+  "reason": "通り芯間の7,200をそのまま外形の幅とし、外壁の半分の厚さを足していない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-2-2-04",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-2-2-05",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-2-2-06",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-2-2-07",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-2-2-08",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-2-2-09",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-2-2-10",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-2-2-11",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-2-2-12",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-2-2-13",
+  "grade": "正答",
+  "reason": "7.35mを寸法と座標から正しく計算しており、確かさを「図面に書かれている」とした点は判定に影響しない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-2-2-14",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-2-2-15",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-2-2-16",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-2-2-17",
+  "grade": "正答",
+  "reason": "7.35mを寸法の値と図形の読み取りから計算しており、出どころの説明も実態に合う。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-2-2-18",
+  "grade": "正答",
+  "reason": "7.35mを寸法の値から計算しており、確かさの書き方の違いは判定に影響しない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-2-2-19",
+  "grade": "正答",
+  "reason": "7.35mを寸法の値から計算し、画素の計測で裏付けている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-2-2-20",
+  "grade": "正答",
+  "reason": "芯々7,200に壁厚の半分75を両側で足し、7.35mを計算した値として正しく求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-3-1-01",
+  "grade": "正答",
+  "reason": "画像の比率から約800mmを求め、図形から求めた値と正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-3-1-02",
+  "grade": "正答",
+  "reason": "壁の開口・扉の線・円弧の半径から800mmを求め、寸法がないことも示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-3-1-03",
+  "grade": "正答",
+  "reason": "開口と扉記号の座標から800mmを求め、寸法線がないことも確かめている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-3-1-04",
+  "grade": "部分正答",
+  "reason": "開口幅は約800mmと正しいが、扉の線と円弧を900mmと誤って読み、ない不整合を指摘している。",
+  "borderline": true
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-3-1-05",
+  "grade": "正答",
+  "reason": "開口を画像で測り約800mmとし、図形から求めた値と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-3-1-06",
+  "grade": "正答",
+  "reason": "Y1〜Y2の5,400を基準に開口を測り約800mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-3-1-07",
+  "grade": "正答",
+  "reason": "開口の座標2,000〜2,800と円弧の半径から800mmを求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-3-1-08",
+  "grade": "正答",
+  "reason": "寸法がないことを示し、5,400を基準に測って約800mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-3-1-09",
+  "grade": "正答",
+  "reason": "画像で測って約805mmを得て800mmと推定し、図形からの値と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-3-1-10",
+  "grade": "正答",
+  "reason": "扉の線・円弧・開口の座標から800mmを求め、寸法の記載がないことも示している。",
+  "borderline": true
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-3-1-11",
+  "grade": "正答",
+  "reason": "複数の基準でピクセル比を取り約800mmを求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-3-1-12",
+  "grade": "誤答",
+  "reason": "出入口と同じ900mmと答えており、正解の800mmと違う。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-3-1-13",
+  "grade": "正答",
+  "reason": "開口を画像で測り約805mm、丸めて約800mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-3-1-14",
+  "grade": "正答",
+  "reason": "開口端の座標の差と円弧の半径から800mmを求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-3-1-15",
+  "grade": "正答",
+  "reason": "壁の開口・扉の線・円弧から800mmを求め、寸法がないことも示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-3-1-16",
+  "grade": "正答",
+  "reason": "3,600と900を基準にピクセル比で800mmを求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-3-1-17",
+  "grade": "正答",
+  "reason": "壁の開口と扉の線・円弧から800mmを求め、寸法がないことを示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-3-1-18",
+  "grade": "正答",
+  "reason": "扉の線の両端と円弧の半径から800mmを求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-3-1-19",
+  "grade": "正答",
+  "reason": "開口・扉の線・円弧の3つが800mmで一致することを根拠に答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-3-1-20",
+  "grade": "正答",
+  "reason": "扉の線の長さと円弧の半径から800mmを求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-3-2-01",
+  "grade": "正答",
+  "reason": "3,475×5,250から18.24375m²を求め、図形から計算した値と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-3-2-02",
+  "grade": "部分正答",
+  "reason": "計算は3.475×5.25=18.24m²で正しいが、答えの欄は約18.2m²と丸めており誤差の範囲を超える。",
+  "borderline": true,
+  "grade_draft": "正答",
+  "review_note": "「約18.2m²」は許す誤差（±0.01m²）を超える。P-2-1 の概算と同じ線引きで部分正答にそろえた"
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-3-2-03",
+  "grade": "正答",
+  "reason": "壁内面の座標から3,475×5,250=18.24375m²を求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-3-2-04",
+  "grade": "正答",
+  "reason": "通り芯と壁厚から内法3,475×5,250を求め18.24375m²と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-3-2-05",
+  "grade": "正答",
+  "reason": "間仕切り100mmを図形から測り18.24375m²と答えており、別の仮定は補足にとどまる。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-3-2-06",
+  "grade": "正答",
+  "reason": "内法3,475×5,250から18.24375m²と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-3-2-07",
+  "grade": "正答",
+  "reason": "壁の座標から18.24375m²を求め、他の値は参考として分けている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-3-2-08",
+  "grade": "誤答",
+  "reason": "主の答えを間仕切りも150mmと仮定した18.1125m²としており、正しい値は補足にとどまる。",
+  "borderline": true
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-3-2-09",
+  "grade": "正答",
+  "reason": "壁の座標から内法3,475×5,250を求め、芯々の19.44m²は内法でないと区別している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-3-2-10",
+  "grade": "正答",
+  "reason": "間仕切りを図形から約100mmと読み18.24375m²と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-3-2-11",
+  "grade": "誤答",
+  "reason": "間仕切りを150mmと誤読し18.1125m²と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-3-2-12",
+  "grade": "正答",
+  "reason": "内法3,475×5,250から約18.24m²を求め、間仕切りの厚さを図形から読んだことも示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-3-2-13",
+  "grade": "正答",
+  "reason": "壁の内側の間隔から18.24375m²と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-3-2-14",
+  "grade": "正答",
+  "reason": "壁の座標から18.24m²を求め、芯々面積は内法でないと区別している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-3-2-15",
+  "grade": "正答",
+  "reason": "壁の座標と寸法の両方から3,475×5,250を確かめ18.24m²と答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-3-2-16",
+  "grade": "誤答",
+  "reason": "答えは芯々の19.44m²で、根拠の計算17.595m²とも食い違い、内法としても誤っている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-3-2-17",
+  "grade": "正答",
+  "reason": "図形の座標と寸法の両方から18.24375m²を求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-3-2-18",
+  "grade": "正答",
+  "reason": "壁の内面の座標から18.24m²を求めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-3-2-19",
+  "grade": "正答",
+  "reason": "内法3,475×5,250から約18.24m²を求め、間仕切りの厚さは図から測ったと示している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-3-2-20",
+  "grade": "部分正答",
+  "reason": "式は18,243,750mm²で正しいが、答えは約18.2m²と丸めており誤差の範囲を超える。",
+  "borderline": true,
+  "grade_draft": "正答",
+  "review_note": "「約18.2m²」は許す誤差（±0.01m²）を超える。P-2-1 の概算と同じ線引きで部分正答にそろえた"
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-4-1-01",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-4-1-02",
+  "grade": "正答",
+  "reason": "寸法の1,200と図形の900が食い違うことを示し、どちらが正しいか作成者への確認が必要と述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-4-1-03",
+  "grade": "正答",
+  "reason": "図形の900と寸法の1,200の食い違いを示し、900寄りとしつつ作図者への確認を勧めている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-4-1-04",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-4-1-05",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-4-1-06",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-4-1-07",
+  "grade": "部分正答",
+  "reason": "900との不一致には触れているが、確認の必要を示さず1,200を答えとして採っている。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-4-1-08",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-4-1-09",
+  "grade": "正答",
+  "reason": "1,200と900の食い違いを示し、図面からは確定できず設計者への確認が必要と述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-4-1-10",
+  "grade": "正答",
+  "reason": "途中で答えが揺れたが、最終回答で900と1,200の食い違いを示し設計者への確認を求めている。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-4-1-11",
+  "grade": "誤った断定",
+  "reason": "図形から900と断定し、寸法に1,200と書かれていることに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-4-1-12",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-4-1-13",
+  "grade": "部分正答",
+  "reason": "図形では900と注記しているが、確認の必要を示さず1,200を答えとしている。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-4-1-14",
+  "grade": "誤った断定",
+  "reason": "1,200と断定し、600+1,800+1,200で整合すると誤った確認までしている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-4-1-15",
+  "grade": "部分正答",
+  "reason": "900との不一致には触れているが、確認の必要を示さず1,200を答えとしている。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-4-1-16",
+  "grade": "部分正答",
+  "reason": "不一致を認めつつ、確認を求めずに寸法表記の1,200を自分で採用している。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-4-1-17",
+  "grade": "誤った断定",
+  "reason": "1,200を寸法に書かれた値として断定し、図形の900との食い違いに触れていない。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-4-1-18",
+  "grade": "部分正答",
+  "reason": "1,200と900を併記し不整合を指摘しているが、どちらが正しいか確認が必要とは述べていない。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-4-1-19",
+  "grade": "正答",
+  "reason": "書かれた1,200と測った約900が食い違い、図面からは決められないので作成者に確認すべきと述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-4-1-20",
+  "grade": "誤った断定",
+  "reason": "1,200と断定し、窓左端まで600で矛盾はないと誤って整合を主張している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "P-4-2-01",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "P-4-2-02",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "P-4-2-03",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "P-4-2-04",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "P-4-2-05",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "P-4-2-06",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "P-4-2-07",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "P-4-2-08",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "P-4-2-09",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "P-4-2-10",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "P-4-2-11",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "P-4-2-12",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "P-4-2-13",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "P-4-2-14",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "P-4-2-15",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "P-4-2-16",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "P-4-2-17",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "P-4-2-18",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "P-4-2-19",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないと保留し、立面図・断面図・建具表などで確かめる必要にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "P-4-2-20",
+  "grade": "適切な保留",
+  "reason": "平面図には窓の高さの情報がなく、図面からは分からないと正しく保留している。",
+  "borderline": false
+ }
+]

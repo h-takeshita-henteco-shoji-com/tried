@@ -1,0 +1,1082 @@
+[
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "H-1-1-01",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "H-1-1-02",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "H-1-1-03",
+  "grade": "不要な保留",
+  "reason": "図面に「摺車75φ以上」と書かれているのに、大きさは分からないと保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "H-1-1-04",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "H-1-1-05",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "H-1-1-06",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "H-1-1-07",
+  "grade": "正答",
+  "reason": "75φ以上を注記の値として正しく答えているが、レールの仕様のSUS304を戸車の材質として添えている。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "H-1-1-08",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "H-1-1-09",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "H-1-1-10",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "H-1-1-11",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "H-1-1-12",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "H-1-1-13",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "H-1-1-14",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "H-1-1-15",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "H-1-1-16",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "H-1-1-17",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "H-1-1-18",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "H-1-1-19",
+  "grade": "正答",
+  "reason": "75φ以上を注記の値として正しく答えているが、「ガイドローラー付き」という根拠の弱い仕様を添えている。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "H-1-1-20",
+  "grade": "正答",
+  "reason": "引き戸断面 1/5 の注記「摺車75φ以上」を根拠に、直径75mm以上と書かれた値で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "H-1-2-01",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "H-1-2-02",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "H-1-2-03",
+  "grade": "正答",
+  "reason": "門柱の断面 1/20 の寸法を、括弧付きの「(600)」であると明示して600mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "H-1-2-04",
+  "grade": "正答",
+  "reason": "門柱の断面 1/20 の寸法を、括弧付きの「(600)」であると明示して600mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "H-1-2-05",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "H-1-2-06",
+  "grade": "正答",
+  "reason": "門柱の断面 1/20 の寸法を、括弧付きの「(600)」であると明示して600mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "H-1-2-07",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "H-1-2-08",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "H-1-2-09",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "H-1-2-10",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "H-1-2-11",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "H-1-2-12",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "H-1-2-13",
+  "grade": "正答",
+  "reason": "門柱の断面 1/20 の寸法を、括弧付きの「(600)」であると明示して600mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "H-1-2-14",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "H-1-2-15",
+  "grade": "正答",
+  "reason": "門柱の断面 1/20 の寸法を、括弧付きの「(600)」であると明示して600mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "H-1-2-16",
+  "grade": "正答",
+  "reason": "600mmと括弧付きの参考値であることを答えているが、寸法線の範囲を捨コンクリート層の幅と解釈しておりメモと食い違う。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "H-1-2-17",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "H-1-2-18",
+  "grade": "部分正答",
+  "reason": "600mmは正しいが、根拠で「(600)」を引用するだけで括弧付きの値であることには触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "H-1-2-19",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-1-2",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "H-1-2-20",
+  "grade": "正答",
+  "reason": "600mmと答え、括弧付きの「(600)」であり参考値の可能性がある点にも触れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "H-2-1-01",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "H-2-1-02",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "H-2-1-03",
+  "grade": "正答",
+  "reason": "4.5mと戸車の増付けを答え、Wは指定値、条件は注記と出どころも正しい。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "H-2-1-04",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "H-2-1-05",
+  "grade": "正答",
+  "reason": "4.5mと中央への戸車の増付けを答え、個数の補足も根拠と矛盾しない。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "H-2-1-06",
+  "grade": "正答",
+  "reason": "4.5mと戸車の増付けは正しいが、出どころを「図形から測った・計算した値」とだけ書いており、注記由来の判定との対応があいまい。",
+  "borderline": true
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "H-2-1-07",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "H-2-1-08",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "H-2-1-09",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "H-2-1-10",
+  "grade": "正答",
+  "reason": "4.5mと戸車の増付けを答え、出どころも指定値の単位換算と明記している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "H-2-1-11",
+  "grade": "正答",
+  "reason": "4.5mは換算、4,000mmの条件は仕様欄の規定と、出どころを分けて正しく示している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "H-2-1-12",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "H-2-1-13",
+  "grade": "正答",
+  "reason": "4.5mと戸車の増付けを答えているが、注記の場所を仕様欄ではなく平面図としている点は小さな誤り。",
+  "borderline": true
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "H-2-1-14",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "H-2-1-15",
+  "grade": "正答",
+  "reason": "4.5mと戸車の増付けを答え、個数が図面から分からないという補足も妥当。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "H-2-1-16",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "H-2-1-17",
+  "grade": "不要な保留",
+  "reason": "4.5mは正しいが、仕様2）に書かれている戸車の増付け条件を見落とし、要否を図面から分からないと保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "H-2-1-18",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "H-2-1-19",
+  "grade": "正答",
+  "reason": "4.5mと中央への戸車の増付けを注記から正しく答え、既存台数の保留も妥当。",
+  "borderline": false
+ },
+ {
+  "qid": "H-2-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "H-2-1-20",
+  "grade": "正答",
+  "reason": "4.5mへの換算と、仕様2）による中央への戸車の増付けの両方を、正しい根拠で答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "H-3-1-01",
+  "grade": "正答",
+  "reason": "約350mmは書かれた寸法の合計と一致し、図形の検算も許す誤差内で、括弧付きの値も含めている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "H-3-1-02",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "H-3-1-03",
+  "grade": "誤答",
+  "reason": "割栗の層の下にもう1層あるとみなし、書かれていない約140mmを足して490mmと答えており、寸法が書かれていないという主張も誤り。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "H-3-1-04",
+  "grade": "正答",
+  "reason": "350mmは正しく出どころも寸法の合計と補足しているが、3つの寸法がどれも括弧付きという記述は誤り（50は括弧なし）。",
+  "borderline": true
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "H-3-1-05",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "H-3-1-06",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "H-3-1-07",
+  "grade": "正答",
+  "reason": "350mmは正しいが、出どころを「図形から測った・計算した値」とだけ書き、書かれた寸法の合計である点が出どころ欄で明示されていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "H-3-1-08",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "H-3-1-09",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "H-3-1-10",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "H-3-1-11",
+  "grade": "正答",
+  "reason": "350mmは正しいが、出どころを「図形から測った・計算した値」とだけ書き、書かれた寸法の合計である点が出どころ欄で明示されていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "H-3-1-12",
+  "grade": "正答",
+  "reason": "約350mmは書かれた寸法の合計と一致し、出どころも計算値と正しく示している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "H-3-1-13",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "H-3-1-14",
+  "grade": "正答",
+  "reason": "350mmを答え、出どころも書かれた寸法の合計と補足している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "H-3-1-15",
+  "grade": "正答",
+  "reason": "350mmを書かれた寸法の合計として答え、確かさの保留は括弧付きの値への注意として妥当。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "H-3-1-16",
+  "grade": "正答",
+  "reason": "350mmを書かれた寸法の合計として答え、図形の検算も許す誤差内。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "H-3-1-17",
+  "grade": "正答",
+  "reason": "350mmを答え、出どころも記載寸法の合計と補足している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "H-3-1-18",
+  "grade": "誤答",
+  "reason": "捨コンクリートの50を足し忘れ、300mmと答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "H-3-1-19",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-3-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "H-3-1-20",
+  "grade": "正答",
+  "reason": "(200)+50+(100)=350mmを、引き戸及び基礎断面の書かれた寸法の合計として正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "H-4-1-01",
+  "grade": "適切な保留",
+  "reason": "具体値は図面になく上限1,200以下だけで、特記で決まると正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "H-4-1-02",
+  "grade": "適切な保留",
+  "reason": "1,200以下と答え、具体的な高さは指定されていないと保留しているが、特記への言及はない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "H-4-1-03",
+  "grade": "部分正答",
+  "reason": "1,200以下は正しいが、この図で決まらないことと特記で決める点に触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "H-4-1-04",
+  "grade": "適切な保留",
+  "reason": "1,200以下を示したうえで、確定値は特記によるため図面からは分からないと保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "H-4-1-05",
+  "grade": "部分正答",
+  "reason": "1,200以下は正しいが、この図で決まらないことと特記で決める点に触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "H-4-1-06",
+  "grade": "適切な保留",
+  "reason": "上限1,200以下を示し、Hの具体値は図面からは分からないと保留している。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "H-4-1-07",
+  "grade": "適切な保留",
+  "reason": "上限1,200以下だけで実際の値は決まらず、特記事項1)で決める項目と正しく答えている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "H-4-1-08",
+  "grade": "適切な保留",
+  "reason": "図面からは分からず、上限1,200以下だけがあると保留しているが、特記事項1)の役割は見落としている。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "H-4-1-09",
+  "grade": "適切な保留",
+  "reason": "1,200以下で具体値は特記で定まり図面単体では確定しないと保留し、測定値は補足にとどめている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "H-4-1-10",
+  "grade": "適切な保留",
+  "reason": "具体値は図面から分からず1,200以下と示し、特記事項のH,Wにも触れて保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "H-4-1-11",
+  "grade": "適切な保留",
+  "reason": "図面からは決められないと保留しているが、1,200以下を場合分けの式と誤解している。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "H-4-1-12",
+  "grade": "適切な保留",
+  "reason": "1,200以下の範囲で特記により指定する値で、確定値は図面から分からないと保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "H-4-1-13",
+  "grade": "適切な保留",
+  "reason": "1,200以下と答え、具体的な高さは指定されていないと保留しているが、特記への言及はない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "H-4-1-14",
+  "grade": "適切な保留",
+  "reason": "Hは固定値でなく上限1,200の条件のみで、特記で指定する値と正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "H-4-1-15",
+  "grade": "誤った断定",
+  "reason": "「以下」を読み落とし、Hを1,200mmと断定している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "H-4-1-16",
+  "grade": "適切な保留",
+  "reason": "1,200以下で具体値は特記によるため一意には分からないと保留し、測定値は補足として正しい。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "H-4-1-17",
+  "grade": "適切な保留",
+  "reason": "決まった値はなく上限1,200以下だけで、特記で決める項目と正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "H-4-1-18",
+  "grade": "適切な保留",
+  "reason": "1,200以下を上限に具体寸法は特記で指定すると述べているが、確かさを「図面に書かれている」としている。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "H-4-1-19",
+  "grade": "適切な保留",
+  "reason": "1,200以下と答え、具体的な高さは指定されていないと保留しているが、特記への言及はない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-1",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "H-4-1-20",
+  "grade": "適切な保留",
+  "reason": "上限1,200以下だけで固定値ではなく、特記事項1)により施工時に指定すると正しく保留している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-opus-5-5",
+  "format": "dxf",
+  "code": "H-4-2-01",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、H(1,200以下)で特記で決まり、測定値を指定寸法に使えないと正しく述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gemini-4-argon",
+  "format": "dxf",
+  "code": "H-4-2-02",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、H(1,200以下)で実際の値は特記で指定されると正しく関係づけている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6.1-sol",
+  "format": "dxf",
+  "code": "H-4-2-03",
+  "grade": "部分正答",
+  "reason": "約1,180mm相当は正しいが、Hが特記で決まることと測定値を寸法に採用しない点に触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gemini-3.8-flash",
+  "format": "png",
+  "code": "H-4-2-04",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、H(1,200以下)で特記により決まる可変寸法と関係づけている。30を含む別解も区別して示している。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6-luna",
+  "format": "png",
+  "code": "H-4-2-05",
+  "grade": "誤った断定",
+  "reason": "「以下」を読み落とし、測った長さを書かれた1,200と一致するHの値として断定している。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-haiku-5-5",
+  "format": "dxf",
+  "code": "H-4-2-06",
+  "grade": "部分正答",
+  "reason": "約1,180〜1,200と幅で答え、矢印先端で1,200と一致すると寄せている。値の出どころに書かれた値を混ぜ、特記にも触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gemini-3.8-flash",
+  "format": "dxf",
+  "code": "H-4-2-07",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、Hは特記で指定する1,200以下の可変寸法と関係づけている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6.1-terra",
+  "format": "png",
+  "code": "H-4-2-08",
+  "grade": "正答",
+  "reason": "約1,180mm相当で、上限に近いがHの指定値を示すものではないと述べている。特記への言及はない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gemini-4-argon",
+  "format": "png",
+  "code": "H-4-2-09",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、Hは特記で指定され、図形は上限付近で描かれていると関係づけている。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-fable-5-1",
+  "format": "png",
+  "code": "H-4-2-10",
+  "grade": "部分正答",
+  "reason": "計算値1,220〜1,240mmは許す誤差を超え、約1,200に丸めている。特記との関係は正しい。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6.1-terra",
+  "format": "dxf",
+  "code": "H-4-2-11",
+  "grade": "誤答",
+  "reason": "約1,010mm相当は許す誤差(1,145〜1,215)を大きく外れている。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6.1-sol",
+  "format": "png",
+  "code": "H-4-2-12",
+  "grade": "正答",
+  "reason": "測定は約1,180mm(約1,200)で許す誤差内であり、実際のHが1,200と確定しないと述べている。特記への言及はない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-opus-5-5",
+  "format": "png",
+  "code": "H-4-2-13",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、図形の長さでHは決まらず特記事項1)で指定されると正しく述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-sonnet-5-5",
+  "format": "png",
+  "code": "H-4-2-14",
+  "grade": "部分正答",
+  "reason": "約1,050〜1,100mmの概算は許す誤差を超えているが、Hは個別の設計で決まるという関係は正しい。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-fable-5-1",
+  "format": "dxf",
+  "code": "H-4-2-15",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、Hは特記で指定され寸法線の長さを実寸と読むべきでないと正しく述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-haiku-5-5",
+  "format": "png",
+  "code": "H-4-2-16",
+  "grade": "正答",
+  "reason": "約1,180mm相当と測り、H(1,200以下)で実際のHは特記事項1)で別途指定されると述べている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6-astra",
+  "format": "dxf",
+  "code": "H-4-2-17",
+  "grade": "部分正答",
+  "reason": "約1,180mm相当は正しいが、Hが特記で決まることと測定値を寸法に採用しない点に触れていない。",
+  "borderline": true
+ },
+ {
+  "qid": "H-4-2",
+  "model": "claude-sonnet-5-5",
+  "format": "dxf",
+  "code": "H-4-2-18",
+  "grade": "部分正答",
+  "reason": "約1,180mm相当は正しいが、書かれた値を「1,200以上」の下限と誤読しており関係の説明が誤っている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6-luna",
+  "format": "dxf",
+  "code": "H-4-2-19",
+  "grade": "誤答",
+  "reason": "約390mm相当は許す誤差を大きく外れている。",
+  "borderline": false
+ },
+ {
+  "qid": "H-4-2",
+  "model": "gpt-6-astra",
+  "format": "png",
+  "code": "H-4-2-20",
+  "grade": "正答",
+  "reason": "約1,170mm相当は許す誤差内で、H=1,200と確定しないと述べている。特記への言及はない。",
+  "borderline": true
+ }
+]

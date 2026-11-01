@@ -60,7 +60,7 @@
 全体を作ると時間がかかるため、先に1場面で見た目を確かめます。
 
 ```bash
-~/.venvs/tried-audio/bin/python code/henrobo/build_video.py 8
+~/.venvs/tried-audio/bin/python code/henrobo/build_video.py <その日のフォルダ> 8
 ```
 
 出力は `preview-8.mp4` です。画面の割り付け、字幕、口パク、キラリを確かめてもらってから、全体に進みます。
@@ -68,10 +68,10 @@
 ## 5. 全体を作り、確かめる
 
 ```bash
-~/.venvs/tried-audio/bin/python code/henrobo/build_video.py
+~/.venvs/tried-audio/bin/python code/henrobo/build_video.py <その日のフォルダ>
 ```
 
-- 場面ごとの図とカードは、`build_video.py` の `SCENES` に書く
+- 場面ごとの図とカードは、その日のフォルダの `henrobo_scenes.py` の `SCENES` に書く。書き方は #132 と #138 の `henrobo_scenes.py` を見る
 - 場面の長さは、声の長さで決まる
 - できたら、いくつかの時刻のコマを ffmpeg で抜き出して並べ、重なりや文字の小ささを確かめる
 
@@ -80,10 +80,10 @@
 同じ絵を、動画の先頭3秒と YouTube のサムネイルに使います。
 
 ```bash
-~/.venvs/tried-audio/bin/python code/henrobo/thumbnail.py
+~/.venvs/tried-audio/bin/python code/henrobo/thumbnail.py <その日のフォルダ>
 ```
 
-- 題の文言は `thumbnail.py` の `TAG` `TITLE` `SUB` に書く
+- 題の文言と背景の図面は、`henrobo_scenes.py` の `THUMB` に書く
 - サムネイルは `assets/thumbnail.jpg`(1280x720)。動画の先頭には、`build_video.py` が同じ絵を入れる
 
 ## 7. YouTube に上げる
@@ -94,9 +94,14 @@
 - チャプターの時刻は、場面の始まりにタイトル画面の3秒を足して出す
 - API で上げるなら `youtube_upload.py`。許可のしるしの期限が切れていたら、先に取り直す
 
-## 新しい回で直すところ
+## 新しい回で用意するもの
 
-スクリプトは #132 のフォルダを直接指しています。新しい回では、次を書き換えます。
+スクリプトは、その日のフォルダを引数で受け取ります（#138 で直した）。新しい回では、その日のフォルダに次を置きます。
 
-- `build_video.py`: `DAY`、`WORK`、`SCENES`、出力のファイル名
-- `voice_lines.py`、`thumbnail.py`、`youtube_upload.py`: `DAY`
+- `henrobo-script.md`: 台本
+- `tts-readings.tsv`: 読みの表。前の回の表を写し、台本に合わせて足す
+- `henrobo_scenes.py`: 場面の図とカード（`SCENES`）と、タイトル画面の文言（`THUMB`）
+- `youtube.md`: 投稿の文面
+
+声の見本とへんロボの立ち絵は、#132 のフォルダのものをどの回でも使います。
+`youtube_upload.py` だけは、まだ #132 のフォルダを直接指しています。
