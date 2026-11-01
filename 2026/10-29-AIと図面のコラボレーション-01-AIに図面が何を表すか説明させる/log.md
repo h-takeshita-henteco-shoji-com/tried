@@ -4,7 +4,7 @@ title: AIに図面が何を表すか説明させる
 issue: 132
 parent: 131
 ai: Claude（Haiku 5.5、Sonnet 5.5、Opus 5.5、Fable 5.1）、GPT（6 Luna、6.1 Terra、6.1 Sol、6 Astra）、Gemini（3.8 Flash、4 Argon）
-minutes:
+minutes: 60
 result: 上位のモデルは標準詳細図をほぼ読めた。差が出たのは、形だけで描かれた記号と「決まらない」の判断
 status: 未公開
 url:
