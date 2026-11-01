@@ -193,11 +193,12 @@ chrome-devtools MCP は、このリポジトリ専用のプロファイル(`~/.c
 1. `article.md` を書き上げる。
 2. `code/note/article_to_note_html.py` で、タイトルと本文の HTML を作る。画像の行は、目印の段落 `[[FIG1]]` などに置き換わる。
 3. `https://note.com/notes/new` を開き、タイトルを入れる。
-4. 本文の HTML を、エディタ(`.ProseMirror`)に paste イベントとして渡す。`evaluate_script` で `ClipboardEvent('paste')` に `text/html` を載せて送る。
-5. 画像を差し込む。目印の段落の文字を選んで消し、左の「メニューを開く」→「画像」で `assets/` の画像をアップロードする。図の直前に残る空の段落は消す。
-6. 「公開に進む」で、ハッシュタグを付ける。同じ連載の前回の記事と同じタグにする。前回のタグは `https://note.com/api/v3/notes/<記事のキー>` で確かめられる。
-7. 「投稿する」で公開する。同じ API で、公開状態、タグ、画像の枚数を確かめる。
-8. `/publish` で公開先のURLを `log.md` に書き戻し、Issueをcloseする。
+4. 本文の HTML を、エディタ(`.ProseMirror`)に paste イベントとして渡す。`evaluate_script` で `ClipboardEvent('paste')` に `text/html` を載せて送る。スクリプトをファイルで渡すときは、作業フォルダの中に置く。chrome-devtools MCP は、作業フォルダの外(`/tmp` など)のファイルを読めないため。
+5. 画像を差し込む。目印の段落の文字を選んで消し、左の「メニューを開く」→「画像」で `assets/` の画像をアップロードする。図の直前に残る空の段落は消す。消し終えたあとに Backspace を余分に押すと、前の段落の文字が消えるので注意する。
+6. 動画がある日は、YouTube の URL の段落を消し、「メニューを開く」→「埋め込み」で URL を入れ直す。URL を段落に貼っただけでは、プレーヤーにならず、ただのリンクになるため。
+7. 「公開に進む」で、ハッシュタグを付ける。同じ連載の前回の記事と同じタグにする。前回のタグは `https://note.com/api/v3/notes/<記事のキー>` で確かめられる。
+8. 「投稿する」で公開する。同じ API で、公開状態、タグ、画像の枚数を確かめる。
+9. `/publish` で公開先のURLを `log.md` に書き戻し、Issueをcloseする。
 
 ### Qiitaの公開手順
 
@@ -251,6 +252,18 @@ title: 記事のタイトル
 tags: [タグ1, タグ2]
 ---
 ```
+
+### YouTubeの公開手順
+
+動画を作った日は、noteより先に YouTube に上げます。
+noteの記事に動画を埋め込むため、動画の URL が先に要るからです。
+
+1. 投稿の文面を `youtube.md` に書く。タイトル、説明、チャプター、タグの4つ。noteの URL は、記事の公開後に入れる。
+2. 動画は非公開で上げ、サムネイルを付ける。記事と同時に公開する。
+3. API で上げるときは、許可のしるし(`~/.config/cutout-chronicles/youtube/token.json`)の期限を、動画を作り始める前に確かめる。切れていたら、先に取り直す。chrome-devtools の Chrome では Google にログインできないため、間に合わなければ人が YouTube Studio から上げる。
+4. noteの公開後、説明文に記事の URL を入れる。
+
+動画の作り方は `code/henrobo/README.md` にまとめています。
 
 ## 未決定のこと
 
