@@ -17,7 +17,9 @@
   "code": "L-1-1-02",
   "grade": "正答",
   "reason": "建具の形状と標準寸法の図と答え根拠も合う。ただしD形状をらんまとする誤りがある。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "D形状をらんまとする誤りはあるが、必須の要素は満たす。正答のまま（推奨で確定）"
  },
  {
   "qid": "L-1-1",
@@ -207,7 +209,9 @@
   "code": "L-1-2-01",
   "grade": "部分正答",
   "reason": "A〜Dの番号群は挙げるが区分の中身を対応づけず、D系列を窓の開き方と取り違えている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-1-2",
@@ -247,7 +251,9 @@
   "code": "L-1-2-05",
   "grade": "部分正答",
   "reason": "木製・鋼製とアルミ・樹脂の2区分のみで、ガラス入の区別とふすまが抜けている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-1-2",
@@ -307,7 +313,9 @@
   "code": "L-1-2-11",
   "grade": "部分正答",
   "reason": "材料の列挙にとどまり、フラッシュ戸・ガラス入・ふすまの4区分を示していない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-1-2",
@@ -355,9 +363,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "L-1-2-16",
-  "grade": "誤答",
+  "grade": "部分正答",
   "reason": "特記事項の種別3つを挙げただけで4区分に触れず、根拠も縦書き区分名でない。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "誤答",
+  "reviewed": "2026-11-01",
+  "review_note": "材料の列挙で4区分に届かない点は11と同じ。そろえて部分正答（推奨で確定）"
  },
  {
   "qid": "L-1-2",
@@ -757,7 +768,9 @@
   "code": "L-2-2-16",
   "grade": "正答",
   "reason": "C-16を選び名称を根拠とするが、FIXや矢印に触れず根拠は最小限で食い違いはない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-2-2",
@@ -807,7 +820,9 @@
   "code": "L-2-3-01",
   "grade": "正答",
   "reason": "A-5を選び、幅の違う2枚の扉と下部がらりを根拠とする。がらりを斜線とする点は正解の横線と小差。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-2-3",
@@ -887,7 +902,9 @@
   "code": "L-2-3-09",
   "grade": "正答",
   "reason": "A-5とB-5を並べるが、B-5は許す言い換えであり、親子扉と下部がらりの図を根拠にしている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-2-3",
@@ -1147,7 +1164,9 @@
   "code": "L-3-1-15",
   "grade": "部分正答",
   "reason": "結論は使えるだが、C-13をアルミ製のみとし＊印に触れず、根拠が正解と食い違う。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "結論は合うが＊印の根拠がない。部分正答のまま（推奨で確定）"
  },
  {
   "qid": "L-3-1",
@@ -1217,7 +1236,9 @@
   "code": "L-3-2-02",
   "grade": "部分正答",
   "reason": "表せない、C-8にらんまなし、対象はC-1〜6・C-17〜19と合うが、設計者の別検討に触れない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "設計者の別の検討・確認は必須の要素のまま（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1227,7 +1248,9 @@
   "code": "L-3-2-03",
   "grade": "正答",
   "reason": "表せない、C-8は対象外、対象はC-1〜6・C-17〜19、別途形状指定が必要と、要素がそろう。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "別途の指定・確認に触れており正答（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1257,7 +1280,9 @@
   "code": "L-3-2-06",
   "grade": "部分正答",
   "reason": "表せない、C-8は単窓、対象はC-1〜6・C-17〜19と合うが、別途検討の必要に触れない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "設計者の別の検討・確認は必須の要素のまま（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1267,7 +1292,9 @@
   "code": "L-3-2-07",
   "grade": "正答",
   "reason": "表せない、C-8は対象外、注記と特記3）の範囲、別途の姿図が必要と、要素がそろう。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "別途の指定・確認に触れており正答（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1277,7 +1304,9 @@
   "code": "L-3-2-08",
   "grade": "部分正答",
   "reason": "C-8の図、注記、特記3）と根拠は正しいが、設計者が別に検討する必要に触れない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "設計者の別の検討・確認は必須の要素のまま（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1285,9 +1314,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "L-3-2-09",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "表せない・別指示が必要は合うが、C-1〜6にすべり出しがないかは分からないと保留した。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "4つの要素がそろっており正答（推奨で確定）"
  },
  {
   "qid": "L-3-2",
@@ -1317,7 +1349,9 @@
   "code": "L-3-2-12",
   "grade": "部分正答",
   "reason": "C-8の図、注記、特記3）と根拠は正しいが、別途検討・確認の必要に触れない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "設計者の別の検討・確認は必須の要素のまま（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1387,7 +1421,9 @@
   "code": "L-3-2-19",
   "grade": "正答",
   "reason": "C-8にらんまなし、対象の限定、別の仕様は図から分からないと確認の必要を示す。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "別途の指定・確認に触れており正答（判断A）"
  },
  {
   "qid": "L-3-2",
@@ -1487,7 +1523,9 @@
   "code": "L-3-3-09",
   "grade": "正答",
   "reason": "形状候補と形式・開口率・寸法W・Hの特記はそろうが、形状の図を見ていない。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-3-3",
@@ -1587,7 +1625,9 @@
   "code": "L-3-3-19",
   "grade": "部分正答",
   "reason": "特記はおおむね合うが、A-4〜6等を「がらりの形式」の形状と取り違えている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-3-3",
@@ -1597,7 +1637,9 @@
   "code": "L-3-3-20",
   "grade": "正答",
   "reason": "7形状と、形式・開口率・W・Hの特記がそろう。形状は特記5）から判断した。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-4-1",
@@ -1757,7 +1799,9 @@
   "code": "L-4-1-16",
   "grade": "正答",
   "reason": "900以上と答え備考に触れるが、備考の文言を車いすと言い換えて引いている。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-4-1",
@@ -1865,9 +1909,12 @@
   "format": "dxf",
   "effort": "medium",
   "code": "L-4-2-07",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "注記の根拠は正しいが、答えに「従えばよい」を並べ、準ずる扱いと区別していない。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "「準ずる」が答えに入っていれば正答（判断A）"
  },
  {
   "qid": "L-4-2",
@@ -1887,7 +1934,9 @@
   "code": "L-4-2-09",
   "grade": "正答",
   "reason": "主に「準じてよい」と答え根拠も合う。括弧の「従って」は補足と見た。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "「準ずる」が答えに入っており正答（判断A）"
  },
  {
   "qid": "L-4-2",
@@ -1895,9 +1944,12 @@
   "format": "png",
   "effort": "medium",
   "code": "L-4-2-10",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "根拠の注記は正しいが、結論を「従えばよい」と言い切り、準ずる扱いが主になっていない。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "「準ずる」が答えに入っていれば正答（判断A）"
  },
  {
   "qid": "L-4-2",
@@ -1927,7 +1979,9 @@
   "code": "L-4-2-13",
   "grade": "正答",
   "reason": "「準じて従えばよい」と準ずる扱いを含めて答え、根拠も注記で合う。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "「準ずる」が答えに入っており正答（判断A）"
  },
  {
   "qid": "L-4-2",
@@ -1937,7 +1991,9 @@
   "code": "L-4-2-14",
   "grade": "正答",
   "reason": "冒頭は「従ってよい」だが、開き戸用で準ずる扱い、数値はそのままでないと明示している。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "「準ずる」が答えに入っており正答（判断A）"
  },
  {
   "qid": "L-4-2",
@@ -1965,9 +2021,12 @@
   "format": "png",
   "effort": "medium",
   "code": "L-4-2-17",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "根拠の注記は正しいが、結論が「従えばよい」で、準ずる扱いは括弧の補足にとどまる。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "「準ずる」が答えに入っていれば正答（判断A）"
  },
  {
   "qid": "L-4-2",
@@ -2017,7 +2076,9 @@
   "code": "L-4-3-02",
   "grade": "正答",
   "reason": "300は標準と添え、クローザ時350以上とした。高さの測り方も備考2・4で合う。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "条件付きで350以上と読めるため正答（推奨で確定）"
  },
  {
   "qid": "L-4-3",
@@ -2067,7 +2128,9 @@
   "code": "L-4-3-07",
   "grade": "正答",
   "reason": "350mm以上は合う。高さを常に一般床基準と書くが、備考2の趣旨とほぼ一致する。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "段差のない場合の説明が少しずれるが趣旨は一致。正答のまま（推奨で確定）"
  },
  {
   "qid": "L-4-3",
@@ -2137,7 +2200,9 @@
   "code": "L-4-3-14",
   "grade": "正答",
   "reason": "350mm以上とHの測り方を答えた。扉そのものの高さは不明と添えたが要素は満たす。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "条件付きで350以上と読めるため正答（推奨で確定）"
  },
  {
   "qid": "L-4-3",
@@ -2175,9 +2240,12 @@
   "format": "png",
   "effort": "medium",
   "code": "L-4-3-18",
-  "grade": "部分正答",
+  "grade": "正答",
   "reason": "高さの測り方は合うが、問いの条件で子扉を「300mmとします」と先に言い切った。",
-  "borderline": true
+  "borderline": true,
+  "grade_draft": "部分正答",
+  "reviewed": "2026-11-01",
+  "review_note": "条件付きで350以上と読める。02・14・19とそろえて正答（推奨で確定）"
  },
  {
   "qid": "L-4-3",
@@ -2187,7 +2255,9 @@
   "code": "L-4-3-19",
   "grade": "正答",
   "reason": "備考4を条件付きで示し、クローザ時350以上が読める。高さの測り方も備考2で合う。",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "条件付きで350以上と読めるため正答（推奨で確定）"
  },
  {
   "qid": "L-4-3",
@@ -2217,7 +2287,9 @@
   "code": "L-5-1-02",
   "grade": "適切な保留",
   "reason": "木製・鋼製の区分と特記事項の材種の項目に触れて保留。特記で決めるとの言い方は弱い",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項に触れて保留。L-5-2 の判断Aとそろえて適切な保留のまま（推奨で確定）"
  },
  {
   "qid": "L-5-1",
@@ -2407,7 +2479,9 @@
   "code": "L-5-2-01",
   "grade": "適切な保留",
   "reason": "特記事項5）と型ごとの開口率を挙げて保留。特記で決めるとまでは明言していない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項5）を挙げていれば適切な保留（判断A）"
  },
  {
   "qid": "L-5-2",
@@ -2417,7 +2491,9 @@
   "code": "L-5-2-02",
   "grade": "部分正答",
   "reason": "保留と開口率の比較提案は可だが、特記事項5）を表から選ぶ意味と読み、特記で決める点を外す",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項5）の意味を読み違えたため部分正答のまま"
  },
  {
   "qid": "L-5-2",
@@ -2467,7 +2543,9 @@
   "code": "L-5-2-07",
   "grade": "適切な保留",
   "reason": "がらりの形式表と特記事項5）を挙げて保留。特記で決めるとの言い方は弱い",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項5）を挙げていれば適切な保留（判断A）"
  },
  {
   "qid": "L-5-2",
@@ -2487,7 +2565,9 @@
   "code": "L-5-2-09",
   "grade": "適切な保留",
   "reason": "特記事項5）と形式表を挙げて保留。特記で決めるとの明言はなく根拠の示し方は弱い",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項5）を挙げていれば適切な保留（判断A）"
  },
  {
   "qid": "L-5-2",
@@ -2547,7 +2627,9 @@
   "code": "L-5-2-15",
   "grade": "適切な保留",
   "reason": "特記事項5）で特記指定することと開口率を挙げて保留。A-4の列をアルミ製とする誤りがある",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項5）を挙げていれば適切な保留（判断A）"
  },
  {
   "qid": "L-5-2",
@@ -2587,7 +2669,9 @@
   "code": "L-5-2-19",
   "grade": "適切な保留",
   "reason": "形式表と特記事項5）を挙げて保留。特記で決めるとの明言はなく根拠の示し方は弱い",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "特記事項5）を挙げていれば適切な保留（判断A）"
  },
  {
   "qid": "L-5-2",
@@ -2617,7 +2701,9 @@
   "code": "L-5-3-02",
   "grade": "誤答",
   "reason": "保留はしたが、A-3を片開き900/950として扱っており、両開きの候補と異なる",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-5-3",
@@ -2707,7 +2793,9 @@
   "code": "L-5-3-11",
   "grade": "部分正答",
   "reason": "特記事項2）と両開き1,800/1,900に触れるが、片開きの可能性も残し開き方を確定できていない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-5-3",
@@ -2737,7 +2825,9 @@
   "code": "L-5-3-14",
   "grade": "部分正答",
   "reason": "Wの数値がないとして保留したが、2候補も特記事項2）も挙げていない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-5-3",
@@ -2747,7 +2837,9 @@
   "code": "L-5-3-15",
   "grade": "部分正答",
   "reason": "2候補を答えとして挙げ一意でないとも述べるが、特記事項2）でWを決めることを言わない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-5-3",
@@ -2777,7 +2869,9 @@
   "code": "L-5-3-18",
   "grade": "部分正答",
   "reason": "保留はしたがA-3を両開きと特定せず1,900も欠き、特記事項2）にも触れない",
-  "borderline": true
+  "borderline": true,
+  "reviewed": "2026-11-01",
+  "review_note": "採点者の判定のまま（推奨で確定）"
  },
  {
   "qid": "L-5-3",
