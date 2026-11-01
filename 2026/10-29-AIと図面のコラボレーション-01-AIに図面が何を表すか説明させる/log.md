@@ -3,11 +3,11 @@ date: 2026-10-29
 title: AIに図面が何を表すか説明させる
 issue: 132
 parent: 131
-ai: Claude（Haiku 5.5、Sonnet 5.5、Opus 5.5、Fable 5.1）、GPT（6 Luna、6.1 Terra、6.1 Sol、6 Astra）、Gemini（3.8 Flash、4 Argon）
+ai: Claude（Haiku 5.5、Sonnet 5.5、Opus 5.5、Fable 5.1）、GPT（6 Luna、6.1 Terra、6.1 Sol、6 Astra）、Gemini（3.8 Flash、4 Argon）、Qwen3-TTS（へんロボの声）、whisper-large-v3-turbo（聞き直し）
 minutes: 60
 result: 上位のモデルは標準詳細図をほぼ読めた。差が出たのは、形だけで描かれた記号と「決まらない」の判断
-status: 未公開
-url:
+status: 公開済
+url: https://note.com/tried_hs/n/ndd1e581065fc
 qiita_url:
 ---
 
@@ -84,3 +84,14 @@ H-5-3 では、上位のモデルの答えの方が筋が通っていた。
 迷った判定は、L で44件、H で59件あった。
 多くは「準ずる」と「従う」の違いなど、言葉の重さの線引きだった。
 問いごとに線引きを1つ決めると、似た答えをまとめて判定できた。
+
+## 動画
+
+記事の内容を、新しいキャラクターのへんロボ1人が説明する5分35秒の動画にした。
+https://youtu.be/-6wMSdEjKAk
+
+- 台本は `henrobo-script.md`（13場面、87行）。構成は、ハイライト、決まり文句、3つの目次、3つの解説、まとめの順。
+- 声は Qwen3-TTS で作った。`B_en_calm_1` を元に複製し、読みの誤りは `tts-readings.tsv` で直した。
+- whisper にひらがなで書き起こさせると、読みの誤りが見つかった。「10のAI」を「とお」、「込み入った」を「こみはいった」と読んでいた。漢字のままの書き起こしでは、この誤りは見つからない。
+- 立ち絵1枚に、口パクと眼鏡のキラリを足した（`code/henrobo/`）。先頭の3秒は、サムネイルと同じタイトル画面。
+- YouTube Data API の許可が切れていたため、動画は人が YouTube Studio から上げた。投稿の文面は `youtube.md`。

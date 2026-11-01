@@ -5,6 +5,7 @@
 - へんロボは右下に1人だけ置く。口は声の大きさで4段階、台本の「(キラリ)」の行の後に眼鏡を光らせる
 - 場面の長さは、声の長さで決める（台詞の間 0.5秒、「(間)」は 1.5秒）
 - 字幕は1行で出す。台本の台詞は30字までにしてある
+- 先頭に、サムネイルと同じタイトル画面（thumbnail.py）を音なしで TITLE_SEC 秒だけ置く
 
 作業フォルダ（~/henrobo-video/132/）に途中の映像を置く。動画はリポジトリに置かない（.gitignore）。
 
@@ -22,6 +23,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import face  # noqa: E402
+import thumbnail  # noqa: E402
 
 DAY = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../2026/10-29-AIと図面のコラボレーション-01-AIに図面が何を表すか説明させる"))
 A = f"{DAY}/assets"
@@ -39,6 +41,7 @@ BG = (30, 36, 48)
 FONT = "/System/Library/Fonts/ヒラギノ丸ゴ ProN W4.ttc"
 MONO = "/System/Library/Fonts/Menlo.ttc"
 SUB_COLOR = (255, 236, 200)
+TITLE_SEC = 3.0
 CHAR_H = 400                # へんロボの高さ
 GAP_LINE, GAP_PAUSE = 0.5, 1.5
 HEAD, TAIL = 0.6, 0.8
@@ -145,7 +148,7 @@ def card_image(text, sub=""):
     im = Image.new("RGB", (CW, CH), BG)
     d = ImageDraw.Draw(im)
     lines = text.split("\n")
-    size = 64 if len(lines) <= 2 else 46
+    size = 64 if len(lines) <= 2 else 54
     while max(d.textlength(t, font=font(size)) for t in lines) > CW - 120 and size > 28:
         size -= 2
     y = CH / 2 - len(lines) * size * 1.7 / 2
@@ -169,16 +172,14 @@ def code_image():
 
 
 def hero_image():
+    """名前と決まり文句のカード。へんロボは右下に常にいるので、ここには大きく描かない（2人に見えるため）。"""
     im = Image.new("RGB", (CW, CH), BG)
-    ch = Image.open(f"{A}/charactor/henrobo-front.png").convert("RGBA")
-    h = CH - 120
-    ch = ch.resize((round(ch.width * h / ch.height), h), Image.LANCZOS)
-    im.paste(ch, ((CW - ch.width) // 2, 60), ch)
     d = ImageDraw.Draw(im)
-    for i, t in enumerate(("へんロボ", "中小企業のAI導入の現場から")):
-        s = 56 if i == 0 else 34
+    for t, s, y, c in (("へんロボ", 120, CH / 2 - 140, (255, 200, 120)),
+                       ("中小企業のAI導入の現場から、", 48, CH / 2 + 30, (255, 255, 255)),
+                       ("試したことを、そのままお伝えします。", 48, CH / 2 + 110, (255, 255, 255))):
         w = d.textlength(t, font=font(s))
-        d.text((CW - w - 60, 80 + i * 80), t, font=font(s), fill=(255, 255, 255))
+        d.text(((CW - w) / 2, y), t, font=font(s), fill=c)
     return im
 
 
@@ -313,6 +314,17 @@ def compose(video, total, out):
          "-c:v", "h264_videotoolbox", "-b:v", "16M", "-c:a", "aac", "-b:a", "192k", out])
 
 
+def add_title(body, out):
+    png = f"{WORK}/title.png"
+    thumbnail.title_image(W, H).save(png)
+    run(["-loop", "1", "-t", f"{TITLE_SEC}", "-framerate", str(FPS), "-i", png,
+         "-f", "lavfi", "-t", f"{TITLE_SEC}", "-i", f"anullsrc=r={SR}:cl=mono", "-i", body,
+         "-filter_complex", "[0:v]format=yuv420p[t];[2:a]aformat=channel_layouts=mono[b];"
+         "[t][1:a][2:v][b]concat=n=2:v=1:a=1[v][a]",
+         "-map", "[v]", "-map", "[a]", "-c:v", "h264_videotoolbox", "-b:v", "16M",
+         "-c:a", "aac", "-b:a", "192k", out])
+
+
 def main():
     only = [int(a) for a in sys.argv[1:]]
     os.makedirs(WORK, exist_ok=True)
@@ -338,7 +350,13 @@ def main():
         total = sum(d for _, d in spans.values())
         out = f"{WORK}/henrobo-132.mp4"
     layers(clips, total)
-    compose(video, total, out)
+    if only:
+        compose(video, total, out)
+    else:
+        body = f"{WORK}/body.mp4"
+        compose(video, total, body)
+        add_title(body, out)
+        total += TITLE_SEC
     print("done", out, f"{total / 60:.1f}分")
 
 
