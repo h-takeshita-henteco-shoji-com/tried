@@ -1,4 +1,4 @@
-"""#132 の動画を組み立てる。図とカードに、へんロボの声・字幕・口パク・眼鏡のキラリを重ねる。
+"""へんロボの解説動画を組み立てる(#132 で作り、#138 でどの回にも使えるようにした)。図とカードに、へんロボの声・字幕・口パク・眼鏡のキラリを重ねる。
 
 #106 の build_video.py（2026/10-26-...-04-.../assets/scripts/）を、へんロボ1人・静止画だけ用に直した。
 - 映像は、記事の図（assets/）と、文字のカードだけ。録画は使わない
@@ -7,13 +7,16 @@
 - 字幕は1行で出す。台本の台詞は30字までにしてある
 - 先頭に、サムネイルと同じタイトル画面（thumbnail.py）を音なしで TITLE_SEC 秒だけ置く
 
-作業フォルダ（~/henrobo-video/132/）に途中の映像を置く。動画はリポジトリに置かない（.gitignore）。
+場面の図とカード、タイトル画面の文言は、その日のフォルダの henrobo_scenes.py に書く(SCENES と THUMB)。
+作業フォルダ（~/henrobo-video/<Issue番号>/）に途中の映像を置く。動画はリポジトリに置かない（.gitignore）。
 
-使い方: ~/.venvs/tried-audio/bin/python build_video.py [場面の番号 ...]
+使い方: ~/.venvs/tried-audio/bin/python build_video.py <その日のフォルダ> [場面の番号 ...]
   番号を渡すと、その場面だけの試し版（preview-<番号>.mp4）を作る
 """
 import json
 import os
+import re
+import runpy
 import subprocess
 import sys
 
@@ -25,10 +28,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import face  # noqa: E402
 import thumbnail  # noqa: E402
 
-DAY = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../2026/10-29-AIと図面のコラボレーション-01-AIに図面が何を表すか説明させる"))
-A = f"{DAY}/assets"
-VOICE = f"{A}/voice"
-WORK = os.path.expanduser("~/henrobo-video/132")
+# へんロボの立ち絵は #132 で作ったものを、どの回でも使う
+CHAR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../2026/10-29-AIと図面のコラボレーション-01-AIに図面が何を表すか説明させる/assets/charactor/henrobo-front.png"))
+DAY = A = VOICE = WORK = ISSUE = None
+SCENES, THUMB = {}, {}
 FF = "ffmpeg"
 
 FPS = 30
@@ -46,15 +49,6 @@ CHAR_H = 400                # へんロボの高さ
 GAP_LINE, GAP_PAUSE = 0.5, 1.5
 HEAD, TAIL = 0.6, 0.8
 GLINT_DELAY, GLINT_SEC = 0.15, 0.6
-DRAW = f"{A}/drawings/建築工事標準詳細図"
-
-CODE = """for p in polys:
-    pts=[q for q in p['p'] if q[1] is not None]
-    if not all(x0<=a<=x1 and y0<=b<=y1 for a,b in pts):continue
-    d=' '.join('%.2f,%.2f'%(a,-b) for a,b in pts)
-    s.append('<polyline points="%s" fill="none" stroke="black" stroke-width="0.12"/>'%d)
-s.append('</svg>')
-open('/tmp/o/a.svg','w').write('\\n'.join(s))"""
 
 
 def still(*names):
@@ -65,32 +59,20 @@ def card(text, sub=""):
     return {"kind": "card", "text": text, "sub": sub}
 
 
-TOC = ("1つ目　どうやってAIに図面を読ませたのか\n"
-       "2つ目　AIはどう答えたのか\n"
-       "3つ目　図面の仕事にとって、何を意味するのか")
-SCENES = {
-    1: [still(f"{DRAW}/001126048-p09.png"), still("crop-open-door.png")],
-    2: [{"kind": "hero"}, card("AIに建築の図面を読ませて、\n3社10のモデルで比べた", "#132 AIと図面のコラボレーション")],
-    3: [card(TOC, "今日のお話")],
-    4: [card("1つ目\nどうやってAIに図面を読ませたのか"), still(f"{DRAW}/001126048-p09.png"),
-        still(f"{DRAW}/001126051-p15.png")],
-    5: [card("会議室の入口に、ガラスのない両開きの扉を付けたい。\nどの形状番号を選べばよいか\n\n"
-             "すべり出し窓の上に、FIXのらんまを付けたい。\nこの図の形状で表せるか", "問いの例"),
-        card("2枚の図面 × 14問\nDXF（CADのデータ）と画像\n10のAI × 1問ずつ = 560回", "比べ方")],
-    6: [card("2つ目\nAIはどう答えたのか"), still("score-chart.png"), still("question-chart.png")],
-    7: [still("table-L-2-1.png"), still("dxf-vs-image.png"), still("dxf-miss-map.png")],
-    8: [{"kind": "code"}, still("door-symbols.png")],
-    9: [still("table-L-3-2.png"), still("crop-c2-c8.png"), still("table-L-5-3.png")],
-    10: [still("crop-open-door.png"), still("table-H-5-3.png")],
-    11: [card("3つ目\n図面の仕事にとって、何を意味するのか"),
-         card("試したのは、2枚の図面と28問だけ\n採点にもAIを使った", "注意点")],
-    12: [{"kind": "hero"}, card("文字で書いてあることは、どのAIも読める\n記号や形は、DXFで差がつく\n"
-                                "答えがない問いで、言い切るAIと止まるAIが出る", "へんロボの見立て")],
-    13: [card("どうやってAIに図面を読ませたのか → 実務の問いを、10のAIに解かせた\n"
-              "AIはどう答えたのか → 文字は読めても、記号と答えがない問いで差\n"
-              "何を意味するのか → 任せられる範囲は、何を聞くかで決まる", "まとめ"),
-         card("次回\n図面の寸法を読む力を試す")],
-}
+def code(title, text):
+    return {"kind": "code", "title": title, "text": text}
+
+
+def configure(day):
+    """その日のフォルダを読み込む。場面とタイトルは <day>/henrobo_scenes.py に書く。"""
+    global DAY, A, VOICE, WORK, ISSUE, SCENES, THUMB
+    DAY = os.path.abspath(day)
+    A = f"{DAY}/assets"
+    VOICE = f"{A}/voice"
+    ISSUE = re.search(r"^issue: *(\d+)", open(f"{DAY}/log.md", encoding="utf-8").read(), re.M).group(1)
+    WORK = os.path.expanduser(f"~/henrobo-video/{ISSUE}")
+    ns = runpy.run_path(f"{DAY}/henrobo_scenes.py", init_globals={"A": A, "still": still, "card": card, "code": code})
+    SCENES, THUMB = ns["SCENES"], ns["THUMB"]
 
 
 def run(cmd):
@@ -162,12 +144,13 @@ def card_image(text, sub=""):
     return im
 
 
-def code_image():
+def code_image(title, text):
+    """コードや、AIの答えの抜き出しを、暗い枠の中に等幅で出す。"""
     im = Image.new("RGB", (CW, CH), BG)
     d = ImageDraw.Draw(im)
-    d.text((60, 60), "AIが書いたプログラムの一部（DXFの線を、絵に描き直す）", font=font(40), fill=(255, 200, 120))
+    d.text((60, 60), title, font=font(40), fill=(255, 200, 120))
     d.rounded_rectangle((40, 140, CW - 40, CH - 60), 20, fill=(16, 20, 28))
-    d.multiline_text((80, 190), CODE, font=font(26, mono=True), fill=(220, 230, 240), spacing=18)
+    d.multiline_text((80, 190), text, font=font(26, mono=True), fill=(220, 230, 240), spacing=18)
     return im
 
 
@@ -204,7 +187,7 @@ def item_images(it):
     if it["kind"] == "card":
         return [card_image(it["text"], it["sub"])]
     if it["kind"] == "code":
-        return [code_image()]
+        return [code_image(it["title"], it["text"])]
     return [hero_image()]
 
 
@@ -257,7 +240,7 @@ CHAR_W = 0
 
 def layers(clips, total):
     global CHAR_W
-    ch = Image.open(f"{A}/charactor/henrobo-front.png")
+    ch = Image.open(CHAR)
     CHAR_W = round(ch.width * CHAR_H / ch.height)  # 字幕を、へんロボと重ならない位置に置くため
     n = int(total * SR)
     mix = np.zeros(n)
@@ -283,7 +266,7 @@ def layers(clips, total):
     sf.write(f"{WORK}/voice.wav", mix, SR)
     runs_list(f"{WORK}/subs.txt", subs, sub_files)
     # へんロボの絵: 0〜3 は口の段階、4 から先はキラリの途中（口は閉じたまま）
-    base = Image.open(f"{A}/charactor/henrobo-front.png").convert("RGBA")
+    base = Image.open(CHAR).convert("RGBA")
     ng = round(GLINT_SEC * FPS)
     images = [face.mouth(base, lv) for lv in range(4)]
     images += [face.glint(base, (g + 1) / (ng + 1)) for g in range(ng)]
@@ -314,9 +297,20 @@ def compose(video, total, out):
          "-c:v", "h264_videotoolbox", "-b:v", "16M", "-c:a", "aac", "-b:a", "192k", out])
 
 
+def write_srt(clips, offset, out):
+    """YouTube に登録する字幕ファイル(SRT)を書く。時刻は、先頭のタイトル画面の分(offset)だけずらす。"""
+    def ts(t):
+        ms = round(t * 1000)
+        return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+    with open(out, "w", encoding="utf-8") as f:
+        for i, (p, x, text, _) in enumerate(clips, 1):
+            a = p + offset
+            f.write(f"{i}\n{ts(a)} --> {ts(a + len(x) / SR + 0.25)}\n{text}\n\n")
+
+
 def add_title(body, out):
     png = f"{WORK}/title.png"
-    thumbnail.title_image(W, H).save(png)
+    thumbnail.title_image(THUMB, W, H).save(png)
     run(["-loop", "1", "-t", f"{TITLE_SEC}", "-framerate", str(FPS), "-i", png,
          "-f", "lavfi", "-t", f"{TITLE_SEC}", "-i", f"anullsrc=r={SR}:cl=mono", "-i", body,
          "-filter_complex", "[0:v]format=yuv420p[t];[2:a]aformat=channel_layouts=mono[b];"
@@ -326,7 +320,8 @@ def add_title(body, out):
 
 
 def main():
-    only = [int(a) for a in sys.argv[1:]]
+    configure(sys.argv[1])
+    only = [int(a) for a in sys.argv[2:]]
     os.makedirs(WORK, exist_ok=True)
     spans, clips = place()
     nos = only or sorted(spans)
@@ -348,7 +343,7 @@ def main():
         out = f"{WORK}/preview-{'-'.join(map(str, nos))}.mp4"
     else:
         total = sum(d for _, d in spans.values())
-        out = f"{WORK}/henrobo-132.mp4"
+        out = f"{WORK}/henrobo-{ISSUE}.mp4"
     layers(clips, total)
     if only:
         compose(video, total, out)
@@ -356,6 +351,7 @@ def main():
         body = f"{WORK}/body.mp4"
         compose(video, total, body)
         add_title(body, out)
+        write_srt(clips, TITLE_SEC, f"{WORK}/henrobo-{ISSUE}.srt")
         total += TITLE_SEC
     print("done", out, f"{total / 60:.1f}分")
 
