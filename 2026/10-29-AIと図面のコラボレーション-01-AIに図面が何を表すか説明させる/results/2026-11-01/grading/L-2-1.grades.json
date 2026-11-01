@@ -1,0 +1,122 @@
+[
+ {
+  "code": "L-2-1-01",
+  "grade": "正答",
+  "reason": "A-3と答え、A区分フラッシュ戸の両開きの姿図を根拠にしている。A-6の説明も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-02",
+  "grade": "正答",
+  "reason": "A-3と答え、A行の姿図を根拠にしている。がらり付きならA-6という併記も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-03",
+  "grade": "誤答",
+  "reason": "D-1（ふすま）を選んでおり、正解のA-3と異なる。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-04",
+  "grade": "正答",
+  "reason": "A-3と答え、A区分の姿図を根拠にA-6とB-3を正しく除外している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-05",
+  "grade": "誤答",
+  "reason": "A-4を選んでおり、A-3を親子開き・A-6を片開きと取り違えている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-06",
+  "grade": "正答",
+  "reason": "A-3と答え、フラッシュ戸の行の両開き姿図を根拠にしている。A-6の併記も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-07",
+  "grade": "正答",
+  "reason": "A-3と答え、A列の姿図を根拠にしている。がらり付きならA-6の併記も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-08",
+  "grade": "正答",
+  "reason": "A-3と答え、A段の両開き姿図を根拠にA-6とB-3を正しく除外している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-09",
+  "grade": "正答",
+  "reason": "A-3と答え、フラッシュ戸のA-3の姿図を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-10",
+  "grade": "正答",
+  "reason": "A-3と答え、形状及び形状番号の姿図を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-11",
+  "grade": "正答",
+  "reason": "A-3と答え、A行の両開き姿図を根拠にしている。がらり付きならA-6の併記も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-12",
+  "grade": "正答",
+  "reason": "A-3と答え、A行の姿図を根拠にしている。ガラリ付きならA-6の併記も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-13",
+  "grade": "正答",
+  "reason": "A-3と答え、A列の姿図と特記事項を根拠にしている。A-6・B-3の補足も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-14",
+  "grade": "不要な保留",
+  "reason": "図面の姿図にA-3があるのに、形状番号は特定できないと答えている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-15",
+  "grade": "正答",
+  "reason": "A-3と答え、A列の両開き姿図を根拠にしている。A-6・B-3の扱いも正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-16",
+  "grade": "正答",
+  "reason": "A-3と答え、A列の両開き姿図を根拠にしている。がらり付きならA-6の併記も正しい。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-17",
+  "grade": "正答",
+  "reason": "A-3と答え、ガラスのないフラッシュ戸の両開き姿図を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-18",
+  "grade": "正答",
+  "reason": "A-3と答え、A系列の両開き姿図を根拠にB-3を除外している。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-19",
+  "grade": "正答",
+  "reason": "A-3と答え、フラッシュ戸区分の両開き姿図を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-2-1-20",
+  "grade": "正答",
+  "reason": "A-3と答え、フラッシュ戸区分の両開き姿図を根拠にしている。",
+  "borderline": false
+ }
+]

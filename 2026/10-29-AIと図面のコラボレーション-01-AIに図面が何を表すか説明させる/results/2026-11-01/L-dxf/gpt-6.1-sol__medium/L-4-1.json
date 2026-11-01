@@ -1,0 +1,33 @@
+{
+  "qid": "L-4-1",
+  "question": "車いすを使う人も通る片開きの扉は、枠の有効内のり幅をいくつ以上にするか",
+  "drawing": "L",
+  "drawing_file": "001126048-p09",
+  "format": "dxf",
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "cli": "codex",
+  "cli_version": "codex-cli 0.165.0",
+  "command": [
+    "codex",
+    "exec",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "-s",
+    "workspace-write",
+    "-m",
+    "gpt-6.1-sol",
+    "-c",
+    "model_reasoning_effort=medium",
+    "-"
+  ],
+  "prompt": "作業フォルダにある図面ファイル（drawing.dxf）を読み、次の問いに日本語で答えてください。\n\n問い: 車いすを使う人も通る片開きの扉は、枠の有効内のり幅をいくつ以上にするか\n\n次の形で答えてください。\n- 答え:\n- 根拠: 図面のどこを見たか（図の名前、注記、表など）\n- 確かさ: 図面に書かれている／図面から推測した／図面からは分からない\n\n作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。\nライブラリを新しく入れないでください。",
+  "started": "2026-11-01T13:06:00+09:00",
+  "seconds": 20.0,
+  "exit": 0,
+  "stdout": "- 答え: 枠の有効内のり幅を **900mm以上**にする。\n- 根拠: 「扉の標準寸法」表の備考1）に「但し，身障者の利用する部分は枠の有効内のり幅900以上とする。」と記載されている。\n- 確かさ: 図面に書かれている。\n",
+  "stderr": "OpenAI Codex v0.165.0\n--------\nworkdir: /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-nl8pf7_b\nmodel: gpt-6.1-sol\nprovider: openai\napproval: never\nsandbox: workspace-write [workdir, /tmp, $TMPDIR]\nreasoning effort: medium\nreasoning summaries: none\nsession id: 01a19549-2262-7fc3-b030-67d9468c4ae4\n--------\nuser\n作業フォルダにある図面ファイル（drawing.dxf）を読み、次の問いに日本語で答えてください。\n\n問い: 車いすを使う人も通る片開きの扉は、枠の有効内のり幅をいくつ以上にするか\n\n次の形で答えてください。\n- 答え:\n- 根拠: 図面のどこを見たか（図の名前、注記、表など）\n- 確かさ: 図面に書かれている／図面から推測した／図面からは分からない\n\n作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。\nライブラリを新しく入れないでください。\ncodex\ndrawing.dxfの注記や寸法を確認し、図面にある記載を根拠に答えます。\nexec\n/bin/zsh -lc 'ls -l drawing.dxf && file drawing.dxf' in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-nl8pf7_b\n succeeded in 0ms:\n-rw-r--r--@ 1 takeshita  staff  1962304 Nov  1 13:06 drawing.dxf\ndrawing.dxf: AutoCAD Drawing Exchange Format, version 2018\n\nexec\n/bin/zsh -lc \"rg -n '車|片開|内のり|有効|いす|扉' drawing.dxf\" in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-nl8pf7_b\n succeeded in 0ms:\n270658:利用する部分は枠の有効内\n274768:片開き\n276540:有効内のり\n276642:有効内のり\n276778:片開き\n276846:扉の標準寸法\n277050:枠の内のり高さHは床面か\n277186:扉の見込み寸法は木製\n277288:親子開きの子扉の幅は300\n277322:片開き\n277424:点検用扉等で,WxHの小さ\n278290:らの高さを示し，扉の前後\n278460:扉がらり及び窓がらりの形式を示す。\n\nexec\n/bin/zsh -lc \"sed -n '270530,270790p' drawing.dxf\" in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-nl8pf7_b\n succeeded in 0ms:\n99.46216752794052\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n185E\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n354.6686614990234\n 20\n117.4115025838216\n 30\n0.0\n 40\n2.07912535349528\n  1\n2）\n  7\nkst32b\n 72\n5\n 11\n358.5670454237196\n 21\n117.4115025838216\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n185F\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n359.66400689019093\n 20\n128.98966106838648\n 30\n0.0\n 40\n2.07912535349528\n  1\n抑える事。但し，身障者の\n  7\nkst32b\n 72\n5\n 11\n390.8508629692925\n 21\n128.98966106838648\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n1860\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n359.66400689019093\n 20\n122.978335486518\n 30\n0.0\n 40\n2.07912535349528\n  1\nのり幅900以上とする。\n  7\nkst32b\n 72\n5\n 11\n386.9525221082899\n 21\n122.978335486518\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n1861\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n359.66400689019093\n 20\n125.98399827745224\n 30\n0.0\n 40\n2.07912535349528\n  1\n利用する部分は枠の有効内\n  7\nkst32b\n 72\n5\n 11\n390.8508629692925\n 21\n125.98399827745224\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n1862\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n359.66400689019093\n 20\n131.99533462524414\n 30\n0.0\n 40\n2.07912535349528\n  1\n標準寸法の変更は最小限に\n  7\nkst32b\n 72\n5\n 11\n390.8508629692925\n 21\n131.99533462524414\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n1863\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n359.66400689019093\n 20\n81.83031955295138\n 30\n0.0\n 40\n2.07912535349528\n  1\nmmとする。但し，ドアクロ\n  7\nkst32b\n 72\n5\n 11\n390.8508629692925\n 21\n81.83031955295138\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n1864\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n60.55784539116753\n 20\n176.9956670973036\n 30\n0.0\n 40\n2.5989111328125\n  1\n300\n  7\nkst32b\n 72\n5\n 11\n65.43082529703776\n 21\n176.9956670973036\n 31\n0.0\n100\nAcDbText\n  0\nTEXT\n  5\n1865\n330\n17\n100\nAcDbEntity\n  8\n0\n100\nAcDbText\n 10\n69.36316494411892\n 20\n175.23882988823783\n 30\n0.0\n\nexec\n/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\ns=Path('drawing.dxf').read_text().splitlines()\npairs=list(zip(s[::2],s[1::2])); e=[]; out=[]\nfor k,v in pairs:\n if k.strip()=='0':\n  if e and e[0][1] in ('TEXT','MTEXT'):\n   d={a.strip():b for a,b in e}\n   out.append((float(d.get('10',0)),float(d.get('20',0)),d.get('1','')))\n  e=[]\n e.append((k,v))\nfor x,y,t in out:\n if 320<x<410 and 65<y<155: print(f'{x:.1f} {y:.1f} {t}')\nprint('---titles---')\nfor x,y,t in out:\n if any(w in t for w in ['標準寸法','片開き','建具','単位']): print(f'{x:.1f} {y:.1f} {t}')\nPY\" in /private/var/folders/0x/07s29thx20lfhzwy7tv3k9x40000gn/T/drawing-eval-nl8pf7_b\n succeeded in 0ms:\n354.7 69.1 5）\n354.7 84.8 4）\n354.7 99.5 3）\n354.7 117.4 2）\n359.7 129.0 抑える事。但し，身障者の\n359.7 123.0 のり幅900以上とする。\n359.7 126.0 利用する部分は枠の有効内\n359.7 132.0 標準寸法の変更は最小限に\n359.7 81.8 mmとする。但し，ドアクロ\n329.4 74.3 1,900\n329.4 98.0 1,250\n359.7 90.5 mm。\n328.8 147.1 枠　の\n326.2 144.1 有効内のり\n329.4 141.1 幅　W\n341.8 147.1 枠　の\n339.2 144.1 有効内のり\n342.4 141.1 高さH\n368.0 144.1 備　　考\n354.7 132.0 1）\n330.7 128.6 900\n330.7 119.7 950\n329.4 108.8 1,200\n329.4 85.1 1,800\n359.7 117.4 枠の内のり高さHは床面か\n359.7 111.4 で段差がある場合は一般床\n359.7 108.4 （廊下など）からの高さと\n359.7 105.4 する。\n359.7 99.5 扉の見込み寸法は木製\n359.7 96.5 及び鋼製建具の場合40mm,\n359.7 93.5 鋼製軽量建具の場合35～40\n359.7 84.8 親子開きの子扉の幅は300\n359.7 69.1 点検用扉等で,WxHの小さ\n359.7 66.1 なものは見込み30mm程\n359.7 114.4 らの高さを示し，扉の前後\n342.4 119.7 2,100\n342.4 128.6 2,000\n342.4 108.8 2,000\n342.4 98.0 2,100\n342.4 85.1 2,000\n342.4 74.3 2,100\n359.7 78.8 ーザを設ける必要がある\n359.7 75.4 場合は350mm以上とする。\n---titles---\n42.1 162.6 A1～A6，B1～B8の寸法は，標準型建具の場合を示す。ただし（　）を除く。\n359.7 132.0 標準寸法の変更は最小限に\n42.0 63.6 片開き\n315.8 128.6 片開き\n315.2 154.5 扉の標準寸法\n359.7 96.5 及び鋼製建具の場合40mm,\n359.7 93.5 鋼製軽量建具の場合35～40\n315.8 63.4 片開き\n327.2 37.0 建具　：　形状寸法\n42.1 48.5 C形状の＊印は樹脂製建具対応形状を示す。\n\ncodex\n- 答え: 枠の有効内のり幅を **900mm以上**にする。\n- 根拠: 「扉の標準寸法」表の備考1）に「但し，身障者の利用する部分は枠の有効内のり幅900以上とする。」と記載されている。\n- 確かさ: 図面に書かれている。\ntokens used\n9,117\n",
+  "files_created": [],
+  "answer": "- 答え: 枠の有効内のり幅を **900mm以上**にする。\n- 根拠: 「扉の標準寸法」表の備考1）に「但し，身障者の利用する部分は枠の有効内のり幅900以上とする。」と記載されている。\n- 確かさ: 図面に書かれている。",
+  "suspect_web_or_install": []
+}

@@ -1,0 +1,122 @@
+[
+ {
+  "code": "L-1-2-01",
+  "grade": "部分正答",
+  "reason": "A〜Dの番号群は挙げるが区分の中身を対応づけず、D系列を窓の開き方と取り違えている。",
+  "borderline": true
+ },
+ {
+  "code": "L-1-2-02",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身をすべて正しく挙げ、縦書きの見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-03",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、各段左端の縦書き見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-04",
+  "grade": "正答",
+  "reason": "A〜Dの4区分とガラス入・ふすまを正しく挙げ、縦書き区分名を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-05",
+  "grade": "部分正答",
+  "reason": "木製・鋼製とアルミ・樹脂の2区分のみで、ガラス入の区別とふすまが抜けている。",
+  "borderline": true
+ },
+ {
+  "code": "L-1-2-06",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、形状番号欄の区分見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-07",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、左端の縦書き見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-08",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、各欄左側の縦書き見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-09",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、各ブロック左端の縦書き見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-10",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、形状番号欄の縦書き見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-11",
+  "grade": "部分正答",
+  "reason": "材料の列挙にとどまり、フラッシュ戸・ガラス入・ふすまの4区分を示していない。",
+  "borderline": true
+ },
+ {
+  "code": "L-1-2-12",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、表左端の縦書き区分名を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-13",
+  "grade": "部分正答",
+  "reason": "A〜Cは合うが、Dの区分名を読めずふすまを推測扱いにしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-14",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、表の左端見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-15",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、表の縦見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-16",
+  "grade": "誤答",
+  "reason": "特記事項の種別3つを挙げただけで4区分に触れず、根拠も縦書き区分名でない。",
+  "borderline": true
+ },
+ {
+  "code": "L-1-2-17",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、表左端の縦書き見出しを根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-18",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、各欄の縦書き区分名を根拠にしている。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-19",
+  "grade": "正答",
+  "reason": "A〜Dの4区分を挙げ、Bを「ガラスフラッシュ戸」とするが実質ガラス入を示している。",
+  "borderline": false
+ },
+ {
+  "code": "L-1-2-20",
+  "grade": "正答",
+  "reason": "A〜Dの4区分の中身を正しく挙げ、形状番号横の区分表示を根拠にしている。",
+  "borderline": false
+ }
+]
