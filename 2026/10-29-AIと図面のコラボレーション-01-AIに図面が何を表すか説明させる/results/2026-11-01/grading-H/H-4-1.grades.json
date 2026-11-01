@@ -1,0 +1,122 @@
+[
+ {
+  "code": "H-4-1-01",
+  "grade": "正答",
+  "reason": "SOP塗りは正しいが、注記1)を「特記事項」欄と呼び、根拠の欄名が正解(仕様欄)とずれる。",
+  "borderline": true
+ },
+ {
+  "code": "H-4-1-02",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-03",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-04",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-05",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-06",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-07",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-08",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-09",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-10",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-11",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-12",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。SUS対象外の補足も矛盾しない。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-13",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-14",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-15",
+  "grade": "正答",
+  "reason": "SOP塗りは正しく仕様欄の注記1)を挙げるが、それを「特記事項」の注記とも呼び欄名が混在する。",
+  "borderline": true
+ },
+ {
+  "code": "H-4-1-16",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-17",
+  "grade": "正答",
+  "reason": "SOP塗りは正しいが、根拠を「特記事項」と呼び、欄名が正解(仕様1))とずれる。",
+  "borderline": true
+ },
+ {
+  "code": "H-4-1-18",
+  "grade": "正答",
+  "reason": "SOP塗りと注記1)の文は正しいが、欄名(仕様)を示さず「仕上げに関する注記」とだけ書く。",
+  "borderline": true
+ },
+ {
+  "code": "H-4-1-19",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ },
+ {
+  "code": "H-4-1-20",
+  "grade": "正答",
+  "reason": "SOP塗りと答え、根拠も仕様1)「見えがかり鉄面はSOP塗り」で正解と一致。",
+  "borderline": false
+ }
+]

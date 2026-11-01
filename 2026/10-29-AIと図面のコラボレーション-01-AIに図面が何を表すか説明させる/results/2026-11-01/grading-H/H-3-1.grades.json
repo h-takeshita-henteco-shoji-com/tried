@@ -1,0 +1,122 @@
+[
+ {
+  "code": "H-3-1-01",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部の位置を示すと答え、平面と詳細図の根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-02",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部の位置と答え根拠も合う。各部の役割づけは余分。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-03",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部に対応する位置と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-04",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部を示すと答え、根拠も合う。各部の説明は余分。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-05",
+  "grade": "正答",
+  "reason": "かんぬき取合いの詳細A部・B部・C部の参照記号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-06",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部の参照記号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-07",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部の参照位置と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-08",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部の詳細符号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-09",
+  "grade": "正答",
+  "reason": "かんぬき取合いの詳細図A部・B部・C部に対応する位置と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-10",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部の参照記号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-11",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部の位置を示す記号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-12",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部を表すと答え、平面と詳細図の根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-13",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部の位置と答え、根拠も合う。各部の説明は余分。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-14",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部の参照記号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-15",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部の詳細位置と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-16",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部の詳細位置を指す符号と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-17",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部に対応する詳細位置と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-18",
+  "grade": "誤答",
+  "reason": "通り芯の符号と答えており、言ってはいけない答えに当たる。かんぬき取合いと結び付けていない。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-19",
+  "grade": "正答",
+  "reason": "かんぬき取合いのA部・B部・C部の詳細位置と答え、根拠も合う。",
+  "borderline": false
+ },
+ {
+  "code": "H-3-1-20",
+  "grade": "正答",
+  "reason": "かんぬき取合い1/5のA部・B部・C部を指す記号と答え、根拠も合う。",
+  "borderline": false
+ }
+]
