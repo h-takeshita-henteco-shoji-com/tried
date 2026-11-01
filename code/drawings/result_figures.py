@@ -214,6 +214,34 @@ def crops():
     crop_boxes(p15, (150, 130, 700, 500), [(230, 185, 380, 450)], OUT / "crop-open-door.png")
 
 
+def dxf_miss_map():
+    """小さいLLMがDXFで点を落とした場所を、図面の全体に赤い丸で示す。"""
+    from matplotlib.patches import Ellipse
+    im = Image.open(DRAW / "001126048-p09.png").convert("RGB")
+    f = im.size[0] / 2000
+    spots = [  # (表示座標の範囲, 番号, 説明)
+        ((203, 178, 247, 632), "1", "縦書きの区分名"),
+        ((436, 228, 530, 412), "2", "A-3 両開き"),
+        ((622, 228, 717, 412), "3", "A-5 親子開き"),
+        ((1333, 228, 1445, 400), "4", "C-16 片上げ下げ"),
+    ]
+    fig, ax = plt.subplots(figsize=(14, 10), facecolor=SURFACE)
+    ax.imshow(im)
+    ax.axis("off")
+    for (x0, y0, x1, y1), n, label in spots:
+        cx, cy = (x0 + x1) / 2 * f, (y0 + y1) / 2 * f
+        w, h = (x1 - x0) * f * 1.25, (y1 - y0) * f * 1.12
+        ax.add_patch(Ellipse((cx, cy), w, h, fill=False, edgecolor="#d03b3b", linewidth=3))
+        ax.text(cx + w / 2 - 10 * f, cy - h / 2 + 4 * f, n, fontsize=15, color="#ffffff", ha="center",
+                va="center", fontweight="bold",
+                bbox=dict(boxstyle="circle,pad=0.3", facecolor="#d03b3b", edgecolor="none"))
+    legend = "　".join(f"{n} {label}" for _, n, label in spots)
+    ax.set_title("小さいLLMが、DXFで点を落とした場所　" + legend, loc="left", fontsize=13, color=TEXT)
+    fig.tight_layout()
+    fig.savefig(OUT / "dxf-miss-map.png", dpi=130, facecolor=SURFACE)
+    plt.close(fig)
+
+
 def main():
     setup_font()
     g = grades()
@@ -221,6 +249,7 @@ def main():
     grade_breakdown(g)
     dxf_vs_image()
     crops()
+    dxf_miss_map()
     print("ok")
 
 
