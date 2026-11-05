@@ -1,0 +1,580 @@
+{
+ "claude-haiku-5-5 C-1-1": {
+  "saved": false
+ },
+ "claude-haiku-5-5 C-2-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 3863,
+    "missing_mm": 3863
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-haiku-5-5 C-3-1": {
+  "saved": false
+ },
+ "claude-haiku-5-5 C-4-1": {
+  "saved": false
+ },
+ "claude-sonnet-5-5 C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-sonnet-5-5 C-2-1": {
+  "saved": false
+ },
+ "claude-sonnet-5-5 C-3-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 118,
+    "missing_mm": 1028
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-sonnet-5-5 C-4-1": {
+  "saved": false
+ },
+ "claude-opus-5-5 C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-opus-5-5 C-2-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 3297,
+    "missing_mm": 566
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-opus-5-5 C-3-1": {
+  "saved": false
+ },
+ "claude-opus-5-5 C-4-1": {
+  "saved": false
+ },
+ "claude-fable-5-1 C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-fable-5-1 C-2-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "claude-fable-5-1 C-3-1": {
+  "saved": false
+ },
+ "claude-fable-5-1 C-4-1": {
+  "saved": false
+ },
+ "gpt-6-luna C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gpt-6-luna C-2-1": {
+  "saved": false
+ },
+ "gpt-6-luna C-3-1": {
+  "saved": false
+ },
+ "gpt-6-luna C-4-1": {
+  "saved": false
+ },
+ "gpt-6.1-terra C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gpt-6.1-terra C-2-1": {
+  "saved": false
+ },
+ "gpt-6.1-terra C-3-1": {
+  "saved": false
+ },
+ "gpt-6.1-terra C-4-1": {
+  "saved": false
+ },
+ "gpt-6.1-sol C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gpt-6.1-sol C-2-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 3863,
+    "missing_mm": 3863
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gpt-6.1-sol C-3-1": {
+  "saved": false
+ },
+ "gpt-6.1-sol C-4-1": {
+  "saved": false
+ },
+ "gpt-6-astra C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gpt-6-astra C-2-1": {
+  "saved": false
+ },
+ "gpt-6-astra C-3-1": {
+  "saved": false
+ },
+ "gemini-3.8-flash C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gemini-3.8-flash C-2-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 3297,
+    "missing_mm": 566
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gemini-3.8-flash C-3-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 236,
+    "missing_mm": 2056
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 11270,
+    "missing_mm": 14006
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gemini-3.8-flash C-4-1": {
+  "saved": false
+ },
+ "gemini-4-argon C-1-1": {
+  "saved": true,
+  "geometry": {
+   "WALL": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "DOOR": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "WINDOW": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "FIXTURE": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   },
+   "GRID": {
+    "extra_mm": 0,
+    "missing_mm": 0
+   }
+  },
+  "dims_inconsistent": [],
+  "dims_missing": [],
+  "dims_extra": [],
+  "dims_count": [
+   10,
+   10
+  ]
+ },
+ "gemini-4-argon C-2-1": {
+  "saved": false
+ },
+ "gemini-4-argon C-3-1": {
+  "saved": false
+ }
+}
