@@ -1,0 +1,8 @@
+[
+  {"code": "P-3-2-01", "grade": "正答", "reason": "18.24m²を壁の内面の座標から計算した値として答えた。", "borderline": false},
+  {"code": "P-3-2-02", "grade": "正答", "reason": "18.24m²を寸法と間仕切り厚から計算した値として答えた。", "borderline": false},
+  {"code": "P-3-2-03", "grade": "正答", "reason": "18.24m²を壁の内面の座標から計算した値として答えた。", "borderline": false},
+  {"code": "P-3-2-04", "grade": "正答", "reason": "主答18.24m²は正しい。全周150の別案は参考扱いと明示した。", "borderline": true},
+  {"code": "P-3-2-05", "grade": "正答", "reason": "18.24m²を壁の内面の座標から計算した値として答えた。", "borderline": false},
+  {"code": "P-3-2-06", "grade": "正答", "reason": "18.24m²を壁の内面の座標から計算した値として答えた。", "borderline": false}
+]

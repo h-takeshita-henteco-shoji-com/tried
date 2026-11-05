@@ -1,0 +1,8 @@
+[
+  {"code": "P-2-2-01", "grade": "正答", "reason": "7.35mを7,200と壁厚150から計算した値として答えた。", "borderline": false},
+  {"code": "P-2-2-02", "grade": "正答", "reason": "7.35mを計算した値として答えた。約付きだが誤差内。", "borderline": false},
+  {"code": "P-2-2-03", "grade": "正答", "reason": "7.35mを7,200と壁厚150から計算した値として答えた。", "borderline": false},
+  {"code": "P-2-2-04", "grade": "正答", "reason": "7.35mを計算した値として答え、7,200が芯々と区別した。", "borderline": false},
+  {"code": "P-2-2-05", "grade": "正答", "reason": "7.35mを7,200と壁厚150から計算した値として答えた。", "borderline": false},
+  {"code": "P-2-2-06", "grade": "正答", "reason": "7.35mを7,200と壁厚150から計算した値として答えた。", "borderline": false}
+]

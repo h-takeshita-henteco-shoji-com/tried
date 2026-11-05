@@ -1,0 +1,194 @@
+{
+ "P-1-1-01": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-1-1-02": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-1-1-03": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-1-1-04": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-1-1-05": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-1-1-06": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-1-2-01": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-1-2-02": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-1-2-03": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-1-2-04": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-1-2-05": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-1-2-06": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-2-1-01": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-2-1-02": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-2-1-03": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-2-1-04": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-2-1-05": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-2-1-06": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-2-2-01": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-2-2-02": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-2-2-03": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-2-2-04": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-2-2-05": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-2-2-06": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-3-1-01": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-3-1-02": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-3-1-03": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-3-1-04": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-3-1-05": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-3-1-06": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-3-2-01": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-3-2-02": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-3-2-03": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-3-2-04": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-3-2-05": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-3-2-06": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-4-1-01": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-4-1-02": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-4-1-03": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-4-1-04": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-4-1-05": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-4-1-06": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ },
+ "P-4-2-01": {
+  "model": "gemini-4-argon",
+  "format": "mcp"
+ },
+ "P-4-2-02": {
+  "model": "claude-opus-5-5",
+  "format": "mcp"
+ },
+ "P-4-2-03": {
+  "model": "claude-haiku-5-5",
+  "format": "mcp"
+ },
+ "P-4-2-04": {
+  "model": "claude-fable-5-1",
+  "format": "mcp"
+ },
+ "P-4-2-05": {
+  "model": "gemini-3.8-flash",
+  "format": "mcp"
+ },
+ "P-4-2-06": {
+  "model": "claude-sonnet-5-5",
+  "format": "mcp"
+ }
+}

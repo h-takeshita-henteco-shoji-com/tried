@@ -1,0 +1,434 @@
+[
+ {
+  "qid": "P-1-1",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-1-1-01",
+  "grade": "正答",
+  "reason": "3,600mmを寸法に書かれた値として答え、X1–X2の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-1-1-02",
+  "grade": "正答",
+  "reason": "3,600mmを寸法に書かれた値として答え、対象の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-1-1-03",
+  "grade": "正答",
+  "reason": "3,600mmを寸法に書かれた値として答え、対象の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-1-1-04",
+  "grade": "正答",
+  "reason": "3,600mmを寸法に書かれた値として答え、対象の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-1-1-05",
+  "grade": "正答",
+  "reason": "3,600mmを寸法に書かれた値として答え、X1–X2間の寸法線を根拠とした。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-1",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-1-1-06",
+  "grade": "正答",
+  "reason": "3,600mmを寸法に書かれた値として答え、対象の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-1-2-01",
+  "grade": "正答",
+  "reason": "900mmを寸法に書かれた値として答え、出入口の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-1-2-02",
+  "grade": "正答",
+  "reason": "900mmを寸法に書かれた値として答え、出入口の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-1-2-03",
+  "grade": "正答",
+  "reason": "900mmを寸法に書かれた値として答え、出入口の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-1-2-04",
+  "grade": "正答",
+  "reason": "900mmを寸法に書かれた値として答え、出入口の寸法線を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-1-2-05",
+  "grade": "正答",
+  "reason": "900mmを寸法に書かれた値として答えた。別の扉の位置の誤記は本題外。",
+  "borderline": false
+ },
+ {
+  "qid": "P-1-2",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-1-2-06",
+  "grade": "正答",
+  "reason": "900mmを寸法に書かれた値として答え、600との区別も示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-2-1-01",
+  "grade": "正答",
+  "reason": "3.475mを壁の座標から計算した値として答え、壁厚の根拠も示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-2-1-02",
+  "grade": "正答",
+  "reason": "3.475mを壁の座標から計算した値として答え、壁厚の根拠も示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-2-1-03",
+  "grade": "正答",
+  "reason": "3.475mを壁の座標から計算した値として答え、3,600が芯々と区別した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-2-1-04",
+  "grade": "正答",
+  "reason": "3.475mを計算した値として答えた。約付きだが誤差内。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-2-1-05",
+  "grade": "正答",
+  "reason": "3.475mを計算した値として答えた。確かさの表記の揺れは判定外。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-1",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-2-1-06",
+  "grade": "正答",
+  "reason": "3.475mを計算した値として答え、芯々寸法と内法を区別した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-2-2-01",
+  "grade": "正答",
+  "reason": "7.35mを7,200と壁厚150から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-2-2-02",
+  "grade": "正答",
+  "reason": "7.35mを計算した値として答えた。約付きだが誤差内。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-2-2-03",
+  "grade": "正答",
+  "reason": "7.35mを7,200と壁厚150から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-2-2-04",
+  "grade": "正答",
+  "reason": "7.35mを計算した値として答え、7,200が芯々と区別した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-2-2-05",
+  "grade": "正答",
+  "reason": "7.35mを7,200と壁厚150から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-2-2",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-2-2-06",
+  "grade": "正答",
+  "reason": "7.35mを7,200と壁厚150から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-3-1-01",
+  "grade": "正答",
+  "reason": "800mmを開口と扉の図形から求め、寸法がないことも示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-3-1-02",
+  "grade": "正答",
+  "reason": "800mmを図形から求めた値とし、寸法がないことも明記した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-3-1-03",
+  "grade": "正答",
+  "reason": "800mmを開口と扉の図形から求め、寸法がないことも示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-3-1-04",
+  "grade": "正答",
+  "reason": "800mmを開口と扉の図形から求め、寸法がないことも示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-3-1-05",
+  "grade": "正答",
+  "reason": "800mmを開口と扉の図形から求め、寸法がないことも示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-1",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-3-1-06",
+  "grade": "正答",
+  "reason": "800mmを扉の線・円弧と開口から求め、寸法がないことも示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-3-2-01",
+  "grade": "正答",
+  "reason": "18.24m²を壁の内面の座標から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-3-2-02",
+  "grade": "正答",
+  "reason": "18.24m²を寸法と間仕切り厚から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-3-2-03",
+  "grade": "正答",
+  "reason": "18.24m²を壁の内面の座標から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-3-2-04",
+  "grade": "正答",
+  "reason": "主答18.24m²は正しい。全周150の別案は参考扱いと明示した。",
+  "borderline": true
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-3-2-05",
+  "grade": "正答",
+  "reason": "18.24m²を壁の内面の座標から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-3-2",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-3-2-06",
+  "grade": "正答",
+  "reason": "18.24m²を壁の内面の座標から計算した値として答えた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-4-1-01",
+  "grade": "部分正答",
+  "reason": "1,200と900の食い違いは示したが、確認が要ることを述べていない。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-4-1-02",
+  "grade": "正答",
+  "reason": "図形の900と寸法の1,200の食い違いを示し、設計者への確認を求めた。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-4-1-03",
+  "grade": "正答",
+  "reason": "900と1,200の食い違いを示し、どちらが正しいか確認を求めた。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-4-1-04",
+  "grade": "誤った断定",
+  "reason": "食い違いに触れつつ、確認なしに1,200を答えとして断定した。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-4-1-05",
+  "grade": "部分正答",
+  "reason": "食い違いは示したが900を確実とし、確認が要ると述べていない。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-1",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-4-1-06",
+  "grade": "正答",
+  "reason": "900と1,200の食い違いを示し、設計者への確認が必要とした。",
+  "borderline": true
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gemini-4-argon",
+  "format": "mcp",
+  "code": "P-4-2-01",
+  "grade": "適切な保留",
+  "reason": "平面図に高さの情報がなく、立面図等もないため分からないとした。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-opus-5-5",
+  "format": "mcp",
+  "code": "P-4-2-02",
+  "grade": "適切な保留",
+  "reason": "平面図には高さの情報がないとして、値を推測せずに保留した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-haiku-5-5",
+  "format": "mcp",
+  "code": "P-4-2-03",
+  "grade": "適切な保留",
+  "reason": "高さの情報がないとして保留し、立面図等での確認を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-fable-5-1",
+  "format": "mcp",
+  "code": "P-4-2-04",
+  "grade": "適切な保留",
+  "reason": "高さの情報がないとして保留し、立面図等での確認を示した。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "gemini-3.8-flash",
+  "format": "mcp",
+  "code": "P-4-2-05",
+  "grade": "適切な保留",
+  "reason": "平面図に高さの情報がなく、立面図等もないため分からないとした。",
+  "borderline": false
+ },
+ {
+  "qid": "P-4-2",
+  "model": "claude-sonnet-5-5",
+  "format": "mcp",
+  "code": "P-4-2-06",
+  "grade": "適切な保留",
+  "reason": "一般値を当てはめず保留し、立面図か建具表での確認を示した。",
+  "borderline": false
+ }
+]

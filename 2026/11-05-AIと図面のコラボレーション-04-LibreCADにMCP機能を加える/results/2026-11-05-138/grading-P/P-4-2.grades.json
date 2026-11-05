@@ -1,0 +1,8 @@
+[
+  {"code": "P-4-2-01", "grade": "適切な保留", "reason": "平面図に高さの情報がなく、立面図等もないため分からないとした。", "borderline": false},
+  {"code": "P-4-2-02", "grade": "適切な保留", "reason": "平面図には高さの情報がないとして、値を推測せずに保留した。", "borderline": false},
+  {"code": "P-4-2-03", "grade": "適切な保留", "reason": "高さの情報がないとして保留し、立面図等での確認を示した。", "borderline": false},
+  {"code": "P-4-2-04", "grade": "適切な保留", "reason": "高さの情報がないとして保留し、立面図等での確認を示した。", "borderline": false},
+  {"code": "P-4-2-05", "grade": "適切な保留", "reason": "平面図に高さの情報がなく、立面図等もないため分からないとした。", "borderline": false},
+  {"code": "P-4-2-06", "grade": "適切な保留", "reason": "一般値を当てはめず保留し、立面図か建具表での確認を示した。", "borderline": false}
+]

@@ -7,6 +7,7 @@
 使い方:
   uv run python make_grading.py bundle  --issue 138 --drawing P
   uv run python make_grading.py collect --issue 138 --drawing P
+  (#134 の MCP の結果) ... bundle --issue 138 --drawing P --res <#134 の results/2026-11-05-138> --formats mcp
 """
 import argparse
 import json
@@ -20,9 +21,13 @@ from run_eval import ISSUES, MODELS, load_questions
 SCORE = {"正答": 1, "適切な保留": 1, "部分正答": 0.5, "誤答": 0, "誤った断定": 0, "不要な保留": 0}
 
 
+FORMATS = ("dxf", "png")
+RES = None  # --res で、結果の置き場所を変える(#134 の MCP の結果など)
+
+
 def paths(issue, drawing, day):
     cfg = ISSUES[issue]
-    res = cfg["day"] / "results" / day
+    res = RES or cfg["day"] / "results" / day
     return cfg, res, res / f"grading-{drawing}"
 
 
@@ -45,7 +50,7 @@ def bundle(issue, drawing, day):
     rng = random.Random(f"{issue}-{drawing}")
     for qid in load_questions(issue, drawing):
         items = []
-        for fmt in ("dxf", "png"):
+        for fmt in FORMATS:
             for model in MODELS:
                 f = res / f"{drawing}-{fmt}" / f"{model}__medium" / f"{qid}.json"
                 if f.exists():
@@ -75,10 +80,10 @@ def collect(issue, drawing, day):
     for r in rows:
         total[(r["model"], r["format"])] += SCORE[r["grade"]]
     n = len(load_questions(issue, drawing))
-    print(f"| モデル | {drawing} DXF | {drawing} PNG |")
-    print("|---|---|---|")
+    print(f"| モデル | " + " | ".join(f"{drawing} {f.upper()}" for f in FORMATS) + " |")
+    print("|---|" + "---|" * len(FORMATS))
     for model in MODELS:
-        print(f"| {model} | {total[(model, 'dxf')]:g} | {total[(model, 'png')]:g} |")
+        print(f"| {model} | " + " | ".join(f"{total[(model, f)]:g}" for f in FORMATS) + " |")
     print(f"{len(rows)} 件、{n} 点満点、迷った判定 {sum(r.get('borderline', False) for r in rows)} 件")
 
 
@@ -88,5 +93,9 @@ if __name__ == "__main__":
     ap.add_argument("--issue", default="138", choices=ISSUES)
     ap.add_argument("--drawing", required=True)
     ap.add_argument("--day", default="2026-11-02")
+    ap.add_argument("--res", default=None, help="結果の置き場所。既定は <issue の日のフォルダ>/results/<day>")
+    ap.add_argument("--formats", default="dxf,png", help="比べる形式。#134 の MCP の結果は mcp")
     a = ap.parse_args()
+    RES = Path(a.res) if a.res else None
+    FORMATS = tuple(a.formats.split(","))
     (bundle if a.step == "bundle" else collect)(a.issue, a.drawing, a.day)
