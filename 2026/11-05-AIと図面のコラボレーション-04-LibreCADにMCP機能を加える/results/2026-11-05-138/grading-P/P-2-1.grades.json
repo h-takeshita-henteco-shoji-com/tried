@@ -1,0 +1,8 @@
+[
+  {"code": "P-2-1-01", "grade": "正答", "reason": "3.475mを壁の座標から計算した値として答え、壁厚の根拠も示した。", "borderline": false},
+  {"code": "P-2-1-02", "grade": "正答", "reason": "3.475mを壁の座標から計算した値として答え、壁厚の根拠も示した。", "borderline": false},
+  {"code": "P-2-1-03", "grade": "正答", "reason": "3.475mを壁の座標から計算した値として答え、3,600が芯々と区別した。", "borderline": false},
+  {"code": "P-2-1-04", "grade": "正答", "reason": "3.475mを計算した値として答えた。約付きだが誤差内。", "borderline": false},
+  {"code": "P-2-1-05", "grade": "正答", "reason": "3.475mを計算した値として答えた。確かさの表記の揺れは判定外。", "borderline": false},
+  {"code": "P-2-1-06", "grade": "正答", "reason": "3.475mを計算した値として答え、芯々寸法と内法を区別した。", "borderline": false}
+]
