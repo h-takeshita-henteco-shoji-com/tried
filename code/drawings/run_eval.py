@@ -1,4 +1,4 @@
-"""図面の問いを、3社のCLIに1問ずつ解かせて記録する(#132、#138)。
+"""図面の問いを、3社のCLIに1問ずつ解かせて記録する(#132、#138、#135)。
 
 条件をそろえるため、次のようにする。
 - 1問ごとに新しい会話。図面だけを置いた空のフォルダで動かす。
@@ -26,6 +26,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 DAY132 = REPO / "2026/10-29-AIと図面のコラボレーション-01-AIに図面が何を表すか説明させる"
 DAY138 = REPO / "2026/11-02-AIと図面のコラボレーション-02-AIに図面の寸法を正確に読ませる"
+DAY135 = REPO / "2026/11-02-AIと図面のコラボレーション-03-AIにDXFの寸法を変更させる"
 STD = DAY132 / "assets/drawings/建築工事標準詳細図"
 
 # Issue ごとの、記録の置き場所と、図面(拡張子なし)と、正解の記録
@@ -35,6 +36,8 @@ ISSUES = {
             "keys": {"L": "L-4-01.md", "M": "M-4-21.md", "H": "H-9-32.md"}},
     "138": {"day": DAY138, "drawings": {"P": DAY138 / "assets/drawings/plan-office", "H": STD / "001126051-p15"},
             "keys": {"P": "P-office.md", "H": "H-9-32.md"}},
+    "135": {"day": DAY135, "drawings": {"C": DAY135 / "assets/drawings/house-2ldk"},
+            "keys": {"C": "C-house.md"}},
 }
 
 # 個人の AGENTS.md を読ませないための Codex の置き場所。ログインのファイルだけをリンクする
@@ -50,6 +53,27 @@ PROMPT = """作業フォルダにある図面ファイル（{file}）を読み�
 - 答え:
 - 根拠: 図面のどこを見たか（図の名前、注記、表など）
 - 確かさ: 図面に書かれている／図面から推測した／図面からは分からない
+
+作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。
+ライブラリを新しく入れないでください。"""
+
+# #135 は図面を書き換えさせる。変更後の図面は別の名前で保存させ、結果と一緒に残す
+CHANGED = "drawing-changed.dxf"
+PROMPT_135 = """作業フォルダにある図面ファイル（{file}）は、2LDKの平屋の図面です。単位はmmです。
+平面図、立面図（南・北・東・西）、断面図（A-A、B-B）が、1つのファイルに入っています。
+次の指示どおりに図面を変更し、平面図に合わせて、立面図と断面図もそろえて直してください。
+変更後の図面を""" + CHANGED + """ という名前で、同じフォルダに保存してください。
+元のファイルは書き換えないでください。
+
+指示: {question}
+
+指示どおりに変更できないときや、指示から決められないことがあるときは、図面を保存せずに、確認したいことを答えてください。
+
+次の形で答えてください。
+- 変更したこと:
+- 一緒に動かしたもの: 壁、扉、窓、設備、寸法、通り芯、立面図、断面図など
+- 確かめたこと:
+- 確認したいこと: なければ「なし」
 
 作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。
 ライブラリを新しく入れないでください。"""
@@ -85,7 +109,7 @@ MODELS = {
 def load_questions(issue, drawing):
     cfg = ISSUES[issue]
     text = (cfg["day"] / "answer-key" / cfg["keys"][drawing]).read_text()
-    return dict(re.findall(r"^### ([LMHP]-\d-\d) (.+)$", text, re.M))
+    return dict(re.findall(r"^### ([LMHPC]-\d-\d) (.+)$", text, re.M))
 
 
 def prepare_codex_home():
@@ -164,7 +188,7 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
     if (dest / f"{qid}.json").exists():
         return None  # 中断のあとに流し直すとき、済んだ問いは飛ばす
     file = f"drawing.{fmt}"
-    prompt = (PROMPT_138 if issue == "138" else PROMPT).format(file=file, question=question)
+    prompt = {"138": PROMPT_138, "135": PROMPT_135}.get(issue, PROMPT).format(file=file, question=question)
     work = Path(tempfile.mkdtemp(prefix="drawing-eval-"))
     src = ISSUES[issue]["drawings"][drawing]
     shutil.copy(f"{src}.{fmt}", work / file)
@@ -179,6 +203,9 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
         code, out, err = "timeout", e.stdout or "", e.stderr or ""
     seconds = round(time.monotonic() - t0, 1)
     created = sorted(str(f.relative_to(work)) for f in work.rglob("*") if f.name != file)
+    dest.mkdir(parents=True, exist_ok=True)
+    if (work / CHANGED).exists():
+        shutil.copy(work / CHANGED, dest / f"{qid}.dxf")
     record = {
         "qid": qid, "question": question, "drawing": drawing, "drawing_file": src.name,
         "format": fmt, "model": model, "effort": effort, "cli": MODELS[model],
@@ -200,7 +227,7 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--issue", default="132", choices=ISSUES)
-    ap.add_argument("--drawing", required=True, choices=["L", "M", "H", "P"])
+    ap.add_argument("--drawing", required=True, choices=["L", "M", "H", "P", "C"])
     ap.add_argument("--format", required=True, choices=["dxf", "png"])
     ap.add_argument("--models", required=True)
     ap.add_argument("--efforts", default="medium")
