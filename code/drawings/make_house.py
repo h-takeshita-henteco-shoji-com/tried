@@ -13,6 +13,7 @@
 - 断面図(A-A 南北、B-B 東西)も同じ DXF に描く。切断線と交わる壁・窓・部屋を、平面図のデータから拾う。基礎はベタ基礎
 
 #135 の課題ごとに、正しく直した図面(正解の図面)も作る。VARIANTS に、元の図面からの変更を書く。
+#136 の元の図面は、課題の ID に H-136 を渡して作る(基礎上端 400、FL 561、天井 2,961、軒の高さ 3,311)。
 
 使い方: uv run --with ezdxf --with shapely python code/drawings/make_house.py <出力.dxf> [課題の ID]
 """
@@ -171,7 +172,17 @@ VARIANTS = {
     "C-1-1": lambda: set_window("LDK南2", 2500, 4320),
     "C-2-1": lambda: widen_east(910),
     "C-3-1": lambda: shift_north(455, YS["Y5"], 4700),
+    # #136 の元の図面。基礎上端 400・FL 500 では床組(約160mm)が収まらない。
+    # 実務と同じく基礎上端から積み上げ、FL = 400 + パッキン 20 + 土台 105 + 合板 24 + フローリング 12 = 561 にする
+    "H-136": lambda: set_heights(400, 561),
 }
+
+
+def set_heights(base_top, fl):
+    """基礎上端と FL を決め、天井と軒の高さを FL から出す(天井 FL+2,400、軒の高さ FL+2,750。#135 と同じ差)。"""
+    global BASE_TOP, FL, CEIL, EAVE_H
+    BASE_TOP, FL = base_top, fl
+    CEIL, EAVE_H = fl + 2400, fl + 2750
 
 
 # 立面図の高さ(GL からの mm)と屋根
@@ -452,6 +463,12 @@ def main(out, variant=None):
         VARIANTS[variant]()
     doc = ezdxf.new("R2010", setup=True)
     doc.header["$INSUNITS"] = 4
+    if variant == "H-136":
+        # ezdxf の setup の既定は $DIMLFAC 100、$DIMTXT 0.25(m と cm の図面向け)。LibreCAD はこの値で寸法を描くため、
+        # 新しく足した寸法が読めない大きさになる(#136 の最初の試しで分かった)。mm の実寸の図面の値にする
+        for k, v in {"$DIMLFAC": 1.0, "$DIMSCALE": 1.0, "$DIMTXT": 200.0, "$DIMASZ": 120.0, "$DIMEXO": 80.0,
+                     "$DIMEXE": 100.0, "$DIMGAP": 60.0, "$DIMTAD": 1, "$DIMDEC": 0}.items():
+            doc.header[k] = v
     doc.styles.add(JP_STYLE, font="kst32b.lff")
     for name, color, lt in (("WALL", 7, "CONTINUOUS"), ("GRID", 1, "CENTER"), ("DOOR", 3, "CONTINUOUS"),
                             ("WINDOW", 4, "CONTINUOUS"), ("FIXTURE", 8, "CONTINUOUS"), ("ELEV", 7, "CONTINUOUS"),

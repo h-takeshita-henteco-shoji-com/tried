@@ -1,0 +1,74 @@
+{
+  "score": 15.0,
+  "max": 15,
+  "items": {
+    "置く場所(Y1 と GL)": 1.0,
+    "基礎上端 GL+400": 1.0,
+    "FL GL+561": 1.0,
+    "天井 GL+2,961": 1.0,
+    "軒の高さ GL+3,311": 1.0,
+    "床の層(土台・合板・フローリング)": 1.0,
+    "外壁の層(柱 105・合板 9・胴縁 18・サイディング 14・石膏ボード 12.5)": 1.0,
+    "勾配 4/10 の線": 1.0,
+    "垂木の下面が Y1 で GL+3,311": 1.0,
+    "軒の出 600": 1.0,
+    "寸法(400・161・2,400・2,750・600)": 1.0,
+    "勾配の表示 4/10": 1.0,
+    "題「矩計図 S=1/20」": 1.0,
+    "レイヤー(KANA_CUT・KANA_VIEW・KANA_INS・DIM・TEXT)": 1.0,
+    "元の図形を壊していない": 1.0
+  },
+  "detail": {
+    "new_entities": 90,
+    "layers": {
+      "GRID": 2,
+      "KANA_VIEW": 36,
+      "KANA_CUT": 12,
+      "KANA_INS": 4,
+      "DIM": 5,
+      "TEXT": 31
+    },
+    "dims": [
+      {
+        "measured": 161.0,
+        "label": "",
+        "label_ok": true
+      },
+      {
+        "measured": 2400.0,
+        "label": "",
+        "label_ok": true
+      },
+      {
+        "measured": 2750.0,
+        "label": "",
+        "label_ok": true
+      },
+      {
+        "measured": 600.0,
+        "label": "",
+        "label_ok": true
+      },
+      {
+        "measured": 400.0,
+        "label": "",
+        "label_ok": true
+      }
+    ],
+    "floor_lines": {
+      "420": true,
+      "525": true,
+      "549": true
+    },
+    "wall_lines": {
+      "49935.0": true,
+      "49947.5": true,
+      "50052.5": true,
+      "50061.5": true,
+      "50079.5": true,
+      "50093.5": true
+    },
+    "lost_outside": {},
+    "texts": 31
+  }
+}

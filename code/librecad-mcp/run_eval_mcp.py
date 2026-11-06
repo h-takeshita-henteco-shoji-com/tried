@@ -114,7 +114,7 @@ def build_command(model, effort, prompt, work):
                "--model", model, "--effort", effort,
                "--permission-mode", "bypassPermissions", "--no-session-persistence",
                "--mcp-config", str(mcp_json(work)), "--strict-mcp-config",
-               "--disallowedTools=WebFetch,WebSearch,Bash,Write,Edit,NotebookEdit,Glob,Grep",
+               "--disallowedTools=WebFetch,WebSearch,Bash,Write,Edit,NotebookEdit,Glob,Grep,Agent,Workflow",
                "--output-format", "stream-json", "--verbose"]
         return cmd, None, env
     if cli == "codex":
