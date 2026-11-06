@@ -1,7 +1,7 @@
 """へんロボの解説動画を組み立てる(#132 で作り、#138 でどの回にも使えるようにした)。図とカードに、へんロボの声・字幕・口パク・眼鏡のキラリを重ねる。
 
 #106 の build_video.py（2026/10-26-...-04-.../assets/scripts/）を、へんロボ1人・静止画だけ用に直した。
-- 映像は、記事の図（assets/）と、文字のカードだけ。録画は使わない
+- 映像は、記事の図（assets/）と、文字のカード。#136 から、録画(clip)も場面に使える。録画は場面の長さに合わせて速さを変える
 - へんロボは右下に1人だけ置く。口は声の大きさで4段階、台本の「(キラリ)」の行の後に眼鏡を光らせる
 - 場面の長さは、声の長さで決める（台詞の間 0.5秒、「(間)」は 1.5秒）
 - 字幕は1行で出す。台本の台詞は30字までにしてある
@@ -63,6 +63,11 @@ def code(title, text):
     return {"kind": "code", "title": title, "text": text}
 
 
+def clip(path, start, end):
+    """録画の start〜end 秒を、場面の中で流す。場面の長さに合わせて、速さを変える。"""
+    return {"kind": "clip", "path": os.path.expanduser(path), "start": start, "end": end}
+
+
 def configure(day):
     """その日のフォルダを読み込む。場面とタイトルは <day>/henrobo_scenes.py に書く。"""
     global DAY, A, VOICE, WORK, ISSUE, SCENES, THUMB
@@ -71,7 +76,8 @@ def configure(day):
     VOICE = f"{A}/voice"
     ISSUE = re.search(r"^issue: *(\d+)", open(f"{DAY}/log.md", encoding="utf-8").read(), re.M).group(1)
     WORK = os.path.expanduser(f"~/henrobo-video/{ISSUE}")
-    ns = runpy.run_path(f"{DAY}/henrobo_scenes.py", init_globals={"A": A, "still": still, "card": card, "code": code})
+    ns = runpy.run_path(f"{DAY}/henrobo_scenes.py", init_globals={"A": A, "still": still, "card": card, "code": code,
+                                                                    "clip": clip})
     SCENES, THUMB = ns["SCENES"], ns["THUMB"]
 
 
@@ -191,10 +197,36 @@ def item_images(it):
     return [hero_image()]
 
 
+def clip_video(it, dur, out):
+    """録画を、図の枠(CW×CH)に収め、dur 秒に縮めて(または延ばして)書き出す。"""
+    k = dur / (it["end"] - it["start"])
+    bg = f"0x{BG[0]:02x}{BG[1]:02x}{BG[2]:02x}"
+    run(["-ss", f"{it['start']}", "-to", f"{it['end']}", "-i", it["path"], "-an",
+         "-vf", f"setpts={k:.6f}*(PTS-STARTPTS),scale={CW}:{CH}:force_original_aspect_ratio=decrease,"
+                f"pad={CW}:{CH}:(ow-iw)/2:(oh-ih)/2:color={bg},fps={FPS},format=yuv420p",
+         "-frames:v", str(round(dur * FPS)), "-c:v", "h264_videotoolbox", "-b:v", "12M", out])
+
+
 def render_scene(no, dur):
     out = f"{WORK}/scene-{no:02d}.mp4"
-    ims = [im for it in SCENES[no] for im in item_images(it)]
-    frames_video(ims, [dur / len(ims)] * len(ims), out)
+    items = SCENES[no]
+    if not any(it["kind"] == "clip" for it in items):
+        ims = [im for it in items for im in item_images(it)]
+        frames_video(ims, [dur / len(ims)] * len(ims), out)
+        return out
+    # 録画を含む場面: 項目ごとに同じ長さを割り当て、つないで1本にする
+    share, parts = dur / len(items), []
+    for i, it in enumerate(items):
+        part = f"{WORK}/scene-{no:02d}-{i}.mp4"
+        if it["kind"] == "clip":
+            clip_video(it, share, part)
+        else:
+            ims = item_images(it)
+            frames_video(ims, [share / len(ims)] * len(ims), part)
+        parts.append(part)
+    lst = f"{WORK}/scene-{no:02d}.txt"
+    open(lst, "w").write("".join(f"file '{x}'\n" for x in parts))
+    run(["-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", out])
     return out
 
 
