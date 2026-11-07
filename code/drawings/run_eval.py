@@ -29,6 +29,7 @@ DAY132 = REPO / "2026/10-29-AIと図面のコラボレーション-01-AIに図�
 DAY138 = REPO / "2026/11-02-AIと図面のコラボレーション-02-AIに図面の寸法を正確に読ませる"
 DAY135 = REPO / "2026/11-02-AIと図面のコラボレーション-03-AIにDXFの寸法を変更させる"
 DAY133 = REPO / "2026/11-07-AIと図面のコラボレーション-07-AIに建具を数えさせて建具表を作る"
+DAY137 = REPO / "2026/11-07-AIと図面のコラボレーション-08-AIに図面から室内ツアーを作らせる"
 STD = DAY132 / "assets/drawings/建築工事標準詳細図"
 
 # Issue ごとの、記録の置き場所と、図面(拡張子なし)と、正解の記録
@@ -41,6 +42,7 @@ ISSUES = {
     "135": {"day": DAY135, "drawings": {"C": DAY135 / "assets/drawings/house-2ldk"},
             "keys": {"C": "C-house.md"}},
     "133": {"day": DAY133, "drawings": {"T": DAY133 / "base/house-t"}, "keys": {"T": "T-house.md"}},
+    "137": {"day": DAY137, "drawings": {"T": DAY137 / "base/house-t"}, "keys": {"T": "tour.md"}},
 }
 
 # 個人の AGENTS.md を読ませないための Codex の置き場所。ログインのファイルだけをリンクする
@@ -125,6 +127,23 @@ PROMPT_133E = """作業フォルダにある図面ファイル（{file}）は、
 図面は書き換えないでください。作業フォルダの2つのファイル以外は見ないでください。
 インターネットで調べないでください。ライブラリを新しく入れないでください。"""
 
+# #137 は three.js でパースと室内ツアーを作らせる。仕上表を「仕上表.md」として作業フォルダに置く
+FINISH_137 = DAY137 / "tasks/finish-schedule.md"
+PROMPT_137 = """作業フォルダに、2LDKの平屋の図面ファイル（{file}、単位はmm）と、仕上表（仕上表.md）があります。
+図面には、平面図、立面図（南・北・東・西）、断面図（A-A、B-B）、矩計図、平面詳細図が入っています。
+
+指示: {question}
+
+最後に、次の形で答えてください。
+- 作ったファイル:
+- 図面から読んだもの: 壁、扉、窓、天井高、屋根などの寸法と、図面のどこから読んだか
+- 仮に決めたこと: 図面と仕上表から決まらず、自分で決めたこと
+- できなかったこと: なければ「なし」
+
+図面は書き換えないでください。作業フォルダの2つのファイル以外は見ないでください。
+インターネットで調べないでください（three.js を CDN から読み込む URL をページに書くのはかまいません）。
+ライブラリを新しく入れないでください。"""
+
 MODELS = {
     "claude-haiku-5-5": "claude",
     "claude-sonnet-5-5": "claude",
@@ -142,7 +161,7 @@ MODELS = {
 def load_questions(issue, drawing):
     cfg = ISSUES[issue]
     text = (cfg["day"] / "answer-key" / cfg["keys"][drawing]).read_text()
-    return dict(re.findall(r"^### ([LMHPCT]-\d-\d) (.+)$", text, re.M))
+    return dict(re.findall(r"^### ([LMHPCTV]-\d-\d) (.+)$", text, re.M))
 
 
 def prepare_codex_home():
@@ -222,11 +241,13 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
         return None  # 中断のあとに流し直すとき、済んだ問いは飛ばす
     file = f"drawing.{fmt}"
     estimate = issue == "133" and qid.startswith("T-5")
-    base = PROMPT_133E if estimate else {"138": PROMPT_138, "135": PROMPT_135, "133": PROMPT_133}.get(issue, PROMPT)
+    base = PROMPT_137 if issue == "137" else PROMPT_133E if estimate else {"138": PROMPT_138, "135": PROMPT_135, "133": PROMPT_133}.get(issue, PROMPT)
     prompt = base.format(file=file, question=question)
     work = Path(tempfile.mkdtemp(prefix="drawing-eval-"))
     if estimate:
         shutil.copy(SPEC_133, work / "積算条件.md")
+    if issue == "137":
+        shutil.copy(FINISH_137, work / "仕上表.md")
     src = ISSUES[issue]["drawings"][drawing]
     shutil.copy(f"{src}.{fmt}", work / file)
     cmd, stdin, env = build_command(model, effort, fmt, prompt)
@@ -239,7 +260,7 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
     except subprocess.TimeoutExpired as e:
         code, out, err = "timeout", e.stdout or "", e.stderr or ""
     seconds = round(time.monotonic() - t0, 1)
-    created = sorted(str(f.relative_to(work)) for f in work.rglob("*") if f.name not in (file, "積算条件.md"))
+    created = sorted(str(f.relative_to(work)) for f in work.rglob("*") if f.name not in (file, "積算条件.md", "仕上表.md"))
     dest.mkdir(parents=True, exist_ok=True)
     if (work / CHANGED).exists():
         shutil.copy(work / CHANGED, dest / f"{qid}.dxf")
