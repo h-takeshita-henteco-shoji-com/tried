@@ -19,6 +19,7 @@ Issueは「何を試すか」「なぜ気になるか」が言える段階のテ
 drafts/
 ├── README.md        この文書
 ├── _template.md     draft.md の雛形
+├── archives/        終わった構想(フォルダごと移す)
 └── 主題/
     ├── draft.md     構想のメモ
     └── assets/      参考画像、リンク集(必要なときだけ)
@@ -34,6 +35,22 @@ drafts/
 3. フォルダは消さずに残します。構想の段階から追えるようにするためです。
 
 見送った構想も消さず、`status` を `見送り` にして理由を1行残します。
+
+## 終わったら archives に移す
+
+`drafts/` 直下を、育てている途中の構想だけにするためです。
+次の2つを「終わった構想」とし、フォルダごと `drafts/archives/` に移します。
+
+- **起票したIssueがcloseした構想。** 親Issueなら、親がcloseした時点です。
+- **見送った構想。** `status` を `見送り` にした時点で移します。
+
+```bash
+git mv drafts/主題 drafts/archives/
+```
+
+- `draft.md` の `status` と `issue` は書き換えません。
+- フォルダ名は変えません。
+- `/publish` でIssueをcloseしたときは、この移動を手順の中で行います。親を手でcloseしたときは、自分で移します。
 
 ## 注意
 

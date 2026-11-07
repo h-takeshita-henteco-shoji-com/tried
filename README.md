@@ -60,6 +60,7 @@ Issueは着手できる段階のテーマに絞り、候補の一覧を短く保
 - **1構想1フォルダ。** `drafts/主題/draft.md` にきっかけと案を書き、参考画像は同じフォルダに置きます。
 - **言えたら起票する。** 「何を試すか」が1〜2文で言えたら、`/new-theme drafts/主題` でIssueにします。
 - **起票後も消さない。** `draft.md` に `status: 起票済` とIssue番号を残します。
+- **終わったら archives に移す。** Issueがcloseした構想と見送った構想は、`drafts/archives/` に移します。
 
 詳しい決まりは `drafts/README.md` に書きます。
 
@@ -83,6 +84,7 @@ tried/
 ├── INDEX.md              一覧表(自動で生成)
 ├── .claude/commands/     Claude Codeに登録した定型手順
 ├── drafts/               起票前の構想(1構想1フォルダ)
+│   └── archives/         終わった構想
 └── 2026/
     ├── 10-02-主題/              単独テーマ
     │   ├── log.md               実施記録
