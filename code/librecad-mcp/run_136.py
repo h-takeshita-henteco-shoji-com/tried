@@ -1,4 +1,5 @@
 """#136 の作図の課題を、MCP 経由と DXF を直接書く方法の両方で、モデルごとに1回ずつ流す。
+#146 から、その日のフォルダと元の図面を引数で渡せるようにした(--day、--drawing)。
 
 #135 の run_eval.py(DXF)と #134 の run_eval_mcp.py(MCP)の、コマンドの組み立てと記録の形をそのまま使う。
 違いは、問いが「答える」ではなく「描き足して保存する」であることと、指示文をファイルから読むこと。
@@ -24,6 +25,7 @@ from run_eval_mcp import HERE, REPO, base
 
 DAY = REPO / "2026/11-05-AIと図面のコラボレーション-05-AIに矩計図と平面詳細図を描かせる"
 DRAWING = DAY / "base/house.dxf"
+# 指示文は DAY/tasks/prompt-<課題>[-dxf].txt
 TIMEOUT = 2400  # 40分。#135 の20分では、作図は終わらないモデルがあると見た
 
 
@@ -131,8 +133,17 @@ def main():
     ap.add_argument("--mode", required=True, choices=["mcp", "dxf", "both"])
     ap.add_argument("--models", required=True)
     ap.add_argument("--effort", default="medium")
-    ap.add_argument("--out", default=str(DAY / "results" / dt.date.today().isoformat()))
+    ap.add_argument("--day", default=None, help="その日のフォルダ(既定は #136)")
+    ap.add_argument("--drawing", default=None, help="元の図面(既定は <day>/base/house.dxf)")
+    ap.add_argument("--out", default=None, help="既定は <day>/results/<今日>")
     a = ap.parse_args()
+    global DAY, DRAWING
+    if a.day:
+        DAY = Path(a.day).resolve()
+        DRAWING = DAY / "base/house.dxf"
+    if a.drawing:
+        DRAWING = Path(a.drawing).resolve()
+    a.out = a.out or str(DAY / "results" / dt.date.today().isoformat())
     base.prepare_codex_home()
     models = a.models.split(",")
     if a.mode == "both":

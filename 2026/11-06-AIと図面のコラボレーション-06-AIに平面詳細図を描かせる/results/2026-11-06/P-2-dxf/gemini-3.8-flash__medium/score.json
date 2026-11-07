@@ -1,0 +1,8 @@
+{
+ "score": 0,
+ "max": 8,
+ "items": {},
+ "detail": {
+  "error": "DXF の構造が壊れていて読めない(517行目に group code の代わりに「D」)。LibreCAD も開けなかった"
+ }
+}

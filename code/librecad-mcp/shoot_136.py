@@ -5,7 +5,9 @@
 
 使い方(LibreCAD を restart.sh で起動しておく):
   uv run python code/librecad-mcp/shoot_136.py
+  uv run python code/librecad-mcp/shoot_136.py --day <その日のフォルダ> --task P-1 --window 54800,-11300,62000,-4600  (#146)
 """
+import argparse
 from pathlib import Path
 
 from run_eval_mcp import REPO, lc_call
@@ -16,8 +18,20 @@ WINDOW = [[46600, -11300], [52900, -5300]]
 
 
 def main():
+    global RES, OUT, WINDOW
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--day", default=None)
+    ap.add_argument("--task", default="K-1")
+    ap.add_argument("--window", default=None, help="x0,y0,x1,y1")
+    a = ap.parse_args()
+    if a.day:
+        RES = sorted((Path(a.day).resolve() / "results").iterdir())[-1]
+        OUT = RES / "librecad"
+    if a.window:
+        x0, y0, x1, y1 = map(float, a.window.split(","))
+        WINDOW = [[x0, y0], [x1, y1]]
     OUT.mkdir(exist_ok=True)
-    for dxf in sorted(RES.glob("K-1-*/*/drawing-changed.dxf")):
+    for dxf in sorted(RES.glob(f"{a.task}-*/*/drawing-changed.dxf")):
         mode, model = dxf.parts[-3][4:], dxf.parts[-2].split("__")[0]
         if not lc_call("open", path=str(dxf)).get("ok"):
             print("開けない:", dxf)

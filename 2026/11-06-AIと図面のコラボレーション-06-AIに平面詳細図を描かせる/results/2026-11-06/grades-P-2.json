@@ -1,0 +1,130 @@
+[
+ {
+  "mode": "dxf",
+  "model": "claude-fable-5-1",
+  "sec": 200.5,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "dxf",
+  "model": "claude-haiku-5-5",
+  "sec": 297.3,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "dxf",
+  "model": "claude-opus-5-5",
+  "sec": 173.7,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "dxf",
+  "model": "claude-sonnet-5-5",
+  "sec": 148.1,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "dxf",
+  "model": "gemini-3.8-flash",
+  "sec": 611.4,
+  "saved": true,
+  "score": 0,
+  "miss": [],
+  "note": "DXF の構造が壊れていて読めない(517行目に group code の代わりに「D」)。LibreCAD も開けなかった"
+ },
+ {
+  "mode": "dxf",
+  "model": "gemini-4-argon",
+  "sec": 779.5,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "dxf",
+  "model": "gpt-6.1-sol",
+  "sec": 106.6,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-fable-5-1",
+  "sec": 138.2,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-haiku-5-5",
+  "sec": 177.6,
+  "saved": true,
+  "score": 7.0,
+  "miss": [
+   "見る向きの矢印(両端、東)"
+  ],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-opus-5-5",
+  "sec": 108.1,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-sonnet-5-5",
+  "sec": 81.1,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "gemini-3.8-flash",
+  "sec": 850.4,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "gemini-4-argon",
+  "sec": 394.5,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ },
+ {
+  "mode": "mcp",
+  "model": "gpt-6.1-sol",
+  "sec": 93.8,
+  "saved": true,
+  "score": 8.0,
+  "miss": [],
+  "note": null
+ }
+]
