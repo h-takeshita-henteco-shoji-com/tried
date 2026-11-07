@@ -1,0 +1,158 @@
+[
+ {
+  "mode": "dxf",
+  "model": "claude-fable-5-1",
+  "sec": 594.4,
+  "saved": true,
+  "score": 11.95,
+  "miss": [
+   "文字の高さ 150"
+  ],
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "dxf",
+  "model": "claude-haiku-5-5",
+  "sec": 112.0,
+  "saved": false,
+  "score": null,
+  "miss": null,
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "dxf",
+  "model": "claude-opus-5-5",
+  "sec": 409.9,
+  "saved": true,
+  "score": 12.0,
+  "miss": [],
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "dxf",
+  "model": "claude-sonnet-5-5",
+  "sec": 485.8,
+  "saved": true,
+  "score": 11.9,
+  "miss": [
+   "柱(角と窓の両わき、10本)"
+  ],
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "dxf",
+  "model": "gemini-3.8-flash",
+  "sec": 774.7,
+  "saved": true,
+  "score": 9.76,
+  "miss": [
+   "寸法: 通り芯の間(6つ)",
+   "寸法: 窓の幅と位置(通り芯から)",
+   "文字の高さ 150"
+  ],
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "dxf",
+  "model": "gemini-4-argon",
+  "sec": 656.7,
+  "saved": true,
+  "score": 12.0,
+  "miss": [],
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "dxf",
+  "model": "gpt-6.1-sol",
+  "sec": 40.7,
+  "saved": false,
+  "score": null,
+  "miss": null,
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-fable-5-1",
+  "sec": 478.6,
+  "saved": true,
+  "score": 11.56,
+  "miss": [
+   "文字の高さ 150"
+  ],
+  "mcp": 127,
+  "nonmcp": 6
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-haiku-5-5",
+  "sec": 287.5,
+  "saved": true,
+  "score": 12.0,
+  "miss": [],
+  "mcp": 120,
+  "nonmcp": 2
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-opus-5-5",
+  "sec": 417.5,
+  "saved": true,
+  "score": 12.0,
+  "miss": [],
+  "mcp": null,
+  "nonmcp": 0
+ },
+ {
+  "mode": "mcp",
+  "model": "claude-sonnet-5-5",
+  "sec": 305.2,
+  "saved": true,
+  "score": 11.9,
+  "miss": [
+   "柱(角と窓の両わき、10本)"
+  ],
+  "mcp": 127,
+  "nonmcp": 4
+ },
+ {
+  "mode": "mcp",
+  "model": "gemini-3.8-flash",
+  "sec": 1104.4,
+  "saved": true,
+  "score": 11.54,
+  "miss": [
+   "南の外壁の層(柱 105・合板 9・胴縁 18・サイディング 14・石膏ボード 12.5)",
+   "西の外壁の層",
+   "文字の高さ 150"
+  ],
+  "mcp": 161,
+  "nonmcp": 21
+ },
+ {
+  "mode": "mcp",
+  "model": "gemini-4-argon",
+  "sec": 848.5,
+  "saved": true,
+  "score": 12.0,
+  "miss": [],
+  "mcp": 152,
+  "nonmcp": 31
+ },
+ {
+  "mode": "mcp",
+  "model": "gpt-6.1-sol",
+  "sec": 38.6,
+  "saved": false,
+  "score": null,
+  "miss": null,
+  "mcp": 7,
+  "nonmcp": 0
+ }
+]

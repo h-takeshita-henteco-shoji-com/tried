@@ -65,7 +65,8 @@ def load_events(run_dir):
         if m.get("type") != "assistant":
             continue
         for c in m["message"].get("content", []):
-            if c.get("type") == "text" and c["text"].strip():
+            # 字幕は日本語の説明だけにする。AI が途中で英語の短い見出しを書くことがあるため(#146)
+            if c.get("type") == "text" and re.search(r"[ぁ-んァ-ン一-龥]", c["text"]):
                 out.append((e["t"], "text", c["text"].strip()))
             elif c.get("type") == "tool_use":
                 out.append((e["t"], "tool", c["name"].split("__")[-1]))

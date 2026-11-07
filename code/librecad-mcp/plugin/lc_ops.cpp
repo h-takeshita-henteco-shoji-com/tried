@@ -55,6 +55,12 @@ public:
     void slotFileNewNew();
 };
 
+// 図面の窓(QC_MDIWindow)。最初の基底が QMdiSubWindow なので、同じ番地のまま使える
+class QC_MDIWindow {
+public:
+    RS_Document *getDocument() const;
+};
+
 namespace {
 
 QC_ApplicationWindow *appWin() { return QC_ApplicationWindow::getAppWindow().get(); }
@@ -76,16 +82,43 @@ QJsonObject okObj()
     return o;
 }
 
+// AI が open / save_as した図面のパス。#136 で、起動時に開く名前のない空の図面が前に出て、
+// AI の命令がそちらに効き、図面が空になったように見えた。命令の前に、この図面の窓を前に戻す
+QString g_docPath;
+
+void keepDocActive()
+{
+    auto *app = appWin();
+    if (!app || g_docPath.isEmpty()) return;
+    auto *area = reinterpret_cast<QMainWindow *>(app)->findChild<QMdiArea *>();
+    if (!area) return;
+    for (QMdiSubWindow *sub : area->subWindowList()) {
+        if (QString(sub->metaObject()->className()) != "QC_MDIWindow") continue;
+        RS_Document *d = reinterpret_cast<QC_MDIWindow *>(sub)->getDocument();
+        if (d && QFileInfo(d->getFilename()).absoluteFilePath() == g_docPath) {
+            if (area->activeSubWindow() != sub) {
+                area->setActiveSubWindow(sub);
+                QApplication::processEvents();
+            }
+            return;
+        }
+    }
+}
+
 RS_Document *curDoc()
 {
     auto *app = appWin();
-    return app ? app->getDocument() : nullptr;
+    if (!app) return nullptr;
+    keepDocActive();
+    return app->getDocument();
 }
 
 RS_GraphicView *curView()
 {
     auto *app = appWin();
-    return app ? app->getGraphicView() : nullptr;
+    if (!app) return nullptr;
+    keepDocActive();
+    return app->getGraphicView();
 }
 
 // 開いている図面を映している部品(QG_GraphicView)を探す。画面の画像を撮るため。
@@ -93,6 +126,7 @@ QWidget *curViewWidget()
 {
     auto *app = appWin();
     if (!app) return nullptr;
+    keepDocActive();
     auto *mw = reinterpret_cast<QMainWindow *>(app);
     auto *area = mw->findChild<QMdiArea *>();
     QMdiSubWindow *sub = area ? area->activeSubWindow() : nullptr;
@@ -461,6 +495,7 @@ QJsonObject lcDispatch(const QString &cmd, const QJsonObject &a)
     if (cmd == "new") {
         auto *app = appWin();
         if (!app) return fail("no app window");
+        g_docPath.clear();  // 新しい図面には名前がないので、前に戻す図面を忘れる
         app->slotFileNewNew();
         return docInfo(curDoc());
     }
@@ -470,6 +505,7 @@ QJsonObject lcDispatch(const QString &cmd, const QJsonObject &a)
         auto *app = appWin();
         if (!app) return fail("no app window");
         app->slotFileOpen(path);
+        g_docPath = path;
         RS_Document *d = curDoc();
         if (!d || QFileInfo(d->getFilename()).absoluteFilePath() != path) return fail("open failed");
         return docInfo(d);
@@ -528,6 +564,7 @@ QJsonObject lcDispatch(const QString &cmd, const QJsonObject &a)
         if (!path.endsWith(".dxf", Qt::CaseInsensitive)) return fail("path must end with .dxf");
         if (QFileInfo::exists(path) && !a.value("overwrite").toBool()) return fail("file exists (set overwrite=true)");
         if (!g->saveAs(path, RS2::FormatDXFRW, true)) return fail("save failed");
+        g_docPath = path;
         QJsonObject o = okObj();
         o["path"] = path;
         return o;
