@@ -30,13 +30,20 @@ noteまたはQiitaに投稿したあとの書き戻しを行います。引数: 
    gh api repos/{owner}/{repo}/issues/<親番号>/sub_issues --jq '[.[] | select(.state=="open")] | length'
    ```
    - 0なら「親のまとめ記事を書いてから親をcloseする」よう伝えます。親は自動でcloseしません。
-7. commitとpushを行います。コミットメッセージは `<日付> <タイトル> を公開 (#<番号>)` とします。
+   - あわせて「親をcloseしたら、親の構想を `drafts/archives/` に移す」よう伝えます。
+7. closeしたIssueを起票元とする構想があれば、`drafts/archives/` に移します。`drafts/` 直下を育てている途中の構想だけにするためです。
    ```bash
-   git add <フォルダ>
+   grep -l "^issue: <番号>$" drafts/*/draft.md
+   git mv drafts/<主題> drafts/archives/
+   ```
+   - 親のまとめ記事を公開した場合は、親の番号で探します。親のcloseが済んでいるか確かめてから移します。
+8. commitとpushを行います。コミットメッセージは `<日付> <タイトル> を公開 (#<番号>)` とします。
+   ```bash
+   git add <フォルダ> drafts/
    git commit -m "<日付> <タイトル> を公開 (#<番号>)"
    git push
    ```
-8. 更新した項目、closeしたIssue、commitのハッシュを報告します。
+9. 更新した項目、closeしたIssue、移した構想、commitのハッシュを報告します。
 
 ## Qiitaの公開
 
@@ -50,7 +57,7 @@ noteの公開とIssueのcloseは済んでいる前提です。Issueの状態と�
    ```bash
    gh issue comment <番号> --body "Qiitaに技術の深掘りを公開しました: <URL>"
    ```
-6. 手順7と同じ方法でcommitとpushを行います。コミットメッセージは `<日付> <タイトル> をQiitaに公開 (#<番号>)` とします。
+6. 手順8と同じ方法でcommitとpushを行います。コミットメッセージは `<日付> <タイトル> をQiitaに公開 (#<番号>)` とします。
 7. 更新した項目とcommitのハッシュを報告します。
 
 ## 注意
