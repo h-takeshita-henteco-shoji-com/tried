@@ -4,10 +4,10 @@ title: AIに図面から室内ツアーを作らせる
 issue: 137
 parent: 131
 ai: Claude Opus 5.5
-minutes:
+minutes: 60
 result: Opus は図面と仕上表から three.js の3Dモデルを10分47秒で作り、壁・開口・屋根の寸法がすべて図面と一致。指示を3回重ねて、扉・設備・家具・自動ツアー・昼夜まで付け、打合せで見せられる室内ツアーにした
-status: 未公開
-url:
+status: 公開済
+url: https://note.com/tried_hs/n/n932559a58496
 qiita_url:
 ---
 
@@ -69,3 +69,9 @@ qiita_url:
 - 部屋の広さ(内法)を、#133 の積算の正解と同じ値で出した。図面の「約15畳」は壁芯の値で内法と違う、とも書いた。
 - 図面にないもの(設備の高さ、家具、照明)は、仮に決めて表で書き出し、家具は「図面にない仮の家具」として消せるようにした。施主に見せる立体は図面より多くを語るので、この区別が要る。
 - 会話の試し(テーマを変える前): 前の答えを受ける指し方は通じた。誤りは、会話の中で初めて出てきた扉の位置と、隣の部屋の名前で起きた。
+
+## 公開
+
+- note: https://note.com/tried_hs/n/n932559a58496(2026-11-08)。画像7枚、タグは #133 と同じ6つ
+- 3Dのページ: GitHub Pages(main の `docs/`)で公開した。https://h-takeshita-henteco-shoji-com.github.io/tried/137-house-tour/(3回目の版)。1回目と2回目の版は `round1.html`、`round2.html`
+- へんロボの解説動画: https://youtu.be/LQxz_RdDRYw(3分57秒。台本 `henrobo-script.md`、文面 `youtube.md`)。投稿した時点で動画が非公開だったため、note には埋め込めず、リンクで載せた
