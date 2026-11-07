@@ -74,4 +74,4 @@ qiita_url:
 
 - note: https://note.com/tried_hs/n/n932559a58496(2026-11-08)。画像7枚、タグは #133 と同じ6つ
 - 3Dのページ: GitHub Pages(main の `docs/`)で公開した。https://h-takeshita-henteco-shoji-com.github.io/tried/137-house-tour/(3回目の版)。1回目と2回目の版は `round1.html`、`round2.html`
-- へんロボの解説動画: https://youtu.be/LQxz_RdDRYw(3分57秒。台本 `henrobo-script.md`、文面 `youtube.md`)。投稿した時点で動画が非公開だったため、note には埋め込めず、リンクで載せた
+- へんロボの解説動画: https://youtu.be/LQxz_RdDRYw(3分57秒。台本 `henrobo-script.md`、文面 `youtube.md`)。投稿した時点では動画が非公開で、リンクで載せた。動画を公開したあと、`watch?v=` の形の URL で埋め込みに差し替えた(youtu.be の形は、前の失敗を note が覚えていて埋め込めなかった)
