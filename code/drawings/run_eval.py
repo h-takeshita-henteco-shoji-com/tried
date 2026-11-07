@@ -11,6 +11,7 @@
   uv run python run_eval.py --drawing L --format dxf --models claude-haiku-5-5,gpt-6-luna \
       --efforts low --questions L-2-1
   uv run python run_eval.py --issue 138 --drawing P --format dxf --models claude-haiku-5-5
+  uv run python run_eval.py --issue 133 --drawing T --format dxf --models claude-opus-5-5 --questions T-1-1
 """
 import argparse
 import datetime as dt
@@ -27,6 +28,7 @@ REPO = Path(__file__).resolve().parents[2]
 DAY132 = REPO / "2026/10-29-AIと図面のコラボレーション-01-AIに図面が何を表すか説明させる"
 DAY138 = REPO / "2026/11-02-AIと図面のコラボレーション-02-AIに図面の寸法を正確に読ませる"
 DAY135 = REPO / "2026/11-02-AIと図面のコラボレーション-03-AIにDXFの寸法を変更させる"
+DAY133 = REPO / "2026/11-07-AIと図面のコラボレーション-07-AIに建具を数えさせて建具表を作る"
 STD = DAY132 / "assets/drawings/建築工事標準詳細図"
 
 # Issue ごとの、記録の置き場所と、図面(拡張子なし)と、正解の記録
@@ -38,6 +40,7 @@ ISSUES = {
             "keys": {"P": "P-office.md", "H": "H-9-32.md"}},
     "135": {"day": DAY135, "drawings": {"C": DAY135 / "assets/drawings/house-2ldk"},
             "keys": {"C": "C-house.md"}},
+    "133": {"day": DAY133, "drawings": {"T": DAY133 / "base/house-t"}, "keys": {"T": "T-house.md"}},
 }
 
 # 個人の AGENTS.md を読ませないための Codex の置き場所。ログインのファイルだけをリンクする
@@ -92,6 +95,36 @@ PROMPT_138 = """作業フォルダにある図面ファイル（{file}）を読�
 作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。
 ライブラリを新しく入れないでください。"""
 
+# #133 は建具を数えさせる。偶然の正答を見分けるため、数えた対象を1つずつ挙げさせる
+PROMPT_133 = """作業フォルダにある図面ファイル（{file}）は、2LDKの平屋の図面です。単位はmmです。
+平面図、立面図（南・北・東・西）、断面図（A-A、B-B）、矩計図、平面詳細図が、1つのファイルに入っています。
+図面を読み、次の問いに日本語で答えてください。図面は書き換えないでください。
+
+問い: {question}
+
+次の形で答えてください。
+- 答え:
+- 数えた対象の一覧: 1つずつ、名前（または部屋）、種類、どの図のどの図形か（レイヤー、座標、図形の識別番号 handle など）
+- 数えなかったもの: 似ているが数えなかった図形と、その理由
+- 確認したいこと: 図面から決まらないことや、迷ったこと。なければ「なし」
+
+作業フォルダの図面ファイル以外は見ないでください。インターネットで調べないでください。
+ライブラリを新しく入れないでください。"""
+
+# #133 の積算(T-5)。積算の条件を「積算条件.md」として作業フォルダに置く
+SPEC_133 = DAY133 / "tasks/estimate-spec.md"
+PROMPT_133E = """作業フォルダにある図面ファイル（{file}）は、2LDKの平屋の図面です。単位はmmです。
+平面図、立面図（南・北・東・西）、断面図（A-A、B-B）、矩計図、平面詳細図が、1つのファイルに入っています。
+あなたは工務店の積算担当です。設計者から、この図面と「積算条件.md」を受け取りました。
+
+指示: {question}
+
+内訳書の形は「積算条件.md」の4にあります。そのほかに、次も書いてください。
+- 拾い方: 部屋ごとに、どの寸法をどう測ったか（内法の寸法、差し引いた開口と、差し引かなかった開口）
+
+図面は書き換えないでください。作業フォルダの2つのファイル以外は見ないでください。
+インターネットで調べないでください。ライブラリを新しく入れないでください。"""
+
 MODELS = {
     "claude-haiku-5-5": "claude",
     "claude-sonnet-5-5": "claude",
@@ -109,7 +142,7 @@ MODELS = {
 def load_questions(issue, drawing):
     cfg = ISSUES[issue]
     text = (cfg["day"] / "answer-key" / cfg["keys"][drawing]).read_text()
-    return dict(re.findall(r"^### ([LMHPC]-\d-\d) (.+)$", text, re.M))
+    return dict(re.findall(r"^### ([LMHPCT]-\d-\d) (.+)$", text, re.M))
 
 
 def prepare_codex_home():
@@ -188,8 +221,12 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
     if (dest / f"{qid}.json").exists():
         return None  # 中断のあとに流し直すとき、済んだ問いは飛ばす
     file = f"drawing.{fmt}"
-    prompt = {"138": PROMPT_138, "135": PROMPT_135}.get(issue, PROMPT).format(file=file, question=question)
+    estimate = issue == "133" and qid.startswith("T-5")
+    base = PROMPT_133E if estimate else {"138": PROMPT_138, "135": PROMPT_135, "133": PROMPT_133}.get(issue, PROMPT)
+    prompt = base.format(file=file, question=question)
     work = Path(tempfile.mkdtemp(prefix="drawing-eval-"))
+    if estimate:
+        shutil.copy(SPEC_133, work / "積算条件.md")
     src = ISSUES[issue]["drawings"][drawing]
     shutil.copy(f"{src}.{fmt}", work / file)
     cmd, stdin, env = build_command(model, effort, fmt, prompt)
@@ -202,10 +239,15 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
     except subprocess.TimeoutExpired as e:
         code, out, err = "timeout", e.stdout or "", e.stderr or ""
     seconds = round(time.monotonic() - t0, 1)
-    created = sorted(str(f.relative_to(work)) for f in work.rglob("*") if f.name != file)
+    created = sorted(str(f.relative_to(work)) for f in work.rglob("*") if f.name not in (file, "積算条件.md"))
     dest.mkdir(parents=True, exist_ok=True)
     if (work / CHANGED).exists():
         shutil.copy(work / CHANGED, dest / f"{qid}.dxf")
+    # AI が作ったほかのファイル(内訳書など)も、結果と一緒に残す。作業用のスクリプトも残す(読み方を確かめるため)
+    keep = [f for f in created if f != CHANGED and (work / f).is_file() and (work / f).stat().st_size < 2_000_000]
+    for f in keep:
+        (dest / f"{qid}-files" / f).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(work / f, dest / f"{qid}-files" / f)
     record = {
         "qid": qid, "question": question, "drawing": drawing, "drawing_file": src.name,
         "format": fmt, "model": model, "effort": effort, "cli": MODELS[model],
@@ -225,15 +267,18 @@ def run_one(issue, drawing, fmt, model, effort, qid, question, out_root):
 
 
 def main():
+    global TIMEOUT_SEC
     ap = argparse.ArgumentParser()
     ap.add_argument("--issue", default="132", choices=ISSUES)
-    ap.add_argument("--drawing", required=True, choices=["L", "M", "H", "P", "C"])
+    ap.add_argument("--drawing", required=True, choices=["L", "M", "H", "P", "C", "T"])
     ap.add_argument("--format", required=True, choices=["dxf", "png"])
     ap.add_argument("--models", required=True)
     ap.add_argument("--efforts", default="medium")
     ap.add_argument("--questions", default="all")
     ap.add_argument("--out", default=None, help="結果の置き場所。既定は results/今日の日付")
+    ap.add_argument("--timeout", type=int, default=TIMEOUT_SEC, help="1問の上限(秒)。#133 の積算で Argon が20分を超えたため足した")
     a = ap.parse_args()
+    TIMEOUT_SEC = a.timeout
 
     questions = load_questions(a.issue, a.drawing)
     qids = list(questions) if a.questions == "all" else a.questions.split(",")
