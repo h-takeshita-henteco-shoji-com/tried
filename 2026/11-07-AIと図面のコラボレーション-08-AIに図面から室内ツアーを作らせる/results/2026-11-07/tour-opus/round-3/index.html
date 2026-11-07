@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>2LDK 平屋 3Dモデル</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #cfdde8;
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif; }
+  #app { position: fixed; inset: 0; }
+  .panel { position: fixed; background: rgba(255,255,255,0.88); border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18); padding: 10px 12px; font-size: 13px; color: #222; }
+  #modes { top: 12px; left: 12px; }
+  #modes button, #rooms button { font: inherit; cursor: pointer; border: 1px solid #889;
+    background: #fff; border-radius: 5px; padding: 5px 10px; margin: 2px; }
+  #modes button.on { background: #2f5d8a; color: #fff; border-color: #2f5d8a; }
+  #modes label { display: block; margin-top: 6px; }
+  #modes .row { margin-top: 6px; display: flex; align-items: center; gap: 2px; }
+  #modes .row span { color: #555; margin-right: 4px; }
+  #btnAuto { background: #fff7e6 !important; border-color: #c08a2c !important; }
+  #rooms { top: 186px; left: 12px; width: 128px; }
+  #rooms .t { font-weight: bold; margin-bottom: 4px; }
+  #rooms button { display: block; width: 100%; text-align: left; margin: 3px 0; }
+  #rooms button.here { background: #e3eef8; border-color: #2f5d8a; }
+  #help { right: 12px; bottom: 12px; max-width: 330px; line-height: 1.6; }
+  #help b { display: block; margin-bottom: 2px; }
+  #help kbd { border: 1px solid #999; border-bottom-width: 2px; border-radius: 3px;
+    padding: 0 4px; background: #f8f8f8; font-size: 12px; font-family: inherit; }
+  #where { position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.55); color: #fff; padding: 4px 14px; border-radius: 14px;
+    font-size: 14px; display: none; }
+  #cross { position: fixed; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px;
+    display: none; pointer-events: none; }
+  #cross::before, #cross::after { content: ""; position: absolute; background: rgba(0,0,0,0.5); }
+  #cross::before { left: 4px; top: 0; width: 2px; height: 10px; }
+  #cross::after { top: 4px; left: 0; height: 2px; width: 10px; }
+  #miniWrap { top: 12px; right: 12px; padding: 6px 6px 4px; display: none; }
+  #miniWrap .t { font-size: 11px; color: #555; margin: 0 2px 3px; display: flex; justify-content: space-between; }
+  #mini { display: block; cursor: crosshair; border-radius: 4px; }
+  #card { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); display: none;
+    background: rgba(20,32,48,0.82); color: #fff; border-radius: 12px; padding: 12px 26px 14px; text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3); min-width: 260px; }
+  #card .n { font-size: 26px; font-weight: bold; letter-spacing: 0.05em; }
+  #card .a { font-size: 17px; margin-top: 4px; }
+  #card .s { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+  #autoBar { position: fixed; top: 48px; left: 50%; transform: translateX(-50%); display: none;
+    background: rgba(255,255,255,0.92); border-radius: 18px; padding: 4px 6px 4px 14px; font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); align-items: center; gap: 10px; }
+  #autoBar button { font: inherit; cursor: pointer; border: 1px solid #b33; background: #c33; color: #fff;
+    border-radius: 14px; padding: 4px 14px; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app"></div>
+<div id="modes" class="panel">
+  <button id="btnPers" class="on">パース</button>
+  <button id="btnTour">室内ツアー</button>
+  <button id="btnAuto">▶ 自動ツアー</button>
+  <label id="roofWrap"><input type="checkbox" id="chkRoof"> 屋根と天井を隠す（間取りを見る）</label>
+  <label><input type="checkbox" id="chkFurn" checked> 家具を表示（図面にない仮の家具）</label>
+  <div class="row"><span>時刻</span><button id="btnDay" class="on">昼</button><button id="btnNight">夜</button></div>
+</div>
+<div id="rooms" class="panel"><div class="t">部屋へ移動</div></div>
+<div id="where"></div>
+<div id="cross"></div>
+<div id="miniWrap" class="panel"><div class="t"><span>平面図（クリックで移動）</span><span>▲北</span></div><canvas id="mini"></canvas></div>
+<div id="help" class="panel"></div>
+<div id="card"><div class="n"></div><div class="a"></div><div class="s"></div></div>
+<div id="autoBar"><span id="autoStep"></span><button id="btnStop">■ 止める</button></div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// =====================================================================
+//  図面 (drawing.dxf) から読んだ寸法。単位 mm。
+//  平面座標: X = 東向き(通り芯 X1=0), Y = 北向き(通り芯 Y1=0)
+//  高さ: FL = 0（GL = -561）
+// =====================================================================
+const FL_GL   = 561;    // 立面図・断面図 GL→FL 561
+const FDN_TOP = 400;    // 基礎天端 GL+400（立面図 基礎, 矩計図）
+const CH      = 2400;   // 天井高 CH=2,400（A-A, B-B 断面図）
+const EAVE    = 2750;   // FL→軒高 2,750（立面図・断面図・矩計図）
+const SLOPE   = 0.4;    // 屋根勾配 4/10
+const EAVE_OUT  = 600;  // 軒の出（通り芯から） 600（矩計図・A-A 断面図）
+const VERGE_OUT = 300;  // けらばの出（通り芯から） 300（南北立面図・B-B 断面図）
+const ROOF_T  = 150;    // 屋根厚（鉛直）150（立面図）
+const RIDGE_Y = 3640;   // 棟 = Y3 通り（A-A 断面図・東西立面図）
+const BW = 10010, BD = 7280;  // 通り芯 X1–X8 = 10,010 / Y1–Y6 = 7,280
+const T_EXT = 150, T_INT = 120;  // 平面図 外壁 150 / 間仕切 120
+const DOOR_H = 2000;    // 室内建具の高さ（建具表 WD-1〜6 = 2000）
+
+// ---- 部屋（仕上表）。rects は通り芯で囲んだ範囲 [x0,y0,x1,y1]
+const ROOMS = {
+  ldk:    { name: 'LDK',        floor: 'flooring', skirt: 'wood', rects: [[0,0,4550,5460]],                                   tp: [2275,1500, 0.35], go: [3600,2950, 1.9] },
+  genkan: { name: '玄関',       floor: 'tile',     skirt: null,   rects: [[4550,0,6370,1820]],                                tp: [5460, 700, 0] },
+  hall:   { name: 'ホール',     floor: 'flooring', skirt: 'wood', rects: [[4550,1820,6370,3640],[5460,3640,6370,5460],[6370,3640,7280,4550]], tp: [5460,2500, 0] },
+  bed1:   { name: '寝室1',      floor: 'flooring', skirt: 'wood', rects: [[6370,0,10010,3640]],                               tp: [7300,2900, -2.4] },
+  closet: { name: 'クローゼット', floor: 'flooring', skirt: 'wood', rects: [[7280,3640,10010,4550]],                           tp: [8645,4100, Math.PI] },
+  bed2:   { name: '寝室2',      floor: 'flooring', skirt: 'wood', rects: [[6370,4550,10010,7280]],                            tp: [7300,5100, -0.7] },
+  wc:     { name: 'トイレ',     floor: 'cf',       skirt: 'soft', rects: [[4550,3640,5460,5460]],                             tp: [5005,5100, Math.PI] },
+  senmen: { name: '洗面脱衣',   floor: 'cf',       skirt: 'soft', rects: [[2730,5460,4550,7280]],                             tp: [4200,5900, 1.2], lp: [3640,6250] },
+  bath:   { name: '浴室',       floor: 'ub',       skirt: null,   rects: [[910,5460,2730,7280]],                              tp: [2300,5900, 0.8], lp: [1820,6000] },
+  famicl: { name: 'ファミクロ', floor: 'flooring', skirt: 'wood', rects: [[4550,5460,6370,7280]],                             tp: [5460,6100, 0], lp: [5550,6650] },
+  pantry: { name: 'パントリー', floor: 'flooring', skirt: 'wood', rects: [[0,5460,910,7280]],                                 tp: [462,5900, 0], lp: [455,7050] },
+};
+function roomAt(x, y) {
+  if (x < 0 || x > BW || y < 0 || y > BD) return null;
+  for (const [k, r] of Object.entries(ROOMS))
+    for (const [x0,y0,x1,y1] of r.rects) if (x >= x0 && x <= x1 && y >= y0 && y <= y1) return k;
+  return null;
+}
+
+// ---- 壁。dir:'x' = X方向に走る壁（Y=c）, dir:'y' = Y方向に走る壁（X=c）
+//  ops: 開口 {a,b: 壁方向の範囲, s: 下端(FL基準), h: 上端, k: 'win'|'door'|'extdoor'|'open'}
+//  窓は建具表の記号 id と開き方 wt（hiki=引違い / tate=縦すべり出し / yoko=横すべり出し）、frost=型板ガラス
+const W = [
+  // 外壁（平面図 WALL 150、開口高さは立面図）
+  { dir:'x', c:0,    a:-75, b:10085, t:T_EXT, ext:true, ops:[
+      { a:400,  b:2050, s:0,   h:2000, k:'win', id:'AW-1', wt:'hiki' },   // LDK 掃き出し
+      { a:2500, b:4150, s:0,   h:2000, k:'win', id:'AW-1', wt:'hiki' },   // LDK 掃き出し
+      { a:5000, b:5900, s:0,   h:2200, k:'extdoor' },                     // 玄関ドア AD-1
+      { a:7300, b:8950, s:900, h:2000, k:'win', id:'AW-2', wt:'hiki' } ]},// 寝室1
+  { dir:'x', c:BD,   a:-75, b:10085, t:T_EXT, ext:true, ops:[
+      { a:1500, b:2200, s:1400, h:1900, k:'win', id:'AW-5', wt:'yoko', frost:true },  // 浴室
+      { a:3300, b:4000, s:1400, h:1900, k:'win', id:'AW-5', wt:'yoko', frost:true },  // 洗面脱衣
+      { a:5100, b:5800, s:1400, h:1900, k:'win', id:'AW-5', wt:'yoko', frost:true },  // ファミクロ
+      { a:7600, b:8800, s:900,  h:2000, k:'win', id:'AW-3', wt:'hiki' } ]},           // 寝室2
+  { dir:'y', c:0,    a:75, b:7205, t:T_EXT, ext:true, gable:true, ops:[
+      { a:1200, b:2400, s:900, h:2000, k:'win', id:'AW-3', wt:'hiki' },
+      { a:2800, b:4000, s:900, h:2000, k:'win', id:'AW-3', wt:'hiki' },
+      { a:4450, b:5200, s:0,   h:2000, k:'extdoor' } ]},                  // 勝手口 AD-2
+  { dir:'y', c:BW,   a:75, b:7205, t:T_EXT, ext:true, gable:true, ops:[
+      { a:1200, b:2400, s:900, h:2000, k:'win', id:'AW-3', wt:'hiki' },
+      { a:6500, b:7100, s:900, h:2000, k:'win', id:'AW-4', wt:'tate' } ]},// 寝室2 縦すべり出し
+  // 間仕切り（平面図 WALL 120）
+  { dir:'y', c:4550, a:75,   b:7205, t:T_INT, ops:[ {a:2300,b:3100,k:'door'}, {a:5560,b:6260,k:'door'} ]},
+  { dir:'y', c:6370, a:75,   b:3700, t:T_INT, ops:[ {a:2300,b:3100,k:'door'} ]},
+  { dir:'y', c:6370, a:4490, b:7205, t:T_INT, ops:[] },
+  { dir:'y', c:5460, a:3700, b:5400, t:T_INT, ops:[ {a:4620,b:5320,k:'door'} ]},
+  { dir:'y', c:7280, a:3700, b:4490, t:T_INT, ops:[] },
+  { dir:'y', c:2730, a:5520, b:7205, t:T_INT, ops:[ {a:5650,b:6350,k:'door'} ]},
+  { dir:'y', c:910,  a:5520, b:7205, t:T_INT, ops:[] },
+  { dir:'x', c:3640, a:4610, b:5520, t:T_INT, ops:[] },
+  { dir:'x', c:3640, a:6430, b:9935, t:T_INT, ops:[ {a:7400,b:9900,k:'open'} ]},
+  { dir:'x', c:4550, a:6430, b:9935, t:T_INT, ops:[ {a:6440,b:7210,k:'door'} ]},
+  { dir:'x', c:5460, a:75,   b:4490, t:T_INT, ops:[ {a:100,b:800,k:'open'}, {a:3700,b:4400,k:'door'} ]},
+  { dir:'x', c:5460, a:4610, b:6310, t:T_INT, ops:[ {a:5540,b:6300,k:'door'} ]},
+];
+for (const w of W) {
+  w.z0 = w.ext ? FDN_TOP - FL_GL : 0;       // 外壁は基礎天端から
+  w.z1 = w.ext ? EAVE : CH;                 // 外壁は軒高まで、間仕切りは天井まで
+  for (const o of w.ops) { if (o.s === undefined) o.s = 0; if (o.h === undefined) o.h = DOOR_H; }
+}
+
+// ---- 部屋の広さ（内法）: 部屋の矩形から壁（平面図 WALL の厚み。開口部分も壁として除く）を引いた面積
+//  座標を壁と部屋の辺で区切り、各区画の中心が「部屋の中で、どの壁の中でもない」ものを足す（近似なしの正確な面積）
+const JO = 1.62;   // 1 畳 = 1.62 m²（不動産の表示に関する公正競争規約の基準）
+const wallRects = W.map(w => { const h = w.t / 2; return w.dir === 'x' ? [w.a, w.c - h, w.b, w.c + h] : [w.c - h, w.a, w.c + h, w.b]; });
+function innerArea(rects) {
+  const xs = new Set(), ys = new Set();
+  for (const [x0, y0, x1, y1] of [...rects, ...wallRects]) { xs.add(x0); xs.add(x1); ys.add(y0); ys.add(y1); }
+  const X = [...xs].sort((a, b) => a - b), Y = [...ys].sort((a, b) => a - b);
+  const inside = (r, x, y) => x > r[0] && x < r[2] && y > r[1] && y < r[3];
+  let A = 0;
+  for (let i = 0; i < X.length - 1; i++) for (let j = 0; j < Y.length - 1; j++) {
+    const cx = (X[i] + X[i + 1]) / 2, cy = (Y[j] + Y[j + 1]) / 2;
+    if (!rects.some(r => inside(r, cx, cy)) || wallRects.some(r => inside(r, cx, cy))) continue;
+    A += (X[i + 1] - X[i]) * (Y[j + 1] - Y[j]);
+  }
+  return A / 1e6;
+}
+for (const r of Object.values(ROOMS)) { r.area = innerArea(r.rects); r.jo = r.area / JO; }
+const areaText = r => `約${r.jo.toFixed(1)}畳（${r.area.toFixed(2)} m²）`;
+
+// ---- 開き戸（平面図 DOOR レイヤーの円弧: 吊り元 hx,hy / 閉じた向き closed / 開いた向き open、角度は平面で東=0°・北=90°）
+const SWING = [
+  { id:'AD-1', ext:true, hx:5000, hy:0,    w:900, h:2200, closed:0,   open:-90, rest:25 },  // 玄関（外開き）
+  { id:'AD-2', ext:true, hx:0,    hy:5200, w:750, h:2000, closed:-90, open:180, rest:25 },  // 勝手口（外開き）
+  { id:'WD-1',           hx:6370, hy:3100, w:800, h:2000, closed:-90, open:0,   rest:30 },  // 寝室1
+  { id:'WD-2',           hx:6440, hy:4550, w:770, h:2000, closed:0,   open:90,  rest:30 },  // 寝室2
+];
+// ---- 片引き戸（平面図 DOOR レイヤーの戸の矩形: 閉じた位置 closed / 開いた位置 open。dir は戸が走る向き、v0–v1 は厚み方向）
+const SLIDE = [
+  { id:'WD-3', dir:'y', wc:4550, v0:4440, v1:4490, closed:[2270,3130], open:[3100,3900], glass:true },  // LDK（型板ガラス入り）
+  { id:'WD-5', dir:'y', wc:5460, v0:5520, v1:5570, closed:[4590,5350], open:[3920,4620] },              // トイレ
+  { id:'WD-6', dir:'x', wc:5460, v0:5520, v1:5570, closed:[3670,4430], open:[3000,3700] },              // 洗面脱衣（LDK側）
+  { id:'WD-4', dir:'x', wc:5460, v0:5520, v1:5570, closed:[5510,6330], open:[4780,5540] },              // ファミクロ（鍵付き）
+  { id:'WD-6', dir:'y', wc:4550, v0:4610, v1:4660, closed:[5530,6290], open:[6260,6960] },              // 洗面脱衣（ファミクロ側）
+];
+// ---- 平面図 FIXTURE レイヤー（ミニマップに描く輪郭。r=矩形 e=楕円 c=円 l=線）
+const FIX2D = [
+  {r:[4780,3700,5230,3900]}, {e:[5005,4175,190,275]},                         // 便器
+  {r:[3700,6720,4450,7220]}, {e:[4075,6945,220,150]},                         // 洗面化粧台
+  {r:[2850,6580,3490,7220]}, {c:[3170,6900,250]},                             // 洗濯機
+  {r:[1000,6420,2640,7190]}, {r:[1080,6500,2560,7110]},                       // 浴槽
+  {r:[1000,3200,3550,3850]}, {r:[1300,3330,2100,3720]},                       // キッチン・シンク
+  {r:[1000,4750,2700,5400]}, {c:[1600,5075,150]}, {c:[2050,5075,150]},        // 背面収納・IH
+  {r:[2850,4750,3500,5400]},                                                  // 冷蔵庫
+  {l:[4610,1820,6310,1820]}, {r:[4610,60,4960,1760]},                         // 上がり框・下駄箱
+  {l:[7280,4095,9935,4095]},                                                  // クローゼット パイプ
+  {r:[9350,4610,9935,6400]}, {l:[9640,4610,9640,6400]},                       // 寝室2 収納
+  {l:[4610,6370,6310,6370]}, {l:[4700,6950,6250,6950]},                       // ファミクロ パイプ・室内干し
+  {l:[60,6370,850,6370]},                                                     // パントリー 棚
+];
+
+// =====================================================================
+//  three.js
+// =====================================================================
+const S = 0.001;                        // mm → m
+const P = (x, y, z) => new THREE.Vector3(x * S, z * S, -y * S);  // 平面(x,y)+高さz → world
+const rad = d => d * Math.PI / 180;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.getElementById('app').appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xcfdde8);
+scene.fog = new THREE.Fog(0xcfdde8, 60, 160);
+
+const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.05, 500);
+
+const hemi = new THREE.HemisphereLight(0xffffff, 0xb8b0a0, 1.6);
+const amb = new THREE.AmbientLight(0xffffff, 0);
+scene.add(hemi, amb);
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.copy(P(BW/2 + 9000, -14000, 16000));
+sun.target.position.copy(P(BW/2, BD/2, 0));
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -12, right: 12, top: 12, bottom: -12, near: 1, far: 60 });
+sun.shadow.bias = -0.0003;
+sun.shadow.normalBias = 0.03;
+scene.add(sun, sun.target);
+
+// =====================================================================
+//  canvas で描く模様（画像ファイルは使わない）
+// =====================================================================
+function rng(seed) {
+  return () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+const maxAniso = renderer.capabilities.getMaxAnisotropy();
+// perU, perV: 模様 1 枚が実寸で何 m か（world UV 用）。null なら面ごとに 0–1 で貼る
+function makeTex(w, h, perU, perV, seed, draw) {
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+  draw(cv.getContext('2d'), w, h, rng(seed));
+  const t = new THREE.CanvasTexture(cv);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  if (perU) t.repeat.set(1 / perU, 1 / perV);
+  t.anisotropy = maxAniso;
+  return t;
+}
+// 波打つ木目の線（横方向に周期的なので継ぎ目が出ない）
+function grain(g, W, y0, h, r, n, rgb, vertical = false) {
+  for (let k = 0; k < n; k++) {
+    const base = y0 + r() * h, amp = 0.5 + r() * 2.5, f = (2 * Math.PI / W) * (1 + Math.floor(r() * 3)), ph = r() * 6.28;
+    g.strokeStyle = `rgba(${rgb},${0.04 + r() * 0.14})`; g.lineWidth = 0.6 + r() * 1.8;
+    g.beginPath();
+    for (let x = 0; x <= W; x += 8) {
+      const y = base + Math.sin(x * f + ph) * amp + Math.sin(x * f * 3 + ph * 2) * amp * 0.3;
+      vertical ? (x ? g.lineTo(y, x) : g.moveTo(y, x)) : (x ? g.lineTo(x, y) : g.moveTo(x, y));
+    }
+    g.stroke();
+  }
+}
+const TEX = {
+  // フローリング: 幅 151.5（=909/6）× 長さ 1,820 の板、継ぎ目を乱に。1 枚 = 3.64m × 0.909m
+  flooring: makeTex(2048, 512, 3.64, 0.909, 11, (g, W, H, r) => {
+    const rows = 6, rh = H / rows;
+    for (let i = 0; i < rows; i++) {
+      const y0 = i * rh;
+      g.fillStyle = `hsl(${29 + r() * 5}, ${42 + r() * 10}%, ${50 + r() * 8}%)`;
+      g.fillRect(0, y0, W, rh);
+      grain(g, W, y0, rh, r, 26, '95,55,25');
+      const off = r() * W / 2;
+      // 2 枚の板の色を少し変える
+      g.fillStyle = r() < 0.5 ? 'rgba(255,240,220,0.10)' : 'rgba(60,30,10,0.08)';
+      g.fillRect(off, y0, W / 2, rh);
+      g.fillStyle = 'rgba(60,35,15,0.55)';
+      g.fillRect(off - 1, y0, 2, rh); g.fillRect(off + W / 2 - 1, y0, 2, rh);
+      g.fillStyle = 'rgba(55,32,14,0.6)'; g.fillRect(0, y0, W, 1.5);       // 板の目地（溝）
+      g.fillStyle = 'rgba(255,235,210,0.25)'; g.fillRect(0, y0 + 1.5, W, 1);
+    }
+  }),
+  // 磁器質タイル 300 角、目地 5。1 枚 = 0.6m 角（タイル 2×2）
+  tile: makeTex(1024, 1024, 0.6, 0.6, 21, (g, W, H, r) => {
+    g.fillStyle = '#b9b5ad'; g.fillRect(0, 0, W, H);                       // 目地
+    const n = 2, s = W / n, jw = 5 / 600 * W;
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) {
+      const l = 52 + r() * 6;
+      g.fillStyle = `hsl(35, 5%, ${l}%)`;
+      g.fillRect(i * s + jw / 2, j * s + jw / 2, s - jw, s - jw);
+      for (let k = 0; k < 900; k++) {                                     // 石目の粒
+        g.fillStyle = `rgba(${r() < 0.5 ? '255,255,255' : '40,38,35'},${0.05 + r() * 0.12})`;
+        g.fillRect(i * s + jw / 2 + r() * (s - jw), j * s + jw / 2 + r() * (s - jw), 1 + r() * 3, 1 + r() * 3);
+      }
+      g.fillStyle = 'rgba(0,0,0,0.12)';                                   // 目地際の影
+      g.fillRect(i * s + jw / 2, j * s + s - jw / 2 - 2, s - jw, 2);
+    }
+  }),
+  // 窯業系サイディング: 働き幅 455 の横張り。1 枚 = 0.91m × 0.91m（2 段）
+  siding: makeTex(512, 512, 0.91, 0.91, 31, (g, W, H, r) => {
+    g.fillStyle = '#ddd6c8'; g.fillRect(0, 0, W, H);
+    for (let k = 0; k < 2500; k++) {
+      g.fillStyle = `rgba(${r() < 0.5 ? '255,255,255' : '90,80,65'},${0.03 + r() * 0.06})`;
+      g.fillRect(r() * W, r() * H, 1 + r() * 6, 1 + r() * 2);
+    }
+    for (let b = 0; b < 2; b++) {
+      const y = b * H / 2;
+      g.fillStyle = 'rgba(40,35,28,0.45)'; g.fillRect(0, y, W, 5);       // 横目地の影
+      g.fillStyle = 'rgba(255,255,255,0.45)'; g.fillRect(0, y + 5, W, 2);
+      g.fillStyle = 'rgba(0,0,0,0.05)'; g.fillRect(0, y + H / 4, W, 1);   // 板中央の浅い溝
+    }
+  }),
+  // 立平葺き: 働き幅 455 ごとに縦はぜ。1 枚 = 0.455m × 1m
+  roof: makeTex(256, 512, 0.455, 1.0, 41, (g, W, H, r) => {
+    g.fillStyle = '#4e545a'; g.fillRect(0, 0, W, H);
+    for (let k = 0; k < 60; k++) {
+      g.fillStyle = `rgba(${r() < 0.5 ? '255,255,255' : '0,0,0'},${0.02 + r() * 0.04})`;
+      g.fillRect(r() * W, 0, 1 + r() * 3, H);
+    }
+    const c = W / 2;
+    g.fillStyle = 'rgba(0,0,0,0.35)'; g.fillRect(c - 9, 0, 3, H);
+    g.fillStyle = '#7b838a'; g.fillRect(c - 6, 0, 5, H);                  // はぜの明るい面
+    g.fillStyle = '#2b2f33'; g.fillRect(c - 1, 0, 4, H);
+    g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(c + 3, 0, 8, H);         // はぜの影
+  }),
+  // クッションフロア（石目調）
+  cf: makeTex(512, 512, 0.6, 0.6, 51, (g, W, H, r) => {
+    g.fillStyle = '#e7dfcb'; g.fillRect(0, 0, W, H);
+    for (let k = 0; k < 220; k++) {
+      const x = r() * W, y = r() * H, rr = 4 + r() * 22;
+      g.fillStyle = `rgba(${r() < 0.5 ? '255,255,250' : '170,155,125'},${0.06 + r() * 0.08})`;
+      for (const dx of [-W, 0, W]) for (const dy of [-H, 0, H]) { g.beginPath(); g.arc(x + dx, y + dy, rr, 0, 7); g.fill(); }
+    }
+  }),
+  // ユニットバスの床（滑り止めの細かい凹凸）
+  ub: makeTex(256, 256, 0.15, 0.15, 61, (g, W, H) => {
+    g.fillStyle = '#dde6eb'; g.fillRect(0, 0, W, H);
+    g.fillStyle = 'rgba(120,140,150,0.25)';
+    for (let i = 0; i < 8; i++) for (let j = 0; j < 8; j++) { g.beginPath(); g.arc(i * 32 + 16, j * 32 + 16, 6, 0, 7); g.fill(); }
+  }),
+  // ユニットバスの壁パネル（幅 900 ごとの目地）
+  ubWall: makeTex(512, 256, 0.9, 2.4, 91, (g, W, H, r) => {
+    g.fillStyle = '#e8edf0'; g.fillRect(0, 0, W, H);
+    for (let k = 0; k < 600; k++) { g.fillStyle = `rgba(${r() < 0.5 ? '255,255,255' : '150,165,175'},0.08)`; g.fillRect(r() * W, r() * H, 2, 2); }
+    g.fillStyle = 'rgba(90,105,115,0.35)'; g.fillRect(0, 0, 3, H);
+    g.fillStyle = 'rgba(255,255,255,0.6)'; g.fillRect(3, 0, 2, H);
+  }),
+  // 型板ガラス（霞の粒）。面ごとに 0–1 で貼る
+  frost: makeTex(256, 256, null, null, 71, (g, W, H, r) => {
+    g.fillStyle = '#f4f7f8'; g.fillRect(0, 0, W, H);
+    for (let k = 0; k < 1400; k++) {
+      g.fillStyle = r() < 0.5 ? 'rgba(255,255,255,0.7)' : `rgba(150,170,180,${0.15 + r() * 0.2})`;
+      g.beginPath(); g.arc(r() * W, r() * H, 1 + r() * 3, 0, 7); g.fill();
+    }
+  }),
+  // 室内建具の化粧板（縦木目）。面ごとに 0–1 で貼る
+  doorWood: makeTex(256, 1024, null, null, 81, (g, W, H, r) => {
+    g.fillStyle = '#d2b48c'; g.fillRect(0, 0, W, H);
+    grain(g, H, 0, W, r, 70, '120,80,40', true);
+  }),
+};
+TEX.frost.repeat.set(3, 3);
+
+const M = (c, o = {}) => new THREE.MeshLambertMaterial({ color: c, ...o });
+const Ph = (c, o = {}) => new THREE.MeshPhongMaterial({ color: c, shininess: 60, ...o });
+const worldMat = (c, map) => { const m = M(c, { map }); m.userData.worldUV = true; return m; };
+const MAT = {
+  // 床（仕上表）
+  flooring: worldMat(0xffffff, TEX.flooring),  // フローリング
+  tile:     worldMat(0xffffff, TEX.tile),      // 磁器質タイル
+  cf:       worldMat(0xffffff, TEX.cf),        // クッションフロア
+  ub:       worldMat(0xffffff, TEX.ub),        // ユニットバス 床
+  // 壁・天井
+  cloth:    M(0xf3efe7),       // ビニルクロス（壁）
+  clothC:   M(0xfbfaf6),       // ビニルクロス（天井）
+  ubWall:   null,              // ユニットバス 壁（下で模様付き）
+  ubCeil:   M(0xf1f4f6),       // ユニットバス 天井
+  jamb:     M(0xe8e1d4),
+  none:     new THREE.MeshBasicMaterial({ visible: false }),
+  siding:   worldMat(0xffffff, TEX.siding),    // 窯業系サイディング
+  roof:     worldMat(0xffffff, TEX.roof),      // ガルバリウム鋼板 立平葺き
+  fascia:   M(0x3d4246),
+  fdn:      M(0x8f8e8a),
+  mizukiri: M(0x3f4347),       // 土台水切り
+  ground:   M(0x9fb38a),
+  frame:    M(0x55585b),       // サッシ 外側（アルミ）
+  frameIn:  M(0xf2f2f0),       // サッシ 室内側（樹脂）
+  glass:    new THREE.MeshLambertMaterial({ color: 0xa8c8dc, transparent: true, opacity: 0.28, depthWrite: false, side: THREE.DoubleSide }),
+  frost:    new THREE.MeshLambertMaterial({ color: 0xffffff, map: TEX.frost, transparent: true, opacity: 0.86, depthWrite: false, side: THREE.DoubleSide }),
+  screen:   new THREE.MeshLambertMaterial({ color: 0x2c2f33, transparent: true, opacity: 0.22, depthWrite: false, side: THREE.DoubleSide }),
+  skirtWood: M(0x7d5a38),      // 木製巾木
+  skirtSoft: M(0xcfc8b8),      // ソフト巾木
+  // 建具
+  doorWood: M(0xffffff, { map: TEX.doorWood }),          // 室内建具
+  casing:   M(0xe2cfb0),                                  // 建具枠
+  entry:    M(0x6a5444, { map: TEX.doorWood }),          // 玄関ドア
+  backDoor: M(0xd6d2ca),                                  // 勝手口ドア
+  extFrame: M(0x4a4d50),
+  metal:    Ph(0xb5b8ba, { shininess: 90 }),
+  ubDoor:   M(0xeceeef),
+  // 設備
+  cab:      M(0xf0ede7),       // 収納の扉（白）
+  cabLine:  M(0xb8b2a8),
+  counter:  Ph(0xf6f5f2, { shininess: 40 }),
+  steel:    Ph(0xc4c8cb, { shininess: 100 }),
+  steelDk:  Ph(0x9a9ea2, { shininess: 100 }),
+  black:    Ph(0x1d2023, { shininess: 120 }),
+  porcelain: Ph(0xfbfbfb, { shininess: 80 }),
+  mirror:   Ph(0xaebcc5, { shininess: 150, specular: 0xffffff }),
+  water:    new THREE.MeshPhongMaterial({ color: 0x9cc9dd, transparent: true, opacity: 0.45, shininess: 120, depthWrite: false }),
+  shelf:    M(0xe9dcc4),
+  pipe:     Ph(0xc9ccce, { shininess: 100 }),
+  fridge:   Ph(0xdfe1e2, { shininess: 70 }),
+  kamachi:  M(0x6e4c2e),
+};
+MAT.ubWall = worldMat(0xffffff, TEX.ubWall);
+// 壁は影を両面で落とす（裏面だけだと、室内の入隅に日が細く漏れて明るい線が出るため）
+for (const k of ['cloth', 'clothC', 'ubWall', 'jamb', 'siding', 'skirtWood', 'skirtSoft']) MAT[k].shadowSide = THREE.DoubleSide;
+const wallMatFor = (room) => room === null ? MAT.siding : room === 'bath' ? MAT.ubWall : MAT.cloth;
+
+const groups = { house: new THREE.Group(), roof: new THREE.Group(), ceil: new THREE.Group(), labels: new THREE.Group(),
+                 furn: new THREE.Group(), lamps: new THREE.Group() };
+Object.values(groups).forEach(g => scene.add(g));
+
+// 実寸で模様が揃うよう、面の向きに合わせて UV を world 座標(m)で付け直す
+function worldUV(mesh, matrix) {
+  const g = mesh.geometry, p = g.attributes.position, n = g.attributes.normal, uv = g.attributes.uv;
+  const v = new THREE.Vector3(), nn = new THREE.Vector3(), nm = new THREE.Matrix3().getNormalMatrix(matrix);
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i).applyMatrix4(matrix);
+    nn.fromBufferAttribute(n, i).applyMatrix3(nm);
+    const ax = Math.abs(nn.x), ay = Math.abs(nn.y), az = Math.abs(nn.z);
+    if (ay >= ax && ay >= az) uv.setXY(i, v.x, -v.z);     // 床・屋根: u=東西, v=南北
+    else if (ax >= az)        uv.setXY(i, -v.z, v.y);     // 東西を向く面: u=南北, v=高さ
+    else                      uv.setXY(i, v.x, v.y);      // 南北を向く面: u=東西, v=高さ
+  }
+  uv.needsUpdate = true;
+}
+const needsWorldUV = (mat) => Array.isArray(mat) ? mat.some(m => m.userData.worldUV) : mat.userData.worldUV;
+
+function box(x0, y0, z0, x1, y1, z1, mat, parent = groups.house) {
+  const g = new THREE.BoxGeometry((x1 - x0) * S, (z1 - z0) * S, (y1 - y0) * S);
+  const m = new THREE.Mesh(g, mat);
+  m.position.copy(P((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2));
+  m.castShadow = m.receiveShadow = true;
+  if (needsWorldUV(mat)) { m.updateMatrix(); worldUV(m, m.matrix); }
+  parent.add(m);
+  return m;
+}
+// 局所座標（mm、y が上）の箱。回転する建具・障子に使う
+function lbox(parent, x0, x1, y0, y1, z0, z1, mat) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry((x1 - x0) * S, (y1 - y0) * S, (z1 - z0) * S), mat);
+  m.position.set((x0 + x1) / 2 * S, (y0 + y1) / 2 * S, (z0 + z1) / 2 * S);
+  m.castShadow = m.receiveShadow = true;
+  parent.add(m);
+  return m;
+}
+// 平面上の楕円柱（rx, ry は半径）。rTop は上端の縮み率
+function ellCyl(cx, cy, rx, ry, z0, z1, mat, rTop = 1, parent = groups.house) {
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(rTop, 1, 1, 40), mat);
+  m.scale.set(rx * S, (z1 - z0) * S, ry * S);
+  m.position.copy(P(cx, cy, (z0 + z1) / 2));
+  m.castShadow = m.receiveShadow = true;
+  parent.add(m);
+  return m;
+}
+// 水平の丸パイプ（平面の 2 点間）
+function pipe(xa, ya, xb, yb, z, r, mat) {
+  const a = P(xa, ya, z), b = P(xb, yb, z);
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(r * S, r * S, a.distanceTo(b), 16), mat);
+  m.position.copy(a).add(b).multiplyScalar(0.5);
+  m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize());
+  m.castShadow = true;
+  groups.house.add(m);
+  return m;
+}
+// 断面形状 pts=[[planY, z],...] を X 方向に x0→x1 で押し出す
+function prismX(pts, x0, x1, mat, parent) {
+  const sh = new THREE.Shape(pts.map(([y, z]) => new THREE.Vector2(y * S, z * S)));
+  const g = new THREE.ExtrudeGeometry(sh, { depth: (x1 - x0) * S, bevelEnabled: false });
+  const p = g.attributes.position;
+  for (let i = 0; i < p.count; i++) {
+    const sx = p.getX(i), sy = p.getY(i), sz = p.getZ(i);
+    p.setXYZ(i, x0 * S + sz, sy, -sx);
+  }
+  g.computeVertexNormals();
+  const m = new THREE.Mesh(g, mat);
+  m.castShadow = m.receiveShadow = true;
+  if (needsWorldUV(mat)) worldUV(m, new THREE.Matrix4());
+  parent.add(m);
+  return m;
+}
+
+// ---- 当たり判定（平面 mm の矩形）
+const colliders = [];
+
+// ---- 壁の生成
+const roomEdgesX = new Set(), roomEdgesY = new Set();
+Object.values(ROOMS).forEach(r => r.rects.forEach(([x0,y0,x1,y1]) => { roomEdgesX.add(x0); roomEdgesX.add(x1); roomEdgesY.add(y0); roomEdgesY.add(y1); }));
+
+function buildWalls() { for (const w of W) {
+  const h = w.t / 2;
+  const edges = w.dir === 'x' ? roomEdgesX : roomEdgesY;
+  const bp = new Set([w.a, w.b]);
+  w.ops.forEach(o => { bp.add(o.a); bp.add(o.b); });
+  edges.forEach(e => { if (e > w.a && e < w.b) bp.add(e); });
+  const pts = [...bp].sort((p, q) => p - q);
+  // 平面上の矩形 (u: 壁方向, v: 厚み方向)
+  const rect = (u0, u1) => w.dir === 'x' ? [u0, w.c - h, u1, w.c + h] : [w.c - h, u0, w.c + h, u1];
+
+  for (let i = 0; i < pts.length - 1; i++) {
+    const u0 = pts[i], u1 = pts[i + 1], um = (u0 + u1) / 2;
+    if (u1 - u0 < 1) continue;
+    const op = w.ops.find(o => um > o.a && um < o.b);
+    // 両側の部屋
+    const off = h + 60;
+    let roomNeg, roomPos;   // Neg: Y- 側(南) / X- 側(西)
+    if (w.dir === 'x') { roomNeg = roomAt(um, w.c - off); roomPos = roomAt(um, w.c + off); }
+    else               { roomNeg = roomAt(w.c - off, um); roomPos = roomAt(w.c + off, um); }
+    const mNeg = wallMatFor(roomNeg), mPos = wallMatFor(roomPos);
+    // BoxGeometry の面順: +x, -x, +y, -y, +z, -z  （world +z = 平面 南）
+    // 木口（壁方向の両端の面）: 隣の箱や他の壁に接する面は描かない（真横から見ると線になってちらつくため）。
+    // 開口に面する部分は下の reveal() で見込みの面を別に付ける。何にも接しない壁の端だけ描く
+    const e0 = u0 === w.a ? endMat(w, w.a, -1) : MAT.none, e1 = u1 === w.b ? endMat(w, w.b, 1) : MAT.none;
+    const mats = w.dir === 'x'
+      ? [e1, e0, MAT.jamb, MAT.jamb, mNeg, mPos]
+      : [mPos, mNeg, MAT.jamb, MAT.jamb, e0, e1];
+    // 隣の箱とは 1mm、突き当たる相手の壁には 3mm 差し込んで、継ぎ目のすき間（細い線）を出さない。
+    // 重なる面は同じ材料・同じ UV か、相手の壁の中に隠れるので見た目は変わらない
+    const d0 = u0 > w.a ? 1 : e0 === MAT.none ? 3 : 0, d1 = u1 < w.b ? 1 : e1 === MAT.none ? 3 : 0;
+    const [ox0, oy0, ox1, oy1] = rect(u0 - d0, u1 + d1);
+    const spans = op ? [[w.z0, op.s], [op.h, w.z1]] : [[w.z0, w.z1]];
+    const [x0, y0, x1, y1] = rect(u0, u1);
+    for (const [za, zb] of spans) {
+      if (zb - za < 1) continue;
+      box(ox0, oy0, za, ox1, oy1, zb, mats);
+      if (za < 1000) colliders.push({ x0, y0, x1, y1 });
+      // 巾木（床から立ち上がる壁面のみ）
+      if (za <= 0) {
+        for (const [room, sgn] of [[roomNeg, -1], [roomPos, 1]]) {
+          const sk = room && ROOMS[room].skirt;
+          if (!sk) continue;
+          const sm = sk === 'wood' ? MAT.skirtWood : MAT.skirtSoft;
+          const f = w.c + sgn * h, f2 = f + sgn * 8;
+          if (w.dir === 'x') box(u0, Math.min(f, f2), 0, u1, Math.max(f, f2), 60, sm);
+          else               box(Math.min(f, f2), u0, 0, Math.max(f, f2), u1, 60, sm);
+        }
+      }
+    }
+    // 窓・外部ドア：通れないように当たり判定
+    if (op && (op.k === 'win' || op.k === 'extdoor')) colliders.push({ x0, y0, x1, y1 });
+  }
+  // 窓（開口ごとに 1 回）・室内建具の枠・開口の見込み面
+  for (const op of w.ops) {
+    reveal(w, op.a, 1, op.s, op.h); reveal(w, op.b, -1, op.s, op.h);
+    if (op.k === 'win') addWindow(w, op);
+    if (op.k === 'door') addCasing(w, op);
+    if (op.k === 'extdoor') addExtFrame(w, op);
+  }
+  // 妻壁（東西）：軒高から屋根下まで
+  if (w.gable) {
+    const pts2 = [[-75, EAVE], [RIDGE_Y, EAVE + SLOPE * RIDGE_Y], [BD + 75, EAVE]];
+    prismX(pts2, w.c - h, w.c + h, MAT.siding, groups.roof);
+  }
+}
+}  // buildWalls（下の補助関数を定義してから呼ぶ）
+
+// 壁の端の先が他の壁の中なら木口は隠れる。外にはみ出す端は、外壁ならサイディング、室内ならクロス
+function endMat(w, u, sg) {
+  const p = u + sg * 2;
+  const [x, y] = w.dir === 'x' ? [p, w.c] : [w.c, p];
+  for (const o of W) {
+    if (o === w) continue;
+    const h = o.t / 2;
+    const [x0, y0, x1, y1] = o.dir === 'x' ? [o.a, o.c - h, o.b, o.c + h] : [o.c - h, o.a, o.c + h, o.b];
+    if (x > x0 && x < x1 && y > y0 && y < y1) return MAT.none;
+  }
+  return w.ext ? MAT.siding : MAT.cloth;
+}
+// 開口の側面（見込み）。sg=+1: 壁方向の + 向きの面（開口の始まり側）
+function reveal(w, u, sg, z0, z1) {
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w.t * S, (z1 - z0) * S), MAT.jamb);
+  m.position.copy(w.dir === 'x' ? P(u, w.c, (z0 + z1) / 2) : P(w.c, u, (z0 + z1) / 2));
+  m.rotation.y = w.dir === 'x' ? sg * Math.PI / 2 : (sg > 0 ? Math.PI : 0);
+  m.receiveShadow = true;
+  groups.house.add(m);
+}
+
+// ---- 壁に沿った局所座標の箱 B(u0,u1, z0,z1, v0,v1)  u: 壁方向, v: 厚み方向（平面 +y / +x が正）
+function wallBox(w) {
+  return (u0, u1, z0, z1, va, vb, mat, parent) => {
+    const v0 = Math.min(va, vb), v1 = Math.max(va, vb);
+    return w.dir === 'x' ? box(u0, w.c + v0, z0, u1, w.c + v1, z1, mat, parent)
+                         : box(w.c + v0, u0, z0, w.c + v1, u1, z1, mat, parent);
+  };
+}
+// サッシ枠: 室内側の面だけ白（アルミ樹脂複合）
+const frameMatCache = {};
+function frameMats(w, ext) {
+  const key = w.dir + ext;
+  if (frameMatCache[key]) return frameMatCache[key];
+  const a = Array(6).fill(MAT.frame);
+  // 室内側 = 平面で -ext 向き。dir x: 面4 = 南(-y)、面5 = 北(+y) / dir y: 面0 = 東(+x)、面1 = 西(-x)
+  if (w.dir === 'x') a[-ext > 0 ? 5 : 4] = MAT.frameIn; else a[-ext > 0 ? 0 : 1] = MAT.frameIn;
+  return frameMatCache[key] = a;
+}
+// 壁方向・外向きの単位ベクトル（world）
+const wallDirW = (w) => w.dir === 'x' ? new THREE.Vector3(1, 0, 0) : new THREE.Vector3(0, 0, -1);
+const extNormW = (w, ext) => w.dir === 'x' ? new THREE.Vector3(0, 0, -ext) : new THREE.Vector3(ext, 0, 0);
+const planPt = (w, u, v, z) => w.dir === 'x' ? P(u, w.c + v, z) : P(w.c + v, u, z);
+
+function addWindow(w, op) {
+  const ext = w.c === 0 ? -1 : 1;           // 外側 = 平面で ext 向き
+  const B = wallBox(w), FM = frameMats(w, ext);
+  const { a, b, s, h } = op, FW = 50;
+  const gm = op.frost ? MAT.frost : MAT.glass;
+  // 枠（立面図: 枠外形 = 開口、見付 50）
+  B(a, b, s, s + FW, -40, 40, FM); B(a, b, h - FW, h, -40, 40, FM);
+  B(a, a + FW, s + FW, h - FW, -40, 40, FM); B(b - FW, b, s + FW, h - FW, -40, 40, FM);
+  const glassBox = (...args) => { const m = B(...args); m.castShadow = false; return m; };
+  // 障子（框 SW、見込 SD、中心 vc）
+  const sash = (u0, u1, z0, z1, vc, SW, SD, parent) => {
+    B(u0, u1, z0, z0 + SW, vc - SD / 2, vc + SD / 2, FM, parent); B(u0, u1, z1 - SW, z1, vc - SD / 2, vc + SD / 2, FM, parent);
+    B(u0, u0 + SW, z0 + SW, z1 - SW, vc - SD / 2, vc + SD / 2, FM, parent); B(u1 - SW, u1, z0 + SW, z1 - SW, vc - SD / 2, vc + SD / 2, FM, parent);
+    glassBox(u0 + SW, u1 - SW, z0 + SW, z1 - SW, vc - 3, vc + 3, gm, parent);
+  };
+  // 網戸（枠 + 網）
+  const screen = (u0, u1, z0, z1, vc) => {
+    const F = 22;
+    B(u0, u1, z0, z0 + F, vc - 4, vc + 4, MAT.frame); B(u0, u1, z1 - F, z1, vc - 4, vc + 4, MAT.frame);
+    B(u0, u0 + F, z0 + F, z1 - F, vc - 4, vc + 4, MAT.frame); B(u1 - F, u1, z0 + F, z1 - F, vc - 4, vc + 4, MAT.frame);
+    glassBox(u0 + F, u1 - F, z0 + F, z1 - F, vc - 1, vc + 1, MAT.screen);
+  };
+  const z0 = s + FW, z1 = h - FW;
+  if (op.wt === 'hiki') {
+    // 引違い: 外障子（左）と内障子（右）が中央で重なる。外側に網戸、内障子にクレセント
+    const m = (a + b) / 2, SW = 40;
+    sash(a + FW, m + SW / 2, z0, z1, ext * 14, SW, 22);
+    sash(m - SW / 2, b - FW, z0, z1, -ext * 14, SW, 22);
+    B(m - SW / 2 + 4, m + SW / 2 - 4, (s + h) / 2 - 35, (s + h) / 2 + 35, -ext * 25, -ext * 40, MAT.metal);   // クレセント
+    screen(m - SW / 2, b - FW, z0, z1, ext * 32);
+    return;
+  }
+  // すべり出し: 障子を外へ少し押し出した状態。網戸は室内側
+  screen(a + FW, b - FW, z0, z1, -ext * 30);
+  const n = extNormW(w, ext);
+  const piv = new THREE.Group(), inner = new THREE.Group();
+  let hingePt;
+  if (op.wt === 'tate') hingePt = planPt(w, a + FW, ext * 40, 0);       // 縦すべり出し: 吊り元を南側（仮）
+  else                  hingePt = planPt(w, 0, ext * 40, z1);           // 横すべり出し: 上端を軸に下を外へ
+  if (op.wt === 'yoko') hingePt[w.dir === 'x' ? 'x' : 'z'] = 0;
+  piv.position.copy(hingePt);
+  inner.position.copy(hingePt).negate();
+  piv.add(inner); groups.house.add(piv);
+  sash(a + FW, b - FW, z0, z1, ext * 25, 45, 30, inner);
+  B((a + b) / 2 - 40, (a + b) / 2 + 40, z0 + 8, z0 + 40, -ext * 4, -ext * 20, MAT.frameIn, inner);  // 取っ手（カムラッチ）
+  const TH = rad(op.wt === 'tate' ? 22 : 20);
+  if (op.wt === 'tate') {
+    const d = wallDirW(w);                                  // 吊り元から戸先へ
+    piv.rotation.y = Math.sign(d.z * n.x - d.x * n.z) * TH;
+  } else {
+    if (w.dir === 'x') piv.rotation.x = -n.z * TH; else piv.rotation.z = n.x * TH;
+  }
+}
+
+// 室内建具の枠（両面、見付 30・ちり 12）。枠は開口側へ 5 入れて壁の木口と面を揃えない
+function addCasing(w, op) {
+  const B = wallBox(w), h = w.t / 2;
+  for (const sg of [-1, 1]) {
+    const v0 = sg * h, v1 = sg * (h + 12);
+    B(op.a - 25, op.a + 5, 0, op.h + 30, v0, v1, MAT.casing);
+    B(op.b - 5, op.b + 25, 0, op.h + 30, v0, v1, MAT.casing);
+    B(op.a + 5, op.b - 5, op.h, op.h + 30, v0, v1, MAT.casing);
+  }
+  B(op.a, op.b, op.h - 1, op.h, -h, h, MAT.casing);   // 上枠の見込み
+}
+// 外部ドアの枠（見付 40）
+function addExtFrame(w, op) {
+  const ext = w.c === 0 ? -1 : 1, B = wallBox(w);
+  B(op.a, op.a + 40, 0, op.h, -ext * 40, ext * 76, MAT.extFrame);
+  B(op.b - 40, op.b, 0, op.h, -ext * 40, ext * 76, MAT.extFrame);
+  B(op.a + 40, op.b - 40, op.h - 40, op.h, -ext * 40, ext * 76, MAT.extFrame);
+  B(op.a + 40, op.b - 40, 0, 20, -ext * 40, ext * 76, MAT.metal);   // 下枠
+}
+
+// =====================================================================
+//  建具（扉）
+// =====================================================================
+const doorAnims = [];   // { cx, cy, rest, cur, auto, apply(f) }  f: 0=閉 … 1=全開
+
+// 窓付きの戸板（局所座標 x: 幅, y: 高さ, z: 厚み）
+function leaf(parent, x0, x1, y0, y1, t, mat, win, gmat) {
+  if (!win) return lbox(parent, x0, x1, y0, y1, -t / 2, t / 2, mat);
+  const [wx0, wx1, wy0, wy1] = win;
+  lbox(parent, x0, wx0, y0, y1, -t / 2, t / 2, mat);
+  lbox(parent, wx1, x1, y0, y1, -t / 2, t / 2, mat);
+  lbox(parent, wx0, wx1, y0, wy0, -t / 2, t / 2, mat);
+  lbox(parent, wx0, wx1, wy1, y1, -t / 2, t / 2, mat);
+  lbox(parent, wx0, wx1, wy0, wy1, -3, 3, gmat).castShadow = false;
+}
+function lever(parent, x, y, z, toward) {
+  const s = Math.sign(z);
+  const rose = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.01, 20), MAT.metal);
+  rose.rotation.x = Math.PI / 2; rose.position.set(x * S, y * S, z * S); parent.add(rose);
+  lbox(parent, x - 6, x + 6, y - 6, y + 6, z, z + s * 45, MAT.metal);
+  lbox(parent, Math.min(x, x + toward * 120), Math.max(x, x + toward * 120), y - 9, y + 9, z + s * 38, z + s * 56, MAT.metal);
+}
+
+// ---- 開き戸
+for (const d of SWING) {
+  const cU = [Math.cos(rad(d.closed)), Math.sin(rad(d.closed))];   // 吊り元 → 戸先
+  const nU = [Math.cos(rad(d.open)), Math.sin(rad(d.open))];       // 開く側
+  const fw = d.ext ? 40 : 0, t = d.ext ? 50 : 36, wallT = d.ext ? T_EXT : T_INT;
+  const off = d.ext ? 45 : wallT / 2 - t / 2 - 2;
+  const px = d.hx + cU[0] * (fw + 3) + nU[0] * off, py = d.hy + cU[1] * (fw + 3) + nU[1] * off;
+  const piv = new THREE.Group();
+  piv.position.copy(P(px, py, 0));
+  groups.house.add(piv);
+  const L = d.w - 2 * fw - 6, H = d.h - fw - 8;
+  // 局所 +z = 閉じたとき平面で (sin α, -cos α)。AD-1/AD-2 は +z が屋外
+  if (d.id === 'AD-1') {
+    leaf(piv, 0, L, 22, H, t, MAT.entry);
+    for (let k = 1; k <= 3; k++) lbox(piv, 60, L - 60, 22 + k * H / 4 - 3, 22 + k * H / 4 + 3, -t / 2 - 1, t / 2 + 1, MAT.extFrame);  // 横の溝
+    lbox(piv, L - 130, L - 105, 500, 1500, t / 2 + 45, t / 2 + 70, MAT.metal);                                                  // 縦長の取っ手（屋外）
+    lbox(piv, L - 125, L - 110, 560, 580, t / 2, t / 2 + 45, MAT.metal); lbox(piv, L - 125, L - 110, 1420, 1440, t / 2, t / 2 + 45, MAT.metal);
+    lbox(piv, L - 140, L - 95, 1050, 1150, t / 2, t / 2 + 8, MAT.black);                                                       // 電子錠
+    lever(piv, L - 90, 1000, -t / 2, -1);
+  } else if (d.id === 'AD-2') {
+    leaf(piv, 0, L, 22, H, t, MAT.backDoor, [L / 2 - 110, L / 2 + 110, 900, 1800], MAT.frost);   // 型板ガラスのスリット
+    lever(piv, L - 70, 950, t / 2, -1); lever(piv, L - 70, 950, -t / 2, -1);
+  } else {
+    leaf(piv, 0, L, 8, H, t, MAT.doorWood);
+    lever(piv, L - 65, 950, t / 2, -1); lever(piv, L - 65, 950, -t / 2, -1);
+  }
+  // 蝶番
+  for (const y of [250, H / 2, H - 250]) lbox(piv, -4, 8, y - 50, y + 50, -t / 2 - 2, t / 2 + 2, MAT.metal);
+  const delta = ((d.open - d.closed + 540) % 360) - 180;
+  doorAnims.push({ cx: d.hx + cU[0] * d.w / 2, cy: d.hy + cU[1] * d.w / 2, rest: d.rest / 90, cur: d.rest / 90, auto: !d.ext,
+    apply: f => { piv.rotation.y = rad(d.closed + delta * f); } });
+}
+
+// ---- 片引き戸（壁の面に付く上吊り）
+for (const d of SLIDE) {
+  const sh = d.v1 <= d.wc ? -15 : 15;            // 枠のちりをよけて 15 浮かす
+  const v0 = d.v0 + sh, v1 = d.v1 + sh;
+  const [c0, c1] = d.closed;
+  const move = d.open[0] > c0 ? d.open[0] - c0 : d.open[1] - c1;
+  const g = new THREE.Group(); groups.house.add(g);
+  const R = (u0, u1, z0, z1, va, vb, mat, parent = g) => d.dir === 'x'
+    ? box(u0, Math.min(va, vb), z0, u1, Math.max(va, vb), z1, mat, parent)
+    : box(Math.min(va, vb), u0, z0, Math.max(va, vb), u1, z1, mat, parent);
+  if (d.glass) {      // WD-3: 縦長の型板ガラス
+    const ga = c0 + (c1 - c0) / 2 - 90, gb = c0 + (c1 - c0) / 2 + 90;
+    R(c0, ga, 10, 2030, v0, v1, MAT.doorWood); R(gb, c1, 10, 2030, v0, v1, MAT.doorWood);
+    R(ga, gb, 10, 300, v0, v1, MAT.doorWood); R(ga, gb, 1800, 2030, v0, v1, MAT.doorWood);
+    R(ga, gb, 300, 1800, v0 + 22, v1 - 22, MAT.frost).castShadow = false;
+  } else {
+    R(c0, c1, 10, 2030, v0, v1, MAT.doorWood);
+  }
+  // 引手（戸先側、両面）
+  const lead = move > 0 ? c0 + 70 : c1 - 70;
+  R(lead - 15, lead + 15, 880, 1080, v0 - 4, v1 + 4, MAT.steelDk);
+  if (d.id === 'WD-4') R(lead - 10, lead + 10, 1150, 1200, v0 - 5, v1 + 5, MAT.metal);   // 鍵
+  if (d.id === 'WD-5') R(lead - 12, lead + 12, 1150, 1185, v0 - 5, v1 + 5, MAT.black);   // 表示錠
+  // 上レール（動かない）
+  const ra = Math.min(c0, c0 + move), rb = Math.max(c1, c1 + move);
+  R(ra, rb, 2030, 2075, v0 - 5, v1 + 5, MAT.casing, groups.house);
+  const off = d.dir === 'x' ? new THREE.Vector3(move * S, 0, 0) : new THREE.Vector3(0, 0, -move * S);
+  const mid = (c0 + c1) / 2, vc = (d.v0 + d.v1) / 2;
+  doorAnims.push({ cx: d.dir === 'x' ? mid : d.wc, cy: d.dir === 'x' ? d.wc : mid, rest: 0.5, cur: 0.5, auto: true,
+    apply: f => g.position.copy(off).multiplyScalar(f) });
+}
+
+// ---- 浴室の折れ戸（平面図: X=2730 の開口、浴室側へ折れる。ユニットバス付属）
+{
+  const PW = 345, H = 1990, t = 24, x = 2730 - 35, y0 = 5655;
+  const p1 = new THREE.Group(), p2 = new THREE.Group();
+  groups.house.add(p1, p2);
+  for (const p of [p1, p2]) {
+    leaf(p, 0, PW, 15, H, t, MAT.ubDoor, [45, PW - 45, 120, H - 120], MAT.frost);
+    lbox(p, PW / 2 - 4, PW / 2 + 4, 15, H, -t / 2 - 1, t / 2 + 1, MAT.ubDoor);
+  }
+  lbox(p2, PW - 70, PW - 40, 900, 1100, -t / 2 - 25, t / 2 + 25, MAT.steelDk);   // 取っ手
+  wallBox({ dir:'y', c:2730 })(5650, 6350, 2000, 2040, -60, 10, MAT.ubDoor);       // 上枠
+  doorAnims.push({ cx: 2730, cy: 6000, rest: 0.4, cur: 0.4, auto: true, apply: f => {
+    const th = rad(8 + 72 * f);                 // 折れの角度（壁の線から）
+    const a1 = rad(90) + th;                    // 1 枚目: 吊り元から浴室側へ
+    p1.position.copy(P(x, y0, 0)); p1.rotation.y = a1;
+    const ex = x + Math.cos(a1) * PW, ey = y0 + Math.sin(a1) * PW;
+    p2.position.copy(P(ex, ey, 0)); p2.rotation.y = rad(90) - th;
+  } });
+}
+
+// =====================================================================
+//  設備（平面図 FIXTURE レイヤー。高さは図面に無いため一般的な寸法で仮定）
+// =====================================================================
+const FX = {
+  KITCHEN_H: 850, BACK_H: 850, UPPER_Z: [1550, 2400], HOOD_Z: [1800, 2400], FRIDGE_H: 1800,
+  TOILET_SEAT: 400, TOILET_TANK: 800, VANITY_H: 800, MIRROR_Z: [1150, 1900],
+  PAN_H: 80, WASHER_H: 1050, TUB_H: 500, SHOE_H: 900,
+  PIPE_Z: 1750, SHELF_Z: 1800, HOSHI_Z: 1900, PANTRY_SHELVES: [400, 800, 1200, 1600, 2000],
+};
+// 箱物の収納（face: 扉の向き 'N','S','E','W'。nDoor: 扉の枚数）
+function cabinet(x0, y0, x1, y1, H, face, nDoor, doorMat = MAT.cab, topMat = MAT.counter, drawer = true) {
+  const plinth = 80, top = 30, ins = 50;
+  const [fx0, fy0, fx1, fy1] = face === 'N' ? [x0, y0, x1, y1 - ins] : face === 'S' ? [x0, y0 + ins, x1, y1]
+                              : face === 'E' ? [x0, y0, x1 - ins, y1] : [x0 + ins, y0, x1, y1];
+  box(fx0, fy0, 0, fx1, fy1, plinth, MAT.cabLine);
+  box(x0, y0, plinth, x1, y1, H - top, doorMat);
+  box(x0, y0, H - top, x1, y1, H, topMat);
+  // 扉の目地と取っ手
+  const along = face === 'N' || face === 'S';
+  const u0 = along ? x0 : y0, u1 = along ? x1 : y1;
+  const fv = face === 'N' ? y1 : face === 'S' ? y0 : face === 'E' ? x1 : x0;
+  const sg = face === 'N' || face === 'E' ? 1 : -1;
+  const F = (ua, ub, za, zb, d0, d1, mat) => along
+    ? box(ua, Math.min(fv + sg * d0, fv + sg * d1), za, ub, Math.max(fv + sg * d0, fv + sg * d1), zb, mat)
+    : box(Math.min(fv + sg * d0, fv + sg * d1), ua, za, Math.max(fv + sg * d0, fv + sg * d1), ub, zb, mat);
+  const dw = (u1 - u0) / nDoor;
+  for (let i = 1; i < nDoor; i++) F(u0 + i * dw - 2, u0 + i * dw + 2, plinth, H - top, -1, 1, MAT.cabLine);
+  const zH = drawer ? H - top - 180 : H - top - 120;
+  if (drawer) F(u0, u1, zH - 2, zH + 2, -1, 1, MAT.cabLine);
+  for (let i = 0; i < nDoor; i++) {
+    const c = u0 + (i + 0.5) * dw;
+    F(c - Math.min(150, dw * 0.3), c + Math.min(150, dw * 0.3), zH - 40, zH - 25, 0, 14, MAT.steelDk);
+  }
+}
+function fixtures() {
+  // --- 対面キッチン 2,550×650（シンク 800×390）
+  cabinet(1000, 3200, 3550, 3850, FX.KITCHEN_H, 'N', 4);
+  box(1300, 3330, FX.KITCHEN_H, 2100, 3720, FX.KITCHEN_H + 2, MAT.steel);
+  box(1325, 3355, FX.KITCHEN_H + 2, 2075, 3695, FX.KITCHEN_H + 3, MAT.steelDk);
+  ellCyl(1700, 3285, 18, 18, FX.KITCHEN_H, FX.KITCHEN_H + 300, MAT.steel);          // 水栓
+  box(1690, 3285, FX.KITCHEN_H + 285, 1710, 3500, FX.KITCHEN_H + 305, MAT.steel);
+  colliders.push({ x0: 1000, y0: 3200, x1: 3550, y1: 3850 });
+  // --- 背面収納（カウンター）1,700×650。図の 2 つの円は IH の加熱部と読んだ
+  cabinet(1000, 4750, 2700, 5400, FX.BACK_H, 'S', 4);
+  box(1330, 4840, FX.BACK_H, 2320, 5310, FX.BACK_H + 6, MAT.black);
+  for (const cx of [1600, 2050]) {
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.13, 0.15, 40), new THREE.MeshBasicMaterial({ color: 0x8a8f94 }));
+    ring.rotation.x = -Math.PI / 2; ring.position.copy(P(cx, 5075, FX.BACK_H + 7)); groups.house.add(ring);
+  }
+  box(1450, 4950, FX.HOOD_Z[0], 2200, 5400, FX.HOOD_Z[1], MAT.steel);              // レンジフード
+  box(1000, 5050, FX.UPPER_Z[0], 1450, 5400, FX.UPPER_Z[1], MAT.cab);              // 吊戸棚
+  box(2200, 5050, FX.UPPER_Z[0], 2700, 5400, FX.UPPER_Z[1], MAT.cab);
+  box(1223, 5045, FX.UPPER_Z[0], 1227, 5050, FX.UPPER_Z[1], MAT.cabLine);
+  box(2448, 5045, FX.UPPER_Z[0], 2452, 5050, FX.UPPER_Z[1], MAT.cabLine);
+  colliders.push({ x0: 1000, y0: 4750, x1: 2700, y1: 5400 });
+  // --- 冷蔵庫 650×650
+  box(2860, 4760, 0, 3490, 5400, FX.FRIDGE_H, MAT.fridge);
+  box(2860, 4755, 1150, 3490, 4760, 1154, MAT.cabLine);
+  box(2900, 4740, 1200, 2920, 4760, 1500, MAT.steelDk); box(2900, 4740, 800, 2920, 4760, 1100, MAT.steelDk);
+  colliders.push({ x0: 2850, y0: 4750, x1: 3500, y1: 5400 });
+  // --- 便器（タンク 450×200、便器 380×550）
+  box(4780, 3700, 380, 5230, 3900, FX.TOILET_TANK, MAT.porcelain);
+  box(4790, 3710, FX.TOILET_TANK, 5220, 3890, FX.TOILET_TANK + 15, MAT.porcelain);
+  box(4890, 3700, 0, 5120, 3980, FX.TOILET_SEAT - 20, MAT.porcelain);
+  ellCyl(5005, 4175, 175, 255, 0, FX.TOILET_SEAT - 20, MAT.porcelain, 1.12);
+  ellCyl(5005, 4175, 190, 275, FX.TOILET_SEAT - 20, FX.TOILET_SEAT, MAT.porcelain);    // 便座
+  ellCyl(5005, 4185, 175, 255, FX.TOILET_SEAT, FX.TOILET_SEAT + 25, Ph(0xf0f0ee), 0.97);                  // ふた（閉）
+  box(4550 + 60, 4300, 700, 4550 + 80, 4450, 760, MAT.metal);                          // 紙巻器
+  colliders.push({ x0: 4780, y0: 3700, x1: 5230, y1: 4450 });
+  // --- 洗面化粧台 750×500
+  cabinet(3700, 6720, 4450, 7220, FX.VANITY_H, 'S', 2, MAT.cab, MAT.porcelain, false);
+  ellCyl(4075, 6945, 220, 150, FX.VANITY_H, FX.VANITY_H + 1, MAT.counter);
+  ellCyl(4075, 6945, 190, 125, FX.VANITY_H + 1, FX.VANITY_H + 2, Ph(0xe6edf0));
+  ellCyl(4075, 7150, 16, 16, FX.VANITY_H, FX.VANITY_H + 220, MAT.steel);
+  box(4065, 7000, FX.VANITY_H + 205, 4085, 7150, FX.VANITY_H + 222, MAT.steel);
+  box(3700, 7070, FX.MIRROR_Z[0], 4450, 7220, FX.MIRROR_Z[1], MAT.cab);                // 三面鏡
+  box(3720, 7066, FX.MIRROR_Z[0] + 20, 4430, 7070, FX.MIRROR_Z[1] - 20, MAT.mirror);
+  box(3720, 7062, FX.MIRROR_Z[1] - 60, 4430, 7066, FX.MIRROR_Z[1] - 20, M(0xfffbe8, { emissive: 0x666050 }));  // 照明
+  colliders.push({ x0: 3700, y0: 6720, x1: 4450, y1: 7220 });
+  // --- 洗濯機置き場（防水パン 640×640 + 洗濯機）
+  box(2850, 6580, 0, 3490, 7220, FX.PAN_H, MAT.porcelain);
+  box(2880, 6610, FX.PAN_H, 3460, 7190, FX.WASHER_H, MAT.porcelain);
+  ellCyl(3170, 6880, 240, 240, FX.WASHER_H, FX.WASHER_H + 6, Ph(0xd5dade));
+  box(2880, 7100, FX.WASHER_H, 3460, 7190, FX.WASHER_H + 110, Ph(0xe4e7ea));
+  colliders.push({ x0: 2850, y0: 6580, x1: 3490, y1: 7220 });
+  // --- 浴槽 1,640×770（内法 1,480×610）
+  const tub = Ph(0xf3f7f9, { shininess: 90 });
+  box(1000, 6420, 0, 2640, 6500, FX.TUB_H, tub); box(1000, 7110, 0, 2640, 7190, FX.TUB_H, tub);
+  box(1000, 6500, 0, 1080, 7110, FX.TUB_H, tub); box(2560, 6500, 0, 2640, 7110, FX.TUB_H, tub);
+  box(1080, 6500, 0, 2560, 7110, 100, tub);
+  box(1082, 6502, 380, 2558, 7108, 381, MAT.water).castShadow = false;
+  ellCyl(1900, 7150, 18, 18, FX.TUB_H, FX.TUB_H + 120, MAT.steel);                    // 水栓
+  colliders.push({ x0: 1000, y0: 6420, x1: 2640, y1: 7190 });
+  // --- 下駄箱 350×1,700
+  cabinet(4610, 60, 4960, 1760, FX.SHOE_H, 'E', 4, MAT.doorWood, MAT.shelf, false);
+  colliders.push({ x0: 4610, y0: 60, x1: 4960, y1: 1760 });
+  // --- 上がり框（Y=1820 の線）
+  box(4610, 1790, 0, 6310, 1850, 4, MAT.kamachi);
+  // --- 寝室1 クローゼット: 枕棚 + ハンガーパイプ（Y=4095 の線）
+  box(7340, 4040, FX.SHELF_Z, 9935, 4490, FX.SHELF_Z + 20, MAT.shelf);
+  pipe(7340, 4095, 9935, 4095, FX.PIPE_Z, 16, MAT.pipe);
+  // --- 寝室2 収納: 側板（Y=6400）+ 枕棚 + パイプ（X=9640 の線）
+  box(9350, 6380, 0, 9935, 6400, CH, MAT.shelf);
+  box(9350, 4610, FX.SHELF_Z, 9935, 6380, FX.SHELF_Z + 20, MAT.shelf);
+  pipe(9640, 4610, 9640, 6380, FX.PIPE_Z, 16, MAT.pipe);
+  colliders.push({ x0: 9350, y0: 6380, x1: 9935, y1: 6400 });
+  // --- ファミクロ: 枕棚 + ハンガーパイプ（Y=6370）、室内干しの竿（Y=6950、天井吊り）
+  box(4610, 6145, FX.SHELF_Z, 6310, 6595, FX.SHELF_Z + 20, MAT.shelf);
+  pipe(4610, 6370, 6310, 6370, FX.PIPE_Z, 16, MAT.pipe);
+  pipe(4700, 6950, 6250, 6950, FX.HOSHI_Z, 14, MAT.pipe);
+  for (const x of [4850, 6100]) box(x - 8, 6942, FX.HOSHI_Z, x + 8, 6958, CH, MAT.pipe);
+  // --- パントリー: 可動棚（Y=6370 の線から奥）
+  for (const z of FX.PANTRY_SHELVES) box(75, 6370, z, 850, 7205, z + 20, MAT.shelf);
+  colliders.push({ x0: 75, y0: 6370, x1: 850, y1: 7205 });
+}
+buildWalls();
+fixtures();
+
+// =====================================================================
+//  ユニットバスの仕上げと、トイレ・洗面の小物（図面に無いため一般的な寸法で仮定）
+// =====================================================================
+function accessories() {
+  const chrome = MAT.steel;
+  // --- 浴室（UB 1616）: 浴槽側の壁にアクセントパネル（窓 AW-5 の部分は抜く）
+  const acc = M(0x9fb0bb);
+  const ay0 = 7195, ay1 = 7205, wx0 = 1500, wx1 = 2200, wz0 = 1400, wz1 = 1900;
+  box(970, ay0, 0, wx0, ay1, CH, acc); box(wx1, ay0, 0, 2670, ay1, CH, acc);
+  box(wx0, ay0, 0, wx1, ay1, wz0, acc); box(wx0, ay0, wz1, wx1, ay1, CH, acc);
+  // 洗い場（西の壁 X=970）: 鏡、カウンター、水栓、シャワー（スライドバー）
+  box(970, 5760, 950, 978, 6260, 1750, MAT.mirror);                         // 鏡 500×800
+  box(970, 5740, 940, 974, 6280, 1760, MAT.porcelain);
+  box(970, 5700, 740, 1120, 6350, 770, MAT.porcelain);                      // カウンター
+  box(970, 5960, 840, 1030, 6140, 900, chrome);                             // サーモ水栓
+  box(1030, 6040, 845, 1120, 6060, 860, chrome);
+  for (const y of [5985, 6115]) ellCyl(1040, y, 18, 18, 845, 895, chrome);
+  const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.9, 12), chrome);  // スライドバー
+  bar.position.copy(P(1000, 5640, 1450)); groups.house.add(bar);
+  box(975, 5630, 1000, 1000, 5650, 1020, chrome); box(975, 5630, 1880, 1000, 5650, 1900, chrome);
+  box(1000, 5620, 1700, 1040, 5660, 1760, chrome);                          // ホルダー
+  const head = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.035, 0.03, 24), chrome);  // シャワーヘッド
+  head.position.copy(P(1065, 5640, 1790)); head.rotation.z = Math.PI / 2 - 0.5; groups.house.add(head);
+  const hose = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.007, 8, 32, Math.PI), M(0xcfd4d8));     // ホース
+  hose.position.copy(P(1010, 5690, 1140)); hose.rotation.set(0, Math.PI / 2, Math.PI); groups.house.add(hose);
+  box(1700, 5900, 0, 1800, 6000, 2, MAT.steelDk);                            // 排水口
+  box(2660, 5750, 900, 2670, 6250, 2000, MAT.ubWall);                        // 折れ戸わきの化粧パネル（見切り）
+  // --- トイレ: 紙巻器（既存）、リモコン、タオルリング
+  box(4610, 4180, 850, 4625, 4260, 990, MAT.porcelain);                     // 便座リモコン
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.006, 8, 32), chrome);
+  ring.position.copy(P(4640, 4900, 1050)); ring.rotation.y = Math.PI / 2; groups.house.add(ring);
+  box(4610, 4890, 1130, 4640, 4910, 1150, chrome);
+  box(4625, 4830, 820, 4650, 4970, 1045, M(0xd9e6ef));                       // タオル
+  // --- 洗面脱衣: タオル掛け（東の壁）、洗濯機の水栓
+  pipe(4465, 6330, 4465, 6650, 1050, 9, chrome);
+  for (const y of [6330, 6650]) box(4465, y - 8, 1042, 4490, y + 8, 1058, chrome);
+  box(4440, 6360, 700, 4475, 6620, 1060, M(0xf0e2c8));                      // タオル
+  box(3140, 7190, 1150, 3200, 7220, 1200, chrome);                          // 洗濯機用水栓
+}
+
+// =====================================================================
+//  家具（図面に無い。一般的な大きさで仮に置く。「家具を表示」で消せる）
+// =====================================================================
+const furnItems = [];        // { name, x0,y0,x1,y1, z1 }（開口チェック・ミニマップ用）
+const furnColliders = [];
+const FURN = {
+  fabric: M(0x8796a3), fabricDk: M(0x6f7d89), wood: M(0xa77b52, { map: TEX.doorWood }), woodDk: M(0x5d4430),
+  white: M(0xf4f2ee), sheet: M(0xf6f4ef), duvet1: M(0xc9d6df), duvet2: M(0xe2cfb3), pillow: M(0xffffff),
+  tv: Ph(0x111316, { shininess: 140 }), legs: M(0x3c3c3c), lamp: new THREE.MeshLambertMaterial({ color: 0xffffff, emissive: 0x000000 }),
+};
+function fbox(x0, y0, z0, x1, y1, z1, mat) { return box(x0, y0, z0, x1, y1, z1, mat, groups.furn); }
+function item(name, x0, y0, x1, y1, z1, collide = true) {
+  furnItems.push({ name, x0, y0, x1, y1, z1 });
+  if (collide) furnColliders.push({ x0, y0, x1, y1 });
+}
+// 椅子（face: 座る人が向く方向 'N','S','E','W'）
+function chair(cx, cy, face) {
+  const w = 450, d = 500, hw = w / 2, hd = d / 2;
+  const [x0, y0, x1, y1] = face === 'E' || face === 'W' ? [cx - hd, cy - hw, cx + hd, cy + hw] : [cx - hw, cy - hd, cx + hw, cy + hd];
+  for (const [lx, ly] of [[x0 + 25, y0 + 25], [x1 - 25, y0 + 25], [x0 + 25, y1 - 25], [x1 - 25, y1 - 25]])
+    fbox(lx - 15, ly - 15, 0, lx + 15, ly + 15, 420, FURN.woodDk);
+  fbox(x0, y0, 420, x1, y1, 450, FURN.wood);
+  const B = 30;                                      // 背もたれは座る人の後ろ
+  if (face === 'E') fbox(x0, y0, 450, x0 + B, y1, 820, FURN.wood);
+  if (face === 'W') fbox(x1 - B, y0, 450, x1, y1, 820, FURN.wood);
+  if (face === 'N') fbox(x0, y0, 450, x1, y0 + B, 820, FURN.wood);
+  if (face === 'S') fbox(x0, y1 - B, 450, x1, y1, 820, FURN.wood);
+  item('椅子', x0, y0, x1, y1, 820, false);
+}
+function bed(x0, y0, x1, y1, duvet, nPillow) {     // 頭は西（x0 側）
+  fbox(x0, y0, 80, x1, y1, 280, FURN.woodDk);                       // フレーム
+  fbox(x0 + 60, y0 + 20, 280, x1 - 20, y1 - 20, 460, FURN.sheet);   // マットレス
+  fbox(x0 + 520, y0 + 10, 460, x1 - 10, y1 - 10, 500, duvet);       // 掛け布団
+  fbox(x1 - 12, y0 + 10, 300, x1 - 10, y1 - 10, 500, duvet);
+  fbox(x0, y0, 0, x0 + 60, y1, 900, FURN.wood);                     // ヘッドボード
+  for (const [lx, ly] of [[x0 + 80, y0 + 40], [x1 - 80, y0 + 40], [x0 + 80, y1 - 40], [x1 - 80, y1 - 40]])
+    fbox(lx - 25, ly - 25, 0, lx + 25, ly + 25, 80, FURN.woodDk);
+  const pw = (y1 - y0 - 80) / nPillow;
+  for (let i = 0; i < nPillow; i++) fbox(x0 + 100, y0 + 40 + i * pw + 20, 460, x0 + 480, y0 + 40 + (i + 1) * pw - 20, 560, FURN.pillow);
+  item('ベッド', x0 + 60, y0, x1, y1, 560); item('ヘッドボード', x0, y0, x0 + 60, y1, 900, false);
+  furnColliders.push({ x0, y0, x1: x0 + 60, y1 });
+}
+function furniture() {
+  // ---- LDK: ダイニングテーブル 1,400×800（H700）と椅子 4 脚。西の腰窓（窓台 FL+900）の下に、窓台より低く置く
+  fbox(650, 1600, 680, 1450, 3000, 710, FURN.wood);
+  for (const [lx, ly] of [[700, 1650], [1400, 1650], [700, 2950], [1400, 2950]]) fbox(lx - 25, ly - 25, 0, lx + 25, ly + 25, 680, FURN.woodDk);
+  item('ダイニングテーブル', 650, 1600, 1450, 3000, 710);
+  chair(425, 1950, 'E'); chair(425, 2650, 'E'); chair(1675, 1950, 'W'); chair(1675, 2650, 'W');
+  furnColliders.push({ x0: 200, y0: 1600, x1: 1900, y1: 3000 });
+  // ---- ソファ 3 人掛け 1,800×850（座 H420・背 H800）、東のテレビを向く
+  fbox(2100, 900, 0, 2950, 2700, 100, FURN.fabricDk);
+  fbox(2280, 1050, 100, 2950, 2550, 420, FURN.fabric);                      // 座面
+  fbox(2100, 900, 100, 2280, 2700, 800, FURN.fabric);                       // 背
+  fbox(2100, 900, 100, 2950, 1050, 600, FURN.fabric); fbox(2100, 2550, 100, 2950, 2700, 600, FURN.fabric);   // 肘
+  for (const [y0, y1] of [[1050, 1550], [1550, 2050], [2050, 2550]]) fbox(2280, y0 + 5, 420, 2420, y1 - 5, 760, FURN.fabricDk);  // 背クッション
+  item('ソファ', 2100, 900, 2950, 2700, 800);
+  // ---- テレビボード 1,200×450（H400）と 55 型テレビ（東の壁 X=4490 に付ける）
+  fbox(4040, 900, 0, 4490, 2100, 400, FURN.wood);
+  fbox(4035, 1300, 60, 4040, 1700, 340, FURN.woodDk);
+  fbox(4220, 1400, 400, 4420, 1600, 430, FURN.legs); fbox(4300, 1480, 430, 4330, 1520, 520, FURN.legs);
+  fbox(4290, 885, 520, 4340, 2115, 1240, FURN.tv);                          // 画面 1,230×720
+  item('テレビボード', 4040, 900, 4490, 2100, 1240);
+  // ---- 寝室1: ダブルベッド 1,400×1,950（頭は西の壁）とナイトテーブル
+  bed(6430, 400, 8380, 1800, FURN.duvet1, 2);
+  fbox(6440, 1850, 0, 6840, 2250, 500, FURN.wood); item('ナイトテーブル', 6440, 1850, 6840, 2250, 500);
+  // ---- 寝室2: シングルベッド 1,000×1,950（北の壁ぞい、頭は西）と机 1,000×500（H720）・椅子
+  bed(6430, 6205, 8380, 7205, FURN.duvet2, 1);
+  fbox(7700, 4610, 690, 8700, 5110, 720, FURN.wood);
+  fbox(7720, 4630, 0, 7760, 5090, 690, FURN.woodDk); fbox(8640, 4630, 0, 8680, 5090, 690, FURN.woodDk);
+  fbox(7760, 4620, 450, 8640, 4640, 690, FURN.woodDk);
+  item('机', 7700, 4610, 8700, 5110, 720);
+  chair(8200, 5375, 'S'); furnColliders.push({ x0: 7975, y0: 5125, x1: 8425, y1: 5625 });
+}
+// ---- 天井の照明器具（形は家具と一緒に消える。夜の明かりは消さない）
+const LIGHTS = [
+  // [x, y, 半径, 部屋]  シーリングライト φ500 / ダウンライト φ150
+  [3300, 1800, 250, 'ldk'], [1050, 2300, 250, 'ldk'], [2275, 4300, 75, 'ldk'], [1500, 4300, 75, 'ldk'], [3050, 4300, 75, 'ldk'],
+  [5460, 900, 75, 'genkan'], [5460, 2700, 75, 'hall'], [5915, 4600, 75, 'hall'], [6825, 4100, 75, 'hall'],
+  [8190, 1820, 250, 'bed1'], [8645, 3900, 75, 'closet'], [8190, 5900, 250, 'bed2'], [5005, 4950, 75, 'wc'],
+  [3640, 6150, 75, 'senmen'], [1820, 5950, 150, 'bath'], [5460, 5950, 75, 'famicl'], [455, 6000, 75, 'pantry'],
+];
+const pointLights = [];
+for (const [x, y, r] of LIGHTS) {
+  if (r > 100) { ellCyl(x, y, r, r, CH - 90, CH, FURN.lamp, 0.9, groups.lamps); ellCyl(x, y, 60, 60, CH - 5, CH, FURN.white, 1, groups.lamps); }
+  else ellCyl(x, y, r, r, CH - 8, CH, FURN.lamp, 1, groups.lamps);
+  const L = new THREE.PointLight(0xffe2b8, 0, 4.2, 2);   // 影は落とさないので、届く距離を 4.2m で切って屋外へ漏らさない
+  L.position.copy(P(x, y, CH - 150)); L.userData.big = r > 100;
+  scene.add(L); pointLights.push(L);
+}
+groups.lamps.children.forEach(m => { m.castShadow = false; });
+accessories();
+furniture();
+
+// ---- 床・天井（部屋ごと）
+for (const [k, r] of Object.entries(ROOMS)) {
+  for (const [x0, y0, x1, y1] of r.rects) {
+    const f = new THREE.Mesh(new THREE.PlaneGeometry((x1 - x0) * S, (y1 - y0) * S), MAT[r.floor]);
+    f.rotation.x = -Math.PI / 2;
+    f.position.copy(P((x0 + x1) / 2, (y0 + y1) / 2, 0));
+    f.receiveShadow = true;
+    f.updateMatrix(); worldUV(f, f.matrix);
+    groups.house.add(f);
+    const c = new THREE.Mesh(new THREE.PlaneGeometry((x1 - x0) * S, (y1 - y0) * S), k === 'bath' ? MAT.ubCeil : MAT.clothC);
+    c.rotation.x = Math.PI / 2;
+    c.position.copy(P((x0 + x1) / 2, (y0 + y1) / 2, CH));
+    groups.ceil.add(c);
+  }
+}
+
+// ---- 基礎・地面
+// 以前は「床下」の箱が外壁と同じ面（外壁の外面）で GL+400〜FL に重なり、基礎と外壁の境に縞（Zファイティング）が出ていた。
+// 床下の箱をやめ、基礎（天端 GL+400 まで）と外壁（基礎天端から）は面が重ならないようにし、境に土台水切りを付ける。
+box(-75, -75, -FL_GL, 10085, 7355, FDN_TOP - FL_GL, MAT.fdn);
+box(-92, -92, FDN_TOP - FL_GL - 20, 10102, 7372, FDN_TOP - FL_GL + 12, MAT.mizukiri);   // 土台水切り（壁から 17 出す）
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), MAT.ground);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -FL_GL * S - 0.002;
+ground.receiveShadow = true;
+scene.add(ground);
+// 玄関ポーチ（ドア前の踏み場）
+box(4800, -900, -FL_GL, 6100, -92, -FL_GL + 150, MAT.fdn);
+
+// ---- 屋根（切妻 4/10、軒の出 600、けらば 300、厚 150）
+{
+  const zEdge = EAVE - SLOPE * EAVE_OUT;            // 軒先 下端 2,510
+  const zRidge = EAVE + SLOPE * RIDGE_Y;            // 棟 下端 4,206
+  const x0 = -VERGE_OUT, x1 = BW + VERGE_OUT;
+  prismX([[-EAVE_OUT, zEdge], [RIDGE_Y, zRidge], [RIDGE_Y, zRidge + ROOF_T], [-EAVE_OUT, zEdge + ROOF_T]], x0, x1, MAT.roof, groups.roof);
+  prismX([[BD + EAVE_OUT, zEdge], [BD + EAVE_OUT, zEdge + ROOF_T], [RIDGE_Y, zRidge + ROOF_T], [RIDGE_Y, zRidge]], x0, x1, MAT.roof, groups.roof);
+  // 鼻隠し 24×180（矩計図）
+  box(x0, -EAVE_OUT - 24, zEdge - 76, x1, -EAVE_OUT, zEdge + 104, MAT.fascia, groups.roof);
+  box(x0, BD + EAVE_OUT, zEdge - 76, x1, BD + EAVE_OUT + 24, zEdge + 104, MAT.fascia, groups.roof);
+  // 棟包み
+  box(x0, RIDGE_Y - 60, zRidge + ROOF_T - 20, x1, RIDGE_Y + 60, zRidge + ROOF_T + 40, MAT.fascia, groups.roof);
+}
+
+// ---- 部屋名ラベル（屋根を隠したときに表示）
+function label(text, sub) {
+  const cv = document.createElement('canvas'); cv.width = 320; cv.height = 112;
+  const g = cv.getContext('2d');
+  g.fillStyle = 'rgba(255,255,255,0.88)'; g.beginPath(); g.roundRect(4, 6, 312, 100, 14); g.fill();
+  g.fillStyle = '#223'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.font = 'bold 34px sans-serif'; g.fillText(text, 160, 38);
+  g.fillStyle = '#3d5a78'; g.font = '24px sans-serif'; g.fillText(sub, 160, 80);
+  const tx = new THREE.CanvasTexture(cv); tx.colorSpace = THREE.SRGBColorSpace;
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tx, depthTest: false }));
+  sp.scale.set(1.75, 0.6125, 1);
+  return sp;
+}
+for (const r of Object.values(ROOMS)) {
+  const s = label(r.name, areaText(r));
+  const lp = r.lp || r.tp;
+  s.position.copy(P(lp[0], lp[1], 2600));
+  groups.labels.add(s);
+}
+groups.labels.visible = false;
+
+// =====================================================================
+//  モード
+// =====================================================================
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.target.copy(P(BW / 2, BD / 2, 1000));
+orbit.enableDamping = true;
+orbit.maxPolarAngle = Math.PI * 0.49;
+orbit.minDistance = 4; orbit.maxDistance = 60;
+
+let mode = 'pers';
+const tour = { x: 0, y: 0, yaw: 0, pitch: 0 };
+const EYE = 1500, RADIUS = 200;
+const keys = {};
+const persView = { pos: P(BW / 2 + 13000, -13000, 9000), tgt: P(BW / 2, BD / 2, 1000) };
+
+const $ = id => document.getElementById(id);
+const roomsDiv = $('rooms');
+for (const [k, r] of Object.entries(ROOMS)) {
+  const b = document.createElement('button');
+  b.textContent = r.name; b.dataset.room = k;
+  b.onclick = () => { stopAuto(); setMode('tour'); goRoom(k); b.blur(); };
+  roomsDiv.appendChild(b);
+}
+$('btnPers').onclick = () => setMode('pers');
+$('btnTour').onclick = () => setMode('tour');
+$('chkRoof').onchange = applyVisibility;
+
+function applyVisibility() {
+  const hide = mode === 'pers' && $('chkRoof').checked;
+  groups.roof.visible = !hide;
+  groups.ceil.visible = !hide;
+  groups.labels.visible = hide;
+  groups.furn.visible = $('chkFurn').checked;
+  groups.lamps.visible = $('chkFurn').checked && !hide;
+}
+$('chkFurn').onchange = () => { applyVisibility(); $('chkFurn').blur(); };
+
+// ---- 昼・夜
+let night = false;
+function setNight(on) {
+  night = on;
+  $('btnDay').classList.toggle('on', !on); $('btnNight').classList.toggle('on', on);
+  const sky = on ? 0x0b1322 : 0xcfdde8;
+  scene.background.setHex(sky); scene.fog.color.setHex(sky);
+  hemi.intensity = on ? 0.12 : 1.6; hemi.color.setHex(on ? 0x8fa3c8 : 0xffffff);
+  sun.intensity = on ? 0.06 : 1.6; sun.color.setHex(on ? 0x9fb4e0 : 0xffffff);
+  for (const L of pointLights) L.intensity = on ? (L.userData.big ? 4.6 : 2.4) : 0;
+  FURN.lamp.emissive.setHex(on ? 0xfff1d6 : 0x000000);
+  MAT.screen.opacity = on ? 0.1 : 0.22;
+  applyAmbient();
+}
+function applyAmbient() { amb.intensity = mode === 'tour' ? (night ? 0.18 : 1.3) : (night ? 0.05 : 0); }
+$('btnDay').onclick = () => setNight(false);
+$('btnNight').onclick = () => setNight(true);
+
+function setMode(m) {
+  if (m !== 'tour' || !auto.on) stopAuto();
+  if (m === mode && m === 'tour') return;
+  mode = m;
+  $('btnPers').classList.toggle('on', m === 'pers');
+  $('btnTour').classList.toggle('on', m === 'tour');
+  $('roofWrap').style.display = m === 'pers' ? 'block' : 'none';
+  $('cross').style.display = m === 'tour' ? 'block' : 'none';
+  $('where').style.display = m === 'tour' ? 'block' : 'none';
+  $('miniWrap').style.display = m === 'tour' ? 'block' : 'none';
+  orbit.enabled = m === 'pers';
+  if (m === 'pers') {
+    if (document.pointerLockElement) document.exitPointerLock();
+    camera.position.copy(persView.pos); orbit.target.copy(persView.tgt); orbit.update();
+    camera.fov = 50;
+  } else {
+    persView.pos.copy(camera.position); persView.tgt.copy(orbit.target);
+    camera.fov = 70;
+    goRoom('genkan');
+  }
+  applyAmbient();   // 室内は屋根の影で暗くなるので補う
+  camera.updateProjectionMatrix();
+  applyVisibility();
+  updateHelp();
+}
+
+function goRoom(k) {
+  const r = ROOMS[k], g = r.go || r.tp;
+  tour.x = g[0]; tour.y = g[1]; tour.yaw = g[2]; tour.pitch = 0;
+}
+
+function updateHelp() {
+  $('help').innerHTML = mode === 'pers'
+    ? `<b>パース（外観）の操作</b>
+       左ドラッグ: 回転<br>右ドラッグ / Shift+ドラッグ: 平行移動<br>ホイール: 拡大・縮小<br>
+       「屋根と天井を隠す」で間取りと広さを上から見られます<br>部屋のボタン: 室内ツアーでその部屋へ<br>
+       自動ツアー: 玄関から順に部屋を巡ります`
+    : `<b>室内ツアーの操作（目の高さ FL+1,500）</b>
+       <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / <kbd>↑</kbd><kbd>↓</kbd>: 前後・左右に歩く<br>
+       <kbd>←</kbd><kbd>→</kbd> / <kbd>Q</kbd><kbd>E</kbd>: 向きを変える<br>
+       <kbd>Shift</kbd>: 速く歩く<br>
+       マウス ドラッグ: 見回す（画面をダブルクリックでマウス固定、<kbd>Esc</kbd>で解除）<br>
+       室内の扉は近づくと開きます（外部の扉と窓は通れません）<br>
+       右上の平面図: 赤い点が今いる場所と向き。クリックでその場所へ移動<br>
+       自動ツアー中は、上の「止める」か、キー・クリックで止まります`;
+}
+
+// ---- 入力
+addEventListener('keydown', e => {
+  if (auto.on && /^(Key[WASDQE]|Arrow)/.test(e.code)) stopAuto();
+  keys[e.code] = true;
+  if (mode === 'tour' && e.code.startsWith('Arrow')) e.preventDefault();
+});
+addEventListener('keyup', e => { keys[e.code] = false; });
+addEventListener('blur', () => { for (const k in keys) keys[k] = false; });
+
+let dragging = false, lastX = 0, lastY = 0;
+const cvs = renderer.domElement;
+cvs.addEventListener('pointerdown', e => { if (auto.on) stopAuto(); if (mode === 'tour') { dragging = true; lastX = e.clientX; lastY = e.clientY; } });
+addEventListener('pointerup', () => dragging = false);
+addEventListener('pointermove', e => {
+  if (mode !== 'tour') return;
+  let dx = 0, dy = 0;
+  if (document.pointerLockElement === cvs) { dx = e.movementX; dy = e.movementY; }
+  else if (dragging) { dx = e.clientX - lastX; dy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY; }
+  else return;
+  tour.yaw -= dx * 0.004;
+  tour.pitch = Math.max(-1.3, Math.min(1.3, tour.pitch - dy * 0.004));
+});
+cvs.addEventListener('dblclick', () => { if (mode === 'tour' && cvs.requestPointerLock) cvs.requestPointerLock(); });
+
+// ---- 衝突判定（円 vs 矩形）
+function blocked(x, y) {
+  for (const c of groups.furn.visible ? colliders.concat(furnColliders) : colliders) {
+    const nx = Math.max(c.x0, Math.min(x, c.x1)), ny = Math.max(c.y0, Math.min(y, c.y1));
+    if ((x - nx) ** 2 + (y - ny) ** 2 < RADIUS * RADIUS) return true;
+  }
+  return false;
+}
+
+// =====================================================================
+//  ミニマップ（平面図。北が上）
+// =====================================================================
+const MM = { W: 270, pad: 380 };
+MM.s = MM.W / (BW + 2 * MM.pad); MM.H = Math.round((BD + 2 * MM.pad) * MM.s);
+const mmX = x => (x + MM.pad) * MM.s, mmY = y => (BD + MM.pad - y) * MM.s;
+const mini = $('mini'), dpr = Math.min(devicePixelRatio, 2);
+mini.width = MM.W * dpr; mini.height = MM.H * dpr; mini.style.width = MM.W + 'px'; mini.style.height = MM.H + 'px';
+const mctx = mini.getContext('2d');
+const mbase = document.createElement('canvas'); mbase.width = mini.width; mbase.height = mini.height;
+{
+  const g = mbase.getContext('2d'); g.scale(dpr, dpr);
+  g.fillStyle = '#f7f7f4'; g.fillRect(0, 0, MM.W, MM.H);
+  const FLOORC = { flooring: '#ecdcc2', tile: '#d3cfc8', cf: '#efe9da', ub: '#dbe7ee' };
+  const R = (x0, y0, x1, y1) => [mmX(x0), mmY(y1), (x1 - x0) * MM.s, (y1 - y0) * MM.s];
+  for (const r of Object.values(ROOMS)) { g.fillStyle = FLOORC[r.floor]; for (const q of r.rects) g.fillRect(...R(...q)); }
+  // 設備
+  g.strokeStyle = '#8c8c8c'; g.lineWidth = 0.8;
+  for (const f of FIX2D) {
+    g.beginPath();
+    if (f.r) g.rect(...R(...f.r));
+    if (f.e) g.ellipse(mmX(f.e[0]), mmY(f.e[1]), f.e[2] * MM.s, f.e[3] * MM.s, 0, 0, 7);
+    if (f.c) g.arc(mmX(f.c[0]), mmY(f.c[1]), f.c[2] * MM.s, 0, 7);
+    if (f.l) { g.moveTo(mmX(f.l[0]), mmY(f.l[1])); g.lineTo(mmX(f.l[2]), mmY(f.l[3])); }
+    g.stroke();
+  }
+  // 建具（開き戸の軌跡・引き戸）
+  g.strokeStyle = '#9a8f80'; g.lineWidth = 0.8;
+  for (const d of SWING) {
+    const delta = ((d.open - d.closed + 540) % 360) - 180;
+    g.beginPath();
+    for (let i = 0; i <= 16; i++) { const a = rad(d.closed + delta * i / 16);
+      const x = mmX(d.hx + Math.cos(a) * d.w), y = mmY(d.hy + Math.sin(a) * d.w); i ? g.lineTo(x, y) : g.moveTo(x, y); }
+    g.lineTo(mmX(d.hx), mmY(d.hy)); g.stroke();
+  }
+  g.fillStyle = '#b39c7c';
+  for (const d of SLIDE) g.fillRect(...(d.dir === 'x' ? R(d.closed[0], d.v0, d.closed[1], d.v1) : R(d.v0, d.closed[0], d.v1, d.closed[1])));
+  // 壁（開口を抜く）と窓
+  for (const w of W) {
+    const h = w.t / 2, ops = [...w.ops].sort((p, q) => p.a - q.a);
+    const seg = (u0, u1, fill) => { if (u1 <= u0) return; g.fillStyle = fill;
+      g.fillRect(...(w.dir === 'x' ? R(u0, w.c - h, u1, w.c + h) : R(w.c - h, u0, w.c + h, u1))); };
+    let u = w.a;
+    for (const o of ops) {
+      seg(u, o.a, '#3a3a3a');
+      if (o.k === 'win') { seg(o.a, o.b, o.frost ? '#c7d3da' : '#9ccbe6'); }
+      u = o.b;
+    }
+    seg(u, w.b, '#3a3a3a');
+  }
+  // 室名
+  g.fillStyle = '#4a4a4a'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  for (const r of Object.values(ROOMS)) {
+    const [x0, y0, x1, y1] = r.rects[0], wpx = (x1 - x0) * MM.s, name = r.name;
+    const cx = mmX((x0 + x1) / 2), cy = mmY((y0 + y1) / 2);
+    if (wpx >= name.length * 9.5) { g.font = '9px sans-serif'; g.fillText(name, cx, cy); }
+    else { g.font = '8px sans-serif'; [...name].forEach((ch, i) => g.fillText(ch, cx, cy + (i - (name.length - 1) / 2) * 8.5)); }
+  }
+  g.font = '9px sans-serif'; g.fillStyle = '#777'; g.fillText('南（道路側）', MM.W / 2, MM.H - 5);
+}
+function drawMini() {
+  mctx.setTransform(1, 0, 0, 1, 0, 0);
+  mctx.drawImage(mbase, 0, 0);
+  mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  if (groups.furn.visible) {
+    mctx.fillStyle = 'rgba(150,120,90,0.35)'; mctx.strokeStyle = 'rgba(120,90,60,0.8)'; mctx.lineWidth = 0.7;
+    for (const f of furnItems) { const r = [mmX(f.x0), mmY(f.y1), (f.x1 - f.x0) * MM.s, (f.y1 - f.y0) * MM.s]; mctx.fillRect(...r); mctx.strokeRect(...r); }
+  }
+  if (auto.on) {                                   // 自動ツアーの道すじ
+    mctx.strokeStyle = 'rgba(40,110,200,0.55)'; mctx.lineWidth = 1.4; mctx.setLineDash([3, 2]);
+    mctx.beginPath(); AUTO_ROUTE.forEach((n, i) => i ? mctx.lineTo(mmX(n.p[0]), mmY(n.p[1])) : mctx.moveTo(mmX(n.p[0]), mmY(n.p[1])));
+    mctx.stroke(); mctx.setLineDash([]);
+  }
+  const x = mmX(tour.x), y = mmY(tour.y);
+  const fwd = Math.atan2(-Math.cos(tour.yaw), -Math.sin(tour.yaw));  // canvas 上の前方の角度（y 下向き）
+  const half = Math.atan(Math.tan(rad(camera.fov / 2)) * camera.aspect);   // 横の画角の半分
+  const grd = mctx.createRadialGradient(x, y, 2, x, y, 40);
+  grd.addColorStop(0, 'rgba(220,40,40,0.45)'); grd.addColorStop(1, 'rgba(220,40,40,0)');
+  mctx.fillStyle = grd;
+  mctx.beginPath(); mctx.moveTo(x, y); mctx.arc(x, y, 40, fwd - half, fwd + half); mctx.closePath(); mctx.fill();
+  mctx.fillStyle = '#d42a2a'; mctx.strokeStyle = '#fff'; mctx.lineWidth = 1.5;
+  mctx.beginPath(); mctx.arc(x, y, 4.5, 0, 7); mctx.fill(); mctx.stroke();
+}
+mini.addEventListener('click', e => {
+  const rc = mini.getBoundingClientRect();
+  const px = (e.clientX - rc.left) / MM.s - MM.pad, py = BD + MM.pad - (e.clientY - rc.top) / MM.s;
+  if (roomAt(px, py) && !blocked(px, py)) { stopAuto(); tour.x = px; tour.y = py; }
+});
+
+// =====================================================================
+//  自動ツアー: 玄関から扉を通って順に巡る。経由点 p=[x,y]、stop=部屋（止まって広さを出す）、yaw=止まったときの向き
+//  向き yaw: 0=北, π/2=西, -π/2=東, π=南
+// =====================================================================
+const AUTO_ROUTE = [
+  { p: [5450, 320] },
+  { p: [5450, 700],   stop: 'genkan', yaw: 0,              sweep: 1.4 },
+  { p: [5460, 1600] },
+  { p: [5460, 2700],  stop: 'hall',   yaw: 0.9,            sweep: 1.6 },
+  { p: [5000, 2700] }, { p: [4550, 2700] }, { p: [4000, 2700] },                 // WD-3（片引き）
+  { p: [3600, 2950],  stop: 'ldk',    yaw: 1.95,           sweep: 2.2 },
+  { p: [3850, 3150] }, { p: [4050, 4300] }, { p: [4050, 5460] },                 // WD-6（片引き）
+  { p: [3700, 6100],  stop: 'senmen', yaw: 0.35,           sweep: 1.4 },
+  { p: [3300, 6050] }, { p: [2730, 6050] },                                      // 浴室の折れ戸
+  { p: [2150, 5950],  stop: 'bath',   yaw: 0.95,           sweep: 1.4 },
+  { p: [2730, 6050] }, { p: [3300, 6050] }, { p: [4000, 5910] }, { p: [4550, 5910] }, { p: [5050, 5910] },   // WD-6（ファミクロ側）
+  { p: [5460, 6050],  stop: 'famicl', yaw: 0,              sweep: 1.4 },
+  { p: [5920, 5900] }, { p: [5920, 5460] }, { p: [5920, 4970] },                 // WD-4（片引き）
+  { p: [5460, 4970] },                                                           // WD-5（片引き）
+  { p: [5100, 5050],  stop: 'wc',     yaw: Math.PI,        sweep: 0.8 },
+  { p: [5460, 4970] }, { p: [5900, 4970] }, { p: [5900, 2700] }, { p: [6370, 2700] },   // WD-1（片開き）
+  { p: [7400, 2500],  stop: 'bed1',   yaw: Math.PI - 0.15, sweep: 2.0 },
+  { p: [6370, 2700] }, { p: [5900, 2700] }, { p: [5900, 4100] }, { p: [6825, 4100] }, { p: [6825, 4550] },  // WD-2（片開き）
+  { p: [7200, 5500],  stop: 'bed2',   yaw: -0.75,          sweep: 1.8 },
+];
+const AUTO_STOPS = AUTO_ROUTE.filter(n => n.stop).length;
+const auto = { on: false, i: 0, t: 0, stopN: 0, done: false };
+const PAUSE = 4.0, WALK = 950;   // 止まる秒数、歩く速さ mm/s
+function startAuto() {
+  stopAuto();
+  setMode('tour');
+  Object.assign(auto, { on: true, i: 1, t: 0, stopN: 0, done: false });
+  Object.assign(tour, { x: AUTO_ROUTE[0].p[0], y: AUTO_ROUTE[0].p[1], yaw: 0, pitch: 0 });
+  $('autoBar').style.display = 'flex'; $('btnAuto').blur();
+}
+function stopAuto() {
+  if (!auto) return;
+  auto.on = false;
+  $('autoBar').style.display = 'none'; $('card').style.display = 'none';
+}
+function showCard(k, n) {
+  const r = ROOMS[k];
+  $('card').querySelector('.n').textContent = r.name;
+  $('card').querySelector('.a').textContent = areaText(r);
+  $('card').querySelector('.s').textContent = `内法の面積・1 畳 = 1.62 m²　（${n} / ${AUTO_STOPS}）`;
+  $('card').style.display = 'block';
+}
+const wrapA = a => Math.atan2(Math.sin(a), Math.cos(a));
+function stepAuto(dt) {
+  if (auto.i >= AUTO_ROUTE.length) {        // 最後の部屋のあと
+    auto.done = true; stopAuto();
+    $('where').textContent = '自動ツアー終了'; return;
+  }
+  const n = AUTO_ROUTE[auto.i];
+  const dx = n.p[0] - tour.x, dy = n.p[1] - tour.y, d = Math.hypot(dx, dy);
+  if (d > 1) {
+    const step = Math.min(d, WALK * dt);
+    tour.x += dx / d * step; tour.y += dy / d * step;
+    const want = Math.atan2(-dx, dy);         // 進む向き
+    tour.yaw += wrapA(want - tour.yaw) * Math.min(1, dt * 4);
+    tour.pitch += (0 - tour.pitch) * Math.min(1, dt * 3);
+    return;
+  }
+  if (!n.stop) { auto.i++; return; }
+  // 部屋で止まって見回す
+  if (auto.t === 0) { auto.stopN++; showCard(n.stop, auto.stopN); auto.yaw0 = tour.yaw; }
+  auto.t += dt;
+  const k = auto.t / PAUSE;
+  const target = n.yaw + n.sweep * 0.5 * Math.sin((k - 0.15) * Math.PI * 1.2) ;
+  tour.yaw += wrapA(target - tour.yaw) * Math.min(1, dt * 2.5);
+  tour.pitch += (-0.12 - tour.pitch) * Math.min(1, dt * 2);
+  if (auto.t >= PAUSE) { auto.t = 0; auto.i++; $('card').style.display = 'none';
+    $('autoStep').textContent = ''; }
+}
+$('btnAuto').onclick = startAuto;
+$('btnStop').onclick = () => { stopAuto(); $('btnStop').blur(); };
+
+function stepTour(dt) {
+  if (auto.on) {
+    stepAuto(dt);
+    $('autoStep').textContent = `自動ツアー中（${Math.min(auto.stopN + (auto.t > 0 ? 0 : 1), AUTO_STOPS)} / ${AUTO_STOPS} 部屋目へ）`;
+  }
+  const turn = ((keys.ArrowLeft || keys.KeyQ) ? 1 : 0) - ((keys.ArrowRight || keys.KeyE) ? 1 : 0);
+  tour.yaw += turn * 1.8 * dt;
+  const fwd = auto.on ? 0 : ((keys.KeyW || keys.ArrowUp) ? 1 : 0) - ((keys.KeyS || keys.ArrowDown) ? 1 : 0);
+  const side = auto.on ? 0 : (keys.KeyD ? 1 : 0) - (keys.KeyA ? 1 : 0);
+  const speed = (keys.ShiftLeft || keys.ShiftRight ? 2600 : 1300) * dt;
+  // world 前方 = (-sin yaw, -cos yaw) → 平面 (dx, dy) = (-sin, +cos)
+  const fx = -Math.sin(tour.yaw), fy = Math.cos(tour.yaw);
+  const rx = Math.cos(tour.yaw), ry = Math.sin(tour.yaw);
+  let dx = (fx * fwd + rx * side), dy = (fy * fwd + ry * side);
+  const len = Math.hypot(dx, dy);
+  if (len > 0) {
+    dx = dx / len * speed; dy = dy / len * speed;
+    // 小刻みに動かしてすり抜けを防ぐ
+    const n = Math.ceil(Math.max(Math.abs(dx), Math.abs(dy)) / 40);
+    for (let i = 0; i < n; i++) {
+      if (!blocked(tour.x + dx / n, tour.y)) tour.x += dx / n;
+      if (!blocked(tour.x, tour.y + dy / n)) tour.y += dy / n;
+    }
+  }
+  camera.position.copy(P(tour.x, tour.y, EYE));
+  camera.rotation.set(tour.pitch, tour.yaw, 0, 'YXZ');
+  const k = roomAt(tour.x, tour.y);
+  if (!auto.done || auto.on) $('where').textContent = k ? ROOMS[k].name : '—';
+  roomsDiv.querySelectorAll('button').forEach(b => b.classList.toggle('here', b.dataset.room === k));
+  drawMini();
+}
+
+// 扉: ふだんは少し開いた状態。室内ツアーで近づくと開く
+function stepDoors(dt) {
+  for (const d of doorAnims) {
+    const near = mode === 'tour' && d.auto && Math.hypot(tour.x - d.cx, tour.y - d.cy) < 1500;
+    const target = near ? 1 : d.rest;
+    d.cur += (target - d.cur) * Math.min(1, dt * 5);
+    d.apply(d.cur);
+  }
+}
+
+// ---- ループ
+const clock = new THREE.Clock();
+function loop() {
+  const dt = Math.min(clock.getDelta(), 0.1);
+  if (mode === 'pers') orbit.update(); else stepTour(dt);
+  stepDoors(dt);
+  renderer.render(scene, camera);
+  requestAnimationFrame(loop);
+}
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+doorAnims.forEach(d => d.apply(d.cur));
+camera.position.copy(persView.pos); orbit.target.copy(persView.tgt); orbit.update();
+setMode('pers');
+updateHelp();
+loop();
+window.__house = { camera, orbit, tour, setMode, goRoom, doorAnims, stepDoors, renderer, scene, THREE, P,
+  auto, AUTO_ROUTE, startAuto, stopAuto, blocked, furnItems, furnColliders, colliders, W, ROOMS, groups, setNight, SWING };  // デバッグ・確認用  // デバッグ用
+</script>
+</body>
+</html>
