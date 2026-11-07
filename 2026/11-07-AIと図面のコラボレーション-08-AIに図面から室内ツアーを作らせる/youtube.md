@@ -5,7 +5,7 @@
 字幕: `~/henrobo-video/137/henrobo-137.srt`
 作り方: 台本 `henrobo-script.md`、場面 `henrobo_scenes.py`、読みの表 `tts-readings.tsv`。公開したページの録画(`~/henrobo-video/137/rec-*.mp4`)を場面1・4・9・10・11に使った
 
-動画ID: LQxz_RdDRYw(https://youtu.be/LQxz_RdDRYw)。2026-11-08 に人が YouTube Studio から手で上げた。説明の「記事(note)」の行は、note を公開してから足す
+動画ID: LQxz_RdDRYw(https://youtu.be/LQxz_RdDRYw)。2026-11-08 に人が YouTube Studio から手で上げた
 
 ## 再生リスト
 
@@ -34,7 +34,7 @@ AIが図面から3Dの室内ツアーを作った。寸法は図面とすべて�
 ・設備の高さや家具など図面にないものは、AIが仮に決めて書き出し、家具は切り替えで消せるようにした
 
 動かせるページ: https://h-takeshita-henteco-shoji-com.github.io/tried/137-house-tour/
-記事(note): (公開したら書く)
+記事(note): https://note.com/tried_hs/n/n932559a58496
 前回（内装と建具の積算）の記事: https://note.com/tried_hs/n/ne572e5e543a9
 指示文、AIの答え、3つの版のページ: https://github.com/h-takeshita-henteco-shoji-com/tried/tree/main/2026/11-07-AIと図面のコラボレーション-08-AIに図面から室内ツアーを作らせる
 
