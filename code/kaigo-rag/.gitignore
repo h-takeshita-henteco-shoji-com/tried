@@ -1,0 +1,20 @@
+# 取得した原文・中間データ・索引は再生成できるため入れない
+data/raw/
+data/*.npy
+data/*.db
+data/chunks_docs.jsonl
+data/qa_all.jsonl
+data/corpus.jsonl
+ext/*.dylib
+.venv/
+__pycache__/
+# 解釈本(市販)のPDFやOCR結果は、置き場所を問わず入れない
+data/private/
+data/corpus.base.jsonl
+data/chunks_extra.jsonl
+data/lightrag/
+data/msgraphrag/input/
+data/msgraphrag/output/
+data/msgraphrag/cache/
+data/msgraphrag/logs/
+data/hipporag/
