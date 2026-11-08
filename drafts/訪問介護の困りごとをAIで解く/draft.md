@@ -1,8 +1,8 @@
 ---
 title: 訪問介護の困りごとをAIで解く
 created: 2026-11-08
-status: 下書き
-issue:
+status: 起票済
+issue: 153
 ---
 
 ## きっかけ
