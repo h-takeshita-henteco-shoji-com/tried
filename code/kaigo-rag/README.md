@@ -99,6 +99,16 @@ uv run python src/pool_lightrag.py msgraphrag && uv run python src/judge_extra.p
 uv run python src/pool_lightrag.py hipporag && uv run python src/judge_extra.py data/unjudged_hipporag.json
 uv run python src/evaluate.py subset               # 範囲の中で、基準の方式と results/lib_*.json を並べて採点する
 
+# #155 介護保険でできることを説明させる
+# 問題は自作20問(data/scope_questions.jsonl)と自治体13問(data/scope_questions_muni.jsonl。郡上市・時津町の対応事例。正解は自治体の判断)
+# 自治体の資料(data/raw/jichitai/)は正解に使うだけで、コーパスには入れない
+uv run python src/add_rouhuri.py                 # 老振76号 別紙(さいたま市の転載)をコーパスの末尾に足す
+uv run python src/server.py &
+for r in 1 2 3; do uv run python src/scope_explain.py answer llm $r; uv run python src/scope_explain.py answer agentic $r; done
+for k in 1 2 3; do uv run python src/scope_explain.py judge sonnet $k; done; uv run python src/scope_explain.py judge opus 1
+uv run --with rapidfuzz python src/scope_explain.py score   # 判定の多数決、機械の根拠判定、引用の照合
+uv run --with matplotlib python src/make_figures_scope.py ../../2026/11-09-訪問介護の困りごとをAIで解く-02-介護保険でできることを説明させる/assets   # 記事の図
+
 # note の記事の図(数字は log.md と親テーマの下調べから写した)
 uv run --with matplotlib python src/make_figures.py ../../2026/11-08-訪問介護の困りごとをAIで解く-01-ルールを引けるRAGを複数の方式で比べる/assets
 ```
