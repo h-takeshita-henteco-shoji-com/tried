@@ -1,0 +1,21 @@
+flowchart LR
+  subgraph IRYO["医療機関・老健が持つ事業"]
+    VR["訪問リハビリ<br/>医師の指示で自宅へ"]
+    DR["通所リハビリ<br/>デイケア"]
+    RK["老健<br/>入所のリハ"]
+  end
+  subgraph KANGO["訪問看護ステーション"]
+    NS["訪問看護の一部として<br/>PTが自宅へ"]
+  end
+  subgraph KAIGO["介護の事業所"]
+    DS["通所介護<br/>機能訓練指導員"]
+    TK["特養<br/>機能訓練指導員"]
+  end
+  subgraph GAIBU["外から関わる"]
+    RN["生活機能向上連携<br/>訪問介護・通所介護へ助言"]
+    JK["住宅改修・福祉用具<br/>理由書と助言"]
+  end
+  CM["ケアマネジャー<br/>ケアプラン"] --> VR & DR & NS & DS
+  VR -.連携.-> RN
+  DR -.連携.-> RN
+  RN --> HK["訪問介護<br/>サービス提供責任者"]
