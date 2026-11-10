@@ -1,8 +1,8 @@
 ---
 title: 糸島の農業を社会学とAIで考える
 created: 2026-11-10
-status: 下書き
-issue:
+status: 起票済
+issue: 167
 ---
 
 ## きっかけ
