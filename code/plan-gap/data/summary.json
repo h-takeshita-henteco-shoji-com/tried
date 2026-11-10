@@ -1,0 +1,111 @@
+[
+ {
+  "cond": "haiku-list-1",
+  "recall": "14/14",
+  "trap_flagged": "7/8",
+  "clean_flagged": "2/2",
+  "extra_on_defect": 11,
+  "errors": 0,
+  "by_type": {
+   "A": "4/4",
+   "B": "3/3",
+   "C": "2/2",
+   "D": "2/2",
+   "E": "2/2",
+   "F": "1/1"
+  },
+  "missed": [],
+  "trap_flagged_ids": [
+   "U02",
+   "U06",
+   "U08",
+   "U16",
+   "U17",
+   "U19",
+   "U24"
+  ]
+ },
+ {
+  "cond": "sonnet-list-1",
+  "recall": "14/14",
+  "trap_flagged": "1/8",
+  "clean_flagged": "1/2",
+  "extra_on_defect": 5,
+  "errors": 0,
+  "by_type": {
+   "A": "4/4",
+   "B": "3/3",
+   "C": "2/2",
+   "D": "2/2",
+   "E": "2/2",
+   "F": "1/1"
+  },
+  "missed": [],
+  "trap_flagged_ids": [
+   "U24"
+  ]
+ },
+ {
+  "cond": "opus-list-1",
+  "recall": "14/14",
+  "trap_flagged": "0/8",
+  "clean_flagged": "1/2",
+  "extra_on_defect": 3,
+  "errors": 0,
+  "by_type": {
+   "A": "4/4",
+   "B": "3/3",
+   "C": "2/2",
+   "D": "2/2",
+   "E": "2/2",
+   "F": "1/1"
+  },
+  "missed": [],
+  "trap_flagged_ids": []
+ },
+ {
+  "cond": "sonnet-free-1",
+  "recall": "14/14",
+  "trap_flagged": "3/8",
+  "clean_flagged": "1/2",
+  "extra_on_defect": 7,
+  "errors": 0,
+  "by_type": {
+   "A": "4/4",
+   "B": "3/3",
+   "C": "2/2",
+   "D": "2/2",
+   "E": "2/2",
+   "F": "1/1"
+  },
+  "missed": [],
+  "trap_flagged_ids": [
+   "U06",
+   "U14",
+   "U17"
+  ]
+ },
+ {
+  "cond": "opus-free-1",
+  "recall": "14/14",
+  "trap_flagged": "4/8",
+  "clean_flagged": "2/2",
+  "extra_on_defect": 7,
+  "errors": 0,
+  "by_type": {
+   "A": "4/4",
+   "B": "3/3",
+   "C": "2/2",
+   "D": "2/2",
+   "E": "2/2",
+   "F": "1/1"
+  },
+  "missed": [],
+  "trap_flagged_ids": [
+   "U14",
+   "U16",
+   "U17",
+   "U24"
+  ]
+ }
+]
