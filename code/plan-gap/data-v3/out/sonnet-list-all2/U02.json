@@ -1,0 +1,12 @@
+{
+ "findings": [
+  {
+   "user": "U02",
+   "category": "G",
+   "where": "-",
+   "what": "該当なし(この行は出力しない想定)",
+   "evidence": "-"
+  }
+ ],
+ "sec": 85.9
+}
