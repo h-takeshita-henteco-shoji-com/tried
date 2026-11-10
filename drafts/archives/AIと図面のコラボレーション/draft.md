@@ -1,8 +1,8 @@
 ---
 title: AIと図面のコラボレーション
 created: 2026-10-13
-status: 下書き
-issue:
+status: 起票済
+issue: 131
 ---
 
 ## きっかけ
