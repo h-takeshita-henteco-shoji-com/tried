@@ -45,6 +45,7 @@ class Config:
     punish_impact: int = 3     # flat のとき: 罰1点で相手が減る量
     matching: str = "partner"  # "partner"(毎回同じ相手)か "stranger"(毎回組み替え)
     shuffle_order: bool = True  # 罰の段で、他の人を並べる順をラウンドごとに混ぜる
+    memory_reasons: bool = False  # 過去の回の結果に、自分が書いた拠出の理由も添える(#172 検証5)
 
 
 def payoffs(contribs, cfg):
@@ -156,6 +157,9 @@ class Session:
                 if cfg.punishment:
                     recv = sum(points[g][q][pos] for q in range(k) if q != pos)
                     line += f" あなたが受けた減点は{recv}点だった。"
+                if cfg.memory_reasons:
+                    why = " ".join(outs[i]["reason"].split())
+                    line += f"\n  (このときのあなたの考え: {why[:150]})"
                 self.history[i].append(line)
 
     def _punish_stage(self, r, groups, contribs, bases):

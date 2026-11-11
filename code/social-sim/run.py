@@ -18,6 +18,7 @@ from sim.llm import backend  # noqa: E402
 from sim.persona import describe, diversity, generate, load_spec  # noqa: E402
 from sim.probes import first_round, punish_order  # noqa: E402
 from sim.record import Run  # noqa: E402
+from sim.strategy import beliefs, measure  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROMPTS = os.path.join(HERE, "prompts", "pgg")
@@ -25,7 +26,8 @@ VARIANTS = ["neutral", "paraphrase", "named"]
 
 
 def load_prompts(variant="neutral", rule="fg2000"):
-    files = {"system": "system.md", "punish": "punish.fg2000.md" if rule == "fg2000" else "punish.neutral.md"}
+    files = {"system": "system.md", "punish": "punish.fg2000.md" if rule == "fg2000" else "punish.neutral.md",
+             "strategy": "strategy.md", "belief": "belief.md"}
     files.update({v: f"contribute.{v}.md" for v in VARIANTS})
     paths = {k: os.path.join(PROMPTS, f) for k, f in files.items()}
     texts = {k: open(p, encoding="utf-8").read() for k, p in paths.items()}
@@ -35,14 +37,15 @@ def load_prompts(variant="neutral", rule="fg2000"):
 
 def cmd_game(a):
     llm = backend(a.llm)
-    cfg = Config(rounds=a.rounds, punishment=a.punishment, matching=a.matching, punish_rule=a.rule)
+    cfg = Config(rounds=a.rounds, punishment=a.punishment, matching=a.matching, punish_rule=a.rule,
+                 memory_reasons=a.memory)
     spec = load_spec(os.path.join(HERE, "personas", f"{a.personas}.json"))
     people = generate(spec, cfg.group_size * a.groups, a.seed)
     prompts, paths = load_prompts(a.variant, a.rule)
     used = [paths["system"], paths[a.variant]] + ([paths["punish"]] if a.punishment else [])
     config = {"game": asdict(cfg), "groups": a.groups, "seed": a.seed,
               "personas": a.personas, "variant": a.variant}
-    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}"
+    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "")
     run = Run(a.out, name, config, llm, used)
     run.manifest["people"] = people
     run.manifest["diversity"] = diversity(people, spec)
@@ -82,10 +85,34 @@ def cmd_probe(a):
     print(f"calls={run.calls} cost_usd={run.cost:.4f}")
 
 
+def cmd_strategy(a):
+    llm = backend(a.llm)
+    cfg = Config()
+    prompts, paths = load_prompts()
+    run = Run(a.out, "belief" if a.belief else "strategy", {"game": asdict(cfg), "n": a.n, "seed": a.seed, "personas": a.personas},
+              llm, [paths["system"], paths["belief" if a.belief else "strategy"]])
+    out = {}
+    for pset in a.personas.split(","):
+        spec = load_spec(os.path.join(HERE, "personas", f"{pset}.json"))
+        people = generate(spec, a.n, a.seed)
+        if a.belief:
+            out[pset] = beliefs(llm, run, people, spec, prompts, cfg, tag=f"belief:{pset}")
+            print(pset, {k: out[pset][k] for k in ("expect_mean", "contribution_mean", "corr_spearman")},
+                  "cost", out[pset]["cost_usd"], flush=True)
+            continue
+        out[pset] = measure(llm, run, people, spec, prompts, cfg, tag=f"strategy:{pset}")
+        print(pset, out[pset]["types"], "uncond", out[pset]["unconditional_mean"],
+              "cost", out[pset]["cost_usd"], flush=True)
+        print("  mean_table", out[pset]["mean_table"])
+    run.finish(out)
+    print(run.dir)
+    print(f"calls={run.calls} cost_usd={run.cost:.4f}")
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("game", "probe"):
+    for name in ("game", "probe", "strategy"):
         s = sub.add_parser(name)
         s.add_argument("--llm", default="dummy:0")
         s.add_argument("--seed", type=int, default=1)
@@ -99,6 +126,11 @@ if __name__ == "__main__":
     g.add_argument("--matching", default="partner", choices=["partner", "stranger"])
     g.add_argument("--rule", default="fg2000", choices=["fg2000", "flat"])
     g.add_argument("--workers", type=int, default=12)
+    g.add_argument("--memory", action="store_true", help="自分が書いた拠出の理由も、過去の回として渡す")
     sub.choices["probe"].add_argument("--n", type=int, default=12)
+    sub.choices["strategy"].add_argument("--n", type=int, default=48)
+    sub.choices["strategy"].add_argument("--personas", default="students,none")
+    sub.choices["strategy"].add_argument("--belief", action="store_true",
+                                         help="戦略法の代わりに、予想と拠出を一緒に聞く(#172 検証4)")
     a = ap.parse_args()
-    {"game": cmd_game, "probe": cmd_probe}[a.cmd](a)
+    {"game": cmd_game, "probe": cmd_probe, "strategy": cmd_strategy}[a.cmd](a)

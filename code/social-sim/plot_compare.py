@@ -23,6 +23,7 @@ def main(src, out):
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), sharey=True, facecolor=SURFACE)
     for ax, (match, title) in zip(axes, PANELS):
         ax.set_facecolor(SURFACE)
+        ends = []
         for pun in ("punish", "no_punish"):
             cond = f"{match}/{pun}"
             if cond not in d["ai"]:
@@ -35,13 +36,16 @@ def main(src, out):
                     mfc=SURFACE, mec=c, mew=2, label=f"人間・{LABEL[pun]}")
             ax.plot(x, a, color=c, lw=2, marker="o", ms=8, mec=SURFACE, mew=2,
                     label=f"AI・{LABEL[pun]}")
-            # 終点の値が近いときは、ラベルが重ならないよう上下にずらす
-            gap = 0 if abs(h[-1] - a[-1]) > 1.2 else 7
-            hi_h = h[-1] >= a[-1]
-            ax.annotate(f"人間・{LABEL[pun]}", (x[-1], h[-1]), xytext=(8, gap if hi_h else -gap),
-                        textcoords="offset points", va="center", fontsize=10, color=INK)
-            ax.annotate(f"AI・{LABEL[pun]}", (x[-1], a[-1]), xytext=(8, -gap if hi_h else gap),
-                        textcoords="offset points", va="center", fontsize=10, color=INK)
+            ends.append((h[-1], f"人間・{LABEL[pun]}"))
+            ends.append((a[-1], f"AI・{LABEL[pun]}"))
+        # 終点のラベルを、下から順に最低 1.1 ずつ離して置く(重なり防止)
+        ends.sort()
+        placed = []
+        for y, text in ends:
+            y2 = max(y, placed[-1] + 1.1) if placed else y
+            placed.append(y2)
+            ax.annotate(text, (10, y), xytext=(10.35, y2), textcoords="data", va="center",
+                        fontsize=10, color=INK)
         ax.set_title(title, fontsize=13, color=INK, loc="left")
         ax.set_xlim(0.5, 13.2)
         ax.set_xticks(range(1, 11))

@@ -23,20 +23,38 @@ def _draw(rng, attr):
     raise ValueError(f"分布の書き方が分からない: {attr}")
 
 
+def _quota(rng, attr, n):
+    """{"quota": {"値": 割合, ...}} を、n 人に割合どおり(最大剰余法)に割り振り、順を混ぜる。"""
+    items = list(attr["quota"].items())
+    total = sum(w for _, w in items)
+    exact = [(v, w / total * n) for v, w in items]
+    counts = {v: int(x) for v, x in exact}
+    rest = n - sum(counts.values())
+    for v, x in sorted(exact, key=lambda t: t[1] - int(t[1]), reverse=True)[:rest]:
+        counts[v] += 1
+    vals = [v for v, c in counts.items() for _ in range(c)]
+    rng.shuffle(vals)
+    return vals
+
+
 def generate(spec, n, seed):
     rng = random.Random(seed)
+    quotas = {name: _quota(rng, attr, n) for name, attr in spec["attributes"].items() if "quota" in attr}
     people = []
     for i in range(n):
         p = {"id": f"p{i:03d}"}
         for name, attr in spec["attributes"].items():
-            p[name] = _draw(rng, attr)
+            p[name] = quotas[name][i] if name in quotas else _draw(rng, attr)
         people.append(p)
     return people
 
 
 def describe(person, spec):
-    """人物像を、プロンプトに入れる短い文にする。"""
-    return spec["template"].format(**person)
+    """人物像を、プロンプトに入れる短い文にする。texts があれば、値を文に置き換えてから埋める。"""
+    vals = dict(person)
+    for name, table in spec.get("texts", {}).items():
+        vals[name] = table[person[name]]
+    return spec["template"].format(**vals)
 
 
 def diversity(people, spec):
@@ -45,10 +63,11 @@ def diversity(people, spec):
     n = len(people)
     for name, attr in spec["attributes"].items():
         got = Counter(p[name] for p in people)
-        if "choices" in attr:
-            total = sum(attr["choices"].values())
+        dist = attr.get("choices") or attr.get("quota")
+        if dist:
+            total = sum(dist.values())
             report[name] = {v: {"spec": round(w / total, 3), "got": round(got[v] / n, 3)}
-                            for v, w in attr["choices"].items()}
+                            for v, w in dist.items()}
         else:
             vals = [p[name] for p in people]
             report[name] = {"min": min(vals), "max": max(vals),

@@ -30,7 +30,7 @@ def main():
     for d in a.runs:
         cond, m, ev = load(d)
         c = m["config"]
-        label = f"seed{c['seed']}/{c['variant']}"
+        label = f"{c.get('personas', 'students')}/seed{c['seed']}/{c['variant']}"
         r = analyze(m, ev)
         r["max"] = max(x for e in ev for x in e["contribs"])
         r["min"] = min(x for e in ev for x in e["contribs"])
