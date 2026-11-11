@@ -1,0 +1,79 @@
+{
+ "cost_usd": 1.386,
+ "sets": {
+  "students/seed1/neutral": {
+   "1_first_share": [
+    0.446,
+    0.458,
+    0.392,
+    0.427
+   ],
+   "1_ok": false,
+   "2_sd_all": [
+    4.72,
+    3.79,
+    4.87,
+    4.0
+   ],
+   "2_range": [
+    [
+     0,
+     20
+    ],
+    [
+     0,
+     20
+    ],
+    [
+     0,
+     20
+    ],
+    [
+     0,
+     20
+    ]
+   ],
+   "2_ok": true,
+   "3_final_over_first": {
+    "partner": 0.34,
+    "stranger": 0.33
+   },
+   "3_ok": true,
+   "4_final": {
+    "partner": [
+     9.79,
+     3.04
+    ],
+    "stranger": [
+     8.92,
+     2.58
+    ]
+   },
+   "4_ok": true,
+   "4b_partner_minus_stranger_punish_all": 0.6,
+   "5": {
+    "partner": {
+     "below": 2.19,
+     "n_below": 57,
+     "above": 0.82,
+     "n_above": 61
+    },
+    "stranger": {
+     "below": 2.41,
+     "n_below": 70,
+     "above": 0.59,
+     "n_above": 72
+    }
+   },
+   "5_ok": true
+  }
+ },
+ "ok_count": {
+  "1_ok": 0,
+  "2_ok": 1,
+  "3_ok": 1,
+  "4_ok": 1,
+  "5_ok": 1
+ },
+ "n_sets": 1
+}

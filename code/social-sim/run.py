@@ -38,14 +38,14 @@ def load_prompts(variant="neutral", rule="fg2000"):
 def cmd_game(a):
     llm = backend(a.llm)
     cfg = Config(rounds=a.rounds, punishment=a.punishment, matching=a.matching, punish_rule=a.rule,
-                 memory_reasons=a.memory)
+                 memory_reasons=a.memory, sample_dist=a.dist)
     spec = load_spec(os.path.join(HERE, "personas", f"{a.personas}.json"))
     people = generate(spec, cfg.group_size * a.groups, a.seed)
     prompts, paths = load_prompts(a.variant, a.rule)
     used = [paths["system"], paths[a.variant]] + ([paths["punish"]] if a.punishment else [])
     config = {"game": asdict(cfg), "groups": a.groups, "seed": a.seed,
               "personas": a.personas, "variant": a.variant}
-    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "")
+    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "") + ("-dist" if a.dist else "")
     run = Run(a.out, name, config, llm, used)
     run.manifest["people"] = people
     run.manifest["diversity"] = diversity(people, spec)
@@ -127,6 +127,7 @@ if __name__ == "__main__":
     g.add_argument("--rule", default="fg2000", choices=["fg2000", "flat"])
     g.add_argument("--workers", type=int, default=12)
     g.add_argument("--memory", action="store_true", help="自分が書いた拠出の理由も、過去の回として渡す")
+    g.add_argument("--dist", action="store_true", help="拠出を確率で答えさせ、くじで決める")
     sub.choices["probe"].add_argument("--n", type=int, default=12)
     sub.choices["strategy"].add_argument("--n", type=int, default=48)
     sub.choices["strategy"].add_argument("--personas", default="students,none")

@@ -22,6 +22,24 @@ CONTRIBUTE_SCHEMA = {
 }
 
 
+DIST_NOTE = ("\n0から{e}のそれぞれを入れる確率を、合計がちょうど100になる整数で答えてください(p0〜p{e})。"
+             "実際に入れる量は、この確率に従ってくじで決まります。")
+
+
+def dist_schema(endowment):
+    props = {f"p{k}": {"type": "integer", "minimum": 0, "maximum": 100} for k in range(endowment + 1)}
+    props["reason"] = {"type": "string"}
+    return {"type": "object", "properties": props, "required": list(props)}
+
+
+def sample_from(output, endowment, rng):
+    """確率の答えを正規化し、くじで拠出を1つ選ぶ。合計が0なら一様に選ぶ。"""
+    w = [max(0, output.get(f"p{k}", 0)) for k in range(endowment + 1)]
+    if sum(w) == 0:
+        w = [1] * (endowment + 1)
+    return rng.choices(range(endowment + 1), weights=w)[0], sum(w)
+
+
 def punish_schema(labels, max_points):
     props = {lab: {"type": "integer", "minimum": 0, "maximum": max_points} for lab in labels}
     props["reason"] = {"type": "string"}
@@ -46,6 +64,7 @@ class Config:
     matching: str = "partner"  # "partner"(毎回同じ相手)か "stranger"(毎回組み替え)
     shuffle_order: bool = True  # 罰の段で、他の人を並べる順をラウンドごとに混ぜる
     memory_reasons: bool = False  # 過去の回の結果に、自分が書いた拠出の理由も添える(#172 検証5)
+    sample_dist: bool = False  # 拠出を確率で答えさせ、プログラムがくじで決める(#172 追加検証)
 
 
 def payoffs(contribs, cfg):
@@ -95,6 +114,7 @@ class Session:
         self.cfg = cfg
         self.run = run
         self.rng = random.Random(seed)
+        self.seed = seed
         self.workers = workers
         self.history = [[] for _ in members]   # 各人に見せる過去のラウンド
         n = len(members)
@@ -134,7 +154,14 @@ class Session:
             prompt = self.p["contribute"].format(
                 n=cfg.group_size, endowment=cfg.endowment, mpcr=cfg.mpcr, rounds=cfg.rounds,
                 round=r, history=self._history_text(i), rules_extra=extra)
-            return self._ask(i, prompt, CONTRIBUTE_SCHEMA, f"g{where[i][0]}r{r}:contribute")
+            if not cfg.sample_dist:
+                return self._ask(i, prompt, CONTRIBUTE_SCHEMA, f"g{where[i][0]}r{r}:contribute")
+            prompt += DIST_NOTE.format(e=cfg.endowment)
+            out = dict(self._ask(i, prompt, dist_schema(cfg.endowment), f"g{where[i][0]}r{r}:contribute"))
+            # くじはスレッドの順に左右されないよう、seed・人・回から決める
+            rng = random.Random(f"{self.seed}-{i}-{r}")
+            out["contribution"], out["dist_total"] = sample_from(out, cfg.endowment, rng)
+            return out
 
         outs = self._map(contribute, range(len(self.members)))
         contribs = [[outs[i]["contribution"] for i in mem] for mem in groups]
