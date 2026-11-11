@@ -1,0 +1,253 @@
+{
+  "name": "why10",
+  "started": "20261111-183947",
+  "llm": "claude:claude-haiku-5-5",
+  "llm_version": "2.1.318 (Claude Code)",
+  "git": "0bbb49c",
+  "prompts": {
+    "prompts/pgg/system.md": "70e76cf2e0db",
+    "prompts/pgg/contribute.neutral.md": "a6d991be786d"
+  },
+  "config": {
+    "conds": {
+      "base": [
+        20,
+        0.4,
+        "",
+        false
+      ],
+      "e30": [
+        30,
+        0.4,
+        "",
+        false
+      ],
+      "e10": [
+        10,
+        0.4,
+        "",
+        false
+      ],
+      "m0.3": [
+        20,
+        0.3,
+        "",
+        false
+      ],
+      "m0.7": [
+        20,
+        0.7,
+        "",
+        false
+      ],
+      "m0.9": [
+        20,
+        0.9,
+        "",
+        false
+      ],
+      "info4": [
+        20,
+        0.4,
+        "参考までに、以前この実験に参加した人たちは、1回目に平均4ポイントを入れました。\n",
+        false
+      ],
+      "info16": [
+        20,
+        0.4,
+        "参考までに、以前この実験に参加した人たちは、1回目に平均16ポイントを入れました。\n",
+        false
+      ],
+      "private": [
+        20,
+        0.4,
+        "誰が何ポイント入れたかは、ほかの参加者にも実験者にも分かりません。記録されるのはグループの合計だけです。\n",
+        false
+      ],
+      "calc": [
+        20,
+        0.4,
+        "",
+        true
+      ]
+    },
+    "n": 24,
+    "seed": 1,
+    "personas": "students",
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 10,
+      "punishment": false,
+      "punish_rule": "fg2000",
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "matching": "partner",
+      "shuffle_order": true,
+      "memory_reasons": false,
+      "sample_dist": false,
+      "belief_state": false
+    }
+  },
+  "summary": {
+    "base": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 9.42,
+      "share": 0.471,
+      "sd": 1.44,
+      "half_share": 0.833,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 2,
+        "8": 2,
+        "10": 20
+      }
+    },
+    "e30": {
+      "endowment": 30,
+      "mpcr": 0.4,
+      "mean": 13.96,
+      "share": 0.465,
+      "sd": 2.49,
+      "half_share": 0.833,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 1,
+        "10": 3,
+        "15": 20
+      }
+    },
+    "e10": {
+      "endowment": 10,
+      "mpcr": 0.4,
+      "mean": 4.46,
+      "share": 0.446,
+      "sd": 1.29,
+      "half_share": 0.833,
+      "zero": 1,
+      "full": 0,
+      "counts": {
+        "0": 1,
+        "2": 2,
+        "3": 1,
+        "5": 20
+      }
+    },
+    "m0.3": {
+      "endowment": 20,
+      "mpcr": 0.3,
+      "mean": 9.33,
+      "share": 0.467,
+      "sd": 1.57,
+      "half_share": 0.833,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 2,
+        "6": 1,
+        "8": 1,
+        "10": 20
+      }
+    },
+    "m0.7": {
+      "endowment": 20,
+      "mpcr": 0.7,
+      "mean": 9.5,
+      "share": 0.475,
+      "sd": 1.41,
+      "half_share": 0.875,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 2,
+        "8": 1,
+        "10": 21
+      }
+    },
+    "m0.9": {
+      "endowment": 20,
+      "mpcr": 0.9,
+      "mean": 9.5,
+      "share": 0.475,
+      "sd": 1.41,
+      "half_share": 0.875,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 2,
+        "8": 1,
+        "10": 21
+      }
+    },
+    "info4": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 7.04,
+      "share": 0.352,
+      "sd": 2.62,
+      "half_share": 0.375,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "3": 3,
+        "5": 8,
+        "6": 1,
+        "8": 3,
+        "10": 9
+      }
+    },
+    "info16": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 9.96,
+      "share": 0.498,
+      "sd": 1.65,
+      "half_share": 0.667,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 1,
+        "8": 3,
+        "10": 16,
+        "12": 3,
+        "14": 1
+      }
+    },
+    "private": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 9.38,
+      "share": 0.469,
+      "sd": 1.65,
+      "half_share": 0.875,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 3,
+        "10": 21
+      }
+    },
+    "calc": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 7.71,
+      "share": 0.385,
+      "sd": 3.81,
+      "half_share": 0.708,
+      "zero": 4,
+      "full": 0,
+      "counts": {
+        "0": 4,
+        "5": 3,
+        "10": 17
+      }
+    }
+  },
+  "calls": 240,
+  "cost_usd": 0.120059
+}
