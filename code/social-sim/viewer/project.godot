@@ -1,0 +1,25 @@
+; Godot 4 のプロジェクト。社会実験の記録(data/replay.json)を再生する。
+config_version=5
+
+[application]
+
+config/name="social-sim viewer"
+run/main_scene="res://main3d.tscn"
+config/features=PackedStringArray("4.6")
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/fps=30
+movie_writer/mjpeg_quality=0.95
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.96, 0.95, 0.92, 1)
