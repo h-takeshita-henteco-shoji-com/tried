@@ -26,6 +26,18 @@ DIST_NOTE = ("\n0から{e}のそれぞれを入れる確率を、合計がちょ
              "実際に入れる量は、この確率に従ってくじで決まります。")
 
 
+BELIEF_NOTE = ("\nあわせて、今回ほかの人が平均で何ポイント入れると思うかを expect(0〜{e}の整数)で答えてください。"
+               "次の回の自分に残したいことを、note に60字以内で書いてください。")
+
+
+def add_belief(schema, endowment):
+    s = {"type": "object", "properties": dict(schema["properties"]), "required": list(schema["required"])}
+    s["properties"]["expect"] = {"type": "integer", "minimum": 0, "maximum": endowment}
+    s["properties"]["note"] = {"type": "string"}
+    s["required"] += ["expect", "note"]
+    return s
+
+
 def dist_schema(endowment):
     props = {f"p{k}": {"type": "integer", "minimum": 0, "maximum": 100} for k in range(endowment + 1)}
     props["reason"] = {"type": "string"}
@@ -65,6 +77,7 @@ class Config:
     shuffle_order: bool = True  # 罰の段で、他の人を並べる順をラウンドごとに混ぜる
     memory_reasons: bool = False  # 過去の回の結果に、自分が書いた拠出の理由も添える(#172 検証5)
     sample_dist: bool = False  # 拠出を確率で答えさせ、プログラムがくじで決める(#172 追加検証)
+    belief_state: bool = False  # 毎回、見込みと自分へのメモを答えさせ、次の回に引き継ぐ(#172 追加検証E)
 
 
 def payoffs(contribs, cfg):
@@ -117,6 +130,7 @@ class Session:
         self.seed = seed
         self.workers = workers
         self.history = [[] for _ in members]   # 各人に見せる過去のラウンド
+        self.state = [None for _ in members]   # belief_state のとき、前の回の (見込み, メモ)
         n = len(members)
         assert n % cfg.group_size == 0, "人数がグループの大きさで割り切れない"
         self.fixed = [list(range(g, g + cfg.group_size)) for g in range(0, n, cfg.group_size)]
@@ -130,7 +144,13 @@ class Session:
     def _history_text(self, i):
         if not self.history[i]:
             return "(まだありません)"
-        return "\n".join(self.history[i])
+        text = "\n".join(self.history[i])
+        if self.cfg.belief_state and self.state[i]:
+            exp, note = self.state[i]
+            note = " ".join(note.split())[:80]
+            text += (f"\n\n前の回に、あなたは「ほかの人は平均{exp}ポイントくらい入れる」と見込んでいた。"
+                     f"\n前の回のあなたが、自分に残したメモ: {note}")
+        return text
 
     def _groups(self):
         if self.cfg.matching == "partner":
@@ -154,10 +174,15 @@ class Session:
             prompt = self.p["contribute"].format(
                 n=cfg.group_size, endowment=cfg.endowment, mpcr=cfg.mpcr, rounds=cfg.rounds,
                 round=r, history=self._history_text(i), rules_extra=extra)
+            schema = dist_schema(cfg.endowment) if cfg.sample_dist else CONTRIBUTE_SCHEMA
+            if cfg.sample_dist:
+                prompt += DIST_NOTE.format(e=cfg.endowment)
+            if cfg.belief_state:
+                prompt += BELIEF_NOTE.format(e=cfg.endowment)
+                schema = add_belief(schema, cfg.endowment)
+            out = dict(self._ask(i, prompt, schema, f"g{where[i][0]}r{r}:contribute"))
             if not cfg.sample_dist:
-                return self._ask(i, prompt, CONTRIBUTE_SCHEMA, f"g{where[i][0]}r{r}:contribute")
-            prompt += DIST_NOTE.format(e=cfg.endowment)
-            out = dict(self._ask(i, prompt, dist_schema(cfg.endowment), f"g{where[i][0]}r{r}:contribute"))
+                return out
             # くじはスレッドの順に左右されないよう、seed・人・回から決める
             rng = random.Random(f"{self.seed}-{i}-{r}")
             out["contribution"], out["dist_total"] = sample_from(out, cfg.endowment, rng)
@@ -176,7 +201,8 @@ class Session:
             self.run.event({"group": g, "round": r, "members": [self.members[i][0]["id"] for i in mem],
                             "contribs": contribs[g], "base": bases[g], "points": points[g],
                             "final": final, "reasons": [outs[i]["reason"] for i in mem],
-                            "punish_orders": orders[g]})
+                            "punish_orders": orders[g],
+                            "expects": [outs[i].get("expect") for i in mem] if cfg.belief_state else None})
             for pos, i in enumerate(mem):
                 others = ", ".join(str(c) for q, c in enumerate(contribs[g]) if q != pos)
                 line = (f"第{r}回: あなたは{contribs[g][pos]}を入れ、ほかの人は {others} を入れた。"
@@ -188,6 +214,8 @@ class Session:
                     why = " ".join(outs[i]["reason"].split())
                     line += f"\n  (このときのあなたの考え: {why[:150]})"
                 self.history[i].append(line)
+                if cfg.belief_state:
+                    self.state[i] = (outs[i]["expect"], outs[i]["note"])
 
     def _punish_stage(self, r, groups, contribs, bases):
         cfg = self.cfg
