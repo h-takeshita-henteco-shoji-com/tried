@@ -1,11 +1,16 @@
 """ルールを動かす部品(公共財ゲーム)。拠出の配分と罰の計算はプログラムで行う。
 
-子01(#169)で Fehr & Gächter(2000)を再現するための試運転。
-罰の費用と効き目は設定で変える。元論文の正確な値は #169 で確かめる。
+子01(#169)で Fehr & Gächter(2000)を再現する。既定の設定は論文に合わせてある。
+- 罰の費用: 1人に付ける点数ごとに PUNISH_COST_TABLE(10点で30)
+- 罰の効き目: 受けた点数1点ごとに第1段の利得を10%減らす。10点で打ち切り
+- 組み方: partner(毎回同じ相手)と stranger(毎回組み替え)
+子00(#168)の試運転で使った、1点につき一定の費用と効き目の罰は punish_rule="flat" で残す。
 """
 import random
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
+
+PUNISH_COST_TABLE = [0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30]   # 論文の表2
 
 CONTRIBUTE_SCHEMA = {
     "type": "object",
@@ -23,6 +28,10 @@ def punish_schema(labels, max_points):
     return {"type": "object", "properties": props, "required": list(props)}
 
 
+def cost_table_text():
+    return " / ".join(f"{p}点:{c}" for p, c in enumerate(PUNISH_COST_TABLE))
+
+
 @dataclass
 class Config:
     group_size: int = 4
@@ -30,9 +39,11 @@ class Config:
     mpcr: float = 0.4          # 共同の財布に1入れたとき、1人に返る量
     rounds: int = 10
     punishment: bool = False
+    punish_rule: str = "fg2000"  # "fg2000"(論文どおり)か "flat"(子00の試運転)
     punish_max: int = 10       # 1人に付けられる罰の上限
-    punish_cost: int = 1       # 罰1点を付ける人が払う量
-    punish_impact: int = 3     # 罰1点で相手が減る量
+    punish_cost: int = 1       # flat のとき: 罰1点を付ける人が払う量
+    punish_impact: int = 3     # flat のとき: 罰1点で相手が減る量
+    matching: str = "partner"  # "partner"(毎回同じ相手)か "stranger"(毎回組み替え)
     shuffle_order: bool = True  # 罰の段で、他の人を並べる順をラウンドごとに混ぜる
 
 
@@ -46,22 +57,48 @@ def apply_punishment(base, points, cfg):
     n = len(base)
     out = []
     for j in range(n):
-        given = sum(points[j][k] for k in range(n) if k != j) * cfg.punish_cost
-        received = sum(points[i][j] for i in range(n) if i != j) * cfg.punish_impact
-        out.append(round(base[j] - given - received, 2))
+        given = [points[j][k] for k in range(n) if k != j]
+        received = sum(points[i][j] for i in range(n) if i != j)
+        if cfg.punish_rule == "fg2000":
+            cost = sum(PUNISH_COST_TABLE[p] for p in given)
+            out.append(round(base[j] * (1 - min(received, 10) / 10) - cost, 2))
+        else:
+            out.append(round(base[j] - sum(given) * cfg.punish_cost - received * cfg.punish_impact, 2))
     return out
 
 
-class Group:
-    def __init__(self, gid, members, llm, prompts, cfg, run, seed):
-        self.gid = gid
+def rules_extra(cfg):
+    """拠出の問いに足す説明。組み方と、罰の段があることを先に知らせる(論文の参加者も知っていた)。"""
+    lines = []
+    if cfg.matching == "partner":
+        lines.append(f"グループの顔ぶれは、{cfg.rounds}回を通して変わりません。")
+    else:
+        lines.append("グループの顔ぶれは、毎回くじで入れ替わります。同じ人とまた組むこともあります。")
+    if cfg.punishment:
+        if cfg.punish_rule == "fg2000":
+            lines.append("毎回、全員が入れたポイントを見たあとで、ほかの人に「減点」を付ける段があります。"
+                         "減点1点につき、付けられた人のその回の稼ぎが10%減ります(10点で0)。"
+                         "減点を付ける人も、点数に応じてポイントを払います。")
+        else:
+            lines.append("毎回、全員が入れたポイントを見たあとで、ほかの人に「減点」を付ける段があります。")
+    return "\n" + "\n".join(lines) + "\n"
+
+
+class Session:
+    """1回の実験(論文では24人)。組み方に従って毎回グループを作り、全員に同時に聞く。"""
+
+    def __init__(self, members, llm, prompts, cfg, run, seed, workers=12):
         self.members = members      # [(persona, persona_text)]
         self.llm = llm
         self.p = prompts            # {"system", "contribute", "punish"} の本文
         self.cfg = cfg
         self.run = run
         self.rng = random.Random(seed)
+        self.workers = workers
         self.history = [[] for _ in members]   # 各人に見せる過去のラウンド
+        n = len(members)
+        assert n % cfg.group_size == 0, "人数がグループの大きさで割り切れない"
+        self.fixed = [list(range(g, g + cfg.group_size)) for g in range(0, n, cfg.group_size)]
 
     def _ask(self, i, prompt, schema, tag):
         system = self.p["system"].format(persona=self.members[i][1])
@@ -74,66 +111,88 @@ class Group:
             return "(まだありません)"
         return "\n".join(self.history[i])
 
+    def _groups(self):
+        if self.cfg.matching == "partner":
+            return self.fixed
+        idx = list(range(len(self.members)))
+        self.rng.shuffle(idx)
+        k = self.cfg.group_size
+        return [idx[g:g + k] for g in range(0, len(idx), k)]
+
+    def _map(self, fn, items):
+        with ThreadPoolExecutor(self.workers) as ex:
+            return list(ex.map(fn, items))
+
     def play_round(self, r):
         cfg = self.cfg
-        n = len(self.members)
-        prompts = [self.p["contribute"].format(
-            n=n, endowment=cfg.endowment, mpcr=cfg.mpcr, rounds=cfg.rounds, round=r,
-            history=self._history_text(i)) for i in range(n)]
-        with ThreadPoolExecutor(n) as ex:
-            outs = list(ex.map(lambda i: self._ask(i, prompts[i], CONTRIBUTE_SCHEMA,
-                                                   f"g{self.gid}r{r}:contribute"), range(n)))
-        contribs = [o["contribution"] for o in outs]
-        base = payoffs(contribs, cfg)
-        points = [[0] * n for _ in range(n)]
-        self.last_orders = None
-        if cfg.punishment:
-            points = self._punish_stage(r, contribs, base)
-        final = apply_punishment(base, points, cfg)
-        self.run.event({"group": self.gid, "round": r, "contribs": contribs,
-                        "base": base, "points": points, "final": final,
-                        "reasons": [o["reason"] for o in outs],
-                        "punish_orders": self.last_orders})
-        for i in range(n):
-            others = ", ".join(str(c) for k, c in enumerate(contribs) if k != i)
-            line = (f"第{r}回: あなたは{contribs[i]}を入れ、ほかの人は {others} を入れた。"
-                    f"あなたの手元は{final[i]:g}になった。")
-            if cfg.punishment:
-                recv = sum(points[k][i] for k in range(n) if k != i)
-                line += f" あなたが受けた罰は{recv}点だった。"
-            self.history[i].append(line)
-        return contribs, final
+        groups = self._groups()
+        where = {i: (g, pos) for g, mem in enumerate(groups) for pos, i in enumerate(mem)}
+        extra = rules_extra(cfg)
 
-    def _punish_stage(self, r, contribs, base):
+        def contribute(i):
+            prompt = self.p["contribute"].format(
+                n=cfg.group_size, endowment=cfg.endowment, mpcr=cfg.mpcr, rounds=cfg.rounds,
+                round=r, history=self._history_text(i), rules_extra=extra)
+            return self._ask(i, prompt, CONTRIBUTE_SCHEMA, f"g{where[i][0]}r{r}:contribute")
+
+        outs = self._map(contribute, range(len(self.members)))
+        contribs = [[outs[i]["contribution"] for i in mem] for mem in groups]
+        bases = [payoffs(c, cfg) for c in contribs]
+        k = cfg.group_size
+        points = [[[0] * k for _ in range(k)] for _ in groups]
+        orders = [None] * len(groups)
+        if cfg.punishment:
+            points, orders = self._punish_stage(r, groups, contribs, bases)
+        for g, mem in enumerate(groups):
+            final = apply_punishment(bases[g], points[g], cfg)
+            self.run.event({"group": g, "round": r, "members": [self.members[i][0]["id"] for i in mem],
+                            "contribs": contribs[g], "base": bases[g], "points": points[g],
+                            "final": final, "reasons": [outs[i]["reason"] for i in mem],
+                            "punish_orders": orders[g]})
+            for pos, i in enumerate(mem):
+                others = ", ".join(str(c) for q, c in enumerate(contribs[g]) if q != pos)
+                line = (f"第{r}回: あなたは{contribs[g][pos]}を入れ、ほかの人は {others} を入れた。"
+                        f"あなたの稼ぎは{final[pos]:g}になった。")
+                if cfg.punishment:
+                    recv = sum(points[g][q][pos] for q in range(k) if q != pos)
+                    line += f" あなたが受けた減点は{recv}点だった。"
+                self.history[i].append(line)
+
+    def _punish_stage(self, r, groups, contribs, bases):
         cfg = self.cfg
-        n = len(self.members)
-        points = [[0] * n for _ in range(n)]
+        k = cfg.group_size
+        points = [[[0] * k for _ in range(k)] for _ in groups]
         # 並び順はスレッドに入る前に決める。seed が同じなら同じ順になるように
         orders = []
-        for i in range(n):
-            others = [k for k in range(n) if k != i]
-            if cfg.shuffle_order:
-                self.rng.shuffle(others)
-            orders.append(others)
-        self.last_orders = orders   # 誰にどのラベル(A・B・C)を見せたか。記録に残す
+        for _ in groups:
+            per = []
+            for pos in range(k):
+                others = [q for q in range(k) if q != pos]
+                if cfg.shuffle_order:
+                    self.rng.shuffle(others)
+                per.append(others)
+            orders.append(per)   # 誰にどのラベル(A・B・C)を見せたか。記録に残す
+        jobs = [(g, pos) for g in range(len(groups)) for pos in range(k)]
 
-        def one(i):
-            others = orders[i]
+        def one(job):
+            g, pos = job
+            others = orders[g][pos]
             labels = [chr(ord("A") + idx) for idx in range(len(others))]
-            table = "\n".join(f"- {lab}: グループの口座に {contribs[k]} ポイント入れた"
-                              for lab, k in zip(labels, others))
+            table = "\n".join(f"- {lab}: グループの口座に {contribs[g][q]} ポイント入れた"
+                              for lab, q in zip(labels, others))
             prompt = self.p["punish"].format(
-                round=r, mine=contribs[i], table=table, max=cfg.punish_max,
-                cost=cfg.punish_cost, impact=cfg.punish_impact, payoff=base[i])
-            out = self._ask(i, prompt, punish_schema(labels, cfg.punish_max),
-                            f"g{self.gid}r{r}:punish")
-            for lab, k in zip(labels, others):
-                points[i][k] = out[lab]
+                round=r, mine=contribs[g][pos], table=table, max=cfg.punish_max,
+                cost=cfg.punish_cost, impact=cfg.punish_impact, payoff=bases[g][pos],
+                cost_table=cost_table_text())
+            out = self._ask(groups[g][pos], prompt, punish_schema(labels, cfg.punish_max),
+                            f"g{g}r{r}:punish")
+            for lab, q in zip(labels, others):
+                points[g][pos][q] = out[lab]
 
-        with ThreadPoolExecutor(n) as ex:
-            list(ex.map(one, range(n)))
-        return points
+        self._map(one, jobs)
+        return points, orders
 
     def play(self):
         for r in range(1, self.cfg.rounds + 1):
             self.play_round(r)
+            print(f"  round {r} done, calls={self.run.calls} cost={self.run.cost:.4f}", flush=True)

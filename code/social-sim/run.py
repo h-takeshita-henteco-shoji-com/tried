@@ -1,7 +1,7 @@
 """社会実験のシミュレーションを動かす入り口。
 
 使い方:
-  python run.py game  --llm dummy:0 --groups 1 --rounds 3 [--punishment] [--variant neutral]
+  python run.py game  --llm dummy:0 --groups 6 --rounds 10 [--punishment] [--matching stranger] [--variant neutral]
   python run.py probe --llm claude:claude-haiku-5-5 --n 12
 出力: runs/<日時>-<名前>/ に manifest.json・calls.jsonl・events.jsonl
 """
@@ -13,7 +13,7 @@ from dataclasses import asdict
 from statistics import mean
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from sim.games.public_goods import Config, Group  # noqa: E402
+from sim.games.public_goods import Config, Session  # noqa: E402
 from sim.llm import backend  # noqa: E402
 from sim.persona import describe, diversity, generate, load_spec  # noqa: E402
 from sim.probes import first_round, punish_order  # noqa: E402
@@ -24,8 +24,8 @@ PROMPTS = os.path.join(HERE, "prompts", "pgg")
 VARIANTS = ["neutral", "paraphrase", "named"]
 
 
-def load_prompts(variant="neutral"):
-    files = {"system": "system.md", "punish": "punish.neutral.md"}
+def load_prompts(variant="neutral", rule="fg2000"):
+    files = {"system": "system.md", "punish": "punish.fg2000.md" if rule == "fg2000" else "punish.neutral.md"}
     files.update({v: f"contribute.{v}.md" for v in VARIANTS})
     paths = {k: os.path.join(PROMPTS, f) for k, f in files.items()}
     texts = {k: open(p, encoding="utf-8").read() for k, p in paths.items()}
@@ -35,28 +35,24 @@ def load_prompts(variant="neutral"):
 
 def cmd_game(a):
     llm = backend(a.llm)
-    cfg = Config(rounds=a.rounds, punishment=a.punishment)
+    cfg = Config(rounds=a.rounds, punishment=a.punishment, matching=a.matching, punish_rule=a.rule)
     spec = load_spec(os.path.join(HERE, "personas", f"{a.personas}.json"))
     people = generate(spec, cfg.group_size * a.groups, a.seed)
-    prompts, paths = load_prompts(a.variant)
+    prompts, paths = load_prompts(a.variant, a.rule)
     used = [paths["system"], paths[a.variant]] + ([paths["punish"]] if a.punishment else [])
     config = {"game": asdict(cfg), "groups": a.groups, "seed": a.seed,
               "personas": a.personas, "variant": a.variant}
-    run = Run(a.out, f"game-{'p' if a.punishment else 'n'}", config, llm, used)
+    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}"
+    run = Run(a.out, name, config, llm, used)
     run.manifest["people"] = people
     run.manifest["diversity"] = diversity(people, spec)
-    groups = []
-    for g in range(a.groups):
-        mem = [(p, describe(p, spec)) for p in people[g * cfg.group_size:(g + 1) * cfg.group_size]]
-        grp = Group(g, mem, llm, prompts, cfg, run, seed=f"{a.seed}-{g}")
-        grp.play()
-        groups.append(grp)
-    rows = [json.loads(line) for line in open(os.path.join(run.dir, "events.jsonl"))]
+    mem = [(p, describe(p, spec)) for p in people]
+    Session(mem, llm, prompts, cfg, run, seed=a.seed, workers=a.workers).play()
+    rows = [json.loads(line) for line in open(os.path.join(run.dir, "events.jsonl"), encoding="utf-8")]
     by_round = {}
     for row in rows:
         by_round.setdefault(row["round"], []).extend(row["contribs"])
-    summary = {"mean_share_by_round": {r: round(mean(v) / cfg.endowment, 3)
-                                       for r, v in sorted(by_round.items())}}
+    summary = {"mean_by_round": {r: round(mean(v), 2) for r, v in sorted(by_round.items())}}
     run.finish(summary)
     print(run.dir)
     print(json.dumps(summary, ensure_ascii=False))
@@ -100,6 +96,9 @@ if __name__ == "__main__":
     g.add_argument("--punishment", action="store_true")
     g.add_argument("--variant", default="neutral", choices=VARIANTS)
     g.add_argument("--personas", default="students")
+    g.add_argument("--matching", default="partner", choices=["partner", "stranger"])
+    g.add_argument("--rule", default="fg2000", choices=["fg2000", "flat"])
+    g.add_argument("--workers", type=int, default=12)
     sub.choices["probe"].add_argument("--n", type=int, default=12)
     a = ap.parse_args()
     {"game": cmd_game, "probe": cmd_probe}[a.cmd](a)

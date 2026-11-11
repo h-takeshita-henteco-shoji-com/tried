@@ -11,7 +11,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from statistics import mean
 
-from .games.public_goods import CONTRIBUTE_SCHEMA, punish_schema
+from .games.public_goods import cost_table_text, CONTRIBUTE_SCHEMA, punish_schema
 from .persona import describe, entropy
 
 TEXTBOOK = re.compile(r"公共財|フリーライ|ただ乗り|囚人のジレンマ|Fehr|ゲーム理論|ナッシュ|社会的ジレンマ")
@@ -22,7 +22,8 @@ def first_round(llm, run, people, spec, prompts, variant, cfg, workers=8):
     def one(p):
         system = prompts["system"].format(persona=describe(p, spec))
         prompt = prompts[variant].format(n=cfg.group_size, endowment=cfg.endowment, mpcr=cfg.mpcr,
-                                         rounds=cfg.rounds, round=1, history="(まだありません)")
+                                         rounds=cfg.rounds, round=1, history="(まだありません)",
+                                         rules_extra="")
         reply = llm.ask(system, prompt, CONTRIBUTE_SCHEMA)
         run.call(p["id"], system, prompt, reply, tag=f"first:{variant}")
         return reply
@@ -56,7 +57,7 @@ def punish_order(llm, run, people, spec, prompts, cfg, mine=15, others=(20, 10, 
         table = "\n".join(f"- {lab}: グループの口座に {c} ポイント入れた" for lab, c in zip(labels, order))
         prompt = prompts["punish"].format(round=1, mine=mine, table=table, max=cfg.punish_max,
                                           cost=cfg.punish_cost, impact=cfg.punish_impact,
-                                          payoff=base)
+                                          payoff=base, cost_table=cost_table_text())
 
         def one(p, prompt=prompt):
             system = prompts["system"].format(persona=describe(p, spec))

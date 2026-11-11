@@ -9,8 +9,12 @@
 お金をかけずに配線を確かめるときは、でたらめに答える `dummy` を使います。
 
 ```bash
-# 公共財ゲームを1組・3回、罰ありで回す
-python run.py game --llm dummy:0 --groups 1 --rounds 3 --punishment
+# 公共財ゲームを24人(6組)・10回、罰ありで回す。組み方は partner か stranger
+python run.py game --llm dummy:0 --groups 6 --rounds 10 --punishment --matching partner
+
+# 論文(reference/fg2000.json)と物差しごとに比べ、図にする
+python compare.py runs/<日時>-game-partner-n runs/<日時>-game-partner-p --out runs/compare.json
+uv run --with matplotlib python plot_compare.py runs/compare.json out.png
 
 # くせを測る(1回目の拠出を条件を変えて聞く、罰の並び順を変える)
 python run.py probe --llm claude:claude-haiku-5-5 --n 12
@@ -45,7 +49,7 @@ AIは `claude -p` で呼びます。API キーは要りませんが、Claude Cod
 
 ## まだ決めていないこと
 
-- 罰の費用と効き目、手元がマイナスになるのを許すか。元論文の値は #169 で確かめる
+- 罰の費用と効き目は、#169 で論文に合わせた(`--rule fg2000` が既定。子00の試運転は `--rule flat`)
 - `personas/students.json` の割合は仮置き。統計に基づく分布は、糸島に置き換える段で作る
 
 ## 再生画面(Godot)
