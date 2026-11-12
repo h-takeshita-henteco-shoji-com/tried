@@ -1,0 +1,285 @@
+{
+ "reference": "reference/fg2000.json",
+ "runs": {
+  "partner/no_punish": "runs/20261111-150726-game-partner-n-dist",
+  "partner/punish": "runs/20261111-150726-game-partner-p-dist",
+  "stranger/no_punish": "runs/20261111-150726-game-stranger-n-dist",
+  "stranger/punish": "runs/20261111-150726-game-stranger-p-dist"
+ },
+ "ai": {
+  "partner/no_punish": {
+   "n_people": 24,
+   "by_round": [
+    8.92,
+    8.12,
+    7.21,
+    7.38,
+    7.79,
+    6.79,
+    7.21,
+    5.04,
+    5.54,
+    3.04
+   ],
+   "first_mean": 8.92,
+   "first_share": 0.446,
+   "first_sd": 4.9,
+   "first_zero": 0.042,
+   "first_full": 0.083,
+   "mean_all": 6.7,
+   "sd_all": 4.72,
+   "mean_final": 3.04,
+   "final_zero": 0.5,
+   "final_full": 0.0,
+   "final_over_first": 0.34,
+   "cost_usd": 0.23674,
+   "calls": 240
+  },
+  "partner/punish": {
+   "n_people": 24,
+   "by_round": [
+    9.17,
+    9.29,
+    9.25,
+    10.04,
+    10.08,
+    10,
+    11.25,
+    10.42,
+    11.33,
+    9.79
+   ],
+   "first_mean": 9.17,
+   "first_share": 0.458,
+   "first_sd": 4.8,
+   "first_zero": 0.042,
+   "first_full": 0.083,
+   "mean_all": 10.06,
+   "sd_all": 3.79,
+   "mean_final": 9.79,
+   "final_zero": 0.0,
+   "final_full": 0.0,
+   "final_over_first": 1.07,
+   "cost_usd": 0.456709,
+   "calls": 480,
+   "punish_by_deviation": {
+    "[-20,-14)": {
+     "mean": 6,
+     "n": 1
+    },
+    "[-14,-8)": {
+     "mean": 3.83,
+     "n": 6
+    },
+    "[-8,-2)": {
+     "mean": 1.92,
+     "n": 50
+    },
+    "[-2,2]": {
+     "mean": 0.86,
+     "n": 122
+    },
+    "(2,8]": {
+     "mean": 0.89,
+     "n": 56
+    },
+    "(8,14]": {
+     "mean": 0,
+     "n": 5
+    },
+    "(14,20]": {
+     "mean": null,
+     "n": 0
+    }
+   },
+   "punish_any_share": 0.463
+  },
+  "stranger/no_punish": {
+   "n_people": 24,
+   "by_round": [
+    7.83,
+    7.04,
+    6.71,
+    6.92,
+    7.29,
+    6.71,
+    7.04,
+    4.79,
+    6.5,
+    2.58
+   ],
+   "first_mean": 7.83,
+   "first_share": 0.392,
+   "first_sd": 6.18,
+   "first_zero": 0.208,
+   "first_full": 0.083,
+   "mean_all": 6.34,
+   "sd_all": 4.87,
+   "mean_final": 2.58,
+   "final_zero": 0.542,
+   "final_full": 0.0,
+   "final_over_first": 0.33,
+   "cost_usd": 0.236125,
+   "calls": 240
+  },
+  "stranger/punish": {
+   "n_people": 24,
+   "by_round": [
+    8.54,
+    9.12,
+    9.33,
+    9.71,
+    9.67,
+    9.12,
+    11,
+    8.83,
+    10.38,
+    8.92
+   ],
+   "first_mean": 8.54,
+   "first_share": 0.427,
+   "first_sd": 5.27,
+   "first_zero": 0.042,
+   "first_full": 0.083,
+   "mean_all": 9.46,
+   "sd_all": 4.0,
+   "mean_final": 8.92,
+   "final_zero": 0.042,
+   "final_full": 0.0,
+   "final_over_first": 1.04,
+   "cost_usd": 0.456412,
+   "calls": 480,
+   "punish_by_deviation": {
+    "[-20,-14)": {
+     "mean": null,
+     "n": 0
+    },
+    "[-14,-8)": {
+     "mean": 4.18,
+     "n": 11
+    },
+    "[-8,-2)": {
+     "mean": 2.08,
+     "n": 59
+    },
+    "[-2,2]": {
+     "mean": 0.78,
+     "n": 98
+    },
+    "(2,8]": {
+     "mean": 0.62,
+     "n": 64
+    },
+    "(8,14]": {
+     "mean": 0.43,
+     "n": 7
+    },
+    "(14,20]": {
+     "mean": 0,
+     "n": 1
+    }
+   },
+   "punish_any_share": 0.5
+  }
+ },
+ "human": {
+  "partner/no_punish": {
+   "by_round": [
+    8.9,
+    11.1,
+    10.5,
+    8.0,
+    7.6,
+    7.8,
+    8.3,
+    6.5,
+    4.2,
+    3.0
+   ],
+   "mean_all": 7.5,
+   "sd_all": 6.8,
+   "mean_final": 3.2
+  },
+  "partner/punish": {
+   "by_round": [
+    11.6,
+    13.9,
+    15.2,
+    16.9,
+    17.5,
+    17.7,
+    15.4,
+    16.9,
+    18.2,
+    18.2
+   ],
+   "mean_all": 17.0,
+   "sd_all": 4.5,
+   "mean_final": 18.2
+  },
+  "stranger/no_punish": {
+   "by_round": [
+    6.6,
+    4.8,
+    6.6,
+    5.6,
+    5.1,
+    4.0,
+    4.6,
+    2.8,
+    3.3,
+    1.9
+   ],
+   "mean_all": 3.7,
+   "sd_all": 5.7,
+   "mean_final": 1.9
+  },
+  "stranger/punish": {
+   "by_round": [
+    11.0,
+    12.5,
+    12.2,
+    12.4,
+    11.7,
+    12.4,
+    12.0,
+    11.5,
+    12.1,
+    12.1
+   ],
+   "mean_all": 11.5,
+   "sd_all": 5.9,
+   "mean_final": 12.3
+  }
+ },
+ "human_punish_by_deviation": {
+  "note": "図5から読んだ近似値。他の3人の平均との差ごとに、受けた罰の点数の平均",
+  "bins": [
+   "[-20,-14)",
+   "[-14,-8)",
+   "[-8,-2)",
+   "[-2,2]",
+   "(2,8]",
+   "(8,14]",
+   "(14,20]"
+  ],
+  "partner": [
+   6.8,
+   5.3,
+   3.4,
+   0.6,
+   0.95,
+   0.6,
+   null
+  ],
+  "stranger": [
+   5.1,
+   4.9,
+   2.85,
+   1.25,
+   0.9,
+   0.4,
+   0.25
+  ]
+ }
+}

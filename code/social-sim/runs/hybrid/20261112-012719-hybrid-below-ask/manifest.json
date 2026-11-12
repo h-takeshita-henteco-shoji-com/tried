@@ -1,0 +1,3637 @@
+{
+  "name": "hybrid-below-ask",
+  "started": "20261112-012719",
+  "llm": "claude:claude-haiku-5-5",
+  "llm_version": "2.1.318 (Claude Code)",
+  "git": "c595946",
+  "prompts": {
+    "prompts/pgg/system.md": "70e76cf2e0db"
+  },
+  "config": {
+    "persona_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "personas": "students",
+    "prompt": "これから、4人のグループで次の実験を10回くり返します。グループの顔ぶれは変わりません。\n\n毎回、あなたは20ポイントを受け取ります。\nそのうち何ポイントを「グループの口座」に入れるかを、0から20の整数で決めます。\n入れなかった分は、そのままあなたの手元に残ります。\nグループの口座に集まった合計は、1ポイントにつき0.4ポイントずつ、全員にそれぞれ配られます。\n入れたかどうかに関係なく、全員が同じだけ受け取ります。\n毎回の結果のあとで、ほかの人がそれぞれ何ポイント入れたかが分かります。\nポイントは、実験の後でお金に換えて支払われます。\n\n実験の進め方を決めるため、前もって次の3つを答えてください。\n\n1. 実験が始まる前の予想: ほかの人は、1回目に平均で何ポイント入れると思いますか(expect)\n2. 前の回に、ほかの3人が入れたポイントの平均が次の値だったとき、あなたは次の回に何ポイント入れますか\n   - 平均0のとき(next0)、平均5のとき(next5)、平均10のとき(next10)、平均15のとき(next15)、平均20のとき(next20)\n3. この実験に、ほかの人に「減点」を付ける段があったとします。減点1点につき、付けられた人のその回の稼ぎが10%減ります。\n   前の回に、あなたは4ポイント、ほかの人は平均10ポイントを入れました。そのあと、あなたは合わせて次の点数の減点を受けました。あなたは次の回に何ポイント入れますか\n   - 減点を受けなかったとき(punished0)、3点受けたとき(punished3)、6点受けたとき(punished6)\n"
+  },
+  "summary": {
+    "params": {
+      "1": [
+        {
+          "id": "p000",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p001",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p002",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            11,
+            15,
+            18
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 11,
+            "next15": 15,
+            "next20": 18,
+            "punished0": 11,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p003",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.333,
+          "raw": {
+            "expect": 8,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 4,
+            "punished3": 3,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p004",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 10,
+            "punished6": 12
+          }
+        },
+        {
+          "id": "p005",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 9,
+            "punished6": 11
+          }
+        },
+        {
+          "id": "p006",
+          "belief0": 7,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 7,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p007",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p008",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p009",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p010",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            13,
+            17
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 17,
+            "punished0": 8,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p011",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.833,
+          "raw": {
+            "expect": 8,
+            "next0": 1,
+            "next5": 5,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 3,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p012",
+          "belief0": 9,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            17
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 9,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 10,
+            "punished3": 9,
+            "punished6": 7
+          }
+        },
+        {
+          "id": "p013",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 9,
+            "punished6": 11
+          }
+        },
+        {
+          "id": "p014",
+          "belief0": 6,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            10,
+            12
+          ],
+          "deter": -1.167,
+          "raw": {
+            "expect": 6,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 10,
+            "next20": 12,
+            "punished0": 7,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p015",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            17
+          ],
+          "deter": -1.25,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 8,
+            "punished3": 4,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p016",
+          "belief0": 9,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.75,
+          "raw": {
+            "expect": 9,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 5,
+            "punished3": 7,
+            "punished6": 10
+          }
+        },
+        {
+          "id": "p017",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p018",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p019",
+          "belief0": 6,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            4,
+            8,
+            12,
+            15
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 6,
+            "next0": 1,
+            "next5": 4,
+            "next10": 8,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p020",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            17
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p021",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 5,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p022",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p023",
+          "belief0": 7,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 7,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 1
+          }
+        }
+      ],
+      "2": [
+        {
+          "id": "p000",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p001",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p002",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p003",
+          "belief0": 7,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            12,
+            14
+          ],
+          "deter": -0.833,
+          "raw": {
+            "expect": 7,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 14,
+            "punished0": 6,
+            "punished3": 3,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p004",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p005",
+          "belief0": 7,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            10,
+            12
+          ],
+          "deter": -0.583,
+          "raw": {
+            "expect": 7,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 10,
+            "next20": 12,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p006",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            4,
+            8,
+            12,
+            16
+          ],
+          "deter": -0.833,
+          "raw": {
+            "expect": 8,
+            "next0": 1,
+            "next5": 4,
+            "next10": 8,
+            "next15": 12,
+            "next20": 16,
+            "punished0": 6,
+            "punished3": 3,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p007",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            17
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 6
+          }
+        },
+        {
+          "id": "p008",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            4,
+            8,
+            12,
+            16
+          ],
+          "deter": 0.167,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 4,
+            "next10": 8,
+            "next15": 12,
+            "next20": 16,
+            "punished0": 5,
+            "punished3": 7,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p009",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.333,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 10,
+            "punished6": 11
+          }
+        },
+        {
+          "id": "p010",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            13,
+            17
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 17,
+            "punished0": 8,
+            "punished3": 11,
+            "punished6": 13
+          }
+        },
+        {
+          "id": "p011",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p012",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            9,
+            12,
+            15
+          ],
+          "deter": 0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 7,
+            "punished3": 9,
+            "punished6": 11
+          }
+        },
+        {
+          "id": "p013",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p014",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p015",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            11,
+            15,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 11,
+            "next15": 15,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 6
+          }
+        },
+        {
+          "id": "p016",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            11,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 11,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p017",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            11,
+            15,
+            19
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 11,
+            "next15": 15,
+            "next20": 19,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p018",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            10,
+            14,
+            17
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 5,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p019",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p020",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p021",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p022",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p023",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 10,
+            "punished6": 12
+          }
+        }
+      ],
+      "3": [
+        {
+          "id": "p000",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p001",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 6,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p002",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p003",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p004",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p005",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 6
+          }
+        },
+        {
+          "id": "p006",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p007",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            4,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 4,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p008",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            7,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 6
+          }
+        },
+        {
+          "id": "p009",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p010",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p011",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p012",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 10,
+            "punished6": 12
+          }
+        },
+        {
+          "id": "p013",
+          "belief0": 5,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            10,
+            12
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 5,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 10,
+            "next20": 12,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p014",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p015",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            11,
+            14
+          ],
+          "deter": 0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 11,
+            "next20": 14,
+            "punished0": 6,
+            "punished3": 8,
+            "punished6": 10
+          }
+        },
+        {
+          "id": "p016",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.583,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p017",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            11,
+            14
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 11,
+            "next20": 14,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p018",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            9,
+            12,
+            15
+          ],
+          "deter": -1.25,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 10,
+            "punished3": 6,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p019",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            4,
+            8,
+            12,
+            15
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 1,
+            "next5": 4,
+            "next10": 8,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p020",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            8,
+            12,
+            15,
+            18
+          ],
+          "deter": -1.25,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 8,
+            "next10": 12,
+            "next15": 15,
+            "next20": 18,
+            "punished0": 14,
+            "punished3": 10,
+            "punished6": 7
+          }
+        },
+        {
+          "id": "p021",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 11,
+            "punished6": 7
+          }
+        },
+        {
+          "id": "p022",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 7,
+            "punished3": 10,
+            "punished6": 12
+          }
+        },
+        {
+          "id": "p023",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 3
+          }
+        }
+      ],
+      "4": [
+        {
+          "id": "p000",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            11,
+            14
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 11,
+            "next20": 14,
+            "punished0": 7,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p001",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            13,
+            17
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 17,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p002",
+          "belief0": 7,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            0,
+            2,
+            5,
+            8,
+            10
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 7,
+            "next0": 0,
+            "next5": 2,
+            "next10": 5,
+            "next15": 8,
+            "next20": 10,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p003",
+          "belief0": 6,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 6,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p004",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p005",
+          "belief0": 9,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 9,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p006",
+          "belief0": 9,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 9,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 7,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p007",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p008",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 5,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p009",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 9,
+            "punished6": 11
+          }
+        },
+        {
+          "id": "p010",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p011",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            9,
+            13,
+            16
+          ],
+          "deter": -1.25,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 5,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p012",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p013",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p014",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 11,
+            "punished6": 13
+          }
+        },
+        {
+          "id": "p015",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -1.167,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 9,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p016",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.583,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p017",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            7,
+            10,
+            14,
+            18
+          ],
+          "deter": -1.167,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p018",
+          "belief0": 7,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            8,
+            12,
+            15
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 7,
+            "next0": 2,
+            "next5": 5,
+            "next10": 8,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p019",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 5,
+            "punished3": 7,
+            "punished6": 9
+          }
+        },
+        {
+          "id": "p020",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p021",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 8,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 9,
+            "punished3": 6,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p022",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 6,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p023",
+          "belief0": 6,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            4,
+            8,
+            11,
+            14
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 6,
+            "next0": 1,
+            "next5": 4,
+            "next10": 8,
+            "next15": 11,
+            "next20": 14,
+            "punished0": 5,
+            "punished3": 3,
+            "punished6": 1
+          }
+        }
+      ],
+      "5": [
+        {
+          "id": "p000",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 6,
+            "punished3": 9,
+            "punished6": 12
+          }
+        },
+        {
+          "id": "p001",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            17
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p002",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            1,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 1,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 7,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p003",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            17
+          ],
+          "deter": 0.833,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 6,
+            "punished3": 9,
+            "punished6": 10
+          }
+        },
+        {
+          "id": "p004",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            17
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p005",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            5,
+            8,
+            10,
+            14,
+            17
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 5,
+            "next5": 8,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p006",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            12,
+            15
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 12,
+            "next20": 15,
+            "punished0": 6,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p007",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 11,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p008",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 5,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p009",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            14,
+            17
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 14,
+            "next20": 17,
+            "punished0": 9,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p010",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 5,
+            "punished6": 3
+          }
+        },
+        {
+          "id": "p011",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.417,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 5,
+            "punished3": 4,
+            "punished6": 2
+          }
+        },
+        {
+          "id": "p012",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p013",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 9,
+            "punished3": 12,
+            "punished6": 14
+          }
+        },
+        {
+          "id": "p014",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            5,
+            9,
+            13,
+            16
+          ],
+          "deter": 1.0,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 5,
+            "next10": 9,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 6,
+            "punished3": 9,
+            "punished6": 12
+          }
+        },
+        {
+          "id": "p015",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 6
+          }
+        },
+        {
+          "id": "p016",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p017",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 8,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 10,
+            "punished3": 7,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p018",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            16
+          ],
+          "deter": 0.917,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 11,
+            "punished6": 13
+          }
+        },
+        {
+          "id": "p019",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p020",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            13,
+            16
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 13,
+            "next20": 16,
+            "punished0": 8,
+            "punished3": 6,
+            "punished6": 4
+          }
+        },
+        {
+          "id": "p021",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            6,
+            10,
+            14,
+            18
+          ],
+          "deter": -0.75,
+          "raw": {
+            "expect": 10,
+            "next0": 2,
+            "next5": 6,
+            "next10": 10,
+            "next15": 14,
+            "next20": 18,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 5
+          }
+        },
+        {
+          "id": "p022",
+          "belief0": 8,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            2,
+            4,
+            8,
+            12,
+            16
+          ],
+          "deter": -0.917,
+          "raw": {
+            "expect": 8,
+            "next0": 2,
+            "next5": 4,
+            "next10": 8,
+            "next15": 12,
+            "next20": 16,
+            "punished0": 6,
+            "punished3": 3,
+            "punished6": 1
+          }
+        },
+        {
+          "id": "p023",
+          "belief0": 10,
+          "xs": [
+            0,
+            5,
+            10,
+            15,
+            20
+          ],
+          "table": [
+            3,
+            7,
+            10,
+            13,
+            15
+          ],
+          "deter": -0.667,
+          "raw": {
+            "expect": 10,
+            "next0": 3,
+            "next5": 7,
+            "next10": 10,
+            "next15": 13,
+            "next20": 15,
+            "punished0": 10,
+            "punished3": 8,
+            "punished6": 6
+          }
+        }
+      ]
+    }
+  },
+  "calls": 120,
+  "cost_usd": 0.090241
+}

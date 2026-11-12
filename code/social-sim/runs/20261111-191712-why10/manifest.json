@@ -1,0 +1,278 @@
+{
+  "name": "why10",
+  "started": "20261111-191712",
+  "llm": "claude:claude-opus-5-5",
+  "llm_version": "2.1.318 (Claude Code)",
+  "git": "f83dda8",
+  "prompts": {
+    "prompts/pgg/system.md": "70e76cf2e0db",
+    "prompts/pgg/contribute.neutral.md": "a6d991be786d"
+  },
+  "config": {
+    "conds": {
+      "base": [
+        20,
+        0.4,
+        "",
+        false
+      ],
+      "e30": [
+        30,
+        0.4,
+        "",
+        false
+      ],
+      "e10": [
+        10,
+        0.4,
+        "",
+        false
+      ],
+      "m0.3": [
+        20,
+        0.3,
+        "",
+        false
+      ],
+      "m0.7": [
+        20,
+        0.7,
+        "",
+        false
+      ],
+      "m0.9": [
+        20,
+        0.9,
+        "",
+        false
+      ],
+      "info4": [
+        20,
+        0.4,
+        "参考までに、以前この実験に参加した人たちは、1回目に平均4ポイントを入れました。\n",
+        false
+      ],
+      "info16": [
+        20,
+        0.4,
+        "参考までに、以前この実験に参加した人たちは、1回目に平均16ポイントを入れました。\n",
+        false
+      ],
+      "private": [
+        20,
+        0.4,
+        "誰が何ポイント入れたかは、ほかの参加者にも実験者にも分かりません。記録されるのはグループの合計だけです。\n",
+        false
+      ],
+      "calc": [
+        20,
+        0.4,
+        "",
+        true
+      ]
+    },
+    "n": 24,
+    "seed": 1,
+    "personas": "students",
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 10,
+      "punishment": false,
+      "punish_rule": "fg2000",
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "matching": "partner",
+      "shuffle_order": true,
+      "memory_reasons": false,
+      "sample_dist": false,
+      "belief_state": false
+    }
+  },
+  "summary": {
+    "base": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 10.29,
+      "share": 0.515,
+      "sd": 2.67,
+      "half_share": 0.542,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 1,
+        "6": 2,
+        "8": 2,
+        "10": 13,
+        "12": 2,
+        "15": 4
+      }
+    },
+    "e30": {
+      "endowment": 30,
+      "mpcr": 0.4,
+      "mean": 14.83,
+      "share": 0.494,
+      "sd": 3.24,
+      "half_share": 0.5,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "10": 4,
+        "12": 3,
+        "15": 12,
+        "20": 5
+      }
+    },
+    "e10": {
+      "endowment": 10,
+      "mpcr": 0.4,
+      "mean": 5.5,
+      "share": 0.55,
+      "sd": 1.26,
+      "half_share": 0.458,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "3": 2,
+        "4": 1,
+        "5": 11,
+        "6": 5,
+        "7": 3,
+        "8": 2
+      }
+    },
+    "m0.3": {
+      "endowment": 20,
+      "mpcr": 0.3,
+      "mean": 9.71,
+      "share": 0.485,
+      "sd": 2.49,
+      "half_share": 0.458,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 2,
+        "6": 1,
+        "8": 5,
+        "10": 11,
+        "12": 2,
+        "14": 2,
+        "15": 1
+      }
+    },
+    "m0.7": {
+      "endowment": 20,
+      "mpcr": 0.7,
+      "mean": 11.21,
+      "share": 0.56,
+      "sd": 2.66,
+      "half_share": 0.333,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "6": 3,
+        "10": 8,
+        "12": 8,
+        "15": 5
+      }
+    },
+    "m0.9": {
+      "endowment": 20,
+      "mpcr": 0.9,
+      "mean": 13.04,
+      "share": 0.652,
+      "sd": 2.91,
+      "half_share": 0.125,
+      "zero": 0,
+      "full": 1,
+      "counts": {
+        "8": 3,
+        "10": 3,
+        "12": 5,
+        "14": 2,
+        "15": 9,
+        "16": 1,
+        "20": 1
+      }
+    },
+    "info4": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 8.12,
+      "share": 0.406,
+      "sd": 2.55,
+      "half_share": 0.125,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "4": 2,
+        "5": 1,
+        "6": 6,
+        "8": 7,
+        "10": 3,
+        "12": 5
+      }
+    },
+    "info16": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 12.96,
+      "share": 0.648,
+      "sd": 2.59,
+      "half_share": 0.125,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "8": 3,
+        "10": 3,
+        "12": 4,
+        "14": 2,
+        "15": 11,
+        "16": 1
+      }
+    },
+    "private": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 10.17,
+      "share": 0.508,
+      "sd": 2.25,
+      "half_share": 0.542,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "5": 1,
+        "6": 2,
+        "8": 1,
+        "10": 13,
+        "12": 5,
+        "14": 1,
+        "15": 1
+      }
+    },
+    "calc": {
+      "endowment": 20,
+      "mpcr": 0.4,
+      "mean": 9.83,
+      "share": 0.492,
+      "sd": 2.59,
+      "half_share": 0.542,
+      "zero": 0,
+      "full": 0,
+      "counts": {
+        "4": 2,
+        "5": 1,
+        "8": 2,
+        "10": 13,
+        "12": 4,
+        "14": 1,
+        "15": 1
+      }
+    }
+  },
+  "calls": 240,
+  "cost_usd": 3.549454
+}

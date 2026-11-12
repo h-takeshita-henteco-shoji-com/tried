@@ -1,0 +1,189 @@
+{
+  "name": "hybrid-below-s403-game-partner-p",
+  "started": "20261112-012950",
+  "llm": "rule:fg2010",
+  "llm_version": "rule_model.py",
+  "git": "c595946",
+  "prompts": {},
+  "config": {
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 10,
+      "punishment": true,
+      "punish_rule": "fg2000",
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "matching": "partner",
+      "shuffle_order": true,
+      "memory_reasons": false,
+      "sample_dist": false,
+      "belief_state": false
+    },
+    "groups": 6,
+    "seed": 403,
+    "personas": "hybrid-below",
+    "variant": "hybrid-below",
+    "params": {
+      "belief_first_mean": 10,
+      "belief_first_sd": 4,
+      "belief_keep": 0.4,
+      "cc_slope": 0.9,
+      "noise_sd": 2.0,
+      "punish_rate": 0.2,
+      "punish_deadzone": 1.0,
+      "deter": 1.0
+    }
+  },
+  "people": [
+    {
+      "id": "p000",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p001",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.667
+    },
+    {
+      "id": "p002",
+      "kind": "llm",
+      "belief0": 7.0,
+      "deter": -0.667
+    },
+    {
+      "id": "p003",
+      "kind": "llm",
+      "belief0": 6.0,
+      "deter": -1.0
+    },
+    {
+      "id": "p004",
+      "kind": "llm",
+      "belief0": 8.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p005",
+      "kind": "llm",
+      "belief0": 9.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p006",
+      "kind": "llm",
+      "belief0": 9.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p007",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.667
+    },
+    {
+      "id": "p008",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.417
+    },
+    {
+      "id": "p009",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": 0.917
+    },
+    {
+      "id": "p010",
+      "kind": "llm",
+      "belief0": 8.0,
+      "deter": -1.0
+    },
+    {
+      "id": "p011",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -1.25
+    },
+    {
+      "id": "p012",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p013",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p014",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": 0.417
+    },
+    {
+      "id": "p015",
+      "kind": "llm",
+      "belief0": 8.0,
+      "deter": -1.167
+    },
+    {
+      "id": "p016",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.583
+    },
+    {
+      "id": "p017",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -1.167
+    },
+    {
+      "id": "p018",
+      "kind": "llm",
+      "belief0": 7.0,
+      "deter": -0.75
+    },
+    {
+      "id": "p019",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": 0.667
+    },
+    {
+      "id": "p020",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.75
+    },
+    {
+      "id": "p021",
+      "kind": "llm",
+      "belief0": 8.0,
+      "deter": -1.0
+    },
+    {
+      "id": "p022",
+      "kind": "llm",
+      "belief0": 10.0,
+      "deter": -0.917
+    },
+    {
+      "id": "p023",
+      "kind": "llm",
+      "belief0": 6.0,
+      "deter": -0.667
+    }
+  ],
+  "summary": {},
+  "calls": 0,
+  "cost_usd": 0.0
+}

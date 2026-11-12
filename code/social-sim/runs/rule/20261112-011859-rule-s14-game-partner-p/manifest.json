@@ -1,0 +1,165 @@
+{
+  "name": "rule-s14-game-partner-p",
+  "started": "20261112-011859",
+  "llm": "rule:fg2010",
+  "llm_version": "rule_model.py",
+  "git": "c595946",
+  "prompts": {},
+  "config": {
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 10,
+      "punishment": true,
+      "punish_rule": "fg2000",
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "matching": "partner",
+      "shuffle_order": true,
+      "memory_reasons": false,
+      "sample_dist": false,
+      "belief_state": false
+    },
+    "groups": 6,
+    "seed": 14,
+    "personas": "rule",
+    "variant": "rule",
+    "params": {
+      "belief_first_mean": 10,
+      "belief_first_sd": 4,
+      "belief_keep": 0.4,
+      "cc_slope": 0.9,
+      "noise_sd": 2.0,
+      "punish_rate": 0.2,
+      "punish_deadzone": 1.0,
+      "deter": 1.0
+    }
+  },
+  "people": [
+    {
+      "id": "r00",
+      "kind": "cc",
+      "belief0": 10.2
+    },
+    {
+      "id": "r01",
+      "kind": "fr",
+      "belief0": 8.51
+    },
+    {
+      "id": "r02",
+      "kind": "cc",
+      "belief0": 13.46
+    },
+    {
+      "id": "r03",
+      "kind": "fr",
+      "belief0": 5.12
+    },
+    {
+      "id": "r04",
+      "kind": "cc",
+      "belief0": 16.35
+    },
+    {
+      "id": "r05",
+      "kind": "cc",
+      "belief0": 11.95
+    },
+    {
+      "id": "r06",
+      "kind": "fr",
+      "belief0": 10.99
+    },
+    {
+      "id": "r07",
+      "kind": "cc",
+      "belief0": 9.34
+    },
+    {
+      "id": "r08",
+      "kind": "fr",
+      "belief0": 14.84
+    },
+    {
+      "id": "r09",
+      "kind": "cc",
+      "belief0": 1.61
+    },
+    {
+      "id": "r10",
+      "kind": "other",
+      "belief0": 7.31
+    },
+    {
+      "id": "r11",
+      "kind": "fr",
+      "belief0": 9.53
+    },
+    {
+      "id": "r12",
+      "kind": "hump",
+      "belief0": 20
+    },
+    {
+      "id": "r13",
+      "kind": "cc",
+      "belief0": 13.83
+    },
+    {
+      "id": "r14",
+      "kind": "cc",
+      "belief0": 8.49
+    },
+    {
+      "id": "r15",
+      "kind": "hump",
+      "belief0": 10.37
+    },
+    {
+      "id": "r16",
+      "kind": "cc",
+      "belief0": 9.42
+    },
+    {
+      "id": "r17",
+      "kind": "fr",
+      "belief0": 14.86
+    },
+    {
+      "id": "r18",
+      "kind": "cc",
+      "belief0": 7.41
+    },
+    {
+      "id": "r19",
+      "kind": "fr",
+      "belief0": 17.03
+    },
+    {
+      "id": "r20",
+      "kind": "cc",
+      "belief0": 9.99
+    },
+    {
+      "id": "r21",
+      "kind": "hump",
+      "belief0": 5.97
+    },
+    {
+      "id": "r22",
+      "kind": "cc",
+      "belief0": 11.13
+    },
+    {
+      "id": "r23",
+      "kind": "cc",
+      "belief0": 5.94
+    }
+  ],
+  "summary": {},
+  "calls": 0,
+  "cost_usd": 0.0
+}

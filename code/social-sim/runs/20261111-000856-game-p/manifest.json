@@ -1,0 +1,169 @@
+{
+  "name": "game-p",
+  "started": "20261111-000856",
+  "llm": "claude:claude-haiku-5-5",
+  "llm_version": "2.1.318 (Claude Code)",
+  "git": "8a7da03+dirty",
+  "prompts": {
+    "prompts/pgg/system.md": "70e76cf2e0db",
+    "prompts/pgg/contribute.neutral.md": "d920c39bca56",
+    "prompts/pgg/punish.neutral.md": "bcdc5c81a08e"
+  },
+  "config": {
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 3,
+      "punishment": true,
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "shuffle_order": true
+    },
+    "groups": 1,
+    "seed": 1,
+    "personas": "students",
+    "variant": "neutral"
+  },
+  "people": [
+    {
+      "id": "p000",
+      "age": 21,
+      "gender": "女性",
+      "major": "自然科学",
+      "year": 1,
+      "job": "アルバイトはしていない",
+      "trait": "負けず嫌い"
+    },
+    {
+      "id": "p001",
+      "age": 26,
+      "gender": "男性",
+      "major": "工学",
+      "year": 2,
+      "job": "アルバイトはしていない",
+      "trait": "慎重"
+    },
+    {
+      "id": "p002",
+      "age": 25,
+      "gender": "男性",
+      "major": "自然科学",
+      "year": 1,
+      "job": "週に2日アルバイトをしている",
+      "trait": "人づきあいが好き"
+    },
+    {
+      "id": "p003",
+      "age": 22,
+      "gender": "女性",
+      "major": "経済学",
+      "year": 3,
+      "job": "アルバイトはしていない",
+      "trait": "慎重"
+    }
+  ],
+  "diversity": {
+    "age": {
+      "min": 21,
+      "max": 26,
+      "mean": 23.5
+    },
+    "gender": {
+      "男性": {
+        "spec": 0.55,
+        "got": 0.5
+      },
+      "女性": {
+        "spec": 0.45,
+        "got": 0.5
+      }
+    },
+    "major": {
+      "経済学": {
+        "spec": 0.15,
+        "got": 0.25
+      },
+      "法学": {
+        "spec": 0.15,
+        "got": 0.0
+      },
+      "工学": {
+        "spec": 0.2,
+        "got": 0.25
+      },
+      "医学": {
+        "spec": 0.1,
+        "got": 0.0
+      },
+      "文学": {
+        "spec": 0.15,
+        "got": 0.0
+      },
+      "自然科学": {
+        "spec": 0.15,
+        "got": 0.5
+      },
+      "教育学": {
+        "spec": 0.1,
+        "got": 0.0
+      }
+    },
+    "year": {
+      "min": 1,
+      "max": 3,
+      "mean": 1.8
+    },
+    "job": {
+      "アルバイトはしていない": {
+        "spec": 0.4,
+        "got": 0.75
+      },
+      "週に2日アルバイトをしている": {
+        "spec": 0.4,
+        "got": 0.25
+      },
+      "週に4日以上アルバイトをしている": {
+        "spec": 0.2,
+        "got": 0.0
+      }
+    },
+    "trait": {
+      "慎重": {
+        "spec": 0.2,
+        "got": 0.5
+      },
+      "人づきあいが好き": {
+        "spec": 0.2,
+        "got": 0.25
+      },
+      "負けず嫌い": {
+        "spec": 0.15,
+        "got": 0.25
+      },
+      "のんびり": {
+        "spec": 0.15,
+        "got": 0.0
+      },
+      "几帳面": {
+        "spec": 0.15,
+        "got": 0.0
+      },
+      "疑い深い": {
+        "spec": 0.15,
+        "got": 0.0
+      }
+    },
+    "_unique_ratio": 1.0
+  },
+  "summary": {
+    "mean_share_by_round": {
+      "1": 0.5,
+      "2": 0.438,
+      "3": 0.375
+    }
+  },
+  "calls": 24,
+  "cost_usd": 0.012171
+}

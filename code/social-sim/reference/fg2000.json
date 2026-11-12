@@ -1,0 +1,31 @@
+{
+  "source": "Fehr, E. & Gächter, S. (2000). Cooperation and Punishment in Public Goods Experiments. American Economic Review 90(4), 980-994.",
+  "note": "by_period は図1A・1B・3A・3Bから目で読んだ近似値(±0.3程度)。各セッションで先に行った条件(1〜10回目)だけを取る。表の値は本文の表3・表4から写した",
+  "design": {"group_size": 4, "endowment": 20, "mpcr": 0.4, "rounds": 10, "session_size": 24,
+             "punish_max": 10, "punish_cost_table": [0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30],
+             "punish_effect": "1点ごとに第1段の利得を10%減らす。受けた点の合計は10で打ち切り(利得は0未満にならない)"},
+  "by_period": {
+    "partner/no_punish":   {"from": "図3B Session5", "values": [8.9, 11.1, 10.5, 8.0, 7.6, 7.8, 8.3, 6.5, 4.2, 3.0]},
+    "partner/punish":      {"from": "図3A Session4", "values": [11.6, 13.9, 15.2, 16.9, 17.5, 17.7, 15.4, 16.9, 18.2, 18.2]},
+    "stranger/no_punish":  {"from": "図1B Session3", "values": [6.6, 4.8, 6.6, 5.6, 5.1, 4.0, 4.6, 2.8, 3.3, 1.9]},
+    "stranger/punish":     {"from": "図1A Session1・2", "values": [11.0, 12.5, 12.2, 12.4, 11.7, 12.4, 12.0, 11.5, 12.1, 12.1]}
+  },
+  "tables": {
+    "partner/no_punish":  {"mean_all": 7.5, "sd_all": 6.8, "mean_final": 3.2},
+    "partner/punish":     {"mean_all": 17.0, "sd_all": 4.5, "mean_final": 18.2},
+    "stranger/no_punish": {"mean_all": 3.7, "sd_all": 5.7, "mean_final": 1.9},
+    "stranger/punish":    {"mean_all": 11.5, "sd_all": 5.9, "mean_final": 12.3}
+  },
+  "final_period_shares": {
+    "partner/punish_full": 0.825,
+    "partner/no_punish_zero": 0.53,
+    "stranger/no_punish_zero": 0.75
+  },
+  "first_period_literature": "罰なしの先行研究12件で、1回目の平均・中央値は手元の40〜60%(本文 p.983-984)",
+  "punishment_by_deviation": {
+    "note": "図5から読んだ近似値。他の3人の平均との差ごとに、受けた罰の点数の平均",
+    "bins": ["[-20,-14)", "[-14,-8)", "[-8,-2)", "[-2,2]", "(2,8]", "(8,14]", "(14,20]"],
+    "partner": [6.8, 5.3, 3.4, 0.6, 0.95, 0.6, null],
+    "stranger": [5.1, 4.9, 2.85, 1.25, 0.9, 0.4, 0.25]
+  }
+}

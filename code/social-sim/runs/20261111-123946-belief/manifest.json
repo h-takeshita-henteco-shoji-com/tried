@@ -1,0 +1,780 @@
+{
+  "name": "belief",
+  "started": "20261111-123946",
+  "llm": "claude:claude-haiku-5-5",
+  "llm_version": "2.1.318 (Claude Code)",
+  "git": "10a82d4+dirty",
+  "prompts": {
+    "prompts/pgg/system.md": "70e76cf2e0db",
+    "prompts/pgg/belief.md": "992159e1b430"
+  },
+  "config": {
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 10,
+      "punishment": false,
+      "punish_rule": "fg2000",
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "matching": "partner",
+      "shuffle_order": true,
+      "memory_reasons": false
+    },
+    "n": 48,
+    "seed": 1,
+    "personas": "students,students_beliefs"
+  },
+  "summary": {
+    "students": {
+      "n": 48,
+      "expect_mean": 8.38,
+      "expect_values": [
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "contribution_mean": 6.71,
+      "contribution_values": [
+        0,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        7,
+        7,
+        7,
+        7,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "corr_spearman": 0.784,
+      "rows": [
+        {
+          "id": "p000",
+          "expect": 10,
+          "contribution": 4
+        },
+        {
+          "id": "p001",
+          "expect": 8,
+          "contribution": 6
+        },
+        {
+          "id": "p002",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p003",
+          "expect": 8,
+          "contribution": 5
+        },
+        {
+          "id": "p004",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p005",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p006",
+          "expect": 6,
+          "contribution": 3
+        },
+        {
+          "id": "p007",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p008",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p009",
+          "expect": 9,
+          "contribution": 7
+        },
+        {
+          "id": "p010",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p011",
+          "expect": 9,
+          "contribution": 6
+        },
+        {
+          "id": "p012",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p013",
+          "expect": 8,
+          "contribution": 5
+        },
+        {
+          "id": "p014",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p015",
+          "expect": 9,
+          "contribution": 8
+        },
+        {
+          "id": "p016",
+          "expect": 9,
+          "contribution": 7
+        },
+        {
+          "id": "p017",
+          "expect": 8,
+          "contribution": 2
+        },
+        {
+          "id": "p018",
+          "expect": 8,
+          "contribution": 5
+        },
+        {
+          "id": "p019",
+          "expect": 5,
+          "contribution": 3
+        },
+        {
+          "id": "p020",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p021",
+          "expect": 8,
+          "contribution": 5
+        },
+        {
+          "id": "p022",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p023",
+          "expect": 8,
+          "contribution": 0
+        },
+        {
+          "id": "p024",
+          "expect": 6,
+          "contribution": 5
+        },
+        {
+          "id": "p025",
+          "expect": 8,
+          "contribution": 7
+        },
+        {
+          "id": "p026",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p027",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p028",
+          "expect": 9,
+          "contribution": 8
+        },
+        {
+          "id": "p029",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p030",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p031",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p032",
+          "expect": 8,
+          "contribution": 6
+        },
+        {
+          "id": "p033",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p034",
+          "expect": 9,
+          "contribution": 7
+        },
+        {
+          "id": "p035",
+          "expect": 5,
+          "contribution": 1
+        },
+        {
+          "id": "p036",
+          "expect": 5,
+          "contribution": 2
+        },
+        {
+          "id": "p037",
+          "expect": 5,
+          "contribution": 2
+        },
+        {
+          "id": "p038",
+          "expect": 9,
+          "contribution": 8
+        },
+        {
+          "id": "p039",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p040",
+          "expect": 9,
+          "contribution": 4
+        },
+        {
+          "id": "p041",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p042",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p043",
+          "expect": 9,
+          "contribution": 8
+        },
+        {
+          "id": "p044",
+          "expect": 8,
+          "contribution": 5
+        },
+        {
+          "id": "p045",
+          "expect": 8,
+          "contribution": 7
+        },
+        {
+          "id": "p046",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p047",
+          "expect": 10,
+          "contribution": 10
+        }
+      ],
+      "cost_usd": 0.024
+    },
+    "students_beliefs": {
+      "n": 48,
+      "expect_mean": 8.6,
+      "expect_values": [
+        4,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        7,
+        7,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        9,
+        9,
+        9,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "contribution_mean": 7.77,
+      "contribution_values": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        7,
+        7,
+        7,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "corr_spearman": 0.833,
+      "rows": [
+        {
+          "id": "p000",
+          "belief": "pessimistic",
+          "expect": 5,
+          "contribution": 4
+        },
+        {
+          "id": "p001",
+          "belief": "optimistic",
+          "expect": 12,
+          "contribution": 12
+        },
+        {
+          "id": "p002",
+          "belief": "pessimistic",
+          "expect": 7,
+          "contribution": 5
+        },
+        {
+          "id": "p003",
+          "belief": "optimistic",
+          "expect": 12,
+          "contribution": 10
+        },
+        {
+          "id": "p004",
+          "belief": "optimistic",
+          "expect": 12,
+          "contribution": 10
+        },
+        {
+          "id": "p005",
+          "belief": "pessimistic",
+          "expect": 5,
+          "contribution": 4
+        },
+        {
+          "id": "p006",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p007",
+          "belief": "optimistic",
+          "expect": 12,
+          "contribution": 10
+        },
+        {
+          "id": "p008",
+          "belief": "neutral",
+          "expect": 8,
+          "contribution": 7
+        },
+        {
+          "id": "p009",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 5
+        },
+        {
+          "id": "p010",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p011",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p012",
+          "belief": "pessimistic",
+          "expect": 5,
+          "contribution": 4
+        },
+        {
+          "id": "p013",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p014",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p015",
+          "belief": "pessimistic",
+          "expect": 4,
+          "contribution": 6
+        },
+        {
+          "id": "p016",
+          "belief": "pessimistic",
+          "expect": 5,
+          "contribution": 4
+        },
+        {
+          "id": "p017",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p018",
+          "belief": "neutral",
+          "expect": 9,
+          "contribution": 7
+        },
+        {
+          "id": "p019",
+          "belief": "neutral",
+          "expect": 8,
+          "contribution": 8
+        },
+        {
+          "id": "p020",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p021",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p022",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p023",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 5
+        },
+        {
+          "id": "p024",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 12
+        },
+        {
+          "id": "p025",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 12
+        },
+        {
+          "id": "p026",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 8
+        },
+        {
+          "id": "p027",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p028",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 7
+        },
+        {
+          "id": "p029",
+          "belief": "neutral",
+          "expect": 9,
+          "contribution": 8
+        },
+        {
+          "id": "p030",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 4
+        },
+        {
+          "id": "p031",
+          "belief": "pessimistic",
+          "expect": 7,
+          "contribution": 5
+        },
+        {
+          "id": "p032",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 12
+        },
+        {
+          "id": "p033",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p034",
+          "belief": "pessimistic",
+          "expect": 7,
+          "contribution": 5
+        },
+        {
+          "id": "p035",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 10
+        },
+        {
+          "id": "p036",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 5
+        },
+        {
+          "id": "p037",
+          "belief": "optimistic",
+          "expect": 12,
+          "contribution": 10
+        },
+        {
+          "id": "p038",
+          "belief": "optimistic",
+          "expect": 11,
+          "contribution": 10
+        },
+        {
+          "id": "p039",
+          "belief": "neutral",
+          "expect": 8,
+          "contribution": 10
+        },
+        {
+          "id": "p040",
+          "belief": "neutral",
+          "expect": 8,
+          "contribution": 8
+        },
+        {
+          "id": "p041",
+          "belief": "neutral",
+          "expect": 8,
+          "contribution": 8
+        },
+        {
+          "id": "p042",
+          "belief": "neutral",
+          "expect": 10,
+          "contribution": 7
+        },
+        {
+          "id": "p043",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 12
+        },
+        {
+          "id": "p044",
+          "belief": "neutral",
+          "expect": 9,
+          "contribution": 10
+        },
+        {
+          "id": "p045",
+          "belief": "optimistic",
+          "expect": 12,
+          "contribution": 10
+        },
+        {
+          "id": "p046",
+          "belief": "pessimistic",
+          "expect": 6,
+          "contribution": 5
+        },
+        {
+          "id": "p047",
+          "belief": "optimistic",
+          "expect": 10,
+          "contribution": 10
+        }
+      ],
+      "cost_usd": 0.0233
+    }
+  },
+  "calls": 96,
+  "cost_usd": 0.047301
+}

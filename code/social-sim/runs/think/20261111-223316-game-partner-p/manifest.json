@@ -1,0 +1,34 @@
+{
+  "name": "game-partner-p",
+  "started": "20261111-223316",
+  "llm": "claude:claude-haiku-5-5@max",
+  "llm_version": "2.1.318 (Claude Code)",
+  "git": "c595946",
+  "prompts": {
+    "prompts/pgg/system.md": "70e76cf2e0db",
+    "prompts/pgg/contribute.neutral.md": "a6d991be786d",
+    "prompts/pgg/punish.fg2000.md": "fcf781ef8aa8"
+  },
+  "config": {
+    "game": {
+      "group_size": 4,
+      "endowment": 20,
+      "mpcr": 0.4,
+      "rounds": 10,
+      "punishment": true,
+      "punish_rule": "fg2000",
+      "punish_max": 10,
+      "punish_cost": 1,
+      "punish_impact": 3,
+      "matching": "partner",
+      "shuffle_order": true,
+      "memory_reasons": false,
+      "sample_dist": false,
+      "belief_state": false
+    },
+    "groups": 6,
+    "seed": 1,
+    "personas": "students",
+    "variant": "neutral"
+  }
+}

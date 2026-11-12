@@ -1,0 +1,145 @@
+{
+ "cost_usd": 1.5732,
+ "sets": {
+  "students_rich/seed1/neutral": {
+   "1_first_share": [
+    0.504,
+    0.508,
+    0.5,
+    0.512
+   ],
+   "1_ok": true,
+   "2_sd_all": [
+    1.92,
+    0.31,
+    1.98,
+    0.59
+   ],
+   "2_range": [
+    [
+     0,
+     15
+    ],
+    [
+     10,
+     12
+    ],
+    [
+     0,
+     15
+    ],
+    [
+     5,
+     15
+    ]
+   ],
+   "2_ok": false,
+   "3_final_over_first": {
+    "partner": 0.6,
+    "stranger": 0.62
+   },
+   "3_ok": false,
+   "4_final": {
+    "partner": [
+     10,
+     6.04
+    ],
+    "stranger": [
+     9.79,
+     6.25
+    ]
+   },
+   "4_ok": true,
+   "4b_partner_minus_stranger_punish_all": -0.01,
+   "5": {
+    "partner": {
+     "below": null,
+     "n_below": 0,
+     "above": null,
+     "n_above": 0
+    },
+    "stranger": {
+     "below": 1.0,
+     "n_below": 3,
+     "above": 0.0,
+     "n_above": 1
+    }
+   },
+   "5_ok": false
+  },
+  "students_types/seed1/neutral": {
+   "1_first_share": [
+    0.354,
+    0.354,
+    0.354,
+    0.354
+   ],
+   "1_ok": false,
+   "2_sd_all": [
+    3.78,
+    3.55,
+    3.32,
+    3.46
+   ],
+   "2_range": [
+    [
+     0,
+     10
+    ],
+    [
+     0,
+     10
+    ],
+    [
+     0,
+     10
+    ],
+    [
+     0,
+     10
+    ]
+   ],
+   "2_ok": false,
+   "3_final_over_first": {
+    "partner": 0.48,
+    "stranger": 0.32
+   },
+   "3_ok": true,
+   "4_final": {
+    "partner": [
+     4.62,
+     3.38
+    ],
+    "stranger": [
+     3.71,
+     2.25
+    ]
+   },
+   "4_ok": false,
+   "4b_partner_minus_stranger_punish_all": 0.29,
+   "5": {
+    "partner": {
+     "below": 5.53,
+     "n_below": 34,
+     "above": 0.0,
+     "n_above": 37
+    },
+    "stranger": {
+     "below": 4.84,
+     "n_below": 63,
+     "above": 0.0,
+     "n_above": 77
+    }
+   },
+   "5_ok": true
+  }
+ },
+ "ok_count": {
+  "1_ok": 1,
+  "2_ok": 0,
+  "3_ok": 1,
+  "4_ok": 1,
+  "5_ok": 1
+ },
+ "n_sets": 2
+}

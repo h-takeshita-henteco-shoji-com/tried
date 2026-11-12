@@ -68,6 +68,14 @@ def clip(path, start, end):
     return {"kind": "clip", "path": os.path.expanduser(path), "start": start, "end": end}
 
 
+def play(path):
+    """録画を、はじめから終わりまで等速で流す。場面の長さは、声と録画の長いほうになる。"""
+    path = os.path.expanduser(path)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                               capture_output=True, text=True, check=True).stdout)
+    return {"kind": "clip", "path": path, "start": 0.0, "end": dur, "full": True}
+
+
 def configure(day):
     """その日のフォルダを読み込む。場面とタイトルは <day>/henrobo_scenes.py に書く。"""
     global DAY, A, VOICE, WORK, ISSUE, SCENES, THUMB
@@ -77,7 +85,7 @@ def configure(day):
     ISSUE = re.search(r"^issue: *(\d+)", open(f"{DAY}/log.md", encoding="utf-8").read(), re.M).group(1)
     WORK = os.path.expanduser(f"~/henrobo-video/{ISSUE}")
     ns = runpy.run_path(f"{DAY}/henrobo_scenes.py", init_globals={"A": A, "still": still, "card": card, "code": code,
-                                                                    "clip": clip})
+                                                                    "clip": clip, "play": play})
     SCENES, THUMB = ns["SCENES"], ns["THUMB"]
 
 
@@ -108,6 +116,8 @@ def place():
             clips.append((pos, x, ln["text"], ln.get("glint", False)))
             pos += len(x) / SR
         end = pos + TAIL
+        full = sum(it["end"] - it["start"] for it in SCENES.get(sc["no"], []) if it.get("full"))
+        end = max(end, t + full)          # 等速で流す録画(play)は、切らずに最後まで流す
         spans[sc["no"]] = (t, end - t)
         t = end
     return spans, clips
@@ -199,10 +209,11 @@ def item_images(it):
 
 def clip_video(it, dur, out):
     """録画を、図の枠(CW×CH)に収め、dur 秒に縮めて(または延ばして)書き出す。"""
-    k = dur / (it["end"] - it["start"])
+    k = 1.0 if it.get("full") else dur / (it["end"] - it["start"])
+    hold = f"tpad=stop_mode=clone:stop_duration={dur:.3f}," if it.get("full") else ""
     bg = f"0x{BG[0]:02x}{BG[1]:02x}{BG[2]:02x}"
     run(["-ss", f"{it['start']}", "-to", f"{it['end']}", "-i", it["path"], "-an",
-         "-vf", f"setpts={k:.6f}*(PTS-STARTPTS),scale={CW}:{CH}:force_original_aspect_ratio=decrease,"
+         "-vf", f"setpts={k:.6f}*(PTS-STARTPTS),{hold}scale={CW}:{CH}:force_original_aspect_ratio=decrease,"
                 f"pad={CW}:{CH}:(ow-iw)/2:(oh-ih)/2:color={bg},fps={FPS},format=yuv420p",
          "-frames:v", str(round(dur * FPS)), "-c:v", "h264_videotoolbox", "-b:v", "12M", out])
 
