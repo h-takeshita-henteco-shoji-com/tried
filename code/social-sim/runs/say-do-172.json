@@ -1,0 +1,506 @@
+{
+ "1_first_round": {
+  "n": 288,
+  "pred_mean": 9.16,
+  "act_mean": 9.41,
+  "mean_abs_err": 0.74,
+  "corr": 0.707
+ },
+ "2_conditional": {
+  "n": 1296,
+  "pred_mean": 7.5,
+  "act_mean": 6.27,
+  "bias_act_minus_pred": -1.24,
+  "mean_abs_err_said_table": 2.01,
+  "mean_abs_err_same_as_last": 0.99,
+  "corr_said_table": 0.627,
+  "corr_same_as_last": 0.847
+ },
+ "3_punishment": {
+  "people_punished": 66,
+  "cross": {
+   "語り減/行動増": 39,
+   "語り増/行動増": 9,
+   "語り減/行動同": 14,
+   "語り増/行動同": 4
+  },
+  "said_decrease_share": 0.803,
+  "act_mean_delta_after_hit": 0.62,
+  "n_hit": 375,
+  "act_mean_delta_after_hit_when_below": 1.91,
+  "n_hit_below": 121,
+  "act_mean_delta_no_hit": -0.2,
+  "n_no_hit": 921,
+  "corr_said_vs_act": -0.225,
+  "people": [
+   {
+    "who": "s1/p000",
+    "said_deter": -0.917,
+    "act_delta_hit": 1.2,
+    "act_delta_none": -0.31,
+    "n_hit": 5
+   },
+   {
+    "who": "s1/p001",
+    "said_deter": -0.667,
+    "act_delta_hit": 0.67,
+    "act_delta_none": 0,
+    "n_hit": 3
+   },
+   {
+    "who": "s1/p002",
+    "said_deter": -1.0,
+    "act_delta_hit": 0.5,
+    "act_delta_none": -0.08,
+    "n_hit": 6
+   },
+   {
+    "who": "s1/p003",
+    "said_deter": -0.333,
+    "act_delta_hit": 0.33,
+    "act_delta_none": 0,
+    "n_hit": 6
+   },
+   {
+    "who": "s1/p004",
+    "said_deter": 0.667,
+    "act_delta_hit": 1,
+    "act_delta_none": -0.12,
+    "n_hit": 2
+   },
+   {
+    "who": "s1/p005",
+    "said_deter": 0.917,
+    "act_delta_hit": 0.5,
+    "act_delta_none": 0,
+    "n_hit": 4
+   },
+   {
+    "who": "s1/p006",
+    "said_deter": -0.917,
+    "act_delta_hit": 1,
+    "act_delta_none": -1,
+    "n_hit": 9
+   },
+   {
+    "who": "s1/p007",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 4
+   },
+   {
+    "who": "s1/p008",
+    "said_deter": -0.917,
+    "act_delta_hit": 0.5,
+    "act_delta_none": -0.2,
+    "n_hit": 8
+   },
+   {
+    "who": "s1/p009",
+    "said_deter": -1.0,
+    "act_delta_hit": 0.2,
+    "act_delta_none": 0,
+    "n_hit": 10
+   },
+   {
+    "who": "s1/p010",
+    "said_deter": -0.417,
+    "act_delta_hit": 0.18,
+    "act_delta_none": 0,
+    "n_hit": 11
+   },
+   {
+    "who": "s1/p011",
+    "said_deter": -0.833,
+    "act_delta_hit": 0.5,
+    "act_delta_none": -0.2,
+    "n_hit": 8
+   },
+   {
+    "who": "s1/p012",
+    "said_deter": -0.417,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 8
+   },
+   {
+    "who": "s1/p013",
+    "said_deter": 0.917,
+    "act_delta_hit": 0.25,
+    "act_delta_none": -0.4,
+    "n_hit": 8
+   },
+   {
+    "who": "s1/p014",
+    "said_deter": -1.167,
+    "act_delta_hit": 0.91,
+    "act_delta_none": 0,
+    "n_hit": 11
+   },
+   {
+    "who": "s1/p015",
+    "said_deter": -1.25,
+    "act_delta_hit": 1.17,
+    "act_delta_none": -0.58,
+    "n_hit": 6
+   },
+   {
+    "who": "s1/p016",
+    "said_deter": 0.75,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 9
+   },
+   {
+    "who": "s1/p017",
+    "said_deter": -0.667,
+    "act_delta_hit": 0.57,
+    "act_delta_none": -0.36,
+    "n_hit": 7
+   },
+   {
+    "who": "s1/p018",
+    "said_deter": -0.417,
+    "act_delta_hit": 0.29,
+    "act_delta_none": -0.18,
+    "n_hit": 7
+   },
+   {
+    "who": "s1/p019",
+    "said_deter": -0.667,
+    "act_delta_hit": 1.43,
+    "act_delta_none": 0,
+    "n_hit": 7
+   },
+   {
+    "who": "s1/p020",
+    "said_deter": -0.667,
+    "act_delta_hit": 0.33,
+    "act_delta_none": 0,
+    "n_hit": 12
+   },
+   {
+    "who": "s1/p021",
+    "said_deter": -0.417,
+    "act_delta_hit": 0.22,
+    "act_delta_none": 0,
+    "n_hit": 9
+   },
+   {
+    "who": "s1/p022",
+    "said_deter": -0.75,
+    "act_delta_hit": 0.22,
+    "act_delta_none": 0,
+    "n_hit": 9
+   },
+   {
+    "who": "s1/p023",
+    "said_deter": -0.75,
+    "act_delta_hit": 1,
+    "act_delta_none": -0.78,
+    "n_hit": 9
+   },
+   {
+    "who": "s2/p000",
+    "said_deter": -0.917,
+    "act_delta_hit": 0.29,
+    "act_delta_none": 0,
+    "n_hit": 7
+   },
+   {
+    "who": "s2/p001",
+    "said_deter": -0.917,
+    "act_delta_hit": 0.6,
+    "act_delta_none": -0.08,
+    "n_hit": 5
+   },
+   {
+    "who": "s2/p002",
+    "said_deter": -0.667,
+    "act_delta_hit": 1.8,
+    "act_delta_none": -0.54,
+    "n_hit": 5
+   },
+   {
+    "who": "s2/p003",
+    "said_deter": -0.833,
+    "act_delta_hit": 1.11,
+    "act_delta_none": -0.56,
+    "n_hit": 9
+   },
+   {
+    "who": "s2/p004",
+    "said_deter": -0.917,
+    "act_delta_hit": 1,
+    "act_delta_none": -0.12,
+    "n_hit": 2
+   },
+   {
+    "who": "s2/p005",
+    "said_deter": -0.583,
+    "act_delta_hit": 1.2,
+    "act_delta_none": -0.38,
+    "n_hit": 5
+   },
+   {
+    "who": "s2/p006",
+    "said_deter": -0.833,
+    "act_delta_hit": 0.71,
+    "act_delta_none": -0.09,
+    "n_hit": 7
+   },
+   {
+    "who": "s2/p007",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 3
+   },
+   {
+    "who": "s2/p008",
+    "said_deter": 0.167,
+    "act_delta_hit": 2.33,
+    "act_delta_none": -0.33,
+    "n_hit": 3
+   },
+   {
+    "who": "s2/p009",
+    "said_deter": 0.333,
+    "act_delta_hit": 1,
+    "act_delta_none": -0.31,
+    "n_hit": 2
+   },
+   {
+    "who": "s2/p010",
+    "said_deter": 0.917,
+    "act_delta_hit": 0.5,
+    "act_delta_none": 0,
+    "n_hit": 4
+   },
+   {
+    "who": "s2/p011",
+    "said_deter": -0.667,
+    "act_delta_hit": 0.22,
+    "act_delta_none": 0,
+    "n_hit": 9
+   },
+   {
+    "who": "s2/p012",
+    "said_deter": 0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 1
+   },
+   {
+    "who": "s2/p013",
+    "said_deter": -1.0,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 5
+   },
+   {
+    "who": "s2/p014",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 4
+   },
+   {
+    "who": "s2/p015",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 3
+   },
+   {
+    "who": "s2/p016",
+    "said_deter": -0.667,
+    "act_delta_hit": 0.43,
+    "act_delta_none": -0.09,
+    "n_hit": 7
+   },
+   {
+    "who": "s2/p017",
+    "said_deter": -0.75,
+    "act_delta_hit": 0.6,
+    "act_delta_none": -0.5,
+    "n_hit": 10
+   },
+   {
+    "who": "s2/p018",
+    "said_deter": -0.667,
+    "act_delta_hit": 3.5,
+    "act_delta_none": -0.62,
+    "n_hit": 2
+   },
+   {
+    "who": "s2/p019",
+    "said_deter": -0.667,
+    "act_delta_hit": 0.12,
+    "act_delta_none": 0.2,
+    "n_hit": 8
+   },
+   {
+    "who": "s2/p020",
+    "said_deter": -1.0,
+    "act_delta_hit": 2.75,
+    "act_delta_none": -0.79,
+    "n_hit": 4
+   },
+   {
+    "who": "s2/p021",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 10
+   },
+   {
+    "who": "s2/p022",
+    "said_deter": -0.417,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 10
+   },
+   {
+    "who": "s2/p023",
+    "said_deter": 0.667,
+    "act_delta_hit": 0.57,
+    "act_delta_none": -0.36,
+    "n_hit": 7
+   },
+   {
+    "who": "s3/p001",
+    "said_deter": -0.667,
+    "act_delta_hit": 3.5,
+    "act_delta_none": -0.94,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p003",
+    "said_deter": -0.917,
+    "act_delta_hit": 2,
+    "act_delta_none": -0.25,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p005",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p008",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p009",
+    "said_deter": -0.917,
+    "act_delta_hit": 1.33,
+    "act_delta_none": -0.27,
+    "n_hit": 3
+   },
+   {
+    "who": "s3/p010",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p011",
+    "said_deter": -0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p012",
+    "said_deter": 0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 5
+   },
+   {
+    "who": "s3/p013",
+    "said_deter": -1.0,
+    "act_delta_hit": 1,
+    "act_delta_none": -0.45,
+    "n_hit": 7
+   },
+   {
+    "who": "s3/p014",
+    "said_deter": -0.917,
+    "act_delta_hit": 1.67,
+    "act_delta_none": -1,
+    "n_hit": 3
+   },
+   {
+    "who": "s3/p015",
+    "said_deter": 0.667,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p016",
+    "said_deter": -0.583,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 10
+   },
+   {
+    "who": "s3/p017",
+    "said_deter": -0.667,
+    "act_delta_hit": 2,
+    "act_delta_none": -0.92,
+    "n_hit": 5
+   },
+   {
+    "who": "s3/p018",
+    "said_deter": -1.25,
+    "act_delta_hit": 5,
+    "act_delta_none": -0.62,
+    "n_hit": 2
+   },
+   {
+    "who": "s3/p019",
+    "said_deter": -0.667,
+    "act_delta_hit": 1.43,
+    "act_delta_none": -0.27,
+    "n_hit": 7
+   },
+   {
+    "who": "s3/p020",
+    "said_deter": -1.25,
+    "act_delta_hit": 0,
+    "act_delta_none": 0,
+    "n_hit": 3
+   },
+   {
+    "who": "s3/p021",
+    "said_deter": 0.417,
+    "act_delta_hit": 0.67,
+    "act_delta_none": -0.13,
+    "n_hit": 3
+   },
+   {
+    "who": "s3/p022",
+    "said_deter": 0.917,
+    "act_delta_hit": 0.67,
+    "act_delta_none": -0.13,
+    "n_hit": 3
+   }
+  ]
+ },
+ "4_said_twice": {
+  "n": 72,
+  "belief0_same": 0.625,
+  "table_mean_abs_diff": 0.95,
+  "deter_sign_same": 0.667
+ }
+}

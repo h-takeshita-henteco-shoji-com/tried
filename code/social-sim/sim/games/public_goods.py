@@ -6,6 +6,7 @@
 - 組み方: partner(毎回同じ相手)と stranger(毎回組み替え)
 子00(#168)の試運転で使った、1点につき一定の費用と効き目の罰は punish_rule="flat" で残す。
 """
+import math
 import random
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -52,6 +53,19 @@ def sample_from(output, endowment, rng):
     return rng.choices(range(endowment + 1), weights=w)[0], sum(w)
 
 
+def sample_at(output, endowment, u):
+    """確率の答えを累積し、0〜1の位置 u に当たる量を返す(人ごとに位置を固定するとき用)。"""
+    w = [max(0, output.get(f"p{k}", 0)) for k in range(endowment + 1)]
+    if sum(w) == 0:
+        w = [1] * (endowment + 1)
+    total, acc = sum(w), 0
+    for k, x in enumerate(w):
+        acc += x
+        if u <= acc / total:
+            return k, total
+    return endowment, total
+
+
 def punish_schema(labels, max_points):
     props = {lab: {"type": "integer", "minimum": 0, "maximum": max_points} for lab in labels}
     props["reason"] = {"type": "string"}
@@ -78,6 +92,9 @@ class Config:
     memory_reasons: bool = False  # 過去の回の結果に、自分が書いた拠出の理由も添える(#172 検証5)
     sample_dist: bool = False  # 拠出を確率で答えさせ、プログラムがくじで決める(#172 追加検証)
     belief_state: bool = False  # 毎回、見込みと自分へのメモを答えさせ、次の回に引き継ぐ(#172 追加検証E)
+    dist_rho: float = 0.0      # sample_dist のとき、くじの位置の人ごとの固定度合い。0 は毎回独立、1 は毎回同じ位置
+    bots: int = 0              # 毎回20を入れ、減点は付けない参加者の数(#172 原因の切り分け)。人の番号 0, 4, 8, … に置く
+    bot_punish: bool = False   # 固定の参加者も減点を付ける。ほかの人の平均より少ない人に、差1につき0.2点(rule_model.py と同じ式)
 
 
 def payoffs(contribs, cfg):
@@ -134,6 +151,7 @@ class Session:
         n = len(members)
         assert n % cfg.group_size == 0, "人数がグループの大きさで割り切れない"
         self.fixed = [list(range(g, g + cfg.group_size)) for g in range(0, n, cfg.group_size)]
+        self.bots = {k * cfg.group_size for k in range(cfg.bots)}   # partner では、前から bots 組に1人ずつ
 
     def _ask(self, i, prompt, schema, tag):
         system = self.p["system"].format(persona=self.members[i][1])
@@ -171,6 +189,8 @@ class Session:
         extra = rules_extra(cfg)
 
         def contribute(i):
+            if i in self.bots:
+                return {"contribution": cfg.endowment, "reason": "(固定の参加者: 毎回全額)"}
             prompt = self.p["contribute"].format(
                 n=cfg.group_size, endowment=cfg.endowment, mpcr=cfg.mpcr, rounds=cfg.rounds,
                 round=r, history=self._history_text(i), rules_extra=extra)
@@ -185,7 +205,16 @@ class Session:
                 return out
             # くじはスレッドの順に左右されないよう、seed・人・回から決める
             rng = random.Random(f"{self.seed}-{i}-{r}")
-            out["contribution"], out["dist_total"] = sample_from(out, cfg.endowment, rng)
+            if cfg.dist_rho <= 0:
+                out["contribution"], out["dist_total"] = sample_from(out, cfg.endowment, rng)
+                return out
+            # 人ごとに決めた位置 z_i と、回ごとのゆらぎを混ぜる(正規分布で混ぜてから0〜1に戻す)
+            z_i = random.Random(f"{self.seed}-z-{i}").gauss(0, 1)
+            rho = min(cfg.dist_rho, 1.0)
+            z = rho * z_i + math.sqrt(1 - rho * rho) * rng.gauss(0, 1)
+            u = 0.5 * (1 + math.erf(z / math.sqrt(2)))
+            out["contribution"], out["dist_total"] = sample_at(out, cfg.endowment, u)
+            out["u"] = round(u, 3)
             return out
 
         outs = self._map(contribute, range(len(self.members)))
@@ -237,6 +266,16 @@ class Session:
             g, pos = job
             others = orders[g][pos]
             labels = [chr(ord("A") + idx) for idx in range(len(others))]
+            if groups[g][pos] in self.bots:
+                if not cfg.bot_punish:
+                    return   # 固定の参加者は減点を付けない
+                c = contribs[g]
+                for q in others:
+                    avg = sum(c[t] for t in range(k) if t != q) / (k - 1)
+                    gap = avg - c[q]
+                    points[g][pos][q] = min(round(0.2 * gap), cfg.punish_max) if gap > 1 else 0
+                return
+
             table = "\n".join(f"- {lab}: グループの口座に {contribs[g][q]} ポイント入れた"
                               for lab, q in zip(labels, others))
             prompt = self.p["punish"].format(

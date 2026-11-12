@@ -1,6 +1,6 @@
 """compare.py の結果から、回ごとの平均拠出を人間とAIで並べた図を作る。
 
-使い方: uv run --with matplotlib python plot_compare.py compare.json out.png
+使い方: uv run --with matplotlib python plot_compare.py compare.json out.png [減点]
 - 左が「毎回同じ相手」、右が「毎回組み替え」
 - 色は罰の有無(青=罰あり、橙=罰なし)、線の形は人間(点線・白抜き)とAI(実線・塗り)
 """
@@ -18,7 +18,9 @@ LABEL = {"punish": "罰あり", "no_punish": "罰なし"}
 PANELS = [("partner", "毎回同じ相手"), ("stranger", "毎回組み替え")]
 
 
-def main(src, out):
+def main(src, out, words="罰"):
+    """words に「減点」を渡すと、凡例を「減点あり・減点なし」にする(#172 の記事と動画)。"""
+    LABEL.update({"punish": f"{words}あり", "no_punish": f"{words}なし"})
     d = json.load(open(src, encoding="utf-8"))
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), sharey=True, facecolor=SURFACE)
     for ax, (match, title) in zip(axes, PANELS):
@@ -58,7 +60,7 @@ def main(src, out):
         for s in ("left", "bottom"):
             ax.spines[s].set_color(GRID)
         ax.tick_params(colors=MUTED)
-    axes[0].set_ylabel("平均の拠出(手元20のうち)", color=MUTED)
+    axes[0].set_ylabel(("口座に入れた量の平均(手元20のうち)" if words == "減点" else "平均の拠出(手元20のうち)"), color=MUTED)
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, loc="upper center", ncol=4, frameon=False, fontsize=10, handlelength=4, bbox_to_anchor=(0.5, 1.0))
     fig.suptitle("")
@@ -68,4 +70,4 @@ def main(src, out):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:4])

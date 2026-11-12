@@ -528,14 +528,17 @@ func _draw_title(p: float) -> void:
 	var W := 1920.0
 	_panel(Rect2(260, 330, 1400, 420), 0.85 * a)
 	_text(Vector2(0, 450), data["title"], 84, Color(INK, a), bold, W, HORIZONTAL_ALIGNMENT_CENTER)
-	_text(Vector2(0, 535), "AIが演じる4人の参加者が、%d回くり返す" % data["rounds"].size(), 40,
+	_text(Vector2(0, 535), data.get("subtitle", "AIが演じる4人の参加者が、%d回くり返す" % data["rounds"].size()), 40,
 		Color(SUB, a), font, W, HORIZONTAL_ALIGNMENT_CENTER)
 	var g: Dictionary = data["game"]
 	_text(Vector2(0, 625), "毎回%dポイントを受け取り、グループの口座に入れる量を決める。口座の合計×%sが全員に配られる。" % [
 		g["endowment"], str(g["mpcr"])], 30, Color(SUB, a), font, W, HORIZONTAL_ALIGNMENT_CENTER)
 	if g["punishment"]:
-		_text(Vector2(0, 675), "そのあと、ほかの人に減点を付けられる。1点付けると自分が%d減り、相手が%d減る。" % [
-			g["punish_cost"], g["punish_impact"]], 30, Color(SUB, a), font, W, HORIZONTAL_ALIGNMENT_CENTER)
+		var rule := "そのあと、ほかの人に減点を付けられる。付けた人も払い、付けられた人はその回の稼ぎが1点につき10%減る。"
+		if g.get("punish_rule", "flat") != "fg2000":
+			rule = "そのあと、ほかの人に減点を付けられる。1点付けると自分が%d減り、相手が%d減る。" % [
+				g["punish_cost"], g["punish_impact"]]
+		_text(Vector2(0, 675), rule, 30, Color(SUB, a), font, W, HORIZONTAL_ALIGNMENT_CENTER)
 
 
 func _draw_end(p: float) -> void:

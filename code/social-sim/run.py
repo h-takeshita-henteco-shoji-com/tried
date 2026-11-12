@@ -38,14 +38,14 @@ def load_prompts(variant="neutral", rule="fg2000"):
 def cmd_game(a):
     llm = backend(a.llm)
     cfg = Config(rounds=a.rounds, punishment=a.punishment, matching=a.matching, punish_rule=a.rule,
-                 memory_reasons=a.memory, sample_dist=a.dist, belief_state=a.belief)
+                 memory_reasons=a.memory, sample_dist=a.dist, belief_state=a.belief, bots=a.bots, bot_punish=a.bot_punish, dist_rho=a.rho)
     spec = load_spec(os.path.join(HERE, "personas", f"{a.personas}.json"))
     people = generate(spec, cfg.group_size * a.groups, a.seed)
     prompts, paths = load_prompts(a.variant, a.rule)
     used = [paths["system"], paths[a.variant]] + ([paths["punish"]] if a.punishment else [])
     config = {"game": asdict(cfg), "groups": a.groups, "seed": a.seed,
               "personas": a.personas, "variant": a.variant}
-    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "") + ("-dist" if a.dist else "") + ("-belief" if a.belief else "")
+    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "") + ("-dist" if a.dist else "") + (f"-rho{a.rho:g}" if a.rho else "") + ("-belief" if a.belief else "") + (f"-bots{a.bots}" if a.bots else "") + ("p" if a.bot_punish else "")
     run = Run(a.out, name, config, llm, used)
     run.manifest["people"] = people
     run.manifest["diversity"] = diversity(people, spec)
@@ -129,6 +129,9 @@ if __name__ == "__main__":
     g.add_argument("--memory", action="store_true", help="自分が書いた拠出の理由も、過去の回として渡す")
     g.add_argument("--dist", action="store_true", help="拠出を確率で答えさせ、くじで決める")
     g.add_argument("--belief", action="store_true", help="毎回、見込みと自分へのメモを答えさせ、次の回に引き継ぐ")
+    g.add_argument("--rho", type=float, default=0.0, help="--dist のとき、くじの位置を人ごとに固定する度合い(0〜1)")
+    g.add_argument("--bots", type=int, default=0, help="毎回20を入れ、減点を付けない参加者の数")
+    g.add_argument("--bot-punish", action="store_true", help="固定の参加者も、平均より少ない人に減点を付ける")
     sub.choices["probe"].add_argument("--n", type=int, default=12)
     sub.choices["strategy"].add_argument("--n", type=int, default=48)
     sub.choices["strategy"].add_argument("--personas", default="students,none")
