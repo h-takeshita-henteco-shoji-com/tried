@@ -6,8 +6,8 @@ parent: 167
 ai: Claude Code(Opus 5.5)、実験の参加者は Claude Haiku 5.5(claude -p 2.1.318)
 minutes: 75
 result: 罰の有無による推移の向きは、seed と言い回しを変えた5通りすべてで人間と同じだった。量・散らばり・同じ相手の効果は再現できなかった。試しの1組を含めて計約4.8ドル
-status: 未公開
-url:
+status: 公開済
+url: https://note.com/tried_hs/n/n7a33fd028472
 qiita_url:
 ---
 
