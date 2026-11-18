@@ -25,9 +25,13 @@ PROMPTS = os.path.join(HERE, "prompts", "pgg")
 VARIANTS = ["neutral", "paraphrase", "named"]
 
 
-def load_prompts(variant="neutral", rule="fg2000"):
-    files = {"system": "system.md", "punish": "punish.fg2000.md" if rule == "fg2000" else "punish.neutral.md",
-             "strategy": "strategy.md", "belief": "belief.md"}
+def load_prompts(variant="neutral", rule="fg2000", identified=False):
+    punish = {"fg2000": "punish.fg2000.md", "bpp": "punish.bpp.md"}.get(rule, "punish.neutral.md")
+    if identified and rule == "bpp":
+        punish = "punish.bpp.identified.md"
+    files = {"system": "system.md", "punish": punish, "strategy": "strategy.md", "belief": "belief.md",
+             "chat": "chat.md", "talk": "talk.md", "talk_punish": "talk_punish.md",
+             "plan": "plan.md", "punish_plan": "punish_plan.md"}
     files.update({v: f"contribute.{v}.md" for v in VARIANTS})
     paths = {k: os.path.join(PROMPTS, f) for k, f in files.items()}
     texts = {k: open(p, encoding="utf-8").read() for k, p in paths.items()}
@@ -37,15 +41,38 @@ def load_prompts(variant="neutral", rule="fg2000"):
 
 def cmd_game(a):
     llm = backend(a.llm)
+    chat = tuple(int(x) for x in a.chat.split(",")) if a.chat else ()
     cfg = Config(rounds=a.rounds, punishment=a.punishment, matching=a.matching, punish_rule=a.rule,
-                 memory_reasons=a.memory, sample_dist=a.dist, belief_state=a.belief, bots=a.bots, bot_punish=a.bot_punish, dist_rho=a.rho)
+                 memory_reasons=a.memory, sample_dist=a.dist, belief_state=a.belief, bots=a.bots, bot_punish=a.bot_punish, dist_rho=a.rho,
+                 endowment=a.endowment, mpcr=a.mpcr, group_size=a.size,
+                 chat_rounds=chat, chat_turns=a.chat_turns, cheap_talk=a.cheap_talk,
+                 identified=a.identified, plan_phases=a.plan)
+    if a.plan and not a.identified:
+        raise SystemExit("--plan は --identified と一緒に使う")
+    if a.plan and a.belief:
+        raise SystemExit("--plan は --belief の代わり(作戦と印象を次の回に渡す)なので、一緒には使わない")
+    if a.identified and a.matching != "partner":
+        raise SystemExit("--identified は、毎回同じ相手(partner)のときだけ使える")
+    if a.rule == "bpp":   # 1人への減点の上限は、相手の稼ぎの最大(全員が全額を入れたとき)
+        cfg.punish_max = int(cfg.endowment + cfg.mpcr * cfg.endowment * cfg.group_size)
     spec = load_spec(os.path.join(HERE, "personas", f"{a.personas}.json"))
-    people = generate(spec, cfg.group_size * a.groups, a.seed)
-    prompts, paths = load_prompts(a.variant, a.rule)
-    used = [paths["system"], paths[a.variant]] + ([paths["punish"]] if a.punishment else [])
+    people = generate(spec, cfg.group_size * a.groups, a.seed, distinct=a.distinct, block=cfg.group_size,
+                      fixed={"trait": a.traits.split(",")} if a.traits else None)
+    if a.traits and len(a.traits.split(",")) != cfg.group_size:
+        raise SystemExit("--traits は組の人数と同じ数だけ書く")
+    prompts, paths = load_prompts(a.variant, a.rule, a.identified)
+    if a.motive:   # 性格に関係なく全員に持たせる動機を、システムの指示の末尾に足す
+        mpath = os.path.join(HERE, "prompts", "pgg", "motives", f"{a.motive}.md")
+        prompts["system"] = prompts["system"].rstrip("\n") + "\n" + open(mpath, encoding="utf-8").read()
+        paths["motive"] = mpath
+    used = [paths["system"], paths[a.variant]] + ([paths["punish"]] if a.punishment else []) \
+        + ([paths["chat"]] if chat else []) + ([paths["talk"]] if a.cheap_talk else []) \
+        + ([paths["talk_punish"]] if a.cheap_talk and a.punishment else []) \
+        + ([paths["plan"], paths["punish_plan"]] if a.plan else []) + ([paths["motive"]] if a.motive else [])
     config = {"game": asdict(cfg), "groups": a.groups, "seed": a.seed,
-              "personas": a.personas, "variant": a.variant}
-    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "") + ("-dist" if a.dist else "") + (f"-rho{a.rho:g}" if a.rho else "") + ("-belief" if a.belief else "") + (f"-bots{a.bots}" if a.bots else "") + ("p" if a.bot_punish else "")
+              "personas": a.personas, "variant": a.variant, "distinct": a.distinct, "traits": a.traits, "motive": a.motive}
+    name = f"game-{a.matching}-{'p' if a.punishment else 'n'}" + ("-mem" if a.memory else "") + ("-dist" if a.dist else "") + (f"-rho{a.rho:g}" if a.rho else "") + ("-belief" if a.belief else "") + (f"-bots{a.bots}" if a.bots else "") + ("p" if a.bot_punish else "") \
+        + (f"-{a.rule}" if a.rule != "fg2000" else "") + ("-chat" if chat else "") + ("-talk" if a.cheap_talk else "") + ("-id" if a.identified else "") + ("-plan" if a.plan else "") + (f"-uniq{a.distinct}" if a.distinct else "") + ("-traits" if a.traits else "") + (f"-m{a.motive}" if a.motive else "")
     run = Run(a.out, name, config, llm, used)
     run.manifest["people"] = people
     run.manifest["diversity"] = diversity(people, spec)
@@ -124,7 +151,21 @@ if __name__ == "__main__":
     g.add_argument("--variant", default="neutral", choices=VARIANTS)
     g.add_argument("--personas", default="students")
     g.add_argument("--matching", default="partner", choices=["partner", "stranger"])
-    g.add_argument("--rule", default="fg2000", choices=["fg2000", "flat"])
+    g.add_argument("--rule", default="fg2000", choices=["fg2000", "flat", "bpp"],
+                   help="減点の方式。bpp は Bochet ほか(2006): 1点につき付けた人0.25、付けられた人1")
+    g.add_argument("--endowment", type=int, default=20)
+    g.add_argument("--mpcr", type=float, default=0.4)
+    g.add_argument("--size", type=int, default=4, help="組の人数")
+    g.add_argument("--chat", default="", help="この回の前にチャットする。例: 1,4,7")
+    g.add_argument("--chat-turns", type=int, default=3, help="1回のチャットで全員が何巡話すか")
+    g.add_argument("--cheap-talk", action="store_true", help="毎回、決める前に入れるかもしれない量を見せ合う")
+    g.add_argument("--identified", action="store_true",
+                   help="全員に最後まで同じ記号を付け、誰が誰に何点減点したかを全員に見せる(--rule bpp、毎回同じ相手のとき)")
+    g.add_argument("--plan", action="store_true",
+                   help="入れる前と減点の前に、作戦を考える段を挟む(--identified と一緒に)")
+    g.add_argument("--distinct", default=None, help="組の中で重ならないようにする人物像の属性。例: trait(毎回同じ相手のとき)")
+    g.add_argument("--traits", default=None, help="組の4人の性格を順に指定する。例: 慎重,人づきあいが好き,負けず嫌い,疑い深い")
+    g.add_argument("--motive", default=None, help="全員に持たせる動機。prompts/pgg/motives/<名前>.md")
     g.add_argument("--workers", type=int, default=12)
     g.add_argument("--memory", action="store_true", help="自分が書いた拠出の理由も、過去の回として渡す")
     g.add_argument("--dist", action="store_true", help="拠出を確率で答えさせ、くじで決める")

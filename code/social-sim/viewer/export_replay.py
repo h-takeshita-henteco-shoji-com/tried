@@ -21,8 +21,12 @@ def short(text):
     return text if len(text) <= MAX_CHARS else text[:MAX_CHARS - 1] + "…"
 
 
-def relabel(text, order):
-    """罰の理由の中の A・B・C(人ごとに混ぜたラベル)を、参加者の名前に置き換える。"""
+def relabel(text, order, identified=False):
+    """罰の理由の中の A・B・C(人ごとに混ぜたラベル)を、参加者の名前に置き換える。
+    identified のときは、記号が最後まで同じ(A=参加者1)なので、名前に記号を添える。"""
+    if identified:
+        return re.sub(r"(?<![A-Za-z])([A-D])(?:さん)?(?![A-Za-z])",
+                      lambda m: f"参加者{ord(m.group(1)) - 64}({m.group(1)})", text)
     if not order:
         return text
     names = {chr(ord("A") + i): f"参加者{k + 1}" for i, k in enumerate(order)}
@@ -54,8 +58,18 @@ def main(run_dir, out, group=0):
     for e in events:
         if e["group"] != group:
             continue
+        chat = [{"who": c["pos"], "label": c["label"], "turn": c["turn"], "text": short(c["text"])}
+                for c in (e.get("chat") or [])]
         rounds.append({
             "round": e["round"],
+            "chat": chat,
+            "talk": e.get("talk"),
+            "talk_reasons": [short(x) for x in e["talk_reasons"]] if e.get("talk_reasons") else None,
+            "talk_points": e.get("talk_points"),
+            "plans": [{"plan": short(x["plan"]), "situation": short(x["situation"]), "feeling": short(x["feeling"]),
+                       "expect": {k[0]: v for k, v in x.items() if k.endswith("_contrib")}}
+                      for x in e["plans"]] if e.get("plans") else None,
+            "punish_plans": [short(x["plan"]) if x else "" for x in e["punish_plans"]] if e.get("punish_plans") else None,
             "contribs": e["contribs"],
             "base": e["base"],
             "points": e["points"],
@@ -64,11 +78,21 @@ def main(run_dir, out, group=0):
                                    for pid, r in zip(ids, e["reasons"])],
             "punish_reasons": ["(プログラム)平均より少ない人に、差に応じて減点を付ける。" if pid in bots and game.get("bot_punish")
                                else short(relabel(punish.get((pid, f"g{group}r{e['round']}:punish"), {}).get("reason", ""),
-                                             (e.get("punish_orders") or [None] * size)[i]))
+                                             (e.get("punish_orders") or [None] * size)[i], game.get("identified")))
                                for i, pid in enumerate(ids)],
         })
+    talk = "チャット" if game.get("chat_rounds") else ("数字だけ伝える" if game.get("cheap_talk") else "")
+    if talk or game.get("punish_rule") == "bpp":
+        title = "話し合いと減点の公共財ゲーム"
+        cond = "・".join(x for x in (talk, "減点" if game["punishment"] else "", "名前つき" if game.get("identified") else "",
+                                  {"win": "勝ち負けあり", "rank": "順位あり", "rank_plain": "順位あり", "self": "自分の稼ぎだけ", "money": "お金を強調"}.get(
+                                      m["config"].get("motive") or "", ""))
+                        if x) or "話し合いも減点もなし"
+        title += f"({cond})"
+    else:
+        title = "公共財ゲーム(罰あり)" if game["punishment"] else "公共財ゲーム"
     replay = {
-        "title": "公共財ゲーム(罰あり)" if game["punishment"] else "公共財ゲーム",
+        "title": title,
         "llm": m["llm"],
         "llm_version": m["llm_version"],
         "run": os.path.basename(run_dir.rstrip("/")),
@@ -76,7 +100,8 @@ def main(run_dir, out, group=0):
         "group": group,
         "subtitle": (f"AIが演じる{size - len(bots & set(ids))}人と、プログラムの参加者{len(bots & set(ids))}人が、"
                      f"{len(rounds)}回くり返す") if bots & set(ids) else f"AIが演じる{size}人の参加者が、{len(rounds)}回くり返す",
-        "members": [{"name": f"参加者{i + 1}", "persona": bot_text if p["id"] in bots else describe(p, spec)}
+        "members": [{"name": f"参加者{i + 1}", "persona": bot_text if p["id"] in bots else describe(p, spec),
+                     "trait": None if p["id"] in bots else p.get("trait")}
                     for i, p in enumerate(people)],
         "rounds": rounds,
     }
