@@ -21,3 +21,9 @@ __pycache__/
 2026/11-11-*-03-*/assets/voice/
 2026/11-17-*-06-*/assets/voice/
 2026/11-19-*-07-*/assets/voice/
+# note に貼る HTML の作業用ファイル
+.note_tmp/
+# 米価予測の仮想環境と、大きい元データ(URL は data/*urls*.txt、data/*ids* に残す)(#184)
+code/rice-price/.venv/
+code/rice-price/data/raw_veg/
+code/rice-price/data/raw_fukuoka/
