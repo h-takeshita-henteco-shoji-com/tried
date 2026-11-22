@@ -3,18 +3,20 @@
 使い方:
   python run.py game  --llm dummy:0 --groups 6 --rounds 10 [--punishment] [--matching stranger] [--variant neutral]
   python run.py holdout --llm dummy:0 --proposer buyer --periods 10 [--delay] --groups 10
+  python run.py siting --llm dummy:0 --n 30 [--no-comp]
   python run.py probe --llm claude:claude-haiku-5-5 --n 12
 出力: runs/<日時>-<名前>/ に manifest.json・calls.jsonl・events.jsonl
 """
 import argparse
 import json
 import os
+import random
 import sys
 from dataclasses import asdict
 from statistics import mean
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from sim.games import holdout  # noqa: E402
+from sim.games import holdout, siting  # noqa: E402
 from sim.games.public_goods import Config, Session  # noqa: E402
 from sim.llm import backend  # noqa: E402
 from sim.persona import describe, diversity, generate, load_spec  # noqa: E402
@@ -126,6 +128,28 @@ def cmd_holdout(a):
     print(f"calls={run.calls} cost_usd={run.cost:.4f}")
 
 
+def cmd_siting(a):
+    """Frey と Oberholzer-Gee(1997)の、処分場の受け入れの面接調査(#170)。"""
+    llm = backend(a.llm)
+    cfg = siting.Config(compensation=not a.no_comp, show_prev=not a.fresh, form=a.form, appraise=a.appraise, own_motive=a.own_motive)
+    prompts, paths = siting.load_prompts(os.path.join(HERE, "prompts"))
+    spec = load_spec(os.path.join(HERE, "personas", f"{a.personas}.json"))
+    rng = random.Random(a.seed)
+    people = [siting.fix_person(p, rng) for p in generate(spec, a.n, a.seed)]
+    name = f"siting-{a.personas}" + ("-nocomp" if a.no_comp else "") + ("-fresh" if a.fresh else "") + (f"-{a.form}" if a.form != "cash" else "") + ("-appraise" if a.appraise else "") + ("-own" if a.own_motive else "")
+    run = Run(a.out, name, {"game": asdict(cfg), "n": a.n, "seed": a.seed, "personas": a.personas}, llm, list(paths.values()))
+    run.manifest["people"] = people
+    desc2 = None
+    if a.own_motive:   # 考え方の3文を外した人物像(swiss1993 の書き方)
+        base = load_spec(os.path.join(HERE, "personas", "swiss1993.json"))
+        desc2 = [describe(p, base) for p in people]
+    rows, summary = siting.play_all([(p, describe(p, spec)) for p in people], llm, prompts, cfg, run, a.seed, workers=a.workers, desc2=desc2)
+    run.finish(summary)
+    print(run.dir)
+    print(json.dumps(summary, ensure_ascii=False))
+    print(f"calls={run.calls} cost_usd={run.cost:.4f}")
+
+
 def cmd_probe(a):
     llm = backend(a.llm)
     cfg = Config()
@@ -176,7 +200,7 @@ def cmd_strategy(a):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("game", "probe", "strategy", "holdout"):
+    for name in ("game", "probe", "strategy", "holdout", "siting"):
         s = sub.add_parser(name)
         s.add_argument("--llm", default="dummy:0")
         s.add_argument("--seed", type=int, default=1)
@@ -233,5 +257,14 @@ if __name__ == "__main__":
     h.add_argument("--buyer-bot", type=int, default=None, help="買い手をプログラムにする。1期目35ドル、断られるたびにこのドル数だけ上げる")
     h.add_argument("--remind", action="store_true", help="毎期、残りの期の数と、断ったときに稼ぎが減るかを知らせる")
     h.add_argument("--workers", type=int, default=6, help="同時に回す組の数")
+    st = sub.choices["siting"]
+    st.add_argument("--n", type=int, default=30, help="住民の人数")
+    st.add_argument("--personas", default="swiss1993")
+    st.add_argument("--no-comp", action="store_true", help="補償なしの問い(問1)だけ聞く")
+    st.add_argument("--fresh", action="store_true", help="問2で問1の答えを見せず、別に聞く")
+    st.add_argument("--form", default="cash", choices=["cash", "public", "none"], help="補償の形。public は村に同じ額の公共の設備、none は補償なしでもう一度聞く")
+    st.add_argument("--appraise", action="store_true", help="問2で、補償の受け止めを0〜100で書かせる")
+    st.add_argument("--own-motive", action="store_true", help="問2では考え方の3文を外し、問1の自分の理由だけを渡す")
+    st.add_argument("--workers", type=int, default=8)
     a = ap.parse_args()
-    {"game": cmd_game, "probe": cmd_probe, "strategy": cmd_strategy, "holdout": cmd_holdout}[a.cmd](a)
+    {"game": cmd_game, "probe": cmd_probe, "strategy": cmd_strategy, "holdout": cmd_holdout, "siting": cmd_siting}[a.cmd](a)

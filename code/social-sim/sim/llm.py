@@ -98,6 +98,8 @@ class Dummy:
             return [self._fake(s["items"]) for _ in range(s.get("minItems", 0))]
         if "enum" in s:
             return self.rng.choice(s["enum"])
+        if t == "boolean":
+            return self.rng.random() < 0.5
         return "(dummy)"
 
 
