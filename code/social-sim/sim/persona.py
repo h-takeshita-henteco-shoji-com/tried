@@ -37,7 +37,9 @@ def _quota(rng, attr, n):
     return vals
 
 
-def generate(spec, n, seed):
+def generate(spec, n, seed, distinct=None, block=None, fixed=None):
+    """distinct に属性名を渡すと、block 人ずつの組の中で、その属性が重ならないように選ぶ(重みつき、戻さず引く)。
+    fixed に {属性名: [値, ...]} を渡すと、block 人ずつの組の中で、その値を順に割り当てる。"""
     rng = random.Random(seed)
     quotas = {name: _quota(rng, attr, n) for name, attr in spec["attributes"].items() if "quota" in attr}
     people = []
@@ -46,6 +48,17 @@ def generate(spec, n, seed):
         for name, attr in spec["attributes"].items():
             p[name] = quotas[name][i] if name in quotas else _draw(rng, attr)
         people.append(p)
+    if distinct:
+        vals, weights = zip(*spec["attributes"][distinct]["choices"].items())
+        for g in range(0, n, block):
+            left = dict(zip(vals, weights))
+            for p in people[g:g + block]:
+                v = rng.choices(list(left), list(left.values()))[0]
+                p[distinct] = v
+                del left[v]
+    for name, vals in (fixed or {}).items():
+        for i, p in enumerate(people):
+            p[name] = vals[i % block]
     return people
 
 
