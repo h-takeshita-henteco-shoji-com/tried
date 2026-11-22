@@ -1,0 +1,14 @@
+; #181 土地をまとめる交渉の再生動画
+config_version=5
+
+[application]
+config/name="holdout-replay"
+run/main_scene="res://main.tscn"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
