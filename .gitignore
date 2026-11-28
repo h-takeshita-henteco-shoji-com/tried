@@ -29,3 +29,5 @@ code/rice-price/data/raw_veg/
 code/rice-price/data/raw_fukuoka/
 # 農水省「野菜の生育状況及び価格見通し」の PDF(23MB)。maff_outlook_parse.py で取り直せる。表は data/maff_veg_outlook.csv(#186)
 code/rice-price/data/raw_maff_outlook/
+# 音楽理論の学習用の仮想環境(#189)
+code/music-theory/.venv/
