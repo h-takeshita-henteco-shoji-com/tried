@@ -1,0 +1,21 @@
+年産,銘柄,当初額,当初の決定日,追加後の額,出典URL,備考
+2008,新潟一般コシヒカリ,,,,,出典見つからず
+2009,新潟一般コシヒカリ,,,,,出典見つからず
+2010,新潟一般コシヒカリ,12300,,,https://jacom.or.jp/kome/closeup/2014/140922-25403.php,2014-09-22付JAcom記事に「近年で最も安かった22年産の12300円」とある。決定日・追加払いは不明。記事は「農協が生産者に払う概算金」と表現しており全農→JAの額かは明記なし
+2011,新潟一般コシヒカリ,,,,,出典見つからず
+2012,新潟一般コシヒカリ,,,,,出典見つからず
+2013,新潟一般コシヒカリ,13700,,,https://jacom.or.jp/kome/closeup/2014/140922-25403.php,2014年産12000円が「昨年より1700円安い」とあることからの逆算値。直接の記載ではない。決定日不明
+2014,新潟一般コシヒカリ,12000,,,https://jacom.or.jp/kome/closeup/2014/140922-25403.php ; https://www.agri-note.jp/wp-content/uploads/2021/08/k1b-info_20210824.pdf,JAcom 2014-09-22付(価格は9月11日現在の調査)。商経アドバイス2021-08-23号の「3年産12200円は26年産を200円上回る」とも整合。決定日不明(遅くとも9月11日には既知)
+2015,新潟一般コシヒカリ,,,,https://jacom.or.jp/kome/news/2015/11/151110-28520.php,新潟単独の額は出典見つからず。JA全中公表(2015-11-09)の設定例では北信越コシヒカリが11300〜12800円水準・前年比+800〜1000円程度(地域の幅なので値には入れていない)
+2015,秋田あきたこまち(予備),10200,,,https://www.sakigake.jp/news/article/20250824AK0002/,秋田魁新報社説(2025-08-24)の記述。検索結果の抜粋で確認したのみで、本文は公開期間が終わっていて読めず。現行の概算金方式は15年産から。信頼度低
+2016,新潟一般コシヒカリ,,,,,出典見つからず
+2017,新潟一般コシヒカリ,,,,,出典見つからず
+2018,新潟一般コシヒカリ,14800,,,https://www.nikkei.com/article/DGXMZO49687590R10C19A9QM8000/ ; https://www.nikkei.com/article/DGXMZO62932410R20C20A8QM8000/,逆算値。2020年産14000円が前年比900円安(→2019年産14900円)、2019年産が前年比100円高(日経2019-09-11)から算出。決定日不明
+2019,新潟一般コシヒカリ,14900,,,https://www.nikkei.com/article/DGXMZO62932410R20C20A8QM8000/ ; https://www.nikkei.com/article/DGXMZO49687590R10C19A9QM8000/,逆算値(2020年産14000円・前年比900円安から)。日経2019-09-11記事で前年比+100円の引き上げが報じられており、遅くとも9月11日には既知。決定日不明
+2020,新潟一般コシヒカリ,14000,2020-08-24以前(日経2020-08-24報道),,https://www.nikkei.com/article/DGXMZO62932410R20C20A8QM8000/ ; https://www.agri-note.jp/wp-content/uploads/2021/08/k1b-info_20210824.pdf,前年比900円安で6年ぶりの引き下げ。商経アドバイスの表でも2年産14000円(税込み)
+2021,新潟一般コシヒカリ,12200,2021-08-18,12700,https://www.agri-note.jp/wp-content/uploads/2021/08/k1b-info_20210824.pdf ; https://www.agri-note.jp/wp-content/uploads/2022/09/k1b-info_20220908.pdf,税込み。前年比1800円下げ。追加後12700円は商経アドバイス2022-08-29号の「3年産の改定後の価格から1000円高の13700円」からの逆算で、改定日は不明
+2022,新潟一般コシヒカリ,13700,2022-08(日付不明。JAcom 2022-08-29報道),,https://www.jacom.or.jp/articles/220829-61207 ; https://www.agri-note.jp/wp-content/uploads/2022/09/k1b-info_20220908.pdf,21年産当初比+1500円(改定後比+1000円)。税込/税抜の記載なし
+2023,新潟一般コシヒカリ,13900,2023-08-16,,https://www.niigata-nippo.co.jp/articles/-/266204 ; https://jacom.or.jp/kome/news/2023/08/230824-68856.php ; https://www.agri-note.jp/wp-content/uploads/2024/09/k1b-info_20240909.pdf,8月16日の県本部運営委員会で決定(新潟日報2023-08-18)。商経アドバイスの表では税込み
+2024,新潟一般コシヒカリ,17000,2024-08-19,18500,https://www.agri-note.jp/wp-content/uploads/2024/09/k1b-info_20240909.pdf ; https://www.niigata-nippo.co.jp/articles/-/487656 ; https://www.nikkei.com/article/DGXZQOUB0718D0X01C24A0000000/,税込み。前年当初比+3100円。追加(+1500円)は9月末に決定(新潟日報2024-10-05)
+2025,新潟一般コシヒカリ,30000,2025-08-19,33000,https://www.jacom.or.jp/kome/news/2025/08/250820-83919.php ; https://www.niigata-nippo.co.jp/articles/-/672823 ; https://www.niigata-nippo.co.jp/articles/-/695032 ; https://www.nikkei.com/article/DGXZQOCC241HC0U5A920C2000000/ ; https://www.agri-note.jp/wp-content/uploads/2025/03/k1b-info_20250310.pdf,税込み(新潟日報)。この年から全農にいがたが公表。事前に2025-02-28に最低保証額23000円(税込み)、5月に目標26000円以上を提示。追加払い3000円は9月22日頃に判明し、新潟日報が9月23日に報道
+2026,新潟一般コシヒカリ,18500,2026-08-18,,https://www.jacom.or.jp/articles/0xD5o8eoueGQb96n_ldFY ; https://www.agrinews.co.jp/news/index/400714 ; https://www.agri-note.jp/wp-content/uploads/2026/05/k1b-info_20260508.pdf,税込み(日本農業新聞)。前年当初比-11500円。2026年5月時点で最低保証額の提示は見送り(商経アドバイス2026-05-01号見出し)。追加払いは2026-11時点で未確認
